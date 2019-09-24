@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+  {% include head.html %}
+
+  <body>
+
+    {% include header.html %}
+
+    <div class="content">
+   	<div class="container">	
+   		<div class="row">
+			<div class="col-md-3 col-lg-3 hidden-xs hidden-sm aside1 fadein-left">
+				<div class="profile box-shadow center">
+					<div class="overlay"></div>
+					<div class="center gavatar">
+						<a href="/" class="profile_gavatar"><img class="circle" src="{{ site.gavatar }}"></a>
+					</div>
+					<div class="address">
+						<h5><span class="fa fa-map-marker"></span> Hangzhou, China</h5>
+					</div>
+					<div class="center profile_desc">
+						{{ site.profile_desc }}
+					</div>
+				</div>
+				
+				<div class="tag-cloud-text">
+					<a href="http://rann.cc/pages/class.html" title="分类" class="pjaxlink"><p class="center">分类</p></a>
+				</div>
+				<div class="tag-cloud ">	
+					<hr>
+					<div class="page-tag">
+							{% for category in site.categories %}
+								<a href="http://lemonjing.github.io/pages/class.html#{{category[0]}}" name="{{category[0]}}" class="pjaxlink">{{category[0] }}({{category[1].size}})</a>
+							{% endfor %}
+					</div>					
+				</div>
+				<div class="clear"></div>
+
+				<div class="tag-cloud-text">
+					<a href="http://rann.cc/pages/tags.html" title="标签" class="pjaxlink"><p class="center">标签【点我】</p></a>
+				</div>
+				<div class="tag-cloud ">	
+					<hr>
+					<div class="page-tag">
+							{% for tag in site.tags %}
+								{% if tag[1].size > 2 %}
+								<a href="http://lemonjing.github.io/pages/tags.html#{{tag[0]}}" name="{{tag[0]}}" class="pjaxlink"><i class="fa fa-tags"></i>{{ tag[0] }}({{tag[1].size}})</a>
+								{% endif %}
+							{% endfor %}
+					</div>					
+				</div>
+				<div class="clear"></div>
+
+	 			<div class="recentuse">
+	 					<p>GitHub项目</p>
+	 					<hr>
+	 					<ul>
+	 						<li><a href = "https://github.com/it-interview/easy-job" target="_blank">互联网求职面试知识复习</a></li>
+	 						<li><a href = "https://github.com/Lemonjing/LightweightApp" target="_blank">集成LBS查询、音乐、阅读的微信公众账号</a></li>
+	 						<li><a href = "https://github.com/Lemonjing/hadoop-dedup" target="_blank">基于hadoop和hbase的大规模海量数据去重</a></li>
+	 						<li><a href = "https://github.com/Lemonjing/TinyMooc" target="_blank">轻量级Java平台在线幕课学习网站</a></li>
+		 					<li><a href = "https://github.com/Lemonjing/Keccak" target="_blank">SHA-3 algorithm Keccak Implementation</a></li>
+		 					<li><a href = "https://github.com/Lemonjing/your-offer" target="_blank">剑指offer的Scala实现</a></li>
+	 					</ul>
+	 			</div>
+	 			
+	 			<div class="recentuse">
+	 					<p>经常出没</p>
+	 					<hr>
+	 					<ul>
+	 						<li><a href = "http://music.163.com/#/user/home?id=63589002" target="_blank">网易云音乐</a></li>
+	 						<li><a href = "https://github.com/Lemonjing" target="_blank">GitHub</a></li>
+	 						<li><a href = "http://weibo.com/u/1662536394" target="_blank">微博</a></li>
+	 						<li><a href = "http://pianke.me/pages/user/user.html?uid=1924980" target="_blank">片刻</a></li>
+		 					<li><a href = "https://www.zhihu.com/people/xmusaber" target="_blank">知乎</a></li>
+		 					<li><a href = "http://www.nowcoder.com/profile/213475" target="_blank">牛客</a></li>
+	 					</ul>
+	 			</div>
+				
+				<div class="friendlink">
+	 					<p>友情链接</p>
+	 					<hr>					
+		 				<a href = "https://imjad.cn/" target="_blank">AD's Blog</a></br>
+						<a href = "http://zyl.me" target="_blank">ZYL的博客</a></br>
+						<a href = "http://mxwu.cn" target="_blank">梦忻屋</a></br>
+						<a href = "http://www.weiyanweiyu.cn" target="_blank">微言微语</a></br>
+						<a href = "http://jloong.com" target="_blank">楚书业</a></br>
+						<a href = "https://emiria.io/" target="_blank">蔓舞寻樱</a></br>
+						<a href = "http://www.xiaokang.info" target="_blank">小康博客</a><br>
+						<a href = "http://blog.iov.me" target="_blank">随心说</a></br>
+						<a href = "http://czduban.com" target="_blank">以歌。先生</a><br>
+						<a href = "http://5mx.net/" target="_blank">冷夜博客</a><br>
+						<a href = "http://www.8hao.com.cn/" target="_blank">艳莜日记</a><br>
+						<a href = "http://blog.sunxyz.cn/" target="_blank">诸葛扬阳</a><br>
+						<a href = "https://lostyou.love/" target="_blank">邻居</a><br>
+						<a href = "http://www.kurodown.com/" target="_blank">酷绒站</a>
+	 			</div>
+				
+			</div>
+			
+			<div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 box-shadow fadein-right aside2">					 		
+					<div class="page-content" id="pjax">{{content}}</div>		
+			</div>
+ 		</div>	
+	</div>
+    </div> 
+</div>
+	<div class="profile_social">
+		<a class="rss" href="{{ site.rss_url }}" target="_blank"></a>
+		<a class="github" href="{{ site.author.github }}"  target="_blank"></a>
+		<a class="weibo" href="{{ site.author.weibo }}"  target="_blank"></a>
+	</div>
+    <div id="backtotop">
+    		<a href="#"><i class="fa fa-arrow-circle-up"></i></a>
+    </div>
+    <div class="pjax_loading"></div>
+    
+    {% include footer.html %}
+
+  </body>
+
+</html>
