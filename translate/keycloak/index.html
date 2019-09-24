@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>Keycloak</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Keycloak is an open source identity and access management solution">
+    <meta name="author" content="Keycloak Team">
+    <meta name="keywords" content="sso,idm,openid connect,saml,kerberos,ldap">
+
+    <meta http-equiv='Content-Security-Policy' content="default-src 'none'; style-src 'self'; img-src 'self' https://www.google-analytics.com; font-src 'self'; script-src 'self' https://www.google-analytics.com; base-uri 'none'; form-action 'none';">
+
+    <link href="resources/css/bootstrap.min.css" rel="stylesheet">
+    <link href="resources/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="resources/css/keycloak.css" rel="stylesheet">
+
+    <link rel="shortcut icon" href="resources/favicon.ico">
+
+    <script src="resources/js/ga.js" type="text/javascript"></script>
+    <script src="resources/js/jquery-1.11.1.min.js" type="text/javascript"></script>
+    <script src="resources/js/bootstrap.min.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="wrap"><header class="main-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-3 col-xs-12 keycloak-logo-div navbar-header">
+                <button type="button" class=" pull-right  navbar-toggle collapsed" data-toggle="collapse" data-target="#mainBtnTarget" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="index.html" title="Keycloak" class="keycloak-logo-a">
+                    <img class="keycloak-logo" src="resources/images/keycloak_logo_480x108.png" border="0" alt="Keycloak"/>
+                </a>
+            </div>
+            <div id="mainBtnTarget" class="col-md-9 col-sm-9 col-xs-12 collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="documentation.html">Docs</a></li>
+                    <li><a href="downloads.html">Downloads</a></li>
+                    <li><a href="community.html">Community</a></li>
+                    <li><a href="extensions.html">Extensions</a></li>
+                    <li><a href="security.html">Security</a></li>
+                    <li><a href="https://cse.google.com/cse?cx=003352037071895905641:hyz4b1vj6uu" target="_blank">Search</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="marquee-section">
+    <div class="container-fluid">
+        <div class="row marquee-slide-row">
+            <div class="col-xs-12">
+                <h1>Open Source Identity and Access Management</h1>
+                <h2>For Modern Applications and Services</h2>
+                <div class="learn"><a class="btn btn-primary" href="https://www.katacoda.com/keycloak">Learn Keycloak Basics</a></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="main-banner">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-7 col-xs-12 left-col">
+                <p>
+                    Add authentication to applications and secure services with minimum fuss. No need to deal with storing
+                    users or authenticating users. It's all available out of the box.
+                </p>
+                <p>
+                    You'll even get advanced features such as User Federation, Identity Brokering and Social Login.
+                </p>
+                <p>
+                    For more details go to <a href="about.html">about</a> and <a href="documentation.html">documentation</a>, and don't forget to try Keycloak. It's easy by design!
+                </p>
+            </div>
+
+            <div class="col-sm-4 col-sm-offset-1 col-xs-12 announcement-col">
+                <div class="announce-box">
+                    <h3>News</h3>
+                    <ul class="announce-ul">
+                        <li>
+                            <b>24 Apr</b> <a href="downloads.html">Keycloak 6.0.1 released</a>
+                        </li>
+                        <li>
+                            <b>17 Apr</b> <a href="downloads.html">Keycloak 6.0.0 released</a>
+                        </li>
+                        <li>
+                            <b>06 Mar</b> <a href="downloads.html">Keycloak 5.0.0 released</a>
+                        </li>
+                    </ul>
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="features-section">
+    <div class="container features-area">
+        <div class="features-flex-container">
+
+            <div class="flex-item">
+                <ul>
+                    <li class="symbol"><i class="fa fa-2x fa-key" aria-hidden="true"></i></li>
+                    <li class="description"><h4>Single-Sign On</h4>
+                        <p>Login once to multiple applications</p>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="flex-item">
+                <ul>
+                    <li class="symbol"><i class="fa fa-2x fa-exchange" aria-hidden="true"></i></li>
+                    <li class="description"><h4>Standard Protocols</h4>
+                        <p>OpenID Connect, OAuth 2.0<br/> and SAML 2.0</p>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="flex-item">
+                <ul>
+                    <li class="symbol"><i class="fa fa-2x fa-cog" aria-hidden="true"></i></li>
+                    <li class="description"><h4>Centralized Management</h4>
+                        <p>For admins and users</p>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="flex-item">
+                <ul>
+                    <li class="symbol"><i class="fa fa-2x fa-shield" aria-hidden="true"></i></li>
+                    <li class="description"><h4>Adapters</h4>
+                        <p>Secure applications and services easily</p>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="flex-item">
+                <ul>
+                    <li class="symbol"><i class="fa fa-2x fa-users" aria-hidden="true"></i></li>
+                    <li class="description"><h4>LDAP and Active Directory</h4>
+                        <p>Connect to existing user directories</p>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="flex-item">
+                <ul>
+                    <li class="symbol"><i class="fa fa-2x fa-cloud" aria-hidden="true"></i></li>
+                    <li class="description"><h4>Social Login</h4>
+                        <p>Easily enable social login</p>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="flex-item">
+                <ul>
+                    <li class="symbol"><i class="fa fa-2x fa-cloud" aria-hidden="true"></i></li>
+                    <li class="description"><h4>Identity Brokering</h4>
+                        <p>OpenID Connect or SAML 2.0 IdPs</p>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="flex-item">
+                <ul>
+                    <li class="symbol"><i class="fa fa-2x fa-bolt" aria-hidden="true"></i></li>
+                    <li class="description"><h4>High Performance</h4>
+                        <p>Lightweight, fast and scalable</p>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="flex-item">
+                <ul>
+                    <li class="symbol"><i class="fa fa-2x fa-server" aria-hidden="true"></i></li>
+                    <li class="description"><h4>Clustering</h4>
+                        <p>For scalability and availability</p>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="flex-item">
+                <ul>
+                    <li class="symbol"><i class="fa fa-2x fa-eye" aria-hidden="true"></i></li>
+                    <li class="description"><h4>Themes</h4>
+                        <p>Customize look and feel</p>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="flex-item">
+                <ul>
+                    <li class="symbol"><i class="fa fa-2x fa-edit" aria-hidden="true"></i></li>
+                    <li class="description"><h4>Extensible</h4>
+                        <p>Customize through code</p>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="flex-item">
+                <ul>
+                    <li class="symbol"><i class="fa fa-2x fa-lock" aria-hidden="true"></i></li>
+                    <li class="description"><h4>Password Policies</h4>
+                        <p>Customize password policies</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+		</div>
+		<div id="push"></div>
+    </div>
+
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-9 col-xs-12">
+                    <a href="http://www.redhat.com/" target="_blank">
+                        <img alt="redhatlogo-white" src="resources/images/redhatlogo-white.png" width="130">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+  </body>
+</html>
