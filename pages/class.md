@@ -4,7 +4,7 @@ title: 分类
 permalink: /pages/class.html
 ---
 <div class="home">
-<p>纵使寂寞开成海 我会一直在 即便风景都尘埃 我会一直爱。</p><br/>
+<p>但行好事, 莫问前程。</p><br/>
     {% assign categories = site.categories | sort %}
 	{% for category in categories %} 
 	      		<div class="panel panel-primary">
