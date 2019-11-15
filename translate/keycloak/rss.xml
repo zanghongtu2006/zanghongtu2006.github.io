@@ -9,6 +9,328 @@
   <language>en-us</language>
   <category>Keycloak/SSO/Identity and Access Management</category>
       <item>
+        <title>Keycloak 7.0.1 released</title>
+        <link>https://www.keycloak.org/2019/10/keycloak-701-released.html</link>
+        <description>&lt;p&gt;To download the release go to &lt;a href=&quot;https://www.keycloak.org/downloads.html&quot;&gt;Keycloak downloads&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;
+    For details on what is included in the release check out the &lt;a href=&quot;https://www.keycloak.org/docs/latest/release_notes/index.html&quot;&gt;Release notes&lt;/a&gt;.
+    The full list of resolved issues are available in &lt;a href=&quot;https://issues.jboss.org/issues/?jql=project%20%3D%20keycloak%20and%20fixVersion%20%3D%207.0.1&quot;&gt;JIRA&lt;/a&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Before you upgrade remember to backup your database and check the &lt;a href=&quot;https://www.keycloak.org/docs/latest/upgrading/index.html&quot;&gt;upgrade guide&lt;/a&gt; for anything that may have changed.&lt;/p&gt;</description>
+        <guid>https://www.keycloak.org/2019/10/keycloak-701-released.html</guid>
+        <pubDate>Wed, 16 Oct 2019 00:00:00 GMT</pubDate>
+        <category>Keycloak Release</category>
+        
+      </item>
+      <item>
+        <title>Introducing Keycloak.X</title>
+        <link>https://www.keycloak.org/2019/10/keycloak-x.html</link>
+        <description>
+
+&lt;h2&gt;What are we trying to improve?&lt;/h2&gt;
+
+&lt;p&gt;The first stable release of Keycloak was way back in 2014. As always when building software there are things that could
+have been done better.&lt;/p&gt;
+
+&lt;p&gt;With Keycloak.X we are aiming to introduce some bigger changes to make Keycloak leaner, easier and more future-proof.&lt;/p&gt;
+
+&lt;p&gt;A few goals with Keycloak.X are:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Make it easier to configure&lt;/li&gt;
+&lt;li&gt;Make it easier to scale, including multi-site support&lt;/li&gt;
+&lt;li&gt;Make it easier to extend&lt;/li&gt;
+&lt;li&gt;Reduce startup time and memory footprint&lt;/li&gt;
+&lt;li&gt;Support zero-downtime upgrades&lt;/li&gt;
+&lt;li&gt;Support continuous delivery&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This work will be broken into several parts:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;A new and improved storage layer&lt;/li&gt;
+&lt;li&gt;A new distribution powered by &lt;a href=&quot;https://quarkus.io&quot;&gt;Quarkus&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;A new approach to custom providers&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;Distribution&lt;/h2&gt;
+
+&lt;p&gt;Building a new distribution powered by Quarkus will allow us to significantly reduce startup time and memory footprint.&lt;/p&gt;
+
+&lt;p&gt;We will be able to create a leaner distribution in terms of size and dependencies as well. Reducing dependencies will
+further reduce the number of CVEs in third-party libraries.&lt;/p&gt;
+
+&lt;p&gt;We are also planning to introduce a proper Keycloak configuration file, where we will document directly how to configure
+everything related to Keycloak. In the current WildFly based distribution the configuration file is very complex as
+it contains everything to configure the underlying application server, and more often than not it is required to refer
+to WildFly documentation to figure out how to configure things properly.&lt;/p&gt;
+
+&lt;h2&gt;Storage&lt;/h2&gt;
+
+&lt;p&gt;The current storage layer is complex, especially when deployed to multiple-sites. It has a number of scalability issues
+like the number of realms and clients. Sessions are only kept in-memory, which can be good for performance, but not
+so great for scaling when you consider a large portion of sessions are idle and unused most of the time.&lt;/p&gt;
+
+&lt;p&gt;Exactly what the new storage layer will look like is still to be decided, but we know for sure that we want to:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Reduce complexity with regards to configuring, SPIs and schema&lt;/li&gt;
+&lt;li&gt;Support zero downtime upgrades&lt;/li&gt;
+&lt;li&gt;Make sure we can scale to large number of realms and clients&lt;/li&gt;
+&lt;li&gt;Make sure we can scale to millions of sessions, including support for persisting and passivation&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;Providers&lt;/h2&gt;
+
+&lt;p&gt;Providers today have some issues that we would like to address. Including:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Deprecation and versioned approach to SPIs - breaking changes to APIs are horrible in a continuous delivery world&lt;/li&gt;
+&lt;li&gt;Polyglot - not everyone is a JavaEE developer, let&#39;s embrace that and allow more options when it comes to extending Keycloak&lt;/li&gt;
+&lt;li&gt;Sand-boxing - allow safe customizations in a SaaS world&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;Continuous Delivery&lt;/h2&gt;
+
+&lt;p&gt;We are aiming to make it easier to use Keycloak in a continuous delivery world. This should consider Keycloak upgrades,
+custom providers as well as configuration.&lt;/p&gt;
+
+&lt;p&gt;Keycloak upgrades should be seamless and there should not be any breaking changes, rather deprecation periods.&lt;/p&gt;
+
+&lt;p&gt;It should be possible to more easily manage and reproduce the config of Keycloak, including realm config, in different
+environments. A developer should be able to try some config changes in a dev environment, push to a test environment,
+before finally making the changes live in a production environment.&lt;/p&gt;
+
+&lt;h2&gt;Contributing&lt;/h2&gt;
+
+&lt;p&gt;We would love help from the community on Keycloak.X. You can contribute with code, with discussions or simply just trying
+it out and giving us feedback.&lt;/p&gt;
+
+&lt;h2&gt;Migration to Keycloak.X&lt;/h2&gt;
+
+&lt;p&gt;There will be a migration required to Keycloak.X. In fact there will be multiple migrations required as everything
+mentioned earlier will not be ready in one go.&lt;/p&gt;
+
+&lt;p&gt;It is an aim to make this migration as simple and painless as possible though.&lt;/p&gt;
+
+&lt;h2&gt;Timing&lt;/h2&gt;
+
+&lt;p&gt;We are staring with the Quarkus powered distribution. The aim is to have a fully functional stable distribution by the
+end of 2019, but we already have &lt;a href=&quot;https://github.com/keycloak/keycloak/tree/master/quarkus&quot;&gt;a prototype&lt;/a&gt; you can try out
+and contribute to.&lt;/p&gt;
+
+&lt;p&gt;In 2020 we are aiming to work on both the storage layer and providers. Hopefully, by the end of 2020 we will have most
+if not everything sorted out.&lt;/p&gt;
+
+&lt;p&gt;We will continue to support the current Keycloak version in parallel with Keycloak.X and will give everyone plenty of
+time to do the migration before we eventually will pull the plug on the old.&lt;/p&gt;</description>
+        <guid>https://www.keycloak.org/2019/10/keycloak-x.html</guid>
+        <pubDate>Fri, 11 Oct 2019 00:00:00 GMT</pubDate>
+        
+        <author>Stian Thorgersen</author>
+      </item>
+      <item>
+        <title>What's Coming To Keycloak</title>
+        <link>https://www.keycloak.org/2019/09/2019-roadmap.html</link>
+        <description>
+&lt;h3&gt;New Account Console and Account REST API&lt;/h3&gt;
+
+&lt;p&gt;The current account console is getting dated. It is also having issues around usability and being hard
+to extend. For this reason we had the UXD team at Red Hat develop
+&lt;a href=&quot;https://marvelapp.com/c90dfi0/screen/59941600&quot;&gt;wireframes&lt;/a&gt; for a new account console. The new console
+is being implemented with React.js providing a better user experience as well as making it easier to extend
+and customise.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://issues.jboss.org/browse/KEYCLOAK-6197&quot;&gt;JIRA - Account Console&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://issues.jboss.org/browse/KEYCLOAK-7428&quot;&gt;JIRA - Account REST API&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h3&gt;WebAuthn&lt;/h3&gt;
+
+&lt;p&gt;We are working towards adding WebAuthn support both for two factor authentication and passwordless experience.
+This task is not as simple as adding an authenticator for WebAuth, but will also require
+work on improving authentication flows and the account console.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/keycloak/keycloak-community/blob/master/design/multi-factor-admin-and-step-up.md&quot;&gt;Design proposal - Authentication flow improvements&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/keycloak/keycloak-community/blob/master/design/web-authn-authenticator.md&quot;&gt;Design proposal - WebAuthn Authenticator&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/keycloak/keycloak-community/blob/master/design/web-authn-two-factor.md&quot;&gt;Design proposal - WebAuthn Two factor&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://issues.jboss.org/browse/KEYCLOAK-7159&quot;&gt;JIRA - Two factor&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://issues.jboss.org/browse/KEYCLOAK-9365&quot;&gt;JIRA - Passwordless&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h3&gt;Operator&lt;/h3&gt;
+
+&lt;p&gt;Operators are becoming an important way to manage software running on Kubernetes and we are working on an operator for
+Keycloak. The aim is to have an operator published on &lt;a href=&quot;https://operatorhub.io/&quot;&gt;OperatorHub.io&lt;/a&gt; soon which
+provides basic install and seamless upgrade capabilities. This will be based on the awesome work done by the
+Red Hat Integreatly team.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://issues.jboss.org/browse/KEYCLOAK-7300&quot;&gt;JIRA&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/integr8ly/keycloak-operator&quot;&gt;Integreatly Keycloak Operator&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h3&gt;Vault&lt;/h3&gt;
+
+&lt;p&gt;At the moment to keep credentials such as LDAP bind credentials more secure it is required to encrypt the whole
+database. This can be complex and can also have a performance overhead.&lt;/p&gt;
+
+&lt;p&gt;We are working towards enabling loading credentials, such as LDAP bind credential and SMTP password, from an external vault.
+We&#39;re providing a built-in integration with Kubernetes secrets as well as an SPI allowing integrating with any vault provider.&lt;/p&gt;
+
+&lt;p&gt;In the future we will also provide the option to encrypt other more dynamic credentials at rest in the database.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://issues.jboss.org/browse/KEYCLOAK-3205&quot;&gt;JIRA - Vault&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://issues.jboss.org/browse/KEYCLOAK-10774&quot;&gt;JIRA - Encryption at rest&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h3&gt;User Profile&lt;/h3&gt;
+
+&lt;p&gt;Currently there&#39;s no single place to define user profiles for a realm. To resolve this we are planning to introduce the Profile SPI,
+which will make it possible to define a user profile for a realm. It will be possible to define mandatory as well as
+optional attributes and also add validation to the attributes.&lt;/p&gt;
+
+&lt;p&gt;The built-in Profile SPI provider will make it possible to declaratively define the user profile for a realm and we
+also aim to have an editor in the admin console.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://issues.jboss.org/browse/KEYCLOAK-2966&quot;&gt;JIRA&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h3&gt;Observerability&lt;/h3&gt;
+
+&lt;p&gt;Keycloak already comes with basic support for metrics and health endpoints provided by the underlying WildFly container.
+We plan to document how to enable this as well as extend with Keycloak specific metrics and health checks. If you would
+like to try this out today check the WildFly documentation.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://issues.jboss.org/browse/KEYCLOAK-8288&quot;&gt;JIRA&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h3&gt;Continuous Delivery&lt;/h3&gt;
+
+&lt;p&gt;Over the last few months the team has invested a significant amount of time into automated testing and builds. This
+will pay of in the long run as we will need to spend less time on releases and will also make sure Keycloak is always
+release ready. In fact we&#39;re taking this as far as not allowing maintainers to manually merge PRs anymore, but rather
+have created a bot called the Merge Monster that will merge PRs automatically after they have been both manually reviewed
+and all tests have passed.&lt;/p&gt;
+
+
+&lt;h3&gt;Keycloak.X&lt;/h3&gt;
+
+&lt;p&gt;It&#39;s 5 years since the first Keycloak release so high time for some rearchitecting. More details coming soon!&lt;/p&gt;
+
+
+&lt;h3&gt;Kanban Planning Board&lt;/h3&gt;
+
+&lt;p&gt;For more insight and details into what we are working on and our backlog, check out our
+&lt;a href=&quot;https://issues.jboss.org/secure/RapidBoard.jspa?rapidView=4740&amp;quickFilter=17938&amp;quickFilter=17950&quot;&gt;
+Kanban Planning Board&lt;/a&gt;.</description>
+        <guid>https://www.keycloak.org/2019/09/2019-roadmap.html</guid>
+        <pubDate>Tue, 3 Sep 2019 00:00:00 GMT</pubDate>
+        
+        <author>Stian Thorgersen</author>
+      </item>
+      <item>
+        <title>Keycloak 7.0.0 released</title>
+        <link>https://www.keycloak.org/2019/08/keycloak-700-released.html</link>
+        <description>&lt;p&gt;To download the release go to &lt;a href=&quot;https://www.keycloak.org/downloads.html&quot;&gt;Keycloak downloads&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;
+    For details on what is included in the release check out the &lt;a href=&quot;https://www.keycloak.org/docs/latest/release_notes/index.html&quot;&gt;Release notes&lt;/a&gt;.
+    The full list of resolved issues are available in &lt;a href=&quot;https://issues.jboss.org/issues/?jql=project%20%3D%20keycloak%20and%20fixVersion%20%3D%207.0.1&quot;&gt;JIRA&lt;/a&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Before you upgrade remember to backup your database and check the &lt;a href=&quot;https://www.keycloak.org/docs/latest/upgrading/index.html&quot;&gt;upgrade guide&lt;/a&gt; for anything that may have changed.&lt;/p&gt;</description>
+        <guid>https://www.keycloak.org/2019/08/keycloak-700-released.html</guid>
+        <pubDate>Sat, 24 Aug 2019 00:00:00 GMT</pubDate>
+        <category>Keycloak Release</category>
+        
+      </item>
+      <item>
+        <title>Keycloak and JDBC Ping</title>
+        <link>https://www.keycloak.org/2019/08/keycloak-jdbc-ping.html</link>
+        <description>
+&lt;p&gt;
+A few months back, we had a great article about clustering using &lt;a href=&quot;http://jgroups.org/manual/#JDBC_PING&quot;&gt;JDBC_PING&lt;/a&gt; protocol. Since then, we introduced some improvements for the &lt;a href=&quot;https://quay.io/repository/keycloak/keycloak?tab=tags&quot;&gt;Keycloak container image&lt;/a&gt; that can simplify the setup. So, before diving into this blog post, I highly encourage you to visit the &lt;a href=&quot;https://www.keycloak.org/2019/05/keycloak-cluster-setup.html&quot;&gt;Keycloak Cluster Setup&lt;/a&gt; article.
+&lt;/p&gt;
+
+
+&lt;h2&gt;What has changed in our Container Image?&lt;/h2&gt;
+&lt;p&gt;
+Probably the most important change is configuring the JGroups discovery protocol by using variables (see the &lt;a href=&quot;https://github.com/jboss-dockerfiles/keycloak/pull/151&quot;&gt;Pull Request&lt;/a&gt;). Once the change got in, we could configure the JGroups discovery by setting two properties:
+&lt;ul&gt;
+&lt;li&gt;JGROUPS_DISCOVERY_PROTOCOL&lt;/li&gt;
+&lt;li&gt;JGROUPS_DISCOVERY_PROPERTIES&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/p&gt;
+
+&lt;h2&gt;Let&#39;s apply the changes, shall we...&lt;/h2&gt;
+&lt;p&gt;
+The JDBC_PING-based setup works fine in all scenarios, where we connect all Keyclaok instances to the same database. Since JDBC_PING can be configured to obtain a database connection using JNDI binding, it can easily connect to the Keycloak database. All we need to do is to add two parameters to our docker image:
+&lt;ul&gt;
+&lt;li&gt;JGROUPS_DISCOVERY_PROTOCOL=JDBC_PING&lt;/li&gt;
+&lt;li&gt;JGROUPS_DISCOVERY_PROPERTIES=datasource_jndi_name=java:jboss/datasources/KeycloakDS&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/p&gt;
+
+You may find an end-to-end scenario &lt;a href=&quot;https://github.com/jboss-dockerfiles/keycloak/pull/204&quot;&gt;here&lt;/a&gt;.
+&lt;/p&gt;
+
+&lt;h2&gt;Additional configuration&lt;/h2&gt;
+&lt;p&gt;
+In some scenarios, you may need additional configuration. All additional settings might be added to the JGROUPS_DISCOVERY_PROPERTIES. Here are some hints and common problems, that you may find:
+&lt;table&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Problem description&lt;/td&gt;
+&lt;td&gt;Possible solution&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;The initialization SQL needs to be adjusted&lt;/td&gt;
+&lt;td&gt;In this case, you might want to look at &lt;tt&gt;initialize_sql&lt;/tt&gt; JDBC_PING property&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;When Keycloak crashes, the database is not cleared&lt;/td&gt;
+&lt;td&gt;Turn &lt;tt&gt;remove_old_coords_on_view_change&lt;/tt&gt; property on&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;When Keycloak crashes, the database is not cleared&lt;/td&gt;
+&lt;td&gt;Also, when a cluster is not too large, you may turn the &lt;tt&gt;remove_all_data_on_view_change&lt;/tt&gt; property on&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Sometimes, Keycloak doesn&#39;t write its data into the database&lt;/td&gt;
+&lt;td&gt;You may lower the &lt;tt&gt;info_writer_sleep_time&lt;/tt&gt; and &lt;tt&gt;info_writer_max_writes_after_view&lt;/tt&gt; property values&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/p&gt;
+
+&lt;/br&gt;
+
+&lt;p&gt;
+Haven fun and don&#39;t forget to let us know what you think about this blog post using the &lt;a href=&quot;https://lists.jboss.org/mailman/listinfo/keycloak-user&quot;&gt;User Mailing List&lt;/a&gt;.
+&lt;/br&gt;
+Sebastian Łaskawiec and the Keycloak Team
+&lt;/p&gt;
+</description>
+        <guid>https://www.keycloak.org/2019/08/keycloak-jdbc-ping.html</guid>
+        <pubDate>Mon, 12 Aug 2019 00:00:00 GMT</pubDate>
+        <category>Cluster, JDBC_PING</category>
+        <author>Sebastian Łaskaiwec</author>
+      </item>
+      <item>
         <title>Keycloak Cluster Setup</title>
         <link>https://www.keycloak.org/2019/05/keycloak-cluster-setup.html</link>
         <description>
@@ -226,7 +548,7 @@ is well tested and has low risk of regressions.
 
 &lt;p&gt;
     For details on what is included in the release check out the &lt;a href=&quot;https://www.keycloak.org/docs/latest/release_notes/index.html&quot;&gt;Release notes&lt;/a&gt;.
-    The full list of resolved issues are available in &lt;a href=&quot;https://issues.jboss.org/issues/?jql=project%20%3D%20keycloak%20and%20fixVersion%20%3D%206.0.1&quot;&gt;JIRA&lt;/a&gt;
+    The full list of resolved issues are available in &lt;a href=&quot;https://issues.jboss.org/issues/?jql=project%20%3D%20keycloak%20and%20fixVersion%20%3D%207.0.1&quot;&gt;JIRA&lt;/a&gt;
 &lt;/p&gt;
 
 &lt;p&gt;Before you upgrade remember to backup your database and check the &lt;a href=&quot;https://www.keycloak.org/docs/latest/upgrading/index.html&quot;&gt;upgrade guide&lt;/a&gt; for anything that may have changed.&lt;/p&gt;</description>
@@ -242,7 +564,7 @@ is well tested and has low risk of regressions.
 
 &lt;p&gt;
     For details on what is included in the release check out the &lt;a href=&quot;https://www.keycloak.org/docs/latest/release_notes/index.html&quot;&gt;Release notes&lt;/a&gt;.
-    The full list of resolved issues are available in &lt;a href=&quot;https://issues.jboss.org/issues/?jql=project%20%3D%20keycloak%20and%20fixVersion%20%3D%206.0.1&quot;&gt;JIRA&lt;/a&gt;
+    The full list of resolved issues are available in &lt;a href=&quot;https://issues.jboss.org/issues/?jql=project%20%3D%20keycloak%20and%20fixVersion%20%3D%207.0.1&quot;&gt;JIRA&lt;/a&gt;
 &lt;/p&gt;
 
 &lt;p&gt;Before you upgrade remember to backup your database and check the &lt;a href=&quot;https://www.keycloak.org/docs/latest/upgrading/index.html&quot;&gt;upgrade guide&lt;/a&gt; for anything that may have changed.&lt;/p&gt;</description>
@@ -407,7 +729,7 @@ Resources:
 
 &lt;p&gt;
     For details on what is included in the release check out the &lt;a href=&quot;https://www.keycloak.org/docs/latest/release_notes/index.html&quot;&gt;Release notes&lt;/a&gt;.
-    The full list of resolved issues are available in &lt;a href=&quot;https://issues.jboss.org/issues/?jql=project%20%3D%20keycloak%20and%20fixVersion%20%3D%206.0.1&quot;&gt;JIRA&lt;/a&gt;
+    The full list of resolved issues are available in &lt;a href=&quot;https://issues.jboss.org/issues/?jql=project%20%3D%20keycloak%20and%20fixVersion%20%3D%207.0.1&quot;&gt;JIRA&lt;/a&gt;
 &lt;/p&gt;
 
 &lt;p&gt;Before you upgrade remember to backup your database and check the &lt;a href=&quot;https://www.keycloak.org/docs/latest/upgrading/index.html&quot;&gt;upgrade guide&lt;/a&gt; for anything that may have changed.&lt;/p&gt;</description>
@@ -423,7 +745,7 @@ Resources:
 
 &lt;p&gt;
     For details on what is included in the release check out the &lt;a href=&quot;https://www.keycloak.org/docs/latest/release_notes/index.html&quot;&gt;Release notes&lt;/a&gt;.
-    The full list of resolved issues are available in &lt;a href=&quot;https://issues.jboss.org/issues/?jql=project%20%3D%20keycloak%20and%20fixVersion%20%3D%206.0.1&quot;&gt;JIRA&lt;/a&gt;
+    The full list of resolved issues are available in &lt;a href=&quot;https://issues.jboss.org/issues/?jql=project%20%3D%20keycloak%20and%20fixVersion%20%3D%207.0.1&quot;&gt;JIRA&lt;/a&gt;
 &lt;/p&gt;
 
 &lt;p&gt;Before you upgrade remember to backup your database and check the &lt;a href=&quot;https://www.keycloak.org/docs/latest/upgrading/index.html&quot;&gt;upgrade guide&lt;/a&gt; for anything that may have changed.&lt;/p&gt;</description>

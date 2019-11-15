@@ -733,7 +733,14 @@ span.image img {
 </ul>
 </li>
 <li><a href="index.html#leveraging-java-ee">6.3. Leveraging Java EE</a></li>
-<li><a href="index.html#available-spis">6.4. Available SPIs</a></li>
+<li><a href="index.html#_script_providers">6.4. JavaScript Providers</a>
+<ul class="sectlevel3">
+<li><a href="index.html#create-a-jar-with-the-scripts-you-want-to-deploy">6.4.1. Create a JAR with the scripts you want to deploy</a></li>
+<li><a href="index.html#deploy-the-script-jar">6.4.2. Deploy the Script JAR</a></li>
+<li><a href="index.html#using-keycloak-administration-console-to-upload-scripts">6.4.3. Using Keycloak Administration Console to upload scripts</a></li>
+</ul>
+</li>
+<li><a href="index.html#available-spis">6.5. Available SPIs</a></li>
 </ul>
 </li>
 <li><a href="index.html#_extensions">7. Extending the Server</a>
@@ -904,14 +911,14 @@ This one is short</code></pre>
 </div>
 <div class="paragraph">
 <p>To invoke the API you need to obtain an access token with the appropriate permissions. The required permissions are described in
-<a href="../../6.0/server_admin/index.html">Server Administration Guide</a>.</p>
+<a href="../../7.0/server_admin/index.html">Server Administration Guide</a>.</p>
 </div>
 <div class="paragraph">
 <p>A token can be obtained by enabling authenticating to your application with Keycloak; see the
-<a href="../../6.0/securing_apps/index.html">Securing Applications and Services Guide</a>. You can also use direct access grant to obtain an access token.</p>
+<a href="../../7.0/securing_apps/index.html">Securing Applications and Services Guide</a>. You can also use direct access grant to obtain an access token.</p>
 </div>
 <div class="paragraph">
-<p>For complete documentation see <a href="../../6.0/api_documentation/index.html">API Documentation</a>.</p>
+<p>For complete documentation see <a href="../../7.0/api_documentation/index.html">API Documentation</a>.</p>
 </div>
 <div class="sect2">
 <h3 id="example-using-curl"><a class="anchor" href="index.html#example-using-curl"></a>2.1. Example using CURL</h3>
@@ -980,7 +987,7 @@ RealmRepresentation realm = keycloak.realm(<span class="string"><span class="del
 </div>
 </div>
 <div class="paragraph">
-<p>Complete Javadoc for the admin client is available at <a href="../../6.0/api_documentation/index.html">API Documentation</a>.</p>
+<p>Complete Javadoc for the admin client is available at <a href="../../7.0/api_documentation/index.html">API Documentation</a>.</p>
 </div>
 </div>
 </div>
@@ -1049,8 +1056,7 @@ refresh the page.
 </table>
 </div>
 <div class="paragraph">
-<p>To change the welcome theme you need to edit <code>standalone.xml</code>, <code>standalone-ha.xml</code>, or <code>domain.xml</code>.
-For more information on where these files reside see the <a href="../../6.0/server_installation/index.html">Server Installation and Configuration Guide</a>.</p>
+<p>To change the welcome theme you need to edit <code>standalone.xml</code>, <code>standalone-ha.xml</code>, or <code>domain.xml</code>.</p>
 </div>
 <div class="paragraph">
 <p>Add <code>welcomeTheme</code> to the theme element, for example:</p>
@@ -1308,11 +1314,11 @@ of the realm.</p>
 <div class="sect3">
 <h4 id="internationalization"><a class="anchor" href="index.html#internationalization"></a>3.4.6. Internationalization</h4>
 <div class="paragraph">
-<p>Keycloak supports internationalization. To enable internationalization for a realm see <a href="../../6.0/server_admin/index.html">Server Administration Guide</a>. This
+<p>Keycloak supports internationalization. To enable internationalization for a realm see <a href="../../7.0/server_admin/index.html">Server Administration Guide</a>. This
 section describes how you can add your own language.</p>
 </div>
 <div class="paragraph">
-<p>To add a new language create the file <code>&lt;THEME TYPE&gt;/messages/messages_&lt;LOCALE&gt;</code> in the directory of your theme. Then add it to the <code>locales</code> property in
+<p>To add a new language create the file <code>&lt;THEME TYPE&gt;/messages/messages_&lt;LOCALE&gt;.properties</code> in the directory of your theme. Then add it to the <code>locales</code> property in
 <code>&lt;THEME TYPE&gt;/theme.properties</code>. For a language to be available to users the realms <code>login</code>, <code>account</code> and <code>email</code> theme has to support the language, so you
 need to add your language for those theme types.</p>
 </div>
@@ -1869,27 +1875,27 @@ To achieve this Keycloak has a number of Service Provider Interfaces (SPI) for w
 
 <span class="include">public</span> <span class="include">class</span> <span class="include">MyThemeSelectorProviderFactory</span> <span class="include">implements</span> <span class="include">ThemeSelectorProviderFactory</span> {
 
-      <span class="annotation">@Override</span>
-        <span class="include">public</span> <span class="include">ThemeSelectorProvider</span> <span class="include">create</span>(<span class="include">KeycloakSession</span> <span class="include">session</span>) {
-            <span class="include">return</span> <span class="include">new</span> <span class="include">MyThemeSelectorProvider</span>(<span class="include">session</span>);
-        }
+    <span class="annotation">@Override</span>
+    <span class="include">public</span> <span class="include">ThemeSelectorProvider</span> <span class="include">create</span>(<span class="include">KeycloakSession</span> <span class="include">session</span>) {
+        <span class="include">return</span> <span class="include">new</span> <span class="include">MyThemeSelectorProvider</span>(<span class="include">session</span>);
+    }
 
-        <span class="annotation">@Override</span>
-        <span class="directive">public</span> <span class="type">void</span> init(Config.Scope config) {
-        }
+    <span class="annotation">@Override</span>
+    <span class="directive">public</span> <span class="type">void</span> init(Config.Scope config) {
+    }
 
-        <span class="annotation">@Override</span>
-        <span class="directive">public</span> <span class="type">void</span> postInit(KeycloakSessionFactory factory) {
-        }
+    <span class="annotation">@Override</span>
+    <span class="directive">public</span> <span class="type">void</span> postInit(KeycloakSessionFactory factory) {
+    }
 
-        <span class="annotation">@Override</span>
-        <span class="directive">public</span> <span class="type">void</span> close() {
-        }
+    <span class="annotation">@Override</span>
+    <span class="directive">public</span> <span class="type">void</span> close() {
+    }
 
-        <span class="annotation">@Override</span>
-        <span class="directive">public</span> <span class="predefined-type">String</span> getId() {
-            <span class="keyword">return</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">myThemeSelector</span><span class="delimiter">&quot;</span></span>;
-        }
+    <span class="annotation">@Override</span>
+    <span class="directive">public</span> <span class="predefined-type">String</span> getId() {
+        <span class="keyword">return</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">myThemeSelector</span><span class="delimiter">&quot;</span></span>;
+    }
 }</code></pre>
 </div>
 </div>
@@ -1926,9 +1932,9 @@ Provider instances are created by calling create on the factory for each request
         <span class="include">return</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">my-theme</span><span class="delimiter">&quot;</span></span>;
     }
 
-        <span class="annotation">@Override</span>
+    <span class="annotation">@Override</span>
         <span class="directive">public</span> <span class="type">void</span> close() {
-        }
+    }
 }</code></pre>
 </div>
 </div>
@@ -1941,9 +1947,7 @@ Provider instances are created by calling create on the factory for each request
 </div>
 </div>
 <div class="paragraph">
-<p>You can configure your provider through <code>standalone.xml</code>, <code>standalone-ha.xml</code>, or <code>domain.xml</code>.
-See the <a href="../../6.0/server_installation/index.html">Server Installation and Configuration Guide</a> for more details on
-where to find these files.</p>
+<p>You can configure your provider through <code>standalone.xml</code>, <code>standalone-ha.xml</code>, or <code>domain.xml</code>.</p>
 </div>
 <div class="paragraph">
 <p>For example by adding the following to <code>standalone.xml</code>:</p>
@@ -1974,7 +1978,7 @@ where to find these files.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> <span class="type">class</span> <span class="class">MyThemeSelectorProvider</span> <span class="directive">implements</span> EventListenerProvider {
+<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> <span class="type">class</span> <span class="class">MyThemeSelectorProvider</span> <span class="directive">implements</span> ThemeSelectorProvider {
 
     <span class="directive">private</span> KeycloakSession session;
 
@@ -2008,7 +2012,7 @@ custom provider currently installed), current configuration of the provider (eg.
 
 <span class="keyword">import</span> ...
 
-<span class="include">public</span> <span class="include">class</span> <span class="include">MyThemeSelectorProvider</span> <span class="include">implements</span> <span class="include">ThemeSelectorProvider</span>, <span class="include">ServerInfoAwareProviderFactory</span> {
+<span class="include">public</span> <span class="include">class</span> <span class="include">MyThemeSelectorProviderFactory</span> <span class="include">implements</span> <span class="include">ThemeSelectorProviderFactory</span>, <span class="include">ServerInfoAwareProviderFactory</span> {
     ...
 
     <span class="annotation">@Override</span>
@@ -2114,7 +2118,7 @@ For example to disable the Infinispan user cache provider add:</p>
 <div class="paragraph">
 <p>The service providers can be packaged within any Java EE component so long as you set up the <code>META-INF/services</code>
 file correctly to point to your providers.  For example, if your provider needs to use third party libraries, you
-can package up your provider within an ear and store these third pary libraries in the ear&#8217;s <code>lib/</code> directory.
+can package up your provider within an ear and store these third party libraries in the ear&#8217;s <code>lib/</code> directory.
 Also note that provider jars can make use of the <code>jboss-deployment-structure.xml</code> file that EJBs, WARS, and EARs
 can use in a WildFly environment.  See the WildFly documentation for more details on this file.  It
 allows you to pull in external dependencies among other fine grain actions.</p>
@@ -2168,7 +2172,7 @@ will never be cleaned up and you may eventually see error messages.</p>
 </div>
 <div class="paragraph">
 <p>Implementations of <code>ProviderFactory</code> are required to be plain java objects.  Your factory class would
-perform a JNDI lookup of the Stateful EJB in its create() method.</p>
+perform a JNDI lookup of the Stateful EJB in its <code>create()</code> method.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2192,7 +2196,165 @@ perform a JNDI lookup of the Stateful EJB in its create() method.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="available-spis"><a class="anchor" href="index.html#available-spis"></a>6.4. Available SPIs</h3>
+<h3 id="_script_providers"><a class="anchor" href="index.html#_script_providers"></a>6.4. JavaScript Providers</h3>
+<div class="paragraph">
+<p>Keycloak has the ability to execute scripts during runtime in order to allow administrators to customize specific functionalities:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>OpenID Connect Script Protocol Mapper</p>
+</li>
+<li>
+<p>OpenID Connect Script Authenticator</p>
+</li>
+<li>
+<p>JavaScript Policy</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="create-a-jar-with-the-scripts-you-want-to-deploy"><a class="anchor" href="index.html#create-a-jar-with-the-scripts-you-want-to-deploy"></a>6.4.1. Create a JAR with the scripts you want to deploy</h4>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+JAR files are regular ZIP files with a <code>.jar</code> extension.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>In order to make your scripts available to Keycloak you need to deploy them to the server. For that, you should create
+a <code>JAR</code> file with the following structure:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code>META-INF/keycloak-scripts.json
+
+my-script-authenticator.js
+my-script-policy.js
+my-script-mapper.js</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>META-INF/keycloak-scripts.json</code> is a file descriptor that provides metadata information about the scripts you want to deploy. It is a JSON file with the following structure:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="json">{
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">authenticators</span><span class="delimiter">&quot;</span></span>: [
+        {
+            <span class="key"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">My Authenticator</span><span class="delimiter">&quot;</span></span>,
+            <span class="key"><span class="delimiter">&quot;</span><span class="content">fileName</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">my-authenticator.js</span><span class="delimiter">&quot;</span></span>,
+            <span class="key"><span class="delimiter">&quot;</span><span class="content">description</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">My Authenticator from a JS file</span><span class="delimiter">&quot;</span></span>
+        }
+    ],
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">policies</span><span class="delimiter">&quot;</span></span>: [
+        {
+            <span class="key"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">My Policy</span><span class="delimiter">&quot;</span></span>,
+            <span class="key"><span class="delimiter">&quot;</span><span class="content">fileName</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">my-policy.js</span><span class="delimiter">&quot;</span></span>,
+            <span class="key"><span class="delimiter">&quot;</span><span class="content">description</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">My Policy from a JS file</span><span class="delimiter">&quot;</span></span>
+        }
+    ],
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">mappers</span><span class="delimiter">&quot;</span></span>: [
+        {
+            <span class="key"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">My Mapper</span><span class="delimiter">&quot;</span></span>,
+            <span class="key"><span class="delimiter">&quot;</span><span class="content">fileName</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">my-mapper.js</span><span class="delimiter">&quot;</span></span>,
+            <span class="key"><span class="delimiter">&quot;</span><span class="content">description</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">My Mapper from a JS file</span><span class="delimiter">&quot;</span></span>
+        }
+    ]
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This file should reference the different types of script providers that you want to deploy:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>authenticators</code></p>
+<div class="paragraph">
+<p>For OpenID Connect Script Authenticators. You can have one or multiple authenticators in the same JAR file</p>
+</div>
+</li>
+<li>
+<p><code>policies</code></p>
+<div class="paragraph">
+<p>For JavaScript Policies when using Keycloak Authorization Services. You can have one or multiple policies in the same JAR file</p>
+</div>
+</li>
+<li>
+<p><code>mappers</code></p>
+<div class="paragraph">
+<p>For OpenID Connect Script Protocol Mappers. You can have one or multiple mappers in the same JAR file</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For each script file in your <code>JAR</code> file you must have a corresponding entry in <code>META-INF/keycloak-scripts.json</code> that maps your scripts files to a specific provider type. For that you should provide the following properties for each entry:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>name</code></p>
+<div class="paragraph">
+<p>A friendly name that will be used to show the scripts through the Keycloak Administration Console. If not provided, the name
+of the script file will be used instead</p>
+</div>
+</li>
+<li>
+<p><code>description</code></p>
+<div class="paragraph">
+<p>An optional text that better describes the intend of the script file</p>
+</div>
+</li>
+<li>
+<p><code>fileName</code></p>
+<div class="paragraph">
+<p>The name of the script file. This property is <strong>mandatory</strong> and should map to a file within the JAR.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="deploy-the-script-jar"><a class="anchor" href="index.html#deploy-the-script-jar"></a>6.4.2. Deploy the Script JAR</h4>
+<div class="paragraph">
+<p>Once you have a JAR file with a descriptor and the scripts you want to deploy, you just need to copy the JAR to the to the Keycloak <code>standalone/deployments/</code> directory.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="using-keycloak-administration-console-to-upload-scripts"><a class="anchor" href="index.html#using-keycloak-administration-console-to-upload-scripts"></a>6.4.3. Using Keycloak Administration Console to upload scripts</h4>
+<div class="paragraph">
+<p>By default, the Keycloak Administration Console won&#8217;t allow administrators to upload scripts to the server. The reason is that
+script execution can potentially harm the system due to the execution of malicious scripts. In order to prevent different types of
+attacks and lower the risks when running scripts at runtime, administrators should prefer deploying scripts directly to the server using a JAR file.</p>
+</div>
+<div class="paragraph">
+<p>By deploying scripts directly into the server, we expect that scripts go through a proper code analysis in order to find possible
+vulnerabilities that can be introduced by any script deployed to the server.</p>
+</div>
+<div class="paragraph">
+<p>However, it should still be possible to upload scripts to the server through the Keycloak Administration Console. For that,
+you must set the following system property when booting the server:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">    -Dkeycloak.profile.feature.upload_scripts=enabled</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For more details about how to enable the <code>upload_scripts</code> feature. Please, take a look at the <a href="../../7.0/server_installation/index.html#profiles">Profiles</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="available-spis"><a class="anchor" href="index.html#available-spis"></a>6.5. Available SPIs</h3>
 <div class="paragraph">
 <p>If you want to see list of all available SPIs at runtime, you can check <code>Server Info</code> page in admin console as described in <a href="index.html#_providers_admin_console">Admin Console</a> section.</p>
 </div>
@@ -2492,7 +2654,7 @@ Let&#8217;s walk through the steps from when a client first redirects to keycloa
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>The OpenID Connect or SAML protocol provider unpacks relevent data, verifies the client and any signatures.
+<p>The OpenID Connect or SAML protocol provider unpacks relevant data, verifies the client and any signatures.
 It creates an AuthenticationSessionModel.
 It looks up what the browser flow should be, then starts executing the flow.</p>
 </li>
@@ -2526,7 +2688,7 @@ Otherwise, again, the kerberos provider sets an attempted() status and the flow 
 </li>
 <li>
 <p>The next execution is a subflow called Forms.
-The executions for this subflow are loaded and the same processing logic occurs</p>
+The executions for this subflow are loaded and the same processing logic occurs.</p>
 </li>
 <li>
 <p>The first execution in the Forms subflow is the UsernamePassword provider.
@@ -2538,7 +2700,7 @@ This HTTP request is directed to the UsernamePassword provider.
 If the user entered an invalid username or password, a new challenge response is created and a status of failureChallenge() is set for this execution.
 A failureChallenge() means that there is a challenge, but that the flow should log this as an error in the error log.
 This error log can be used to lock accounts or IP Addresses that have had too many login failures.
-If the username and password is valid, the provider associated the UserModel with the AuthenticationSessionModel and returns a status of success()</p>
+If the username and password is valid, the provider associated the UserModel with the AuthenticationSessionModel and returns a status of success().</p>
 </li>
 <li>
 <p>The next execution is the OTP Form.
@@ -2588,8 +2750,8 @@ They both extend a more generic Provider and ProviderFactory set of interfaces t
 <h4 id="packaging-classes-and-deployment"><a class="anchor" href="index.html#packaging-classes-and-deployment"></a>8.3.1. Packaging Classes and Deployment</h4>
 <div class="paragraph">
 <p>You will package your classes within a single jar.
-This jar must contain a file named  <code>org.keycloak.authentication.AuthenticatorFactory</code>                and must be contained in the <code>META-INF/services/</code> directory of your jar.
-This file must list the fully qualified classname of each AuthenticatorFactory implementation you have in the jar.
+This jar must contain a file named  <code>org.keycloak.authentication.AuthenticatorFactory</code> and must be contained in the <code>META-INF/services/</code> directory of your jar.
+This file must list the fully qualified class name of each AuthenticatorFactory implementation you have in the jar.
 For example:</p>
 </div>
 <div class="listingblock">
@@ -2621,9 +2783,9 @@ In our case we are storing this information, hashed, within a UserCredentialValu
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="java"><span class="annotation">@Override</span>
-  <span class="directive">public</span> <span class="type">boolean</span> configuredFor(KeycloakSession session, RealmModel realm, UserModel user) {
-     <span class="keyword">return</span> session.users().configuredForCredentialType(<span class="string"><span class="delimiter">&quot;</span><span class="content">secret_question</span><span class="delimiter">&quot;</span></span>, realm, user);
+<pre class="CodeRay highlight"><code data-lang="java">    <span class="annotation">@Override</span>
+    <span class="directive">public</span> <span class="type">boolean</span> configuredFor(KeycloakSession session, RealmModel realm, UserModel user) {
+        <span class="keyword">return</span> session.users().configuredForCredentialType(<span class="string"><span class="delimiter">&quot;</span><span class="content">secret_question</span><span class="delimiter">&quot;</span></span>, realm, user);
     }</code></pre>
 </div>
 </div>
@@ -2682,7 +2844,7 @@ We then call AuthenticationFlowContext.challenge() passing in this response.
 This sets the status of the execution as CHALLENGE and if the execution is Required, this JAX-RS Response object will be sent to the browser.</p>
 </div>
 <div class="paragraph">
-<p>So, the HTML page asking for the answer to a secret question is displayed to the user and the user enteres in the answer and clicks submit.
+<p>So, the HTML page asking for the answer to a secret question is displayed to the user and the user enters in the answer and clicks submit.
 The action URL of the HTML form will send an HTTP request to the flow.
 The flow will end up invoking the action() method of our Authenticator implementation.</p>
 </div>
@@ -3061,10 +3223,10 @@ You can add additional attributes to the form provider so that they can be displ
 Recaptcha requires some specific settings that must be obtained from configuration.
 FormActions are configured in the exact same as Authenticators are.
 In this example, we pull the Google Recaptcha site key from configuration and add it as an attribute to the form provider.
-Our regstration template file can read this attribute now.</p>
+Our registration template file can read this attribute now.</p>
 </div>
 <div class="paragraph">
-<p>Recaptcha also has the requirement of loading a javascript script.
+<p>Recaptcha also has the requirement of loading a JavaScript script.
 You can do this by calling LoginFormsProvider.addScript() passing in the URL.</p>
 </div>
 <div class="paragraph">
@@ -3157,7 +3319,7 @@ an alternative email attribute.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>As you can see, this validate() method of user profile processing makes sure that the email, first, and last name are filled in in the form.
+<p>As you can see, this validate() method of user profile processing makes sure that the email, first, and last name are filled in the form.
 It also makes sure that email is in the right format.
 If any of these validations fail, an error message is queued up for rendering.
 Any fields in error are removed from the form data.
@@ -3200,7 +3362,7 @@ This class is implemented similarly to AuthenticatorFactory, so we won&#8217;t g
 <div class="paragraph">
 <p>You will package your classes within a single jar.
 This jar must contain a file named  <code>org.keycloak.authentication.FormActionFactory</code>                and must be contained in the <code>META-INF/services/</code> directory of your jar.
-This file must list the fully qualified classname of each FormActionFactory implementation you have in the jar.
+This file must list the fully qualified class name of each FormActionFactory implementation you have in the jar.
 For example:</p>
 </div>
 <div class="listingblock">
@@ -3228,7 +3390,7 @@ I&#8217;m hoping the UI is intuitive enough so that you can figure out for yours
 <p>Basically you&#8217;ll have to copy the registration flow.
 Then click Actions menu to the right of the Registration Form, and pick "Add execution" to add a new execution.
 You&#8217;ll pick the FormAction from the selection list.
-Make sure your FormAction comes after "Registration User Creation" by using the down errors to move it if your FormAction isn&#8217;t already listed after "Registration User Creation".  You want your FormAction to come after user creation because the success() method of Regsitration User Creation is responsible for creating the new UserModel.</p>
+Make sure your FormAction comes after "Registration User Creation" by using the down buttons to move it if your FormAction isn&#8217;t already listed after "Registration User Creation".  You want your FormAction to come after user creation because the success() method of Registration User Creation is responsible for creating the new UserModel.</p>
 </div>
 <div class="paragraph">
 <p>After you&#8217;ve created your flow, you have to bind it to registration.
@@ -3266,7 +3428,7 @@ In other words, add your custom authenticator after the "Send Reset Email" authe
 <div class="paragraph">
 <p>First Broker Login flow is used during first login with some identity provider.
 Term <code>First Login</code> means that there is not yet existing Keycloak account linked with the particular authenticated identity provider account.
-For more details about this flow see the <code>Identity Brokering</code> chapter in <a href="../../6.0/server_admin/index.html">Server Administration Guide</a> .</p>
+For more details about this flow see the <code>Identity Brokering</code> chapter in <a href="../../7.0/server_admin/index.html">Server Administration Guide</a> .</p>
 </div>
 </div>
 <div class="sect2">
@@ -3279,7 +3441,7 @@ But the client authentication can be also used directly by you during <code>Dire
 or during <code>Service account</code> authentication (represented by OAuth2 <code>Client Credentials Flow</code>).</p>
 </div>
 <div class="paragraph">
-<p>For more details about Keycloak adapter and OAuth2 flows see <a href="../../6.0/securing_apps/index.html">Securing Applications and Services Guide</a>.</p>
+<p>For more details about Keycloak adapter and OAuth2 flows see <a href="../../7.0/securing_apps/index.html">Securing Applications and Services Guide</a>.</p>
 </div>
 <div class="sect3">
 <h4 id="default-implementations"><a class="anchor" href="index.html#default-implementations"></a>8.8.1. Default implementations</h4>
@@ -3291,7 +3453,7 @@ or during <code>Service account</code> authentication (represented by OAuth2 <co
 <dt class="hdlist1">Traditional authentication with client_id and client_secret</dt>
 <dd>
 <p>This is default mechanism mentioned in the <a href="https://openid.net/specs/openid-connect-core-1_0.html">OpenID Connect</a>                                or <a href="https://tools.ietf.org/html/rfc6749">OAuth2</a> specification and Keycloak supports it since it&#8217;s early days.
-The public client needs to include <code>client_id</code> parameter with it&#8217;s ID in the POST request (so it&#8217;s defacto not authenticated) and the confidential client needs to include <code>Authorization: Basic</code> header with the clientId and clientSecret used as username and password.</p>
+The public client needs to include <code>client_id</code> parameter with its ID in the POST request (so it&#8217;s defacto not authenticated) and the confidential client needs to include <code>Authorization: Basic</code> header with the clientId and clientSecret used as username and password.</p>
 </dd>
 <dt class="hdlist1">Authentication with signed JWT</dt>
 <dd>
@@ -3875,7 +4037,7 @@ for it when you enabled through the admin console.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>User Storage providers are packaged in a JAR and deployed or undeployed to the Keycloak runtime in the same way you would deploy something in the WildFly application server. You can either copy the JAR directly to the <code>deploy/</code> directory of the server, or use the JBoss CLI to execute the deployment.</p>
+<p>User Storage providers are packaged in a JAR and deployed or undeployed to the Keycloak runtime in the same way you would deploy something in the WildFly application server. You can either copy the JAR directly to the <code>standalone/deployments/</code> directory of the server, or use the JBoss CLI to execute the deployment.</p>
 </div>
 <div class="paragraph">
 <p>In order for Keycloak to recognize the provider, you need to add a file to the JAR: <code>META-INF/services/org.keycloak.storage.UserStorageProviderFactory</code>. This file must contain a line-separated list of fully qualified classnames of the <code>UserStorageProviderFactory</code> implementations:</p>
@@ -4140,7 +4302,7 @@ If you do not specify the template parameter, your provider will not function. T
 <p>In our <code>init()</code> method implementation, we find the property file containing our user declarations from the classpath. We then load the <code>properties</code> field with the username and password combinations stored there.</p>
 </div>
 <div class="paragraph">
-<p>The <code>Config.Scope</code> parameter is factory configuration that can be set up within <code>standalone.xml</code>, <code>standalone-ha.xml</code>, or <code>domain.xml</code>. For more information on where these files reside see the <a href="../../6.0/server_installation/index.html">Server Installation and Configuration Guide</a>.</p>
+<p>The <code>Config.Scope</code> parameter is factory configuration that can be set up within <code>standalone.xml</code>, <code>standalone-ha.xml</code>, or <code>domain.xml</code>.</p>
 </div>
 <div class="paragraph">
 <p>For example, by adding the following to <code>standalone.xml</code>:</p>
@@ -4199,7 +4361,7 @@ If you do not specify the template parameter, your provider will not function. T
 </div>
 </div>
 <div class="paragraph">
-<p>Once you create the jar you can deploy it using regular WildFly means: copy the jar into the <code>deploy/</code> directory or using the JBoss CLI.</p>
+<p>Once you create the jar you can deploy it using regular WildFly means: copy the jar into the <code>standalone/deployments/</code> directory or using the JBoss CLI.</p>
 </div>
 </div>
 <div class="sect3">
@@ -4428,7 +4590,7 @@ methods to reflect this.</p>
 </div>
 <div class="paragraph">
 <p>The <code>addUser()</code> method will be called if the provider implements the <code>UserRegistrationProvider</code> interface. If your provider has
-a configuration switch to turn of adding a user, returning <code>null</code> from this method will skip the provider and call
+a configuration switch to turn off adding a user, returning <code>null</code> from this method will skip the provider and call
 the next one.</p>
 </div>
 <div class="listingblock">
@@ -4532,7 +4694,7 @@ by our example provider. Let&#8217;s look at implementing this interface.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>The <code>getUser()</code> method iterates over the key set of the property file, delegating to <code>getUserByUsername()</code> to load a user.
+<p>The <code>getUsers()</code> method iterates over the key set of the property file, delegating to <code>getUserByUsername()</code> to load a user.
 Notice that we are indexing this call based on the <code>firstResult</code> and <code>maxResults</code> parameter. If your external store does not support pagination, you will have to do similar logic.</p>
 </div>
 <div class="listingblock">
@@ -4560,7 +4722,7 @@ Notice that we are indexing this call based on the <code>firstResult</code> and 
 </div>
 </div>
 <div class="paragraph">
-<p>The first declaration of <code>searchForUser()</code> takes a string parameter. This is supposed to be a string that you use to
+<p>The first declaration of <code>searchForUser()</code> takes a <code>String</code> parameter. This is supposed to be a string that you use to
 search username and email attributes to find the user. This string can be a substring, which is why we use the <code>String.contains()</code>
 method when doing our search.</p>
 </div>
@@ -4875,7 +5037,7 @@ an additional interface you can implement to deal with this, <code>org.keycloak.
 </div>
 </div>
 <div class="paragraph">
-<p>When a user object is loaded by ID, username, or email queries it is cached. When a user object is bing cached, it iterates through
+<p>When a user object is loaded by ID, username, or email queries it is cached. When a user object is being cached, it iterates through
 the entire <code>UserModel</code> interface and pulls this information to a local in-memory-only cache. In a cluster, this cache
 is still local, but it becomes an invalidation cache. When a user object is modified, it is evicted. This eviction event
 is propagated to the entire cluster so that the other nodes' user cache is also invalidated.</p>
@@ -5342,7 +5504,7 @@ of all users you imported.  Then, when you upgrade Keycloak, just deploy and con
 </li>
 <li>
 <p>The second option is to write your new provider making sure it has the same provider ID: <code>UserStorageProviderFactory.getId()</code>.
-Make sure this provider is in the <code>deploy/</code> directory of the new Keycloak installation.  Boot the server, and have
+Make sure this provider is in the <code>standalone/deployments/</code> directory of the new Keycloak installation.  Boot the server, and have
 the built-in migration script convert from the earlier data model to the later data model. In this case all your earlier linked imported
 users will work and be the same.</p>
 </li>
@@ -5359,7 +5521,7 @@ before upgrading Keycloak. This will remove linked local imported copies of any 
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-04-24 08:49:49 UTC
+Last updated 2019-10-16 12:19:12 UTC
 </div>
 </div>
 <ul id="globalnav">

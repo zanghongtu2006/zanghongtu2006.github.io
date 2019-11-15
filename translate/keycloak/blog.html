@@ -9,6 +9,8 @@
     <meta name="author" content="Keycloak Team">
     <meta name="keywords" content="sso,idm,openid connect,saml,kerberos,ldap">
 
+    
+
     <meta http-equiv='Content-Security-Policy' content="default-src 'none'; style-src 'self'; img-src 'self' https://www.google-analytics.com; font-src 'self'; script-src 'self' https://www.google-analytics.com; base-uri 'none'; form-action 'none';">
 
     <link href="resources/css/bootstrap.min.css" rel="stylesheet">
@@ -55,6 +57,313 @@
 <div class="page-section">
     <div class="container">
         <a class="float-right" href="rss.xml"><img src="resources/images/rss.png"/></a>
+                <h1><a href="2019/10/keycloak-701-released.html">Keycloak 7.0.1 released</a></h1>
+
+                <p class="blog-date">Wednesday, October 16 2019</p>
+
+                <div class="blog blog-container">
+<p>To download the release go to <a href="downloads.html">Keycloak downloads</a>.</p>
+
+<p>
+    For details on what is included in the release check out the <a href="docs/latest/release_notes/index.html">Release notes</a>.
+    The full list of resolved issues are available in <a href="https://issues.jboss.org/issues/?jql=project%20%3D%20keycloak%20and%20fixVersion%20%3D%207.0.1">JIRA</a>
+</p>
+
+<p>Before you upgrade remember to backup your database and check the <a href="docs/latest/upgrading/index.html">upgrade guide</a> for anything that may have changed.</p>                </div>
+
+
+
+                <h1><a href="2019/10/keycloak-x.html">Introducing Keycloak.X</a></h1>
+
+                <p class="blog-date">Friday, October 11 2019, posted by Stian Thorgersen</p>
+
+                <div class="blog blog-container">
+
+
+<h2>What are we trying to improve?</h2>
+
+<p>The first stable release of Keycloak was way back in 2014. As always when building software there are things that could
+have been done better.</p>
+
+<p>With Keycloak.X we are aiming to introduce some bigger changes to make Keycloak leaner, easier and more future-proof.</p>
+
+<p>A few goals with Keycloak.X are:</p>
+
+<ul>
+<li>Make it easier to configure</li>
+<li>Make it easier to scale, including multi-site support</li>
+<li>Make it easier to extend</li>
+<li>Reduce startup time and memory footprint</li>
+<li>Support zero-downtime upgrades</li>
+<li>Support continuous delivery</li>
+</ul>
+
+<p>This work will be broken into several parts:</p>
+
+<ul>
+<li>A new and improved storage layer</li>
+<li>A new distribution powered by <a href="https://quarkus.io">Quarkus</a></li>
+<li>A new approach to custom providers</li>
+</ul>
+
+<h2>Distribution</h2>
+
+<p>Building a new distribution powered by Quarkus will allow us to significantly reduce startup time and memory footprint.</p>
+
+<p>We will be able to create a leaner distribution in terms of size and dependencies as well. Reducing dependencies will
+further reduce the number of CVEs in third-party libraries.</p>
+
+<p>We are also planning to introduce a proper Keycloak configuration file, where we will document directly how to configure
+everything related to Keycloak. In the current WildFly based distribution the configuration file is very complex as
+it contains everything to configure the underlying application server, and more often than not it is required to refer
+to WildFly documentation to figure out how to configure things properly.</p>
+
+<h2>Storage</h2>
+
+<p>The current storage layer is complex, especially when deployed to multiple-sites. It has a number of scalability issues
+like the number of realms and clients. Sessions are only kept in-memory, which can be good for performance, but not
+so great for scaling when you consider a large portion of sessions are idle and unused most of the time.</p>
+
+<p>Exactly what the new storage layer will look like is still to be decided, but we know for sure that we want to:</p>
+
+<ul>
+<li>Reduce complexity with regards to configuring, SPIs and schema</li>
+<li>Support zero downtime upgrades</li>
+<li>Make sure we can scale to large number of realms and clients</li>
+<li>Make sure we can scale to millions of sessions, including support for persisting and passivation</li>
+</ul>
+
+<h2>Providers</h2>
+
+<p>Providers today have some issues that we would like to address. Including:</p>
+
+<ul>
+<li>Deprecation and versioned approach to SPIs - breaking changes to APIs are horrible in a continuous delivery world</li>
+<li>Polyglot - not everyone is a JavaEE developer, let's embrace that and allow more options when it comes to extending Keycloak</li>
+<li>Sand-boxing - allow safe customizations in a SaaS world</li>
+</ul>
+
+<h2>Continuous Delivery</h2>
+
+<p>We are aiming to make it easier to use Keycloak in a continuous delivery world. This should consider Keycloak upgrades,
+custom providers as well as configuration.</p>
+
+<p>Keycloak upgrades should be seamless and there should not be any breaking changes, rather deprecation periods.</p>
+
+<p>It should be possible to more easily manage and reproduce the config of Keycloak, including realm config, in different
+environments. A developer should be able to try some config changes in a dev environment, push to a test environment,
+before finally making the changes live in a production environment.</p>
+
+<h2>Contributing</h2>
+
+<p>We would love help from the community on Keycloak.X. You can contribute with code, with discussions or simply just trying
+it out and giving us feedback.</p>
+
+<h2>Migration to Keycloak.X</h2>
+
+<p>There will be a migration required to Keycloak.X. In fact there will be multiple migrations required as everything
+mentioned earlier will not be ready in one go.</p>
+
+<p>It is an aim to make this migration as simple and painless as possible though.</p>
+
+<h2>Timing</h2>
+
+<p>We are staring with the Quarkus powered distribution. The aim is to have a fully functional stable distribution by the
+end of 2019, but we already have <a href="https://github.com/keycloak/keycloak/tree/master/quarkus">a prototype</a> you can try out
+and contribute to.</p>
+
+<p>In 2020 we are aiming to work on both the storage layer and providers. Hopefully, by the end of 2020 we will have most
+if not everything sorted out.</p>
+
+<p>We will continue to support the current Keycloak version in parallel with Keycloak.X and will give everyone plenty of
+time to do the migration before we eventually will pull the plug on the old.</p>                </div>
+
+
+
+                <h1><a href="2019/09/2019-roadmap.html">What's Coming To Keycloak</a></h1>
+
+                <p class="blog-date">Tuesday, September 03 2019, posted by Stian Thorgersen</p>
+
+                <div class="blog blog-container">
+
+<h3>New Account Console and Account REST API</h3>
+
+<p>The current account console is getting dated. It is also having issues around usability and being hard
+to extend. For this reason we had the UXD team at Red Hat develop
+<a href="https://marvelapp.com/c90dfi0/screen/59941600">wireframes</a> for a new account console. The new console
+is being implemented with React.js providing a better user experience as well as making it easier to extend
+and customise.</p>
+
+<ul>
+<li><a href="https://issues.jboss.org/browse/KEYCLOAK-6197">JIRA - Account Console</a></li>
+<li><a href="https://issues.jboss.org/browse/KEYCLOAK-7428">JIRA - Account REST API</a></li>
+</ul>
+
+
+<h3>WebAuthn</h3>
+
+<p>We are working towards adding WebAuthn support both for two factor authentication and passwordless experience.
+This task is not as simple as adding an authenticator for WebAuth, but will also require
+work on improving authentication flows and the account console.</p>
+
+<ul>
+<li><a href="https://github.com/keycloak/keycloak-community/blob/master/design/multi-factor-admin-and-step-up.md">Design proposal - Authentication flow improvements</a></li>
+<li><a href="https://github.com/keycloak/keycloak-community/blob/master/design/web-authn-authenticator.md">Design proposal - WebAuthn Authenticator</a></li>
+<li><a href="https://github.com/keycloak/keycloak-community/blob/master/design/web-authn-two-factor.md">Design proposal - WebAuthn Two factor</a></li>
+<li><a href="https://issues.jboss.org/browse/KEYCLOAK-7159">JIRA - Two factor</a></li>
+<li><a href="https://issues.jboss.org/browse/KEYCLOAK-9365">JIRA - Passwordless</a></li>
+</ul>
+
+
+<h3>Operator</h3>
+
+<p>Operators are becoming an important way to manage software running on Kubernetes and we are working on an operator for
+Keycloak. The aim is to have an operator published on <a href="https://operatorhub.io/">OperatorHub.io</a> soon which
+provides basic install and seamless upgrade capabilities. This will be based on the awesome work done by the
+Red Hat Integreatly team.</p>
+
+<ul>
+<li><a href="https://issues.jboss.org/browse/KEYCLOAK-7300">JIRA</a></li>
+<li><a href="https://github.com/integr8ly/keycloak-operator">Integreatly Keycloak Operator</a></li>
+</ul>
+
+
+<h3>Vault</h3>
+
+<p>At the moment to keep credentials such as LDAP bind credentials more secure it is required to encrypt the whole
+database. This can be complex and can also have a performance overhead.</p>
+
+<p>We are working towards enabling loading credentials, such as LDAP bind credential and SMTP password, from an external vault.
+We're providing a built-in integration with Kubernetes secrets as well as an SPI allowing integrating with any vault provider.</p>
+
+<p>In the future we will also provide the option to encrypt other more dynamic credentials at rest in the database.</p>
+
+<ul>
+<li><a href="https://issues.jboss.org/browse/KEYCLOAK-3205">JIRA - Vault</li>
+<li><a href="https://issues.jboss.org/browse/KEYCLOAK-10774">JIRA - Encryption at rest</a></li>
+</ul>
+
+
+<h3>User Profile</h3>
+
+<p>Currently there's no single place to define user profiles for a realm. To resolve this we are planning to introduce the Profile SPI,
+which will make it possible to define a user profile for a realm. It will be possible to define mandatory as well as
+optional attributes and also add validation to the attributes.</p>
+
+<p>The built-in Profile SPI provider will make it possible to declaratively define the user profile for a realm and we
+also aim to have an editor in the admin console.</p>
+
+<ul>
+<li><a href="https://issues.jboss.org/browse/KEYCLOAK-2966">JIRA</a></li>
+</ul>
+
+
+<h3>Observerability</h3>
+
+<p>Keycloak already comes with basic support for metrics and health endpoints provided by the underlying WildFly container.
+We plan to document how to enable this as well as extend with Keycloak specific metrics and health checks. If you would
+like to try this out today check the WildFly documentation.</p>
+
+<ul>
+<li><a href="https://issues.jboss.org/browse/KEYCLOAK-8288">JIRA</a></li>
+</ul>
+
+
+<h3>Continuous Delivery</h3>
+
+<p>Over the last few months the team has invested a significant amount of time into automated testing and builds. This
+will pay of in the long run as we will need to spend less time on releases and will also make sure Keycloak is always
+release ready. In fact we're taking this as far as not allowing maintainers to manually merge PRs anymore, but rather
+have created a bot called the Merge Monster that will merge PRs automatically after they have been both manually reviewed
+and all tests have passed.</p>
+
+
+<h3>Keycloak.X</h3>
+
+<p>It's 5 years since the first Keycloak release so high time for some rearchitecting. More details coming soon!</p>
+
+
+<h3>Kanban Planning Board</h3>
+
+<p>For more insight and details into what we are working on and our backlog, check out our
+<a href="https://issues.jboss.org/secure/RapidBoard.jspa?rapidView=4740&quickFilter=17938&quickFilter=17950">
+Kanban Planning Board</a>.                </div>
+
+
+
+
+                <h1><a href="2019/08/keycloak-jdbc-ping.html">Keycloak and JDBC Ping</a></h1>
+
+                <p class="blog-date">Monday, August 12 2019, posted by Sebastian Łaskaiwec</p>
+
+                <div class="blog blog-container">
+
+<p>
+A few months back, we had a great article about clustering using <a href="http://jgroups.org/manual/#JDBC_PING">JDBC_PING</a> protocol. Since then, we introduced some improvements for the <a href="https://quay.io/repository/keycloak/keycloak?tab=tags">Keycloak container image</a> that can simplify the setup. So, before diving into this blog post, I highly encourage you to visit the <a href="2019/05/keycloak-cluster-setup.html">Keycloak Cluster Setup</a> article.
+</p>
+
+
+<h2>What has changed in our Container Image?</h2>
+<p>
+Probably the most important change is configuring the JGroups discovery protocol by using variables (see the <a href="https://github.com/jboss-dockerfiles/keycloak/pull/151">Pull Request</a>). Once the change got in, we could configure the JGroups discovery by setting two properties:
+<ul>
+<li>JGROUPS_DISCOVERY_PROTOCOL</li>
+<li>JGROUPS_DISCOVERY_PROPERTIES</li>
+</ul>
+</p>
+
+<h2>Let's apply the changes, shall we...</h2>
+<p>
+The JDBC_PING-based setup works fine in all scenarios, where we connect all Keyclaok instances to the same database. Since JDBC_PING can be configured to obtain a database connection using JNDI binding, it can easily connect to the Keycloak database. All we need to do is to add two parameters to our docker image:
+<ul>
+<li>JGROUPS_DISCOVERY_PROTOCOL=JDBC_PING</li>
+<li>JGROUPS_DISCOVERY_PROPERTIES=datasource_jndi_name=java:jboss/datasources/KeycloakDS</li>
+</ul>
+</p>
+
+You may find an end-to-end scenario <a href="https://github.com/jboss-dockerfiles/keycloak/pull/204">here</a>.
+</p>
+
+<h2>Additional configuration</h2>
+<p>
+In some scenarios, you may need additional configuration. All additional settings might be added to the JGROUPS_DISCOVERY_PROPERTIES. Here are some hints and common problems, that you may find:
+<table>
+<tbody>
+<tr>
+<td>Problem description</td>
+<td>Possible solution</td>
+</tr>
+<tr>
+<td>The initialization SQL needs to be adjusted</td>
+<td>In this case, you might want to look at <tt>initialize_sql</tt> JDBC_PING property</td>
+</tr>
+<tr>
+<td>When Keycloak crashes, the database is not cleared</td>
+<td>Turn <tt>remove_old_coords_on_view_change</tt> property on</td>
+</tr>
+<tr>
+<td>When Keycloak crashes, the database is not cleared</td>
+<td>Also, when a cluster is not too large, you may turn the <tt>remove_all_data_on_view_change</tt> property on</td>
+</tr>
+<tr>
+<td>Sometimes, Keycloak doesn't write its data into the database</td>
+<td>You may lower the <tt>info_writer_sleep_time</tt> and <tt>info_writer_max_writes_after_view</tt> property values</td>
+</tr>
+</tbody>
+</table>
+</p>
+
+</br>
+
+<p>
+Haven fun and don't forget to let us know what you think about this blog post using the <a href="https://lists.jboss.org/mailman/listinfo/keycloak-user">User Mailing List</a>.
+</br>
+Sebastian Łaskawiec and the Keycloak Team
+</p>
+                </div>
+
+
+
                 <h1><a href="2019/05/keycloak-cluster-setup.html">Keycloak Cluster Setup</a></h1>
 
                 <p class="blog-date">Friday, May 10 2019, posted by 张立强 liqiang@fit2cloud.com</p>
@@ -134,243 +443,8 @@ JGROUPS_DISCOVERY_PROTOCOL=JDBC_PING
 
 
 
-                <h1><a href="2019/05/keycloak-newsletter-2.html">Keycloak Community Newsletter #2</a></h1>
 
-                <p class="blog-date">Monday, May 06 2019, posted by Sébastien Blanc</p>
-
-                <div class="blog blog-container">
-
-
-<p>
-We have a lot of news to share in this second edition, so fasten your seatbelt and let's go!
-</p>
-
-
-<h2>News from the community</h2>
-<p>
-First of all, we would like to thank the whole community, which has contributed to this edition by sharing their links, tips, and so on.
-</p>
-<p>
-  An increasing number of API Management/Gateway solutions can now be integrated with Keycloak. Recently, <a href="https://www.getambassador.io/">Ambassador</a>, an Open Source Kubernetes-Native API Gateway built on the Envoy Proxy, has added <a href="https://www.getambassador.io/reference/idp-support/keycloak/">support for Keycloak</a>; it has also published a <a href="https://www.getambassador.io/tutorials/github-sso/">quickstart</a> to show how Keycloak can be used to add Github as Identity provider.   
-</p>
-<p>
-We have some good news for Python users. Akhil Lawrence has created a <a href="https://github.com/akhilputhiry/keycloak-client/releases">Python Keycloak Adapter Client</a>. Be sure to check out the really nice <a href="https://keycloak-client.readthedocs.io/en/latest/">documentation</a> that comes with many usage examples.  
-</p>
-<p>
-Like any other project, setting up clustering can be somehow complex. Liqiang has shared with us his <a href="https://github.com/fit2anything/keycloak-cluster-setup-and-configuration">setup and configuration tips</a>. Thanks again for sharing your knowledge with the community!
-</p>
-<P>
-The existing <a href="https://github.com/helm/charts/tree/master/stable/keycloak">Keycloak Helm Chart</a> has now been deprecated and is now replaced by the <a href="https://github.com/codecentric/helm-charts">one</a> managed by CodeCentric.
-</p>
-<p>
-Dmitry Telegin has created a really nice example on how you can dynamically brand your login theme for Keycloak. Check out the repository <a href="https://github.com/dteleguin/keycloak-dynamic-branding">here</a>.
-</p>
-<p>
-Hayri Cicek has written a nice introductory <a href="https://kodnito.com/posts/microprofile-jwt-with-keycloak/">article</a> on how to use Keycloak and MicroProfile. It even shows the usage of the brand new Client Scope "microprofile-jwt," which has been added in Keycloak 6.0.0.
-</p>
-
-
-<h2>News from the project</h2>
-<p>
-Keycloak 6.0.1 has been <a href="2019/04/keycloak-601-released.html">released</a>. We know that some people were a bit confused by our new versioning schema. We hope that this <a href="2019/04/versioning.html">blog post</a> will clear it up. 
-</p>
-<p>
-We started the proposal process for Keycloak to be accepted into the Cloud Native Computing Foundation (CNCF). We hope that this effort will significantly boost our community adoption with our ultimate goal of becoming the de facto solution for OAuth2/OpenID Connect within Open Source and Cloud Native.
-You can watch the presentation to the CNCF TOC (Technical Oversight Committee) <a href="https://www.youtube.com/watch?v=cBrmcH9VFYE&feature=youtu.be&t=1032">here</a> and the slides are also available <a href="https://docs.google.com/presentation/d/1bijEpuwaaa6jR1D5PAjyW731-j6Xc1TFHJuUh_FwwK8/edit?ts=5ca774e9#slide=id.g5628e016b1_15_112">here</a>.   
-<p>
-As mentioned in the previous newsletter, we will now discuss larger features openly on Github. It's community-focused and we have currently two open Pull Requests:
-<ul>
-<li>
- <a href="https://github.com/keycloak/keycloak-community/pull/5">Managing multi-factor authentication and Step-up authentication</a>
-</li>
-<li>
- <a href="https://github.com/keycloak/keycloak-community/pull/6">Implementation of OAuth 2.0 Device Authorization Grant</a> 
-</li>
-</ul>
-</p>
-
-<h2>Conferences / Webinars</h2>
-<p>
-W-Jax has just posted a YouTube talk in German <a href="https://t.co/GrBvLr6q5N?amp=1">Secure Spring Applications with Keycloak</a> delivered by Thomas Darimont.
-<p>
-<p>
-In May, Sébastien Blanc will deliver a full-day workshop about Keycloak during <a href="https://voxxeddays.com/minsk/">VoxxedDays Minsk</a>
-</p>
-
-
-<h2>Contributing to Keycloak</h2>
-
-<p>We always welcome contributions to Keycloak. If you would like to contribute and have a great idea, tell us about it
-on the developer mailing list. If you are unsure about what to work on, let us know and we can help!</p>
-
-<p>As a first time contributor, you may have a simpler idea to start, such as contributing a bug fix. This type of contribution will allow you to get to know the code base, the test suite, and the mechanics of creating a pull request. You can find a list of <a href="https://issues.jboss.org/issues/?jql=project%20%3D%20Keycloak%20AND%20issuetype%20%3D%20bug%20AND%20fixVersion%20%3D%20%22Awaiting%20Volunteers%22%20">open bugs here</a>.</p>
-
-<p>We also have a list of <a href="https://issues.jboss.org/issues/?jql=project%20%3D%20Keycloak%20AND%20fixVersion%20%3D%20%22Awaiting%20Volunteers%22%20">open issues</a> that
-are awaiting contributions. Not all issues are properly reviewed, so we recommend that you start by sending an email to the developer mailing list before you begin.</p>
-
-<p>
-For each newsletter, we will also highlight a few features for which we would especially like contributions. These features include:
-
-<ul>
-<li><a href="https://issues.jboss.org/browse/KEYCLOAK-953">Allow user to delete account</a> - In light of GDPR and the right to be forgotten a very useful feature is to allow users to delete their own accounts.</li>
-<li><a href="https://issues.jboss.org/browse/KEYCLOAK-2940">OpenID Connect Backchannel Logout</a> - Add support for OpenID Connect Back-Channel logout specification to Keycloak.</li>
-</ul>
-</p>
-                </div>
-
-
-
-                <h1><a href="2019/04/versioning.html">Keycloak Releases and Versioning</a></h1>
-
-                <p class="blog-date">Wednesday, April 24 2019, posted by Stian Thorgersen</p>
-
-                <div class="blog blog-container">
-
-<p>
-We are aiming to achieve a continuous delivery model with Keycloak. By that we mean it should be seamless to upgrade
-between Keycloak releases and to keep up to date with the latest release.
-</p>
-
-<p>
-This requires no breaking changes, but rather deprecating old APIs allowing time to migrate to new APIs.
-</p>
-
-<p>
-Traditional semantic versioning does not fit very well with this model. By following the mantra of continuous delivery
-we would forever be stuck on a major version and only update the minor version, and you could argue whether or not it
-would be correct to update the major version when an API that has been deprecated for a long period of time is removed.
-</p>
-
-<p>
-With this in mind, we have made some slight changes to our release cadence and versioning schema.
-</p>
-
-<p>
-For now, we will have a new feature release roughly 4 times each year. Each release will bump the major version number.
-That doesn't mean there are breaking changes, but until we perfect our continuous delivery model there may be some, so
-always refer to the migration guide prior to upgrading!
-</p>
-
-<p>
-We have also decided to drop the Final suffix from releases. That is simply because it is not needed as we have not done
-any beta or release candidates for a long time. In the spirit of continuous delivery, we will have individual features
-marked as preview rather than whole releases.
-</p>
-
-<p>
-As a final note, with the reduced release cadence we are planning to do more micro releases. This will be focused on
-critical bugs and security vulnerabilities. However, we may accept contributions to less critical bugs given the fix
-is well tested and has low risk of regressions.
-</p>
-                </div>
-
-
-
-                <h1><a href="2019/04/keycloak-601-released.html">Keycloak 6.0.1 released</a></h1>
-
-                <p class="blog-date">Wednesday, April 24 2019</p>
-
-                <div class="blog blog-container">
-<p>To download the release go to <a href="downloads.html">Keycloak downloads</a>.</p>
-
-<p>
-    For details on what is included in the release check out the <a href="docs/latest/release_notes/index.html">Release notes</a>.
-    The full list of resolved issues are available in <a href="https://issues.jboss.org/issues/?jql=project%20%3D%20keycloak%20and%20fixVersion%20%3D%206.0.1">JIRA</a>
-</p>
-
-<p>Before you upgrade remember to backup your database and check the <a href="docs/latest/upgrading/index.html">upgrade guide</a> for anything that may have changed.</p>                </div>
-
-
-
-
-                <h1><a href="2019/04/keycloak-newsletter-1.html">Keycloak Community Newsletter #1</a></h1>
-
-                <p class="blog-date">Monday, April 01 2019, posted by Sébastien Blanc</p>
-
-                <div class="blog blog-container">
-
-<p>
-This is the very first "Keycloak Community Newsletter." The goal of this newsletter is to share news about the Keycloak project.
-</p>
-
-
-<h2>News from the community</h2>
-<p>
-Since the beginning of the year, the community has been really active. Each week several blog posts about Keycloak are published. Here is a short selection.
-</p>
-<p>
-Let's start with Philip Riecks who explains in <a href="https://rieckpil.de/howto-microprofile-jwt-authentication-with-keycloak-and-react/">this article</a> how you can use Microprofile JWT Authentication with Keycloak and React.
-</p>
-<p>
-Ramandeep Singh has been <a href="https://medium.com/@ramandeep.singh.1983/enterprise-web-app-authentication-using-keycloak-and-node-js-c10b0e26b80d">blogging</a> about Keycloak and NodeJS.
-</p>
-<p>
-Joshua Alfred Erney explains in this <a href="https://www.jerney.io/secure-apis-kong-keycloak-1/">blog series</a> how to integrate Keycloak and <a href="https://konghq.com/">Kong</a>, a popular API management platform.
-</p>
-<P>
-With Mohamed Aboullaite's blog post, you will learn how to <a href="https://aboullaite.me/secure-kibana-keycloak/">secure your Kibana dashboards using Keycloak</a>.
-</p>
-<p>
-Finally in <a href=https://beyondthekube.com/identity-management-for-on-prem-clusters/?utm_sq=g0u3m590zf">this three-part article</a>, the process of installing Keycloak on Kubernetes will become very clear.
-</p>
-
-
-<h2>News from the project</h2>
-<p>
-Keycloak 5.0.0 has been <a href="2019/03/keycloak-500-released.html">released</a> and 6.0.0 is around the corner.
-</p>
-<p>
-From now on, new larger Keycloak's features will be openly discussed. For each new feature, a design document will be created and pushed to our Github repository as a simple MarkDown file. This strategy makes it easy for everyone to comment as well as contribute to the designs by opening Github issues and providing pull requests.
-We have already three documents open for discussion:
-<ul>
-    <li><a href="https://github.com/keycloak/keycloak-community/blob/master/design/web-authn-two-factor.md">W3C Web Authentication - Two-Factor</a></li>
-    <li><a href="https://github.com/keycloak/keycloak-community/blob/master/design/application-initiated-actions.md">Application-Initiated Actions</a></li>
-    <li><a href="https://github.com/keycloak/keycloak-community/blob/master/design/observerability.md">Observerability</a></li>
-</ul>
-
-
-<h2>News from the Identity Management World</h2>
-<p>
-The big announcement, two weeks ago, was that <a href="https://www.yubico.com/webauthn/">WebAuthn<a/> became an official W3C Standard. This event is a milestone in the world of authentication and Identity Management. The goal of WebAuthn, according to <a href="https://en.wikipedia.org/wiki/WebAuthn">Wikipedia</a> is to: <i> standardize an interface for public-key authentication of users to web-based applications and services.</i>
-The Keycloak community is naturally really interested in this new standard. A design document is <a href="https://github.com/keycloak/keycloak-community/blob/master/design/web-authn-two-factor.md">available</a> and the community has even started to work on a <a href="https://github.com/webauthn4j/keycloak-webauthn-authenticator">prototype</a>.
-</p>
-
-
-<h2>Conferences / Webinars</h2>
-<p>
-In March, the Javaland conference was held in Germany. The conference had two talks about Keycloak. Sébastien blanc gave a talk about <a href="https://docs.google.com/presentation/d/e/2PACX-1vSp6t8vo1LsWBVDmFmFVC43qtwSQK3_UrVfFIQcTpaEmGJohHbwsKj9UYUEZdogRMXWMMJJSskWRHyZ/pub?start=false&loop=false&delayms=3000">Securing your Microservices with Keycloak</a>. A Github repository contains the <a href="https://github.com/sebastienblanc/quarkus-quickstart">demo</a>. Thomas Darimont also gave an <a href="https://www.javaland.eu/formes/pubfiles/11145218/2019-nn-thomas_darimont-sichere_spring-anwendungen_mit_keycloak-praesentation.pdf">introductory talk</a> in German about Keycloak.
-<p>
-<p>
-In April, at Devoxx France, Guillaume Gillon will talk in French about how to combine <a href="https://cfp.devoxx.fr/2019/talk/BIP-1027/L'open-source_a_la_rescousse_de_mes_APIS:_comment_les_securiser_grace_a_Gravitee.io_et_Keycloak">Keycloak and Gravitee.io</a>.
-</p>
-
-
-<h2>Contributing to Keycloak</h2>
-
-<p>We always welcome contributions to Keycloak. If you would like to contribute and have a great idea, tell us about it
-on the developer mailing list. If you are unsure about what to work on, let us know and we can help!</p>
-
-<p>As a first time contributor, you may have a simpler idea to start, such as contributing a bug fix. This type of contribution will allow you to get to know the code base, the test suite, and the mechanics of creating a pull request. You can find a list of <a href="https://issues.jboss.org/issues/?jql=project%20%3D%20Keycloak%20AND%20issuetype%20%3D%20bug%20AND%20fixVersion%20%3D%20%22Awaiting%20Volunteers%22%20">open bugs here</a></p>.
-
-<p>We also have a list of <a href="https://issues.jboss.org/issues/?jql=project%20%3D%20Keycloak%20AND%20fixVersion%20%3D%20%22Awaiting%20Volunteers%22%20">open issues</a> that
-are awaiting contributions. Not all issues are properly reviewed, so we recommend that you start by sending an email to the developer mailing list before you begin.</p>
-
-<p>
-For each newsletter, we will also highlight a few features for which we would especially like contributions. These features include:
-
-<ul>
-<li><a href="https://issues.jboss.org/browse/KEYCLOAK-4593">Support for large number of realms</a> - Keycloak is not designed to handle large amount of realms. When over 50 realms exist, you start to experience issues.</li>
-<li><a href="https://issues.jboss.org/browse/KEYCLOAK-6073">Support different URLs for front and back channel requests in adapters</a> - When adapters are located alongside Keycloak, it's not always recommended to use the public URL of Keycloak; this issue concerns allowing adapters to use one URL for back-channel requests and a different URL for redirects.</li>
-<li><a href="https://issues.jboss.org/browse/KEYCLOAK-2939">OpenID Connect Front-Channel Logout</a> - Add support for OpenID Connect Front-Channel logout specification to Keycloak.</li>
-<li><a href="https://issues.jboss.org/browse/KEYCLOAK-2537">SCIM 2</a> - Add support for the SCIM 2 specification to Keycloak, which provides a standards-based interface for user management.</li>
-</ul>
-</p>
-                </div>
-
-
-
-
-        <h3>For older entries go <a href="blog-archive.html">here</a>.</h3>
+        <h3>For older entries go <a href="https://www.keycloak.org/blog-archive.html">here</a>.</h3>
     </div>
 </div>
 		</div>

@@ -759,7 +759,8 @@ span.image img {
 <li><a href="index.html#_policy_js">5.3. JavaScript-Based Policy</a>
 <ul class="sectlevel3">
 <li><a href="index.html#configuration-3">5.3.1. Configuration</a></li>
-<li><a href="index.html#examples">5.3.2. Examples</a></li>
+<li><a href="index.html#creating-a-js-policy-from-a-deployed-jar-file">5.3.2. Creating a JS Policy from a Deployed JAR File</a></li>
+<li><a href="index.html#examples">5.3.3. Examples</a></li>
 </ul>
 </li>
 <li><a href="index.html#_policy_drools">5.4. Rule-Based Policy</a>
@@ -1371,7 +1372,7 @@ structure represents the resources and/or scopes being requested by a client, th
 </div>
 </div>
 <div class="paragraph">
-<p>Before you can use this tutorial, you need to complete the installation of Keycloak and create the initial admin user as shown in the <a href="../../6.0/getting_started/index.html">Getting Started Guide</a> tutorial.
+<p>Before you can use this tutorial, you need to complete the installation of Keycloak and create the initial admin user as shown in the <a href="../../7.0/getting_started/index.html">Getting Started Guide</a> tutorial.
 There is one caveat to this. You have to run a separate WildFly instance on the same machine as Keycloak Server. This separate instance will run your Java Servlet application. Because of this you will have to run the Keycloak under a different port so that there are no port conflicts when running on the same machine. Use the <code>jboss.socket.binding.port-offset</code> system property on the command line. The value of this property is a number that will be added to the base value of every port opened by Keycloak Server.</p>
 </div>
 <div class="paragraph">
@@ -1390,7 +1391,7 @@ There is one caveat to this. You have to run a separate WildFly instance on the 
 </div>
 </div>
 <div class="paragraph">
-<p>For more details about how to install and configure a WildFly, please follow the steps on the <a href="../../6.0/securing_apps/index.html">Securing Applications and Services Guide</a> tutorial.</p>
+<p>For more details about how to install and configure a WildFly, please follow the steps on the <a href="../../7.0/securing_apps/index.html">Securing Applications and Services Guide</a> tutorial.</p>
 </div>
 <div class="paragraph">
 <p>After installing and booting both servers you should be able to access Keycloak Admin Console at <a href="http://localhost:8180/auth/admin/" class="bare">http://localhost:8180/auth/admin/</a> and also the WildFly instance at
@@ -1940,6 +1941,12 @@ table provides a brief description of the available authorization quickstarts:</
 </div>
 </li>
 <li>
+<p><strong>Decision Strategy</strong></p>
+<div class="paragraph">
+<p>This configurations changes how the policy evaluation engine decides whether or not a resource or scope should be granted based on the outcome from all evaluated permissions. <code>Affirmative</code> means that at least one permission must evaluate to a positive decision in order grant access to a resource and its scopes. <code>Unanimous</code> means that all permissions must evaluate to a positive decision in order for the final decision to be also positive. As an example, if two permissions for a same resource or scope are in conflict (one of them is granting access and the other is denying access), the permission to the resource or scope will be granted if the choosen strategy is <code>Affirmative</code>. Otherwise, a single deny from any permission will also deny access to the resource or scope.</p>
+</div>
+</li>
+<li>
 <p><strong>Remote Resource Management</strong></p>
 <div class="paragraph">
 <p>Specifies whether resources can be managed remotely by the resource server. If false, resources can be managed only from the administration console.</p>
@@ -2470,6 +2477,20 @@ supported by Keycloak, and provides flexibility to write any policy based on the
 <div class="paragraph">
 <p>To create a new JavaScript-based policy, select <strong>JavaScript</strong> in the dropdown list in the upper right corner of the policy listing.</p>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+By default, JavaScript Policies can not be uploaded to the server. You should prefer deploying your JS Policies directly to
+the server as described in <a href="../../7.0/server_development/index.html#_script_providers">JavaScript Providers</a>. If you still want to use the
+Keycloak Administration Console to manage your JS policies you should enable the <code>Upload Scripts</code> feature.
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <div class="title">Add JavaScript Policy</div>
 <p><span class="image"><img src="keycloak-images/policy/create-js.png" alt="Add JavaScript Policy"></span></p>
@@ -2507,7 +2528,17 @@ can identify them more easily.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="examples"><a class="anchor" href="index.html#examples"></a>5.3.2. Examples</h4>
+<h4 id="creating-a-js-policy-from-a-deployed-jar-file"><a class="anchor" href="index.html#creating-a-js-policy-from-a-deployed-jar-file"></a>5.3.2. Creating a JS Policy from a Deployed JAR File</h4>
+<div class="paragraph">
+<p>Keycloak allows you to deploy a JAR file in order to deploy scripts to the server. Please, take a look at <a href="../../7.0/server_development/index.html#_script_providers">JavaScript Providers</a>
+for more details.</p>
+</div>
+<div class="paragraph">
+<p>Once you have your scripts deployed, you should be able to select the scripts you deployed from the list of available policy providers.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="examples"><a class="anchor" href="index.html#examples"></a>5.3.3. Examples</h4>
 <div class="sect4">
 <h5 id="checking-for-attributes-from-the-evaluation-context"><a class="anchor" href="index.html#checking-for-attributes-from-the-evaluation-context"></a>Checking for attributes from the evaluation context</h5>
 <div class="paragraph">
@@ -2705,14 +2736,14 @@ When writing your own rules, keep in mind that the <strong>$evaluation</strong> 
 <div class="paragraph">
 <p>To enable start the server with <code>-Dkeycloak.profile=preview</code>
 or <code>-Dkeycloak.profile.feature.authz_drools_policy=enabled</code>
-. For more details see <a href="../../6.0/server_installation/index.html#profiles">Profiles</a>.</p>
+. For more details see <a href="../../7.0/server_installation/index.html#profiles">Profiles</a>.</p>
 </div>
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>With this type of policy you can define conditions for your permissions using <a href="http://www.drools.org">Drools</a>, which is a rule evaluation environment. It is one of the <em>Rule-Based</em> policy types
+<p>With this type of policy you can define conditions for your permissions using <a href="https://www.drools.org/">Drools</a>, which is a rule evaluation environment. It is one of the <em>Rule-Based</em> policy types
 supported by Keycloak, and provides flexibility to write any policy based on the <a href="index.html#_policy_evaluation_api">Evaluation API</a>.</p>
 </div>
 <div class="paragraph">
@@ -3263,7 +3294,7 @@ is the default behavior, the policy result will be kept as it is.</p>
 <p>Policies determine this by invoking the <code>grant()</code> or <code>deny()</code> methods on an <code>Evaluation</code> instance. By default, the state of the <code>Evaluation</code> instance is denied, which means that your policies must explicitly invoke the <code>grant()</code> method to indicate to the policy evaluation engine that permission should be granted.</p>
 </div>
 <div class="paragraph">
-<p>For more information about the Evaluation API see the <a href="../../6.0/api_documentation/index.html">JavaDocs</a>.</p>
+<p>For more information about the Evaluation API see the <a href="../../7.0/api_documentation/index.html">JavaDocs</a>.</p>
 </div>
 <div class="sect3">
 <h4 id="the-evaluation-context"><a class="anchor" href="index.html#the-evaluation-context"></a>5.10.1. The Evaluation Context</h4>
@@ -3791,7 +3822,7 @@ granted by the server.</p>
 <p><strong>claim_token</strong></p>
 <div class="paragraph">
 <p>This parameter is <strong>optional</strong>. A string representing additional claims that should be considered by the server when evaluating
-permissions for the resource(s) and scope(s) being requested. This parameter allow clients to push claims to Keycloak. For more details about all supported token formats see <code>claim_token_format</code> parameter.</p>
+permissions for the resource(s) and scope(s) being requested. This parameter allows clients to push claims to Keycloak. For more details about all supported token formats see <code>claim_token_format</code> parameter.</p>
 </div>
 </li>
 <li>
@@ -3828,7 +3859,7 @@ in case the <code>permission</code> parameter is defined. It serves as a hint to
 <li>
 <p><strong>response_include_resource_name</strong></p>
 <div class="paragraph">
-<p>This parameter is <strong>optional</strong>. A boolean value indicating to the server whether resource names should be included in the RPT&#8217;s permissions. if false, only the resource
+<p>This parameter is <strong>optional</strong>. A boolean value indicating to the server whether resource names should be included in the RPT&#8217;s permissions. If false, only the resource
 identifier is included.</p>
 </div>
 </li>
@@ -3850,7 +3881,7 @@ This parameter only have effect if used together with the <code>ticket</code> pa
 <p><strong>response_mode</strong></p>
 <div class="paragraph">
 <p>This parameter is <strong>optional</strong>. A string value indicating how the server should respond to authorization requests. This parameter is specially useful when
-you are mainly interested in either the overall decision or the permissions granted by the server, instead of an standard OAuth2 response. Possible values are:</p>
+you are mainly interested in either the overall decision or the permissions granted by the server, instead of a standard OAuth2 response. Possible values are:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -3936,7 +3967,7 @@ the resource server as part of the authorization process:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>If $Keycloak assessment process results in issuance of permissions, it issues the RPT with which it has associated
+<p>If Keycloak assessment process results in issuance of permissions, it issues the RPT with which it has associated
 the permissions:</p>
 </div>
 <div class="listingblock">
@@ -4183,7 +4214,7 @@ to obtain the location of the token endpoint and send an authorization request.<
 </div>
 </div>
 <div class="paragraph">
-<p>If $Keycloak assessment process results in issuance of permissions, it issues the RPT with which it has associated
+<p>If Keycloak assessment process results in issuance of permissions, it issues the RPT with which it has associated
 the permissions:</p>
 </div>
 <div class="listingblock">
@@ -4318,7 +4349,7 @@ resource owner.</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>When the user choose to detail own of his resources by clicking on any resource in the "My resources" listing, he is redirect to a
+<p>When the user choose to detail own of his resources by clicking on any resource in the "My resources" listing, he is redirected to a
 page as follows:</p>
 </div>
 <div class="paragraph">
@@ -4330,16 +4361,16 @@ page as follows:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Manage <strong>People with access to the resource</strong></p>
+<p>Manage <strong>People with access to this resource</strong></p>
 <div class="paragraph">
-<p>This section contains a list of people with access to the resource. Users are allowed to revoke access by clicking
+<p>This section contains a list of people with access to this resource. Users are allowed to revoke access by clicking
 on the <code>Revoke</code> button or by removing a specific <code>Permission</code>.</p>
 </div>
 </li>
 <li>
 <p>Share the resource with others</p>
 <div class="paragraph">
-<p>By typing the username or e-mail of another user, the user is able to share the resource and select the permissions he want to grant access.</p>
+<p>By typing the username or e-mail of another user, the user is able to share the resource and select the permissions he wants to grant access.</p>
 </div>
 </li>
 </ul>
@@ -4939,6 +4970,25 @@ any user with a role <code>people-manager</code> should be granted with the <cod
 <div class="paragraph">
 <p>Or even using a custom policy using JavaScript:</p>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Upload Scripts is <strong>Deprecated</strong> and will be removed in future releases. This feature is disabled by default.</p>
+</div>
+<div class="paragraph">
+<p>To enable start the server with
+<code>-Dkeycloak.profile.feature.upload_scripts=enabled</code>
+. For more details see <a href="../../7.0/server_installation/index.html#profiles">Profiles</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="bash">curl -X POST \
@@ -5311,7 +5361,7 @@ If you are using Java, you can access the Keycloak Authorization Services using 
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="java"><span class="comment">// create a new instance based on the configuration defined in keycloak-authz.json</span>
+<pre class="CodeRay highlight"><code data-lang="java"><span class="comment">// create a new instance based on the configuration defined in keycloak.json</span>
 AuthzClient authzClient = AuthzClient.create();
 
 <span class="comment">// create an authorization request</span>
@@ -5332,7 +5382,7 @@ AuthorizationResponse response = authzClient.authorization(<span class="string">
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="java"><span class="comment">// create a new instance based on the configuration defined in keycloak-authz.json</span>
+<pre class="CodeRay highlight"><code data-lang="java"><span class="comment">// create a new instance based on the configuration defined in keycloak.json</span>
 AuthzClient authzClient = AuthzClient.create();
 
 <span class="comment">// create an authorization request</span>
@@ -5356,7 +5406,7 @@ AuthorizationResponse response = authzClient.authorization(<span class="string">
 <h4 id="creating-a-resource-using-the-protection-api"><a class="anchor" href="index.html#creating-a-resource-using-the-protection-api"></a>8.6.5. Creating a Resource Using the Protection API</h4>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="java"><span class="comment">// create a new instance based on the configuration defined in keycloak-authz.json</span>
+<pre class="CodeRay highlight"><code data-lang="java"><span class="comment">// create a new instance based on the configuration defined in keycloak.json</span>
 AuthzClient authzClient = AuthzClient.create();
 
 <span class="comment">// create a new resource representation with the information we want</span>
@@ -5389,7 +5439,7 @@ ResourceRepresentation resource = resourceClient.findById(resourceId);
 <h4 id="introspecting-an-rpt"><a class="anchor" href="index.html#introspecting-an-rpt"></a>8.6.6. Introspecting an RPT</h4>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="java"><span class="comment">// create a new instance based on the configuration defined in keycloak-authz.json</span>
+<pre class="CodeRay highlight"><code data-lang="java"><span class="comment">// create a new instance based on the configuration defined in keycloak.json</span>
 AuthzClient authzClient = AuthzClient.create();
 
 <span class="comment">// send the authorization request to the server in order to</span>
@@ -6149,25 +6199,25 @@ the resources and scopes your client wants to access.</p>
 <div class="listingblock">
 <div class="title">Example about how to obtain an RPT with permissions for all resources and scopes the user can access</div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="json"><span class="error">a</span><span class="error">u</span><span class="error">t</span><span class="error">h</span><span class="error">o</span><span class="error">r</span><span class="error">i</span><span class="error">z</span><span class="error">a</span><span class="error">t</span><span class="error">i</span><span class="error">o</span><span class="error">n</span><span class="error">.</span><span class="error">e</span><span class="error">n</span><span class="error">t</span><span class="error">i</span><span class="error">t</span><span class="error">l</span><span class="error">e</span><span class="error">m</span><span class="error">e</span><span class="error">n</span><span class="error">t</span><span class="error">(</span><span class="error">'</span><span class="error">m</span><span class="error">y</span><span class="error">-</span><span class="error">r</span><span class="error">e</span><span class="error">s</span><span class="error">o</span><span class="error">u</span><span class="error">r</span><span class="error">c</span><span class="error">e</span><span class="error">-</span><span class="error">s</span><span class="error">e</span><span class="error">r</span><span class="error">v</span><span class="error">e</span><span class="error">r</span><span class="error">-</span><span class="error">i</span><span class="error">d</span><span class="error">'</span><span class="error">)</span><span class="error">.</span><span class="error">t</span><span class="error">h</span><span class="error">e</span><span class="error">n</span><span class="error">(</span><span class="error">f</span><span class="error">u</span><span class="error">n</span><span class="error">c</span><span class="error">t</span><span class="error">i</span><span class="error">o</span><span class="error">n</span> <span class="error">(</span><span class="error">r</span><span class="error">p</span><span class="error">t</span><span class="error">)</span> {
-    <span class="error">/</span><span class="error">/</span> <span class="error">o</span><span class="error">n</span><span class="error">G</span><span class="error">r</span><span class="error">a</span><span class="error">n</span><span class="error">t</span> <span class="error">c</span><span class="error">a</span><span class="error">l</span><span class="error">l</span><span class="error">b</span><span class="error">a</span><span class="error">c</span><span class="error">k</span> <span class="error">f</span><span class="error">u</span><span class="error">n</span><span class="error">c</span><span class="error">t</span><span class="error">i</span><span class="error">o</span><span class="error">n</span><span class="error">.</span>
-    <span class="error">/</span><span class="error">/</span> <span class="error">I</span><span class="error">f</span> <span class="error">a</span><span class="error">u</span><span class="error">t</span><span class="error">h</span><span class="error">o</span><span class="error">r</span><span class="error">i</span><span class="error">z</span><span class="error">a</span><span class="error">t</span><span class="error">i</span><span class="error">o</span><span class="error">n</span> <span class="error">w</span><span class="error">a</span><span class="error">s</span> <span class="error">s</span><span class="error">u</span><span class="error">c</span><span class="error">c</span><span class="error">e</span><span class="error">s</span><span class="error">s</span><span class="error">f</span><span class="error">u</span><span class="error">l</span> <span class="error">y</span><span class="error">o</span><span class="error">u</span><span class="error">'</span><span class="error">l</span><span class="error">l</span> <span class="error">r</span><span class="error">e</span><span class="error">c</span><span class="error">e</span><span class="error">i</span><span class="error">v</span><span class="error">e</span> <span class="error">a</span><span class="error">n</span> <span class="error">R</span><span class="error">P</span><span class="error">T</span>
-    <span class="error">/</span><span class="error">/</span> <span class="error">w</span><span class="error">i</span><span class="error">t</span><span class="error">h</span> <span class="error">t</span><span class="error">h</span><span class="error">e</span> <span class="error">n</span><span class="error">e</span><span class="error">c</span><span class="error">e</span><span class="error">s</span><span class="error">s</span><span class="error">a</span><span class="error">r</span><span class="error">y</span> <span class="error">p</span><span class="error">e</span><span class="error">r</span><span class="error">m</span><span class="error">i</span><span class="error">s</span><span class="error">s</span><span class="error">i</span><span class="error">o</span><span class="error">n</span><span class="error">s</span> <span class="error">t</span><span class="error">o</span> <span class="error">a</span><span class="error">c</span><span class="error">c</span><span class="error">e</span><span class="error">s</span><span class="error">s</span> <span class="error">t</span><span class="error">h</span><span class="error">e</span> <span class="error">r</span><span class="error">e</span><span class="error">s</span><span class="error">o</span><span class="error">u</span><span class="error">r</span><span class="error">c</span><span class="error">e</span> <span class="error">s</span><span class="error">e</span><span class="error">r</span><span class="error">v</span><span class="error">e</span><span class="error">r</span>
-}<span class="error">)</span><span class="error">;</span></code></pre>
+<pre class="CodeRay highlight"><code data-lang="javascript">authorization.entitlement(<span class="string"><span class="delimiter">'</span><span class="content">my-resource-server-id</span><span class="delimiter">'</span></span>).then(<span class="keyword">function</span> (rpt) {
+    <span class="comment">// onGrant callback function.</span>
+    <span class="comment">// If authorization was successful you'll receive an RPT</span>
+    <span class="comment">// with the necessary permissions to access the resource server</span>
+});</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="title">Example about how to obtain an RPT with permissions for specific resources and scopes</div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="json"><span class="error">a</span><span class="error">u</span><span class="error">t</span><span class="error">h</span><span class="error">o</span><span class="error">r</span><span class="error">i</span><span class="error">z</span><span class="error">a</span><span class="error">t</span><span class="error">i</span><span class="error">o</span><span class="error">n</span><span class="error">.</span><span class="error">e</span><span class="error">n</span><span class="error">t</span><span class="error">i</span><span class="error">t</span><span class="error">l</span><span class="error">e</span><span class="error">m</span><span class="error">e</span><span class="error">n</span><span class="error">t</span><span class="error">(</span><span class="error">'</span><span class="error">m</span><span class="error">y</span><span class="error">-</span><span class="error">r</span><span class="error">e</span><span class="error">s</span><span class="error">o</span><span class="error">u</span><span class="error">r</span><span class="error">c</span><span class="error">e</span><span class="error">-</span><span class="error">s</span><span class="error">e</span><span class="error">r</span><span class="error">v</span><span class="error">e</span><span class="error">r</span><span class="error">'</span>, {
+<pre class="CodeRay highlight"><code data-lang="javascript">authorization.entitlement(<span class="string"><span class="delimiter">'</span><span class="content">my-resource-server</span><span class="delimiter">'</span></span>, {
     <span class="key"><span class="delimiter">&quot;</span><span class="content">permissions</span><span class="delimiter">&quot;</span></span>: [
         {
             <span class="key"><span class="delimiter">&quot;</span><span class="content">id</span><span class="delimiter">&quot;</span></span> : <span class="string"><span class="delimiter">&quot;</span><span class="content">Some Resource</span><span class="delimiter">&quot;</span></span>
         }
     ]
-}<span class="error">)</span><span class="error">.</span><span class="error">t</span><span class="error">h</span><span class="error">e</span><span class="error">n</span><span class="error">(</span><span class="error">f</span><span class="error">u</span><span class="error">n</span><span class="error">c</span><span class="error">t</span><span class="error">i</span><span class="error">o</span><span class="error">n</span> <span class="error">(</span><span class="error">r</span><span class="error">p</span><span class="error">t</span><span class="error">)</span> {
-    <span class="error">/</span><span class="error">/</span> <span class="error">o</span><span class="error">n</span><span class="error">G</span><span class="error">r</span><span class="error">a</span><span class="error">n</span><span class="error">t</span>
-}<span class="error">)</span><span class="error">;</span></code></pre>
+}).then(<span class="keyword">function</span> (rpt) {
+    <span class="comment">// onGrant</span>
+});</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -6304,7 +6354,7 @@ It is strongly recommended that you enable TLS/HTTPS when accessing the Keycloak
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-04-24 08:49:42 UTC
+Last updated 2019-10-16 12:19:06 UTC
 </div>
 </div>
 <ul id="globalnav">

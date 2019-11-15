@@ -672,6 +672,8 @@ span.image img {
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
+<li><a href="index.html#keycloak-7-0-1-final">Keycloak 7.0.1.Final</a></li>
+<li><a href="index.html#keycloak-7-0-0">Keycloak 7.0.0</a></li>
 <li><a href="index.html#keycloak-6-0-0">Keycloak 6.0.0</a></li>
 <li><a href="index.html#keycloak-5-0-0">Keycloak 5.0.0</a></li>
 <li><a href="index.html#keycloak-4-8-0-final">Keycloak 4.8.0.Final</a></li>
@@ -687,6 +689,87 @@ span.image img {
 </div>
 </div>
 <div id="content">
+<div class="sect1">
+<h2 id="keycloak-7-0-1-final"><a class="anchor" href="index.html#keycloak-7-0-1-final"></a>Keycloak 7.0.1.Final</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="deploying-scripts-to-the-server"><a class="anchor" href="index.html#deploying-scripts-to-the-server"></a>Deploying Scripts to the Server</h3>
+<div class="paragraph">
+<p>Until now, administrators were allowed to upload scripts to the server through the Keycloak Administration Console as well as
+through the RESTful Admin API.</p>
+</div>
+<div class="paragraph">
+<p>For now on, this capability is <strong>disabled</strong> by default and users should prefer to deploy scripts directly to the server. For more details,
+please take a look at <a href="../../7.0/server_development/index.html#_script_providers">JavaScript Providers</a>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="keycloak-7-0-0"><a class="anchor" href="index.html#keycloak-7-0-0"></a>Keycloak 7.0.0</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="highlights"><a class="anchor" href="index.html#highlights"></a>Highlights</h3>
+<div class="sect3">
+<h4 id="wildfly-17-upgrade"><a class="anchor" href="index.html#wildfly-17-upgrade"></a>WildFly 17 Upgrade</h4>
+<div class="paragraph">
+<p>Keycloak server was upgraded to use WildFly 17 under the covers.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="tomcat-9-adapter-support"><a class="anchor" href="index.html#tomcat-9-adapter-support"></a>Tomcat 9 adapter support</h4>
+<div class="paragraph">
+<p>Java adapter for Apache Tomcat 8 and Apache Tomcat 9 was unified and now it serves for both of them.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="new-account-console"><a class="anchor" href="index.html#new-account-console"></a>New Account Console</h4>
+<div class="paragraph">
+<p>A lot of work has been done on the new Account Console and Account REST API. It&#8217;s not quite ready yet, but it&#8217;s getting
+there and hopefully will be fully done for Keycloak 8.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="signed-and-encrypted-id-token-support"><a class="anchor" href="index.html#signed-and-encrypted-id-token-support"></a>Signed and Encrypted ID Token Support</h4>
+<div class="paragraph">
+<p>Keycloak can support the signed and encrypted ID token according to the Json Web Encryption (JWE) specification. Thanks to <a href="https://github.com/tnorimat">tnorimat</a>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="testing-and-release-automation"><a class="anchor" href="index.html#testing-and-release-automation"></a>Testing and release automation</h4>
+<div class="paragraph">
+<p>The Keycloak team has spent a significant amount of time on automation around testing and releases both for Keycloak and
+Red Hat Single Sign-On.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="other-improvements"><a class="anchor" href="index.html#other-improvements"></a>Other improvements</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>PKCE support added to JavaScript adapter. Thanks to <a href="https://github.com/thomasdarimont">thomasdarimont</a></p>
+</li>
+<li>
+<p>Oracle database support added to Keycloak container image. Thanks to <a href="https://github.com/nerdstep">nerdstep</a></p>
+</li>
+<li>
+<p>Clock Skew support added to SAML adapter. Thanks to <a href="https://github.com/steevebtib">steevebtib</a></p>
+</li>
+<li>
+<p>TypeScript support for Node.js adapter. Thanks to <a href="https://github.com/evanshortiss">evanshortiss</a></p>
+</li>
+<li>
+<p>Gatekeeper now allows to provide unencrypted token in header, while encrypting in cookie. There was also a bug on Gatekeeper when <code>Revoke Refresh Token</code> is enabled on the Keycloak server. The issue was fixed. Thanks to <a href="https://github.com/fredbi">fredbi</a></p>
+</li>
+<li>
+<p>New tab in the Admin console to display the list of users for client roles. Thanks to <a href="https://github.com/unly">unly</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
 <div class="sect1">
 <h2 id="keycloak-6-0-0"><a class="anchor" href="index.html#keycloak-6-0-0"></a>Keycloak 6.0.0</h2>
 <div class="sectionbody">
@@ -745,7 +828,7 @@ Service Accounts as OAuth clients as clients to Keycloak.</p>
 <h3 id="rules-drools-policy-marked-as-a-technology-preview-feature"><a class="anchor" href="index.html#rules-drools-policy-marked-as-a-technology-preview-feature"></a>Rules/Drools Policy Marked as a Technology Preview Feature</h3>
 <div class="paragraph">
 <p>Until now, Drools policies were enabled by default. But now, this policy type is only available as a technology preview feature and
-to use it you need to enable the preview profile or the corresponding feature. Take a look at the <a href="../../6.0/authorization_services/index.html">Authorization Services Guide</a> for more details.</p>
+to use it you need to enable the preview profile or the corresponding feature. Take a look at the <a href="../../7.0/authorization_services/index.html">Authorization Services Guide</a> for more details.</p>
 </div>
 </div>
 <div class="sect2">
@@ -866,7 +949,7 @@ of audience on the adapter side.</p>
 <div class="paragraph">
 <p>The Keycloak server was upgraded to use WildFly 13 under the covers. This means update of the underlying dependencies and also
 some changes in the configuration. We now also support WildFly 13 adapter and we upgraded the underlying JDG/Infinispan server version for
-the Cross-DC setup. See <a href="../../6.0/upgrading/index.html">Upgrading Guide</a> for more details.</p>
+the Cross-DC setup. See <a href="../../7.0/upgrading/index.html">Upgrading Guide</a> for more details.</p>
 </div>
 </div>
 <div class="sect2">
@@ -909,7 +992,7 @@ is fixed, which allows configuring a fixed hostname. The latter makes sure that 
 used and also allows internal applications to invoke Keycloak through an alternative URL.</p>
 </div>
 <div class="paragraph">
-<p>For more details refer to the threat mitigation section in the <a href="../../6.0/server_admin/index.html">Server Administration Guide</a>.</p>
+<p>For more details refer to the threat mitigation section in the <a href="../../7.0/server_admin/index.html">Server Administration Guide</a>.</p>
 </div>
 </div>
 <div class="sect2">
@@ -1235,7 +1318,7 @@ Thanks to <a href="https://github.com/looorent">loorent</a> for the contribution
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-04-17 08:35:02 UTC
+Last updated 2019-10-16 12:18:56 UTC
 </div>
 </div>
 <ul id="globalnav">

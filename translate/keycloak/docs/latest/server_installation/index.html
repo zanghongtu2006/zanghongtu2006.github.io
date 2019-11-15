@@ -861,7 +861,7 @@ for WildFly and its sub projects. Here is the link to the documentation:</p>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="http://docs.wildfly.org/16/Admin_Guide.html"><em>WildFly 16 Documentation</em></a></p>
+<p><a href="http://docs.wildfly.org/17/Admin_Guide.html"><em>WildFly 17 Documentation</em></a></p>
 </li>
 </ul>
 </div>
@@ -940,27 +940,27 @@ system property on startup to <code>file:/dev/urandom</code>.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>'keycloak-6.0.1.[zip|tar.gz]'</p>
+<p>'keycloak-7.0.1.[zip|tar.gz]'</p>
 </li>
 <li>
-<p>'keycloak-overlay-6.0.1.[zip|tar.gz]'</p>
+<p>'keycloak-overlay-7.0.1.[zip|tar.gz]'</p>
 </li>
 <li>
-<p>'keycloak-demo-6.0.1.[zip|tar.gz]'</p>
+<p>'keycloak-demo-7.0.1.[zip|tar.gz]'</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>The 'keycloak-6.0.1.[zip|tar.gz]' file is the server only distribution.  It contains nothing other than the scripts and binaries
+<p>The 'keycloak-7.0.1.[zip|tar.gz]' file is the server only distribution.  It contains nothing other than the scripts and binaries
 to run the Keycloak Server.  To unpack this file just run your operating system&#8217;s <code>unzip</code> or <code>gunzip</code> and <code>tar</code> utilities.</p>
 </div>
 <div class="paragraph">
-<p>The 'keycloak-overlay-6.0.1.[zip|tar.gz]' file is a WildFly add-on that allows you to install Keycloak Server on top of an existing
+<p>The 'keycloak-overlay-7.0.1.[zip|tar.gz]' file is a WildFly add-on that allows you to install Keycloak Server on top of an existing
 WildFly distribution.  We do not support users that want to run their applications and Keycloak on the same server instance.  To install the Keycloak Service Pack, just unzip it in the root directory
 of your WildFly distribution, open the bin directory in a shell and run <code>./jboss-cli.[sh|bat] --file=keycloak-install.cli</code>.</p>
 </div>
 <div class="paragraph">
-<p>The 'keycloak-demo-6.0.1.[zip|tar.gz]' contains the server binaries, all documentation and all examples.  It is preconfigured with both the
+<p>The 'keycloak-demo-7.0.1.[zip|tar.gz]' contains the server binaries, all documentation and all examples.  It is preconfigured with both the
 OIDC and SAML client application adapters and can deploy any of the distribution examples out of the box with no configuration.  This distribution is only
 recommended for those that want to test drive Keycloak.  We do not support users that run the demo distribution in production.</p>
 </div>
@@ -1002,7 +1002,7 @@ recommended for those that want to test drive Keycloak.  We do not support users
 </dd>
 <dt class="hdlist1"><em>providers/</em></dt>
 <dd>
-<p>If you are writing extensions to keycloak, you can put your extensions here.  See the <a href="../../6.0/server_development/index.html">Server Developer Guide</a> for more information on this.</p>
+<p>If you are writing extensions to keycloak, you can put your extensions here.  See the <a href="../../7.0/server_development/index.html">Server Developer Guide</a> for more information on this.</p>
 </dd>
 <dt class="hdlist1"><em>standalone/</em></dt>
 <dd>
@@ -1011,7 +1011,7 @@ recommended for those that want to test drive Keycloak.  We do not support users
 <dt class="hdlist1"><em>themes/</em></dt>
 <dd>
 <p>This directory contains all the html, style sheets, JavaScript files, and images used to display any UI screen displayed by the server.
-Here you can modify an existing theme or create your own.  See the <a href="../../6.0/server_development/index.html">Server Developer Guide</a> for more information on this.</p>
+Here you can modify an existing theme or create your own.  See the <a href="../../7.0/server_development/index.html">Server Developer Guide</a> for more information on this.</p>
 </dd>
 </dl>
 </div>
@@ -1041,7 +1041,7 @@ your server configurations?  Your choice of operating mode effects how you confi
 <td class="content">
 The Keycloak is built on top of the WildFly Application Server.  This guide will only
      go over the basics for deployment within a specific mode.  If you want specific information on this, a better place
-     to go would be the <a href="http://docs.wildfly.org/16/Admin_Guide.html"><em>WildFly 16 Documentation</em></a>.
+     to go would be the <a href="http://docs.wildfly.org/17/Admin_Guide.html"><em>WildFly 17 Documentation</em></a>.
 </td>
 </tr>
 </table>
@@ -1107,7 +1107,7 @@ is also used to configure non-infrastructure level things that are specific to K
 <td class="content">
 Any changes you make to this file while the server is running will not take effect and may even be overwritten
       by the server.  Instead use the command line scripting or the web console of WildFly.  See
-      the <a href="http://docs.wildfly.org/16/Admin_Guide.html"><em>WildFly 16 Documentation</em></a> for more information.
+      the <a href="http://docs.wildfly.org/17/Admin_Guide.html"><em>WildFly 17 Documentation</em></a> for more information.
 </td>
 </tr>
 </table>
@@ -1151,7 +1151,7 @@ deploy some type of load balancer in front of the cluster.  The <a href="index.h
 <td class="content">
 Any changes you make to this file while the server is running will not take effect and may even be overwritten
       by the server.  Instead use the command line scripting or the web console of WildFly.  See
-      the <a href="http://docs.wildfly.org/16/Admin_Guide.html"><em>WildFly 16 Documentation</em></a> for more information.
+      the <a href="http://docs.wildfly.org/17/Admin_Guide.html"><em>WildFly 17 Documentation</em></a> for more information.
 </td>
 </tr>
 </table>
@@ -1209,7 +1209,7 @@ This capability is built into the WildFly Application Server which Keycloak deri
 </td>
 <td class="content">
 The guide will go over the very basics of domain mode.  Detailed steps on how to set up domain mode in a cluster should be obtained from the
-       <a href="http://docs.wildfly.org/16/Admin_Guide.html"><em>WildFly 16 Documentation</em></a>.
+       <a href="http://docs.wildfly.org/17/Admin_Guide.html"><em>WildFly 17 Documentation</em></a>.
 </td>
 </tr>
 </table>
@@ -1271,7 +1271,7 @@ where the domain profile and server group for the Keycloak server are defined.</
 <td class="content">
 Any changes you make to this file while the domain controller is running will not take effect and may even be overwritten
       by the server.  Instead use the command line scripting or the web console of WildFly.  See
-      the <a href="http://docs.wildfly.org/16/Admin_Guide.html"><em>WildFly 16 Documentation</em></a> for more information.
+      the <a href="http://docs.wildfly.org/17/Admin_Guide.html"><em>WildFly 17 Documentation</em></a> for more information.
 </td>
 </tr>
 </table>
@@ -1581,6 +1581,18 @@ The add-user.sh does not add user to Keycloak server but to the underlying JBoss
 <a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_installation/topics/operating-mode/crossdc.adoc" target="_blank">Report an issue</a>
 </div>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Cross-Datacenter Replication Mode is Technology Preview and is not fully supported.
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>Cross-Datacenter Replication mode is for when you want to run Keycloak in a cluster across multiple data centers, most typically using data center sites that are in different geographic regions. When using this mode, each data center will have its own cluster of Keycloak servers.</p>
 </div>
@@ -1599,7 +1611,7 @@ The add-user.sh does not add user to Keycloak server but to the underlying JBoss
 <div class="ulist">
 <ul>
 <li>
-<p><a href="../../6.0/server_installation/index.html#_clustering">Clustering with Keycloak</a>
+<p><a href="../../7.0/server_installation/index.html#_clustering">Clustering with Keycloak</a>
 When setting up for Cross-Datacenter Replication, you will use more independent Keycloak clusters, so you must understand how a cluster works and the basic concepts and requirements such as load balancing, shared databases, and multicasting.</p>
 </li>
 <li>
@@ -1654,10 +1666,10 @@ In some cases, the data may not be visible on <code>site2</code> at all.</p>
 <div class="sect3">
 <h4 id="requestprocessing"><a class="anchor" href="index.html#requestprocessing"></a>3.4.3. Request processing</h4>
 <div class="paragraph">
-<p>An end user&#8217;s browser sends an HTTP request to the <a href="../../6.0/server_installation/index.html#_setting-up-a-load-balancer-or-proxy">front end load balancer</a>. This load balancer is usually HTTPD or WildFly with mod_cluster, NGINX, HA Proxy, or perhaps some other kind of software or hardware load balancer.</p>
+<p>An end user&#8217;s browser sends an HTTP request to the <a href="../../7.0/server_installation/index.html#_setting-up-a-load-balancer-or-proxy">front end load balancer</a>. This load balancer is usually HTTPD or WildFly with mod_cluster, NGINX, HA Proxy, or perhaps some other kind of software or hardware load balancer.</p>
 </div>
 <div class="paragraph">
-<p>The load balancer then forwards the HTTP requests it receives to the underlying Keycloak instances, which can be spread among multiple data centers. Load balancers typically offer support for <a href="../../6.0/server_installation/index.html#sticky-sessions">sticky sessions</a>, which means that the load balancer is able to always forward all HTTP requests from the same user to the same Keycloak instance in same data center.</p>
+<p>The load balancer then forwards the HTTP requests it receives to the underlying Keycloak instances, which can be spread among multiple data centers. Load balancers typically offer support for <a href="../../7.0/server_installation/index.html#sticky-sessions">sticky sessions</a>, which means that the load balancer is able to always forward all HTTP requests from the same user to the same Keycloak instance in same data center.</p>
 </div>
 <div class="paragraph">
 <p>HTTP requests that are sent from client applications to the load balancer are called <code>backchannel requests</code>.
@@ -1688,7 +1700,7 @@ It means that data need to be visible immediately on both sites and available to
 <div class="sect3">
 <h4 id="database"><a class="anchor" href="index.html#database"></a>3.4.5. Database</h4>
 <div class="paragraph">
-<p>Keycloak uses a relational database management system (RDBMS) to persist some metadata about realms, clients, users, and so on. See <a href="../../6.0/server_installation/index.html#_database">this chapter</a> of the server installation guide for more details. In a Cross-Datacenter Replication setup, we assume that either both data centers talk to the same database or that every data center has its own database node and both database nodes are synchronously replicated across the data centers. In both cases, it is required that when a Keycloak server on <code>site1</code> persists some data and commits the transaction, those data are immediately visible by subsequent DB transactions on <code>site2</code>.</p>
+<p>Keycloak uses a relational database management system (RDBMS) to persist some metadata about realms, clients, users, and so on. See <a href="../../7.0/server_installation/index.html#_database">this chapter</a> of the server installation guide for more details. In a Cross-Datacenter Replication setup, we assume that either both data centers talk to the same database or that every data center has its own database node and both database nodes are synchronously replicated across the data centers. In both cases, it is required that when a Keycloak server on <code>site1</code> persists some data and commits the transaction, those data are immediately visible by subsequent DB transactions on <code>site2</code>.</p>
 </div>
 <div class="paragraph">
 <p>Details of DB setup are out-of-scope for Keycloak, however many RDBMS vendors like MariaDB and Oracle offer replicated databases and synchronous replication. We test Keycloak with these vendors:</p>
@@ -1715,7 +1727,7 @@ It means that data need to be visible immediately on both sites and available to
 </div>
 <div class="paragraph">
 <div class="title">Action tokens</div>
-<p>We also have the concept of <a href="../../6.0/server_development/index.html#_action_token_spi">action tokens</a>, which are used typically for scenarios when the user needs to confirm an action asynchronously by email. For example, during the <code>forget password</code> flow the <code>actionTokens</code> Infinispan cache is used to track metadata about related action tokens, such as which action token was already used, so it can&#8217;t be reused second time. This usually needs to be replicated across data centers.</p>
+<p>We also have the concept of <a href="../../7.0/server_development/index.html#_action_token_spi">action tokens</a>, which are used typically for scenarios when the user needs to confirm an action asynchronously by email. For example, during the <code>forget password</code> flow the <code>actionTokens</code> Infinispan cache is used to track metadata about related action tokens, such as which action token was already used, so it can&#8217;t be reused second time. This usually needs to be replicated across data centers.</p>
 </div>
 <div class="paragraph">
 <div class="title">Caching and invalidation of persistent data</div>
@@ -1736,7 +1748,7 @@ sessions, which are valid for the length of a user&#8217;s browser session. The 
 <div class="paragraph">
 <div class="title">Brute force protection</div>
 <p>Finally the <code>loginFailures</code> cache is used to track data about failed logins, such as how many times the user <code>john</code>
-entered a bad password. The details are described <a href="../../6.0/server_admin/index.html#password-guess-brute-force-attacks">here</a>. It is up to the admin whether this cache should be replicated across data centers. To have an accurate count of login failures, the replication is needed. On the other hand, not replicating this data can save some performance. So if performance is more important than accurate counts of login failures, the replication can be avoided.</p>
+entered a bad password. The details are described <a href="../../7.0/server_admin/index.html#password-guess-brute-force-attacks">here</a>. It is up to the admin whether this cache should be replicated across data centers. To have an accurate count of login failures, the replication is needed. On the other hand, not replicating this data can save some performance. So if performance is more important than accurate counts of login failures, the replication can be avoided.</p>
 </div>
 <div class="paragraph">
 <p>For more detail about how caches can be configured see <a href="index.html#tuningcache">Tuning the JDG cache configuration</a>.</p>
@@ -1745,10 +1757,10 @@ entered a bad password. The details are described <a href="../../6.0/server_admi
 <div class="sect3">
 <h4 id="communication"><a class="anchor" href="index.html#communication"></a>3.4.7. Communication details</h4>
 <div class="paragraph">
-<p>Keycloak uses multiple, separate clusters of Infinispan caches. Every Keycloak node is in the cluster with the other Keycloak nodes in same data center, but not with the Keycloak nodes in different data centers. A Keycloak node does not communicate directly with the Keycloak nodes from different data centers. Keycloak nodes use external JDG (actually Infinispan servers) for communication across data centers. This is done using the <a href="http://infinispan.org/docs/8.2.x/user_guide/user_guide.html#using_hot_rod_server">Infinispan HotRod protocol</a>.</p>
+<p>Keycloak uses multiple, separate clusters of Infinispan caches. Every Keycloak node is in the cluster with the other Keycloak nodes in same data center, but not with the Keycloak nodes in different data centers. A Keycloak node does not communicate directly with the Keycloak nodes from different data centers. Keycloak nodes use external JDG (actually Infinispan servers) for communication across data centers. This is done using the <a href="https://infinispan.org/docs/8.2.x/user_guide/user_guide.html#using_hot_rod_server">Infinispan HotRod protocol</a>.</p>
 </div>
 <div class="paragraph">
-<p>The Infinispan caches on the Keycloak side must be configured with the <a href="http://infinispan.org/docs/8.2.x/user_guide/user_guide.html#remote_store">remoteStore</a> to ensure that data are saved to the remote cache. There is separate Infinispan cluster between JDG servers, so the data saved on JDG1 on <code>site1</code> are replicated to JDG2 on <code>site2</code> .</p>
+<p>The Infinispan caches on the Keycloak side must be configured with the <a href="https://infinispan.org/docs/8.2.x/user_guide/user_guide.html#remote_store">remoteStore</a> to ensure that data are saved to the remote cache. There is separate Infinispan cluster between JDG servers, so the data saved on JDG1 on <code>site1</code> are replicated to JDG2 on <code>site2</code> .</p>
 </div>
 <div class="paragraph">
 <p>Finally, the receiving JDG server notifies the Keycloak servers in its cluster through the Client Listeners, which are a feature of the HotRod protocol. Keycloak nodes on <code>site2</code> then update their Infinispan caches and the particular user session is also visible on Keycloak nodes on <code>site2</code>.</p>
@@ -1794,7 +1806,7 @@ They communicate with the Infinispan server <code>jdg1</code> using the HotRod p
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Download Infinispan 9.4.8 server and unzip to a directory you choose. This location will be referred in later steps as <code>JDG1_HOME</code> .</p>
+<p>Download Infinispan 9.4.14 server and unzip to a directory you choose. This location will be referred in later steps as <code>JDG1_HOME</code> .</p>
 </li>
 <li>
 <p>Change those things in the <code>JDG1_HOME/standalone/configuration/clustered.xml</code> in the configuration of JGroups subsystem:</p>
@@ -1918,7 +1930,7 @@ element. See <a href="index.html#troubleshooting">Troubleshooting</a> for more d
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-You should not see any issue if you use recommended Infinispan 9.4.8 server and this step can (and should) be ignored.
+You should not see any issue if you use recommended Infinispan 9.4.14 server and this step can (and should) be ignored.
 Issues related to authorization may exist just for some other versions of Infinispan server.
 </td>
 </tr>
@@ -2501,10 +2513,10 @@ More info about state transfer is available in the <a href="https://access.redha
 <p>After split-brain it is safe to manually clear caches in the Keycloak admin console. This is because there might be some data changed in the database on <code>site1</code> and because of the event, that the cache should be invalidated wasn&#8217;t transferred during split-brain to <code>site2</code>. Hence Keycloak nodes on <code>site2</code> may still have some stale data in their caches.</p>
 </div>
 <div class="paragraph">
-<p>To clear the caches, see <a href="../../6.0/server_admin/index.html#_clear-cache">Clearing Server Caches</a>.</p>
+<p>To clear the caches, see <a href="../../7.0/server_admin/index.html#_clear-cache">Clearing Server Caches</a>.</p>
 </div>
 <div class="paragraph">
-<p>When the network is back, it is sufficient to clear the cache just on one Keycloak node on any random site. The cache invalidation event will be sent to all the other Keycloak nodes in all sites. However, it needs to be done for all the caches (realms, users, keys). See <a href="../../6.0/server_admin/index.html#_clear-cache">Clearing Server Caches</a> for more information.</p>
+<p>When the network is back, it is sufficient to clear the cache just on one Keycloak node on any random site. The cache invalidation event will be sent to all the other Keycloak nodes in all sites. However, it needs to be done for all the caches (realms, users, keys). See <a href="../../7.0/server_admin/index.html#_clear-cache">Clearing Server Caches</a> for more information.</p>
 </div>
 </div>
 <div class="sect3">
@@ -2682,7 +2694,7 @@ Node name: node11, Site name: site1</code></pre>
 </li>
 <li>
 <p>Check that Keycloak servers are in cluster as expected, including that only the Keycloak servers from the same data center are in cluster with each other.
-This can be also checked in JConsole through the GMS view. See <a href="../../6.0/server_installation/index.html#troubleshooting">cluster troubleshooting</a> for additional details.</p>
+This can be also checked in JConsole through the GMS view. See <a href="../../7.0/server_installation/index.html#troubleshooting">cluster troubleshooting</a> for additional details.</p>
 </li>
 <li>
 <p>If there are exceptions during startup of Keycloak server like this:</p>
@@ -2717,7 +2729,7 @@ Caused by: org.infinispan.client.hotrod.exceptions.TransportException:: Could no
 <p>Enable DEBUG logging as described <a href="index.html#serversetup">Keycloak servers setup</a>. For example, if you log in and you think that the new session is not available on the second site, it&#8217;s good to check the Keycloak server logs and check that listeners were triggered as described in the <a href="index.html#serversetup">Keycloak servers setup</a>. If you do not know and want to ask on keycloak-user mailing list, it is helpful to send the log files from Keycloak servers on both datacenters in the email. Either add the log snippets to the mails or put the logs somewhere and reference them in the email.</p>
 </li>
 <li>
-<p>If you updated the entity, such as <code>user</code>, on Keycloak server on <code>site1</code> and you do not see that entity updated on the Keycloak server on <code>site2</code>, then the issue can be either in the replication of the synchronous database itself or that Keycloak caches are not properly invalidated. You may try to temporarily disable the Keycloak caches as described <a href="../../6.0/server_installation/index.html#disabling-caching">here</a> to nail down if the issue is at the database replication level. Also it may help to manually connect to the database and check if data are updated as expected. This is specific to every database, so you will need to consult the documentation for your database.</p>
+<p>If you updated the entity, such as <code>user</code>, on Keycloak server on <code>site1</code> and you do not see that entity updated on the Keycloak server on <code>site2</code>, then the issue can be either in the replication of the synchronous database itself or that Keycloak caches are not properly invalidated. You may try to temporarily disable the Keycloak caches as described <a href="../../7.0/server_installation/index.html#disabling-caching">here</a> to nail down if the issue is at the database replication level. Also it may help to manually connect to the database and check if data are updated as expected. This is specific to every database, so you will need to consult the documentation for your database.</p>
 </li>
 <li>
 <p>Sometimes you may see the exceptions related to locks like this in Infinispan server log:</p>
@@ -2993,7 +3005,7 @@ connect
 <div class="paragraph">
 <p>You may be thinking to yourself, "I didn&#8217;t enter in any username or password!".  If you run <code>jboss-cli</code> on the same machine
 as your running standalone server or domain controller and your account has appropriate file permissions, you do not have
-to setup or enter in an admin username and password.  See the <a href="http://docs.wildfly.org/16/Admin_Guide.html"><em>WildFly 16 Documentation</em></a>
+to setup or enter in an admin username and password.  See the <a href="http://docs.wildfly.org/17/Admin_Guide.html"><em>WildFly 17 Documentation</em></a>
 for more details on how to make things more secure if you are uncomfortable with that setup.</p>
 </div>
 </div>
@@ -3243,9 +3255,9 @@ supported. In addition there are some features that are enabled by default, but 
 <td class="tableblock halign-left valign-top"><p class="tableblock">Preview</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">script</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">scripts</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Write custom authenticators using JavaScript</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Preview</p></td>
 </tr>
 <tr>
@@ -3253,6 +3265,12 @@ supported. In addition there are some features that are enabled by default, but 
 <td class="tableblock halign-left valign-top"><p class="tableblock">Token Exchange Service</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Preview</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">upload_scripts</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Upload scripts through the Keycloak REST API</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Deprecated</p></td>
 </tr>
 </tbody>
 </table>
@@ -3347,8 +3365,8 @@ of Hibernate, but we will discuss how that is done if you run into that rare cir
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Datasource configuration is covered much more thoroughly in <a href="http://docs.wildfly.org/16/Admin_Guide.html#DataSource">the datasource configuration chapter</a>
-       in the <em>WildFly 16 Documentation</em>.
+Datasource configuration is covered much more thoroughly in <a href="http://docs.wildfly.org/17/Admin_Guide.html#DataSource">the datasource configuration chapter</a>
+       in the <em>WildFly 17 Documentation</em>.
 </td>
 </tr>
 </table>
@@ -3535,7 +3553,7 @@ scope of this guide.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-For more information about datasource features, see <a href="http://docs.wildfly.org/16/Admin_Guide.html#DataSource">the datasource configuration chapter</a> in the <em>WildFly 16 Documentation</em>.
+For more information about datasource features, see <a href="http://docs.wildfly.org/17/Admin_Guide.html#DataSource">the datasource configuration chapter</a> in the <em>WildFly 17 Documentation</em>.
 </td>
 </tr>
 </table>
@@ -3627,7 +3645,7 @@ Statistics are always reported to server log at specified interval (in seconds) 
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-These configuration switches and more are described in the <a href="http://docs.wildfly.org/16/Developer_Guide.html#hibernate-properties"><em>WildFly 16 Development Guide</em></a>.
+These configuration switches and more are described in the <a href="http://docs.wildfly.org/17/Developer_Guide.html#hibernate-properties"><em>WildFly 17 Development Guide</em></a>.
 </td>
 </tr>
 </table>
@@ -3817,7 +3835,7 @@ you boot up.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-There are many more options available when setting up <code>interface</code> definitions. For more information, see <a href="http://docs.wildfly.org/16/Admin_Guide.html#Interfaces_and_ports">the network interface</a> in the <em>WildFly 16 Documentation</em>.
+There are many more options available when setting up <code>interface</code> definitions. For more information, see <a href="http://docs.wildfly.org/17/Admin_Guide.html#Interfaces_and_ports">the network interface</a> in the <em>WildFly 17 Documentation</em>.
 </td>
 </tr>
 </table>
@@ -3904,7 +3922,7 @@ to the <code>server-group</code> definitions you can see what <code>socket-bindi
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-There are many more options available when setting up <code>socket-binding-group</code> definitions.  For more information, see <a href="http://docs.wildfly.org/16/Admin_Guide.html#Interfaces_and_ports">the socket binding group</a> in the <em>WildFly 16 Documentation</em>.
+There are many more options available when setting up <code>socket-binding-group</code> definitions.  For more information, see <a href="http://docs.wildfly.org/17/Admin_Guide.html#Interfaces_and_ports">the socket binding group</a> in the <em>WildFly 17 Documentation</em>.
 </td>
 </tr>
 </table>
@@ -3933,14 +3951,14 @@ Keycloak is not set up by default to handle SSL/HTTPS.
 </div>
 <div class="paragraph">
 <p>This default behavior is defined by the SSL/HTTPS mode of each Keycloak realm.  This is discussed in more detail in the
-<a href="../../6.0/server_admin/index.html">Server Administration Guide</a>, but let&#8217;s give some context and a brief overview of these modes.</p>
+<a href="../../7.0/server_admin/index.html">Server Administration Guide</a>, but let&#8217;s give some context and a brief overview of these modes.</p>
 </div>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">external requests</dt>
 <dd>
 <p>Keycloak can run out of the box without SSL so long as you stick to private IP addresses like <code>localhost</code>, <code>127.0.0.1</code>, <code>10.0.x.x</code>, <code>192.168.x.x</code>, and <code>172.16.x.x</code>.
-If you don???t have SSL/HTTPS configured on the server or you try to access Keycloak over HTTP from a non-private IP adress you will get an error.</p>
+If you don&#8217;t have SSL/HTTPS configured on the server or you try to access Keycloak over HTTP from a non-private IP adress you will get an error.</p>
 </dd>
 <dt class="hdlist1">none</dt>
 <dd>
@@ -4114,11 +4132,11 @@ $ /core-service=management/security-realm=UndertowRealm/server-identity=ssl:add(
 <p>If using domain mode, prefix the command with the profile that is being used with: <code>/profile=&lt;profile_name&gt;/</code>.</p>
 </div>
 <div class="paragraph">
-<p>The resulting element, <code>server name="default-server"</code>, which is a child element of <code>subsystem xmlns="urn:jboss:domain:undertow:8.0"</code>, should contain the following stanza:</p>
+<p>The resulting element, <code>server name="default-server"</code>, which is a child element of <code>subsystem xmlns="urn:jboss:domain:undertow:9.0"</code>, should contain the following stanza:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;subsystem</span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">urn:jboss:domain:undertow:8.0</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;subsystem</span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">urn:jboss:domain:undertow:9.0</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
    <span class="tag">&lt;buffer-cache</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">default</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
    <span class="tag">&lt;server</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">default-server</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
       <span class="tag">&lt;https-listener</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">https</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">socket-binding</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">https</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">security-realm</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">UndertowRealm</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
@@ -4184,7 +4202,7 @@ Not set by default.</p>
 <dt class="hdlist1">max-connection-idle-time-millis</dt>
 <dd>
 <p>Maximum time the connection might stay idle in the connection pool (900 seconds by default). Will start background cleaner thread of Apache HTTP client.
-Set to -<code>1</code> to disable this checking and the background thread.</p>
+Set to <code>-1</code> to disable this checking and the background thread.</p>
 </dd>
 <dt class="hdlist1">disable-cookies</dt>
 <dd>
@@ -4208,7 +4226,7 @@ This is <em>REQUIRED</em> if <code>client-keystore</code> is set.</p>
 </dd>
 <dt class="hdlist1">proxy-mappings</dt>
 <dd>
-<p>Dennotes proxy configurations for outgoing HTTP requests.
+<p>Denotes proxy configurations for outgoing HTTP requests.
 See the section on <a href="index.html#_proxymappings">Proxy Mappings for Outgoing HTTP Requests</a> for more details.</p>
 </dd>
 </dl>
@@ -4268,7 +4286,7 @@ Note that you need to properly escape the regex-pattern as shown below.</p>
 </div>
 <div class="paragraph">
 <p>The <code>jboss-cli</code> command results in the following subsystem configuration.
-Note that one needs to encode <code>"</code> characters with <code>&quot;</code>.</p>
+Note that one needs to encode <code>"</code> characters with <code>&amp;quot;</code>.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -4414,7 +4432,7 @@ to be aware of when booting up a host in the cluster.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-It is possible to cluster Keycloak without IP Multicast, but this topic is beyond the scope of this guide.  For more information, see <a href="http://docs.wildfly.org/16/High_Availability_Guide.html#JGroups_Subsystem">JGroups</a> chapter of the <em>WildFly 16 Documentation</em>.
+It is possible to cluster Keycloak without IP Multicast, but this topic is beyond the scope of this guide.  For more information, see <a href="http://docs.wildfly.org/17/High_Availability_Guide.html#JGroups_Subsystem">JGroups</a> chapter of the <em>WildFly 17 Documentation</em>.
 </td>
 </tr>
 </table>
@@ -4525,12 +4543,12 @@ any black or white listing of IP addresses.</p>
 If your proxy is forwarding requests via the HTTP protocol, then you need to configure Keycloak to pull the client&#8217;s
 IP address from the <code>X-Forwarded-For</code> header rather than from the network packet.
 To do this, open up the profile configuration file (<em>standalone.xml</em>, <em>standalone-ha.xml</em>, or <em>domain.xml</em> depending on your
-<a href="index.html#_operating-mode">operating mode</a>) and look for the <code>urn:jboss:domain:undertow:8.0</code> XML block.</p>
+<a href="index.html#_operating-mode">operating mode</a>) and look for the <code>urn:jboss:domain:undertow:9.0</code> XML block.</p>
 </div>
 <div class="listingblock">
 <div class="title"><code>X-Forwarded-For</code> HTTP Config</div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;subsystem</span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">urn:jboss:domain:undertow:8.0</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;subsystem</span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">urn:jboss:domain:undertow:9.0</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
    <span class="tag">&lt;buffer-cache</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">default</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
    <span class="tag">&lt;server</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">default-server</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
       <span class="tag">&lt;ajp-listener</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">ajp</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">socket-binding</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">ajp</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
@@ -4553,7 +4571,7 @@ pull this information from the AJP packets.</p>
 <div class="listingblock">
 <div class="title"><code>X-Forwarded-For</code> AJP Config</div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;subsystem</span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">urn:jboss:domain:undertow:8.0</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;subsystem</span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">urn:jboss:domain:undertow:9.0</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
      <span class="tag">&lt;buffer-cache</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">default</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
      <span class="tag">&lt;server</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">default-server</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
          <span class="tag">&lt;ajp-listener</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">ajp</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">socket-binding</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">ajp</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
@@ -4581,7 +4599,7 @@ pull this information from the AJP packets.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;subsystem</span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">urn:jboss:domain:undertow:8.0</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;subsystem</span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">urn:jboss:domain:undertow:9.0</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
     ...
     <span class="tag">&lt;http-listener</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">default</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">socket-binding</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">http</span><span class="delimiter">&quot;</span></span>
         <span class="attribute-name">proxy-address-forwarding</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">true</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">redirect-socket</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">proxy-https</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
@@ -4665,7 +4683,7 @@ file and go to the undertow configuration in the <code>load-balancer</code> prof
 <div class="listingblock">
 <div class="title">domain.xml reverse-proxy config</div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;subsystem</span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">urn:jboss:domain:undertow:8.0</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;subsystem</span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">urn:jboss:domain:undertow:9.0</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
   ...
   <span class="tag">&lt;handlers&gt;</span>
       <span class="tag">&lt;reverse-proxy</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">lb-handler</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
@@ -4742,7 +4760,7 @@ of the master host.</p>
 <div class="sect3">
 <h4 id="configuring-other-load-balancers"><a class="anchor" href="index.html#configuring-other-load-balancers"></a>8.3.5. Configuring Other Load Balancers</h4>
 <div class="paragraph">
-<p>See <a href="http://docs.wildfly.org/16/High_Availability_Guide.html">the load balancing</a> section in the <em>WildFly 16 Documentation</em> for information how to use other software-based load balancers.</p>
+<p>See <a href="http://docs.wildfly.org/17/High_Availability_Guide.html">the load balancing</a> section in the <em>WildFly 17 Documentation</em> for information how to use other software-based load balancers.</p>
 </div>
 </div>
 </div>
@@ -4785,7 +4803,7 @@ but can be chosen according to some other criterias (client IP address etc). It 
 </li>
 <li>
 <p>Infinispan distributed cache assigns the primary owner of the session based on the hash of session ID.
-See <a href="http://infinispan.org/docs/8.2.x/user_guide/user_guide.html#distribution_mode">Infinispan documentation</a> for more details around this.
+See <a href="https://infinispan.org/docs/8.2.x/user_guide/user_guide.html#distribution_mode">Infinispan documentation</a> for more details around this.
 Let&#8217;s assume that Infinispan assigned <code>node2</code> to be the owner of this session.</p>
 </li>
 <li>
@@ -4895,7 +4913,7 @@ You have to edit your the <em>standalone-ha.xml</em> or <em>domain.xml</em> sect
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-It is possible to cluster Keycloak without IP Multicast, but this topic is beyond the scope of this guide. For more information, see <a href="http://docs.wildfly.org/16/High_Availability_Guide.html#JGroups_Subsystem">JGroups</a> in the <em>WildFly 16 Documentation</em>.
+It is possible to cluster Keycloak without IP Multicast, but this topic is beyond the scope of this guide. For more information, see <a href="http://docs.wildfly.org/17/High_Availability_Guide.html#JGroups_Subsystem">JGroups</a> in the <em>WildFly 17 Documentation</em>.
 </td>
 </tr>
 </table>
@@ -5005,7 +5023,7 @@ If for some reason you still need to have firewall enabled on cluster nodes, you
 Default values are UDP port 55200 and multicast port 45688 with multicast address 230.0.0.4.
 Note that you may need more ports opened if you want to enable additional features like diagnostics for your JGroups stack.
 Keycloak delegates most of the clustering work to Infinispan/JGroups.
-For more information, see <a href="http://docs.wildfly.org/16/High_Availability_Guide.html#JGroups_Subsystem">JGroups</a> in the <em>WildFly 16 Documentation</em>.</p>
+For more information, see <a href="http://docs.wildfly.org/17/High_Availability_Guide.html#JGroups_Subsystem">JGroups</a> in the <em>WildFly 17 Documentation</em>.</p>
 </div>
 </li>
 <li>
@@ -5050,7 +5068,7 @@ but is possibly replicated across the cluster.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-More advanced configuration of these caches can be found in the  <a href="http://docs.wildfly.org/16/High_Availability_Guide.html#Infinispan_Subsystem">Infinispan</a> section of the <em>WildFly 16 Documentation</em>.
+More advanced configuration of these caches can be found in the  <a href="http://docs.wildfly.org/17/High_Availability_Guide.html#Infinispan_Subsystem">Infinispan</a> section of the <em>WildFly 17 Documentation</em>.
 </td>
 </tr>
 </table>
@@ -5124,7 +5142,7 @@ without limit. If you see memory issues due to a large number of sessions, you c
 </li>
 <li>
 <p>Decrease session timeouts, which could be done individually for each realm in Keycloak admin console. But this could affect
-usability for end users. See <a href="../../6.0/server_admin/index.html#_timeouts">Timeouts</a> for more details.</p>
+usability for end users. See <a href="../../7.0/server_admin/index.html#_timeouts">Timeouts</a> for more details.</p>
 </li>
 </ul>
 </div>
@@ -5258,7 +5276,7 @@ The cache will be cleared for all realms!
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-04-24 08:49:49 UTC
+Last updated 2019-10-16 12:19:13 UTC
 </div>
 </div>
 <ul id="globalnav">

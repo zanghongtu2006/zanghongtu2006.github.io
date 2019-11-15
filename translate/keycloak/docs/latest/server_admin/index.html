@@ -809,6 +809,7 @@ span.image img {
 <ul class="sectlevel3">
 <li><a href="index.html#priority-order">8.4.1. Priority order</a></li>
 <li><a href="index.html#_protocol-mappers_oidc-user-session-note-mappers">8.4.2. OIDC User Session Note Mappers</a></li>
+<li><a href="index.html#script-mapper">8.4.3. Script Mapper</a></li>
 </ul>
 </li>
 <li><a href="index.html#_client_installation">8.5. Generating Client Adapter Config</a></li>
@@ -1115,7 +1116,7 @@ protocol mappers and many more.</p>
 <p>Client adapters for JavaScript applications, WildFly, JBoss EAP, Fuse, Tomcat, Jetty, Spring, etc.</p>
 </li>
 <li>
-<p>Supports any platform/language that has an OpenID Connect Resource Provider library or SAML 2.0 Service Provider library.</p>
+<p>Supports any platform/language that has an OpenID Connect Relying Party library or SAML 2.0 Service Provider library.</p>
 </li>
 </ul>
 </div>
@@ -1313,7 +1314,7 @@ must be used to filter out bots.  Credential reset flow defines what actions a u
 </div>
 </div>
 <div class="paragraph">
-<p>After performing all the installation and configuration tasks defined in the <a href="../../6.0/server_installation/index.html">Server Installation and Configuration Guide</a>,
+<p>After performing all the installation and configuration tasks defined in the <a href="../../7.0/server_installation/index.html">Server Installation and Configuration Guide</a>,
 you will need to create an initial admin account.
 Keycloak does not have any configured admin account out of the box.
 This account will allow you to create an admin that can log into the <em>master</em> realm&#8217;s administration console so that
@@ -1488,7 +1489,7 @@ will not be allowed to interact with the server.</p>
 <i class="fa icon-warning" title="Warning"></i>
 </td>
 <td class="content">
-Keycloak generates a self-signed certificate the first time it runs.  Please note that self-signed certificates are not secure, and should only be used for testing purposes.  It is highly recommended that you install a CA-signed certificate on the Keycloak server itself or on a reverse proxy in front of the Keycloak server.  See the <a href="../../6.0/server_installation/index.html">Server Installation and Configuration Guide</a>.
+Keycloak generates a self-signed certificate the first time it runs.  Please note that self-signed certificates are not secure, and should only be used for testing purposes.  It is highly recommended that you install a CA-signed certificate on the Keycloak server itself or on a reverse proxy in front of the Keycloak server.  See the <a href="../../7.0/server_installation/index.html">Server Installation and Configuration Guide</a>.
 </td>
 </tr>
 </table>
@@ -1645,7 +1646,7 @@ a theme go to the <code>Realm Settings</code> left menu item and click on the <c
 </dl>
 </div>
 <div class="paragraph">
-<p>The <a href="../../6.0/server_development/index.html">Server Developer Guide</a> goes into how to create a new themes or modify existing ones.</p>
+<p>The <a href="../../7.0/server_development/index.html">Server Developer Guide</a> goes into how to create a new themes or modify existing ones.</p>
 </div>
 <div class="sect3">
 <h4 id="internationalization"><a class="anchor" href="index.html#internationalization"></a>3.6.1. Internationalization</h4>
@@ -1653,7 +1654,7 @@ a theme go to the <code>Realm Settings</code> left menu item and click on the <c
 <p>Every UI screen is internationalized in Keycloak.  The default language is English, but if you turn on the
 <code>Internationalization</code> switch on the <code>Theme</code> tab you can choose which locales you want to support and what the default locale
 will be.  The next time a user logs in, they will be able to choose a language on the login page to use for the login screens,
-User Account Management UI, and Admin Console.  The <a href="../../6.0/server_development/index.html">Server Developer Guide</a> explains
+User Account Management UI, and Admin Console.  The <a href="../../7.0/server_development/index.html">Server Developer Guide</a> explains
 how you can offer additional languages.</p>
 </div>
 </div>
@@ -1892,7 +1893,7 @@ the default required actions go to the <code>Authentication</code> left menu ite
 <p>Many organizations have a requirement that when a new user logs in for the first time, they need to agree to the terms and conditions
 of the website.  Keycloak has this functionality implemented as a required action, but it requires some configuration.  For one, you
 have to go to the <code>Required Actions</code> tab described earlier and enable the <code>Terms and Conditions</code> action.  You must also edit the
-<em>terms.ftl</em> file in the <em>base</em> login theme.  See the <a href="../../6.0/server_development/index.html">Server Developer Guide</a> for more information on extending and
+<em>terms.ftl</em> file in the <em>base</em> login theme.  See the <a href="../../7.0/server_development/index.html">Server Developer Guide</a> for more information on extending and
 creating themes.</p>
 </div>
 </div>
@@ -1981,7 +1982,7 @@ and a new password.</p>
 </div>
 <div class="paragraph">
 <p>You can change the look and feel of the registration form as well as removing or adding additional fields that must be entered.
-See the <a href="../../6.0/server_development/index.html">Server Developer Guide</a> for more information.</p>
+See the <a href="../../7.0/server_development/index.html">Server Developer Guide</a> for more information.</p>
 </div>
 <div class="sect3">
 <h4 id="_recaptcha"><a class="anchor" href="index.html#_recaptcha"></a>4.8.1. reCAPTCHA Support</h4>
@@ -2028,7 +2029,7 @@ values of both the <code>X-Frame-Options</code> and <code>Content-Security-Polic
 </div>
 <div class="paragraph">
 <p>Once you do this, reCAPTCHA should show up on your registration page.  You may want to edit <em>register.ftl</em> in your login
-theme to muck around with the placement and styling of the reCAPTCHA button.  See the <a href="../../6.0/server_development/index.html">Server Developer Guide</a>
+theme to muck around with the placement and styling of the reCAPTCHA button.  See the <a href="../../7.0/server_development/index.html">Server Developer Guide</a>
 for more information on extending and creating themes.</p>
 </div>
 </div>
@@ -2080,7 +2081,7 @@ to a page where they can enter in their username or email and receive an email w
 </div>
 <div class="paragraph">
 <p>The text sent in the email is completely configurable. You just need to extend or edit the theme associated with it.
-See the <a href="../../6.0/server_development/index.html">Server Developer Guide</a> for more information.</p>
+See the <a href="../../7.0/server_development/index.html">Server Developer Guide</a> for more information.</p>
 </div>
 <div class="paragraph">
 <p>When the user clicks on the email link, they will be asked to update their password, and, if they have an OTP generator
@@ -2094,6 +2095,18 @@ going to the <code>Authentication</code> left menu item, clicking on the <code>F
 </div>
 <div class="paragraph">
 <p>If you do not want OTP reset, then just chose the <code>disabled</code> radio button to the right of <code>Reset OTP</code>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Be sure to leave Update Password enabled on the Required Actions tab.  Otherwise, Forgot Password does not work.
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect2">
@@ -2185,7 +2198,7 @@ failing the policy check:</p>
 <dt class="hdlist1">HashAlgorithm</dt>
 <dd>
 <p>Passwords are not stored as clear text. Instead they are hashed using standard hashing algorithms before they are stored or validated.
-The only built-in and default algorithm available is PBKDF2. See the <a href="../../6.0/server_development/index.html">Server Developer Guide</a>
+The only built-in and default algorithm available is PBKDF2. See the <a href="../../7.0/server_development/index.html">Server Developer Guide</a>
 on how to plug in your own algorithm. Note that if you do change the algorithm, password hashes will not change in storage until
 the next time the user logs in.</p>
 </dd>
@@ -2434,7 +2447,7 @@ Custom authenticators. In order to make use of this feature, it must be explicit
 </div>
 </div>
 <div class="paragraph">
-<p>For more information, see the <a href="../../6.0/server_installation/index.html#profiles">Profiles</a> section.</p>
+<p>For more information, see the <a href="../../7.0/server_installation/index.html#profiles">Profiles</a> section.</p>
 </div>
 <div class="paragraph">
 <p>Authentication scripts must at least provide one of the following functions:
@@ -2963,13 +2976,16 @@ future versions and provide some more flexible mappings from Kerberos principals
 <p>Match IssuerDN using regular expression</p>
 </li>
 <li>
-<p>X500 Issuer&#8217;s e-mail attribute</p>
-</li>
-<li>
-<p>X500 Issuer&#8217;s Common Name attribute</p>
-</li>
-<li>
 <p>Certificate Serial Number</p>
+</li>
+<li>
+<p>Certificate Serial Number and IssuerDN</p>
+</li>
+<li>
+<p>SHA-256 Certificate thumbprint</p>
+</li>
+<li>
+<p>Full certificate in PEM format</p>
 </li>
 </ul>
 </div>
@@ -3004,6 +3020,42 @@ future versions and provide some more flexible mappings from Kerberos principals
 </td>
 <td class="content">
 Please notice that if we disable <code>Login with email</code> at realm settings, the same rules will be applied to certificate authentication. In other words, users won&#8217;t be able to log in using e-mail attribute.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Usage of <code>Certificate Serial Number and IssuerDN</code> as an identity source requires two custom attributes - one for serial number and the other for IssuerDN.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<code>SHA-256 Certificate thumbprint</code> is lowercase hexadecimal representation of SHA-256 certificate thumbprint.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Usage of <code>Full certificate in PEM format</code> as an identity source is limited to custom attributes mapped to external federation sources like LDAP. You must enable <code>Always Read Value From LDAP</code> in this case, because certificates cannot be stored in Keycloak database due to a length limitation.
 </td>
 </tr>
 </table>
@@ -3132,7 +3184,7 @@ Please notice that if we disable <code>Login with email</code> at realm settings
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;subsystem</span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">urn:jboss:domain:undertow:8.0</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;subsystem</span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">urn:jboss:domain:undertow:9.0</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
         ....
     <span class="tag">&lt;server</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">default-server</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
             <span class="tag">&lt;https-listener</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">default</span><span class="delimiter">&quot;</span></span>
@@ -3170,7 +3222,7 @@ Please notice that if we disable <code>Login with email</code> at realm settings
 <p>Using the drop down, select the copied flow, and click on "Add execution"</p>
 </li>
 <li>
-<p>Select "X509/Validate User Form" using the drop down and click on "Save"</p>
+<p>Select "X509/Validate Username Form" using the drop down and click on "Save"</p>
 </li>
 </ul>
 </div>
@@ -3207,6 +3259,17 @@ Please notice that if we disable <code>Login with email</code> at realm settings
 <dd>
 <p>Defines how to extract the user identity from a client certificate.</p>
 </dd>
+<dt class="hdlist1"><code>Canonical DN representation enabled</code> (optional)</dt>
+<dd>
+<p>Defines whether to use the canonical format to determine a distinguished name.
+The format is described in detail in the official <a href="https://docs.oracle.com/javase/8/docs/api/javax/security/auth/x500/X500Principal.html#getName-java.lang.String-">Java API documentation</a> .
+This option only affects the two User Identity Sources <em>Match SubjectDN using regular expression</em> and <em>Match IssuerDN using regular expression</em>.
+If you setup a new keycloak instance it is recommended to enable this option. Leave this option disabled to remain beckward compatible with existing Keycloak instances.</p>
+</dd>
+<dt class="hdlist1"><code>Enable Serial Number hexadecimal representation</code> (optional)</dt>
+<dd>
+<p>An option to use hexadecimal representation of the Serial Number. See <a href="https://tools.ietf.org/html/rfc5280#section-4.1.2.2">RFC5280, Section-4.1.2.2</a>. Serial Number with sign bit set to 1 should be left padded with 00 octet. E.g. Serial number with decimal value <em>161</em>, or <em>a1</em> in hexadecimal representation according to RFC5280 must be encoded as <em>00a1</em>. More details can be found: <a href="https://tools.ietf.org/html/rfc5280#appendix-B">RFC5280, appendix-B</a>.</p>
+</dd>
 <dt class="hdlist1"><code>A regular expression</code> (optional)</dt>
 <dd>
 <p>Defines a regular expression to use as a filter to extract the certificate identity. The regular expression must contain a single group.</p>
@@ -3217,7 +3280,7 @@ Please notice that if we disable <code>Login with email</code> at realm settings
 </dd>
 <dt class="hdlist1"><code>A name of user attribute</code> (optional)</dt>
 <dd>
-<p>A custom attribute which value will be matched against the certificate identity.</p>
+<p>A custom attribute which value will be matched against the certificate identity. Multiple custom attributes are relevant when attribute mapping is related to multiple values, e.g. 'Certificate Serial Number and IssuerDN'.</p>
 </dd>
 <dt class="hdlist1"><code>CRL Checking Enabled</code> (optional)</dt>
 <dd>
@@ -3385,7 +3448,7 @@ Please notice that if we disable <code>Login with email</code> at realm settings
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-NGINX <a href="http://nginx.org/en/docs/http/ngx_http_ssl_module.html#variables">SSL/TLS module</a> does not expose the client certificate chain, so Keycloak NGINX certificate lookup provider is rebuilding it using the <a href="../../6.0/server_installation/index.html#_truststore">Keycloak truststore</a>. Please populate Keycloak truststore using keytool CLI with all root and intermediate CA&#8217;s needed for rebuilding client certificate chain.
+NGINX <a href="http://nginx.org/en/docs/http/ngx_http_ssl_module.html#variables">SSL/TLS module</a> does not expose the client certificate chain, so Keycloak NGINX certificate lookup provider is rebuilding it using the <a href="../../7.0/server_installation/index.html#_truststore">Keycloak truststore</a>. Please populate Keycloak truststore using keytool CLI with all root and intermediate CA&#8217;s needed for rebuilding client certificate chain.
 </td>
 </tr>
 </table>
@@ -3419,7 +3482,7 @@ Example of NGINX configuration file :</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-all certificates in trusted-ca-list-for-client-auth.pem must be added to <a href="../../6.0/server_installation/index.html#_truststore">Keycloak truststore</a>.
+all certificates in trusted-ca-list-for-client-auth.pem must be added to <a href="../../7.0/server_installation/index.html#_truststore">Keycloak truststore</a>.
 </td>
 </tr>
 </table>
@@ -3428,7 +3491,7 @@ all certificates in trusted-ca-list-for-client-auth.pem must be added to <a href
 <div class="sect4">
 <h5 id="other-reverse-proxy-implementations"><a class="anchor" href="index.html#other-reverse-proxy-implementations"></a>Other reverse proxy implementations</h5>
 <div class="paragraph">
-<p>We do not have built-in support for other reverse proxy implementations. However, it is possible that other reverse proxies can be made to behave in a similar way to <code>apache</code> or <code>haproxy</code> and that some of those providers can be used. If none of those works, you may need to create your own implementation of the <code>org.keycloak.services.x509.X509ClientCertificateLookupFactory</code> and <code>org.keycloak.services.x509.X509ClientCertificateLookup</code> provider. See the <a href="../../6.0/server_development/index.html">Server Developer Guide</a> for the details on how to add your own provider.</p>
+<p>We do not have built-in support for other reverse proxy implementations. However, it is possible that other reverse proxies can be made to behave in a similar way to <code>apache</code> or <code>haproxy</code> and that some of those providers can be used. If none of those works, you may need to create your own implementation of the <code>org.keycloak.services.x509.X509ClientCertificateLookupFactory</code> and <code>org.keycloak.services.x509.X509ClientCertificateLookup</code> provider. See the <a href="../../7.0/server_development/index.html">Server Developer Guide</a> for the details on how to add your own provider.</p>
 </div>
 </div>
 </div>
@@ -3825,7 +3888,7 @@ make implementing security in your web applications easier. For example, check o
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Docker authentication is disabled by default. To enable see <a href="../../6.0/server_installation/index.html#profiles">Profiles</a>.
+Docker authentication is disabled by default. To enable see <a href="../../7.0/server_installation/index.html#profiles">Profiles</a>.
 </td>
 </tr>
 </table>
@@ -3950,7 +4013,7 @@ tab.</p>
 </div>
 <div class="paragraph">
 <p>This is the display name for the client whenever it is displayed in a Keycloak UI screen.  You can localize
-the value of this field by setting up a replacement string value i.e. ${myapp}.  See the <a href="../../6.0/server_development/index.html">Server Developer Guide</a>
+the value of this field by setting up a replacement string value i.e. ${myapp}.  See the <a href="../../7.0/server_development/index.html">Server Developer Guide</a>
 for more information.</p>
 </div>
 <div class="paragraph">
@@ -4009,7 +4072,7 @@ If this is turned on, this application cannot participate in browser logins.</p>
 <div class="paragraph">
 <p>This is a required field.  Enter in a URL pattern and click the + sign to add.  Click the - sign next to URLs you want to remove.
 Remember that you still have to click the <code>Save</code> button!
-Wildcards (\*) are only allowed at the end of a URI, i.e. http://host.com/*</p>
+Wildcards (*) are only allowed at the end of a URI, i.e. http://host.com/*</p>
 </div>
 <div class="paragraph">
 <p>You should take extra precautions when registering valid redirect URI patterns. If you make
@@ -4035,10 +4098,10 @@ for more information.</p>
 <p>If this is on, clients are allowed to use the OIDC <a href="index.html#_oidc-auth-flows">Implicit Flow</a>.</p>
 </div>
 <div class="paragraph">
-<p><strong>Direct Grants Enabled</strong></p>
+<p><strong>Direct Access Grants Enabled</strong></p>
 </div>
 <div class="paragraph">
-<p>If this is on, clients are allowed to use the OIDC <a href="index.html#_oidc-auth-flows">Direct Grants</a>.</p>
+<p>If this is on, clients are allowed to use the OIDC <a href="index.html#_oidc-auth-flows">Direct Access Grants</a>.</p>
 </div>
 <div class="paragraph">
 <p><strong>Admin URL</strong></p>
@@ -4047,7 +4110,7 @@ for more information.</p>
 <p>For Keycloak specific client adapters, this is the callback endpoint for the client.  The Keycloak
 server will use this URI to make callbacks like pushing revocation policies, performing backchannel logout, and other
 administrative operations.  For Keycloak servlet adapters, this can be the root URL of the servlet application.
-For more information see <a href="../../6.0/securing_apps/index.html">Securing Applications and Services Guide</a>.</p>
+For more information see <a href="../../7.0/securing_apps/index.html">Securing Applications and Services Guide</a>.</p>
 </div>
 <div class="paragraph">
 <p><strong>Web Origins</strong></p>
@@ -4064,7 +4127,7 @@ This protocol exists to protect against XSS, CSRF and other JavaScript-based att
 <code>Web Origins</code> setting for the client are embedded within the access token sent to the client application.  The client
 application can then use this information to decide whether or not to allow a CORS request to be invoked on it.  This is
 an extension to the OIDC protocol so only Keycloak client adapters support this feature.
-See <a href="../../6.0/securing_apps/index.html">Securing Applications and Services Guide</a> for more information.</p>
+See <a href="../../7.0/securing_apps/index.html">Securing Applications and Services Guide</a> for more information.</p>
 </div>
 <div class="paragraph">
 <p>To fill in the <code>Web Origins</code> data, enter in a base URL and click the + sign to add.  Click the - sign next to URLs you want to remove.
@@ -4073,7 +4136,7 @@ Remember that you still have to click the <code>Save</code> button!</p>
 <div class="sect3">
 <h4 id="advanced-settings"><a class="anchor" href="index.html#advanced-settings"></a>8.1.1. Advanced Settings</h4>
 <div id="_mtls-client-certificate-bound-tokens" class="paragraph">
-<p><strong>OAuth 2.0 Mutual TLS Client Certificate Bound Access Token</strong></p>
+<p><strong>OAuth 2.0 Mutual TLS Certificate Bound Access Tokens Enabled</strong></p>
 </div>
 <div class="paragraph">
 <p>Mutual TLS binds an access token and a refresh token with a client certificate exchanged during TLS handshake. This prevents an attacker who finds a way to steal these tokens from exercising the tokens. This type of token is called a holder-of-key token. Unlike bearer tokens, the recipient of a holder-of-key token can verify whether the sender of the token is legitimate.</p>
@@ -4123,6 +4186,100 @@ Remember that you still have to click the <code>Save</code> button!</p>
 <p>WARNING:
 None of the keycloak client adapters currently support holder-of-key token verification.
 Instead, keycloak adapters currently treat access and refresh tokens as bearer tokens.</p>
+</div>
+<div id="_proof-key-for-code-exchange" class="paragraph">
+<p><strong>Proof Key for Code Exchange (PKCE)</strong></p>
+</div>
+<div class="paragraph">
+<p>When an attacker steals an authorization code that was issued to a legitimate client, PKCE prevents the attacker from receiving the tokens that apply to that code.</p>
+</div>
+<div class="paragraph">
+<p>The administrator can select the following three options:</p>
+</div>
+<div class="paragraph">
+<p><strong>Proof Key for Code Exchange Code Challenge Method</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>(blank) : Keycloak does not apply PKCE unless the client sends PKCE&#8217;s parameters appropriately to keycloak&#8217;s authorization endpoint. It is the default setting.</p>
+</li>
+<li>
+<p>S256 : Keycloak applies to the client PKCE whose code challenge method is S256.</p>
+</li>
+<li>
+<p>plain : Keycloak applies to the client PKCE whose code challenge method is plain.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Please see <a href="https://tools.ietf.org/html/rfc7636">RFC 7636 Proof Key for Code Exchange by OAuth Public Clients</a> for more details.</p>
+</div>
+<div id="_jwe-id-token-encryption" class="paragraph">
+<p><strong>Signed and Encrypted ID Token Support</strong></p>
+</div>
+<div class="paragraph">
+<p>Keycloak can encrypt ID token according to <a href="https://tools.ietf.org/html/rfc7516">Json Web Encryption (JWE)</a> specification. The administrator can determine whether encrypting ID token or not per client. This feature is disabled as default.</p>
+</div>
+<div class="paragraph">
+<p>The key for encrypting ID token is called Content Encryption Key (CEK). Keycloak and a client need to negotiate which CEK is used and how to deliver it. The way to do so is called Key Management Mode.</p>
+</div>
+<div class="paragraph">
+<p>JWE specification determines 5 types of Key Management Mode. Keycloak supports Key Encryption among them.</p>
+</div>
+<div class="paragraph">
+<p>In Key Encryption, the client generates a key pair of asymmetric cryptography. The public key is used to encrypt CEK. Keycloak generates CEK per ID token, encrypts the ID token by this generated CEK and encrypts this CEK by this client&#8217;s public key. The client decrypts this encrypted CEK by their private key, and decrypt the ID token by decrypted CEK. Therefore, any party other than the client is not able to decrypt ID token.</p>
+</div>
+<div class="paragraph">
+<p>The client needs to pass their public key for encrypting CEK onto Keycloak. Keycloak supports downloading public keys from the URL the client provides. The client needs to provide their public keys according to <a href="https://tools.ietf.org/html/rfc7517">Json Web Keys (JWK)</a> specification. The way to do so is defined in <code>Signed JWT</code> of <a href="index.html#_client-credentials">Confidential Client Credentials</a>. The detailed procedure is as follows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>open the client&#8217;s <code>Credentials</code> tab</p>
+</li>
+<li>
+<p>select <code>Signed Jwt</code> from <code>Client Authenticator</code> pulldown menu</p>
+</li>
+<li>
+<p>set ON to <code>JWKS URL</code> switch</p>
+</li>
+<li>
+<p>input the client&#8217;s public key providing URL on <code>JWKS URL</code> textbox</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Key Encryption&#8217;s algorithms are defined in <a href="https://tools.ietf.org/html/rfc7518#section-4.1">Json Web Algorithm (JWA)</a> specification. Keycloak supports RSAES-PKCS1-v1_5(RSA1_5) and RSAES OAEP using default parameters (RSA-OAEP). The detailed procedure to select this algorithm is as follows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>open the client&#8217;s <code>Settings</code> tab</p>
+</li>
+<li>
+<p>open <code>Advanced Settings</code></p>
+</li>
+<li>
+<p>select <code>RSA1_5</code> or <code>RSA-OAEP</code> from <code>ID Token Encryption Key Management Algorithm</code> pulldown menu</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>ID token encryption algorithms by CEK are also defined in <a href="https://tools.ietf.org/html/rfc7518#section-5.1">JWA</a> specification. Keycloak supports AES_128_CBC_HMAC_SHA_256 authenticated encryption (A128CBC-HS256) and AES GCM using 128-bit key (A128GCM). The detailed procedure to select this algorithm is as follows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>open the client&#8217;s <code>Settings</code> tab</p>
+</li>
+<li>
+<p>open <code>Advanced Settings</code></p>
+</li>
+<li>
+<p>select <code>A128CBC-HS256</code> or <code>A128GCM</code> from <code>ID Token Encryption Content Encryption Algorithm</code> pulldown menu</p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect3">
@@ -4182,12 +4339,12 @@ select the file, and click the <code>Import</code> button.</p>
 </div>
 <div class="paragraph">
 <p>Finally note that you don&#8217;t even need to import certificate if you choose to <code>Use JWKS URL</code> . In that case, you can provide the URL where
-client publishes it&#8217;s public key in <a href="https://self-issued.info/docs/draft-ietf-jose-json-web-key.html">JWK</a> format. This is flexible because when
-client changes it&#8217;s keys, Keycloak will automatically download them without need to re-import anything on Keycloak side.</p>
+client publishes its public key in <a href="https://self-issued.info/docs/draft-ietf-jose-json-web-key.html">JWK</a> format. This is flexible because when
+client changes its keys, Keycloak will automatically download them without need to re-import anything on Keycloak side.</p>
 </div>
 <div class="paragraph">
 <p>If you use client secured by Keycloak adapter, you can configure the JWKS URL like <a href="https://myhost.com/myapp/k_jwks" class="bare">https://myhost.com/myapp/k_jwks</a> assuming that <a href="https://myhost.com/myapp" class="bare">https://myhost.com/myapp</a> is the
-root URL of your client application. See <a href="../../6.0/server_development/index.html">Server Developer Guide</a> for additional details.</p>
+root URL of your client application. See <a href="../../7.0/server_development/index.html">Server Developer Guide</a> for additional details.</p>
 </div>
 <div class="admonitionblock warning">
 <table>
@@ -4227,7 +4384,7 @@ This option requires mutual TLS in Keycloak, see <a href="index.html#_enable-mtl
 </table>
 </div>
 <div class="paragraph">
-<div class="title">Import Certificate</div>
+<div class="title">X509 Certificate</div>
 <p><span class="image"><img src="keycloak-images/x509-client-auth.png" alt="x509 client auth"></span></p>
 </div>
 <div class="paragraph">
@@ -4427,7 +4584,7 @@ and security is not broken.</p>
 <ul>
 <li>
 <p>Ensure that services are configured to check audience on the access token sent to them by adding the flag <em>verify-token-audience</em>
-in the adapter configuration. See <a href="../../6.0/securing_apps/index.html#_java_adapter_config">Adapter configuration</a> for details.</p>
+in the adapter configuration. See <a href="../../7.0/securing_apps/index.html#_java_adapter_config">Adapter configuration</a> for details.</p>
 </li>
 <li>
 <p>Ensure that when an access token is issued by Keycloak, it contains all requested audiences and does not contain any
@@ -4490,7 +4647,7 @@ the <code>my-app</code> client, the client roles and audience will be added to t
 <td class="content">
 The frontend client itself is not automatically added to the access token audience. This allows for easy differentiation between
 the access token and the ID token, because the access token will not contain the client for which the token was issued as an audience. So in
-he example above, the <code>my-app</code> won&#8217;t be added as an audience. If you need the client itself as an audience, see the
+the example above, the <code>my-app</code> won&#8217;t be added as an audience. If you need the client itself as an audience, see the
 <a href="index.html#_audience_hardcoded">hardcoded audience</a> option. However, using the same client as both frontend and REST service is not recommended.
 </td>
 </tr>
@@ -4532,8 +4689,8 @@ parameter in the case you assigned it as an optional client scope.</p>
 <li>
 <p>In your <code>my-app</code> application, you must ensure that <em>scope</em> parameter is used with the value <code>good-service</code> always included when
 you want to issue the token for accessing the <code>good-service</code>.
-See the <a href="../../6.0/securing_apps/index.html#_params_forwarding">parameters forwarding section</a>, if your application uses the servlet
-adapter, or the <a href="../../6.0/securing_apps/index.html#_javascript_adapter">javascript adapter section</a>, if your application uses the
+See the <a href="../../7.0/securing_apps/index.html#_params_forwarding">parameters forwarding section</a>, if your application uses the servlet
+adapter, or the <a href="../../7.0/securing_apps/index.html#_javascript_adapter">javascript adapter section</a>, if your application uses the
 javascript adapter.</p>
 </li>
 </ul>
@@ -4619,7 +4776,7 @@ Keycloak will pull the issuer from the Authn SAML request and match it to a clie
 <dt class="hdlist1">Name</dt>
 <dd>
 <p>This is the display name for the client whenever it is displayed in a Keycloak UI screen.  You can localize
-the value of this field by setting up a replacement string value i.e. ${myapp}.  See the <a href="../../6.0/server_development/index.html">Server Developer Guide</a>
+the value of this field by setting up a replacement string value i.e. ${myapp}.  See the <a href="../../7.0/server_development/index.html">Server Developer Guide</a>
 for more information.</p>
 </dd>
 <dt class="hdlist1">Description</dt>
@@ -4638,8 +4795,9 @@ If you&#8217;ve ever done a social login to Google, you&#8217;ll often see a sim
 </dd>
 <dt class="hdlist1">Include AuthnStatement</dt>
 <dd>
-<p>SAML login responses may specify the authentication method used (password, etc.) as well as a timestamp of the login.
-Setting this to on will include that statement in the response document.</p>
+<p>SAML login responses may specify the authentication method used (password, etc.) as well as timestamps of the login and the session expiration.
+This is enabled by default, which means that <code>AuthStatement</code> element will be included in login responses. Note that setting this to off
+would prevent the client from determining the maximum session length which could result into never expiring client session.</p>
 </dd>
 <dt class="hdlist1">Sign Documents</dt>
 <dd>
@@ -4719,7 +4877,7 @@ Properties used for each of the respective formats are defined below.</p>
 <dd>
 <p>This is an optional field.  Enter in a URL pattern and click the + sign to add.  Click the - sign next to URLs you want to remove.
 Remember that you still have to click the <code>Save</code> button!
-Wildcards (\*) are only allowed at the end of of a URI, i.e. http://host.com/*.  This field is used when the exact SAML
+Wildcards (*) are only allowed at the end of a URI, i.e. http://host.com/*.  This field is used when the exact SAML
 endpoints are not registered and Keycloak is pulling the Assertion Consumer URL from the request.</p>
 </dd>
 <dt class="hdlist1">Base URL</dt>
@@ -4730,7 +4888,7 @@ endpoints are not registered and Keycloak is pulling the Assertion Consumer URL 
 <dd>
 <p>This URL will be used for all SAML requests and the response will be directed to the SP.
 It will be used as the Assertion Consumer Service URL and the Single Logout Service URL.
-If a login request contains the Assertion Consumer Service URL, that will take precedence, but this URL must be valided by a registered Valid Redirect URI pattern</p>
+If a login request contains the Assertion Consumer Service URL, that will take precedence, but this URL must be validated by a registered Valid Redirect URI pattern</p>
 </dd>
 <dt class="hdlist1">Assertion Consumer Service POST Binding URL</dt>
 <dd>
@@ -4765,7 +4923,7 @@ This is a simple string with no whitespace in it.
 After this you can reference your client at the following URL: <code>root/auth/realms/{realm}/protocol/saml/clients/{url-name}</code></p>
 </div>
 <div class="paragraph">
-<p>The IDP initiated login implementation prefers <em>POST</em> over <em>REDIRECT</em> binding (check <a href="index.html#saml-bindings">saml bindings</a> for more information).
+<p>The IDP initiated login implementation prefers <em>POST</em> over <em>REDIRECT</em> binding (check <a href="index.html#_saml">saml bindings</a> for more information).
 Therefore the final binding and SP URL are selected in the following way:</p>
 </div>
 <div class="olist arabic">
@@ -4993,6 +5151,16 @@ those roles. Then, we process a JavaScript script that uses the roles and audien
 </ul>
 </div>
 </div>
+<div class="sect3">
+<h4 id="script-mapper"><a class="anchor" href="index.html#script-mapper"></a>8.4.3. Script Mapper</h4>
+<div class="paragraph">
+<p>The <code>Script Mapper</code> allows you to map claims to tokens by running a user-defined JavaScript code. For more details about how to
+deploy scripts to the server, please take a look at <a href="../../7.0/server_development/index.html#_script_providers">JavaScript Providers</a>.</p>
+</div>
+<div class="paragraph">
+<p>Once you have your scripts deployed, you should be able to select the scripts you deployed from the list of available mappers.</p>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_client_installation"><a class="anchor" href="index.html#_client_installation"></a>8.5. Generating Client Adapter Config</h3>
@@ -5137,7 +5305,7 @@ to the client. If the switch is off, then this client scope will not be displaye
 <p>The text shown on the consent screen when this client scope is added to some client with consent required defaults to
 the name of client scope. The value for this text is localizable by specifying a substitution variable
 with <code>${var-name}</code> strings. The localized value is then configured within property files in your theme. See the
-<a href="../../6.0/server_development/index.html">Server Developer Guide</a> for more information on localization.</p>
+<a href="../../7.0/server_development/index.html">Server Developer Guide</a> for more information on localization.</p>
 </dd>
 </dl>
 </div>
@@ -5209,8 +5377,8 @@ be sent from the application to the Keycloak OpenID Connect authorization endpoi
 </td>
 <td class="content">
 If you want to see how you can send a custom value for a <code>scope</code> parameter from your application, see the
-<a href="../../6.0/securing_apps/index.html#_params_forwarding">parameters forwarding section</a>, if your application uses the servlet adapter, or the
-<a href="../../6.0/securing_apps/index.html#_javascript_adapter">javascript adapter section</a>, if your application uses the javascript adapter.
+<a href="../../7.0/securing_apps/index.html#_params_forwarding">parameters forwarding section</a>, if your application uses the servlet adapter, or the
+<a href="../../7.0/securing_apps/index.html#_javascript_adapter">javascript adapter section</a>, if your application uses the javascript adapter.
 </td>
 </tr>
 </table>
@@ -5282,7 +5450,7 @@ be used in the access tokens. The details are described in the <a href="index.ht
 <dt class="hdlist1">Authorization scopes</dt>
 <dd>
 <p>This is used by the Authorization feature. The <code>Authorization Scope</code> is the action which can be done in the application.
-More details in the <a href="../../6.0/authorization_services/index.html">Authorization Services Guide</a>.</p>
+More details in the <a href="../../7.0/authorization_services/index.html">Authorization Services Guide</a>.</p>
 </dd>
 </dl>
 </div>
@@ -5330,7 +5498,7 @@ dedicated namespace where roles can be defined.</p>
 </div>
 <div class="paragraph">
 <p>The value for the <code>description</code> field is localizable by specifying a substitution variable with <code>${var-name}</code> strings. The localized
-value is then configured within property files in your theme. See the <a href="../../6.0/server_development/index.html">Server Developer Guide</a> for more information
+value is then configured within property files in your theme. See the <a href="../../7.0/server_development/index.html">Server Developer Guide</a> for more information
 on localization.</p>
 </div>
 </div>
@@ -5769,7 +5937,7 @@ Users within that realm can be granted realm management permissions by assigning
 <div class="paragraph">
 <p>To enable start the server with <code>-Dkeycloak.profile=preview</code>
 or <code>-Dkeycloak.profile.feature.admin_fine_grained_authz=enabled</code>
-. For more details see <a href="../../6.0/server_installation/index.html#profiles">Profiles</a>.</p>
+. For more details see <a href="../../7.0/server_installation/index.html#profiles">Profiles</a>.</p>
 </div>
 </td>
 </tr>
@@ -5817,7 +5985,7 @@ and assign restricted access policies for managing a realm.  Things like:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Fine grain admin permissions were implemented on top of <a href="../../6.0/authorization_services/index.html">Authorization Services</a>.  It is highly recommended that you read up on those features before diving into fine grain permissions.</p>
+<p>Fine grain admin permissions were implemented on top of <a href="../../7.0/authorization_services/index.html">Authorization Services</a>.  It is highly recommended that you read up on those features before diving into fine grain permissions.</p>
 </li>
 <li>
 <p>Fine grain permissions are only available within <a href="index.html#_per_realm_admin_permissions">dedicated admin consoles</a> and admins defined within those realms.  You cannot define cross-realm fine grain permissions.</p>
@@ -5886,8 +6054,8 @@ If you turn the <code>Permissions Enabled</code> switch to off, it will delete a
 <p><span class="image"><img src="keycloak-images/fine-grain-client-permissions-tab-on.png" alt="fine grain client permissions tab on"></span></p>
 </div>
 <div class="paragraph">
-<p>When you witch <code>Permissions Enabled</code> to on, it initializes various permission objects behind the scenes
-using <a href="../../6.0/authorization_services/index.html">Authorization Services</a>.  For this example, we&#8217;re
+<p>When you switch <code>Permissions Enabled</code> to on, it initializes various permission objects behind the scenes
+using <a href="../../7.0/authorization_services/index.html">Authorization Services</a>.  For this example, we&#8217;re
 interested in the <code>manage</code> permission for the client.  Clicking on that will redirect you
 to the permission that handles the <code>manage</code> permission for the client.  All authorization
 objects are contained in the <code>realm-management</code> client&#8217;s <code>Authorization</code> tab.</p>
@@ -7551,6 +7719,17 @@ You must define the OpenID Connect configuration options as well.  They basicall
  more details.</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Accepts prompt=none forward from client</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Specifies whether the IDP accepts forwarded authentication requests that contain the prompt=none query parameter or not. When a realm receives an auth request with <code>prompt=none</code> it checks
+ if the user is currently authenticated and normally returns a <code>login_required</code> error if the user is not logged in. However, when a default IDP can be determined
+ for the auth request (either via <code>kc_idp_hint</code> query param or by setting up a default IDP for the realm) we should be able to forward the auth request with
+ <code>prompt=none</code> to the default IDP so that it checks if the user is currently authenticated there. Because not all IDPs support requests with <code>prompt=none</code> this switch
+ is used to indicate if the default IDP supports the param before redirecting the auth request.
+</p><p class="tableblock"> It is important to note that if the user is not authenticated in the IDP, the client will still get a <code>login_required</code> error. Even if the user is currently authenticated in the IDP,
+ the client might still get an <code>interaction_required</code> error if authentication or consent pages requiring user interaction would be otherwise displayed. This includes required actions
+ (e.g. change password), consent screens and any screens set to be displayed by the <code>first broker login</code> flow or <code>post broker login</code> flow.</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Validate Signatures</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Another optional switch. This is to specify if Keycloak will verify the signatures on the external ID Token signed by this identity provider. If this is on,
 the Keycloak will need to know the public key of the external OIDC identity provider. See below for how to set it up.
@@ -7867,7 +8046,7 @@ You can re-configure the existing flow. (For example you can disable some authen
 </div>
 <div class="paragraph">
 <p>You can also create a new authentication flow and/or write your own Authenticator implementations and use it in your flow.
-See <a href="../../6.0/server_development/index.html">Server Developer Guide</a> for more details.</p>
+See <a href="../../7.0/server_development/index.html">Server Developer Guide</a> for more details.</p>
 </div>
 <div class="sect3">
 <h4 id="default-first-login-flow"><a class="anchor" href="index.html#default-first-login-flow"></a>12.10.1. Default First Login Flow</h4>
@@ -8008,7 +8187,7 @@ In the broker configuration page you can automatically assign this role to newly
 <p>When logout from Keycloak is triggered, Keycloak will send a request to the external identity provider
 that was used to login to Keycloak, and the user will be logged out from this identity provider as well.
 It is possible to skip this behavior and avoid logout at the external identity provider.
-See <a href="../../6.0/securing_apps/index.html#_java_adapter_logout">adapter logout documentation</a> for more details.</p>
+See <a href="../../7.0/securing_apps/index.html#_java_adapter_logout">adapter logout documentation</a> for more details.</p>
 </div>
 </div>
 </div>
@@ -8448,7 +8627,7 @@ Keycloak will use SSL for the communication with LDAP server.
 The important thing is to properly configure a truststore on the Keycloak server side, otherwise Keycloak can&#8217;t trust the SSL connection to LDAP.</p>
 </div>
 <div class="paragraph">
-<p>The global truststore for the Keycloak can be configured with the Truststore SPI.  Please check out the <a href="../../6.0/server_installation/index.html">Server Installation and Configuration Guide</a> for more detail.
+<p>The global truststore for the Keycloak can be configured with the Truststore SPI.  Please check out the <a href="../../7.0/server_installation/index.html">Server Installation and Configuration Guide</a> for more detail.
 If you don&#8217;t configure the truststore SPI, the truststore will fallback to the default mechanism provided by Java (either the file provided by system property <code>javax.net.ssl.trustStore</code>
 or the cacerts file from the JDK if the system property is not set).</p>
 </div>
@@ -8538,6 +8717,13 @@ It&#8217;s using the <code>userAccountControl</code> and <code>pwdLastSet</code>
 For example if <code>pwdLastSet</code> is <code>0</code>, the Keycloak user is required to update their password
 and there will be an UPDATE_PASSWORD required action added to the user. If <code>userAccountControl</code> is
 <code>514</code> (disabled account) the Keycloak user is disabled as well.</p>
+</dd>
+<dt class="hdlist1">Certificate Mapper</dt>
+<dd>
+<p>This mapper is specific for mapping X.509 certificates. It will generally be used in conjunction with X.509 authentication
+and <code>Full certificate in PEM format</code> as an identity source.
+It behaves the same way as the <code>User Attribute Mapper</code>, but allows Keycloak to filter for an LDAP attribute which stores
+a certificate in either PEM or DER format. It is generally advised to enable <code>Always Read Value From LDAP</code> with this mapper.</p>
 </dd>
 </dl>
 </div>
@@ -8796,7 +8982,7 @@ $ sudo yum install libunix-dbus-java-0.8.0-1.fc24.x86_64.rpm</pre>
 </div>
 <div class="paragraph">
 <p>Keycloak does have an SPI for User Storage Federation that you can use to write your own custom providers.
-You can find documentation for this in our <a href="../../6.0/server_development/index.html">Server Developer Guide</a>.</p>
+You can find documentation for this in our <a href="../../7.0/server_development/index.html">Server Developer Guide</a>.</p>
 </div>
 </div>
 </div>
@@ -8995,7 +9181,7 @@ that comes with your distribution and adding for example:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>See the <a href="../../6.0/server_installation/index.html">Server Installation and Configuration Guide</a> for more details on
+<p>See the <a href="../../7.0/server_installation/index.html">Server Installation and Configuration Guide</a> for more details on
 where the <code>standalone.xml</code>, <code>standalone-ha.xml</code>, or <code>domain.xml</code> file lives.</p>
 </div>
 </div>
@@ -9281,7 +9467,7 @@ change their credentials, update their profile, and view their login sessions.  
 </div>
 <div class="paragraph">
 <p>The initial page is the user&#8217;s profile, which is the <code>Account</code> left menu item.  This is where they specify basic data about themselves.  This screen can be extended
-to allow the user to manage additional attributes.  See the <a href="../../6.0/server_development/index.html">Server Developer Guide</a> for more details.</p>
+to allow the user to manage additional attributes.  See the <a href="../../7.0/server_development/index.html">Server Developer Guide</a> for more details.</p>
 </div>
 <div class="paragraph">
 <p>The <code>Password</code> left menu item allows the user to change their password.</p>
@@ -9325,7 +9511,7 @@ accounts together).  This will show the list of external identity providers you 
 <h3 id="themeable"><a class="anchor" href="index.html#themeable"></a>17.1. Themeable</h3>
 <div class="paragraph">
 <p>Like all UIs in Keycloak, the User Account Service is completely themeable and internationalizable.
-See the <a href="../../6.0/server_development/index.html">Server Developer Guide</a> for more details.</p>
+See the <a href="../../7.0/server_development/index.html">Server Developer Guide</a> for more details.</p>
 </div>
 </div>
 </div>
@@ -9383,7 +9569,7 @@ will only permit requests to <code>auth.example.com</code>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;subsystem</span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">urn:jboss:domain:undertow:8.0</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;subsystem</span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">urn:jboss:domain:undertow:9.0</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
     <span class="tag">&lt;server</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">default-server</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">default-host</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">ignore</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
         ...
         <span class="tag">&lt;host</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">default-host</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">alias</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">auth.example.com</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
@@ -9467,7 +9653,7 @@ to set the <code>alwaysHttps</code> to <code>true</code>.</p>
 <code>org.keycloak.urls.HostnameProvider</code>.</p>
 </div>
 <div class="paragraph">
-<p>Follow the instructions in the Service Provider Interfaces section in <a href="../../6.0/server_development/index.html">Server Developer Guide</a>
+<p>Follow the instructions in the Service Provider Interfaces section in <a href="../../7.0/server_development/index.html">Server Developer Guide</a>
 for more information on how to develop a custom provider.</p>
 </div>
 </div>
@@ -9506,7 +9692,7 @@ and separate ports.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;subsystem</span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">urn:jboss:domain:undertow:8.0</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;subsystem</span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">urn:jboss:domain:undertow:9.0</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
     ...
     <span class="tag">&lt;server</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">default-server</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
         ...
@@ -9555,7 +9741,7 @@ receives the client IP address and not the proxy IP address
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;subsystem</span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">urn:jboss:domain:undertow:8.0</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;subsystem</span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">urn:jboss:domain:undertow:9.0</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
     ...
     <span class="tag">&lt;server</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">default-server</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
         ...
@@ -9611,6 +9797,18 @@ Keycloak has some limited brute force detection capabilities.
 If turned on, a user account will be temporarily disabled if a threshold of login failures is reached.
 To enable this feature go to the <code>Realm Settings</code> left menu item, click on the <code>Security Defenses</code> tab, then additional
 go to the <code>Brute Force Detection</code> sub-tab.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Brute Force Detection is disabled by default. Enabling this feature is highly recommended to protect against this type of attack.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <div class="title">Brute Force Detection</div>
@@ -9937,6 +10135,9 @@ Keycloak generates a cryptographically strong random value for its authorization
 An authorization code can only be used once to obtain an access token.
 In the admin console you can specify how long an authorization code is valid for on the <a href="index.html#_timeouts">timeouts page</a>.
 This value should be really short, as short as a few seconds and just long enough for the client to make the request to obtain a token from the code.</p>
+</div>
+<div class="paragraph">
+<p>You can also mitigate against leaked autorization codes by applying PKCE to clients. See <a href="index.html#_proof-key-for-code-exchange">Proof Key for Code Exchange (PKCE)</a> to learn how.</p>
 </div>
 </div>
 <div class="sect2">
@@ -12581,7 +12782,7 @@ $ kcadm.sh get users -r demorealm -q username=testuser</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-04-24 08:49:47 UTC
+Last updated 2019-10-16 12:19:10 UTC
 </div>
 </div>
 <ul id="globalnav">
