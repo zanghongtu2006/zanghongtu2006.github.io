@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Host VMware vSphere Installation &mdash; Apache CloudStack 4.12.0.0 documentation</title>
+  <title>VMware vSphere 安装 &mdash; Apache CloudStack 4.12.0.0 documentation</title>
   
 
   
@@ -36,8 +36,8 @@
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Host Citrix XenServer Installation" href="xenserver.html" />
-    <link rel="prev" title="Host LXC Installation" href="lxc.html" /> 
+    <link rel="next" title="Citrix XenServer 安装" href="xenserver.html" />
+    <link rel="prev" title="LXC 安装" href="lxc.html" /> 
 
 <!-- RTD Extra Head -->
 
@@ -110,17 +110,17 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../../conceptsandterminology/index.html">CloudStack Concepts and Terminology</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../quickinstallationguide/qig.html">Quick Installation Guide</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Installation Guide</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../index.html#building-from-source">Building from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../conceptsandterminology/index.html">CloudStack 概念和术语</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quickinstallationguide/qig.html">快速安装向导</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">安装指南</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../index.html#building-from-source">从源码编译安装</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#general-installation">General Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#configuration">Configuration</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../index.html#hypervisor-setup">Hypervisor Setup</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="hyperv.html">Host Hyper-V Installation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="kvm.html">Host KVM Installation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="lxc.html">Host LXC Installation</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="vsphere.html#">Host VMware vSphere Installation</a><ul>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#hypervisor-setup">Hypervisor 安装和设置</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="hyperv.html">Hyper-V 安装</a></li>
+<li class="toctree-l3"><a class="reference internal" href="kvm.html">KVM 安装</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lxc.html">LXC 安装</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="vsphere.html#">VMware vSphere 安装</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="vsphere.html#system-requirements-for-vsphere-hosts">System Requirements for vSphere Hosts</a></li>
 <li class="toctree-l4"><a class="reference internal" href="vsphere.html#preparation-checklist-for-vmware">Preparation Checklist for VMware</a></li>
 <li class="toctree-l4"><a class="reference internal" href="vsphere.html#vsphere-installation-steps">vSphere Installation Steps</a></li>
@@ -133,21 +133,21 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l4"><a class="reference internal" href="vsphere.html#applying-hotfixes-to-a-vmware-vsphere-host">Applying Hotfixes to a VMware vSphere Host</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="xenserver.html">Host Citrix XenServer Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="xenserver.html">Citrix XenServer 安装</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#optional-installation">Optional Installation</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../upgrading/index.html">Upgrading CloudStack</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../adminguide/index.html">Usage Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../developersguide/index.html">Developers Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../upgrading/index.html">升级 CloudStack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../adminguide/index.html">使用手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developersguide/index.html">开发者手册</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../plugins/index.html">Plugins Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../releasenotes/index.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../releasenotes/index.html">发行版本说明</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Other Documentation:</span></p>
+<p class="caption"><span class="caption-text">其它:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/api.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/api.html">API 文档</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://cwiki.apache.org/confluence/display/CLOUDSTACK/Home">Apache CloudStack Wiki</a></li>
 <li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/">Apache CloudStack web site</a></li>
 <li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/downloads.html">Apache CloudStack Source Code</a></li>
@@ -155,9 +155,9 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 </ul>
 <p class="caption"><span class="caption-text">Pre 4.11 Documentation:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference external" href="../../../../projects/cloudstack-installation.html">Installation Guide</a></li>
-<li class="toctree-l1"><a class="reference external" href="../../../../projects/cloudstack-administration.html">Administration Guide</a></li>
-<li class="toctree-l1"><a class="reference external" href="../../../../projects/cloudstack-release-notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference external" href="../../../../projects/cloudstack-installation.html">安装指南</a></li>
+<li class="toctree-l1"><a class="reference external" href="../../../../projects/cloudstack-administration.html">管理员手册</a></li>
+<li class="toctree-l1"><a class="reference external" href="../../../../projects/cloudstack-release-notes.html">发行版本说明</a></li>
 </ul>
 
             
@@ -203,9 +203,9 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
     
       <li><a href="../../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="../index.html">Installation Guide</a> &raquo;</li>
+          <li><a href="../index.html">安装指南</a> &raquo;</li>
         
-      <li>Host VMware vSphere Installation</li>
+      <li>VMware vSphere 安装</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -227,7 +227,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
            <div itemprop="articleBody">
             
   <div class="section" id="host-vmware-vsphere-installation">
-<h1>Host VMware vSphere Installation<a class="headerlink" href="vsphere.html#host-vmware-vsphere-installation" title="Permalink to this headline">¶</a></h1>
+<h1>VMware vSphere 安装<a class="headerlink" href="vsphere.html#host-vmware-vsphere-installation" title="Permalink to this headline">¶</a></h1>
 <p>If you want to use the VMware vSphere hypervisor to run guest virtual
 machines, install vSphere on the host(s) in your cloud.</p>
 <div class="section" id="system-requirements-for-vsphere-hosts">
@@ -300,7 +300,7 @@ Requirements”</a>.</p>
 <li>VMware vCenter Standard Edition 4.1, 5.0, 5.1 or 5.5 must be installed and
 available to manage the vSphere hosts.</li>
 <li>vCenter must be configured to use the standard port 443 so that it
-can communicate with the CloudStack Management Server.</li>
+can communicate with the CloudStack 管理服务.</li>
 <li>You must re-install VMware ESXi if you are going to re-use a host
 from a previous install.</li>
 <li>CloudStack requires VMware vSphere 4.1, 5.0, 5.1 or 5.5. VMware vSphere 4.0 is
@@ -328,7 +328,7 @@ this cluster.</li>
 <li>All of the required VLANs must be trunked into all network switches that
 are connected to the ESXi hypervisor hosts. These would include the
 VLANs for Management, Storage, vMotion, and guest VLANs. The guest
-VLAN (used in Advanced Networking; see Network Setup) is a contiguous
+VLAN (used in Advanced Networking; see 网络配置) is a contiguous
 range of VLANs that will be managed by CloudStack.</li>
 </ul>
 </div>
@@ -396,7 +396,7 @@ start:</p>
 <tr class="row-odd"><td>ESXi VLAN Netmask</td>
 <td>&#160;</td>
 </tr>
-<tr class="row-even"><td>Management Server VLAN</td>
+<tr class="row-even"><td>管理服务 VLAN</td>
 <td>VLAN on which the CloudStack Management server is installed.</td>
 </tr>
 <tr class="row-odd"><td>Public VLAN</td>
@@ -427,7 +427,7 @@ each customer.</td>
 <li><p class="first">If you haven’t already, you’ll need to download and purchase vSphere
 from the VMware Website
 (<a class="reference external" href="https://www.vmware.com/tryvmware/index.php?p=vmware-vsphere&amp;lp=1">https://www.vmware.com/tryvmware/index.php?p=vmware-vsphere&amp;lp=1</a>)
-and install it by following the VMware vSphere Installation Guide.</p>
+and install it by following the VMware vSphere 安装指南.</p>
 </li>
 <li><p class="first">Following installation, perform the following configuration, which
 are described in the next few sections:</p>
@@ -554,7 +554,7 @@ each host and run the following commands:</p>
 <div class="section" id="configure-nic-bonding-for-vsphere">
 <h3>Configure NIC Bonding for vSphere<a class="headerlink" href="vsphere.html#configure-nic-bonding-for-vsphere" title="Permalink to this headline">¶</a></h3>
 <p>NIC bonding on vSphere hosts may be done according to the vSphere
-installation guide.</p>
+安装指南.</p>
 </div>
 </div>
 <div class="section" id="configuring-a-vsphere-cluster-with-nexus-1000v-virtual-switch">
@@ -985,7 +985,7 @@ vmware.use.dvswitch is set to false. Set to true to enable Cisco Nexus
 <h3>Enabling Virtual Distributed Switch in CloudStack<a class="headerlink" href="vsphere.html#enabling-virtual-distributed-switch-in-cloudstack" title="Permalink to this headline">¶</a></h3>
 <p>To make a CloudStack deployment VDS enabled, set the vmware.use.dvswitch
 parameter to true by using the Global Settings page in the CloudStack UI
-and restart the Management Server. Unless you enable the
+and restart the 管理服务. Unless you enable the
 vmware.use.dvswitch parameter, you cannot see any UI options specific to
 VDS, and CloudStack ignores the VDS-specific parameters that you
 specify. Additionally, CloudStack uses VDS for virtual network
@@ -1104,7 +1104,7 @@ necessary to do this on all hosts.</p>
 <div class="section" id="multipathing-for-vsphere-optional">
 <h3>Multipathing for vSphere (Optional)<a class="headerlink" href="vsphere.html#multipathing-for-vsphere-optional" title="Permalink to this headline">¶</a></h3>
 <p>Storage multipathing on vSphere nodes may be done according to the
-vSphere installation guide.</p>
+vSphere 安装指南.</p>
 </div>
 </div>
 <div class="section" id="add-hosts-or-configure-clusters-vsphere">
@@ -1166,10 +1166,10 @@ updated in the CloudStack database.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="xenserver.html" class="btn btn-neutral float-right" title="Host Citrix XenServer Installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="xenserver.html" class="btn btn-neutral float-right" title="Citrix XenServer 安装" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="lxc.html" class="btn btn-neutral float-left" title="Host LXC Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="lxc.html" class="btn btn-neutral float-left" title="LXC 安装" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

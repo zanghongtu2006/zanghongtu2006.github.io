@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Management Server Installation &mdash; Apache CloudStack 4.13.0.0 documentation</title>
+  <title>安装管理服务 &mdash; Apache CloudStack 4.13.0.0 文档</title>
   
 
   
@@ -38,7 +38,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Configuring your CloudStack Installation" href="../configuration.html" />
-    <link rel="prev" title="Installation overview" href="../overview/index.html" /> 
+    <link rel="prev" title="安装概述" href="../overview/index.html" /> 
 
 <!-- RTD Extra Head -->
 
@@ -111,16 +111,16 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../../conceptsandterminology/index.html">CloudStack Concepts and Terminology</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../quickinstallationguide/qig.html">Quick Installation Guide</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Installation Guide</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../index.html#building-from-source">Building from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../conceptsandterminology/index.html">CloudStack 概念和术语</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quickinstallationguide/qig.html">快速安装向导</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">安装指南</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../index.html#building-from-source">从源码编译安装</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html#general-installation">General Installation</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../overview/index.html">Installation overview</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="index.html#">Management Server Installation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../overview/index.html">安装概述</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="index.html#">安装管理服务</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="index.html#overview">Overview</a></li>
 <li class="toctree-l4"><a class="reference internal" href="index.html#prepare-the-operating-system">Prepare the Operating System</a></li>
-<li class="toctree-l4"><a class="reference internal" href="index.html#install-the-management-server-on-the-first-host">Install the Management Server on the First Host</a></li>
+<li class="toctree-l4"><a class="reference internal" href="index.html#install-the-management-server-on-the-first-host">Install the 管理服务 on the First Host</a></li>
 <li class="toctree-l4"><a class="reference internal" href="index.html#downloading-vhd-util">Downloading vhd-util</a></li>
 <li class="toctree-l4"><a class="reference internal" href="index.html#install-the-database-server">Install the database server</a></li>
 <li class="toctree-l4"><a class="reference internal" href="index.html#prepare-nfs-shares">Prepare NFS Shares</a></li>
@@ -132,19 +132,19 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#configuration">Configuration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../index.html#hypervisor-setup">Hypervisor Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#hypervisor-setup">Hypervisor 安装和设置</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#optional-installation">Optional Installation</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../upgrading/index.html">Upgrading CloudStack</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../adminguide/index.html">Usage Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../developersguide/index.html">Developers Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../upgrading/index.html">升级 CloudStack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../adminguide/index.html">使用手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developersguide/index.html">开发者手册</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../plugins/index.html">Plugins Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../releasenotes/index.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../releasenotes/index.html">发行版本说明</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Other Documentation:</span></p>
+<p class="caption"><span class="caption-text">其它:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/api.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/api.html">API 文档</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://cwiki.apache.org/confluence/display/CLOUDSTACK/Home">Apache CloudStack Wiki</a></li>
 <li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/">Apache CloudStack web site</a></li>
 <li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/downloads.html">Apache CloudStack Source Code</a></li>
@@ -152,9 +152,9 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 </ul>
 <p class="caption"><span class="caption-text">Pre 4.11 Documentation:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference external" href="../../../../projects/cloudstack-installation.html">Installation Guide</a></li>
-<li class="toctree-l1"><a class="reference external" href="../../../../projects/cloudstack-administration.html">Administration Guide</a></li>
-<li class="toctree-l1"><a class="reference external" href="../../../../projects/cloudstack-release-notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference external" href="../../../../projects/cloudstack-installation.html">安装指南</a></li>
+<li class="toctree-l1"><a class="reference external" href="../../../../projects/cloudstack-administration.html">管理员手册</a></li>
+<li class="toctree-l1"><a class="reference external" href="../../../../projects/cloudstack-release-notes.html">发行版本说明</a></li>
 </ul>
 
             
@@ -200,9 +200,9 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
     
       <li><a href="../../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="../index.html">Installation Guide</a> &raquo;</li>
+          <li><a href="../index.html">安装指南</a> &raquo;</li>
         
-      <li>Management Server Installation</li>
+      <li>安装管理服务</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -224,15 +224,15 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
            <div itemprop="articleBody">
             
   <div class="section" id="management-server-installation">
-<span id="install-mgt"></span><h1>Management Server Installation<a class="headerlink" href="index.html#management-server-installation" title="Permalink to this headline">¶</a></h1>
+<span id="install-mgt"></span><h1>安装管理服务<a class="headerlink" href="index.html#management-server-installation" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="overview">
 <h2>Overview<a class="headerlink" href="index.html#overview" title="Permalink to this headline">¶</a></h2>
-<p>This section describes installing the Management Server. There are two
+<p>This section describes installing the 管理服务. There are two
 slightly different installation flows, depending on how many Management
 Server nodes will be in your cloud:</p>
 <ul class="simple">
-<li>A single Management Server node, with MySQL on the same node.</li>
-<li>Multiple Management Server nodes, with MySQL on a node separate from
+<li>A single 管理服务 node, with MySQL on the same node.</li>
+<li>Multiple 管理服务 nodes, with MySQL on a node separate from
 the Management Servers.</li>
 </ul>
 <p>In either case, each machine must meet the system requirements described
@@ -240,13 +240,13 @@ in <a class="reference internal" href="../overview/index.html#minimum-system-req
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
 <p class="last">For the sake of security, be sure the public Internet can not access port
-8096 or port 8250 on the Management Server.</p>
+8096 or port 8250 on the 管理服务.</p>
 </div>
-<p>The procedure for installing the Management Server is:</p>
+<p>The procedure for installing the 管理服务 is:</p>
 <ol class="arabic simple">
 <li>Prepare the Operating System</li>
 <li>(XenServer only) Download and install vhd-util.</li>
-<li>Install the First Management Server</li>
+<li>Install the First 管理服务</li>
 <li>Install and Configure the MySQL database</li>
 <li>Prepare NFS Shares</li>
 <li>Prepare and Start Additional Management Servers (optional)</li>
@@ -255,8 +255,8 @@ in <a class="reference internal" href="../overview/index.html#minimum-system-req
 </div>
 <div class="section" id="prepare-the-operating-system">
 <h2>Prepare the Operating System<a class="headerlink" href="index.html#prepare-the-operating-system" title="Permalink to this headline">¶</a></h2>
-<p>The OS must be prepared to host the Management Server using the
-following steps. These steps must be performed on each Management Server
+<p>The OS must be prepared to host the 管理服务 using the
+following steps. These steps must be performed on each 管理服务
 node.</p>
 <ol class="arabic">
 <li><p class="first">Log in to your OS as root.</p>
@@ -287,19 +287,19 @@ that it does.</p>
 </pre></div>
 </div>
 </li>
-<li><p class="first">Repeat all of these steps on every host where the Management Server
+<li><p class="first">Repeat all of these steps on every host where the 管理服务
 will be installed.</p>
 </li>
 </ol>
 </div>
 <div class="section" id="install-the-management-server-on-the-first-host">
-<h2>Install the Management Server on the First Host<a class="headerlink" href="index.html#install-the-management-server-on-the-first-host" title="Permalink to this headline">¶</a></h2>
+<h2>Install the 管理服务 on the First Host<a class="headerlink" href="index.html#install-the-management-server-on-the-first-host" title="Permalink to this headline">¶</a></h2>
 <p>The first step in installation, whether you are installing the
-Management Server on one host or many, is to install the software on a
+管理服务 on one host or many, is to install the software on a
 single node.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">If you are planning to install the Management Server on multiple nodes for
+<p class="last">If you are planning to install the 管理服务 on multiple nodes for
 high availability, do not proceed to the additional nodes yet. That step
 will come later.</p>
 </div>
@@ -314,12 +314,12 @@ binaries so that users can install Apache CloudStack without needing to
 build from source.</p>
 <p>If you didn’t follow the steps to build your own packages from source in
 the sections for <a class="reference external" href="../building_from_source.html#building-rpms-from-source">“Building RPMs from Source”</a> or
-<a class="reference external" href="../building_from_source.html#building-deb-packages">“Building DEB packages”</a>
+<a class="reference external" href="../building_from_source.html#building-deb-packages">“打包成 DEB”</a>
 you may find pre-built DEB and RPM packages for your convenience linked from
 the <a class="reference external" href="http://cloudstack.apache.org/downloads.html">downloads</a> page.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">These repositories contain both the Management Server and KVM Hypervisor
+<p class="last">These repositories contain both the 管理服务 and KVM Hypervisor
 packages.</p>
 </div>
 <div class="section" id="rpm-package-repository">
@@ -382,11 +382,11 @@ deb <a class="reference external" href="http://download.cloudstack.org/ubuntu">h
 <h2>Downloading vhd-util<a class="headerlink" href="index.html#downloading-vhd-util" title="Permalink to this headline">¶</a></h2>
 <p>This procedure is required only for installations where XenServer is
 installed on the hypervisor hosts.</p>
-<p>Before setting up the Management Server, download
+<p>Before setting up the 管理服务, download
 <a class="reference external" href="http://download.cloudstack.org/tools/vhd-util">vhd-util</a> from
 <a class="reference external" href="http://download.cloudstack.org/tools/vhd-util">http://download.cloudstack.org/tools/vhd-util</a>.
 and copy it into <code class="docutils literal notranslate"><span class="pre">/usr/share/cloudstack-common/scripts/vm/hypervisor/xenserver</span></code>
-of the Management Server.</p>
+of the 管理服务.</p>
 </div>
 <div class="section" id="install-the-database-server">
 <h2>Install the database server<a class="headerlink" href="index.html#install-the-database-server" title="Permalink to this headline">¶</a></h2>
@@ -398,11 +398,11 @@ runs on a separate node.</p>
 <p>CloudStack has been tested with MySQL 5.1 and 5.5. These versions are
 included in RHEL/CentOS and Ubuntu.</p>
 <div class="section" id="install-the-database-on-the-management-server-node">
-<h3>Install the Database on the Management Server Node<a class="headerlink" href="index.html#install-the-database-on-the-management-server-node" title="Permalink to this headline">¶</a></h3>
+<h3>Install the Database on the 管理服务 Node<a class="headerlink" href="index.html#install-the-database-on-the-management-server-node" title="Permalink to this headline">¶</a></h3>
 <p>This section describes how to install MySQL on the same machine with the
-Management Server. This technique is intended for a simple deployment
-that has a single Management Server node. If you have a multi-node
-Management Server deployment, you will typically use a separate node for
+管理服务. This technique is intended for a simple deployment
+that has a single 管理服务 node. If you have a multi-node
+管理服务 deployment, you will typically use a separate node for
 MySQL. See <a class="reference internal" href="index.html#install-database-on-separate-node"><span class="std std-ref">Install the Database on a Separate Node</span></a>.</p>
 <ol class="arabic">
 <li><p class="first">Install MySQL from the package repository of your distribution:</p>
@@ -549,18 +549,18 @@ interface.</p>
 </div>
 </li>
 <li><p class="first">If you are running the KVM hypervisor on the same machine with the
-Management Server, edit /etc/sudoers and add the following line:</p>
+管理服务, edit /etc/sudoers and add the following line:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Defaults:cloud !requiretty
 </pre></div>
 </div>
 </li>
 <li><p class="first">Now that the database is set up, you can finish configuring the OS
-for the Management Server. This command will set up iptables,
-sudoers, and start the Management Server.</p>
+for the 管理服务. This command will set up iptables,
+sudoers, and start the 管理服务.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cloudstack</span><span class="o">-</span><span class="n">setup</span><span class="o">-</span><span class="n">management</span>
 </pre></div>
 </div>
-<p>You should get the output message “CloudStack Management Server setup is
+<p>You should get the output message “CloudStack 管理服务 setup is
 done.”
 If the servlet container is Tomcat7 the argument –tomcat7 must be used.</p>
 </li>
@@ -569,16 +569,16 @@ If the servlet container is Tomcat7 the argument –tomcat7 must be used.</p>
 <div class="section" id="install-the-database-on-a-separate-node">
 <span id="install-database-on-separate-node"></span><h3>Install the Database on a Separate Node<a class="headerlink" href="index.html#install-the-database-on-a-separate-node" title="Permalink to this headline">¶</a></h3>
 <p>This section describes how to install MySQL on a standalone machine,
-separate from the Management Server. This technique is intended for a
-deployment that includes several Management Server nodes. If you have a
-single-node Management Server deployment, you will typically use the
-same node for MySQL. See <a class="reference external" href="index.html#install-the-database-on-the-management-server-node">“Install the Database on the Management Server Node”</a>.</p>
+separate from the 管理服务. This technique is intended for a
+deployment that includes several 管理服务 nodes. If you have a
+single-node 管理服务 deployment, you will typically use the
+same node for MySQL. See <a class="reference external" href="index.html#install-the-database-on-the-management-server-node">“Install the Database on the 管理服务 Node”</a>.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">The management server doesn’t require a specific distribution for the MySQL
 node. You can use a distribution or Operating System of your choice. Using
 the same distribution as the management server is recommended, but not
-required. See <a class="reference external" href="index.html#management-server-database-and-storage-system-requirements">“Management Server, Database, and Storage System Requirements”</a>.</p>
+required. See <a class="reference external" href="index.html#management-server-database-and-storage-system-requirements">“管理服务, Database, and Storage System Requirements”</a>.</p>
 </div>
 <ol class="arabic">
 <li><p class="first">Install MySQL from the package repository from your distribution:</p>
@@ -656,7 +656,7 @@ at the beginning of the INPUT chain.</p>
 </li>
 </ol>
 </li>
-<li><p class="first">Return to the root shell on your first Management Server.</p>
+<li><p class="first">Return to the root shell on your first 管理服务.</p>
 </li>
 <li><p class="first">Set up the database. The following command creates the cloud user on
 the database.</p>
@@ -691,12 +691,12 @@ cloudstack-setup-databases cloud:&lt;dbpassword&gt;&#64;&lt;ip address mysql ser
 “Successfully initialized the database.”</p>
 </li>
 <li><p class="first">Now that the database is set up, you can finish configuring the OS
-for the Management Server. This command will set up iptables,
-sudoers, and start the Management Server.</p>
+for the 管理服务. This command will set up iptables,
+sudoers, and start the 管理服务.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cloudstack</span><span class="o">-</span><span class="n">setup</span><span class="o">-</span><span class="n">management</span>
 </pre></div>
 </div>
-<p>You should get the output message “CloudStack Management Server setup is
+<p>You should get the output message “CloudStack 管理服务 setup is
 done.”</p>
 </li>
 </ol>
@@ -722,14 +722,14 @@ with primary or secondary storage.</p>
 </ul>
 <p>A production installation typically uses a separate NFS server.
 See <a class="reference internal" href="index.html#using-a-separage-nfs-server"><span class="std std-ref">Using a Separate NFS Server</span></a>.</p>
-<p>You can also use the Management Server node as the NFS server. This is
+<p>You can also use the 管理服务 node as the NFS server. This is
 more typical of a trial installation, but is technically possible in a
-larger deployment. See <a class="reference internal" href="index.html#using-the-management-server-as-the-nfs-server"><span class="std std-ref">Using the Management Server as the NFS Server</span></a>.</p>
+larger deployment. See <a class="reference internal" href="index.html#using-the-management-server-as-the-nfs-server"><span class="std std-ref">Using the 管理服务 as the NFS Server</span></a>.</p>
 <div class="section" id="using-a-separate-nfs-server">
 <span id="using-a-separage-nfs-server"></span><h3>Using a Separate NFS Server<a class="headerlink" href="index.html#using-a-separate-nfs-server" title="Permalink to this headline">¶</a></h3>
 <p>This section tells how to set up NFS shares for secondary and
 (optionally) primary storage on an NFS server running on a separate node
-from the Management Server.</p>
+from the 管理服务.</p>
 <p>The exact commands for the following steps may vary depending on your
 operating system version.</p>
 <div class="admonition warning">
@@ -767,7 +767,7 @@ For example:</p>
 </pre></div>
 </div>
 </li>
-<li><p class="first">Mount the secondary storage on your Management Server. Replace the
+<li><p class="first">Mount the secondary storage on your 管理服务. Replace the
 example NFS server name and NFS share paths below with your own.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mount</span> <span class="o">-</span><span class="n">t</span> <span class="n">nfs</span> <span class="n">nfsservername</span><span class="p">:</span><span class="o">/</span><span class="n">export</span><span class="o">/</span><span class="n">secondary</span> <span class="o">/</span><span class="n">mnt</span><span class="o">/</span><span class="n">secondary</span>
 </pre></div>
@@ -776,9 +776,9 @@ example NFS server name and NFS share paths below with your own.</p>
 </ol>
 </div>
 <div class="section" id="using-the-management-server-as-the-nfs-server">
-<span id="id3"></span><h3>Using the Management Server as the NFS Server<a class="headerlink" href="index.html#using-the-management-server-as-the-nfs-server" title="Permalink to this headline">¶</a></h3>
+<span id="id3"></span><h3>Using the 管理服务 as the NFS Server<a class="headerlink" href="index.html#using-the-management-server-as-the-nfs-server" title="Permalink to this headline">¶</a></h3>
 <p>This section tells how to set up NFS shares for primary and secondary
-storage on the same node with the Management Server. This is more
+storage on the same node with the 管理服务. This is more
 typical of a trial installation, but is technically possible in a larger
 deployment. It is assumed that you will have less than 16TB of storage
 on the host.</p>
@@ -790,7 +790,7 @@ operating system version.</p>
 </pre></div>
 </div>
 </li>
-<li><p class="first">On the Management Server host, create two directories that you will
+<li><p class="first">On the 管理服务 host, create two directories that you will
 use for primary and secondary storage. For example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="o">-</span><span class="n">p</span> <span class="o">/</span><span class="n">export</span><span class="o">/</span><span class="n">primary</span>
 <span class="n">mkdir</span> <span class="o">-</span><span class="n">p</span> <span class="o">/</span><span class="n">export</span><span class="o">/</span><span class="n">secondary</span>
@@ -866,7 +866,7 @@ In the example below, the domain is company.com.</p>
 </pre></div>
 </div>
 </li>
-<li><p class="first">Reboot the Management Server host.</p>
+<li><p class="first">Reboot the 管理服务 host.</p>
 <p>Two NFS shares called /export/primary and /export/secondary are now
 set up.</p>
 </li>
@@ -905,11 +905,11 @@ name:</p>
 <div class="section" id="additional-management-servers">
 <h2>Additional Management Servers<a class="headerlink" href="index.html#additional-management-servers" title="Permalink to this headline">¶</a></h2>
 <p>For your second and subsequent Management Servers, you will install the
-Management Server software, connect it to the database, and set up the
-OS for the Management Server.</p>
+管理服务 software, connect it to the database, and set up the
+OS for the 管理服务.</p>
 <ol class="arabic">
-<li><p class="first">Perform the steps in <a class="reference external" href="index.html#prepare-the-operating-system">“Prepare the Operating System”</a> and <a class="reference external" href="http://docs.cloudstack.apache.org/en/latest/installguide/management-server/building_from_source.html#building-rpms-from-source">“Building RPMs from Source”</a> or
-<a class="reference external" href="http://docs.cloudstack.apache.org/en/latest/installguide/management-server/building_from_source.html#building-deb-packages">“Building DEB packages”</a> as appropriate.</p>
+<li><p class="first">Perform the steps in <a class="reference external" href="index.html#prepare-the-operating-system">“Prepare the Operating System”</a> and <a class="reference external" href="http://docs.cloudstack.apache.org/en/latest/installguide/management-server/building_from_source.html#building-rpms-from-source">“打包成 RPM”</a> or
+<a class="reference external" href="http://docs.cloudstack.apache.org/en/latest/installguide/management-server/building_from_source.html#building-deb-packages">“打包成 DEB”</a> as appropriate.</p>
 </li>
 <li><p class="first">This step is required only for installations where XenServer is
 installed on the hypervisor hosts.</p>
@@ -933,16 +933,16 @@ command, see <a class="reference internal" href="index.html#install-database-on-
 cloudstack-setup-databases cloud:dbpassword&#64;dbhost -e encryption_type -m management_server_key -k database_key -i management_server_ip
 </pre>
 </li>
-<li><p class="first">Configure the OS and start the Management Server:</p>
+<li><p class="first">Configure the OS and start the 管理服务:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cloudstack</span><span class="o">-</span><span class="n">setup</span><span class="o">-</span><span class="n">management</span>
 </pre></div>
 </div>
-<p>The Management Server on this node should now be running.
+<p>The 管理服务 on this node should now be running.
 If the servlet container is Tomcat7 the argument –tomcat7 must be used.</p>
 </li>
-<li><p class="first">Repeat these steps on each additional Management Server.</p>
+<li><p class="first">Repeat these steps on each additional 管理服务.</p>
 </li>
-<li><p class="first">Be sure to configure a load balancer for the Management Servers. See <a class="reference internal" href="../../adminguide/reliability.html#management-server-load-balancing"><span class="std std-ref">Management Server Load Balancing</span></a></p>
+<li><p class="first">Be sure to configure a load balancer for the Management Servers. See <a class="reference internal" href="../../adminguide/reliability.html#management-server-load-balancing"><span class="std std-ref">管理节点负载均衡</span></a></p>
 </li>
 </ol>
 </div>
@@ -957,7 +957,7 @@ single line before executing. Some document viewers may introduce unwanted
 line breaks in copied text.</p>
 </div>
 <ol class="arabic">
-<li><p class="first">On the Management Server, run one or more of the following
+<li><p class="first">On the 管理服务, run one or more of the following
 <code class="docutils literal notranslate"><span class="pre">cloud-install-sys-tmplt</span></code> commands to retrieve and decompress the
 system VM template. Run the command for each hypervisor type that you
 expect end users to run in this Zone.</p>
@@ -1002,7 +1002,7 @@ local file system and up to 30 minutes each time it runs.</p>
 </ul>
 </li>
 <li><p class="first">If you are using a separate NFS server, perform this step. If you are
-using the Management Server as the NFS server, you MUST NOT perform
+using the 管理服务 as the NFS server, you MUST NOT perform
 this step.</p>
 <p>When the script has finished, unmount secondary storage and remove
 the created directory.</p>
@@ -1017,9 +1017,9 @@ the created directory.</p>
 </div>
 <div class="section" id="installation-complete-next-steps">
 <h2>Installation Complete! Next Steps<a class="headerlink" href="index.html#installation-complete-next-steps" title="Permalink to this headline">¶</a></h2>
-<p>Congratulations! You have now installed CloudStack Management Server and
+<p>Congratulations! You have now installed CloudStack 管理服务 and
 the database it uses to persist system data.</p>
-<p><img alt="installation-complete.png: Finished installs with single Management Server and multiple Management Servers" src="../../_images/installation-complete.png" /></p>
+<p><img alt="installation-complete.png: Finished installs with single 管理服务 and multiple Management Servers" src="../../_images/installation-complete.png" /></p>
 <p>What should you do next?</p>
 <ul class="simple">
 <li>Even without adding any cloud infrastructure, you can run the UI to
@@ -1043,7 +1043,7 @@ infrastructure. See Provision Your Cloud Infrastructure.</li>
         <a href="../configuration.html" class="btn btn-neutral float-right" title="Configuring your CloudStack Installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../overview/index.html" class="btn btn-neutral float-left" title="Installation overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../overview/index.html" class="btn btn-neutral float-left" title="安装概述" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

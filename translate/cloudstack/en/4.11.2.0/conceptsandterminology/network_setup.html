@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Basic and Advanced Networking &mdash; Apache CloudStack 4.11.2.0 documentation</title>
+  <title>基础网络和高级网络 &mdash; Apache CloudStack 4.11.2.0 documentation</title>
   
 
   
@@ -37,7 +37,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Introduction" href="storage_setup.html" />
-    <link rel="prev" title="Small-Scale Deployment" href="choosing_deployment_architecture.html" /> 
+    <link rel="prev" title="小规模部署" href="choosing_deployment_architecture.html" /> 
 
 <!-- RTD Extra Head -->
 
@@ -110,11 +110,11 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">CloudStack Concepts and Terminology</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="index.html#concepts-and-terminolgy">Concepts and Terminolgy</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#choosing-a-deployment-architecture">Choosing a Deployment Architecture</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="index.html#network-setup">Network Setup</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="network_setup.html#">Basic and Advanced Networking</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">CloudStack 概念和术语</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html#concepts-and-terminolgy">概念和术语</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#choosing-a-deployment-architecture">架构选型</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#network-setup">网络配置</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="network_setup.html#">基础网络和高级网络</a></li>
 <li class="toctree-l3"><a class="reference internal" href="network_setup.html#vlan-allocation-example">VLAN Allocation Example</a></li>
 <li class="toctree-l3"><a class="reference internal" href="network_setup.html#example-hardware-configuration">Example Hardware Configuration</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="network_setup.html#dell-62xx">Dell 62xx</a></li>
@@ -126,14 +126,14 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l4"><a class="reference internal" href="network_setup.html#id2">Cisco 3750</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="network_setup.html#hardware-firewall">Hardware Firewall</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="network_setup.html#hardware-firewall">硬件防火墙</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="network_setup.html#generic-firewall-provisions">Generic Firewall Provisions</a></li>
 <li class="toctree-l4"><a class="reference internal" href="network_setup.html#external-guest-firewall-integration-for-juniper-srx-optional">External Guest Firewall Integration for Juniper SRX (Optional)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="network_setup.html#external-guest-firewall-integration-for-cisco-vnmc-optional">External Guest Firewall Integration for Cisco VNMC (Optional)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="network_setup.html#external-guest-load-balancer-integration-optional">External Guest Load Balancer Integration (Optional)</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="network_setup.html#management-server-load-balancing">Management Server Load Balancing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="network_setup.html#management-server-load-balancing">管理节点负载均衡</a></li>
 <li class="toctree-l3"><a class="reference internal" href="network_setup.html#topology-requirements">Topology Requirements</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="network_setup.html#security-requirements">Security Requirements</a></li>
 <li class="toctree-l4"><a class="reference internal" href="network_setup.html#runtime-internal-communications-requirements">Runtime Internal Communications Requirements</a></li>
@@ -154,17 +154,17 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l2"><a class="reference internal" href="index.html#storage-setup">Storage Setup</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../quickinstallationguide/qig.html">Quick Installation Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../installguide/index.html">Installation Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../upgrading/index.html">Upgrading CloudStack</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../adminguide/index.html">Usage Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../developersguide/index.html">Developers Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickinstallationguide/qig.html">快速安装向导</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installguide/index.html">安装指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../upgrading/index.html">升级 CloudStack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../adminguide/index.html">使用手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developersguide/index.html">开发者手册</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../plugins/index.html">Plugins Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">发行版本说明</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Other Documentation:</span></p>
+<p class="caption"><span class="caption-text">其它:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/api.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/api.html">API 文档</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://cwiki.apache.org/confluence/display/CLOUDSTACK/Home">Apache CloudStack Wiki</a></li>
 <li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/">Apache CloudStack web site</a></li>
 <li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/downloads.html">Apache CloudStack Source Code</a></li>
@@ -172,9 +172,9 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 </ul>
 <p class="caption"><span class="caption-text">Pre 4.11 Documentation:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference external" href="../../../projects/cloudstack-installation.html">Installation Guide</a></li>
-<li class="toctree-l1"><a class="reference external" href="../../../projects/cloudstack-administration.html">Administration Guide</a></li>
-<li class="toctree-l1"><a class="reference external" href="../../../projects/cloudstack-release-notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference external" href="../../../projects/cloudstack-installation.html">安装指南</a></li>
+<li class="toctree-l1"><a class="reference external" href="../../../projects/cloudstack-administration.html">管理员手册</a></li>
+<li class="toctree-l1"><a class="reference external" href="../../../projects/cloudstack-release-notes.html">发行版本说明</a></li>
 </ul>
 
             
@@ -220,9 +220,9 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="index.html">CloudStack Concepts and Terminology</a> &raquo;</li>
+          <li><a href="index.html">CloudStack 概念和术语</a> &raquo;</li>
         
-      <li>Basic and Advanced Networking</li>
+      <li>基础网络和高级网络</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -248,7 +248,7 @@ CloudStack installation. This section contains information to help you
 make decisions and follow the right procedures to get your network set
 up correctly.</p>
 <div class="section" id="basic-and-advanced-networking">
-<h1>Basic and Advanced Networking<a class="headerlink" href="network_setup.html#basic-and-advanced-networking" title="Permalink to this headline">¶</a></h1>
+<h1>基础网络和高级网络<a class="headerlink" href="network_setup.html#basic-and-advanced-networking" title="Permalink to this headline">¶</a></h1>
 <p>CloudStack provides two styles of networking:.</p>
 <p><strong>Basic</strong>
 For AWS-style networking. Provides a single network where guest isolation can
@@ -519,7 +519,7 @@ switch.</p>
 </div>
 </div>
 <div class="section" id="hardware-firewall">
-<h1>Hardware Firewall<a class="headerlink" href="network_setup.html#hardware-firewall" title="Permalink to this headline">¶</a></h1>
+<h1>硬件防火墙<a class="headerlink" href="network_setup.html#hardware-firewall" title="Permalink to this headline">¶</a></h1>
 <p>All deployments should have a firewall protecting the management server;
 see Generic Firewall Provisions. Optionally, some deployments may also
 have a Juniper SRX firewall that will be the default gateway for the
@@ -628,7 +628,7 @@ public security zone untrust, and private security zone trust) is:</p>
 </li>
 <li><p class="first">Make sure all VLANs are brought to the private interface of the SRX.</p>
 </li>
-<li><p class="first">After the CloudStack Management Server is installed, log in to the
+<li><p class="first">After the CloudStack 管理服务 is installed, log in to the
 CloudStack UI as administrator.</p>
 </li>
 <li><p class="first">In the left navigation bar, click Infrastructure.</p>
@@ -988,7 +988,7 @@ private interface name. The interface names will be something like
 <li><p class="first">Make sure that the VLANs are trunked to the management network
 interface.</p>
 </li>
-<li><p class="first">After the CloudStack Management Server is installed, log in as
+<li><p class="first">After the CloudStack 管理服务 is installed, log in as
 administrator to the CloudStack UI.</p>
 </li>
 <li><p class="first">In the left navigation bar, click Infrastructure.</p>
@@ -1013,7 +1013,7 @@ device. CloudStack uses these credentials to access the device.</li>
 <li>Type: The type of device that is being added. It could be F5 Big
 Ip Load Balancer, NetScaler VPX, NetScaler MPX, or NetScaler SDX.
 For a comparison of the NetScaler types, see the CloudStack
-Administration Guide.</li>
+管理员手册.</li>
 <li>Public interface: Interface of device that is configured to be
 part of the public network.</li>
 <li>Private interface: Interface of device that is configured to be
@@ -1034,7 +1034,7 @@ finished. You can proceed to add VMs and NAT or load balancing rules.</p>
 </div>
 </div>
 <div class="section" id="management-server-load-balancing">
-<h1>Management Server Load Balancing<a class="headerlink" href="network_setup.html#management-server-load-balancing" title="Permalink to this headline">¶</a></h1>
+<h1>管理节点负载均衡<a class="headerlink" href="network_setup.html#management-server-load-balancing" title="Permalink to this headline">¶</a></h1>
 <p>CloudStack can use a load balancer to provide a virtual IP for multiple
 Management Servers. The administrator is responsible for creating the
 load balancer rules for the Management Servers. The application requires
@@ -1086,7 +1086,7 @@ management server.</p>
 <div class="section" id="security-requirements">
 <h2>Security Requirements<a class="headerlink" href="network_setup.html#security-requirements" title="Permalink to this headline">¶</a></h2>
 <p>The public Internet must not be able to access port 8096 or port 8250 on
-the Management Server.</p>
+the 管理服务.</p>
 </div>
 <div class="section" id="runtime-internal-communications-requirements">
 <h2>Runtime Internal Communications Requirements<a class="headerlink" href="network_setup.html#runtime-internal-communications-requirements" title="Permalink to this headline">¶</a></h2>
@@ -1098,7 +1098,7 @@ management traffic network. Therefore the management traffic network
 of any given pod in the zone must have connectivity to the management
 traffic network of all other pods in the zone.</li>
 <li>The secondary storage VMs and console proxy VMs connect to the
-Management Server on port 8250. If you are using multiple Management
+管理服务 on port 8250. If you are using multiple Management
 Servers, the load balanced IP address of the Management Servers on
 port 8250 must be reachable.</li>
 </ul>
@@ -1107,7 +1107,7 @@ port 8250 must be reachable.</li>
 <h2>Storage Network Topology Requirements<a class="headerlink" href="network_setup.html#storage-network-topology-requirements" title="Permalink to this headline">¶</a></h2>
 <p>The secondary storage NFS export is mounted by the secondary storage VM.
 Secondary storage traffic goes over the management traffic network, even
-if there is a separate storage network. Primary storage traffic goes
+if there is a 独立存储网络. Primary storage traffic goes
 over the storage network, if available. If you choose to place secondary
 storage NFS servers on the storage network, you must make sure there is
 a route from the management traffic network to the storage network.</p>
@@ -1131,7 +1131,7 @@ public networks.</p>
 <div class="section" id="vmware-topology-requirements">
 <h2>VMware Topology Requirements<a class="headerlink" href="network_setup.html#vmware-topology-requirements" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>The Management Server and secondary storage VMs must be able to
+<li>The 管理服务 and secondary storage VMs must be able to
 access vCenter and all ESXi hosts in the zone. To allow the necessary
 access through the firewall, keep port 443 open.</li>
 <li>The Management Servers communicate with VMware vCenter servers on
@@ -1142,8 +1142,8 @@ port 443 (HTTPs).</li>
 </div>
 <div class="section" id="hyper-v-topology-requirements">
 <h2>Hyper-V Topology Requirements<a class="headerlink" href="network_setup.html#hyper-v-topology-requirements" title="Permalink to this headline">¶</a></h2>
-<p>CloudStack Management Server communicates with Hyper-V Agent by using
-HTTPS. For secure communication between the Management Server and the
+<p>CloudStack 管理服务 communicates with Hyper-V Agent by using
+HTTPS. For secure communication between the 管理服务 and the
 Hyper-V host, open port 8250.</p>
 </div>
 <div class="section" id="kvm-topology-requirements">
@@ -1195,7 +1195,7 @@ Guest from the drop-down list.</p>
 CloudStack API command addTrafficMonitor. Pass in the URL of the
 Traffic Sentinel as protocol + host + port (optional); for example,
 <a class="reference external" href="http://10.147.28.100:8080">http://10.147.28.100:8080</a>. For the addTrafficMonitor command syntax,
-see the API Reference at <a class="reference external" href="http://cloudstack.apache.org/docs/api/index.html">API Documentation</a>.</p>
+see the API Reference at <a class="reference external" href="http://cloudstack.apache.org/docs/api/index.html">API 文档</a>.</p>
 <p>For information about how to call the CloudStack API, see the
 Developer’s Guide at the CloudStack API Developer’s Guide <a class="reference internal" href="../developersguide/developer_guide.html#the-api"><span class="std std-ref">The CloudStack API</span></a></p>
 </li>
@@ -1250,7 +1250,7 @@ your deployment.</p>
 </table>
 <p>Based on your deployment’s needs, choose the appropriate value of
 guest.vlan.bits. Set it as described in Edit the Global Configuration
-Settings (Optional) section and restart the Management Server.</p>
+Settings (Optional) section and restart the 管理服务.</p>
 </div>
 
 
@@ -1264,7 +1264,7 @@ Settings (Optional) section and restart the Management Server.</p>
         <a href="storage_setup.html" class="btn btn-neutral float-right" title="Introduction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="choosing_deployment_architecture.html" class="btn btn-neutral float-left" title="Small-Scale Deployment" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="choosing_deployment_architecture.html" class="btn btn-neutral float-left" title="小规模部署" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

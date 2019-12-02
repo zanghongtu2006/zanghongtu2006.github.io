@@ -13,7 +13,7 @@
    specific language governing permissions and limitations
    under the License.
 
-Installation overview
+安装概述
 ==============================
 
 .. contents::
@@ -36,11 +36,11 @@ build from source.
 If you didn't follow the steps to build your own packages from source in
 the sections for `“Building RPMs from Source” 
 <../building_from_source.html#building-rpms-from-source>`_ or 
-`“Building DEB packages” <../building_from_source.html#building-deb-packages>`_ 
+`“打包成 DEB” <../building_from_source.html#building-deb-packages>`_ 
 you may find pre-built DEB and RPM packages for your convenience linked from 
 the `downloads <http://cloudstack.apache.org/downloads.html>`_ page.
 
 .. note::
-   These repositories contain both the Management Server and KVM Hypervisor 
+   These repositories contain both the 管理服务 and KVM Hypervisor 
    packages.
 

@@ -14,7 +14,7 @@
    under the License.
 
 
-Host Citrix XenServer Installation
+Citrix XenServer 安装
 ----------------------------------
 
 If you want to use the Citrix XenServer hypervisor to run guest virtual
@@ -84,7 +84,7 @@ XenServer Installation Steps
    download the appropriate version of XenServer for your CloudStack
    version (see `"System Requirements for XenServer Hosts" 
    <#system-requirements-for-xenserver-hosts>`_). Install it using
-   the Citrix XenServer Installation Guide.
+   the Citrix XenServer 安装指南.
 
    Older Versions of XenServer:
 
@@ -369,7 +369,7 @@ static. It can be set on the host itself or obtained via static DHCP.
 
 CloudStack configures network traffic of various types to use different
 NICs or bonds on the XenServer host. You can control this process and
-provide input to the Management Server through the use of XenServer
+provide input to the 管理服务 through the use of XenServer
 network name labels. The name labels are placed on physical interfaces
 or bonds and configured in CloudStack. In some simple cases the name
 labels are not required.
@@ -398,7 +398,7 @@ XenServer name-label for the public network must be identical across all
 hosts. The following examples set the network label to "cloud-public".
 After the management server is installed and running you must configure
 it with the name of the chosen network label (e.g. "cloud-public"); this
-is discussed in `"Management Server Installation" 
+is discussed in `"安装管理服务" 
 <installation.html#management-server-installation>`_.
 
 If you are using two NICs bonded together to create a public network,
@@ -446,19 +446,19 @@ CloudStack:
    different name-label and uuid each time.
 
 
-Separate Storage Network for XenServer (Optional)
+独立存储网络 for XenServer (Optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-You can optionally set up a separate storage network. This should be
+You can optionally set up a 独立存储网络. This should be
 done first on the host, before implementing the bonding steps below.
 This can be done using one or two available NICs. With two NICs bonding
 may be done as above. It is the administrator's responsibility to set up
-a separate storage network.
+a 独立存储网络.
 
 Give the storage network a different name-label than what will be given
 for other networks.
 
-For the separate storage network to work correctly, it must be the only
+For the 独立存储网络 to work correctly, it must be the only
 interface that can ping the primary storage device's IP address. For
 example, if eth0 is the management network NIC, ping -I eth0 <primary
 storage device IP> must fail. In all deployments, secondary storage
@@ -467,12 +467,12 @@ secondary storage device has been placed on the storage network, it must
 also be pingable via the storage network NIC or bond on the hosts as
 well.
 
-You can set up two separate storage networks as well. For example, if
+You can set up two 独立存储网络s as well. For example, if
 you intend to implement iSCSI multipath, dedicate two non-bonded NICs to
 multipath. Each of the two networks needs a unique name-label.
 
 If no bonding is done, the administrator must set up and name-label the
-separate storage network on all hosts (masters and slaves).
+独立存储网络 on all hosts (masters and slaves).
 
 Here is an example to set up eth5 to access a storage network on
 172.16.0.0/24.
@@ -492,7 +492,7 @@ NIC Bonding for XenServer (Optional)
 
 XenServer supports Source Level Balancing (SLB) NIC bonding. Two NICs
 can be bonded together to carry public, private, and guest traffic, or
-some combination of these. Separate storage networks are also possible.
+some combination of these. 独立存储网络s are also possible.
 Here are some example supported configurations:
 
 -  2 NICs on private, 2 NICs on public, 2 NICs on storage
@@ -630,7 +630,7 @@ With all hosts added to the pool, run the cloud-setup-bond script. This
 script will complete the configuration and set up of the bonds across
 all hosts in the cluster.
 
-#. Copy the script from the Management Server in
+#. Copy the script from the 管理服务 in
    /usr/share/cloudstack-common/scripts/vm/hypervisor/xenserver/cloud-setup-bonding.sh
    to the master host and ensure it is executable.
 
@@ -659,7 +659,7 @@ upgrade.
 
 To upgrade XenServer:
 
-#. Upgrade the database. On the Management Server node:
+#. Upgrade the database. On the 管理服务 node:
 
    #. Back up the database:
 
@@ -689,7 +689,7 @@ To upgrade XenServer:
       -  If you upgraded from XenServer 5.6 to XenServer 6.0.2, do all
          of the above.
 
-   #. Restart the Management Server and Usage Server. You only need to
+   #. Restart the 管理服务 and Usage Server. You only need to
       do this once for all clusters.
 
       .. sourcecode:: bash
@@ -754,7 +754,7 @@ To upgrade XenServer:
       .. cssclass:: table-striped table-bordered table-hover
       
       =================================================================================   =======================================
-      Copy this Management Server file                                                    To this location on the XenServer host
+      Copy this 管理服务 file                                                    To this location on the XenServer host
       =================================================================================   =======================================
       /usr/share/cloudstack-common/scripts/vm/hypervisor/xenserver/xenserver60/NFSSR.py   /opt/xensource/sm/NFSSR.py
       /usr/share/cloudstack-common/scripts/vm/hypervisor/xenserver/setupxenserver.sh      /opt/xensource/bin/setupxenserver.sh

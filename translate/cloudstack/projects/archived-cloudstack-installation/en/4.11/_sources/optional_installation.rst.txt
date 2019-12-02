@@ -24,7 +24,7 @@ basic deployment options.
 Installing the Usage Server (Optional)
 --------------------------------------
 
-You can optionally install the Usage Server once the Management Server
+You can optionally install the Usage Server once the 管理服务
 is configured properly. The Usage Server takes data from the events in
 the system and enables usage-based billing for accounts.
 
@@ -37,7 +37,7 @@ Usage Servers on at least two Management Servers.
 Requirements for Installing the Usage Server
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  The Management Server must be running when the Usage Server is
+-  The 管理服务 must be running when the Usage Server is
    installed.
 
 -  The Usage Server must be installed on the same server as a Management
@@ -84,7 +84,7 @@ Steps to Install the Usage Server
 
       # update-rc.d cloudstack-usage defaults
 
-The `Administration Guide <http://docs.cloudstack.apache.org/projects/cloudstack-administration.html/en/latest/usage.html>`_ discusses further configuration of the Usage
+The `管理员手册 <http://docs.cloudstack.apache.org/projects/cloudstack-administration.html/en/latest/usage.html>`_ discusses further configuration of the Usage
 Server.
 
 
@@ -255,9 +255,9 @@ administrator. In the event of a database failure you should:
 #. Ensure that the replica's port 3306 is open to the Management
    Servers.
 
-#. Make a change so that the Management Server uses the new database.
+#. Make a change so that the 管理服务 uses the new database.
    The simplest process here is to put the IP address of the new
-   database server into each Management Server's
+   database server into each 管理服务's
    /etc/cloudstack/management/db.properties.
 
 #. Restart the Management Servers:
@@ -333,14 +333,14 @@ prior to using it.
 
 #. Create a set of CloudStack service offerings with names that match
    the Amazon service offerings. You can do this through the CloudStack
-   UI as described in the Administration Guide.
+   UI as described in the 管理员手册.
 
    .. warning::
       Be sure you have included the Amazon default service offering, m1.small. 
       As well as any EC2 instance types that you will use.
 
 #. If you did not already do so when you set the configuration parameter
-   in step 1, restart the Management Server.
+   in step 1, restart the 管理服务.
 
    .. sourcecode:: bash
 
@@ -405,7 +405,7 @@ Modifying the AWS API Port
 
    #. Change the port to whatever port you want to use, then save the files.
 
-   #. Restart the Management Server.
+   #. Restart the 管理服务.
 
 If you re-install CloudStack, you will have to re-enable the services
 and if need be update the port.

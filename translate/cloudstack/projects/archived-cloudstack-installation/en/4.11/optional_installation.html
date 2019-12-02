@@ -63,7 +63,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
           <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand" href="index.html">
-          Installation Guide</a>
+          安装指南</a>
         <span class="navbar-text navbar-version pull-left"><b>4.11</b></span>
       </div>
 
@@ -81,30 +81,30 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
                     role="menu"
                     aria-labelledby="dLabelGlobalToc">
                      <ul>
-<li class="toctree-l1"><a class="reference internal" href="choosing_deployment_architecture.html">Choosing a Deployment Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="choosing_deployment_architecture.html">架构选型</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="qig.html">Quick Installation Guide for CentOS 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qig.html">快速安装向导 for CentOS 6</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="building_from_source.html">Building from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="building_from_source.html">从源码编译安装</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="overview/index.html">Installation overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="management-server/index.html">Management Server Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview/index.html">安装概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="management-server/index.html">安装管理服务</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuring your CloudStack Installation</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="hypervisor/hyperv.html">Host Hyper-V Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="hypervisor/kvm.html">Host KVM Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="hypervisor/lxc.html">Host LXC Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="hypervisor/vsphere.html">Host VMware vSphere Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="hypervisor/xenserver.html">Host Citrix XenServer Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hypervisor/hyperv.html">Hyper-V 安装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hypervisor/kvm.html">KVM 安装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hypervisor/lxc.html">LXC 安装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hypervisor/vsphere.html">VMware vSphere 安装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hypervisor/xenserver.html">Citrix XenServer 安装</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="network_setup.html">Network Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="network_setup.html">网络配置</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="storage_setup.html">Storage Setup</a></li>
@@ -210,7 +210,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 basic deployment options.</p>
 <div class="section" id="installing-the-usage-server-optional">
 <h2>Installing the Usage Server (Optional)<a class="headerlink" href="optional_installation.html#installing-the-usage-server-optional" title="Permalink to this headline">¶</a></h2>
-<p>You can optionally install the Usage Server once the Management Server
+<p>You can optionally install the Usage Server once the 管理服务
 is configured properly. The Usage Server takes data from the events in
 the system and enables usage-based billing for accounts.</p>
 <p>When multiple Management Servers are present, the Usage Server may be
@@ -220,7 +220,7 @@ Usage Servers on at least two Management Servers.</p>
 <div class="section" id="requirements-for-installing-the-usage-server">
 <h3>Requirements for Installing the Usage Server<a class="headerlink" href="optional_installation.html#requirements-for-installing-the-usage-server" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li>The Management Server must be running when the Usage Server is
+<li>The 管理服务 must be running when the Usage Server is
 installed.</li>
 <li>The Usage Server must be installed on the same server as a Management
 Server.</li>
@@ -258,7 +258,7 @@ Server.</li>
 </div>
 </li>
 </ol>
-<p>The <a class="reference external" href="http://docs.cloudstack.apache.org/projects/cloudstack-administration.html/en/latest/usage.html">Administration Guide</a> discusses further configuration of the Usage
+<p>The <a class="reference external" href="http://docs.cloudstack.apache.org/projects/cloudstack-administration.html/en/latest/usage.html">管理员手册</a> discusses further configuration of the Usage
 Server.</p>
 </div>
 </div>
@@ -409,9 +409,9 @@ administrator. In the event of a database failure you should:</p>
 <li><p class="first">Ensure that the replica’s port 3306 is open to the Management
 Servers.</p>
 </li>
-<li><p class="first">Make a change so that the Management Server uses the new database.
+<li><p class="first">Make a change so that the 管理服务 uses the new database.
 The simplest process here is to put the IP address of the new
-database server into each Management Server’s
+database server into each 管理服务’s
 /etc/cloudstack/management/db.properties.</p>
 </li>
 <li><p class="first">Restart the Management Servers:</p>
@@ -482,7 +482,7 @@ prior to using it.</p>
 </li>
 <li><p class="first">Create a set of CloudStack service offerings with names that match
 the Amazon service offerings. You can do this through the CloudStack
-UI as described in the Administration Guide.</p>
+UI as described in the 管理员手册.</p>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
 <p class="last">Be sure you have included the Amazon default service offering, m1.small.
@@ -490,7 +490,7 @@ As well as any EC2 instance types that you will use.</p>
 </div>
 </li>
 <li><p class="first">If you did not already do so when you set the configuration parameter
-in step 1, restart the Management Server.</p>
+in step 1, restart the 管理服务.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># service cloudstack-management restart</span>
 </pre></div>
 </div>
@@ -539,7 +539,7 @@ API to listen on another port, you can change it as follows:</p>
 <code class="docutils literal notranslate"><span class="pre">/etc/cloudstack/management/server-ssl.xml</span></code>.</li>
 <li>In each file, find the tag &lt;Service name=”Catalina7080”&gt;. Under this tag, locate &lt;Connector executor=”tomcatThreadPool-internal” port=   ….&lt;.</li>
 <li>Change the port to whatever port you want to use, then save the files.</li>
-<li>Restart the Management Server.</li>
+<li>Restart the 管理服务.</li>
 </ol>
 </div>
 <p>If you re-install CloudStack, you will have to re-enable the services

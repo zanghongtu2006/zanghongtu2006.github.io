@@ -44,10 +44,10 @@ more information on these events..
 Notification
 ------------
 
-Event notification framework provides a means for the Management Server
+Event notification framework provides a means for the 管理服务
 components to publish and subscribe to CloudStack events. Event
 notification is achieved by implementing the concept of event bus
-abstraction in the Management Server.
+abstraction in the 管理服务.
 
 A new event for state change, resource state change, is introduced as
 part of Event notification framework. Every resource, such as user VM,
@@ -62,7 +62,7 @@ change events, are published on to the events bus.
 Implementations
 ~~~~~~~~~~~~~~~
 An event bus is introduced in the
-Management Server that allows the CloudStack components and extension
+管理服务 that allows the CloudStack components and extension
 plug-ins to subscribe to the events by using the Advanced Message
 Queuing Protocol (AMQP) client. In CloudStack, a default implementation
 of event bus is provided as a plug-in that uses the RabbitMQ AMQP
@@ -201,7 +201,7 @@ changes can control the behaviour.
          password=nh2XrM7jWHMG4VQK18iiBQ==
 
 
-#. Restart the Management Server.
+#. Restart the 管理服务.
 
 Kafka Configuration
 ~~~~~~~~~~~~~~~~~~~
@@ -238,7 +238,7 @@ changes can control the behaviour.
           </bean>
         </beans>
 
-#. Restart the Management Server.
+#. Restart the 管理服务.
 
 
 Standard Events

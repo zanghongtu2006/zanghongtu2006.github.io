@@ -15,7 +15,7 @@
    
 .. _install-mgt:
 
-Management Server Installation
+安装管理服务
 ==============================
 
 .. include:: _prerequisite.rst
@@ -36,7 +36,7 @@ Management Server Installation
 Installation Complete! Next Steps
 ---------------------------------
 
-Congratulations! You have now installed CloudStack Management Server and
+Congratulations! You have now installed CloudStack 管理服务 and
 the database it uses to persist system data.
 
 |installation-complete.png: Finished installs with single Management
@@ -53,4 +53,4 @@ What should you do next?
    infrastructure. See Provision Your Cloud Infrastructure.
 
 
-.. |installation-complete.png: Finished installs with single Management Server and multiple Management Servers| image:: ../_static/images/installation-complete.png
+.. |installation-complete.png: Finished installs with single 管理服务 and multiple Management Servers| image:: ../_static/images/installation-complete.png

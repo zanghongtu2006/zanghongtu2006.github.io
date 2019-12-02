@@ -41,7 +41,7 @@ Upgrade Steps:
 
 .. include:: _sysvm_templates.rst
 
-Packages repository
+软件包存储库
 -------------------
 
 Most users of CloudStack manage the installation and upgrades of
@@ -56,7 +56,7 @@ for package repositories supplied by community members. You will need
 them for :ref:`ubuntu48` or :ref:`rhel48` and :ref:`kvm48` hosts upgrade. 
 
 Instructions for creating packages from the CloudStack source are in the 
-`CloudStack Installation Guide`_.
+`CloudStack 安装指南`_.
 
 
 Database Preparation
@@ -106,7 +106,7 @@ Backup current database
 
 .. _ubuntu48:
 
-Management Server on Ubuntu
+管理服务 on Ubuntu
 ---------------------------
 
 If you are using Ubuntu, follow this procedure to upgrade your packages. If 
@@ -176,7 +176,7 @@ read as appropriate for your |version| repository.
 
 .. _rhel48:
 
-Management Server on CentOS/RHEL
+管理服务 on CentOS/RHEL
 --------------------------------
 
 If you are using CentOS or RHEL, follow this procedure to upgrade your 
@@ -262,14 +262,14 @@ Hypervisor: VMware
 
 .. warning::
    For VMware hypervisor CloudStack management server packages must be
-   build using "noredist". Refer to `Building from Source
+   build using "noredist". Refer to `从源码编译安装
    <http://docs.cloudstack.apache.org/projects/cloudstack-installation.html/en/latest/building_from_source.html>`_.
 
 **(VMware only)** Additional steps are required for each VMware cluster.
 These steps will not affect running guests in the cloud. These steps
 are required only for clouds using VMware clusters:
 
-#. Stop the Management Server:
+#. Stop the 管理服务:
 
    .. sourcecode:: bash
 
@@ -401,7 +401,7 @@ For KVM hosts, upgrade the ``cloudstack-agent`` package
       $ sudo service cloudstack-agent start
 
 
-Restart management services
+重启管理服务
 ---------------------------
 
 #. Now it's time to start the management server

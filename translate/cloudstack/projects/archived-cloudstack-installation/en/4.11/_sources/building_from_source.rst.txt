@@ -14,7 +14,7 @@
    under the License.
 
 
-Building from Source
+从源码编译安装
 ====================
 
 The official CloudStack release is always in source code form. You will
@@ -63,7 +63,7 @@ and SHA512 file.
    the validity of the release download.
 
 
-Verifying the downloaded release
+验证下载的版本
 --------------------------------
 
 There are a number of mechanisms to check the authenticity and validity
@@ -155,7 +155,7 @@ You will need, at a minimum, the following to compile CloudStack:
 #. rpmbuild or dpkg-dev
 
 
-Extracting source
+解压源码
 -----------------
 
 Extracting the CloudStack release is relatively simple and can be done
@@ -221,7 +221,7 @@ Install mysql-connector
    yum install mysql-connector-python
 
 
-Building DEB packages
+打包成 DEB
 ---------------------
 
 In addition to the bootstrap dependencies, you'll also need to install
@@ -326,7 +326,7 @@ another update so that APT knows where to find the CloudStack packages.
 You can now move on to the instructions under Install on Ubuntu.
 
 
-Building RPMs from Source
+打包成 RPM
 -------------------------
 
 As mentioned previously in `“Prerequisites for building Apache CloudStack” 
@@ -461,7 +461,7 @@ Completing this step will allow you to easily install CloudStack on a
 number of machines across the network.
 
 
-Building Non-OSS
+打包 Non-OSS
 ----------------
 
 If you need support for the VMware, NetApp, F5, NetScaler, SRX, or any
@@ -500,6 +500,6 @@ to build from source.
    $ mvn install -Dnoredist
 
 #. Once you've built CloudStack with the ``noredist`` profile, you can
-   package it using the `“Building RPMs from Source” <#building-rpms-from-source>`_ 
-   or `“Building DEB packages” <#building-deb-packages>`_ instructions.
+   package it using the `“打包成 RPM” <#building-rpms-from-source>`_ 
+   or `“打包成 DEB” <#building-deb-packages>`_ instructions.
 

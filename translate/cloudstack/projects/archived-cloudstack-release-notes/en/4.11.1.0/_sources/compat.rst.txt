@@ -16,11 +16,11 @@
 Compatibility Matrix
 ====================
 
-Supported OS Versions for Management Server
+Supported OS Versions for 管理服务
 -------------------------------------------
 
 This section lists the operating systems that are supported for running
-CloudStack Management Server. Note that specific versions of the
+CloudStack 管理服务. Note that specific versions of the
 operating systems are tested, so compatibility with CentOS 6.3 may not
 indicate compatibility with CentOS 6.2, 6.1 and so on.
 
@@ -64,7 +64,7 @@ and VMware with vSphere.
    -  Ubuntu 12.04
 
 For more information, see the Hypervisor Compatibility Matrix in the
-`CloudStack Installation Guide`_.
+`CloudStack 安装指南`_.
 
 
 Supported External Devices

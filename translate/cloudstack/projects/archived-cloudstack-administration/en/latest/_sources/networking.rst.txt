@@ -17,7 +17,7 @@
 Setting Up Networking for Users
 ===============================
 
-Overview of Setting Up Networking for Users
+设置用户网络概述
 -------------------------------------------
 
 People using cloud infrastructure have a variety of needs and
@@ -41,7 +41,7 @@ set up networking for your users:
    through a project of which the user is a member
 
 
-About Virtual Networks
+关于虚拟网络
 ---------------------------
 
 A virtual network is a logical construct that enables multi-tenancy on a
@@ -289,7 +289,7 @@ To create a network offering:
       Load Balancer       If you select Load Balancer, you can choose the CloudStack virtual           Supported     Supported
                           router or any other load balancers that have been configured in
                           the cloud.
-      Firewall            For more information, see the Administration Guide.                          Supported     Supported
+      Firewall            For more information, see the 管理员手册.                          Supported     Supported
       Source NAT          If you select Source NAT, you can choose the CloudStack virtual              Supported     Supported
                           router or any other Source NAT providers that have been configured
                           in the cloud.

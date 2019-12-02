@@ -107,16 +107,16 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../conceptsandterminology/index.html">CloudStack Concepts and Terminology</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quickinstallationguide/qig.html">Quick Installation Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../installguide/index.html">Installation Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../upgrading/index.html">Upgrading CloudStack</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Usage Guide</a><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../conceptsandterminology/index.html">CloudStack 概念和术语</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickinstallationguide/qig.html">快速安装向导</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installguide/index.html">安装指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../upgrading/index.html">升级 CloudStack</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">使用手册</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="index.html#user-interface">User Interface</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#managing-accounts-users-and-domains">Managing Accounts, Users and Domains</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#using-projects-to-organize-user-resources">Using Projects to Organize User Resources</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#service-offerings">Service Offerings</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#setting-up-networking-for-users">Setting up Networking for Users</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#setting-up-networking-for-users">设置用户网络</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#working-with-virtual-machines">Working with Virtual Machines</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#working-with-templates">Working with Templates</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#working-with-hosts">Working with Hosts</a></li>
@@ -142,13 +142,13 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../developersguide/index.html">Developers Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developersguide/index.html">开发者手册</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../plugins/index.html">Plugins Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">发行版本说明</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Other Documentation:</span></p>
+<p class="caption"><span class="caption-text">其它:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/api.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/api.html">API 文档</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://cwiki.apache.org/confluence/display/CLOUDSTACK/Home">Apache CloudStack Wiki</a></li>
 <li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/">Apache CloudStack web site</a></li>
 <li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/downloads.html">Apache CloudStack Source Code</a></li>
@@ -156,9 +156,9 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 </ul>
 <p class="caption"><span class="caption-text">Pre 4.11 Documentation:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference external" href="../../../projects/cloudstack-installation.html">Installation Guide</a></li>
-<li class="toctree-l1"><a class="reference external" href="../../../projects/cloudstack-administration.html">Administration Guide</a></li>
-<li class="toctree-l1"><a class="reference external" href="../../../projects/cloudstack-release-notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference external" href="../../../projects/cloudstack-installation.html">安装指南</a></li>
+<li class="toctree-l1"><a class="reference external" href="../../../projects/cloudstack-administration.html">管理员手册</a></li>
+<li class="toctree-l1"><a class="reference external" href="../../../projects/cloudstack-release-notes.html">发行版本说明</a></li>
 </ul>
 
             
@@ -204,7 +204,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="index.html">Usage Guide</a> &raquo;</li>
+          <li><a href="index.html">使用手册</a> &raquo;</li>
         
       <li>Event Notification</li>
     
@@ -251,10 +251,10 @@ more information on these events..</p>
 </div>
 <div class="section" id="notification">
 <h2>Notification<a class="headerlink" href="events.html#notification" title="Permalink to this headline">¶</a></h2>
-<p>Event notification framework provides a means for the Management Server
+<p>Event notification framework provides a means for the 管理服务
 components to publish and subscribe to CloudStack events. Event
 notification is achieved by implementing the concept of event bus
-abstraction in the Management Server.</p>
+abstraction in the 管理服务.</p>
 <p>A new event for state change, resource state change, is introduced as
 part of Event notification framework. Every resource, such as user VM,
 volume, NIC, network, public IP, snapshot, and template, is associated
@@ -267,7 +267,7 @@ change events, are published on to the events bus.</p>
 <div class="section" id="implementations">
 <h3>Implementations<a class="headerlink" href="events.html#implementations" title="Permalink to this headline">¶</a></h3>
 <p>An event bus is introduced in the
-Management Server that allows the CloudStack components and extension
+管理服务 that allows the CloudStack components and extension
 plug-ins to subscribe to the events by using the Advanced Message
 Queuing Protocol (AMQP) client. In CloudStack, a default implementation
 of event bus is provided as a plug-in that uses the RabbitMQ AMQP
@@ -392,7 +392,7 @@ as variables from a credentials file.</p>
 </li>
 </ul>
 </li>
-<li><p class="first">Restart the Management Server.</p>
+<li><p class="first">Restart the 管理服务.</p>
 </li>
 </ol>
 </div>
@@ -429,7 +429,7 @@ will default to <code class="docutils literal notranslate"><span class="pre">org
 </pre></div>
 </div>
 </li>
-<li><p class="first">Restart the Management Server.</p>
+<li><p class="first">Restart the 管理服务.</p>
 </li>
 </ol>
 </div>

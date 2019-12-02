@@ -564,7 +564,7 @@ To enable you to assign VLANs to Isolated networks,
 
    -  **Specify VLAN**: Select the option.
 
-   For more information, see the CloudStack Installation Guide.
+   For more information, see the CloudStack 安装指南.
 
 #. Using this network offering, create a network.
 

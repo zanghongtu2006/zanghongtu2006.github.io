@@ -277,7 +277,7 @@ To create a new compute offering:
       <accounts.html#dedicating-resources-to-accounts-and-domains>`_.
 
       Bare Metal is used with bare metal hosts. See Bare Metal
-      Installation in the Installation Guide.
+      Installation in the 安装指南.
 
    -  **Planner Mode**: Used when ImplicitDedicationPlanner is selected
       in the previous field. The planner mode determines how VMs will be
@@ -638,7 +638,7 @@ default system offering used for System VMs.
 
          update disk_offering set unique_name = 'Cloud.com-ConsoleProxy' where id = 16;
 
-#. Restart CloudStack Management Server. Restarting is required because
+#. Restart CloudStack 管理服务. Restarting is required because
    the default offerings are loaded into the memory at startup.
 
    .. code:: bash

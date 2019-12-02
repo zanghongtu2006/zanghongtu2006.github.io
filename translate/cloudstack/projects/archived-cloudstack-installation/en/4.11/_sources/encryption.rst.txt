@@ -52,9 +52,9 @@ methods will be used. If the encryption type is set to "file," the key
 must be in a file in a known location. If the encryption type is set to
 "web," the administrator runs the utility
 com.cloud.utils.crypt.EncryptionSecretKeySender, which relays the key to
-the Management Server over a known port.
+the 管理服务 over a known port.
 
-The encryption type, database secret key, and Management Server secret
+The encryption type, database secret key, and 管理服务 secret
 key are set during CloudStack installation. They are all parameters to
 the CloudStack database setup script (cloudstack-setup-databases). The
 default values are file, password, and password. It is, of course,

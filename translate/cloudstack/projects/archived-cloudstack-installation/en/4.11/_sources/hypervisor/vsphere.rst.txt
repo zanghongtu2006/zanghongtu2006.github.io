@@ -14,7 +14,7 @@
    under the License.
 
 
-Host VMware vSphere Installation
+VMware vSphere 安装
 --------------------------------
 
 If you want to use the VMware vSphere hypervisor to run guest virtual
@@ -109,7 +109,7 @@ Other requirements:
    available to manage the vSphere hosts.
 
 -  vCenter must be configured to use the standard port 443 so that it
-   can communicate with the CloudStack Management Server.
+   can communicate with the CloudStack 管理服务.
 
 -  You must re-install VMware ESXi if you are going to re-use a host
    from a previous install.
@@ -146,7 +146,7 @@ Other requirements:
 -  All of the required VLANs must be trunked into all network switches that
    are connected to the ESXi hypervisor hosts. These would include the
    VLANs for Management, Storage, vMotion, and guest VLANs. The guest
-   VLAN (used in Advanced Networking; see Network Setup) is a contiguous
+   VLAN (used in Advanced Networking; see 网络配置) is a contiguous
    range of VLANs that will be managed by CloudStack.
 
 
@@ -196,7 +196,7 @@ ESXi VLAN                     VLAN on which all your ESXi hypervisors reside.
 ESXI VLAN IP Address          IP Address Range in the ESXi VLAN. One address per Virtual Router is used from this range.
 ESXi VLAN IP Gateway
 ESXi VLAN Netmask
-Management Server VLAN        VLAN on which the CloudStack Management server is installed.
+管理服务 VLAN        VLAN on which the CloudStack Management server is installed.
 Public VLAN                   VLAN for the Public Network.
 Public VLAN Gateway
 Public VLAN Netmask
@@ -214,7 +214,7 @@ vSphere Installation Steps
 #. If you haven't already, you'll need to download and purchase vSphere
    from the VMware Website
    (`https://www.vmware.com/tryvmware/index.php?p=vmware-vsphere&lp=1 <https://www.vmware.com/tryvmware/index.php?p=vmware-vsphere&lp=1>`_)
-   and install it by following the VMware vSphere Installation Guide.
+   and install it by following the VMware vSphere 安装指南.
 
 #. Following installation, perform the following configuration, which
    are described in the next few sections:
@@ -357,7 +357,7 @@ Configure NIC Bonding for vSphere
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 NIC bonding on vSphere hosts may be done according to the vSphere
-installation guide.
+安装指南.
 
 
 Configuring a vSphere Cluster with Nexus 1000v Virtual Switch
@@ -840,7 +840,7 @@ Enabling Virtual Distributed Switch in CloudStack
 
 To make a CloudStack deployment VDS enabled, set the vmware.use.dvswitch
 parameter to true by using the Global Settings page in the CloudStack UI
-and restart the Management Server. Unless you enable the
+and restart the 管理服务. Unless you enable the
 vmware.use.dvswitch parameter, you cannot see any UI options specific to
 VDS, and CloudStack ignores the VDS-specific parameters that you
 specify. Additionally, CloudStack uses VDS for virtual network
@@ -955,7 +955,7 @@ Multipathing for vSphere (Optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Storage multipathing on vSphere nodes may be done according to the
-vSphere installation guide.
+vSphere 安装指南.
 
 
 Add Hosts or Configure Clusters (vSphere)

@@ -110,12 +110,12 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../conceptsandterminology/index.html">CloudStack Concepts and Terminology</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quickinstallationguide/qig.html">Quick Installation Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../installguide/index.html">Installation Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../upgrading/index.html">Upgrading CloudStack</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../adminguide/index.html">Usage Guide</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Developers Guide</a><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../conceptsandterminology/index.html">CloudStack 概念和术语</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickinstallationguide/qig.html">快速安装向导</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installguide/index.html">安装指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../upgrading/index.html">升级 CloudStack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../adminguide/index.html">使用手册</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">开发者手册</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="developer_guide.html">CloudStack Installation from GIT repo for Developers</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="dev.html#">Programmer Guide</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="dev.html#the-cloudstack-api">The CloudStack API</a><ul>
@@ -148,11 +148,11 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../plugins/index.html">Plugins Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">发行版本说明</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Other Documentation:</span></p>
+<p class="caption"><span class="caption-text">其它:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/api.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/api.html">API 文档</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://cwiki.apache.org/confluence/display/CLOUDSTACK/Home">Apache CloudStack Wiki</a></li>
 <li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/">Apache CloudStack web site</a></li>
 <li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/downloads.html">Apache CloudStack Source Code</a></li>
@@ -160,9 +160,9 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 </ul>
 <p class="caption"><span class="caption-text">Pre 4.11 Documentation:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference external" href="../../../projects/cloudstack-installation.html">Installation Guide</a></li>
-<li class="toctree-l1"><a class="reference external" href="../../../projects/cloudstack-administration.html">Administration Guide</a></li>
-<li class="toctree-l1"><a class="reference external" href="../../../projects/cloudstack-release-notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference external" href="../../../projects/cloudstack-installation.html">安装指南</a></li>
+<li class="toctree-l1"><a class="reference external" href="../../../projects/cloudstack-administration.html">管理员手册</a></li>
+<li class="toctree-l1"><a class="reference external" href="../../../projects/cloudstack-release-notes.html">发行版本说明</a></li>
 </ul>
 
             
@@ -208,7 +208,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="index.html">Developers Guide</a> &raquo;</li>
+          <li><a href="index.html">开发者手册</a> &raquo;</li>
         
       <li>Programmer Guide</li>
     
@@ -304,7 +304,7 @@ example, we are attempting to deploy a fresh new virtual machine. It is
 preceded by a (?) to separate itself from the CloudStack API URL.</p>
 <p>Lines 3-6 are the parameters for this given command. To see the command
 and its request parameters, please refer to the appropriate section in
-the CloudStack API documentation. Each parameter field-value pair
+the CloudStack API 文档. Each parameter field-value pair
 (field=value) is preceded by an ampersand character (&amp;).</p>
 <p>Line 7 is the user API Key that uniquely identifies the account. See
 Signing API Requests on page 7.</p>
@@ -325,7 +325,7 @@ process.</p>
 </div>
 <p>Breaking this down, we have several distinct parts to this URL.</p>
 <ul>
-<li><p class="first">Base URL: This is the base URL to the CloudStack Management Server.</p>
+<li><p class="first">Base URL: This is the base URL to the CloudStack 管理服务.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="p">:</span><span class="mi">8080</span>
 </pre></div>
 </div>
@@ -516,7 +516,7 @@ to ensure that only the exact desired number of API requests are
 allowed. In the worst case, the number of API calls that might be
 allowed is (number of Management Servers) * (api.throttling.max).</li>
 <li>The API commands resetApiLimit and getApiLimit are limited to the
-Management Server where the API is invoked.</li>
+管理服务 where the API is invoked.</li>
 </ul>
 </div>
 <div class="section" id="api-responses">
@@ -574,7 +574,7 @@ has many users with lots of VMs, you might need to increase the value of
 this parameter. At the same time, be careful not to set it so high that
 your site can be taken down by an enormous return from an API call. For
 more information about how to set global configuration parameters, see
-“Describe Your Deployment” in the Installation Guide.</p>
+“Describe Your Deployment” in the 安装指南.</p>
 <p>To decrease the page size limit for an individual API command, override
 the global setting with the page and pagesize parameters, which are
 available in any list* command (listCapabilities, listDiskOfferings,

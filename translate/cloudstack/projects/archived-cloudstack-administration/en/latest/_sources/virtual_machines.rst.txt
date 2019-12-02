@@ -71,7 +71,7 @@ CloudStack will restart it. To shut down an HA-enabled VM, you must go
 through the CloudStack UI or API.
 
 
-Best Practices for Virtual Machines
+最佳实践 for Virtual Machines
 -----------------------------------
 
 For VMs to work as expected and provide excellent service, follow these 
@@ -877,9 +877,9 @@ part of a template.
    -  **Description**: Display test for the ISO image. For example,
       CentOS 6.2 64-bit.
 
-   -  **URL**: The URL that hosts the ISO image. The Management Server
+   -  **URL**: The URL that hosts the ISO image. The 管理服务
       must be able to access this location via HTTP. If needed you can
-      place the ISO image directly on the Management Server
+      place the ISO image directly on the 管理服务
 
    -  **Zone**: Choose the zone where you want the ISO to be available,
       or All Zones to make it available throughout CloudStack.
@@ -952,7 +952,7 @@ part of a template.
 
 #. Click OK.
 
-   The Management Server will download the ISO. Depending on the size of
+   The 管理服务 will download the ISO. Depending on the size of
    the ISO, this may take a long time. The ISO status column will
    display Ready once it has been successfully downloaded into secondary
    storage. Clicking Refresh updates the download percentage.

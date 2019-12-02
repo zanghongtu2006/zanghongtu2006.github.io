@@ -110,10 +110,10 @@ number of hosts and sockets used for each host type.
 Changing the Database Configuration
 -----------------------------------
 
-The CloudStack Management Server stores database configuration
+The CloudStack 管理服务 stores database configuration
 information (e.g., hostname, port, credentials) in the file
 ``/etc/cloudstack/management/db.properties``. To effect a change, edit
-this file on each Management Server, then restart the Management Server.
+this file on each 管理服务, then restart the 管理服务.
 
 Changing the Database Password
 ------------------------------
@@ -191,14 +191,14 @@ cloud. Alert behavior is configurable.
 
 Events track all of the user and administrator actions in the cloud. For
 example, every guest VM start creates an associated event. Events are
-stored in the Management Server’s database.
+stored in the 管理服务’s database.
 
 Emails will be sent to administrators under the following circumstances:
 
--  The Management Server cluster runs low on CPU, memory, or storage
+-  The 管理服务 cluster runs low on CPU, memory, or storage
    resources
 
--  The Management Server loses heartbeat from a Host for more than 3
+-  The 管理服务 loses heartbeat from a Host for more than 3
    minutes
 
 -  The Host cluster runs low on CPU, memory, or storage resources
@@ -418,10 +418,10 @@ alerts from CloudStack:
         </layout>
       </appender>
 
-#. If your cloud has multiple Management Server nodes, repeat these
+#. If your cloud has multiple 管理服务 nodes, repeat these
    steps to edit log4j-cloud.xml on every instance.
 
-#. If you have made these changes while the Management Server is
+#. If you have made these changes while the 管理服务 is
    running, wait a few minutes for the change to take effect.
 
 **Troubleshooting:** If no alerts appear at the configured SNMP or
@@ -464,7 +464,7 @@ these steps.
    -  At the global level, use the configuration parameter
       guest.domain.suffix. You can also use the CloudStack API command
       updateConfiguration. After modifying this global configuration,
-      restart the Management Server to put the new setting into effect.
+      restart the 管理服务 to put the new setting into effect.
 
 #. To make the new DNS suffix take effect for an existing network, call
    the CloudStack API command updateNetwork. This step is not necessary
@@ -489,25 +489,25 @@ rules.
    the global configuration.
 
 
-Stopping and Restarting the Management Server
+Stopping and Restarting the 管理服务
 ---------------------------------------------------
 
 The root administrator will need to stop and restart the Management
 Server from time to time.
 
 For example, after changing a global configuration parameter, a restart
-is required. If you have multiple Management Server nodes, restart all
+is required. If you have multiple 管理服务 nodes, restart all
 of them to put the new parameter value into effect consistently
 throughout the cloud..
 
-To stop the Management Server, issue the following command at the
-operating system prompt on the Management Server node:
+To stop the 管理服务, issue the following command at the
+operating system prompt on the 管理服务 node:
 
 .. code:: bash
 
    # service cloudstack-management stop
 
-To start the Management Server:
+To start the 管理服务:
 
 .. code:: bash
 

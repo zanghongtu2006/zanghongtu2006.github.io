@@ -14,7 +14,7 @@
    under the License.
 
 
-Network Setup
+网络配置
 =============
 
 Achieving the correct networking setup is crucial to a successful
@@ -23,7 +23,7 @@ make decisions and follow the right procedures to get your network set
 up correctly.
 
 
-Basic and Advanced Networking
+基础网络和高级网络
 -----------------------------
 
 CloudStack provides two styles of networking:.
@@ -254,7 +254,7 @@ That’s why you must specify VLAN 201 as the native VLAN on the layer-2
 switch.
 
 
-Hardware Firewall
+硬件防火墙
 -----------------
 
 All deployments should have a firewall protecting the management server;
@@ -373,7 +373,7 @@ CloudStack requires the Juniper SRX firewall to be configured as follows:
 
 #. Make sure all VLANs are brought to the private interface of the SRX.
 
-#. After the CloudStack Management Server is installed, log in to the
+#. After the CloudStack 管理服务 is installed, log in to the
    CloudStack UI as administrator.
 
 #. In the left navigation bar, click Infrastructure.
@@ -788,7 +788,7 @@ management:
 #. Make sure that the VLANs are trunked to the management network
    interface.
 
-#. After the CloudStack Management Server is installed, log in as
+#. After the CloudStack 管理服务 is installed, log in as
    administrator to the CloudStack UI.
 
 #. In the left navigation bar, click Infrastructure.
@@ -816,7 +816,7 @@ management:
    -  Type: The type of device that is being added. It could be F5 Big
       Ip Load Balancer, NetScaler VPX, NetScaler MPX, or NetScaler SDX.
       For a comparison of the NetScaler types, see the CloudStack
-      Administration Guide.
+      管理员手册.
 
    -  Public interface: Interface of device that is configured to be
       part of the public network.
@@ -839,7 +839,7 @@ The installation and provisioning of the external load balancer is
 finished. You can proceed to add VMs and NAT or load balancing rules.
 
 
-Management Server Load Balancing
+管理节点负载均衡
 --------------------------------
 
 CloudStack can use a load balancer to provide a virtual IP for multiple
@@ -876,7 +876,7 @@ Security Requirements
 ~~~~~~~~~~~~~~~~~~~~~
 
 The public Internet must not be able to access port 8096 or port 8250 on
-the Management Server.
+the 管理服务.
 
 
 Runtime Internal Communications Requirements
@@ -891,7 +891,7 @@ Runtime Internal Communications Requirements
    traffic network of all other pods in the zone.
 
 -  The secondary storage VMs and console proxy VMs connect to the
-   Management Server on port 8250. If you are using multiple Management
+   管理服务 on port 8250. If you are using multiple Management
    Servers, the load balanced IP address of the Management Servers on
    port 8250 must be reachable.
 
@@ -901,7 +901,7 @@ Storage Network Topology Requirements
 
 The secondary storage NFS export is mounted by the secondary storage VM.
 Secondary storage traffic goes over the management traffic network, even
-if there is a separate storage network. Primary storage traffic goes
+if there is a 独立存储网络. Primary storage traffic goes
 over the storage network, if available. If you choose to place secondary
 storage NFS servers on the storage network, you must make sure there is
 a route from the management traffic network to the storage network.
@@ -932,7 +932,7 @@ The Management Servers communicate with XenServer hosts on ports 22
 VMware Topology Requirements
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  The Management Server and secondary storage VMs must be able to
+-  The 管理服务 and secondary storage VMs must be able to
    access vCenter and all ESXi hosts in the zone. To allow the necessary
    access through the firewall, keep port 443 open.
 
@@ -946,8 +946,8 @@ VMware Topology Requirements
 Hyper-V Topology Requirements
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-CloudStack Management Server communicates with Hyper-V Agent by using
-HTTPS. For secure communication between the Management Server and the
+CloudStack 管理服务 communicates with Hyper-V Agent by using
+HTTPS. For secure communication between the 管理服务 and the
 Hyper-V host, open port 8250.
 
 
@@ -1008,7 +1008,7 @@ To set up the integration between CloudStack and Traffic Sentinel:
    CloudStack API command addTrafficMonitor. Pass in the URL of the
    Traffic Sentinel as protocol + host + port (optional); for example,
    http://10.147.28.100:8080. For the addTrafficMonitor command syntax,
-   see the API Reference at `API Documentation 
+   see the API Reference at `API 文档 
    <http://cloudstack.apache.org/docs/api/index.html>`_.
 
    For information about how to call the CloudStack API, see the
@@ -1049,7 +1049,7 @@ guest.vlan.bits   Maximum Running VMs per Zone   Maximum Zone VLANs
 
 Based on your deployment's needs, choose the appropriate value of
 guest.vlan.bits. Set it as described in Edit the Global Configuration
-Settings (Optional) section and restart the Management Server.
+Settings (Optional) section and restart the 管理服务.
 
 
 .. |parallel-mode.png: adding a firewall and load balancer in parallel mode.| image:: ./_static/images/parallel-mode.png

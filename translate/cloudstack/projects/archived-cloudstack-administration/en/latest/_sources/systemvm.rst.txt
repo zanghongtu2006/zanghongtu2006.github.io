@@ -89,7 +89,7 @@ of memory.
    Any new virtual router created in this Zone automatically picks up
    this template.
 
-#. Restart the Management Server.
+#. Restart the 管理服务.
 
 
 Multiple System VM Support for VMware
@@ -130,13 +130,13 @@ There is never any traffic to the guest virtual IP, and there is no need
 to enable VNC within the guest.
 
 The console proxy VM will periodically report its active session count
-to the Management Server. The default reporting interval is five
-seconds. This can be changed through standard Management Server
+to the 管理服务. The default reporting interval is five
+seconds. This can be changed through standard 管理服务
 configuration with the parameter consoleproxy.loadscan.interval.
 
 Assignment of guest VM to console proxy is determined by first
 determining if the guest VM has a previous session associated with a
-console proxy. If it does, the Management Server will assign the guest
+console proxy. If it does, the 管理服务 will assign the guest
 VM to the target Console Proxy VM regardless of the load on the proxy
 VM. Failing that, the first available running Console Proxy VM that has
 the capacity to handle new sessions is used.
@@ -176,7 +176,7 @@ proxy domain, SSL certificate, and private key:
 
    .. note::
       In these steps you will notice *consoleproxy.company.com* -For 
-      security best practices, we recommend creating a wildcard SSL 
+      security 最佳实践, we recommend creating a wildcard SSL 
       certificate on a separate subdomain so in the event that the 
       certificate is compromised, a malicious user cannot impersonate 
       a company.com domain.
@@ -231,7 +231,7 @@ proxy domain, SSL certificate, and private key:
    them with the new certificate and key. Users might notice a brief
    interruption in console availability.
 
-The Management Server generates URLs of the form
+The 管理服务 generates URLs of the form
 "aaa-bbb-ccc-ddd.consoleproxy.company.com" after this change is made. 
 The new console requests will be served with the new DNS domain name, 
 certificate, and key.
@@ -348,7 +348,7 @@ creating and applying a custom system service offering.
    <networking2.html#changing-the-network-offering-on-a-guest-network>`_.
 
 
-Best Practices for Virtual Routers
+最佳实践 for Virtual Routers
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 -  WARNING: Restarting a virtual router from a hypervisor console
@@ -429,7 +429,7 @@ services or make changes to an existing service.
 
 Additionally, using multiple versions of VRs in a single instance is
 supported. In the Details tab of a VR, you can view the version and
-whether it requires upgrade. During the Management Server upgrade,
+whether it requires upgrade. During the 管理服务 upgrade,
 CloudStack checks whether VR is at the latest version before performing
 any operation on the VR. To support this, a new global parameter,
 *``router.version.check``*, has been added. This parameter is set to
@@ -439,7 +439,7 @@ not at the required version. Services of the older version VR continue
 to be available, but no further operations can be performed on the VR
 until it is upgraded to the latest version. This will be a transient
 state until the VR is upgraded. This will ensure that the availability
-of VR services and VR state is not impacted due to the Management Server
+of VR services and VR state is not impacted due to the 管理服务
 upgrade.
 
 The following service will be available even if the VR is not upgraded.
@@ -488,7 +488,7 @@ Upgrading Virtual Routers
 
 #. Download the latest System VM to all the primary storage pools.
 
-#. Upgrade the Management Server.
+#. Upgrade the 管理服务.
 
 #. Upgrade CPVM and SSVM either from the UI or by using the following
    script:
@@ -498,7 +498,7 @@ Upgrading Virtual Routers
       # cloudstack-sysvmadm -d <IP address> -u cloud -p -s
 
    Even when the VRs are still on older versions, existing services will
-   continue to be available to the VMs. The Management Server cannot
+   continue to be available to the VMs. The 管理服务 cannot
    perform any operations on the VRs until they are upgraded.
 
 #. Selectively upgrade the VRs:

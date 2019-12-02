@@ -27,14 +27,14 @@ CloudStack Installation Documentation
    :target: http://cloudstack.apache.org/
 
 
-This is the Apache CloudStack installation guide, for the Documentation home, 
+This is the Apache CloudStack 安装指南, for the Documentation home, 
 the administrator guide or the Release-Notes please see:
 
 -  `Documentation home`_
 
--  `Administration Guide`_
+-  `管理员手册`_
 
--  `Release Notes`_
+-  `发行版本说明`_
 
 .. note::
    In this guide we first go through some design and architectural choices_ to 
@@ -51,7 +51,7 @@ the administrator guide or the Release-Notes please see:
 .. _choices:
 
 
-Choosing a Deployment Architecture
+架构选型
 ----------------------------------
 .. toctree::
    :maxdepth: 2
@@ -61,7 +61,7 @@ Choosing a Deployment Architecture
 .. _guide:
 
 
-Quick Installation Guide
+快速安装向导
 ------------------------
 .. toctree::
    :maxdepth: 2
@@ -102,7 +102,7 @@ Configuration
 
 .. _hypervisors:
 
-Hypervisor Setup
+Hypervisor 安装和设置
 ----------------
 .. toctree::
    :maxdepth: 2
@@ -113,7 +113,7 @@ Hypervisor Setup
 .. _network:
 
 
-Network Setup
+网络配置
 -------------
 .. toctree::
    :maxdepth: 2

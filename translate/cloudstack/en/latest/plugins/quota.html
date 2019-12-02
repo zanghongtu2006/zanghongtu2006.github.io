@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Quota Plugin &mdash; Apache CloudStack 4.13.0.0 documentation</title>
+  <title>Quota Plugin &mdash; Apache CloudStack 4.13.0.0 文档</title>
   
 
   
@@ -37,7 +37,7 @@
   <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Release Notes" href="../releasenotes/index.html" />
+    <link rel="next" title="发行版本说明" href="../releasenotes/index.html" />
     <link rel="prev" title="IPv6 Support in CloudStack" href="ipv6.html" /> 
 
 <!-- RTD Extra Head -->
@@ -111,12 +111,12 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../conceptsandterminology/index.html">CloudStack Concepts and Terminology</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quickinstallationguide/qig.html">Quick Installation Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../installguide/index.html">Installation Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../upgrading/index.html">Upgrading CloudStack</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../adminguide/index.html">Usage Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../developersguide/index.html">Developers Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../conceptsandterminology/index.html">CloudStack 概念和术语</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickinstallationguide/qig.html">快速安装向导</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installguide/index.html">安装指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../upgrading/index.html">升级 CloudStack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../adminguide/index.html">使用手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developersguide/index.html">开发者手册</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Plugins Guide</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="cloudian-connector.html">The Cloudian Connector Plugin</a></li>
 <li class="toctree-l2"><a class="reference internal" href="nicira-plugin.html">The Nicira NVP Plugin</a></li>
@@ -136,11 +136,11 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">发行版本说明</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Other Documentation:</span></p>
+<p class="caption"><span class="caption-text">其它:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/api.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/api.html">API 文档</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://cwiki.apache.org/confluence/display/CLOUDSTACK/Home">Apache CloudStack Wiki</a></li>
 <li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/">Apache CloudStack web site</a></li>
 <li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/downloads.html">Apache CloudStack Source Code</a></li>
@@ -148,9 +148,9 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 </ul>
 <p class="caption"><span class="caption-text">Pre 4.11 Documentation:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference external" href="../../../projects/cloudstack-installation.html">Installation Guide</a></li>
-<li class="toctree-l1"><a class="reference external" href="../../../projects/cloudstack-administration.html">Administration Guide</a></li>
-<li class="toctree-l1"><a class="reference external" href="../../../projects/cloudstack-release-notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference external" href="../../../projects/cloudstack-installation.html">安装指南</a></li>
+<li class="toctree-l1"><a class="reference external" href="../../../projects/cloudstack-administration.html">管理员手册</a></li>
+<li class="toctree-l1"><a class="reference external" href="../../../projects/cloudstack-release-notes.html">发行版本说明</a></li>
 </ul>
 
             
@@ -243,7 +243,7 @@ on the account is configurable.</p>
 <p>Before installing and configuring the quota service you need to make sure that
 the Usage Server has been installed. This requires extra steps beyond just
 installing the CloudStack software. See Installing the Usage Server (Optional)
-in the Advanced Installation Guide.</p>
+in the Advanced 安装指南.</p>
 <ol class="arabic simple">
 <li>enable.usage.server: Set to true to enable usage server.</li>
 </ol>
@@ -276,7 +276,7 @@ these are listed below:</p>
 <li>usage.aggregation.timezone</li>
 </ol>
 <p>All these are described in details in Usage Server documentation.</p>
-<p>Restart the Management Server and  the Usage Server to enable the set configuration
+<p>Restart the 管理服务 and  the Usage Server to enable the set configuration
 values.</p>
 <div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">service</span> <span class="n">cloudstack</span><span class="o">-</span><span class="n">management</span> <span class="n">restart</span>
 <span class="n">service</span> <span class="n">cloudstack</span><span class="o">-</span><span class="n">usage</span> <span class="n">restart</span>
@@ -428,7 +428,7 @@ alert account owners about quota going down below threshold and quota getting ov
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../releasenotes/index.html" class="btn btn-neutral float-right" title="Release Notes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../releasenotes/index.html" class="btn btn-neutral float-right" title="发行版本说明" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="ipv6.html" class="btn btn-neutral float-left" title="IPv6 Support in CloudStack" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

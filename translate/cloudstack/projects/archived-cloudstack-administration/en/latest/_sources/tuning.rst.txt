@@ -30,10 +30,10 @@ resources and determine when it is appropriate to choose a more powerful
 service offering or larger disk.
 
 
-Increase Management Server Maximum Memory
+Increase 管理服务 Maximum Memory
 -----------------------------------------
 
-If the Management Server is subject to high demand, the default maximum
+If the 管理服务 is subject to high demand, the default maximum
 JVM memory allocation can be insufficient. To increase the memory:
 
 #. Edit the Tomcat configuration file:
@@ -47,7 +47,7 @@ JVM memory allocation can be insufficient. To increase the memory:
    For example, if the current value is -Xmx128m, change it to -Xmx1024m
    or higher.
 
-#. To put the new setting into effect, restart the Management Server.
+#. To put the new setting into effect, restart the 管理服务.
 
    .. code:: bash
 

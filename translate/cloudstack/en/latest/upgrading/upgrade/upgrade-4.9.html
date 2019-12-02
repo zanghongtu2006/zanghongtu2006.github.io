@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Upgrade Instruction from 4.9.x &mdash; Apache CloudStack 4.13.0.0 documentation</title>
+  <title>基于 4.9.x 升级 &mdash; Apache CloudStack 4.13.0.0 文档</title>
   
 
   
@@ -37,8 +37,8 @@
   <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Upgrade Instruction from 4.8.x" href="upgrade-4.8.html" />
-    <link rel="prev" title="Upgrade Instruction from 4.10.x" href="upgrade-4.10.html" /> 
+    <link rel="next" title="基于 4.8.x 升级" href="upgrade-4.8.html" />
+    <link rel="prev" title="基于 4.10.x 升级" href="upgrade-4.10.html" /> 
 
 <!-- RTD Extra Head -->
 
@@ -111,26 +111,26 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../../conceptsandterminology/index.html">CloudStack Concepts and Terminology</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../quickinstallationguide/qig.html">Quick Installation Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../installguide/index.html">Installation Guide</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Upgrading CloudStack</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="upgrade-4.12.html">Upgrade Instruction from 4.12.x</a></li>
-<li class="toctree-l2"><a class="reference internal" href="upgrade-4.11.html">Upgrade Instruction from 4.11.x</a></li>
-<li class="toctree-l2"><a class="reference internal" href="upgrade-4.10.html">Upgrade Instruction from 4.10.x</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="upgrade-4.9.html#">Upgrade Instruction from 4.9.x</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="upgrade-4.9.html#overview-of-upgrade-steps">Overview of Upgrade Steps:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="upgrade-4.9.html#cloudstack-customisations">CloudStack Customisations</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../conceptsandterminology/index.html">CloudStack 概念和术语</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quickinstallationguide/qig.html">快速安装向导</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installguide/index.html">安装指南</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">升级 CloudStack</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="upgrade-4.12.html">基于 4.12.x 升级</a></li>
+<li class="toctree-l2"><a class="reference internal" href="upgrade-4.11.html">基于 4.11.x 升级</a></li>
+<li class="toctree-l2"><a class="reference internal" href="upgrade-4.10.html">基于 4.10.x 升级</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="upgrade-4.9.html#">基于 4.9.x 升级</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="upgrade-4.9.html#overview-of-upgrade-steps">升级步骤概述:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="upgrade-4.9.html#cloudstack-customisations">自定义的 CloudStack</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="upgrade-4.9.html#guest-os-mappings">Guest OS mappings</a></li>
 <li class="toctree-l4"><a class="reference internal" href="upgrade-4.9.html#customised-css">Customised CSS</a></li>
 <li class="toctree-l4"><a class="reference internal" href="upgrade-4.9.html#plugins">Plugins</a></li>
 <li class="toctree-l4"><a class="reference internal" href="upgrade-4.9.html#rd-party-integrations">3rd Party Integrations</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="upgrade-4.9.html#update-system-vm-templates">Update System-VM templates</a></li>
-<li class="toctree-l3"><a class="reference internal" href="upgrade-4.9.html#packages-repository">Packages repository</a></li>
+<li class="toctree-l3"><a class="reference internal" href="upgrade-4.9.html#update-system-vm-templates">升级系统虚拟机模版</a></li>
+<li class="toctree-l3"><a class="reference internal" href="upgrade-4.9.html#packages-repository">软件包存储库</a></li>
 <li class="toctree-l3"><a class="reference internal" href="upgrade-4.9.html#database-preparation">Database Preparation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="upgrade-4.9.html#management-server">Management Server</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="upgrade-4.9.html#management-server">管理服务</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="upgrade-4.9.html#ubuntu">Ubuntu</a></li>
 </ul>
 </li>
@@ -138,31 +138,31 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l4"><a class="reference internal" href="upgrade-4.9.html#centos-rhel">CentOS/RHEL</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="upgrade-4.9.html#upgrade-hypervisors">Upgrade Hypervisors</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="upgrade-4.9.html#upgrade-hypervisors">升级 Hypervisors</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="upgrade-4.9.html#hypervisor-xenserver">Hypervisor: XenServer</a></li>
 <li class="toctree-l4"><a class="reference internal" href="upgrade-4.9.html#hypervisor-vmware">Hypervisor: VMware</a></li>
 <li class="toctree-l4"><a class="reference internal" href="upgrade-4.9.html#hypervisor-kvm">Hypervisor: KVM</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="upgrade-4.9.html#restart-management-services">Restart management services</a></li>
+<li class="toctree-l3"><a class="reference internal" href="upgrade-4.9.html#restart-management-services">重启管理服务</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="upgrade-4.8.html">Upgrade Instruction from 4.8.x</a></li>
-<li class="toctree-l2"><a class="reference internal" href="upgrade-4.7.html">Upgrade Instruction from 4.7.x</a></li>
-<li class="toctree-l2"><a class="reference internal" href="upgrade-4.6.html">Upgrade Instruction from 4.6.x</a></li>
-<li class="toctree-l2"><a class="reference internal" href="upgrade-4.5.html">Upgrade Instruction from 4.5.x</a></li>
-<li class="toctree-l2"><a class="reference internal" href="upgrade-4.4.html">Upgrade Instruction from 4.4.x</a></li>
-<li class="toctree-l2"><a class="reference internal" href="upgrade-4.3.html">Upgrade Instruction from 4.3.x</a></li>
+<li class="toctree-l2"><a class="reference internal" href="upgrade-4.8.html">基于 4.8.x 升级</a></li>
+<li class="toctree-l2"><a class="reference internal" href="upgrade-4.7.html">基于 4.7.x 升级</a></li>
+<li class="toctree-l2"><a class="reference internal" href="upgrade-4.6.html">基于 4.6.x 升级</a></li>
+<li class="toctree-l2"><a class="reference internal" href="upgrade-4.5.html">基于 4.5.x 升级</a></li>
+<li class="toctree-l2"><a class="reference internal" href="upgrade-4.4.html">基于 4.4.x 升级</a></li>
+<li class="toctree-l2"><a class="reference internal" href="upgrade-4.3.html">基于 4.3.x 升级</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../adminguide/index.html">Usage Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../developersguide/index.html">Developers Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../adminguide/index.html">使用手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developersguide/index.html">开发者手册</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../plugins/index.html">Plugins Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../releasenotes/index.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../releasenotes/index.html">发行版本说明</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Other Documentation:</span></p>
+<p class="caption"><span class="caption-text">其它:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/api.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/api.html">API 文档</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://cwiki.apache.org/confluence/display/CLOUDSTACK/Home">Apache CloudStack Wiki</a></li>
 <li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/">Apache CloudStack web site</a></li>
 <li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/downloads.html">Apache CloudStack Source Code</a></li>
@@ -170,9 +170,9 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 </ul>
 <p class="caption"><span class="caption-text">Pre 4.11 Documentation:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference external" href="../../../../projects/cloudstack-installation.html">Installation Guide</a></li>
-<li class="toctree-l1"><a class="reference external" href="../../../../projects/cloudstack-administration.html">Administration Guide</a></li>
-<li class="toctree-l1"><a class="reference external" href="../../../../projects/cloudstack-release-notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference external" href="../../../../projects/cloudstack-installation.html">安装指南</a></li>
+<li class="toctree-l1"><a class="reference external" href="../../../../projects/cloudstack-administration.html">管理员手册</a></li>
+<li class="toctree-l1"><a class="reference external" href="../../../../projects/cloudstack-release-notes.html">发行版本说明</a></li>
 </ul>
 
             
@@ -218,9 +218,9 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
     
       <li><a href="../../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="../index.html">Upgrading CloudStack</a> &raquo;</li>
+          <li><a href="../index.html">升级 CloudStack</a> &raquo;</li>
         
-      <li>Upgrade Instruction from 4.9.x</li>
+      <li>基于 4.9.x 升级</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -242,7 +242,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
            <div itemprop="articleBody">
             
   <div class="section" id="upgrade-instruction-from-version-to-upgrade">
-<h1>Upgrade Instruction from 4.9.x<a class="headerlink" href="upgrade-4.9.html#upgrade-instruction-from-version-to-upgrade" title="Permalink to this headline">¶</a></h1>
+<h1>基于 4.9.x 升级<a class="headerlink" href="upgrade-4.9.html#upgrade-instruction-from-version-to-upgrade" title="Permalink to this headline">¶</a></h1>
 <p>This section will guide you from CloudStack 4.9.x to CloudStack
 4.13.0.0.</p>
 <p>Any steps that are hypervisor-specific will be called out with a note.</p>
@@ -255,7 +255,7 @@ working on a production system.</p>
 hypervisor type.</p>
 </div>
 <div class="section" id="overview-of-upgrade-steps">
-<h2>Overview of Upgrade Steps:<a class="headerlink" href="upgrade-4.9.html#overview-of-upgrade-steps" title="Permalink to this headline">¶</a></h2>
+<h2>升级步骤概述:<a class="headerlink" href="upgrade-4.9.html#overview-of-upgrade-steps" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li>Check any customisations and integrations</li>
 <li>Upload the 4.11.3 System VM template if not already using it.</li>
@@ -269,7 +269,7 @@ hypervisor type.</p>
 </ol>
 </div>
 <div class="section" id="cloudstack-customisations">
-<h2>CloudStack Customisations<a class="headerlink" href="upgrade-4.9.html#cloudstack-customisations" title="Permalink to this headline">¶</a></h2>
+<h2>自定义的 CloudStack<a class="headerlink" href="upgrade-4.9.html#cloudstack-customisations" title="Permalink to this headline">¶</a></h2>
 <p>There are a number of ways in which administrators can customise CloudStack.  During an
 upgrade, a number of these could be overridden.  Therefore steps should be taken to ensure
 that they can be restored after the upgrade is completed.</p>
@@ -322,7 +322,7 @@ CloudStack packages.</p>
 </div>
 </div>
 <div class="section" id="update-system-vm-templates">
-<h2>Update System-VM templates<a class="headerlink" href="upgrade-4.9.html#update-system-vm-templates" title="Permalink to this headline">¶</a></h2>
+<h2>升级系统虚拟机模版<a class="headerlink" href="upgrade-4.9.html#update-system-vm-templates" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
 <li><p class="first">While running the existing 4.9.x system, log in to the UI as
 the root administrator.</p>
@@ -422,7 +422,7 @@ enters the <strong>READY</strong> state. Do not proceed until this is successful
 </ol>
 </div>
 <div class="section" id="packages-repository">
-<h2>Packages repository<a class="headerlink" href="upgrade-4.9.html#packages-repository" title="Permalink to this headline">¶</a></h2>
+<h2>软件包存储库<a class="headerlink" href="upgrade-4.9.html#packages-repository" title="Permalink to this headline">¶</a></h2>
 <p>Most users of CloudStack manage the installation and upgrades of
 CloudStack with one of Linux’s predominant package systems, RPM or
 APT. This guide assumes you’ll be using RPM and Yum (for Red Hat
@@ -431,9 +431,9 @@ Enterprise Linux or CentOS), or APT and Debian packages (for Ubuntu).</p>
 the 4.13.0.0 source, or check the Apache CloudStack downloads page at
 <a class="reference external" href="http://cloudstack.apache.org/downloads.html">http://cloudstack.apache.org/downloads.html</a>
 for package repositories supplied by community members. You will need
-them for <a class="reference internal" href="upgrade-4.9.html#ubuntu49"><span class="std std-ref">Management Server</span></a> or <a class="reference internal" href="upgrade-4.9.html#rhel49"><span class="std std-ref">CentOS/RHEL</span></a> and <a class="reference internal" href="upgrade-4.9.html#kvm49"><span class="std std-ref">Hypervisor: KVM</span></a> hosts upgrade.</p>
+them for <a class="reference internal" href="upgrade-4.9.html#ubuntu49"><span class="std std-ref">管理服务</span></a> or <a class="reference internal" href="upgrade-4.9.html#rhel49"><span class="std std-ref">CentOS/RHEL</span></a> and <a class="reference internal" href="upgrade-4.9.html#kvm49"><span class="std std-ref">Hypervisor: KVM</span></a> hosts upgrade.</p>
 <p>Instructions for creating packages from the CloudStack source are in the
-<a class="reference external" href="../../../../projects/cloudstack-installation.html">CloudStack Installation Guide</a>.</p>
+<a class="reference external" href="../../../../projects/cloudstack-installation.html">CloudStack 安装指南</a>.</p>
 </div>
 <div class="section" id="database-preparation">
 <h2>Database Preparation<a class="headerlink" href="upgrade-4.9.html#database-preparation" title="Permalink to this headline">¶</a></h2>
@@ -475,7 +475,7 @@ remove it:</p>
 </ol>
 </div>
 <div class="section" id="management-server">
-<span id="apt-repo49"></span><span id="ubuntu49"></span><h2>Management Server<a class="headerlink" href="upgrade-4.9.html#management-server" title="Permalink to this headline">¶</a></h2>
+<span id="apt-repo49"></span><span id="ubuntu49"></span><h2>管理服务<a class="headerlink" href="upgrade-4.9.html#management-server" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="ubuntu">
 <h3>Ubuntu<a class="headerlink" href="upgrade-4.9.html#ubuntu" title="Permalink to this headline">¶</a></h3>
 <p>If you are using Ubuntu, follow this procedure to upgrade your packages. If
@@ -542,7 +542,7 @@ the <code class="docutils literal notranslate"><span class="pre">cloudstack-mana
 <div class="section" id="centos-rhel">
 <span id="rpm-repo49"></span><span id="rhel49"></span><h3>CentOS/RHEL<a class="headerlink" href="upgrade-4.9.html#centos-rhel" title="Permalink to this headline">¶</a></h3>
 <p>If you are using CentOS or RHEL, follow this procedure to upgrade your
-packages. If not, skip to hypervisors section <a class="reference internal" href="upgrade-4.9.html#upg-hyp-49"><span class="std std-ref">Upgrade Hypervisors</span></a>.</p>
+packages. If not, skip to hypervisors section <a class="reference internal" href="upgrade-4.9.html#upg-hyp-49"><span class="std std-ref">升级 Hypervisors</span></a>.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last"><strong>Community Packages:</strong> This section assumes you’re using the community
@@ -615,7 +615,7 @@ read as appropriate for your 4.13 repository.</p>
 </div>
 </div>
 <div class="section" id="upgrade-hypervisors">
-<span id="upg-hyp-49"></span><h2>Upgrade Hypervisors<a class="headerlink" href="upgrade-4.9.html#upgrade-hypervisors" title="Permalink to this headline">¶</a></h2>
+<span id="upg-hyp-49"></span><h2>升级 Hypervisors<a class="headerlink" href="upgrade-4.9.html#upgrade-hypervisors" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="hypervisor-xenserver">
 <h3>Hypervisor: XenServer<a class="headerlink" href="upgrade-4.9.html#hypervisor-xenserver" title="Permalink to this headline">¶</a></h3>
 <p><strong>(XenServer only)</strong> Copy vhd-utils file on CloudStack management servers.
@@ -630,13 +630,13 @@ wget -P /usr/share/cloudstack-common/scripts/vm/hypervisor/xenserver <a class="r
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
 <p class="last">For VMware hypervisor CloudStack management server packages must be
-build using “noredist”. Refer to <a class="reference internal" href="../../installguide/building_from_source.html#building-noredist"><span class="std std-ref">Building Non-OSS</span></a></p>
+build using “noredist”. Refer to <a class="reference internal" href="../../installguide/building_from_source.html#building-noredist"><span class="std std-ref">打包 Non-OSS</span></a></p>
 </div>
 <p><strong>(VMware only)</strong> Additional steps are required for each VMware cluster.
 These steps will not affect running guests in the cloud. These steps
 are required only for clouds using VMware clusters:</p>
 <ol class="arabic">
-<li><p class="first">Stop the Management Server:</p>
+<li><p class="first">Stop the 管理服务:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo service cloudstack-management stop
 </pre></div>
 </div>
@@ -753,7 +753,7 @@ $ sudo service cloudstack-agent start
 </div>
 </div>
 <div class="section" id="restart-management-services">
-<h2>Restart management services<a class="headerlink" href="upgrade-4.9.html#restart-management-services" title="Permalink to this headline">¶</a></h2>
+<h2>重启管理服务<a class="headerlink" href="upgrade-4.9.html#restart-management-services" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
 <li><p class="first">Now it’s time to start the management server</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo service cloudstack-management start
@@ -777,10 +777,10 @@ $ sudo service cloudstack-agent start
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="upgrade-4.8.html" class="btn btn-neutral float-right" title="Upgrade Instruction from 4.8.x" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="upgrade-4.8.html" class="btn btn-neutral float-right" title="基于 4.8.x 升级" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="upgrade-4.10.html" class="btn btn-neutral float-left" title="Upgrade Instruction from 4.10.x" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="upgrade-4.10.html" class="btn btn-neutral float-left" title="基于 4.10.x 升级" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

@@ -37,7 +37,7 @@ Enabling the Quota Service
 Before installing and configuring the quota service you need to make sure that
 the Usage Server has been installed. This requires extra steps beyond just
 installing the CloudStack software. See Installing the Usage Server (Optional)
-in the Advanced Installation Guide.
+in the Advanced 安装指南.
 
 #. enable.usage.server: Set to true to enable usage server.
 
@@ -71,7 +71,7 @@ these are listed below:
 
 All these are described in details in Usage Server documentation.
 
-Restart the Management Server and  the Usage Server to enable the set configuration 
+Restart the 管理服务 and  the Usage Server to enable the set configuration 
 values.
 
 .. code:: bash

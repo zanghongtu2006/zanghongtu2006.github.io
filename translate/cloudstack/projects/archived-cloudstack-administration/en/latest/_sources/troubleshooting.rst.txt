@@ -20,11 +20,11 @@ TroubleShooting
 Working with Server Logs
 ------------------------
 
-The CloudStack Management Server logs all web site, middle tier, and
+The CloudStack 管理服务 logs all web site, middle tier, and
 database activities for diagnostics purposes in
 `/var/log/cloudstack/management/`. The CloudStack logs a variety of error
 messages. We recommend this command to find the problematic output in
-the Management Server log:.
+the 管理服务 log:.
 
 .. note:: 
    When copying and pasting a command, be sure the command has pasted as a
@@ -89,7 +89,7 @@ More Information
 ~~~~~~~~~~~~~~~~
 
 See the export procedure in the "Secondary Storage" section of the
-CloudStack Installation Guide
+CloudStack 安装指南
 
 
 Recovering a Lost Virtual Router

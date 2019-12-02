@@ -14,7 +14,7 @@
    under the License.
 
 
-Host KVM Installation
+KVM 安装
 ---------------------
 
 System Requirements for KVM Hypervisor Hosts

@@ -62,7 +62,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
           <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand" href="index.html">
-          Administration Guide</a>
+          管理员手册</a>
         <span class="navbar-text navbar-version pull-left"><b>4.11</b></span>
       </div>
 
@@ -194,7 +194,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 </ul>
 </li>
 <li><a class="reference internal" href="management.html#customizing-the-network-domain-name">Customizing the Network Domain Name</a></li>
-<li><a class="reference internal" href="management.html#stopping-and-restarting-the-management-server">Stopping and Restarting the Management Server</a></li>
+<li><a class="reference internal" href="management.html#stopping-and-restarting-the-management-server">Stopping and Restarting the 管理服务</a></li>
 </ul>
 </li>
 </ul>
@@ -281,10 +281,10 @@ and CPU sockets based on hypervisor types.</p>
 </div>
 <div class="section" id="changing-the-database-configuration">
 <h2>Changing the Database Configuration<a class="headerlink" href="management.html#changing-the-database-configuration" title="Permalink to this headline">¶</a></h2>
-<p>The CloudStack Management Server stores database configuration
+<p>The CloudStack 管理服务 stores database configuration
 information (e.g., hostname, port, credentials) in the file
 <code class="docutils literal notranslate"><span class="pre">/etc/cloudstack/management/db.properties</span></code>. To effect a change, edit
-this file on each Management Server, then restart the Management Server.</p>
+this file on each 管理服务, then restart the 管理服务.</p>
 </div>
 <div class="section" id="changing-the-database-password">
 <h2>Changing the Database Password<a class="headerlink" href="management.html#changing-the-database-password" title="Permalink to this headline">¶</a></h2>
@@ -354,12 +354,12 @@ e-mail, notifying the administrator that an error has occurred in the
 cloud. Alert behavior is configurable.</p>
 <p>Events track all of the user and administrator actions in the cloud. For
 example, every guest VM start creates an associated event. Events are
-stored in the Management Server’s database.</p>
+stored in the 管理服务’s database.</p>
 <p>Emails will be sent to administrators under the following circumstances:</p>
 <ul class="simple">
-<li>The Management Server cluster runs low on CPU, memory, or storage
+<li>The 管理服务 cluster runs low on CPU, memory, or storage
 resources</li>
-<li>The Management Server loses heartbeat from a Host for more than 3
+<li>The 管理服务 loses heartbeat from a Host for more than 3
 minutes</li>
 <li>The Host cluster runs low on CPU, memory, or storage resources</li>
 </ul>
@@ -531,10 +531,10 @@ LOCAL7. Do not change the other values.</p>
 </pre></div>
 </div>
 </li>
-<li><p class="first">If your cloud has multiple Management Server nodes, repeat these
+<li><p class="first">If your cloud has multiple 管理服务 nodes, repeat these
 steps to edit log4j-cloud.xml on every instance.</p>
 </li>
-<li><p class="first">If you have made these changes while the Management Server is
+<li><p class="first">If you have made these changes while the 管理服务 is
 running, wait a few minutes for the change to take effect.</p>
 </li>
 </ol>
@@ -572,7 +572,7 @@ or editZone.</li>
 <li>At the global level, use the configuration parameter
 guest.domain.suffix. You can also use the CloudStack API command
 updateConfiguration. After modifying this global configuration,
-restart the Management Server to put the new setting into effect.</li>
+restart the 管理服务 to put the new setting into effect.</li>
 </ul>
 </li>
 <li>To make the new DNS suffix take effect for an existing network, call
@@ -596,19 +596,19 @@ the global configuration.</li>
 </ul>
 </div>
 <div class="section" id="stopping-and-restarting-the-management-server">
-<h2>Stopping and Restarting the Management Server<a class="headerlink" href="management.html#stopping-and-restarting-the-management-server" title="Permalink to this headline">¶</a></h2>
+<h2>Stopping and Restarting the 管理服务<a class="headerlink" href="management.html#stopping-and-restarting-the-management-server" title="Permalink to this headline">¶</a></h2>
 <p>The root administrator will need to stop and restart the Management
 Server from time to time.</p>
 <p>For example, after changing a global configuration parameter, a restart
-is required. If you have multiple Management Server nodes, restart all
+is required. If you have multiple 管理服务 nodes, restart all
 of them to put the new parameter value into effect consistently
 throughout the cloud..</p>
-<p>To stop the Management Server, issue the following command at the
-operating system prompt on the Management Server node:</p>
+<p>To stop the 管理服务, issue the following command at the
+operating system prompt on the 管理服务 node:</p>
 <div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># service cloudstack-management stop</span>
 </pre></div>
 </div>
-<p>To start the Management Server:</p>
+<p>To start the 管理服务:</p>
 <div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># service cloudstack-management start</span>
 </pre></div>
 </div>

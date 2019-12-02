@@ -62,7 +62,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
           <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand" href="index.html">
-          Administration Guide</a>
+          管理员手册</a>
         <span class="navbar-text navbar-version pull-left"><b>4.11</b></span>
       </div>
 
@@ -179,7 +179,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
         <div id="sidebar" class="bs-sidenav" role="complementary"><ul>
 <li><a class="reference internal" href="tuning.html#">Tuning</a><ul>
 <li><a class="reference internal" href="tuning.html#performance-monitoring">Performance Monitoring</a></li>
-<li><a class="reference internal" href="tuning.html#increase-management-server-maximum-memory">Increase Management Server Maximum Memory</a></li>
+<li><a class="reference internal" href="tuning.html#increase-management-server-maximum-memory">Increase 管理服务 Maximum Memory</a></li>
 <li><a class="reference internal" href="tuning.html#set-database-buffer-pool-size">Set Database Buffer Pool Size</a></li>
 <li><a class="reference internal" href="tuning.html#set-and-monitor-total-vm-limits-per-host">Set and Monitor Total VM Limits per Host</a></li>
 <li><a class="reference internal" href="tuning.html#configure-xenserver-dom0-memory">Configure XenServer dom0 Memory</a></li>
@@ -208,8 +208,8 @@ resources and determine when it is appropriate to choose a more powerful
 service offering or larger disk.</p>
 </div>
 <div class="section" id="increase-management-server-maximum-memory">
-<h2>Increase Management Server Maximum Memory<a class="headerlink" href="tuning.html#increase-management-server-maximum-memory" title="Permalink to this headline">¶</a></h2>
-<p>If the Management Server is subject to high demand, the default maximum
+<h2>Increase 管理服务 Maximum Memory<a class="headerlink" href="tuning.html#increase-management-server-maximum-memory" title="Permalink to this headline">¶</a></h2>
+<p>If the 管理服务 is subject to high demand, the default maximum
 JVM memory allocation can be insufficient. To increase the memory:</p>
 <ol class="arabic">
 <li><p class="first">Edit the Tomcat configuration file:</p>
@@ -221,7 +221,7 @@ JVM memory allocation can be insufficient. To increase the memory:</p>
 <p>For example, if the current value is -Xmx128m, change it to -Xmx1024m
 or higher.</p>
 </li>
-<li><p class="first">To put the new setting into effect, restart the Management Server.</p>
+<li><p class="first">To put the new setting into effect, restart the 管理服务.</p>
 <div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># service cloudstack-management restart</span>
 </pre></div>
 </div>

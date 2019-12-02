@@ -67,7 +67,7 @@ Active-Directory Authentication (LDAP)
 --------------------------------------
 
 If using Active-Directory (LDAP/LDAPs) as user authentication; Upgrading to 
-4.3 and later require changes in Global Settings. After upgrading CloudStack
+4.3 and later require changes in Global Settings. After 升级 CloudStack
 to 4.3 or latest, following Global Settings must be change:
 
 .. cssclass:: table-striped table-bordered table-hover
@@ -83,7 +83,7 @@ ldap.username.attribute uid            sAMAccountName
 SystemVM 32bit deprecated
 -------------------------
 
-32bit versions of systemvm templates are in the process of behing deprecated. Upgrade instructions from this Release Notes use 64bit templates.
+32bit versions of systemvm templates are in the process of behing deprecated. Upgrade instructions from this 发行版本说明 use 64bit templates.
 
 Explicit JDBC driver declaration
 --------------------------------

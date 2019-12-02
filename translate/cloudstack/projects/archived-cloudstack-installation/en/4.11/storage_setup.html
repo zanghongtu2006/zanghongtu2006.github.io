@@ -23,7 +23,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Additional Installation Options" href="optional_installation.html" />
-    <link rel="prev" title="Network Setup" href="network_setup.html" />
+    <link rel="prev" title="网络配置" href="network_setup.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -63,7 +63,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
           <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand" href="index.html">
-          Installation Guide</a>
+          安装指南</a>
         <span class="navbar-text navbar-version pull-left"><b>4.11</b></span>
       </div>
 
@@ -81,30 +81,30 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
                     role="menu"
                     aria-labelledby="dLabelGlobalToc">
                      <ul>
-<li class="toctree-l1"><a class="reference internal" href="choosing_deployment_architecture.html">Choosing a Deployment Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="choosing_deployment_architecture.html">架构选型</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="qig.html">Quick Installation Guide for CentOS 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qig.html">快速安装向导 for CentOS 6</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="building_from_source.html">Building from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="building_from_source.html">从源码编译安装</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="overview/index.html">Installation overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="management-server/index.html">Management Server Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview/index.html">安装概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="management-server/index.html">安装管理服务</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuring your CloudStack Installation</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="hypervisor/hyperv.html">Host Hyper-V Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="hypervisor/kvm.html">Host KVM Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="hypervisor/lxc.html">Host LXC Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="hypervisor/vsphere.html">Host VMware vSphere Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="hypervisor/xenserver.html">Host Citrix XenServer Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hypervisor/hyperv.html">Hyper-V 安装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hypervisor/kvm.html">KVM 安装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hypervisor/lxc.html">LXC 安装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hypervisor/vsphere.html">VMware vSphere 安装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hypervisor/xenserver.html">Citrix XenServer 安装</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="network_setup.html">Network Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="network_setup.html">网络配置</a></li>
 </ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="storage_setup.html#">Storage Setup</a></li>
@@ -129,7 +129,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
               
                 
   <li>
-    <a href="network_setup.html" title="Previous Chapter: Network Setup"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Network Setup</span>
+    <a href="network_setup.html" title="Previous Chapter: 网络配置"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; 网络配置</span>
     </a>
   </li>
   <li>
@@ -387,7 +387,7 @@ configure it as an NFS export.</p>
 </li>
 </ol>
 <ul class="simple">
-<li><strong>Limiting NFS export.</strong> It is highly recommended that you limit the NFS export to a particular subnet by specifying a subnet mask (e.g.,”192.168.1.0/24”). By allowing access from only within the expected cluster, you avoid having non-pool member mount the storage. The limit you place must include the management network(s) and the storage network(s). If the two are the same network then one CIDR is sufficient. If you have a separate storage network you must provide separate CIDR’s for both or one CIDR that is broad enough to span both.</li>
+<li><strong>Limiting NFS export.</strong> It is highly recommended that you limit the NFS export to a particular subnet by specifying a subnet mask (e.g.,”192.168.1.0/24”). By allowing access from only within the expected cluster, you avoid having non-pool member mount the storage. The limit you place must include the management network(s) and the storage network(s). If the two are the same network then one CIDR is sufficient. If you have a 独立存储网络 you must provide separate CIDR’s for both or one CIDR that is broad enough to span both.</li>
 </ul>
 <blockquote>
 <div><p>The following is an example with separate CIDRs:</p>
@@ -498,7 +498,7 @@ from only within the expected cluster, you avoid having non-pool
 member mount the storage and inadvertently delete all its data. The
 limit you place must include the management network(s) and the
 storage network(s). If the two are the same network then one CIDR is
-sufficient. If you have a separate storage network you must provide
+sufficient. If you have a 独立存储网络 you must provide
 separate CIDRs for both or one CIDR that is broad enough to span
 both.</p>
 <p>The following is an example with separate CIDRs:</p>
@@ -525,7 +525,7 @@ deployment.</p>
   <div class="container">
     <p class="pull-right">
       <a href="storage_setup.html#">Back to top</a>
-          | <a href="network_setup.html" title="Previous Chapter: Network Setup"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Network Setup</span>
+          | <a href="network_setup.html" title="Previous Chapter: 网络配置"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; 网络配置</span>
           </a>
           | <a href="optional_installation.html" title="Next Chapter: Additional Installation Options"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Additional Installation Options &raquo;</span>
           </a>

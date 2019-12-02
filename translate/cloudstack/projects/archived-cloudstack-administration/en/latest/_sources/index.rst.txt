@@ -26,14 +26,14 @@ CloudStack Administration Documentation
    :align: center
 
 This guide is aimed at Administrators of a CloudStack based Cloud, 
-for Release Notes, Installation and General introduction to CloudStack 
+for 发行版本说明, Installation and General introduction to CloudStack 
 see the following guides:
 
 - `Documentation Start <http://docs.cloudstack.apache.org>`_
 
-- `Installation Guide <http://docs.cloudstack.apache.org/projects/cloudstack-installation.html>`_
+- `安装指南 <http://docs.cloudstack.apache.org/projects/cloudstack-installation.html>`_
 
-- `Release Notes <http://docs.cloudstack.apache.org/projects/cloudstack-release-notes.html>`_
+- `发行版本说明 <http://docs.cloudstack.apache.org/projects/cloudstack-release-notes.html>`_
 
 
 User Interface
@@ -71,7 +71,7 @@ Service Offerings
    service_offerings
 
 
-Setting up Networking for Users
+设置用户网络
 -------------------------------
 
 .. toctree::

@@ -894,7 +894,7 @@ Issues Fixed in 4.11.0.0
 | 4.9*                    | `#2304`_ | CLOUDSTACK-10127_  | Bug           | Critical | 4.9 / 4.10 KVM + openvswitch + vpc + static nat /          |
 |                         |          |                    |               |          | secondary ip on eth2                                       |
 +-------------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
-| 4.11                    | `#2208`_ | CLOUDSTACK-9542_   | Bug           | Major    | listNics API does not return data as per API documentation |
+| 4.11                    | `#2208`_ | CLOUDSTACK-9542_   | Bug           | Major    | listNics API does not return data as per API 文档 |
 +-------------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
 | 4.11                    | `#2351`_ | CLOUDSTACK-10173_  | Bug           | Major    | Guest/Public nics on VR should pick network rate from      |
 |                         |          |                    |               |          | network offering                                           |
@@ -1098,7 +1098,7 @@ Issues Fixed in 4.11.0.0
 |                         |          |                    |               |          | user                                                       |
 +-------------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
 | 4.11                    | `#2163`_ | CLOUDSTACK-9939_   | Bug           | Major    | Volumes stuck in Creating state while restarting the       |
-|                         |          |                    |               |          | Management Server when the volume creation is in progress  |
+|                         |          |                    |               |          | 管理服务 when the volume creation is in progress  |
 +-------------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
 | 4.11                    | `#1919`_ | CLOUDSTACK-9763_   | Bug           | Major    | vpc: can not ssh to instance after vpc restart             |
 +-------------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
@@ -1133,7 +1133,7 @@ Issues Fixed in 4.11.0.0
 | 4.11                    | `#1912`_ | CLOUDSTACK-9749_   | Bug           | Critical | cloudstack master vpc_internal_lb feature is broken as     |
 |                         |          |                    |               |          | port 8080 is in use by password server on lb VM            |
 +-------------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
-| 4.11                    | `#2138`_ | CLOUDSTACK-9944_   | Bug           | Major    | In clustered Management Server, Sometimes hosts stays in   |
+| 4.11                    | `#2138`_ | CLOUDSTACK-9944_   | Bug           | Major    | In clustered 管理服务, Sometimes hosts stays in   |
 |                         |          |                    |               |          | disconnected state.                                        |
 +-------------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
 | 4.11                    | `#883`_  | CLOUDSTACK-8906_   | Bug           | Major    | /var/log/cloud/ doesn't get logrotated on xenserver        |
@@ -1176,7 +1176,7 @@ Issues Fixed in 4.11.0.0
 | 4.11                    | `#2389`_ | CLOUDSTACK-10213_  | Improvement   | Major    | Allow specify SSH key lengh                                |
 +-------------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
 | 4.11                    | `#2292`_ | CLOUDSTACK-10108_  | Improvement   | Minor    | ConfigKey based approach for reading 'ping' configuaration |
-|                         |          |                    |               |          | for Management Server                                      |
+|                         |          |                    |               |          | for 管理服务                                      |
 +-------------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
 | 4.11                    | `#2384`_ | CLOUDSTACK-10210_  | Improvement   | Trivial  | remove test file                                           |
 +-------------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+

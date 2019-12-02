@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>CloudStack Installation from GIT repo for Developers &mdash; Apache CloudStack 4.13.0.0 documentation</title>
+  <title>CloudStack Installation from GIT repo for Developers &mdash; Apache CloudStack 4.13.0.0 文档</title>
   
 
   
@@ -38,7 +38,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Programmer Guide" href="dev.html" />
-    <link rel="prev" title="Developers Guide" href="index.html" /> 
+    <link rel="prev" title="开发者手册" href="index.html" /> 
 
 <!-- RTD Extra Head -->
 
@@ -111,12 +111,12 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../conceptsandterminology/index.html">CloudStack Concepts and Terminology</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quickinstallationguide/qig.html">Quick Installation Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../installguide/index.html">Installation Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../upgrading/index.html">Upgrading CloudStack</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../adminguide/index.html">Usage Guide</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Developers Guide</a><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../conceptsandterminology/index.html">CloudStack 概念和术语</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickinstallationguide/qig.html">快速安装向导</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installguide/index.html">安装指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../upgrading/index.html">升级 CloudStack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../adminguide/index.html">使用手册</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">开发者手册</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="developer_guide.html#">CloudStack Installation from GIT repo for Developers</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="developer_guide.html#prerequisites">Prerequisites</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="developer_guide.html#example-ubuntu-18-04">Example Ubuntu 18.04</a></li>
@@ -144,11 +144,11 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../plugins/index.html">Plugins Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">发行版本说明</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Other Documentation:</span></p>
+<p class="caption"><span class="caption-text">其它:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/api.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/api.html">API 文档</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://cwiki.apache.org/confluence/display/CLOUDSTACK/Home">Apache CloudStack Wiki</a></li>
 <li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/">Apache CloudStack web site</a></li>
 <li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/downloads.html">Apache CloudStack Source Code</a></li>
@@ -156,9 +156,9 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 </ul>
 <p class="caption"><span class="caption-text">Pre 4.11 Documentation:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference external" href="../../../projects/cloudstack-installation.html">Installation Guide</a></li>
-<li class="toctree-l1"><a class="reference external" href="../../../projects/cloudstack-administration.html">Administration Guide</a></li>
-<li class="toctree-l1"><a class="reference external" href="../../../projects/cloudstack-release-notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference external" href="../../../projects/cloudstack-installation.html">安装指南</a></li>
+<li class="toctree-l1"><a class="reference external" href="../../../projects/cloudstack-administration.html">管理员手册</a></li>
+<li class="toctree-l1"><a class="reference external" href="../../../projects/cloudstack-release-notes.html">发行版本说明</a></li>
 </ul>
 
             
@@ -204,7 +204,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="index.html">Developers Guide</a> &raquo;</li>
+          <li><a href="index.html">开发者手册</a> &raquo;</li>
         
       <li>CloudStack Installation from GIT repo for Developers</li>
     
@@ -445,7 +445,7 @@ infrastructure. The may also need to build their own packages for
 security reasons and due to network connectivity constraints. This
 section shows you the gist of how to build packages. We assume that the
 reader will know how to create a repository to serve this packages. The
-complete documentation is available in the <a class="reference internal" href="../installguide/building_from_source.html#building-deb-packages"><span class="std std-ref">Building DEB packages</span></a>
+complete documentation is available in the <a class="reference internal" href="../installguide/building_from_source.html#building-deb-packages"><span class="std std-ref">打包成 DEB</span></a>
 section.</p>
 <p>To build debian packages you will need couple extra packages that we did
 not need to install for source compilation:</p>
@@ -678,7 +678,7 @@ cloudstack-dev <a class="reference external" href="http://cloudstack.apache.org/
         <a href="dev.html" class="btn btn-neutral float-right" title="Programmer Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="index.html" class="btn btn-neutral float-left" title="Developers Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="index.html" class="btn btn-neutral float-left" title="开发者手册" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

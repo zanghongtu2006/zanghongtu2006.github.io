@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>The Cloudian Connector Plugin &mdash; Apache CloudStack 4.13.0.0 documentation</title>
+  <title>The Cloudian Connector Plugin &mdash; Apache CloudStack 4.13.0.0 文档</title>
   
 
   
@@ -111,12 +111,12 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../conceptsandterminology/index.html">CloudStack Concepts and Terminology</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quickinstallationguide/qig.html">Quick Installation Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../installguide/index.html">Installation Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../upgrading/index.html">Upgrading CloudStack</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../adminguide/index.html">Usage Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../developersguide/index.html">Developers Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../conceptsandterminology/index.html">CloudStack 概念和术语</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickinstallationguide/qig.html">快速安装向导</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installguide/index.html">安装指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../upgrading/index.html">升级 CloudStack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../adminguide/index.html">使用手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developersguide/index.html">开发者手册</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Plugins Guide</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="cloudian-connector.html#">The Cloudian Connector Plugin</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="cloudian-connector.html#introduction-to-the-cloudian-connector-plugin">Introduction to the Cloudian Connector Plugin</a><ul>
@@ -160,11 +160,11 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l2"><a class="reference internal" href="quota.html">Quota Plugin</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">发行版本说明</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Other Documentation:</span></p>
+<p class="caption"><span class="caption-text">其它:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/api.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/api.html">API 文档</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://cwiki.apache.org/confluence/display/CLOUDSTACK/Home">Apache CloudStack Wiki</a></li>
 <li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/">Apache CloudStack web site</a></li>
 <li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/downloads.html">Apache CloudStack Source Code</a></li>
@@ -172,9 +172,9 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 </ul>
 <p class="caption"><span class="caption-text">Pre 4.11 Documentation:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference external" href="../../../projects/cloudstack-installation.html">Installation Guide</a></li>
-<li class="toctree-l1"><a class="reference external" href="../../../projects/cloudstack-administration.html">Administration Guide</a></li>
-<li class="toctree-l1"><a class="reference external" href="../../../projects/cloudstack-release-notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference external" href="../../../projects/cloudstack-installation.html">安装指南</a></li>
+<li class="toctree-l1"><a class="reference external" href="../../../projects/cloudstack-administration.html">管理员手册</a></li>
+<li class="toctree-l1"><a class="reference external" href="../../../projects/cloudstack-release-notes.html">发行版本说明</a></li>
 </ul>
 
             
@@ -361,7 +361,7 @@ Cloudian used to use <a class="reference external" href="mailto:admin&#37;&#52;&
 </div>
 <div class="section" id="dns-resolution-requirements">
 <h3>DNS Resolution Requirements<a class="headerlink" href="cloudian-connector.html#dns-resolution-requirements" title="Permalink to this headline">¶</a></h3>
-<p>The CloudStack Management Server will need to be access the Cloudian admin
+<p>The CloudStack 管理服务 will need to be access the Cloudian admin
 service. The Cloudian admin service is commonly run on the same nodes as your
 Cloudian S3 servers. The admin service is used to provision and deprovision
 Cloudian users and groups automatically by CloudStack.</p>
@@ -383,14 +383,14 @@ server hostname on their desktops so that they can access CMC.</p>
 <tbody valign="top">
 <tr class="row-even"><td>mgmt.abc-cloud.com</td>
 <td>User’s browser</td>
-<td>CloudStack Management Server</td>
+<td>CloudStack 管理服务</td>
 </tr>
 <tr class="row-odd"><td>cmc.abc-cloud.com</td>
 <td>User’s browser</td>
 <td>Cloudian CMC</td>
 </tr>
 <tr class="row-even"><td>admin.abc-cloud.com</td>
-<td>Management Server</td>
+<td>管理服务</td>
 <td>Cloudian Admin Server</td>
 </tr>
 </tbody>
@@ -575,7 +575,7 @@ between the S3 server and the VMs.</p>
 must be able to resolve your S3 bucket names. Usually, if you already have
 Cloudian installed and running in your environment, this is already working.
 At a minimum the following names should resolve to the correct IP addresses
-using the DNS server that your Management Server and System VMs are using.</p>
+using the DNS server that your 管理服务 and System VMs are using.</p>
 <table border="1" class="table-striped table-bordered table-hover docutils">
 <colgroup>
 <col width="41%" />
@@ -645,7 +645,7 @@ download templates from their S3 object store areas.</p>
 <p>As mentioned previously, S3 Secondary Storage currently requires the use of an
 NFS Secondary Staging Server. Add NFS Secondary Storage Staging Server:</p>
 <ul class="simple">
-<li>Login to CloudStack Management Server as the admin user.</li>
+<li>Login to CloudStack 管理服务 as the admin user.</li>
 <li>Navigate to Infrastructure → Secondary Storage.</li>
 <li>Click Select View and select Secondary Staging Store.</li>
 <li>Click Add Secondary Staging Store.</li>
@@ -671,7 +671,7 @@ Started Guide in a section titled Upgrading from NFS to Object Storage.</p>
 </div>
 <p>Adding S3 Secondary Storage:</p>
 <ul class="simple">
-<li>Login to CloudStack Management Server as the admin user.</li>
+<li>Login to CloudStack 管理服务 as the admin user.</li>
 <li>Navigate to Infrastructure → Secondary Storage.</li>
 <li>If it exists, select and delete any existing NFS Secondary Storage server
 setting. NOTE: Do not do this if you want to migrate existing NFS secondary

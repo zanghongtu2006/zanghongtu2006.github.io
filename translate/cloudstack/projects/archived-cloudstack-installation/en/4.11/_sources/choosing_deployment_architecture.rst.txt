@@ -14,27 +14,27 @@
    under the License.
 
 
-Choosing a Deployment Architecture
+架构选型
 ==================================
 
 The architecture used in a deployment will vary depending on the size
 and purpose of the deployment. This section contains examples of
-deployment architecture, including a small-scale deployment useful for
+deployment architecture, including a 小规模部署 useful for
 test and trial deployments and a fully-redundant large-scale setup for
 production deployments.
 
 
-Small-Scale Deployment
+小规模部署
 ----------------------
 
-|Small-Scale Deployment|
+|小规模部署|
 
 This diagram illustrates the network architecture of a small-scale
 CloudStack deployment.
 
 -  A firewall provides a connection to the Internet. The firewall is
    configured in NAT mode. The firewall forwards HTTP requests and API
-   calls from the Internet to the Management Server. The Management
+   calls from the Internet to the 管理服务. The Management
    Server resides on the management network.
 
 -  A layer-2 switch connects all physical servers and storage.
@@ -42,13 +42,13 @@ CloudStack deployment.
 -  A single NFS server functions as both the primary and secondary
    storage.
 
--  The Management Server is connected to the management network.
+-  The 管理服务 is connected to the management network.
 
 
-Large-Scale Redundant Setup
+大规模冗余部署
 ---------------------------
 
-|Large-Scale Redundant Setup|
+|大规模冗余部署|
 
 This diagram illustrates the network architecture of a large-scale
 CloudStack deployment.
@@ -61,7 +61,7 @@ CloudStack deployment.
    mode. The firewalls provide the following functions:
 
    -  Forwards HTTP requests and API calls from the Internet to the
-      Management Server. The Management Server resides on the management
+      管理服务. The 管理服务 resides on the management
       network.
 
    -  When the cloud spans multiple zones, the firewalls should enable
@@ -72,8 +72,8 @@ CloudStack deployment.
    switches can be stacked to increase port count. In either case,
    redundant pairs of layer-2 switches should be deployed.
 
--  The Management Server cluster (including front-end load balancers,
-   Management Server nodes, and the MySQL database) is connected to the
+-  The 管理服务 cluster (including front-end load balancers,
+   管理服务 nodes, and the MySQL database) is connected to the
    management network through a pair of load balancers.
 
 -  Secondary storage servers are connected to the management network.
@@ -83,26 +83,26 @@ CloudStack deployment.
    layer-2 access switches.
 
 
-Separate Storage Network
+独立存储网络
 ------------------------
 
-In the large-scale redundant setup described in the previous section,
+In the 大规模冗余部署 described in the previous section,
 storage traffic can overload the management network. A separate storage
 network is optional for deployments. Storage protocols such as iSCSI are
-sensitive to network delays. A separate storage network ensures guest
+sensitive to network delays. A 独立存储网络 ensures guest
 network traffic contention does not impact storage performance.
 
 
-Multi-Node Management Server
+Multi-Node 管理服务
 ----------------------------
 
-The CloudStack Management Server is deployed on one or more front-end
+The CloudStack 管理服务 is deployed on one or more front-end
 servers connected to a single MySQL database. Optionally a pair of
 hardware load balancers distributes requests from the web. A backup
 management server set may be deployed using MySQL replication at a
 remote site to add DR capabilities.
 
-|Multi-Node Management Server|
+|Multi-Node 管理服务|
 
 The administrator must decide the following.
 
@@ -123,13 +123,13 @@ deployment.
 
 |Example Of A Multi-Site Deployment|
 
-Data Center 1 houses the primary Management Server as well as zone 1.
+Data Center 1 houses the primary 管理服务 as well as zone 1.
 The MySQL database is replicated in real time to the secondary
-Management Server installation in Data Center 2.
+管理服务 installation in Data Center 2.
 
-|Separate Storage Network|
+|独立存储网络|
 
-This diagram illustrates a setup with a separate storage network. Each
+This diagram illustrates a setup with a 独立存储网络. Each
 server has four NICs, two connected to pod-level network switches and
 two connected to storage network switches.
 
@@ -139,9 +139,9 @@ There are two ways to configure the storage network:
    deployments, redundant switches and bonded NICs still result in one
    network (one CIDR block+ default gateway address).
 
--  iSCSI can take advantage of two separate storage networks (two CIDR
+-  iSCSI can take advantage of two 独立存储网络s (two CIDR
    blocks each with its own default gateway). Multipath iSCSI client can
-   failover and load balance between separate storage networks.
+   failover and load balance between 独立存储网络s.
 
 |NIC Bonding And Multipath I/O|
 
@@ -150,7 +150,7 @@ Multipath I/O (MPIO). NIC bonding configuration involves only one
 network. MPIO involves two separate networks.
 
 
-Choosing a Hypervisor
+Hypervisor 选型
 ---------------------
 
 CloudStack supports many popular hypervisors. Your cloud can consist
@@ -259,7 +259,7 @@ could provision 1 iSCSI LUN initially and then add a second iSCSI LUN
 when the first approaches capacity.
 
 
-Best Practices
+最佳实践
 --------------
 
 Deploying a cloud is challenging. There are many different technology
@@ -273,7 +273,7 @@ encourage anyone planning to build a cloud outside of these guidelines
 to seek guidance and advice on the project mailing lists.
 
 
-Process Best Practices
+Process 最佳实践
 ~~~~~~~~~~~~~~~~~~~~~~
 
 -  A staging system that models the production environment is strongly
@@ -289,11 +289,11 @@ Process Best Practices
    users on the cloudstack-users mailing list.
 
 
-Setup Best Practices
+Setup 最佳实践
 ~~~~~~~~~~~~~~~~~~~~
 
 -  Each host should be configured to accept connections only from
-   well-known entities such as the CloudStack Management Server or your
+   well-known entities such as the CloudStack 管理服务 or your
    network monitoring software.
 
 -  Use multiple clusters per pod if you need to achieve a certain switch
@@ -327,7 +327,7 @@ Setup Best Practices
    to XenServer 6.0.
 
 
-Maintenance Best Practices
+Maintenance 最佳实践
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 -  Monitor host disk space. Many host failures occur because the host's
@@ -361,9 +361,9 @@ hypervisor patches. The hypervisor vendor is likely to refuse to support any
 system that is not up to date with patches.
 
 
-.. |Small-Scale Deployment| image:: ./_static/images/small-scale-deployment.png
-.. |Large-Scale Redundant Setup| image:: ./_static/images/large-scale-redundant-setup.png
-.. |Multi-Node Management Server| image:: ./_static/images/multi-node-management-server.png
+.. |小规模部署| image:: ./_static/images/small-scale-deployment.png
+.. |大规模冗余部署| image:: ./_static/images/large-scale-redundant-setup.png
+.. |Multi-Node 管理服务| image:: ./_static/images/multi-node-management-server.png
 .. |Example Of A Multi-Site Deployment| image:: ./_static/images/multi-site-deployment.png
-.. |Separate Storage Network| image:: ./_static/images/separate-storage-network.png
+.. |独立存储网络| image:: ./_static/images/separate-storage-network.png
 .. |NIC Bonding And Multipath I/O| image:: ./_static/images/nic-bonding-and-multipath-io.png

@@ -27,7 +27,7 @@ entities, please begin by looking through `*Cloud Infrastructure Concepts*
 Overview of Provisioning Steps
 ------------------------------
 
-After the Management Server is installed and running, you can add the
+After the 管理服务 is installed and running, you can add the
 compute resources for it to manage. For an overview of how a CloudStack
 cloud infrastructure is organized, see `“Cloud Infrastructure Overview” 
 <http://docs.cloudstack.apache.org/en/latest/concepts.html#cloud-infrastructure-overview>`_.
@@ -84,9 +84,9 @@ Use these steps to add a second region in addition to the default
 region.
 
 #. Each region has its own CloudStack instance. Therefore, the first
-   step of creating a new region is to install the Management Server
+   step of creating a new region is to install the 管理服务
    software, on one or more nodes, in the geographic area where you want
-   to set up the new region. Use the steps in the Installation guide.
+   to set up the new region. Use the steps in the 安装指南.
    When you come to the step where you set up the database, use the
    additional command-line flag ``-r <region_id>`` to set a region ID
    for the new region. The default region is automatically assigned a
@@ -96,8 +96,8 @@ region.
 
       # cloudstack-setup-databases cloud:<dbpassword>@localhost --deploy-as=root:<password> -e <encryption_type> -m <management_server_key> -k <database_key> -r <region_id>
 
-#. By the end of the installation procedure, the Management Server
-   should have been started. Be sure that the Management Server
+#. By the end of the installation procedure, the 管理服务
+   should have been started. Be sure that the 管理服务
    installation was successful and complete.
 
 #. Now add the new region to region 1 in CloudStack.
@@ -110,12 +110,12 @@ region.
    #. Click Add Region. In the dialog, fill in the following fields:
 
       -  ID. A unique identifying number. Use the same number you set in
-         the database during Management Server installation in the new
+         the database during 管理服务 installation in the new
          region; for example, 2.
 
       -  Name. Give the new region a descriptive name.
 
-      -  Endpoint. The URL where you can log in to the Management Server
+      -  Endpoint. The URL where you can log in to the 管理服务
          in the new region. This has the format
          <region.2.IP.address>:8080/client.
 
@@ -170,7 +170,7 @@ repeat certain steps additional times for each additional region:
 
       cloudstack-setup-databases cloud:<dbpassword>@localhost --deploy-as=root:<password> -e <encryption_type> -m <management_server_key> -k <database_key> -r <region_id>
 
-#. Once the Management Server is running, add your new region to all
+#. Once the 管理服务 is running, add your new region to all
    existing regions by repeatedly using the Add Region button in the UI.
    For example, if you were adding region 3:
 
@@ -576,12 +576,12 @@ Advanced Zone Configuration
    you must specify the corresponding Ethernet port profile names as
    network traffic label for each traffic type on the physical network.
    For more information on Nexus dvSwitch, see Configuring a vSphere
-   Cluster with Nexus 1000v Virtual Switch in the Installation Guide. If
+   Cluster with Nexus 1000v Virtual Switch in the 安装指南. If
    you have enabled VMware dvSwitch in the environment, you must specify
    the corresponding Switch name as network traffic label for each
    traffic type on the physical network. For more information, see
    Configuring a VMware Datacenter with VMware Distributed Virtual
-   Switch in the Installation Guide.
+   Switch in the 安装指南.
 
 #. Click Next.
 
@@ -675,7 +675,7 @@ Advanced Zone Configuration
       if you want this host to be used only for VMs with the "high
       availability" feature enabled. For more information, see
       HA-Enabled Virtual Machines as well as HA for Hosts, both in the
-      Administration Guide.
+      管理员手册.
 
 #. In a new cluster, CloudStack adds the first primary storage server
    for you. You can always add more servers later. For an overview of
@@ -966,9 +966,9 @@ Adding a Host
    install your chosen hypervisor on the host. CloudStack can manage
    hosts running VMs under a variety of hypervisors.
 
-   The CloudStack Installation Guide provides instructions on how to
+   The CloudStack 安装指南 provides instructions on how to
    install each supported hypervisor and configure it for use with
-   CloudStack. See the appropriate section in the Installation Guide for
+   CloudStack. See the appropriate section in the 安装指南 for
    information about which version of your chosen hypervisor is
    supported, as well as crucial additional steps to configure the
    hypervisor hosts for use with CloudStack.
@@ -1010,7 +1010,7 @@ Configuration requirements:
 -  For KVM, do not put more than 16 hosts in a cluster.
 
 For hardware requirements, see the installation section for your
-hypervisor in the CloudStack Installation Guide.
+hypervisor in the CloudStack 安装指南.
 
 
 XenServer Host Additional Requirements
@@ -1036,7 +1036,7 @@ With all hosts added to the XenServer pool, run the cloud-setup-bond
 script. This script will complete the configuration and setup of the
 bonds on the new hosts in the cluster.
 
-#. Copy the script from the Management Server in
+#. Copy the script from the 管理服务 in
    /usr/share/cloudstack-common/scripts/vm/hypervisor/xenserver/cloud-setup-bonding.sh
    to the master host and ensure it is executable.
 
@@ -1074,7 +1074,7 @@ Adding a XenServer or KVM Host
    software version is supported by CloudStack and what additional
    configuration is required to ensure the host will work with
    CloudStack. To find these installation details, see the appropriate
-   section for your hypervisor in the CloudStack Installation Guide.
+   section for your hypervisor in the CloudStack 安装指南.
 
 #. Log in to the CloudStack UI as administrator.
 
@@ -1355,7 +1355,7 @@ add more servers to an existing zone.
    CloudStack will destroy any existing data.
 
 #. To prepare for the zone-based Secondary Staging Store, you should
-   have created and mounted an NFS share during Management Server
+   have created and mounted an NFS share during 管理服务
    installation. See :ref:`prepare-nfs-shares`.
 
    If you are using an Hyper-V host, ensure that you have created a SMB
@@ -1511,7 +1511,7 @@ About Configuration Parameters
 
 CloudStack provides a variety of settings you can use to set limits,
 configure features, and enable or disable features in the cloud. Once
-your Management Server is running, you might need to set some of these
+your 管理服务 is running, you might need to set some of these
 configuration parameters, depending on what optional features you are
 setting up. You can set default values at the global level, which will
 be in effect throughout the cloud unless you override them at a lower
@@ -1532,7 +1532,7 @@ management.network.cidr            A CIDR that describes the network that the ma
 xen.setup.multipath                For XenServer nodes, this is a true/false variable that instructs CloudStack to                                    enable iSCSI multipath on the XenServer Hosts when they are added. This                                            defaults to false. Set it to true if you would like CloudStack to enable                                           multipath.If this is true for a NFS-based deployment multipath will still be                                       enabled on the XenServer host. However, this does not impact NFS operation and                                     is harmless.
 secstorage.allowed.internal.sites  This is used to protect your internal network from rogue attempts to download                                      arbitrary files using the template download feature. This is a comma-separated                                     list of CIDRs. If a requested URL matches any of these CIDRs the Secondary                                         Storage VM will use the private network interface to fetch the URL. Other URLs                                     will go through the public interface. We suggest you set this to 1 or 2                                            hardened internal machines where you keep your templates. For example, set it                                      to 192.168.1.66/32.
 use.local.storage                  Determines whether CloudStack will use storage that is local to the Host for                                       data disks, templates, and snapshots. By default CloudStack will not use this                                      storage. You should change this to true if you want to use local storage and                                       you understand the reliability and feature drawbacks to choosing local storage.
-host                               This is the IP address of the Management Server. If you are using multiple                                         Management Servers you should enter a load balanced IP address that is                                             reachable via the private network.
+host                               This is the IP address of the 管理服务. If you are using multiple                                         Management Servers you should enter a load balanced IP address that is                                             reachable via the private network.
 default.page.size                  Maximum number of items per page that can be returned by a CloudStack API                                          command. The limit applies at the cloud level and can vary from cloud to cloud.                                    You can override this with a lower value on a particular API call by using the                                     page and pagesize API command parameters. For more information, see the                                            Developer's Guide. Default: 500.
 ha.tag                             The label you want to use throughout the cloud to designate certain hosts as                                       dedicated HA hosts. These hosts will be used only for HA-enabled VMs that are                                      restarting due to the failure of another host. For example, you could set this                                     to ha\_host. Specify the ha.tag value asa host tag when you add a new host to                                      the cloud.
 vmware.vcenter.session.timeout     Determines the vCenter session timeout value by using this parameter. The                                          default value is 20 minutes. Increase the timeout value to avoid timeout errors                                    in VMware deployments because certain VMware operations take more than 20                                          minutes.

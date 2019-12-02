@@ -14,7 +14,7 @@
    under the License.
 
 
-Quick Installation Guide for CentOS 6
+快速安装向导 for CentOS 6
 =====================================
 
 Overview
@@ -244,7 +244,7 @@ We need to configure the machine to use a CloudStack package repository.
 
 .. note:: 
    The Apache CloudStack official releases are source code. As such there are 
-   no 'official' binaries available. The full installation guide describes how 
+   no 'official' binaries available. The full 安装指南 describes how 
    to take the source release and generate RPMs and and yum repository. This 
    guide attempts to keep things as simple as possible, and thus we are using 
    one of the community-provided yum repositories.
@@ -341,7 +341,7 @@ it on the host by executing the following commands:
    # chkconfig nfs on
 
 
-Management Server Installation
+安装管理服务
 ------------------------------
 
 We're going to install the CloudStack management server and surrounding tools. 
@@ -503,7 +503,7 @@ afterwards we'll need to configure a few things.
    # yum -y install cloudstack-agent
 
 
-KVM Configuration
+KVM 设置
 ~~~~~~~~~~~~~~~~~~~~
 
 We have two different parts of KVM to configure, libvirt, and QEMU.

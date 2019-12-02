@@ -14,7 +14,7 @@
    under the License.
 
 
-Host Hyper-V Installation
+Hyper-V 安装
 -------------------------
 
 If you want to use Hyper-V hypervisor to run guest virtual machines,
@@ -178,14 +178,14 @@ Installing the CloudStack Agent on a Hyper-V Host
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The Hyper-V Agent helps CloudStack perform operations on the Hyper-V
-hosts. This Agent communicates with the Management Server and controls
+hosts. This Agent communicates with the 管理服务 and controls
 all the instances on the host. Each Hyper-V host must have the Hyper-V
 Agent installed on it for successful interaction between the host and
 CloudStack. The Hyper-V Agent runs as a Windows service. Install the
 Agent on each host using the following steps.
 
-CloudStack Management Server communicates with Hyper-V Agent by using
-HTTPS. For secure communication between the Management Server and the
+CloudStack 管理服务 communicates with Hyper-V Agent by using
+HTTPS. For secure communication between the 管理服务 and the
 host, install a self-signed certificate on port 8250.
 
 .. note:: 
@@ -261,8 +261,8 @@ Secondary Storage that uses SMB.
 
    The SMB share and the hosts managed by CloudStack need to be in the
    same domain. However, the storage should be accessible from the
-   Management Server with the domain user privileges.
+   管理服务 with the domain user privileges.
 
 #. While adding storage to CloudStack, ensure that the correct domain,
    and credentials are supplied. This user should be able to access the
-   storage from the Management Server.
+   storage from the 管理服务.

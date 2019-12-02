@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Host Citrix XenServer Installation &mdash; Apache CloudStack 4.11.1.0 documentation</title>
+  <title>Citrix XenServer 安装 &mdash; Apache CloudStack 4.11.1.0 documentation</title>
   
 
   
@@ -29,7 +29,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Additional Installation Options" href="../optional_installation.html" />
-    <link rel="prev" title="Host VMware vSphere Installation" href="vsphere.html" /> 
+    <link rel="prev" title="VMware vSphere 安装" href="vsphere.html" /> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -107,18 +107,18 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../../conceptsandterminology/index.html">CloudStack Concepts and Terminology</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../quickinstallationguide/qig.html">Quick Installation Guide</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Installation Guide</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../index.html#building-from-source">Building from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../conceptsandterminology/index.html">CloudStack 概念和术语</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quickinstallationguide/qig.html">快速安装向导</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">安装指南</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../index.html#building-from-source">从源码编译安装</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#general-installation">General Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#configuration">Configuration</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../index.html#hypervisor-setup">Hypervisor Setup</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="hyperv.html">Host Hyper-V Installation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="kvm.html">Host KVM Installation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="lxc.html">Host LXC Installation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="vsphere.html">Host VMware vSphere Installation</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="xenserver.html#">Host Citrix XenServer Installation</a><ul>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#hypervisor-setup">Hypervisor 安装和设置</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="hyperv.html">Hyper-V 安装</a></li>
+<li class="toctree-l3"><a class="reference internal" href="kvm.html">KVM 安装</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lxc.html">LXC 安装</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vsphere.html">VMware vSphere 安装</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="xenserver.html#">Citrix XenServer 安装</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="xenserver.html#system-requirements-for-xenserver-hosts">System Requirements for XenServer Hosts</a></li>
 <li class="toctree-l4"><a class="reference internal" href="xenserver.html#xenserver-installation-steps">XenServer Installation Steps</a></li>
 <li class="toctree-l4"><a class="reference internal" href="xenserver.html#configure-xenserver-dom0-memory">Configure XenServer dom0 Memory</a></li>
@@ -136,15 +136,15 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l2"><a class="reference internal" href="../index.html#optional-installation">Optional Installation</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../upgrading/index.html">Upgrading CloudStack</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../adminguide/index.html">Usage Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../developersguide/index.html">Developers Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../upgrading/index.html">升级 CloudStack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../adminguide/index.html">使用手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developersguide/index.html">开发者手册</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../plugins/index.html">Plugins Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../releasenotes/index.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../releasenotes/index.html">发行版本说明</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Other Documentation:</span></p>
+<p class="caption"><span class="caption-text">其它:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/api.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/api.html">API 文档</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://cwiki.apache.org/confluence/display/CLOUDSTACK/Home">Apache CloudStack Wiki</a></li>
 <li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/">Apache CloudStack web site</a></li>
 <li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/downloads.html">Apache CloudStack Source Code</a></li>
@@ -152,9 +152,9 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 </ul>
 <p class="caption"><span class="caption-text">Pre 4.11 Documentation:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference external" href="../../../../projects/cloudstack-installation.html">Installation Guide</a></li>
-<li class="toctree-l1"><a class="reference external" href="../../../../projects/cloudstack-administration.html">Administration Guide</a></li>
-<li class="toctree-l1"><a class="reference external" href="../../../../projects/cloudstack-release-notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference external" href="../../../../projects/cloudstack-installation.html">安装指南</a></li>
+<li class="toctree-l1"><a class="reference external" href="../../../../projects/cloudstack-administration.html">管理员手册</a></li>
+<li class="toctree-l1"><a class="reference external" href="../../../../projects/cloudstack-release-notes.html">发行版本说明</a></li>
 </ul>
 
             
@@ -200,9 +200,9 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
     
       <li><a href="../../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="../index.html">Installation Guide</a> &raquo;</li>
+          <li><a href="../index.html">安装指南</a> &raquo;</li>
         
-      <li>Host Citrix XenServer Installation</li>
+      <li>Citrix XenServer 安装</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -224,7 +224,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
            <div itemprop="articleBody">
             
   <div class="section" id="host-citrix-xenserver-installation">
-<h1>Host Citrix XenServer Installation<a class="headerlink" href="xenserver.html#host-citrix-xenserver-installation" title="Permalink to this headline">¶</a></h1>
+<h1>Citrix XenServer 安装<a class="headerlink" href="xenserver.html#host-citrix-xenserver-installation" title="Permalink to this headline">¶</a></h1>
 <p>If you want to use the Citrix XenServer hypervisor to run guest virtual
 machines, install XenServer 6.0 or XenServer 6.0.2 on the host(s) in
 your cloud. For an initial installation, follow the steps below. If you
@@ -293,7 +293,7 @@ already running</p>
 <li><p class="first">From <a class="reference external" href="https://www.citrix.com/English/ss/downloads/">https://www.citrix.com/English/ss/downloads/</a>,
 download the appropriate version of XenServer for your CloudStack
 version (see <a class="reference external" href="xenserver.html#system-requirements-for-xenserver-hosts">“System Requirements for XenServer Hosts”</a>). Install it using
-the Citrix XenServer Installation Guide.</p>
+the Citrix XenServer 安装指南.</p>
 <p>Older Versions of XenServer:</p>
 <p>Note that you can download the most recent release of XenServer
 without having a Citrix account. If you wish to download older
@@ -520,7 +520,7 @@ all hosts in the cluster.</p>
 static. It can be set on the host itself or obtained via static DHCP.</p>
 <p>CloudStack configures network traffic of various types to use different
 NICs or bonds on the XenServer host. You can control this process and
-provide input to the Management Server through the use of XenServer
+provide input to the 管理服务 through the use of XenServer
 network name labels. The name labels are placed on physical interfaces
 or bonds and configured in CloudStack. In some simple cases the name
 labels are not required.</p>
@@ -544,7 +544,7 @@ XenServer name-label for the public network must be identical across all
 hosts. The following examples set the network label to “cloud-public”.
 After the management server is installed and running you must configure
 it with the name of the chosen network label (e.g. “cloud-public”); this
-is discussed in <a class="reference external" href="http://docs.cloudstack.apache.org/en/4.11.1.0/installguide/hypervisor/installation.html#management-server-installation">“Management Server Installation”</a>.</p>
+is discussed in <a class="reference external" href="http://docs.cloudstack.apache.org/en/4.11.1.0/installguide/hypervisor/installation.html#management-server-installation">“管理服务 Installation”</a>.</p>
 <p>If you are using two NICs bonded together to create a public network,
 see <a class="reference internal" href="xenserver.html#nic-bonding-for-xenserver"><span class="std std-ref">NIC Bonding for XenServer (Optional)</span></a>.</p>
 <p>If you are using a single dedicated NIC to provide public network
@@ -588,15 +588,15 @@ different name-label and uuid each time.</p>
 </ol>
 </div>
 <div class="section" id="separate-storage-network-for-xenserver-optional">
-<h3>Separate Storage Network for XenServer (Optional)<a class="headerlink" href="xenserver.html#separate-storage-network-for-xenserver-optional" title="Permalink to this headline">¶</a></h3>
-<p>You can optionally set up a separate storage network. This should be
+<h3>独立存储网络 for XenServer (Optional)<a class="headerlink" href="xenserver.html#separate-storage-network-for-xenserver-optional" title="Permalink to this headline">¶</a></h3>
+<p>You can optionally set up a 独立存储网络. This should be
 done first on the host, before implementing the bonding steps below.
 This can be done using one or two available NICs. With two NICs bonding
 may be done as above. It is the administrator’s responsibility to set up
-a separate storage network.</p>
+a 独立存储网络.</p>
 <p>Give the storage network a different name-label than what will be given
 for other networks.</p>
-<p>For the separate storage network to work correctly, it must be the only
+<p>For the 独立存储网络 to work correctly, it must be the only
 interface that can ping the primary storage device’s IP address. For
 example, if eth0 is the management network NIC, ping -I eth0 &lt;primary
 storage device IP&gt; must fail. In all deployments, secondary storage
@@ -604,11 +604,11 @@ devices must be pingable from the management network NIC or bond. If a
 secondary storage device has been placed on the storage network, it must
 also be pingable via the storage network NIC or bond on the hosts as
 well.</p>
-<p>You can set up two separate storage networks as well. For example, if
+<p>You can set up two 独立存储网络s as well. For example, if
 you intend to implement iSCSI multipath, dedicate two non-bonded NICs to
 multipath. Each of the two networks needs a unique name-label.</p>
 <p>If no bonding is done, the administrator must set up and name-label the
-separate storage network on all hosts (masters and slaves).</p>
+独立存储网络 on all hosts (masters and slaves).</p>
 <p>Here is an example to set up eth5 to access a storage network on
 172.16.0.0/24.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># xe pif-list host-name-label=&#39;hostname&#39; device=eth5</span>
@@ -622,7 +622,7 @@ separate storage network on all hosts (masters and slaves).</p>
 <span id="nic-bonding-for-xenserver"></span><h3>NIC Bonding for XenServer (Optional)<a class="headerlink" href="xenserver.html#nic-bonding-for-xenserver-optional" title="Permalink to this headline">¶</a></h3>
 <p>XenServer supports Source Level Balancing (SLB) NIC bonding. Two NICs
 can be bonded together to carry public, private, and guest traffic, or
-some combination of these. Separate storage networks are also possible.
+some combination of these. 独立存储网络s are also possible.
 Here are some example supported configurations:</p>
 <ul class="simple">
 <li>2 NICs on private, 2 NICs on public, 2 NICs on storage</li>
@@ -736,7 +736,7 @@ master in a single XenServer pool.</p>
 script will complete the configuration and set up of the bonds across
 all hosts in the cluster.</p>
 <ol class="arabic">
-<li><p class="first">Copy the script from the Management Server in
+<li><p class="first">Copy the script from the 管理服务 in
 /usr/share/cloudstack-common/scripts/vm/hypervisor/xenserver/cloud-setup-bonding.sh
 to the master host and ensure it is executable.</p>
 </li>
@@ -763,7 +763,7 @@ XenServer.</p>
 </div>
 <p>To upgrade XenServer:</p>
 <ol class="arabic">
-<li><p class="first">Upgrade the database. On the Management Server node:</p>
+<li><p class="first">Upgrade the database. On the 管理服务 node:</p>
 <ol class="arabic">
 <li><p class="first">Back up the database:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># mysqldump --user=root --databases cloud &gt; cloud.backup.sql</span>
@@ -791,7 +791,7 @@ versions of these same OS types to Other Linux (64-bit).</li>
 of the above.</li>
 </ul>
 </li>
-<li><p class="first">Restart the Management Server and Usage Server. You only need to
+<li><p class="first">Restart the 管理服务 and Usage Server. You only need to
 do this once for all clusters.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># service cloudstack-management start</span>
 <span class="c1"># service cloudstack-usage start</span>
@@ -851,7 +851,7 @@ below:</p>
 <col width="33%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Copy this Management Server file</th>
+<tr class="row-odd"><th class="head">Copy this 管理服务 file</th>
 <th class="head">To this location on the XenServer host</th>
 </tr>
 </thead>
@@ -936,7 +936,7 @@ unwanted line breaks in copied text.</p>
         <a href="../optional_installation.html" class="btn btn-neutral float-right" title="Additional Installation Options" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="vsphere.html" class="btn btn-neutral" title="Host VMware vSphere Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="vsphere.html" class="btn btn-neutral" title="VMware vSphere 安装" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

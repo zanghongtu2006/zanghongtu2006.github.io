@@ -13,13 +13,13 @@
    specific language governing permissions and limitations
    under the License.
 
-.. CloudStack Release Notes documentation master file, created by
+.. CloudStack 发行版本说明 documentation master file, created by
    sphinx-quickstart on Fri Feb  7 16:00:59 2014.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
 
-Apache CloudStack Release Notes
+Apache CloudStack 发行版本说明
 ===============================
 
 .. figure:: /_static/images/acslogo.png
@@ -28,7 +28,7 @@ Apache CloudStack Release Notes
 This document contains information specific to this release of CloudStack, 
 including upgrade instructions from prior releases, new features added to 
 CloudStack, API changes, and issues fixed in the release. For installation 
-instructions, please see the `CloudStack Installation Guide`_. For usage and 
+instructions, please see the `CloudStack 安装指南`_. For usage and 
 administration instructions, please see the `CloudStack Administrator's Guide`_.
 
 

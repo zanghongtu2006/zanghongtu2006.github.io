@@ -122,7 +122,7 @@ and set up the invitations feature in CloudStack.
    | project.smtp.username      | (Optional) User name required by the SMTP server for authentication. You must also set project.smtp.password and set project.smtp.useAuth to true..   |
    +----------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
 
-#. Restart the Management Server:
+#. Restart the 管理服务:
 
    .. code:: bash
 
@@ -203,7 +203,7 @@ Setting the Global Project Resource Limits
    +--------------------------+------------------------------------------------------------------------------------------------------------------------------+
 
 
-#. Restart the Management Server.
+#. Restart the 管理服务.
 
    .. code:: bash
 
@@ -229,7 +229,7 @@ or you can restrict that ability to just CloudStack administrators.
    you want only the CloudStack root administrator and domain
    administrators to create projects.
 
-#. Restart the Management Server.
+#. Restart the 管理服务.
 
    .. code:: bash
 
