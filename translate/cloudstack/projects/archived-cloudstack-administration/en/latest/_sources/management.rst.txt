@@ -489,7 +489,7 @@ rules.
    the global configuration.
 
 
-Stopping and Restarting the 管理服务
+停止和重启管理服务
 ---------------------------------------------------
 
 The root administrator will need to stop and restart the Management

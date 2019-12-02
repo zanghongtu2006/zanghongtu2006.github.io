@@ -490,7 +490,7 @@ Basic Zone Configuration
       the cloud's HA tag (set in the ha.tag global configuration
       parameter) if you want this host to be used only for VMs with the
       "high availability" feature enabled. For more information, see
-      HA-Enabled Virtual Machines as well as HA for Hosts.
+      虚拟机高可用 as well as 主机高可用.
 
 #. In a new cluster, CloudStack adds the first primary storage server
    for you. You can always add more servers later. For an overview of
@@ -674,7 +674,7 @@ Advanced Zone Configuration
       cloud's HA tag (set in the ha.tag global configuration parameter)
       if you want this host to be used only for VMs with the "high
       availability" feature enabled. For more information, see
-      HA-Enabled Virtual Machines as well as HA for Hosts, both in the
+      虚拟机高可用 as well as 主机高可用, both in the
       管理员手册.
 
 #. In a new cluster, CloudStack adds the first primary storage server
@@ -1103,7 +1103,7 @@ Adding a XenServer or KVM Host
       HA tag (set in the ha.tag global configuration parameter) if you
       want this host to be used only for VMs with the "high
       availability" feature enabled. For more information, see
-      HA-Enabled Virtual Machines as well as HA for Hosts.
+      虚拟机高可用 as well as 主机高可用.
 
    There may be a slight delay while the host is provisioned. It should
    automatically display in the UI.

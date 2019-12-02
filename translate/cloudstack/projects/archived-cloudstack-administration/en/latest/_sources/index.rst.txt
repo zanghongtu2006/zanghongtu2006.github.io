@@ -153,7 +153,7 @@ Managing the Cloud
    management
 
 
-System Reliability and Availability
+系统的可靠性和可用性
 -----------------------------------
 
 .. toctree::

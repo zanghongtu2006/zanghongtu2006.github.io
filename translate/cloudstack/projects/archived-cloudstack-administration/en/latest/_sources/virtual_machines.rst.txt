@@ -48,7 +48,7 @@ names can be controlled by the user:
 Guest VMs can be configured to be Highly Available (HA). An HA-enabled
 VM is monitored by the system. If the system detects that the VM is
 down, it will attempt to restart the VM, possibly on a different host.
-For more information, see HA-Enabled Virtual Machines on
+For more information, see 虚拟机高可用 on
 
 Each new VM is allocated one public IP address. When the VM is started,
 CloudStack automatically creates a static NAT between this public IP

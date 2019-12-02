@@ -65,7 +65,7 @@ Requirements for Templates
    This will enable console view to work properly.
 
 
-最佳实践 for Templates
+模版最佳实践
 ----------------------------
 
 If you plan to use large templates (100 GB or larger), be sure you have

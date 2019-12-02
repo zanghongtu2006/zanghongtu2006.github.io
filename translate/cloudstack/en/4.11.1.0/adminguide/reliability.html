@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>HA for 管理服务 &mdash; Apache CloudStack 4.11.1.0 documentation</title>
+  <title>管理服务高可用 &mdash; Apache CloudStack 4.11.1.0 documentation</title>
   
 
   
@@ -125,20 +125,20 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l2"><a class="reference internal" href="index.html#working-with-usage">Working with Usage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#managing-networks-and-traffic">Managing Networks and Traffic</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#managing-the-cloud">Managing the Cloud</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="index.html#system-reliability-and-availability">System Reliability and Availability</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="reliability.html#">HA for 管理服务</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#system-reliability-and-availability">系统的可靠性和可用性</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="reliability.html#">管理服务高可用</a></li>
 <li class="toctree-l3"><a class="reference internal" href="reliability.html#management-server-load-balancing">管理节点负载均衡</a></li>
-<li class="toctree-l3"><a class="reference internal" href="reliability.html#ha-enabled-virtual-machines">HA-Enabled Virtual Machines</a></li>
-<li class="toctree-l3"><a class="reference internal" href="reliability.html#ha-for-hosts">HA for Hosts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="reliability.html#ha-enabled-virtual-machines">虚拟机高可用</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reliability.html#ha-for-hosts">主机高可用</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="reliability.html#dedicated-ha-hosts">Dedicated HA Hosts</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="reliability.html#primary-storage-outage-and-data-loss">Primary Storage Outage and Data Loss</a></li>
-<li class="toctree-l3"><a class="reference internal" href="reliability.html#secondary-storage-outage-and-data-loss">Secondary Storage Outage and Data Loss</a></li>
-<li class="toctree-l3"><a class="reference internal" href="reliability.html#database-high-availability">Database High Availability</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="reliability.html#primary-storage-outage-and-data-loss">主存储断电和数据丢失</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reliability.html#secondary-storage-outage-and-data-loss">二级存储断电和数据丢失</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reliability.html#database-high-availability">数据库高可用</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="reliability.html#how-to-set-up-database-replication">How to Set Up Database Replication</a></li>
-<li class="toctree-l4"><a class="reference internal" href="reliability.html#configuring-database-high-availability">Configuring Database High Availability</a></li>
-<li class="toctree-l4"><a class="reference internal" href="reliability.html#limitations-on-database-high-availability">Limitations on Database High Availability</a></li>
+<li class="toctree-l4"><a class="reference internal" href="reliability.html#configuring-database-high-availability">Configuring 数据库高可用</a></li>
+<li class="toctree-l4"><a class="reference internal" href="reliability.html#limitations-on-database-high-availability">Limitations on 数据库高可用</a></li>
 </ul>
 </li>
 </ul>
@@ -211,7 +211,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
         
           <li><a href="index.html">使用手册</a> &raquo;</li>
         
-      <li>HA for 管理服务</li>
+      <li>管理服务高可用</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -233,7 +233,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
            <div itemprop="articleBody">
             
   <div class="section" id="ha-for-management-server">
-<h1>HA for 管理服务<a class="headerlink" href="reliability.html#ha-for-management-server" title="Permalink to this headline">¶</a></h1>
+<h1>管理服务高可用<a class="headerlink" href="reliability.html#ha-for-management-server" title="Permalink to this headline">¶</a></h1>
 <p>The CloudStack 管理服务 should be deployed in a multi-node
 configuration such that it is not susceptible to individual server
 failures. The 管理服务 itself (as distinct from the MySQL
@@ -293,7 +293,7 @@ still available but the system VMs will not be able to contact the
 management server.</p>
 </div>
 <div class="section" id="ha-enabled-virtual-machines">
-<h1>HA-Enabled Virtual Machines<a class="headerlink" href="reliability.html#ha-enabled-virtual-machines" title="Permalink to this headline">¶</a></h1>
+<h1>虚拟机高可用<a class="headerlink" href="reliability.html#ha-enabled-virtual-machines" title="Permalink to this headline">¶</a></h1>
 <p>The user can specify a virtual machine as HA-enabled. By default, all
 virtual router VMs and Elastic Load Balancing VMs are automatically
 configured as HA-enabled. When an HA-enabled VM crashes, CloudStack
@@ -307,7 +307,7 @@ Host in the same cluster.</p>
 storage is not supported.</p>
 </div>
 <div class="section" id="ha-for-hosts">
-<h1>HA for Hosts<a class="headerlink" href="reliability.html#ha-for-hosts" title="Permalink to this headline">¶</a></h1>
+<h1>主机高可用<a class="headerlink" href="reliability.html#ha-for-hosts" title="Permalink to this headline">¶</a></h1>
 <p>The user can specify a virtual machine as HA-enabled. By default, all
 virtual router VMs and Elastic Load Balancing VMs are automatically
 configured as HA-enabled. When an HA-enabled VM crashes, CloudStack
@@ -350,7 +350,7 @@ a crash.</p>
 </div>
 </div>
 <div class="section" id="primary-storage-outage-and-data-loss">
-<h1>Primary Storage Outage and Data Loss<a class="headerlink" href="reliability.html#primary-storage-outage-and-data-loss" title="Permalink to this headline">¶</a></h1>
+<h1>主存储断电和数据丢失<a class="headerlink" href="reliability.html#primary-storage-outage-and-data-loss" title="Permalink to this headline">¶</a></h1>
 <p>When a primary storage outage occurs the hypervisor immediately stops
 all VMs stored on that storage device. Guests that are marked for HA
 will be restarted as soon as practical when the primary storage comes
@@ -362,7 +362,7 @@ up. Individual volumes in primary storage can be backed up using
 snapshots.</p>
 </div>
 <div class="section" id="secondary-storage-outage-and-data-loss">
-<h1>Secondary Storage Outage and Data Loss<a class="headerlink" href="reliability.html#secondary-storage-outage-and-data-loss" title="Permalink to this headline">¶</a></h1>
+<h1>二级存储断电和数据丢失<a class="headerlink" href="reliability.html#secondary-storage-outage-and-data-loss" title="Permalink to this headline">¶</a></h1>
 <p>For a Zone that has only one secondary storage server, a secondary
 storage outage will have feature level impact to the system but will not
 impact running guest VMs. It may become impossible to create a VM with
@@ -375,7 +375,7 @@ be backed up periodically. Multiple secondary storage servers can be
 provisioned within each zone to increase the scalability of the system.</p>
 </div>
 <div class="section" id="database-high-availability">
-<h1>Database High Availability<a class="headerlink" href="reliability.html#database-high-availability" title="Permalink to this headline">¶</a></h1>
+<h1>数据库高可用<a class="headerlink" href="reliability.html#database-high-availability" title="Permalink to this headline">¶</a></h1>
 <p>To help ensure high availability of the databases that store the
 internal data for CloudStack, you can set up database replication. This
 covers both the main CloudStack database and the Usage database.
@@ -400,7 +400,7 @@ the additional nodes.</p>
 </ul>
 </div>
 <div class="section" id="configuring-database-high-availability">
-<h2>Configuring Database High Availability<a class="headerlink" href="reliability.html#configuring-database-high-availability" title="Permalink to this headline">¶</a></h2>
+<h2>Configuring 数据库高可用<a class="headerlink" href="reliability.html#configuring-database-high-availability" title="Permalink to this headline">¶</a></h2>
 <p>To control the database high availability behavior, use the following
 configuration settings in the file
 /etc/cloudstack/management/db.properties.</p>
@@ -448,7 +448,7 @@ before trying again to connect to the master. Default is 3600.</p>
 </ul>
 </div>
 <div class="section" id="limitations-on-database-high-availability">
-<h2>Limitations on Database High Availability<a class="headerlink" href="reliability.html#limitations-on-database-high-availability" title="Permalink to this headline">¶</a></h2>
+<h2>Limitations on 数据库高可用<a class="headerlink" href="reliability.html#limitations-on-database-high-availability" title="Permalink to this headline">¶</a></h2>
 <p>The following limitations exist in the current implementation of this
 feature.</p>
 <ul class="simple">
