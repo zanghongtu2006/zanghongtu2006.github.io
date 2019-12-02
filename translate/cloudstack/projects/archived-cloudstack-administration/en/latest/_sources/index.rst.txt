@@ -31,9 +31,9 @@ see the following guides:
 
 - `Documentation Start <http://docs.cloudstack.apache.org>`_
 
-- `Installation Guide <http://docs.cloudstack.apache.org/projects/cloudstack-installation>`_
+- `Installation Guide <http://docs.cloudstack.apache.org/projects/cloudstack-installation.html>`_
 
-- `Release Notes <http://docs.cloudstack.apache.org/projects/cloudstack-release-notes>`_
+- `Release Notes <http://docs.cloudstack.apache.org/projects/cloudstack-release-notes.html>`_
 
 
 User Interface

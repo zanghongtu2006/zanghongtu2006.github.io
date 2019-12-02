@@ -34,7 +34,7 @@ Migrating to dynamic roles feature
 As of Apache CloudStack 4.9, dynamic roles feature can be enabled after an
 upgrade. Dyanamic roles feature is enabled by default on new installations.
 
-Please read more about `using dynamic roles <http://docs.cloudstack.apache.org/projects/cloudstack-administration/en/4.9/accounts.html#using-dynamic-roles>`_
+Please read more about `using dynamic roles <http://docs.cloudstack.apache.org/projects/cloudstack-administration.html/en/4.9/accounts.html#using-dynamic-roles>`_
 feature and process of migrating to using this after an upgrade.
 
 Agent and KVM Host Security
@@ -47,7 +47,7 @@ CA framework provisioned X509 certificates) will show up as 'Unsecure'. A new
 button in the UI is available as well as an API to secure and onboard such
 hosts.
 
-Please read more about `host security <http://docs.cloudstack.apache.org/projects/cloudstack-administration/en/latest/hosts.html#security>`_
+Please read more about `host security <http://docs.cloudstack.apache.org/projects/cloudstack-administration.html/en/latest/hosts.html#security>`_
 and process of migrating existing KVM hosts and agents to use the new security
 feature.
 

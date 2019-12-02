@@ -267,7 +267,7 @@ Hypervisor: VMware
 .. warning::
    For VMware hypervisor CloudStack management server packages must be
    build using "noredist". Refer to `Building from Source
-   <http://docs.cloudstack.apache.org/projects/cloudstack-installation/en/latest/building_from_source.html>`_.
+   <http://docs.cloudstack.apache.org/projects/cloudstack-installation.html/en/latest/building_from_source.html>`_.
 
 **(VMware only)** Additional steps are required for each VMware cluster.
 These steps will not affect running guests in the cloud. These steps

@@ -975,7 +975,7 @@ Applying Hotfixes to a VMware vSphere Host
    #. Log in to the CloudStack UI as root.
 
       See `“Log In to the UI” 
-      <http://docs.cloudstack.apache.org/projects/cloudstack-administration/en/latest/ui.html#log-in-to-the-ui>`_.
+      <http://docs.cloudstack.apache.org/projects/cloudstack-administration.html/en/latest/ui.html#log-in-to-the-ui>`_.
 
    #. Navigate to the VMware cluster, click Actions, and select
       Unmanage.

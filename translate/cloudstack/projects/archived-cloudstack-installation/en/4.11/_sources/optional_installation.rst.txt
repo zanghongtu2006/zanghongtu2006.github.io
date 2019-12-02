@@ -84,7 +84,7 @@ Steps to Install the Usage Server
 
       # update-rc.d cloudstack-usage defaults
 
-The `Administration Guide <http://docs.cloudstack.apache.org/projects/cloudstack-administration/en/latest/usage.html>`_ discusses further configuration of the Usage
+The `Administration Guide <http://docs.cloudstack.apache.org/projects/cloudstack-administration.html/en/latest/usage.html>`_ discusses further configuration of the Usage
 Server.
 
 

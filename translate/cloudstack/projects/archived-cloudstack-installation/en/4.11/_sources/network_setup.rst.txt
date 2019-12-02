@@ -701,7 +701,7 @@ offering as follows:
       isolated part of CloudStack. A VPC can have its own virtual
       network topology that resembles a traditional physical network.
       For more information on VPCs, see `“About Virtual Private Clouds” 
-      <http://docs.cloudstack.apache.org/projects/cloudstack-administration/en/latest/networking2.html#about-virtual-private-clouds>`_.
+      <http://docs.cloudstack.apache.org/projects/cloudstack-administration.html/en/latest/networking2.html#about-virtual-private-clouds>`_.
 
    -  **Specify VLAN**: (Isolated guest networks only) Indicate whether
       a VLAN should be specified when this offering is used.

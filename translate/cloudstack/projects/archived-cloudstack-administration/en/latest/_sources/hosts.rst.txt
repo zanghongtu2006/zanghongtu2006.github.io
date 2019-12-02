@@ -22,7 +22,7 @@ Adding Hosts
 
 Additional hosts can be added at any time to provide more capacity for
 guest VMs. For requirements and instructions, see 
-`“Adding a Host” <http://docs.cloudstack.apache.org/projects/cloudstack-installation/en/latest/configuration.html#adding-a-host>`_.
+`“Adding a Host” <http://docs.cloudstack.apache.org/projects/cloudstack-installation.html/en/latest/configuration.html#adding-a-host>`_.
 
 
 Scheduled Maintenance and Maintenance Mode for Hosts
