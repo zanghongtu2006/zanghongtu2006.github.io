@@ -1,0 +1,850 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>The System VM Template &mdash; Apache CloudStack 4.13.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Working with Usage" href="usage.html" />
+    <link rel="prev" title="Storage Overview" href="storage.html" /> 
+
+<!-- RTD Extra Head -->
+
+<!-- 
+Always link to the latest version, as canonical.
+http://docs.readthedocs.org/en/latest/canonical.html
+-->
+<link rel="canonical" href="../../latest/adminguide/systemvm.html" />
+
+<link rel="stylesheet" href="https://assets.readthedocs.org/static/css/readthedocs-doc-embed.css" type="text/css" />
+
+<script type="text/javascript" src="../_static/readthedocs-data.js"></script>
+
+<!-- Add page-specific data, which must exist in the page js, not global -->
+<script type="text/javascript">
+READTHEDOCS_DATA['page'] = "adminguide/systemvm"
+READTHEDOCS_DATA['source_suffix'] = ".rst"
+</script>
+
+<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js"></script>
+
+<!-- end RTD <extrahead> -->
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Apache CloudStack
+          
+
+          
+          </a>
+
+          
+            
+            
+            
+              <div class="version">
+                4.13.0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../conceptsandterminology/index.html">CloudStack Concepts and Terminology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickinstallationguide/qig.html">Quick Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installguide/index.html">Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../upgrading/index.html">Upgrading CloudStack</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Usage Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html#user-interface">User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#managing-accounts-users-and-domains">Managing Accounts, Users and Domains</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#using-projects-to-organize-user-resources">Using Projects to Organize User Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#service-offerings">Service Offerings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#setting-up-networking-for-users">Setting up Networking for Users</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#working-with-virtual-machines">Working with Virtual Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#working-with-templates">Working with Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#working-with-hosts">Working with Hosts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#working-with-storage">Working with Storage</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#working-with-system-virtual-machines">Working with System Virtual Machines</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="systemvm.html#">The System VM Template</a></li>
+<li class="toctree-l3"><a class="reference internal" href="systemvm.html#changing-the-default-system-vm-template">Changing the Default System VM Template</a></li>
+<li class="toctree-l3"><a class="reference internal" href="systemvm.html#multiple-system-vm-support-for-vmware">Multiple System VM Support for VMware</a></li>
+<li class="toctree-l3"><a class="reference internal" href="systemvm.html#console-proxy">Console Proxy</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="systemvm.html#using-a-ssl-certificate-for-the-console-proxy">Using a SSL Certificate for the Console Proxy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="systemvm.html#changing-the-console-proxy-ssl-certificate-and-domain">Changing the Console Proxy SSL Certificate and Domain</a></li>
+<li class="toctree-l4"><a class="reference internal" href="systemvm.html#uploading-root-ca-and-intermediate-ca">Uploading ROOT CA and Intermediate CA</a></li>
+<li class="toctree-l4"><a class="reference internal" href="systemvm.html#load-balancing-console-proxies">Load-balancing Console Proxies</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="systemvm.html#virtual-router">Virtual Router</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="systemvm.html#configuring-the-virtual-router">Configuring the Virtual Router</a></li>
+<li class="toctree-l4"><a class="reference internal" href="systemvm.html#upgrading-a-virtual-router-with-system-service-offerings">Upgrading a Virtual Router with System Service Offerings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="systemvm.html#best-practices-for-virtual-routers">Best Practices for Virtual Routers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="systemvm.html#service-monitoring-tool-for-virtual-router">Service Monitoring Tool for Virtual Router</a></li>
+<li class="toctree-l4"><a class="reference internal" href="systemvm.html#enhanced-upgrade-for-virtual-routers">Enhanced Upgrade for Virtual Routers</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="systemvm.html#secondary-storage-vm">Secondary Storage VM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="systemvm.html#troubleshoot-networks-from-system-vms">Troubleshoot networks from System VMs</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#working-with-usage">Working with Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#managing-networks-and-traffic">Managing Networks and Traffic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#managing-the-cloud">Managing the Cloud</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#system-reliability-and-availability">System Reliability and Availability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#tuning">Tuning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#events-and-troubleshooting">Events and Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../developersguide/index.html">Developers Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/index.html">Plugins Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Other Documentation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/api.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://cwiki.apache.org/confluence/display/CLOUDSTACK/Home">Apache CloudStack Wiki</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/">Apache CloudStack web site</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/downloads.html">Apache CloudStack Source Code</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/apache/cloudstack">Apache CloudStack on GitHub</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Pre 4.11 Documentation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="../../../projects/cloudstack-installation">Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference external" href="../../../projects/cloudstack-administration">Administration Guide</a></li>
+<li class="toctree-l1"><a class="reference external" href="../../../projects/cloudstack-release-notes">Release Notes</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Apache CloudStack</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Usage Guide</a> &raquo;</li>
+        
+      <li>The System VM Template</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/apache/cloudstack-documentation/blob/4.13.0.0/source/adminguide/systemvm.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <p>CloudStack uses several types of system virtual machines to perform
+tasks in the cloud. In general CloudStack manages these system VMs and
+creates, starts, and stops them as needed based on scale and immediate
+needs. However, the administrator should be aware of them and their
+roles to assist in debugging issues.</p>
+<div class="section" id="the-system-vm-template">
+<h1>The System VM Template<a class="headerlink" href="systemvm.html#the-system-vm-template" title="Permalink to this headline">¶</a></h1>
+<p>The System VMs come from a single template. The System VM has the
+following characteristics:</p>
+<ul class="simple">
+<li>Debian 7.8 (“wheezy”), 3.2.0 kernel with the latest security
+patches from the Debian security APT repository</li>
+<li>Has a minimal set of packages installed thereby reducing the attack
+surface</li>
+<li>64-bit for enhanced performance on Xen/VMWare</li>
+<li>pvops kernel with Xen PV drivers, KVM virtio drivers, and VMware
+tools for optimum performance on all hypervisors</li>
+<li>Xen tools inclusion allows performance monitoring</li>
+<li>Latest versions of HAProxy, iptables, IPsec, and Apache from debian
+repository ensures improved security and speed</li>
+<li>Latest version of JRE from Sun/Oracle ensures improved security and
+speed</li>
+</ul>
+</div>
+<div class="section" id="changing-the-default-system-vm-template">
+<h1>Changing the Default System VM Template<a class="headerlink" href="systemvm.html#changing-the-default-system-vm-template" title="Permalink to this headline">¶</a></h1>
+<p>Using the 64-bit template should be use with a System Offering of at least 512MB
+of memory.</p>
+<ol class="arabic">
+<li><p class="first">Based on the hypervisor you use, download the 64-bit template from
+the following location:</p>
+<table border="1" class="table-striped table-bordered table-hover docutils">
+<colgroup>
+<col width="9%" />
+<col width="91%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Hypervisor</th>
+<th class="head">Download Location</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>XenServer</td>
+<td><a class="reference external" href="http://download.cloudstack.org/systemvm/4.11/systemvmtemplate-4.11.3-xen.vhd.bz2">http://download.cloudstack.org/systemvm/4.11/systemvmtemplate-4.11.3-xen.vhd.bz2</a></td>
+</tr>
+<tr class="row-odd"><td>KVM</td>
+<td><a class="reference external" href="http://download.cloudstack.org/systemvm/4.11/systemvmtemplate-4.11.3-kvm.qcow2.bz2">http://download.cloudstack.org/systemvm/4.11/systemvmtemplate-4.11.3-kvm.qcow2.bz2</a></td>
+</tr>
+<tr class="row-even"><td>VMware</td>
+<td><a class="reference external" href="http://download.cloudstack.org/systemvm/4.11/systemvmtemplate-4.11.3-vmware.ova">http://download.cloudstack.org/systemvm/4.11/systemvmtemplate-4.11.3-vmware.ova</a></td>
+</tr>
+<tr class="row-odd"><td>Hyper-V</td>
+<td><a class="reference external" href="http://download.cloudstack.org/systemvm/4.11/systemvmtemplate-4.11.3-hyperv.vhd.zip">http://download.cloudstack.org/systemvm/4.11/systemvmtemplate-4.11.3-hyperv.vhd.zip</a></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li><p class="first">As an administrator, log in to the CloudStack UI</p>
+</li>
+<li><p class="first">Register the 64 bit template.</p>
+<p>For example: KVM64bitTemplate</p>
+</li>
+<li><p class="first">While registering the template, select Routing.</p>
+</li>
+<li><p class="first">Navigate to Infrastructure &gt; Zone &gt; Settings.</p>
+</li>
+<li><p class="first">Set the name of the 64-bit template, KVM64bitTemplate, in the
+<em>``router.template.kvm``</em> global parameter.</p>
+<p>If you are using a XenServer 64-bit template, set the name in the
+<em>``router.template.xen``</em> global parameter.</p>
+<p>Any new virtual router created in this Zone automatically picks up
+this template.</p>
+</li>
+<li><p class="first">Restart the Management Server.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="multiple-system-vm-support-for-vmware">
+<h1>Multiple System VM Support for VMware<a class="headerlink" href="systemvm.html#multiple-system-vm-support-for-vmware" title="Permalink to this headline">¶</a></h1>
+<p>Every CloudStack zone has single System VM for template processing tasks
+such as downloading templates, uploading templates, and uploading ISOs.
+In a zone where VMware is being used, additional System VMs can be
+launched to process VMware-specific tasks such as taking snapshots and
+creating private templates. The CloudStack management server launches
+additional System VMs for VMware-specific tasks as the load increases.
+The management server monitors and weights all commands sent to these
+System VMs and performs dynamic load balancing and scaling-up of more
+System VMs.</p>
+</div>
+<div class="section" id="console-proxy">
+<h1>Console Proxy<a class="headerlink" href="systemvm.html#console-proxy" title="Permalink to this headline">¶</a></h1>
+<p>The Console Proxy is a type of System Virtual Machine that has a role in
+presenting a console view via the web UI. It connects the user’s browser
+to the VNC port made available via the hypervisor for the console of the
+guest. Both the administrator and end user web UIs offer a console
+connection.</p>
+<p>Clicking a console icon brings up a new window. The AJAX code downloaded
+into that window refers to the public IP address of a console proxy VM.
+There is exactly one public IP address allocated per console proxy VM.
+The AJAX application connects to this IP. The console proxy then proxies
+the connection to the VNC port for the requested VM on the Host hosting
+the guest.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The hypervisors will have many ports assigned to VNC usage so that
+multiple VNC sessions can occur simultaneously.</p>
+</div>
+<p>There is never any traffic to the guest virtual IP, and there is no need
+to enable VNC within the guest.</p>
+<p>The console proxy VM will periodically report its active session count
+to the Management Server. The default reporting interval is five
+seconds. This can be changed through standard Management Server
+configuration with the parameter consoleproxy.loadscan.interval.</p>
+<p>Assignment of guest VM to console proxy is determined by first
+determining if the guest VM has a previous session associated with a
+console proxy. If it does, the Management Server will assign the guest
+VM to the target Console Proxy VM regardless of the load on the proxy
+VM. Failing that, the first available running Console Proxy VM that has
+the capacity to handle new sessions is used.</p>
+<p>Console proxies can be restarted by administrators but this will
+interrupt existing console sessions for users.</p>
+<div class="section" id="using-a-ssl-certificate-for-the-console-proxy">
+<h2>Using a SSL Certificate for the Console Proxy<a class="headerlink" href="systemvm.html#using-a-ssl-certificate-for-the-console-proxy" title="Permalink to this headline">¶</a></h2>
+<p>By default, the console viewing functionality uses plaintext HTTP. In
+any production environment, the console proxy connection should be
+encrypted via SSL at the mininum.</p>
+<p>A CloudStack administrator has 2 ways to secure the console proxy
+communication with SSL:</p>
+<ul class="simple">
+<li>Set up a SSL wild-card certificate and domain name resolution</li>
+<li>Set up SSL certificate for specific FQDN and configure load-balancer</li>
+</ul>
+</div>
+<div class="section" id="changing-the-console-proxy-ssl-certificate-and-domain">
+<h2>Changing the Console Proxy SSL Certificate and Domain<a class="headerlink" href="systemvm.html#changing-the-console-proxy-ssl-certificate-and-domain" title="Permalink to this headline">¶</a></h2>
+<p>The administrator can configure SSL encryption  by selecting a domain
+and uploading a new SSL certificate and private key. The domain must
+run a DNS service that is capable of resolving queries for addresses
+of the form aaa-bbb-ccc-ddd.your.domain to an IPv4 IP address in the
+form aaa.bbb.ccc.ddd, for example, 202.8.44.1. To change the console
+proxy domain, SSL certificate, and private key:</p>
+<ol class="arabic">
+<li><p class="first">Set up dynamic name resolution or populate all possible DNS names in
+your public IP range into your existing DNS server with the format
+aaa-bbb-ccc-ddd.consoleproxy.company.com -&gt; aaa.bbb.ccc.ddd.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">In these steps you will notice <em>consoleproxy.company.com</em> -For
+security best practices, we recommend creating a wildcard SSL
+certificate on a separate subdomain so in the event that the
+certificate is compromised, a malicious user cannot impersonate
+a company.com domain.</p>
+</div>
+</li>
+<li><p class="first">Generate the private key and certificate signing request (CSR). When
+you are using openssl to generate private/public key pairs and CSRs,
+for the private key that you are going to paste into the CloudStack
+UI, be sure to convert it into PKCS#8 format.</p>
+<ol class="arabic">
+<li><p class="first">Generate a new 2048-bit private key</p>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">openssl</span> <span class="n">genrsa</span> <span class="o">-</span><span class="n">des3</span> <span class="o">-</span><span class="n">out</span> <span class="n">yourprivate</span><span class="o">.</span><span class="n">key</span> <span class="mi">2048</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Generate a new certificate CSR. Ensure the creation of a wildcard
+certificate, eg <code class="docutils literal notranslate"><span class="pre">*.consoleproxy.company.com</span></code></p>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">openssl</span> <span class="n">req</span> <span class="o">-</span><span class="n">new</span> <span class="o">-</span><span class="n">key</span> <span class="n">yourprivate</span><span class="o">.</span><span class="n">key</span> <span class="o">-</span><span class="n">out</span> <span class="n">yourcertificate</span><span class="o">.</span><span class="n">csr</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Head to the website of your favorite trusted Certificate
+Authority, purchase an SSL certificate, and submit the CSR. You
+should receive a valid certificate in return</p>
+</li>
+<li><p class="first">Convert your private key format into PKCS#8 encrypted format.</p>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">openssl</span> <span class="n">pkcs8</span> <span class="o">-</span><span class="n">topk8</span> <span class="o">-</span><span class="ow">in</span> <span class="n">yourprivate</span><span class="o">.</span><span class="n">key</span> <span class="o">-</span><span class="n">out</span> <span class="n">yourprivate</span><span class="o">.</span><span class="n">pkcs8</span><span class="o">.</span><span class="n">encrypted</span><span class="o">.</span><span class="n">key</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Convert your PKCS#8 encrypted private key into the PKCS#8 format
+that is compliant with CloudStack</p>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">openssl</span> <span class="n">pkcs8</span> <span class="o">-</span><span class="ow">in</span> <span class="n">yourprivate</span><span class="o">.</span><span class="n">pkcs8</span><span class="o">.</span><span class="n">encrypted</span><span class="o">.</span><span class="n">key</span> <span class="o">-</span><span class="n">out</span> <span class="n">yourprivate</span><span class="o">.</span><span class="n">pkcs8</span><span class="o">.</span><span class="n">key</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</li>
+<li><p class="first">In the Update SSL Certificate screen of the CloudStack UI, paste the
+following:</p>
+<ul class="simple">
+<li>The certificate you’ve just generated.</li>
+<li>The private key you’ve just generated.</li>
+<li>The desired domain name, prefixed with <code class="docutils literal notranslate"><span class="pre">*.</span></code>; for example, <code class="docutils literal notranslate"><span class="pre">*.consoleproxy.company.com</span></code></li>
+</ul>
+<blockquote>
+<div><p><img alt="Updating Console Proxy SSL Certificate" src="../_images/update-ssl.png" /></p>
+</div></blockquote>
+</li>
+<li><p class="first">This stops all currently running console proxy VMs, then restarts
+them with the new certificate and key. Users might notice a brief
+interruption in console availability.</p>
+</li>
+</ol>
+<p>The Management Server generates URLs of the form
+“aaa-bbb-ccc-ddd.consoleproxy.company.com” after this change is made.
+The new console requests will be served with the new DNS domain name,
+certificate, and key.</p>
+</div>
+<div class="section" id="uploading-root-ca-and-intermediate-ca">
+<h2>Uploading ROOT CA and Intermediate CA<a class="headerlink" href="systemvm.html#uploading-root-ca-and-intermediate-ca" title="Permalink to this headline">¶</a></h2>
+<p>If you need to upload custom certificate with ROOT CA and intermediate CA, you can find more details here:
+<a class="reference external" href="https://cwiki.apache.org/confluence/display/CLOUDSTACK/Procedure+to+Replace+realhostip.com+with+Your+Own+Domain+Name">https://cwiki.apache.org/confluence/display/CLOUDSTACK/Procedure+to+Replace+realhostip.com+with+Your+Own+Domain+Name</a></p>
+<p>IMPORTANT NOTES:</p>
+<p>In order to avoid errors and problems while uploading custom certificates, please check following:</p>
+<p>1. While doing URL encoding of ROOT CA and any Intermediate CA, be sure that the plus signs (“+”) inside certificates
+are not replaced by space (” “), because some URL/string encoding tools tend to do that.</p>
+<p>2. If you are renewing certificates it might happen you need to upload new ROOT CA and Intermediate CA, together with new Server Certificate and key.
+In this case please be sure to use same names for certificates during API upload of certificate, example:</p>
+<p><a class="reference external" href="http://123.123.123.123:8080/client/api?command=uploadCustomCertificate&amp;...&amp;name=root1">http://123.123.123.123:8080/client/api?command=uploadCustomCertificate&amp;…&amp;name=root1</a>…
+<a class="reference external" href="http://123.123.123.123:8080/client/api?command=uploadCustomCertificate&amp;...&amp;name=intermed1">http://123.123.123.123:8080/client/api?command=uploadCustomCertificate&amp;…&amp;name=intermed1</a>…</p>
+<p>Here names are “root1” and “intermed1”.
+If you used other names previously, please check the cloud.keystore table to obtain used names.</p>
+<p>If you still have problems and folowing errors in management.log while destroying CPVM:</p>
+<ul class="simple">
+<li>Unable to build keystore for CPVMCertificate due to CertificateException</li>
+<li>Cold not find and construct a valid SSL certificate</li>
+</ul>
+<p>that means that still some of the Root/intermediate/server certificates or the key is not in a good format, or incorrectly encoded or multiply Root CA/Intemediate CA present in database by mistake.</p>
+<p>Other way to renew Certificates (Root,Intermediates,Server certificates and key) - although not recommended
+unless you fill comfortable - is to directly edit the database,
+while still respect the main requirement that the private key is PKCS8 encoded, while Root CA, Intemediate and Server certificates
+are still in default PEM format (no URL encoding needed here).
+After editing the database, please restart management server, and destroy SSVM and CPVM after that,
+so the new SSVM and CPVM with new certificates are created.</p>
+</div>
+<div class="section" id="load-balancing-console-proxies">
+<h2>Load-balancing Console Proxies<a class="headerlink" href="systemvm.html#load-balancing-console-proxies" title="Permalink to this headline">¶</a></h2>
+<p>An alternative to using dynamic DNS or creating a range of DNS entries
+as described in the last section would be to create a SSL certificate
+for a specific domain name, configure CloudStack to use that particular
+FQDN, and then configure a load balancer to load balance the console
+proxy’s IP address behind the FQDN. As the functionality for this is
+still new, please see
+<a class="reference external" href="https://cwiki.apache.org/confluence/display/CLOUDSTACK/Realhost+IP+changes">https://cwiki.apache.org/confluence/display/CLOUDSTACK/Realhost+IP+changes</a>
+for more details.</p>
+</div>
+</div>
+<div class="section" id="virtual-router">
+<h1>Virtual Router<a class="headerlink" href="systemvm.html#virtual-router" title="Permalink to this headline">¶</a></h1>
+<p>The virtual router is a type of System Virtual Machine. The virtual
+router is one of the most frequently used service providers in
+CloudStack. The end user has no direct access to the virtual router.
+Users can ping the virtual router and take actions that affect it (such
+as setting up port forwarding), but users do not have SSH access into
+the virtual router.</p>
+<p>There is no mechanism for the administrator to log in to the virtual
+router. Virtual routers can be restarted by administrators, but this
+will interrupt public network access and other services for end users. A
+basic test in debugging networking issues is to attempt to ping the
+virtual router from a guest VM. Some of the characteristics of the
+virtual router are determined by its associated system service offering.</p>
+<div class="section" id="configuring-the-virtual-router">
+<h2>Configuring the Virtual Router<a class="headerlink" href="systemvm.html#configuring-the-virtual-router" title="Permalink to this headline">¶</a></h2>
+<p>You can set the following:</p>
+<ul class="simple">
+<li>IP range</li>
+<li>Supported network services</li>
+<li>Default domain name for the network serviced by the virtual router</li>
+<li>Gateway IP address</li>
+<li>How often CloudStack fetches network usage statistics from CloudStack
+virtual routers. If you want to collect traffic metering data from
+the virtual router, set the global configuration parameter
+router.stats.interval. If you are not using the virtual router to
+gather network usage statistics, set it to 0.</li>
+</ul>
+</div>
+<div class="section" id="upgrading-a-virtual-router-with-system-service-offerings">
+<h2>Upgrading a Virtual Router with System Service Offerings<a class="headerlink" href="systemvm.html#upgrading-a-virtual-router-with-system-service-offerings" title="Permalink to this headline">¶</a></h2>
+<p>When CloudStack creates a virtual router, it uses default settings which
+are defined in a default system service offering. See <a class="reference external" href="systemvm.html#system-service-offerings">“System Service
+Offerings”</a>. All the
+virtual routers in a single guest network use the same system service
+offering. You can upgrade the capabilities of the virtual router by
+creating and applying a custom system service offering.</p>
+<ol class="arabic simple">
+<li>Define your custom system service offering.
+See <a class="reference external" href="systemvm.html#creating-a-new-system-service-offering">“Creating a New System Service Offering”</a>.
+In System VM Type, choose Domain Router.</li>
+<li>Associate the system service offering with a network offering. See
+<a class="reference external" href="networking.html#creating-a-new-network-offering">“Creating a New Network Offering”</a>.</li>
+<li>Apply the network offering to the network where you want the virtual
+routers to use the new system service offering. If this is a new
+network, follow the steps in Adding an Additional Guest Network on
+page 66. To change the service offering for existing virtual routers,
+follow the steps in <a class="reference external" href="http://docs.cloudstack.apache.org/en/4.13.0.0/adminguide/networking2.html#changing-the-network-offering-on-a-guest-network">“Changing the Network Offering on a Guest Network”</a>.</li>
+</ol>
+</div>
+<div class="section" id="best-practices-for-virtual-routers">
+<h2>Best Practices for Virtual Routers<a class="headerlink" href="systemvm.html#best-practices-for-virtual-routers" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">WARNING: Restarting a virtual router from a hypervisor console
+deletes all the iptables rules. To work around this issue, stop the
+virtual router and start it from the CloudStack UI.</p>
+</li>
+<li><div class="first admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Do not use the destroyRouter API when only one router is available
+in the network, because restartNetwork API with the cleanup=false
+parameter can’t recreate it later. If you want to destroy and
+recreate the single router available in the network, use the
+restartNetwork API with the cleanup=true parameter.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="service-monitoring-tool-for-virtual-router">
+<h2>Service Monitoring Tool for Virtual Router<a class="headerlink" href="systemvm.html#service-monitoring-tool-for-virtual-router" title="Permalink to this headline">¶</a></h2>
+<p>Various services running on the CloudStack virtual routers can be
+monitored by using a Service Monitoring tool. The tool ensures that
+services are successfully running until CloudStack deliberately disables
+them. If a service goes down, the tool automatically restarts the
+service, and if that does not help bringing up the service, an alert as
+well as an event is generated indicating the failure. A new global
+parameter, <code class="docutils literal notranslate"><span class="pre">network.router.enableservicemonitoring</span></code>, has been
+introduced to control this feature. The default value is false, implies,
+monitoring is disabled. When you enable, ensure that the Management
+Server and the router are restarted.</p>
+<p>Monitoring tool can help to start a VR service, which is crashed due to
+an unexpected reason. For example:</p>
+<ul class="simple">
+<li>The services crashed due to defects in the source code.</li>
+<li>The services that are terminated by the OS when memory or CPU is not
+sufficiently available for the service.</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Only those services with daemons are monitored. The services that are
+failed due to errors in the service/daemon configuration file cannot
+be restarted by the Monitoring tool. VPC networks are not supported.</p>
+</div>
+<p>The following services are monitored in a VR:</p>
+<ul class="simple">
+<li>DNS</li>
+<li>HA Proxy</li>
+<li>SSH</li>
+<li>Apache Web Server</li>
+</ul>
+<p>The following networks are supported:</p>
+<ul>
+<li><p class="first">Isolated Networks</p>
+</li>
+<li><p class="first">Shared Networks in both Advanced and Basic zone</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">VPC networks are not supported</p>
+</div>
+</li>
+</ul>
+<p>This feature is supported on the following hypervisors: XenServer,
+VMware, and KVM.</p>
+</div>
+<div class="section" id="enhanced-upgrade-for-virtual-routers">
+<h2>Enhanced Upgrade for Virtual Routers<a class="headerlink" href="systemvm.html#enhanced-upgrade-for-virtual-routers" title="Permalink to this headline">¶</a></h2>
+<p>Upgrading VR is made flexible. The CloudStack administrators will be
+able to control the sequence of the VR upgrades. The sequencing is based
+on Infrastructure hierarchy, such as by Cluster, Pod, or Zone, and
+Administrative (Account) hierarchy, such as by Tenant or Domain. As an
+administrator, you can also determine when a particular customer
+service, such as VR, is upgraded within a specified upgrade interval.
+Upgrade operation is enhanced to increase the upgrade speed by allowing
+as many upgrade operations in parallel as possible.</p>
+<p>During the entire duration of the upgrade, users cannot launch new
+services or make changes to an existing service.</p>
+<p>Additionally, using multiple versions of VRs in a single instance is
+supported. In the Details tab of a VR, you can view the version and
+whether it requires upgrade. During the Management Server upgrade,
+CloudStack checks whether VR is at the latest version before performing
+any operation on the VR. To support this, a new global parameter,
+<em>``router.version.check``</em>, has been added. This parameter is set to
+true by default, which implies minimum required version is checked
+before performing any operation. No operation is performed if the VR is
+not at the required version. Services of the older version VR continue
+to be available, but no further operations can be performed on the VR
+until it is upgraded to the latest version. This will be a transient
+state until the VR is upgraded. This will ensure that the availability
+of VR services and VR state is not impacted due to the Management Server
+upgrade.</p>
+<p>The following service will be available even if the VR is not upgraded.
+However, no changes for any of the services can be sent to the VR, until
+it is upgraded:</p>
+<ul class="simple">
+<li>SecurityGroup</li>
+<li>UserData</li>
+<li>DHCP</li>
+<li>DNS</li>
+<li>LB</li>
+<li>Port Forwarding</li>
+<li>VPN</li>
+<li>Static NAT</li>
+<li>Source NAT</li>
+<li>Firewall</li>
+<li>Gateway</li>
+<li>NetworkACL</li>
+</ul>
+<div class="section" id="supported-virtual-routers">
+<h3>Supported Virtual Routers<a class="headerlink" href="systemvm.html#supported-virtual-routers" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>VR</li>
+<li>VPC VR</li>
+<li>Redundant VR</li>
+</ul>
+</div>
+<div class="section" id="upgrading-virtual-routers">
+<h3>Upgrading Virtual Routers<a class="headerlink" href="systemvm.html#upgrading-virtual-routers" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Download the latest System VM template.</p>
+</li>
+<li><p class="first">Download the latest System VM to all the primary storage pools.</p>
+</li>
+<li><p class="first">Upgrade the Management Server.</p>
+</li>
+<li><p class="first">Upgrade CPVM and SSVM either from the UI or by using the following
+script:</p>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># cloudstack-sysvmadm -d &lt;IP address&gt; -u cloud -p -s</span>
+</pre></div>
+</div>
+<p>Even when the VRs are still on older versions, existing services will
+continue to be available to the VMs. The Management Server cannot
+perform any operations on the VRs until they are upgraded.</p>
+</li>
+<li><p class="first">Selectively upgrade the VRs:</p>
+<ol class="arabic">
+<li><p class="first">Log in to the CloudStack UI as the root administrator.</p>
+</li>
+<li><p class="first">In the left navigation, choose Infrastructure.</p>
+</li>
+<li><p class="first">On Virtual Routers, click View More.</p>
+<p>All the VRs are listed in the Virtual Routers page.</p>
+</li>
+<li><p class="first">In Select View drop-down, select desired grouping based on your
+requirement.</p>
+<p>You can use either of the following:</p>
+<ul class="simple">
+<li>Group by zone</li>
+<li>Group by pod</li>
+<li>Group by cluster</li>
+<li>Group by account</li>
+</ul>
+</li>
+<li><p class="first">Click the group which has the VRs to be upgraded.</p>
+<p>For example, if you have selected Group by zone, select the name
+of the desired zone.</p>
+</li>
+<li><p class="first">Click the Upgrade button to upgrade all the VRs. <img alt="Button to upgrade VR to use the new template." src="../_images/vr-upgrade.png" /></p>
+</li>
+<li><p class="first">Click OK to confirm.</p>
+</li>
+</ol>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="section" id="secondary-storage-vm">
+<h1>Secondary Storage VM<a class="headerlink" href="systemvm.html#secondary-storage-vm" title="Permalink to this headline">¶</a></h1>
+<p>In addition to the hosts, CloudStack’s Secondary Storage VM mounts and
+writes to secondary storage.</p>
+<p>Submissions to secondary storage go through the Secondary Storage VM.
+The Secondary Storage VM can retrieve templates and ISO images from URLs
+using a variety of protocols.</p>
+<p>The secondary storage VM provides a background task that takes care of a
+variety of secondary storage activities: downloading a new template to a
+Zone, copying templates between Zones, and snapshot backups.</p>
+<p>The administrator can log in to the secondary storage VM if needed.</p>
+</div>
+<div class="section" id="troubleshoot-networks-from-system-vms">
+<h1>Troubleshoot networks from System VMs<a class="headerlink" href="systemvm.html#troubleshoot-networks-from-system-vms" title="Permalink to this headline">¶</a></h1>
+<p>For troubleshooting of network issues in CloudStack hosted networks, CloudStack allows
+the administrator to execute network-utility commands (ping, traceroute or arping)
+remotely on system VMs.</p>
+<p>To run either a ping, traceroute or arping through the CloudStack UI:</p>
+<ol class="arabic simple">
+<li>As an administrator, log in to the CloudStack UI.</li>
+<li>Navigate to Infrastructure &gt; System VMs or Virtual Routers.</li>
+<li>Click on the Run Diagnostics button. <img alt="run-diagnostics-icon.png" src="../_images/run-diagnostics-icon.png" /></li>
+<li><dl class="first docutils">
+<dt>A form will pop up similar to this;</dt>
+<dd><img alt="diagnostics-form.png" src="../_images/diagnostics-form.png" /></dd>
+</dl>
+</li>
+<li>Fill in the details and click OK.</li>
+</ol>
+<p>The Extra Args parameter is for specifying command line optional parameters
+as one would when executing any of the tools from the terminal or command line.</p>
+<p>The supported versions are Debian 9 based since system VMs are built using the
+same Debian 9 based templates.</p>
+<div class="line-block">
+<div class="line">See:</div>
+<div class="line">Traceroute(1): <a class="reference external" href="https://manpages.debian.org/stretch/traceroute/traceroute.1.en.html">https://manpages.debian.org/stretch/traceroute/traceroute.1.en.html</a></div>
+<div class="line">Ping(8): <a class="reference external" href="https://manpages.debian.org/stretch/iputils-ping/ping.8.en.html">https://manpages.debian.org/stretch/iputils-ping/ping.8.en.html</a></div>
+<div class="line">Arping(8): <a class="reference external" href="https://manpages.debian.org/stretch/arping/arping.8.en.html">https://manpages.debian.org/stretch/arping/arping.8.en.html</a></div>
+</div>
+<p>Non-Alphanumeric characters (metacharacters) are not allowed for this parameter
+except for the “-“ and the “.”. Any metacharacter supplied will immediately result
+in an immediate termination of the command and report back to the operator that an illegal character was passed</p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="usage.html" class="btn btn-neutral float-right" title="Working with Usage" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="storage.html" class="btn btn-neutral float-left" title="Storage Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Apache Foundation
+      
+        <span class="commit">
+          Revision <code>29a3d9e2</code>.
+        </span>
+      
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Read the Docs</span>
+      v: 4.13.0.0
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="http://docs.cloudstack.apache.org/en/master/">master</a></dd>
+        
+          <dd><a href="../../../index.html">latest</a></dd>
+        
+          <dd><a href="../index.html">4.13.0.0</a></dd>
+        
+          <dd><a href="../../4.12.0.0/index.html">4.12.0.0</a></dd>
+        
+          <dd><a href="../../4.11.3.0/index.html">4.11.3.0</a></dd>
+        
+          <dd><a href="../../4.11.2.0/index.html">4.11.2.0</a></dd>
+        
+          <dd><a href="../../4.11.1.0/index.html">4.11.1.0</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="http://readthedocs.org/projects/cloudstack-documentation/downloads/htmlzip/4.13.0.0/">html</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>On Read the Docs</dt>
+          <dd>
+            <a href="http://readthedocs.org/projects/cloudstack-documentation/?fromdocs=cloudstack-documentation">Project Home</a>
+          </dd>
+          <dd>
+            <a href="http://readthedocs.org/builds/cloudstack-documentation/?fromdocs=cloudstack-documentation">Builds</a>
+          </dd>
+      </dl>
+      <hr/>
+      Free document hosting provided by <a href="http://www.readthedocs.org">Read the Docs</a>.
+
+    </div>
+  </div>
+
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+   
+
+</body>
+</html>

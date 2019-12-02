@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Quota Plugin &#8212; Apache CloudStack Administration Documentation 4.11.0.0 documentation</title>
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="https://assets.readthedocs.org/static/css/badge_only.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.2.0/spacelab/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.2.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Tuning" href="../tuning.html" />
+    <link rel="prev" title="System Reliability and High Availability" href="../reliability.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  
+<!-- RTD Extra Head -->
+
+<!-- 
+Always link to the latest version, as canonical.
+http://docs.readthedocs.org/en/latest/canonical.html
+-->
+<link rel="canonical" href="quota.html" />
+
+<link rel="stylesheet" href="https://assets.readthedocs.org/static/css/readthedocs-doc-embed.css" type="text/css" />
+
+<script type="text/javascript" src="../_static/readthedocs-data.js"></script>
+
+<!-- Add page-specific data, which must exist in the page js, not global -->
+<script type="text/javascript">
+READTHEDOCS_DATA['page'] = 'plugins/quota'
+READTHEDOCS_DATA['source_suffix'] = '.rst'
+</script>
+
+<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js"></script>
+
+<!-- end RTD <extrahead> -->
+</head><body>
+
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          Administration Guide</a>
+        <span class="navbar-text navbar-version pull-left"><b>4.11</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+                <a role="button"
+                   id="dLabelGlobalToc"
+                   data-toggle="dropdown"
+                   data-target="#"
+                   href="../index.html">Sections <b class="caret"></b></a>
+                <ul class="dropdown-menu globaltoc"
+                    role="menu"
+                    aria-labelledby="dLabelGlobalToc">
+                     <ul>
+<li class="toctree-l1"><a class="reference internal" href="../ui.html">User Interface</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../accounts.html">Managing Roles, Accounts, Users and Domains</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../projects.html">Using Projects to Organize Users and Resources</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../service_offerings.html">Service Offerings</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../networking.html">Setting Up Networking for Users</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../virtual_machines.html">Working with Virtual Machines</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../templates.html">Working with Templates</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../hosts.html">Working with Hosts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hosts.html#security">Security</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../storage.html">Working with Storage</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../systemvm.html">Working with System Virtual Machines</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Working with Usage</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../networking_and_traffic.html">Managing Networks and Traffic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../networking/using_remote_access.html">Using Remote Access VPN</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../management.html">Managing the Cloud</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reliability.html">System Reliability and High Availability</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="quota.html#">Quota Plugin</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tuning.html">Tuning</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../events.html">Event Notification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting.html">TroubleShooting</a></li>
+</ul>
+
+
+                </ul>
+              </li>
+              
+                
+              
+            
+            
+              
+                
+  <li>
+    <a href="../reliability.html" title="Previous Chapter: System Reliability and High Availability"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; System Reliability and High Availability</span>
+    </a>
+  </li>
+  <li>
+    <a href="../tuning.html" title="Next Chapter: Tuning"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Tuning &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul>
+<li><a class="reference internal" href="quota.html#">Quota Plugin</a><ul>
+<li><a class="reference internal" href="quota.html#enabling-the-quota-service">Enabling the Quota Service</a></li>
+<li><a class="reference internal" href="quota.html#quota-tariff">Quota Tariff</a></li>
+<li><a class="reference internal" href="quota.html#quota-credits">Quota Credits</a></li>
+<li><a class="reference internal" href="quota.html#quota-balance">Quota Balance</a></li>
+<li><a class="reference internal" href="quota.html#quota-statement">Quota Statement</a></li>
+<li><a class="reference internal" href="quota.html#quota-monthly-statement">Quota Monthly Statement</a></li>
+<li><a class="reference internal" href="quota.html#quota-alert-management">Quota Alert Management</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    <div class="col-md-9">
+      
+  <div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p>NOTICE: THIS DOCUMENTATION SITE HAS BEEN SUPERSEDED.</p>
+<p class="last">For the current documentation site goto: <a class="reference external" href="../../../../../index.html">http://docs.cloudstack.apache.org</a></p>
+</div>
+<p>contributor license agreements.  See the NOTICE file distributed with this work
+for additional information# regarding copyright ownership. The ASF licenses this
+file to you under the Apache License, Version 2.0 (the “License”); you may not
+use this file except in compliance with the License.  You may obtain a copy of
+the License at <a class="reference external" href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a> Unless required by
+applicable law or agreed to in writing, software distributed under the License
+is distributed on an “AS IS” BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the specific language
+governing permissions and limitations under the License.</p>
+<div class="section" id="quota-plugin">
+<h1>Quota Plugin<a class="headerlink" href="quota.html#quota-plugin" title="Permalink to this headline">¶</a></h1>
+<p>Quota service, while allowing for scalability, will make sure that the cloud is
+not exploited by attacks, careless use and program errors. To address this
+problem, employ the quota-enforcement service that allows resource
+usage within certain bounds as defined by policies and available quotas for
+various entities. Quota service extends the functionality of usage server to
+provide a measurement for the resources used by the accounts and domains using a
+common unit referred to as cloud currency in this document. It can be configured
+to ensure that your usage won’t exceed the budget allocated to accounts/domain
+in cloud currency. It will let user know how much of the cloud resources he is
+using. It will help the cloud admins, if they want, to ensure that a user does
+not go beyond his allocated quota. Per usage cycle if an account is found to be
+exceeding its quota then it is locked. Locking an account means that it will not
+be able to initiate a new resource allocation request, whether it is more
+storage or an additional ip. To unlock an account you need to add more credit to it.
+In case you want the locking to be disabled on global or on account scope those
+provisions are also provided. Needless to say quota service as well as any action
+on the account is configurable.</p>
+<div class="section" id="enabling-the-quota-service">
+<h2>Enabling the Quota Service<a class="headerlink" href="quota.html#enabling-the-quota-service" title="Permalink to this headline">¶</a></h2>
+<p>Before installing and configuring the quota service you need to make sure that
+the Usage Server has been installed. This requires extra steps beyond just
+installing the CloudStack software. See Installing the Usage Server (Optional)
+in the Advanced Installation Guide.</p>
+<ol class="arabic simple">
+<li>enable.usage.server: Set to true to enable usage server.</li>
+</ol>
+<p>The quota plugin is disabled by default. To enable it goto Global Settings and
+set the following global configuration to true:</p>
+<ol class="arabic simple">
+<li>quota.enable.service</li>
+</ol>
+<p>By default Quota service does not lock the accounts that have exceeded the quota
+usage. To enable quota service to lock accounts set the following global
+configuration to true:</p>
+<ol class="arabic simple">
+<li>quota.enable.enforcement</li>
+</ol>
+<p>The other configurations that are there for quota service are as:</p>
+<ol class="arabic simple">
+<li>quota.currency.symbol : The symbol that is used before any currency
+figure in various quota forms and reports.</li>
+<li>quota.usage.smtp.host: Quota SMTP host for sending quota alerts.</li>
+<li>quota.usage.smtp.port: Quota SMTP port.</li>
+<li>quota.usage.smtp.user: Quota SMTP user.</li>
+<li>quota.usage.smtp.password: Quota SMTP password.</li>
+<li>quota.usage.smtp.sender: Quota SMTP alert sender email address.</li>
+<li>quota.usage.smtp.useAuth: If true, use secure SMTP authentication when sending emails.</li>
+<li>quota.usage.smtp.connection.timeout: Quota SMTP server connection timeout duration.</li>
+</ol>
+<p>There are several configuration variables that are inherited from usage server,
+these are listed below:</p>
+<ol class="arabic simple">
+<li>usage.aggregation.timezone</li>
+</ol>
+<p>All these are described in details in Usage Server documentation.</p>
+<p>Restart the Management Server and  the Usage Server to enable the set configuration
+values.</p>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">service</span> <span class="n">cloudstack</span><span class="o">-</span><span class="n">management</span> <span class="n">restart</span>
+<span class="n">service</span> <span class="n">cloudstack</span><span class="o">-</span><span class="n">usage</span> <span class="n">restart</span>
+</pre></div>
+</div>
+<p>Once the quota service is running it will calculate the quota balance for each account.
+The quota usage is calculated as per the quota tariff provided by the site administrator.</p>
+</div>
+<div class="section" id="quota-tariff">
+<h2>Quota Tariff<a class="headerlink" href="quota.html#quota-tariff" title="Permalink to this headline">¶</a></h2>
+<p>The following table shows all quota types for which you can specify tariff.</p>
+<table border="1" class="table-striped table-bordered table-hover docutils">
+<colgroup>
+<col width="23%" />
+<col width="45%" />
+<col width="32%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Type ID</th>
+<th class="head">Type Name</th>
+<th class="head">Tariff Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1</td>
+<td>RUNNING_VM</td>
+<td>One month of running
+Compute-Month</td>
+</tr>
+<tr class="row-odd"><td>2</td>
+<td>ALLOCATED_VM</td>
+<td>One month of allocated
+VM</td>
+</tr>
+<tr class="row-even"><td>3</td>
+<td>IP_ADDRESS</td>
+<td>Quota for a month of
+allocated IP</td>
+</tr>
+<tr class="row-odd"><td>4</td>
+<td>NETWORK_BYTES_SENT</td>
+<td>Quota for 1GB bytes sent</td>
+</tr>
+<tr class="row-even"><td>5</td>
+<td>NETWORK_BYTES_RECEIVED</td>
+<td>Quota for 1GB bytes sent</td>
+</tr>
+<tr class="row-odd"><td>6</td>
+<td>VOLUME</td>
+<td>Quota for 1 GB of
+Volume use for a month</td>
+</tr>
+<tr class="row-even"><td>7</td>
+<td>TEMPLATE</td>
+<td><blockquote class="first">
+<div>Quota for 1 GB of</div></blockquote>
+<p class="last">Template use for a month</p>
+</td>
+</tr>
+<tr class="row-odd"><td>8</td>
+<td>ISO</td>
+<td>Quota for 1 GB of
+ISO use for a month</td>
+</tr>
+<tr class="row-even"><td>9</td>
+<td>SNAPSHOT</td>
+<td><blockquote class="first">
+<div>Quota for 1 GB of</div></blockquote>
+<p class="last">SNAPSHOT use for a month</p>
+</td>
+</tr>
+<tr class="row-odd"><td>11</td>
+<td>LOAD_BALANCER_POLICY</td>
+<td>Quota for load balancer
+policy month</td>
+</tr>
+<tr class="row-even"><td>12</td>
+<td>PORT_FORWARDING_RULE</td>
+<td><dl class="first last docutils">
+<dt>Quota for port forwarding</dt>
+<dd>policy month</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-odd"><td>13</td>
+<td>NETWORK_OFFERING</td>
+<td>Quota for network
+Offering for a month</td>
+</tr>
+<tr class="row-even"><td>14</td>
+<td>VPN_USERS</td>
+<td><dl class="first last docutils">
+<dt>Quota for VPN usage</dt>
+<dd>for a month</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-odd"><td>15</td>
+<td>CPU_CLOCK_RATE</td>
+<td>The tariff for using
+1 CPU i100 MHz clock</td>
+</tr>
+<tr class="row-even"><td>16</td>
+<td>CPU_NUMBER</td>
+<td>The quota tariff for
+using 1 virtual CPU.</td>
+</tr>
+<tr class="row-odd"><td>17</td>
+<td>MEMORY</td>
+<td>The quota tariff for
+using 1MB RAM size.</td>
+</tr>
+</tbody>
+</table>
+<p>The quota tariff can be listed using listQuotaTariff API.</p>
+<p>quotaTariff: Lists all quota tariff plans</p>
+<p>The tariff for each of the above can be set by using the updateQuotaTariff API.</p>
+</div>
+<div class="section" id="quota-credits">
+<h2>Quota Credits<a class="headerlink" href="quota.html#quota-credits" title="Permalink to this headline">¶</a></h2>
+<p>The quota credit (quotaCredit) API lets you add or remove quota currency credits to
+an account. With this API you can also control the quota enforcement policy at
+account level. This will enable you to have some accounts where the quota policy is
+not enforced. The overall quota enforcement is controlled by the quota.enable.enforcement
+global setting.</p>
+<p>In addition to above the quota API lets you can fine tune the alert generation by specifying
+the quota threshold for each account. If not explictly stated, the threshold is taken as 80%
+of the last deposit.</p>
+</div>
+<div class="section" id="quota-balance">
+<h2>Quota Balance<a class="headerlink" href="quota.html#quota-balance" title="Permalink to this headline">¶</a></h2>
+<p>Quota balance API states the start balance and end balance(optional) from a start date
+to end date (optional).</p>
+</div>
+<div class="section" id="quota-statement">
+<h2>Quota Statement<a class="headerlink" href="quota.html#quota-statement" title="Permalink to this headline">¶</a></h2>
+<p>Quota statement for a period consist of the quota usage under various quota types for
+the given period from a start date to an end date.</p>
+</div>
+<div class="section" id="quota-monthly-statement">
+<h2>Quota Monthly Statement<a class="headerlink" href="quota.html#quota-monthly-statement" title="Permalink to this headline">¶</a></h2>
+<p>Quota service emails the monthly quota statement for the last month at the beginning of
+each month. For this service to work properly you need to ensure that the usage server
+is running.</p>
+</div>
+<div class="section" id="quota-alert-management">
+<h2>Quota Alert Management<a class="headerlink" href="quota.html#quota-alert-management" title="Permalink to this headline">¶</a></h2>
+<p>Quota module also provides APIs to customize various email templates that are used to
+alert account owners about quota going down below threshold and quota getting over.</p>
+<p>All the above functionality is also available via quota UI plugin.</p>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="quota.html#">Back to top</a>
+          | <a href="../reliability.html" title="Previous Chapter: System Reliability and High Availability"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; System Reliability and High Availability</span>
+          </a>
+          | <a href="../tuning.html" title="Next Chapter: Tuning"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Tuning &raquo;</span>
+          </a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../_sources/plugins/quota.rst.txt"
+     rel="nofollow">Source</a>
+</div>
+      
+    </p>
+    <p>
+        &copy; Copyright 2016, Apache Software Foundation.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

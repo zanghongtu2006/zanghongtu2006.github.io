@@ -1,0 +1,1449 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Programmer Guide &mdash; Apache CloudStack 4.13.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Plugins" href="plugins.html" />
+    <link rel="prev" title="CloudStack Installation from GIT repo for Developers" href="developer_guide.html" /> 
+
+<!-- RTD Extra Head -->
+
+<!-- 
+Always link to the latest version, as canonical.
+http://docs.readthedocs.org/en/latest/canonical.html
+-->
+<link rel="canonical" href="dev.html" />
+
+<link rel="stylesheet" href="https://assets.readthedocs.org/static/css/readthedocs-doc-embed.css" type="text/css" />
+
+<script type="text/javascript" src="../_static/readthedocs-data.js"></script>
+
+<!-- Add page-specific data, which must exist in the page js, not global -->
+<script type="text/javascript">
+READTHEDOCS_DATA['page'] = "developersguide/dev"
+READTHEDOCS_DATA['source_suffix'] = ".rst"
+</script>
+
+<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js"></script>
+
+<!-- end RTD <extrahead> -->
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Apache CloudStack
+          
+
+          
+          </a>
+
+          
+            
+            
+            
+              <div class="version">
+                latest
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../conceptsandterminology/index.html">CloudStack Concepts and Terminology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickinstallationguide/qig.html">Quick Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installguide/index.html">Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../upgrading/index.html">Upgrading CloudStack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../adminguide/index.html">Usage Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Developers Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="developer_guide.html">CloudStack Installation from GIT repo for Developers</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="dev.html#">Programmer Guide</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="dev.html#the-cloudstack-api">The CloudStack API</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="dev.html#getting-started">Getting Started</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dev.html#roles">Roles</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dev.html#api-reference-documentation">API Reference Documentation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dev.html#making-api-requests">Making API Requests</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dev.html#signing-api-requests">Signing API Requests</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dev.html#how-to-sign-an-api-call-with-python">How to sign an API call with Python</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dev.html#enabling-api-call-expiration">Enabling API Call Expiration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dev.html#limiting-the-rate-of-api-requests">Limiting the Rate of API Requests</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dev.html#configuring-the-api-request-rate">Configuring the API Request Rate</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dev.html#limitations-on-api-throttling">Limitations on API Throttling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dev.html#api-responses">API Responses</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dev.html#maximum-result-pages-returned">Maximum Result Pages Returned</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dev.html#error-handling">Error Handling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dev.html#asynchronous-commands">Asynchronous Commands</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dev.html#job-status">Job Status</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dev.html#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="dev.html#event-types">Event Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dev.html#time-zones">Time Zones</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="plugins.html">Plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alloc.html">Allocators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ansible.html">Deploying CloudStack with Ansible</a></li>
+<li class="toctree-l2"><a class="reference internal" href="get_help.html">Getting Help</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/index.html">Plugins Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Other Documentation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/api.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://cwiki.apache.org/confluence/display/CLOUDSTACK/Home">Apache CloudStack Wiki</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/">Apache CloudStack web site</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/downloads.html">Apache CloudStack Source Code</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/apache/cloudstack">Apache CloudStack on GitHub</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Pre 4.11 Documentation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="../../../projects/cloudstack-installation">Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference external" href="../../../projects/cloudstack-administration">Administration Guide</a></li>
+<li class="toctree-l1"><a class="reference external" href="../../../projects/cloudstack-release-notes">Release Notes</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Apache CloudStack</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Developers Guide</a> &raquo;</li>
+        
+      <li>Programmer Guide</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/apache/cloudstack-documentation/blob/4.13.0.0/source/developersguide/dev.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="programmer-guide">
+<h1>Programmer Guide<a class="headerlink" href="dev.html#programmer-guide" title="Permalink to this headline">¶</a></h1>
+<p>This guide shows how to develop CloudStack, use the API for operation
+and integration, access the usage data and use CloudStack specific tools
+to ease development, testing and integration.</p>
+<div class="section" id="the-cloudstack-api">
+<h2>The CloudStack API<a class="headerlink" href="dev.html#the-cloudstack-api" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="getting-started">
+<h3>Getting Started<a class="headerlink" href="dev.html#getting-started" title="Permalink to this headline">¶</a></h3>
+<p>To get started using the CloudStack API, you should have the following:</p>
+<ul class="simple">
+<li>URL of the CloudStack server you wish to integrate with.</li>
+<li>Both the API Key and Secret Key for an account. This should have been
+generated by the administrator of the cloud instance and given to
+you.</li>
+<li>Familiarity with HTTP GET/POST and query strings.</li>
+<li>Knowledge of either XML or JSON.</li>
+<li>Knowledge of a programming language that can generate HTTP requests;
+for example, Java or PHP.</li>
+</ul>
+</div>
+<div class="section" id="roles">
+<h3>Roles<a class="headerlink" href="dev.html#roles" title="Permalink to this headline">¶</a></h3>
+<p>The CloudStack API supports three access roles:</p>
+<ol class="arabic simple">
+<li>Root Admin. Access to all features of the cloud, including both
+virtual and physical resource management.</li>
+<li>Domain Admin. Access to only the virtual resources of the clouds that
+belong to the administrator’s domain.</li>
+<li>User. Access to only the features that allow management of the user’s
+virtual instances, storage, and network.</li>
+</ol>
+</div>
+<div class="section" id="api-reference-documentation">
+<h3>API Reference Documentation<a class="headerlink" href="dev.html#api-reference-documentation" title="Permalink to this headline">¶</a></h3>
+<p>You can find all the API reference documentation at the below site:</p>
+<p><a class="reference external" href="http://cloudstack.apache.org/docs/api/">http://cloudstack.apache.org/docs/api/</a></p>
+</div>
+<div class="section" id="making-api-requests">
+<h3>Making API Requests<a class="headerlink" href="dev.html#making-api-requests" title="Permalink to this headline">¶</a></h3>
+<p>All CloudStack API requests are submitted in the form of a HTTP GET/POST
+with an associated command and any parameters. A request is composed of
+the following whether in HTTP or HTTPS:</p>
+<ul class="simple">
+<li>CloudStack API URL: This is the web services API entry point(for
+example, <a class="reference external" href="http://www.example.com:8080/client/api">http://www.example.com:8080/client/api</a>)</li>
+<li>Command: The web services command you wish to execute, such as start
+a virtual machine or create a disk volume</li>
+<li>Parameters: Any additional required or optional parameters for the
+command</li>
+</ul>
+<p>A sample API GET request looks like the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>http://localhost:8080/client/api?command=deployVirtualMachine&amp;serviceOfferingId=1&amp;diskOfferingId=1&amp;templateId=2&amp;zoneId=4&amp;apiKey=miVr6X7u6bN_sdahOBpjNejPgEsT35eXq-jB8CG20YI3yaxXcgpyuaIRmFI_EJTVwZ0nUkkJbPmY3y2bciKwFQ&amp;signature=Lxx1DM40AjcXU%2FcaiK8RAP0O1hU%3D
+</pre></div>
+</div>
+<p>Or in a more readable format:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>1. http://localhost:8080/client/api
+2. ?command=deployVirtualMachine
+3. &amp;serviceOfferingId=1
+4. &amp;diskOfferingId=1
+5. &amp;templateId=2
+6. &amp;zoneId=4
+7. &amp;apiKey=miVr6X7u6bN_sdahOBpjNejPgEsT35eXqjB8CG20YI3yaxXcgpyuaIRmFI_EJTVwZ0nUkkJbPmY3y2bciKwFQ
+8. &amp;signature=Lxx1DM40AjcXU%2FcaiK8RAP0O1hU%3D
+</pre></div>
+</div>
+<p>The first line is the CloudStack API URL. This is the Cloud instance you
+wish to interact with.</p>
+<p>The second line refers to the command you wish to execute. In our
+example, we are attempting to deploy a fresh new virtual machine. It is
+preceded by a (?) to separate itself from the CloudStack API URL.</p>
+<p>Lines 3-6 are the parameters for this given command. To see the command
+and its request parameters, please refer to the appropriate section in
+the CloudStack API documentation. Each parameter field-value pair
+(field=value) is preceded by an ampersand character (&amp;).</p>
+<p>Line 7 is the user API Key that uniquely identifies the account. See
+Signing API Requests on page 7.</p>
+<p>Line 8 is the signature hash created to authenticate the user account
+executing the API command.</p>
+</div>
+<div class="section" id="signing-api-requests">
+<h3>Signing API Requests<a class="headerlink" href="dev.html#signing-api-requests" title="Permalink to this headline">¶</a></h3>
+<p>Whether you access the CloudStack API with HTTP or HTTPS, it must still
+be signed so that CloudStack can verify the caller has been
+authenticated and authorized to execute the command. Make sure that you
+have both the API Key and Secret Key provided by the CloudStack
+administrator for your account before proceeding with the signing
+process.</p>
+<p>To show how to sign a request, we will re-use the previous example.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>http://localhost:8080/client/api?command=deployVirtualMachine&amp;serviceOfferingId=1&amp;diskOfferingId=1&amp;templateId=2&amp;zoneId=4&amp;apiKey=miVr6X7u6bN_sdahOBpjNejPgEsT35eXq-jB8CG20YI3yaxXcgpyuaIRmFI_EJTVwZ0nUkkJbPmY3y2bciKwFQ&amp;signature=Lxx1DM40AjcXU%2FcaiK8RAP0O1hU%3D
+</pre></div>
+</div>
+<p>Breaking this down, we have several distinct parts to this URL.</p>
+<ul>
+<li><p class="first">Base URL: This is the base URL to the CloudStack Management Server.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="p">:</span><span class="mi">8080</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">API Path: This is the path to the API Servlet that processes the
+incoming requests.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>/client/api?
+</pre></div>
+</div>
+</li>
+<li><p class="first">Command String: This part of the query string comprises of the
+command, its parameters, and the API Key that identifies the account.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">As with all query string parameters of field-value pairs, the “field”
+component is case insensitive while all “value” values are case
+sensitive.</p>
+</div>
+</li>
+<li><p class="first">Signature: This is the signature of the command string that is
+generated using a combination of the user’s Secret Key and the HMAC
+SHA-1 hashing algorithm.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&amp;</span><span class="n">signature</span><span class="o">=</span><span class="n">Lxx1DM40AjcXU</span><span class="o">%</span><span class="mi">2</span><span class="n">FcaiK8RAP0O1hU</span><span class="o">%</span><span class="mi">3</span><span class="n">D</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p>Every API request has the format Base URL+API Path+Command
+String+Signature.</p>
+<p>To generate the signature.</p>
+<ol class="arabic">
+<li><p class="first">For each field-value pair (as separated by a ‘&amp;’) in the Command
+String, URL encode each value so that it can be safely sent via HTTP
+GET.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Make sure all spaces are encoded as “%20” rather than “+”.</p>
+</div>
+</li>
+<li><p class="first">Lower case the entire Command String and sort it alphabetically via
+the field for each field-value pair. The result of this step would
+look like the following.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">apikey</span><span class="o">=</span><span class="n">mivr6x7u6bn_sdahobpjnejpgest35exq</span><span class="o">-</span><span class="n">jb8cg20yi3yaxxcgpyuairmfi_ejtvwz0nukkjbpmy3y2bcikwfq</span><span class="o">&amp;</span><span class="n">command</span><span class="o">=</span><span class="n">deployvirtualmachine</span><span class="o">&amp;</span><span class="n">diskofferingid</span><span class="o">=</span><span class="mi">1</span><span class="o">&amp;</span><span class="n">serviceofferingid</span><span class="o">=</span><span class="mi">1</span><span class="o">&amp;</span><span class="n">templateid</span><span class="o">=</span><span class="mi">2</span><span class="o">&amp;</span><span class="n">zoneid</span><span class="o">=</span><span class="mi">4</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Take the sorted Command String and run it through the HMAC SHA-1
+hashing algorithm (most programming languages offer a utility method
+to do this) with the user’s Secret Key. Base64 encode the resulting
+byte array in UTF-8 so that it can be safely transmitted via HTTP.
+The final string produced after Base64 encoding should be
+“Lxx1DM40AjcXU%2FcaiK8RAP0O1hU%3D”.</p>
+<p>By reconstructing the final URL in the format Base URL+API
+Path+Command String+Signature, the final URL should look like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>http://localhost:8080/client/api?command=deployVirtualMachine&amp;serviceOfferingId=1&amp;diskOfferingId=1&amp;templateId=2&amp;zoneId=4&amp;apiKey=miVr6X7u6bN_sdahOBpjNejPgEsT35eXq-jB8CG20YI3yaxXcgpyuaIRmFI_EJTVwZ0nUkkJbPmY3y2bciKwFQ&amp;signature=Lxx1DM40AjcXU%2FcaiK8RAP0O1hU%3D
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="how-to-sign-an-api-call-with-python">
+<h3>How to sign an API call with Python<a class="headerlink" href="dev.html#how-to-sign-an-api-call-with-python" title="Permalink to this headline">¶</a></h3>
+<p>To illustrate the procedure used to sign API calls we present a step by
+step interactive session using Python.</p>
+<p>First import the required modules:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$python
+Python 2.7.3 (default, Nov 17 2012, 19:54:34)
+[GCC 4.2.1 Compatible Apple Clang 4.1 ((tags/Apple/clang-421.11.66))] on darwin
+Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
+&gt;&gt;&gt; import urllib2
+&gt;&gt;&gt; import urllib
+&gt;&gt;&gt; import hashlib
+&gt;&gt;&gt; import hmac
+&gt;&gt;&gt; import base64
+</pre></div>
+</div>
+<p>Define the endpoint of the Cloud, the command that you want to execute
+and the keys of the user.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">baseurl</span><span class="o">=</span><span class="s1">&#39;http://localhost:8080/client/api?&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">request</span><span class="o">=</span><span class="p">{}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">request</span><span class="p">[</span><span class="s1">&#39;command&#39;</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;listUsers&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">request</span><span class="p">[</span><span class="s1">&#39;response&#39;</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;json&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">request</span><span class="p">[</span><span class="s1">&#39;apikey&#39;</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;plgWJfZK4gyS3mOMTVmjUVg-X-jlWlnfaUJ9GAbBbf9EdM-kAYMmAiLqzzq1ElZLYq_u38zCm0bewzGUdP66mg&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">secretkey</span><span class="o">=</span><span class="s1">&#39;VDaACYb0LV9eNjTetIOElcVQkvJck_J_QljX_FcHRj87ZKiy0z0ty0ZsYBkoXkY9b7eq1EhwJaw7FF3akA3KBQ&#39;</span>
+</pre></div>
+</div>
+<p>Build the request string:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">request_str</span><span class="o">=</span><span class="s1">&#39;&amp;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s1">&#39;=&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">k</span><span class="p">,</span><span class="n">urllib</span><span class="o">.</span><span class="n">quote_plus</span><span class="p">(</span><span class="n">request</span><span class="p">[</span><span class="n">k</span><span class="p">])])</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">request</span><span class="o">.</span><span class="n">keys</span><span class="p">()])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">request_str</span>
+<span class="go">&#39;apikey=plgWJfZK4gyS3mOMTVmjUVg-X-jlWlnfaUJ9GAbBbf9EdM-kAYMmAiLqzzq1ElZLYq_u38zCm0bewzGUdP66mg&amp;command=listUsers&amp;response=json&#39;</span>
+</pre></div>
+</div>
+<p>Compute the signature with hmac, do a 64 bit encoding and a url
+encoding:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; sig_str='&amp;'.join(['='.join([k.lower(),urllib.quote_plus(request[k]).lower().replace('+','%20')])for k in sorted(request.iterkeys())])
+&gt;&gt;&gt; sig_str 'apikey=plgwjfzk4gys3momtvmjuvg-x-jlwlnfauj9gabbbf9edm-kaymmailqzzq1elzlyq_u38zcm0bewzgudp66mg&amp;command=listusers&amp;response=json'
+&gt;&gt;&gt; sig=hmac.new(secretkey,sig_str,hashlib.sha1)
+&gt;&gt;&gt; sig
+&lt;hmac.HMAC instance at 0x10d91d680&gt;
+&gt;&gt;&gt; sig=hmac.new(secretkey,sig_str,hashlib.sha1).digest()
+&gt;&gt;&gt; sig
+'M:]x0exafxfbx8fxf2yxf1px91x1ex89x8axa1x05xc4Axdb'
+&gt;&gt;&gt; sig=base64.encodestring(hmac.new(secretkey,sig_str,hashlib.sha1).digest())
+&gt;&gt;&gt; sig
+'TTpdDq/7j/J58XCRHomKoQXEQds=n'
+&gt;&gt;&gt; sig=base64.encodestring(hmac.new(secretkey,sig_str,hashlib.sha1).digest()).strip()
+&gt;&gt;&gt; sig
+'TTpdDq/7j/J58XCRHomKoQXEQds='
+&gt;&gt;&gt; sig=urllib.quote_plus(base64.encodestring(hmac.new(secretkey,sig_str,hashlib.sha1).digest()).strip())
+</pre>
+<p>Finally, build the entire string and do an http GET:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">req</span><span class="o">=</span><span class="n">baseurl</span><span class="o">+</span><span class="n">request_str</span><span class="o">+</span><span class="s1">&#39;&amp;signature=&#39;</span><span class="o">+</span><span class="n">sig</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">req</span>
+<span class="go">&#39;http://localhost:8080/client/api?apikey=plgWJfZK4gyS3mOMTVmjUVg-X-jlWlnfaUJ9GAbBbf9EdM-kAYMmAiLqzzq1ElZLYq_u38zCm0bewzGUdP66mg&amp;command=listUsers&amp;response=json&amp;signature=TTpdDq%2F7j%2FJ58XCRHomKoQXEQds%3D&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">res</span><span class="o">=</span><span class="n">urllib2</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">req</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">res</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="go">&#39;{ &quot;listusersresponse&quot; : { &quot;count&quot;:3 ,&quot;user&quot; : [  {&quot;id&quot;:&quot;7ed6d5da-93b2-4545-a502-23d20b48ef2a&quot;,&quot;username&quot;:&quot;admin&quot;,&quot;firstname&quot;:&quot;admin&quot;,&quot;lastname&quot;:&quot;cloud&quot;,&quot;created&quot;:&quot;2012-07-05T12:18:27-0700&quot;,&quot;state&quot;:&quot;enabled&quot;,&quot;account&quot;:&quot;admin&quot;,&quot;accounttype&quot;:1,&quot;domainid&quot;:&quot;8a111e58-e155-4482-93ce-84efff3c7c77&quot;,&quot;domain&quot;:&quot;ROOT&quot;,&quot;apikey&quot;:&quot;plgWJfZK4gyS3mOMTVmjUVg-X-jlWlnfaUJ9GAbBbf9EdM-kAYMmAiLqzzq1ElZLYq_u38zCm0bewzGUdP66mg&quot;,&quot;secretkey&quot;:&quot;VDaACYb0LV9eNjTetIOElcVQkvJck_J_QljX_FcHRj87ZKiy0z0ty0ZsYBkoXkY9b7eq1EhwJaw7FF3akA3KBQ&quot;,&quot;accountid&quot;:&quot;7548ac03-af1d-4c1c-9064-2f3e2c0eda0d&quot;}, {&quot;id&quot;:&quot;1fea6418-5576-4989-a21e-4790787bbee3&quot;,&quot;username&quot;:&quot;runseb&quot;,&quot;firstname&quot;:&quot;foobar&quot;,&quot;lastname&quot;:&quot;goa&quot;,&quot;email&quot;:&quot;joe@smith.com&quot;,&quot;created&quot;:&quot;2013-04-10T16:52:06-0700&quot;,&quot;state&quot;:&quot;enabled&quot;,&quot;account&quot;:&quot;admin&quot;,&quot;accounttype&quot;:1,&quot;domainid&quot;:&quot;8a111e58-e155-4482-93ce-84efff3c7c77&quot;,&quot;domain&quot;:&quot;ROOT&quot;,&quot;apikey&quot;:&quot;Xhsb3MewjJQaXXMszRcLvQI9_NPy_UcbDj1QXikkVbDC9MDSPwWdtZ1bUY1H7JBEYTtDDLY3yuchCeW778GkBA&quot;,&quot;secretkey&quot;:&quot;gIsgmi8C5YwxMHjX5o51pSe0kqs6JnKriw0jJBLceY5bgnfzKjL4aM6ctJX-i1ddQIHJLbLJDK9MRzsKk6xZ_w&quot;,&quot;accountid&quot;:&quot;7548ac03-af1d-4c1c-9064-2f3e2c0eda0d&quot;}, {&quot;id&quot;:&quot;52f65396-183c-4473-883f-a37e7bb93967&quot;,&quot;username&quot;:&quot;toto&quot;,&quot;firstname&quot;:&quot;john&quot;,&quot;lastname&quot;:&quot;smith&quot;,&quot;email&quot;:&quot;john@smith.com&quot;,&quot;created&quot;:&quot;2013-04-23T04:27:22-0700&quot;,&quot;state&quot;:&quot;enabled&quot;,&quot;account&quot;:&quot;admin&quot;,&quot;accounttype&quot;:1,&quot;domainid&quot;:&quot;8a111e58-e155-4482-93ce-84efff3c7c77&quot;,&quot;domain&quot;:&quot;ROOT&quot;,&quot;apikey&quot;:&quot;THaA6fFWS_OmvU8od201omxFC8yKNL_Hc5ZCS77LFCJsRzSx48JyZucbUul6XYbEg-ZyXMl_wuEpECzK-wKnow&quot;,&quot;secretkey&quot;:&quot;O5ywpqJorAsEBKR_5jEvrtGHfWL1Y_j1E4Z_iCr8OKCYcsPIOdVcfzjJQ8YqK0a5EzSpoRrjOFiLsG0hQrYnDA&quot;,&quot;accountid&quot;:&quot;7548ac03-af1d-4c1c-9064-2f3e2c0eda0d&quot;} ] } }&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="enabling-api-call-expiration">
+<h3>Enabling API Call Expiration<a class="headerlink" href="dev.html#enabling-api-call-expiration" title="Permalink to this headline">¶</a></h3>
+<p>You can set an expiry timestamp on API calls to prevent replay attacks
+over non-secure channels, such as HTTP. The server tracks the expiry
+timestamp you have specified and rejects all the subsequent API requests
+that come in after this validity period.</p>
+<p>To enable this feature, add the following parameters to the API request:</p>
+<ul class="simple">
+<li>signatureVersion=3: If the signatureVersion parameter is missing or
+is not equal to 3, the expires parameter is ignored in the API
+request.</li>
+<li>expires=YYYY-MM-DDThh:mm:ssZ: Specifies the date and time at which
+the signature included in the request is expired. The timestamp is
+expressed in the YYYY-MM-DDThh:mm:ssZ format, as specified in the ISO
+8601 standard.</li>
+</ul>
+<p>For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">expires</span><span class="o">=</span><span class="mi">2011</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">10</span><span class="n">T12</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="o">+</span><span class="mi">0530</span>
+</pre></div>
+</div>
+<p>A sample API request with expiration is given below:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>http://&lt;IPAddress&gt;:8080/client/api?command=listZones&amp;signatureVersion=3&amp;expires=2011-10-10T12:00:00+0530&amp;apiKey=miVr6X7u6bN_sdahOBpjNejPgEsT35eXq-jB8CG20YI3yaxXcgpyuaIRmFI_EJTVwZ0nUkkJbPmY3y2bciKwFQ&amp;signature=Lxx1DM40AjcXU%2FcaiK8RAP0O1hU%3D
+</pre></div>
+</div>
+</div>
+<div class="section" id="limiting-the-rate-of-api-requests">
+<h3>Limiting the Rate of API Requests<a class="headerlink" href="dev.html#limiting-the-rate-of-api-requests" title="Permalink to this headline">¶</a></h3>
+<p>You can limit the rate at which API requests can be placed for each
+account. This is useful to avoid malicious attacks on the Management
+Server, prevent performance degradation, and provide fairness to all
+accounts.</p>
+<p>If the number of API calls exceeds the threshold, an error message is
+returned for any additional API calls. The caller will have to retry
+these API calls at another time.</p>
+</div>
+<div class="section" id="configuring-the-api-request-rate">
+<h3>Configuring the API Request Rate<a class="headerlink" href="dev.html#configuring-the-api-request-rate" title="Permalink to this headline">¶</a></h3>
+<p>To control the API request rate, use the following global configuration
+settings:</p>
+<ul class="simple">
+<li><cite>api.throttling.enabled</cite> - Enable/Disable API throttling. By default,
+this setting is false, so API throttling is not enabled.</li>
+<li><cite>api.throttling.interval</cite> (in seconds) - Time interval during which the
+number of API requests is to be counted. When the interval has
+passed, the API count is reset to 0.</li>
+<li><cite>api.throttling.max</cite> - Maximum number of APIs that can be placed within
+the <cite>api.throttling.interval</cite> period.</li>
+<li><cite>api.throttling.cachesize</cite> - Cache size for storing API counters. Use a
+value higher than the total number of accounts managed by the cloud.
+One cache entry is needed for each account, to store the running API
+total for that account.</li>
+</ul>
+</div>
+<div class="section" id="limitations-on-api-throttling">
+<h3>Limitations on API Throttling<a class="headerlink" href="dev.html#limitations-on-api-throttling" title="Permalink to this headline">¶</a></h3>
+<p>The following limitations exist in the current implementation of this
+feature.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Even with these limitations, CloudStack is still able to effectively use
+API throttling to avoid malicious attacks causing denial of service.</p>
+</div>
+<ul class="simple">
+<li>In a deployment with multiple Management Servers, the cache is not
+synchronized across them. In this case, CloudStack might not be able
+to ensure that only the exact desired number of API requests are
+allowed. In the worst case, the number of API calls that might be
+allowed is (number of Management Servers) * (api.throttling.max).</li>
+<li>The API commands resetApiLimit and getApiLimit are limited to the
+Management Server where the API is invoked.</li>
+</ul>
+</div>
+<div class="section" id="api-responses">
+<h3>API Responses<a class="headerlink" href="dev.html#api-responses" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="response-formats-xml-and-json">
+<h4>Response Formats: XML and JSON<a class="headerlink" href="dev.html#response-formats-xml-and-json" title="Permalink to this headline">¶</a></h4>
+<p>CloudStack supports two formats as the response to an API call. The
+default response is XML. If you would like the response to be in JSON,
+add <cite>&amp;response=json</cite> to the Command String.</p>
+<p>The two response formats differ in how they handle blank fields. In
+JSON, if there is no value for a response field, it will not appear in
+the response. If all the fields were empty, there might be no response
+at all. In XML, even if there is no value to be returned, an empty field
+will be returned as a placeholder XML element.</p>
+<p>Sample XML Response:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">listipaddressesresponse</span><span class="o">&gt;</span>
+   <span class="o">&lt;</span><span class="n">allocatedipaddress</span><span class="o">&gt;</span>
+   <span class="o">&lt;</span><span class="n">ipaddress</span><span class="o">&gt;</span><span class="mf">192.168</span><span class="o">.</span><span class="mf">10.141</span><span class="o">&lt;/</span><span class="n">ipaddress</span><span class="o">&gt;</span>
+   <span class="o">&lt;</span><span class="n">allocated</span><span class="o">&gt;</span><span class="mi">2009</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">18</span><span class="n">T13</span><span class="p">:</span><span class="mi">16</span><span class="p">:</span><span class="mi">10</span><span class="o">-</span><span class="mi">0700</span><span class="o">&lt;/</span><span class="n">allocated</span><span class="o">&gt;</span>
+   <span class="o">&lt;</span><span class="n">zoneid</span><span class="o">&gt;</span><span class="mi">4</span><span class="o">&lt;/</span><span class="n">zoneid</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="n">zonename</span><span class="o">&gt;</span><span class="n">WC</span><span class="o">&lt;/</span><span class="n">zonename</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="n">issourcenat</span><span class="o">&gt;</span><span class="n">true</span><span class="o">&lt;/</span><span class="n">issourcenat</span><span class="o">&gt;</span>
+   <span class="o">&lt;/</span><span class="n">allocatedipaddress</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">listipaddressesresponse</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Sample JSON Response:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span> <span class="s2">&quot;listipaddressesresponse&quot;</span> <span class="p">:</span>
+  <span class="p">{</span> <span class="s2">&quot;allocatedipaddress&quot;</span> <span class="p">:</span>
+    <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="s2">&quot;ipaddress&quot;</span> <span class="p">:</span> <span class="s2">&quot;192.168.10.141&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;allocated&quot;</span> <span class="p">:</span> <span class="s2">&quot;2009-09-18T13:16:10-0700&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;zoneid&quot;</span> <span class="p">:</span> <span class="s2">&quot;4&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;zonename&quot;</span> <span class="p">:</span> <span class="s2">&quot;WC&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;issourcenat&quot;</span> <span class="p">:</span> <span class="s2">&quot;true&quot;</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="maximum-result-pages-returned">
+<h3>Maximum Result Pages Returned<a class="headerlink" href="dev.html#maximum-result-pages-returned" title="Permalink to this headline">¶</a></h3>
+<p>For each cloud, there is a default upper limit on the number of results
+that any API command will return in a single page. This is to help
+prevent overloading the cloud servers and prevent DOS attacks. For
+example, if the page size limit is 500 and a command returns 10,000
+results, the command will return 20 pages.</p>
+<p>The default page size limit can be different for each cloud. It is set
+in the global configuration parameter <cite>default.page.size</cite>. If your cloud
+has many users with lots of VMs, you might need to increase the value of
+this parameter. At the same time, be careful not to set it so high that
+your site can be taken down by an enormous return from an API call. For
+more information about how to set global configuration parameters, see
+“Describe Your Deployment” in the Installation Guide.</p>
+<p>To decrease the page size limit for an individual API command, override
+the global setting with the page and pagesize parameters, which are
+available in any list* command (listCapabilities, listDiskOfferings,
+etc.).</p>
+<ul class="simple">
+<li>Both parameters must be specified together.</li>
+<li>The value of the pagesize parameter must be smaller than the value of
+default.page.size. That is, you can not increase the number of
+possible items in a result page, only decrease it.</li>
+</ul>
+<p>For syntax information on the list* commands, see the API Reference.</p>
+</div>
+<div class="section" id="error-handling">
+<h3>Error Handling<a class="headerlink" href="dev.html#error-handling" title="Permalink to this headline">¶</a></h3>
+<p>If an error occurs while processing an API request, the appropriate
+response in the format specified is returned. Each error response
+consists of an error code and an error text describing what possibly can
+go wrong. Below is a list of possible error codes:</p>
+<p>You can now find the CloudStack-specific error code in the exception
+response for each type of exception. The following list of error codes
+is added to the new class named CSExceptionErrorCode.</p>
+<p>4250 : “com.cloud.utils.exception.CloudRuntimeException”</p>
+<p>4255 : “com.cloud.utils.exception.ExceptionUtil”</p>
+<p>4260 : “com.cloud.utils.exception.ExecutionException”</p>
+<p>4265 : “com.cloud.utils.exception.HypervisorVersionChangedException”</p>
+<p>4270 : “com.cloud.utils.exception.RuntimeCloudException”</p>
+<p>4275 : “com.cloud.exception.CloudException”</p>
+<p>4280 : “com.cloud.exception.AccountLimitException”</p>
+<p>4285 : “com.cloud.exception.AgentUnavailableException”</p>
+<p>4290 : “com.cloud.exception.CloudAuthenticationException”</p>
+<p>4295 : “com.cloud.exception.CloudExecutionException”</p>
+<p>4300 : “com.cloud.exception.ConcurrentOperationException”</p>
+<p>4305 : “com.cloud.exception.ConflictingNetworkSettingsException”</p>
+<p>4310 : “com.cloud.exception.DiscoveredWithErrorException”</p>
+<p>4315 : “com.cloud.exception.HAStateException”</p>
+<p>4320 : “com.cloud.exception.InsufficientAddressCapacityException”</p>
+<p>4325 : “com.cloud.exception.InsufficientCapacityException”</p>
+<p>4330 : “com.cloud.exception.InsufficientNetworkCapacityException”</p>
+<p>4335 : “com.cloud.exception.InsufficientServerCapacityException”</p>
+<p>4340 : “com.cloud.exception.InsufficientStorageCapacityException”</p>
+<p>4345 : “com.cloud.exception.InternalErrorException”</p>
+<p>4350 : “com.cloud.exception.InvalidParameterValueException”</p>
+<p>4355 : “com.cloud.exception.ManagementServerException”</p>
+<p>4360 : “com.cloud.exception.NetworkRuleConflictException”</p>
+<p>4365 : “com.cloud.exception.PermissionDeniedException”</p>
+<p>4370 : “com.cloud.exception.ResourceAllocationException”</p>
+<p>4375 : “com.cloud.exception.ResourceInUseException”</p>
+<p>4380 : “com.cloud.exception.ResourceUnavailableException”</p>
+<p>4385 : “com.cloud.exception.StorageUnavailableException”</p>
+<p>4390 : “com.cloud.exception.UnsupportedServiceException”</p>
+<p>4395 : “com.cloud.exception.VirtualMachineMigrationException”</p>
+<p>4400 : “com.cloud.exception.AccountLimitException”</p>
+<p>4405 : “com.cloud.exception.AgentUnavailableException”</p>
+<p>4410 : “com.cloud.exception.CloudAuthenticationException”</p>
+<p>4415 : “com.cloud.exception.CloudException”</p>
+<p>4420 : “com.cloud.exception.CloudExecutionException”</p>
+<p>4425 : “com.cloud.exception.ConcurrentOperationException”</p>
+<p>4430 : “com.cloud.exception.ConflictingNetworkSettingsException”</p>
+<p>4435 : “com.cloud.exception.ConnectionException”</p>
+<p>4440 : “com.cloud.exception.DiscoveredWithErrorException”</p>
+<p>4445 : “com.cloud.exception.DiscoveryException”</p>
+<p>4450 : “com.cloud.exception.HAStateException”</p>
+<p>4455 : “com.cloud.exception.InsufficientAddressCapacityException”</p>
+<p>4460 : “com.cloud.exception.InsufficientCapacityException”</p>
+<p>4465 : “com.cloud.exception.InsufficientNetworkCapacityException”</p>
+<p>4470 : “com.cloud.exception.InsufficientServerCapacityException”</p>
+<p>4475 : “com.cloud.exception.InsufficientStorageCapacityException”</p>
+<p>4480 : “com.cloud.exception.InsufficientVirtualNetworkCapcityException”</p>
+<p>4485 : “com.cloud.exception.InternalErrorException”</p>
+<p>4490 : “com.cloud.exception.InvalidParameterValueException”</p>
+<p>4495 : “com.cloud.exception.ManagementServerException”</p>
+<p>4500 : “com.cloud.exception.NetworkRuleConflictException”</p>
+<p>4505 : “com.cloud.exception.PermissionDeniedException”</p>
+<p>4510 : “com.cloud.exception.ResourceAllocationException”</p>
+<p>4515 : “com.cloud.exception.ResourceInUseException”</p>
+<p>4520 : “com.cloud.exception.ResourceUnavailableException”</p>
+<p>4525 : “com.cloud.exception.StorageUnavailableException”</p>
+<p>4530 : “com.cloud.exception.UnsupportedServiceException”</p>
+<p>4535 : “com.cloud.exception.VirtualMachineMigrationException”</p>
+<p>9999 : “org.apache.cloudstack.api.ServerApiException”</p>
+<p>An HTTP error code of 401 is always returned if API request was rejected
+due to bad signatures, missing API Keys, or the user simply did not have
+the permissions to execute the command.</p>
+</div>
+<div class="section" id="asynchronous-commands">
+<h3>Asynchronous Commands<a class="headerlink" href="dev.html#asynchronous-commands" title="Permalink to this headline">¶</a></h3>
+<p>Asynchronous commands were introduced in CloudStack 2.x. Commands are
+designated as asynchronous when they can potentially take a long period
+of time to complete such as creating a snapshot or disk volume. They
+differ from synchronous commands by the following:</p>
+<ul>
+<li><p class="first">They are identified in the API Reference by an (A).</p>
+</li>
+<li><p class="first">They will immediately return a job ID to refer to the job that will
+be responsible in processing the command.</p>
+</li>
+<li><p class="first">If executed as a “create” resource command, it will return the
+resource ID as well as the job ID.</p>
+<p>You can periodically check the status of the job by making a simple
+API call to the command, <cite>queryAsyncJobResult</cite> and passing in the job
+ID.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="job-status">
+<h3>Job Status<a class="headerlink" href="dev.html#job-status" title="Permalink to this headline">¶</a></h3>
+<p>The key to using an asynchronous command is the job ID that is returned
+immediately once the command has been executed. With the job ID, you can
+periodically check the job status by making calls to queryAsyncJobResult
+command. The command will return three possible job status integer
+values:</p>
+<ul class="simple">
+<li>0 - Job is still in progress. Continue to periodically poll for any
+status changes.</li>
+<li>1 - Job has successfully completed. The job will return any
+successful response values associated with command that was
+originally executed.</li>
+<li>2 - Job has failed to complete. Please check the “jobresultcode” tag
+for failure reason code and “jobresult” for the failure reason.</li>
+</ul>
+</div>
+<div class="section" id="example">
+<h3>Example<a class="headerlink" href="dev.html#example" title="Permalink to this headline">¶</a></h3>
+<p>The following shows an example of using an asynchronous command. Assume
+the API command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">command</span><span class="o">=</span><span class="n">deployVirtualMachine</span><span class="o">&amp;</span><span class="n">zoneId</span><span class="o">=</span><span class="mi">1</span><span class="o">&amp;</span><span class="n">serviceOfferingId</span><span class="o">=</span><span class="mi">1</span><span class="o">&amp;</span><span class="n">diskOfferingId</span><span class="o">=</span><span class="mi">1</span><span class="o">&amp;</span><span class="n">templateId</span><span class="o">=</span><span class="mi">1</span>
+</pre></div>
+</div>
+<p>CloudStack will immediately return a job ID and any other additional
+data.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">deployvirtualmachineresponse</span><span class="o">&gt;</span>
+   <span class="o">&lt;</span><span class="n">jobid</span><span class="o">&gt;</span><span class="mi">1</span><span class="o">&lt;/</span><span class="n">jobid</span><span class="o">&gt;</span>
+   <span class="o">&lt;</span><span class="nb">id</span><span class="o">&gt;</span><span class="mi">100</span><span class="o">&lt;/</span><span class="nb">id</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">deployvirtualmachineresponse</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Using the job ID, you can periodically poll for the results by using the
+queryAsyncJobResult command.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">command</span><span class="o">=</span><span class="n">queryAsyncJobResult</span><span class="o">&amp;</span><span class="n">jobId</span><span class="o">=</span><span class="mi">1</span>
+</pre></div>
+</div>
+<p>Three possible results could come from this query.</p>
+<p>Job is still pending:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">queryasyncjobresult</span><span class="o">&gt;</span>
+   <span class="o">&lt;</span><span class="n">jobid</span><span class="o">&gt;</span><span class="mi">1</span><span class="o">&lt;/</span><span class="n">jobid</span><span class="o">&gt;</span>
+   <span class="o">&lt;</span><span class="n">jobstatus</span><span class="o">&gt;</span><span class="mi">0</span><span class="o">&lt;/</span><span class="n">jobstatus</span><span class="o">&gt;</span>
+   <span class="o">&lt;</span><span class="n">jobprocstatus</span><span class="o">&gt;</span><span class="mi">1</span><span class="o">&lt;/</span><span class="n">jobprocstatus</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">queryasyncjobresult</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Job has succeeded:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">queryasyncjobresultresponse</span> <span class="n">cloud</span><span class="o">-</span><span class="n">stack</span><span class="o">-</span><span class="n">version</span><span class="o">=</span><span class="s2">&quot;3.0.1.6&quot;</span><span class="o">&gt;</span>
+   <span class="o">&lt;</span><span class="n">jobid</span><span class="o">&gt;</span><span class="mi">1</span><span class="o">&lt;/</span><span class="n">jobid</span><span class="o">&gt;</span>
+   <span class="o">&lt;</span><span class="n">jobstatus</span><span class="o">&gt;</span><span class="mi">1</span><span class="o">&lt;/</span><span class="n">jobstatus</span><span class="o">&gt;</span>
+   <span class="o">&lt;</span><span class="n">jobprocstatus</span><span class="o">&gt;</span><span class="mi">0</span><span class="o">&lt;/</span><span class="n">jobprocstatus</span><span class="o">&gt;</span>
+   <span class="o">&lt;</span><span class="n">jobresultcode</span><span class="o">&gt;</span><span class="mi">0</span><span class="o">&lt;/</span><span class="n">jobresultcode</span><span class="o">&gt;</span>
+   <span class="o">&lt;</span><span class="n">jobresulttype</span><span class="o">&gt;</span><span class="nb">object</span><span class="o">&lt;/</span><span class="n">jobresulttype</span><span class="o">&gt;</span>
+   <span class="o">&lt;</span><span class="n">jobresult</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="n">virtualmachine</span><span class="o">&gt;</span>
+         <span class="o">&lt;</span><span class="nb">id</span><span class="o">&gt;</span><span class="mi">450</span><span class="o">&lt;/</span><span class="nb">id</span><span class="o">&gt;</span>
+         <span class="o">&lt;</span><span class="n">name</span><span class="o">&gt;</span><span class="n">i</span><span class="o">-</span><span class="mi">2</span><span class="o">-</span><span class="mi">450</span><span class="o">-</span><span class="n">VM</span><span class="o">&lt;/</span><span class="n">name</span><span class="o">&gt;</span>
+         <span class="o">&lt;</span><span class="n">displayname</span><span class="o">&gt;</span><span class="n">i</span><span class="o">-</span><span class="mi">2</span><span class="o">-</span><span class="mi">450</span><span class="o">-</span><span class="n">VM</span><span class="o">&lt;/</span><span class="n">displayname</span><span class="o">&gt;</span>
+         <span class="o">&lt;</span><span class="n">account</span><span class="o">&gt;</span><span class="n">admin</span><span class="o">&lt;/</span><span class="n">account</span><span class="o">&gt;</span>
+         <span class="o">&lt;</span><span class="n">domainid</span><span class="o">&gt;</span><span class="mi">1</span><span class="o">&lt;/</span><span class="n">domainid</span><span class="o">&gt;</span>
+         <span class="o">&lt;</span><span class="n">domain</span><span class="o">&gt;</span><span class="n">ROOT</span><span class="o">&lt;/</span><span class="n">domain</span><span class="o">&gt;</span>
+         <span class="o">&lt;</span><span class="n">created</span><span class="o">&gt;</span><span class="mi">2011</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">10</span><span class="n">T18</span><span class="p">:</span><span class="mi">20</span><span class="p">:</span><span class="mi">25</span><span class="o">-</span><span class="mi">0800</span><span class="o">&lt;/</span><span class="n">created</span><span class="o">&gt;</span>
+         <span class="o">&lt;</span><span class="n">state</span><span class="o">&gt;</span><span class="n">Running</span><span class="o">&lt;/</span><span class="n">state</span><span class="o">&gt;</span>
+         <span class="o">&lt;</span><span class="n">haenable</span><span class="o">&gt;</span><span class="n">false</span><span class="o">&lt;/</span><span class="n">haenable</span><span class="o">&gt;</span>
+         <span class="o">&lt;</span><span class="n">zoneid</span><span class="o">&gt;</span><span class="mi">1</span><span class="o">&lt;/</span><span class="n">zoneid</span><span class="o">&gt;</span>
+         <span class="o">&lt;</span><span class="n">zonename</span><span class="o">&gt;</span><span class="n">San</span> <span class="n">Jose</span> <span class="mi">1</span><span class="o">&lt;/</span><span class="n">zonename</span><span class="o">&gt;</span>
+         <span class="o">&lt;</span><span class="n">hostid</span><span class="o">&gt;</span><span class="mi">2</span><span class="o">&lt;/</span><span class="n">hostid</span><span class="o">&gt;</span>
+         <span class="o">&lt;</span><span class="n">hostname</span><span class="o">&gt;</span><span class="mi">905</span><span class="o">-</span><span class="mf">13.</span><span class="n">sjc</span><span class="o">.</span><span class="n">lab</span><span class="o">.</span><span class="n">vmops</span><span class="o">.</span><span class="n">com</span><span class="o">&lt;/</span><span class="n">hostname</span><span class="o">&gt;</span>
+         <span class="o">&lt;</span><span class="n">templateid</span><span class="o">&gt;</span><span class="mi">1</span><span class="o">&lt;/</span><span class="n">templateid</span><span class="o">&gt;</span>
+         <span class="o">&lt;</span><span class="n">templatename</span><span class="o">&gt;</span><span class="n">CentOS</span> <span class="mf">5.3</span> <span class="mi">64</span><span class="n">bit</span> <span class="n">LAMP</span><span class="o">&lt;/</span><span class="n">templatename</span><span class="o">&gt;</span>
+         <span class="o">&lt;</span><span class="n">templatedisplaytext</span><span class="o">&gt;</span><span class="n">CentOS</span> <span class="mf">5.3</span> <span class="mi">64</span><span class="n">bit</span> <span class="n">LAMP</span><span class="o">&lt;/</span><span class="n">templatedisplaytext</span><span class="o">&gt;</span>
+         <span class="o">&lt;</span><span class="n">passwordenabled</span><span class="o">&gt;</span><span class="n">false</span><span class="o">&lt;/</span><span class="n">passwordenabled</span><span class="o">&gt;</span>
+         <span class="o">&lt;</span><span class="n">serviceofferingid</span><span class="o">&gt;</span><span class="mi">1</span><span class="o">&lt;/</span><span class="n">serviceofferingid</span><span class="o">&gt;</span>
+         <span class="o">&lt;</span><span class="n">serviceofferingname</span><span class="o">&gt;</span><span class="n">Small</span> <span class="n">Instance</span><span class="o">&lt;/</span><span class="n">serviceofferingname</span><span class="o">&gt;</span>
+         <span class="o">&lt;</span><span class="n">cpunumber</span><span class="o">&gt;</span><span class="mi">1</span><span class="o">&lt;/</span><span class="n">cpunumber</span><span class="o">&gt;</span>
+         <span class="o">&lt;</span><span class="n">cpuspeed</span><span class="o">&gt;</span><span class="mi">500</span><span class="o">&lt;/</span><span class="n">cpuspeed</span><span class="o">&gt;</span>
+         <span class="o">&lt;</span><span class="n">memory</span><span class="o">&gt;</span><span class="mi">512</span><span class="o">&lt;/</span><span class="n">memory</span><span class="o">&gt;</span>
+         <span class="o">&lt;</span><span class="n">guestosid</span><span class="o">&gt;</span><span class="mi">12</span><span class="o">&lt;/</span><span class="n">guestosid</span><span class="o">&gt;</span>
+         <span class="o">&lt;</span><span class="n">rootdeviceid</span><span class="o">&gt;</span><span class="mi">0</span><span class="o">&lt;/</span><span class="n">rootdeviceid</span><span class="o">&gt;</span>
+         <span class="o">&lt;</span><span class="n">rootdevicetype</span><span class="o">&gt;</span><span class="n">NetworkFilesystem</span><span class="o">&lt;/</span><span class="n">rootdevicetype</span><span class="o">&gt;</span>
+         <span class="o">&lt;</span><span class="n">nic</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="nb">id</span><span class="o">&gt;</span><span class="mi">561</span><span class="o">&lt;/</span><span class="nb">id</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="n">networkid</span><span class="o">&gt;</span><span class="mi">205</span><span class="o">&lt;/</span><span class="n">networkid</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="n">netmask</span><span class="o">&gt;</span><span class="mf">255.255</span><span class="o">.</span><span class="mf">255.0</span><span class="o">&lt;/</span><span class="n">netmask</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="n">gateway</span><span class="o">&gt;</span><span class="mf">10.1</span><span class="o">.</span><span class="mf">1.1</span><span class="o">&lt;/</span><span class="n">gateway</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="n">ipaddress</span><span class="o">&gt;</span><span class="mf">10.1</span><span class="o">.</span><span class="mf">1.225</span><span class="o">&lt;/</span><span class="n">ipaddress</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="n">isolationuri</span><span class="o">&gt;</span><span class="n">vlan</span><span class="p">:</span><span class="o">//</span><span class="mi">295</span><span class="o">&lt;/</span><span class="n">isolationuri</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="n">broadcasturi</span><span class="o">&gt;</span><span class="n">vlan</span><span class="p">:</span><span class="o">//</span><span class="mi">295</span><span class="o">&lt;/</span><span class="n">broadcasturi</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="n">traffictype</span><span class="o">&gt;</span><span class="n">Guest</span><span class="o">&lt;/</span><span class="n">traffictype</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="nb">type</span><span class="o">&gt;</span><span class="n">Virtual</span><span class="o">&lt;/</span><span class="nb">type</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="n">isdefault</span><span class="o">&gt;</span><span class="n">true</span><span class="o">&lt;/</span><span class="n">isdefault</span><span class="o">&gt;</span>
+         <span class="o">&lt;/</span><span class="n">nic</span><span class="o">&gt;</span>
+         <span class="o">&lt;</span><span class="n">hypervisor</span><span class="o">&gt;</span><span class="n">XenServer</span><span class="o">&lt;/</span><span class="n">hypervisor</span><span class="o">&gt;</span>
+      <span class="o">&lt;/</span><span class="n">virtualmachine</span><span class="o">&gt;</span>
+   <span class="o">&lt;/</span><span class="n">jobresult</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">queryasyncjobresultresponse</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Job has failed:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">queryasyncjobresult</span><span class="o">&gt;</span>
+   <span class="o">&lt;</span><span class="n">jobid</span><span class="o">&gt;</span><span class="mi">1</span><span class="o">&lt;/</span><span class="n">jobid</span><span class="o">&gt;</span>
+   <span class="o">&lt;</span><span class="n">jobstatus</span><span class="o">&gt;</span><span class="mi">2</span><span class="o">&lt;/</span><span class="n">jobstatus</span><span class="o">&gt;</span>
+   <span class="o">&lt;</span><span class="n">jobprocstatus</span><span class="o">&gt;</span><span class="mi">0</span><span class="o">&lt;/</span><span class="n">jobprocstatus</span><span class="o">&gt;</span>
+   <span class="o">&lt;</span><span class="n">jobresultcode</span><span class="o">&gt;</span><span class="mi">551</span><span class="o">&lt;/</span><span class="n">jobresultcode</span><span class="o">&gt;</span>
+   <span class="o">&lt;</span><span class="n">jobresulttype</span><span class="o">&gt;</span><span class="n">text</span><span class="o">&lt;/</span><span class="n">jobresulttype</span><span class="o">&gt;</span>
+   <span class="o">&lt;</span><span class="n">jobresult</span><span class="o">&gt;</span><span class="n">Unable</span> <span class="n">to</span> <span class="n">deploy</span> <span class="n">virtual</span> <span class="n">machine</span> <span class="nb">id</span> <span class="o">=</span> <span class="mi">100</span> <span class="n">due</span> <span class="n">to</span> <span class="ow">not</span> <span class="n">enough</span> <span class="n">capacity</span><span class="o">&lt;/</span><span class="n">jobresult</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">queryasyncjobresult</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="event-types">
+<h2>Event Types<a class="headerlink" href="dev.html#event-types" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="table-striped table-bordered table-hover docutils">
+<colgroup>
+<col width="25%" />
+<col width="75%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Types</th>
+<th class="head">Events</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>VM</td>
+<td><p class="first">VM.CREATE</p>
+<p>VM.DESTROY</p>
+<p>VM.START</p>
+<p>VM.STOP</p>
+<p>VM.REBOOT</p>
+<p>VM.UPDATE</p>
+<p>VM.UPGRADE</p>
+<p>VM.DYNAMIC.SCALE</p>
+<p>VM.RESETPASSWORD</p>
+<p>VM.RESETSSHKEY</p>
+<p>VM.MIGRATE</p>
+<p>VM.MOVE</p>
+<p class="last">VM.RESTORE</p>
+</td>
+</tr>
+<tr class="row-odd"><td>Domain Router</td>
+<td><p class="first">ROUTER.CREATE</p>
+<p>ROUTER.DESTROY</p>
+<p>ROUTER.START</p>
+<p>ROUTER.STOP</p>
+<p>ROUTER.REBOOT</p>
+<p>ROUTER.HA</p>
+<p class="last">ROUTER.UPGRADE</p>
+</td>
+</tr>
+<tr class="row-even"><td>Console proxy</td>
+<td><p class="first">PROXY.CREATE</p>
+<p>PROXY.DESTROY</p>
+<p>PROXY.START</p>
+<p>PROXY.STOP</p>
+<p>PROXY.REBOOT</p>
+<p class="last">PROXY.HA</p>
+</td>
+</tr>
+<tr class="row-odd"><td>VNC Console
+Events</td>
+<td><p class="first">VNC.CONNECT</p>
+<p class="last">VNC.DISCONNECT</p>
+</td>
+</tr>
+<tr class="row-even"><td>Network Events</td>
+<td><p class="first">NET.IPASSIGN</p>
+<p>NET.IPRELEASE</p>
+<p>PORTABLE.IPASSIGN</p>
+<p>PORTABLE.IPRELEASE</p>
+<p>NET.RULEADD</p>
+<p>NET.RULEDELETE</p>
+<p>NET.RULEMODIFY</p>
+<p>NETWORK.CREATE</p>
+<p>NETWORK.DELETE</p>
+<p>NETWORK.UPDATE</p>
+<p>FIREWALL.OPEN</p>
+<p class="last">FIREWALL.CLOSE</p>
+</td>
+</tr>
+<tr class="row-odd"><td>NIC Events</td>
+<td><p class="first">NIC.CREATE</p>
+<p>NIC.DELETE</p>
+<p>NIC.UPDATE</p>
+<p>NIC.DETAIL.ADD</p>
+<p>NIC.DETAIL.UPDATE</p>
+<p class="last">NIC.DETAIL.REMOVE</p>
+</td>
+</tr>
+<tr class="row-even"><td>Load Balancers</td>
+<td><p class="first">LB.ASSIGN.TO.RULE</p>
+<p>LB.REMOVE.FROM.RULE</p>
+<p>LB.CREATE</p>
+<p>LB.DELETE</p>
+<p>LB.STICKINESSPOLICY.CREATE</p>
+<p>LB.STICKINESSPOLICY.DELETE</p>
+<p>LB.HEALTHCHECKPOLICY.CREATE</p>
+<p>LB.HEALTHCHECKPOLICY.DELETE</p>
+<p class="last">LB.UPDATE</p>
+</td>
+</tr>
+<tr class="row-odd"><td>Global Load
+Balancer rules</td>
+<td><p class="first">GLOBAL.LB.ASSIGN</p>
+<p>GLOBAL.LB.REMOVE</p>
+<p>GLOBAL.LB.CREATE</p>
+<p>GLOBAL.LB.DELETE</p>
+<p class="last">GLOBAL.LB.UPDATE</p>
+</td>
+</tr>
+<tr class="row-even"><td>Account events</td>
+<td><p class="first">ACCOUNT.ENABLE</p>
+<p>ACCOUNT.DISABLE</p>
+<p>ACCOUNT.CREATE</p>
+<p>ACCOUNT.DELETE</p>
+<p>ACCOUNT.UPDATE</p>
+<p class="last">ACCOUNT.MARK.DEFAULT.ZONE</p>
+</td>
+</tr>
+<tr class="row-odd"><td>UserVO Events</td>
+<td><p class="first">USER.LOGIN</p>
+<p>USER.LOGOUT</p>
+<p>USER.CREATE</p>
+<p>USER.DELETE</p>
+<p>USER.DISABLE</p>
+<p>USER.UPDATE</p>
+<p>USER.ENABLE</p>
+<p class="last">USER.LOCK</p>
+</td>
+</tr>
+<tr class="row-even"><td>Registering SSH
+keypair events</td>
+<td>REGISTER.SSH.KEYPAIR</td>
+</tr>
+<tr class="row-odd"><td>Register for user
+API and secret
+keys</td>
+<td>REGISTER.USER.KEY</td>
+</tr>
+<tr class="row-even"><td>Template Events</td>
+<td><p class="first">TEMPLATE.CREATE</p>
+<p>TEMPLATE.DELETE</p>
+<p>TEMPLATE.UPDATE</p>
+<p>TEMPLATE.DOWNLOAD.START</p>
+<p>TEMPLATE.DOWNLOAD.SUCCESS</p>
+<p>TEMPLATE.DOWNLOAD.FAILED</p>
+<p>TEMPLATE.COPY</p>
+<p>TEMPLATE.EXTRACT</p>
+<p>TEMPLATE.UPLOAD</p>
+<p class="last">TEMPLATE.CLEANUP</p>
+</td>
+</tr>
+<tr class="row-odd"><td>Volume Events</td>
+<td><p class="first">VOLUME.CREATE</p>
+<p>VOLUME.DELETE</p>
+<p>VOLUME.ATTACH</p>
+<p>VOLUME.DETACH</p>
+<p>VOLUME.EXTRACT</p>
+<p>VOLUME.UPLOAD</p>
+<p>VOLUME.MIGRATE</p>
+<p>VOLUME.RESIZE</p>
+<p>VOLUME.DETAIL.UPDATE</p>
+<p>VOLUME.DETAIL.ADD</p>
+<p class="last">VOLUME.DETAIL.REMOVE</p>
+</td>
+</tr>
+<tr class="row-even"><td>Domains</td>
+<td><p class="first">DOMAIN.CREATE</p>
+<p>DOMAIN.DELETE</p>
+<p class="last">DOMAIN.UPDATE</p>
+</td>
+</tr>
+<tr class="row-odd"><td>Snapshots</td>
+<td><p class="first">SNAPSHOT.CREATE</p>
+<p>SNAPSHOT.DELETE</p>
+<p>SNAPSHOTPOLICY.CREATE</p>
+<p>SNAPSHOTPOLICY.UPDATE</p>
+<p class="last">SNAPSHOTPOLICY.DELETE</p>
+</td>
+</tr>
+<tr class="row-even"><td>ISO</td>
+<td><p class="first">ISO.CREATE</p>
+<p>ISO.DELETE</p>
+<p>ISO.COPY</p>
+<p>ISO.ATTACH</p>
+<p>ISO.DETACH</p>
+<p>ISO.EXTRACT</p>
+<p class="last">ISO.UPLOAD</p>
+</td>
+</tr>
+<tr class="row-odd"><td>SSVM</td>
+<td><p class="first">SSVM.CREATE</p>
+<p>SSVM.DESTROY</p>
+<p>SSVM.START</p>
+<p>SSVM.STOP</p>
+<p>SSVM.REBOOT</p>
+<p class="last">SSVM.HA</p>
+</td>
+</tr>
+<tr class="row-even"><td>Service Offerings</td>
+<td><p class="first">SERVICE.OFFERING.CREATE</p>
+<p>SERVICE.OFFERING.EDIT</p>
+<p class="last">SERVICE.OFFERING.DELETE</p>
+</td>
+</tr>
+<tr class="row-odd"><td>Disk Offerings</td>
+<td><p class="first">DISK.OFFERING.CREATE</p>
+<p>DISK.OFFERING.EDIT</p>
+<p class="last">DISK.OFFERING.DELETE</p>
+</td>
+</tr>
+<tr class="row-even"><td>Network offerings</td>
+<td><p class="first">NETWORK.OFFERING.CREATE</p>
+<p>NETWORK.OFFERING.ASSIGN</p>
+<p>NETWORK.OFFERING.EDIT</p>
+<p>NETWORK.OFFERING.REMOVE</p>
+<p class="last">NETWORK.OFFERING.DELETE</p>
+</td>
+</tr>
+<tr class="row-odd"><td>Pods</td>
+<td><p class="first">POD.CREATE</p>
+<p>POD.EDIT</p>
+<p class="last">POD.DELETE</p>
+</td>
+</tr>
+<tr class="row-even"><td>Zones</td>
+<td><p class="first">ZONE.CREATE</p>
+<p>ZONE.EDIT</p>
+<p class="last">ZONE.DELETE</p>
+</td>
+</tr>
+<tr class="row-odd"><td>VLANs/IP ranges</td>
+<td><p class="first">VLAN.IP.RANGE.CREATE</p>
+<p>VLAN.IP.RANGE.DELETE</p>
+<p>VLAN.IP.RANGE.DEDICATE</p>
+<p>VLAN.IP.RANGE.RELEASE</p>
+<p>STORAGE.IP.RANGE.CREATE</p>
+<p>STORAGE.IP.RANGE.DELETE</p>
+<p class="last">STORAGE.IP.RANGE.UPDATE</p>
+</td>
+</tr>
+<tr class="row-even"><td>Configuration
+Table</td>
+<td>CONFIGURATION.VALUE.EDIT</td>
+</tr>
+<tr class="row-odd"><td>Security Groups</td>
+<td><p class="first">SG.AUTH.INGRESS</p>
+<p>SG.REVOKE.INGRESS</p>
+<p>SG.AUTH.EGRESS</p>
+<p>SG.REVOKE.EGRESS</p>
+<p>SG.CREATE</p>
+<p>SG.DELETE</p>
+<p>SG.ASSIGN</p>
+<p class="last">SG.REMOVE</p>
+</td>
+</tr>
+<tr class="row-even"><td>Host</td>
+<td>HOST.RECONNECT</td>
+</tr>
+<tr class="row-odd"><td>Maintenance</td>
+<td><p class="first">MAINT.CANCEL</p>
+<p>MAINT.CANCEL.PS</p>
+<p>MAINT.PREPARE</p>
+<p class="last">MAINT.PREPARE.PS</p>
+</td>
+</tr>
+<tr class="row-even"><td>VPN</td>
+<td><p class="first">VPN.REMOTE.ACCESS.CREATE</p>
+<p>VPN.REMOTE.ACCESS.DESTROY</p>
+<p>VPN.USER.ADD</p>
+<p>VPN.USER.REMOVE</p>
+<p>VPN.S2S.VPN.GATEWAY.CREATE</p>
+<p>VPN.S2S.VPN.GATEWAY.DELETE</p>
+<p>VPN.S2S.CUSTOMER.GATEWAY.CREATE</p>
+<p>VPN.S2S.CUSTOMER.GATEWAY.DELETE</p>
+<p>VPN.S2S.CUSTOMER.GATEWAY.UPDATE</p>
+<p>VPN.S2S.CONNECTION.CREATE</p>
+<p>VPN.S2S.CONNECTION.DELETE</p>
+<p class="last">VPN.S2S.CONNECTION.RESET</p>
+</td>
+</tr>
+<tr class="row-odd"><td>Network</td>
+<td>NETWORK.RESTART</td>
+</tr>
+<tr class="row-even"><td>Custom
+certificates</td>
+<td>UPLOAD.CUSTOM.CERTIFICATE</td>
+</tr>
+<tr class="row-odd"><td>OneToOnenat</td>
+<td><p class="first">STATICNAT.ENABLE</p>
+<p>STATICNAT.DISABLE</p>
+<p>ZONE.VLAN.ASSIGN</p>
+<p class="last">ZONE.VLAN.RELEASE</p>
+</td>
+</tr>
+<tr class="row-even"><td>Projects</td>
+<td><p class="first">PROJECT.CREATE</p>
+<p>PROJECT.UPDATE</p>
+<p>PROJECT.DELETE</p>
+<p>PROJECT.ACTIVATE</p>
+<p>PROJECT.SUSPEND</p>
+<p>PROJECT.ACCOUNT.ADD</p>
+<p>PROJECT.INVITATION.UPDATE</p>
+<p>PROJECT.INVITATION.REMOVE</p>
+<p class="last">PROJECT.ACCOUNT.REMOVE</p>
+</td>
+</tr>
+<tr class="row-odd"><td>Network as a
+Service</td>
+<td>NETWORK.ELEMENT.CONFIGURE</td>
+</tr>
+<tr class="row-even"><td>Physical Network
+Events</td>
+<td><p class="first">PHYSICAL.NETWORK.CREATE</p>
+<p>PHYSICAL.NETWORK.DELETE</p>
+<p class="last">PHYSICAL.NETWORK.UPDATE</p>
+</td>
+</tr>
+<tr class="row-odd"><td>Physical Network
+Service Provider
+Events</td>
+<td><p class="first">SERVICE.PROVIDER.CREATE</p>
+<p>SERVICE.PROVIDER.DELETE</p>
+<p class="last">SERVICE.PROVIDER.UPDATE</p>
+</td>
+</tr>
+<tr class="row-even"><td>Physical Network
+Traffic Type
+Events</td>
+<td><p class="first">TRAFFIC.TYPE.CREATE</p>
+<p>TRAFFIC.TYPE.DELETE</p>
+<p class="last">TRAFFIC.TYPE.UPDATE</p>
+</td>
+</tr>
+<tr class="row-odd"><td>External network
+device events</td>
+<td><p class="first">PHYSICAL.LOADBALANCER.ADD</p>
+<p>PHYSICAL.LOADBALANCER.DELETE</p>
+<p class="last">PHYSICAL.LOADBALANCER.CONFIGURE</p>
+</td>
+</tr>
+<tr class="row-even"><td><p class="first">External switch
+management device
+events</p>
+<p class="last">For example:
+Cisco Nexus 1000v
+Virtual
+Supervisor
+Module.</p>
+</td>
+<td><p class="first">SWITCH.MGMT.ADD</p>
+<p>SWITCH.MGMT.DELETE</p>
+<p>SWITCH.MGMT.CONFIGURE</p>
+<p>SWITCH.MGMT.ENABLE</p>
+<p>SWITCH.MGMT.DISABLE</p>
+<p>PHYSICAL.FIREWALL.ADD</p>
+<p>PHYSICAL.FIREWALL.DELETE</p>
+<p class="last">PHYSICAL.FIREWALL.CONFIGURE</p>
+</td>
+</tr>
+<tr class="row-odd"><td>VPC</td>
+<td><p class="first">VPC.CREATE</p>
+<p>VPC.UPDATE</p>
+<p>VPC.DELETE</p>
+<p class="last">VPC.RESTART</p>
+</td>
+</tr>
+<tr class="row-even"><td>Network ACL</td>
+<td><p class="first">NETWORK.ACL.CREATE</p>
+<p>NETWORK.ACL.DELETE</p>
+<p>NETWORK.ACL.REPLACE</p>
+<p>NETWORK.ACL.ITEM.CREATE</p>
+<p>NETWORK.ACL.ITEM.UPDATE</p>
+<p class="last">NETWORK.ACL.ITEM.DELETE</p>
+</td>
+</tr>
+<tr class="row-odd"><td>VPC offerings</td>
+<td><p class="first">VPC.OFFERING.CREATE</p>
+<p>VPC.OFFERING.UPDATE</p>
+<p class="last">VPC.OFFERING.DELETE</p>
+</td>
+</tr>
+<tr class="row-even"><td>Private gateway</td>
+<td><p class="first">PRIVATE.GATEWAY.CREATE</p>
+<p class="last">PRIVATE.GATEWAY.DELETE</p>
+</td>
+</tr>
+<tr class="row-odd"><td>Static routes</td>
+<td><p class="first">STATIC.ROUTE.CREATE</p>
+<p class="last">STATIC.ROUTE.DELETE</p>
+</td>
+</tr>
+<tr class="row-even"><td>Tag-related
+events</td>
+<td><p class="first">CREATE_TAGS</p>
+<p class="last">DELETE_TAGS</p>
+</td>
+</tr>
+<tr class="row-odd"><td>Meta data-related
+events</td>
+<td><p class="first">CREATE_RESOURCE_DETAILS</p>
+<p class="last">DELETE_RESOURCE_DETAILS</p>
+</td>
+</tr>
+<tr class="row-even"><td>VM snapshot
+events</td>
+<td><p class="first">VMSNAPSHOT.CREATE</p>
+<p>VMSNAPSHOT.DELETE</p>
+<p class="last">VMSNAPSHOT.REVERTTO</p>
+</td>
+</tr>
+<tr class="row-odd"><td>External network
+device events</td>
+<td><p class="first">PHYSICAL.NVPCONTROLLER.ADD</p>
+<p>PHYSICAL.NVPCONTROLLER.DELETE</p>
+<p class="last">PHYSICAL.NVPCONTROLLER.CONFIGURE</p>
+</td>
+</tr>
+<tr class="row-even"><td>AutoScale</td>
+<td><p class="first">COUNTER.CREATE</p>
+<p>COUNTER.DELETE</p>
+<p>CONDITION.CREATE</p>
+<p>CONDITION.DELETE</p>
+<p>AUTOSCALEPOLICY.CREATE</p>
+<p>AUTOSCALEPOLICY.UPDATE</p>
+<p>AUTOSCALEPOLICY.DELETE</p>
+<p>AUTOSCALEVMPROFILE.CREATE</p>
+<p>AUTOSCALEVMPROFILE.DELETE</p>
+<p>AUTOSCALEVMPROFILE.UPDATE</p>
+<p>AUTOSCALEVMGROUP.CREATE</p>
+<p>AUTOSCALEVMGROUP.DELETE</p>
+<p>AUTOSCALEVMGROUP.UPDATE</p>
+<p>AUTOSCALEVMGROUP.ENABLE</p>
+<p>AUTOSCALEVMGROUP.DISABLE</p>
+<p>PHYSICAL.DHCP.ADD</p>
+<p>PHYSICAL.DHCP.DELETE</p>
+<p>PHYSICAL.PXE.ADD</p>
+<p>PHYSICAL.PXE.DELETE</p>
+<p>AG.CREATE</p>
+<p>AG.DELETE</p>
+<p>AG.ASSIGN</p>
+<p>AG.REMOVE</p>
+<p>VM.AG.UPDATE</p>
+<p>INTERNALLBVM.START</p>
+<p>INTERNALLBVM.STOP</p>
+<p class="last">HOST.RESERVATION.RELEASE</p>
+</td>
+</tr>
+<tr class="row-odd"><td>Dedicated guest
+vlan range</td>
+<td><p class="first">GUESTVLANRANGE.DEDICATE</p>
+<p>GUESTVLANRANGE.RELEASE</p>
+<p>PORTABLE.IP.RANGE.CREATE</p>
+<p>PORTABLE.IP.RANGE.DELETE</p>
+<p class="last">PORTABLE.IP.TRANSFER</p>
+</td>
+</tr>
+<tr class="row-even"><td>Dedicated
+Resources</td>
+<td><p class="first">DEDICATE.RESOURCE</p>
+<p>DEDICATE.RESOURCE.RELEASE</p>
+<p>VM.RESERVATION.CLEANUP</p>
+<p>UCS.ASSOCIATEPROFILE</p>
+<p class="last">UCS.DISASSOCIATEPROFILE</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="time-zones">
+<span id="id1"></span><h2>Time Zones<a class="headerlink" href="dev.html#time-zones" title="Permalink to this headline">¶</a></h2>
+<p>The following time zone identifiers are accepted by PRODUCT. There are
+several places that have a time zone as a required or optional
+parameter. These include scheduling recurring snapshots, creating a
+user, and specifying the usage time zone in the Configuration table.</p>
+<table border="1" class="table-striped table-bordered table-hover docutils">
+<colgroup>
+<col width="43%" />
+<col width="28%" />
+<col width="29%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Etc/GMT+12</td>
+<td>Etc/GMT+11</td>
+<td>Pacific/Samoa</td>
+</tr>
+<tr class="row-even"><td>Pacific/Honolulu</td>
+<td>US/Alaska</td>
+<td>America/Los_Angeles</td>
+</tr>
+<tr class="row-odd"><td>Mexico/BajaNorte</td>
+<td>US/Arizona</td>
+<td>US/Mountain</td>
+</tr>
+<tr class="row-even"><td>America/Chihuahua</td>
+<td>America/Chicago</td>
+<td>America/Costa_Rica</td>
+</tr>
+<tr class="row-odd"><td>America/Mexico_City</td>
+<td>Canada/Saskatchewan</td>
+<td>America/Bogota</td>
+</tr>
+<tr class="row-even"><td>America/New_York</td>
+<td>America/Caracas</td>
+<td>America/Asuncion</td>
+</tr>
+<tr class="row-odd"><td>America/Cuiaba</td>
+<td>America/Halifax</td>
+<td>America/La_Paz</td>
+</tr>
+<tr class="row-even"><td>America/Santiago</td>
+<td>America/St_Johns</td>
+<td>America/Araguaina</td>
+</tr>
+<tr class="row-odd"><td>America/Argentina/Buenos_Aires</td>
+<td>America/Cayenne</td>
+<td>America/Godthab</td>
+</tr>
+<tr class="row-even"><td>America/Montevideo</td>
+<td>Etc/GMT+2</td>
+<td>Atlantic/Azores</td>
+</tr>
+<tr class="row-odd"><td>Atlantic/Cape_Verde</td>
+<td>Africa/Casablanca</td>
+<td>Etc/UTC</td>
+</tr>
+<tr class="row-even"><td>Atlantic/Reykjavik</td>
+<td>Europe/London</td>
+<td>CET</td>
+</tr>
+<tr class="row-odd"><td>Europe/Bucharest</td>
+<td>Africa/Johannesburg</td>
+<td>Asia/Beirut</td>
+</tr>
+<tr class="row-even"><td>Africa/Cairo</td>
+<td>Asia/Jerusalem</td>
+<td>Europe/Minsk</td>
+</tr>
+<tr class="row-odd"><td>Europe/Moscow</td>
+<td>Africa/Nairobi</td>
+<td>Asia/Karachi</td>
+</tr>
+<tr class="row-even"><td>Asia/Kolkata</td>
+<td>Asia/Bangkok</td>
+<td>Asia/Shanghai</td>
+</tr>
+<tr class="row-odd"><td>Asia/Kuala_Lumpur</td>
+<td>Australia/Perth</td>
+<td>Asia/Taipei</td>
+</tr>
+<tr class="row-even"><td>Asia/Tokyo</td>
+<td>Asia/Seoul</td>
+<td>Australia/Adelaide</td>
+</tr>
+<tr class="row-odd"><td>Australia/Darwin</td>
+<td>Australia/Brisbane</td>
+<td>Australia/Canberra</td>
+</tr>
+<tr class="row-even"><td>Pacific/Guam</td>
+<td>Pacific/Auckland</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="plugins.html" class="btn btn-neutral float-right" title="Plugins" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="developer_guide.html" class="btn btn-neutral float-left" title="CloudStack Installation from GIT repo for Developers" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Apache Foundation
+      
+        <span class="commit">
+          Revision <code>29a3d9e2</code>.
+        </span>
+      
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Read the Docs</span>
+      v: latest
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="http://docs.cloudstack.apache.org/en/master/">master</a></dd>
+        
+          <dd><a href="../../../index.html">latest</a></dd>
+        
+          <dd><a href="../../4.13.0.0/index.html">4.13.0.0</a></dd>
+        
+          <dd><a href="../../4.12.0.0/index.html">4.12.0.0</a></dd>
+        
+          <dd><a href="../../4.11.3.0/index.html">4.11.3.0</a></dd>
+        
+          <dd><a href="../../4.11.2.0/index.html">4.11.2.0</a></dd>
+        
+          <dd><a href="../../4.11.1.0/index.html">4.11.1.0</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="http://readthedocs.org/projects/cloudstack-documentation/downloads/htmlzip/latest/">html</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>On Read the Docs</dt>
+          <dd>
+            <a href="http://readthedocs.org/projects/cloudstack-documentation/?fromdocs=cloudstack-documentation">Project Home</a>
+          </dd>
+          <dd>
+            <a href="http://readthedocs.org/builds/cloudstack-documentation/?fromdocs=cloudstack-documentation">Builds</a>
+          </dd>
+      </dl>
+      <hr/>
+      Free document hosting provided by <a href="http://www.readthedocs.org">Read the Docs</a>.
+
+    </div>
+  </div>
+
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+   
+
+</body>
+</html>

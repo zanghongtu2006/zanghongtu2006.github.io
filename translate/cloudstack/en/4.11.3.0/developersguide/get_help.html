@@ -1,0 +1,354 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Getting Help &mdash; Apache CloudStack 4.11.3.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Plugins Guide" href="../plugins/index.html" />
+    <link rel="prev" title="Deploying CloudStack with Ansible" href="ansible.html" /> 
+
+<!-- RTD Extra Head -->
+
+<!-- 
+Always link to the latest version, as canonical.
+http://docs.readthedocs.org/en/latest/canonical.html
+-->
+<link rel="canonical" href="../../latest/developersguide/get_help.html" />
+
+<link rel="stylesheet" href="https://assets.readthedocs.org/static/css/readthedocs-doc-embed.css" type="text/css" />
+
+<script type="text/javascript" src="../_static/readthedocs-data.js"></script>
+
+<!-- Add page-specific data, which must exist in the page js, not global -->
+<script type="text/javascript">
+READTHEDOCS_DATA['page'] = "developersguide/get_help"
+READTHEDOCS_DATA['source_suffix'] = ".rst"
+</script>
+
+<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js"></script>
+
+<!-- end RTD <extrahead> -->
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Apache CloudStack
+          
+
+          
+          </a>
+
+          
+            
+            
+            
+              <div class="version">
+                4.11.3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../conceptsandterminology/index.html">CloudStack Concepts and Terminology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickinstallationguide/qig.html">Quick Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installguide/index.html">Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../upgrading/index.html">Upgrading CloudStack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../adminguide/index.html">Usage Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Developers Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="developer_guide.html">CloudStack Installation from GIT repo for Developers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dev.html">Programmer Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugins.html">Plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alloc.html">Allocators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ansible.html">Deploying CloudStack with Ansible</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="get_help.html#">Getting Help</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="get_help.html#documentation-available">Documentation Available</a></li>
+<li class="toctree-l3"><a class="reference internal" href="get_help.html#books">Books</a></li>
+<li class="toctree-l3"><a class="reference internal" href="get_help.html#commercial-support">Commercial support</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/index.html">Plugins Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Other Documentation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/api.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://cwiki.apache.org/confluence/display/CLOUDSTACK/Home">Apache CloudStack Wiki</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/">Apache CloudStack web site</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/downloads.html">Apache CloudStack Source Code</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/apache/cloudstack">Apache CloudStack on GitHub</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Pre 4.11 Documentation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="../../../projects/cloudstack-installation">Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference external" href="../../../projects/cloudstack-administration">Administration Guide</a></li>
+<li class="toctree-l1"><a class="reference external" href="../../../projects/cloudstack-release-notes">Release Notes</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Apache CloudStack</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Developers Guide</a> &raquo;</li>
+        
+      <li>Getting Help</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/apache/cloudstack-documentation/blob/4.11.3.0/source/developersguide/get_help.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="getting-help">
+<h1>Getting Help<a class="headerlink" href="get_help.html#getting-help" title="Permalink to this headline">¶</a></h1>
+<p>Need some help getting started? Feel free to ask on the <a class="reference external" href="http://cloudstack.apache.org/mailing-lists.html">mailing list</a>:</p>
+<ul class="simple">
+<li><a class="reference external" href="http://mail-archives.apache.org/mod_mbox/cloudstack-users/">users&#64;</a>: This
+list is for users of CloudStack to seek and provide support. This is a
+moderately high volume list.</li>
+<li><a class="reference external" href="http://mail-archives.apache.org/mod_mbox/cloudstack-dev/">dev&#64;</a>: Where
+discussions about development and the project itself happen. This is a high
+volume list.</li>
+</ul>
+<p>Or on one of the following IRC channels on irc.freenode.net:</p>
+<ul class="simple">
+<li>#cloudstack - General Apache CloudStack conversation and end user support</li>
+<li>#cloudstack-dev - Development discussions</li>
+<li>#cloudstack-meeting - Weekly and ad-hoc meeting room for the Apache CloudStack community</li>
+</ul>
+<div class="section" id="documentation-available">
+<h2>Documentation Available<a class="headerlink" href="get_help.html#documentation-available" title="Permalink to this headline">¶</a></h2>
+<p>The following guides are available:</p>
+<ul class="simple">
+<li>CloudStack Concepts and Terminology</li>
+<li>Quick Installation Guide</li>
+<li>Installation Guide</li>
+<li>Upgradong CloudStack</li>
+<li>Usage Guide</li>
+<li>Developers Guide</li>
+<li>Plugins Guide</li>
+<li>Release Notes</li>
+</ul>
+<p>All at <a class="reference external" href="../../../index.html">http://docs.cloudstack.apache.org/</a></p>
+</div>
+<div class="section" id="books">
+<h2>Books<a class="headerlink" href="get_help.html#books" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://shop.oreilly.com/product/0636920034377.do"><img alt="O'Reilly 60 Recipes for Apache CloudStack" src="../_images/60recipe.gif" /></a> <a class="reference external" href="https://www.packtpub.com/virtualization-and-cloud/apache-cloudstack-cloud-computing"><img alt="Apache CloudStack Cloud Computing" src="../_images/packt.png" /></a> <a class="reference external" href="http://www.amazon.co.jp/gp/product/4798130583/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=4798130583&amp;linkCode=as2&amp;tag=aaaaaaaeaeaea-22"><img alt="CloudStack徹底入門 大型本" src="../_images/jp1.jpg" /></a> <a class="reference external" href="http://www.amazon.co.jp/CloudStack%E5%AE%9F%E8%B7%B5%E3%82%AC%E3%82%A4%E3%83%89-%E5%89%8D%E7%B7%A8-NextPublishing-%E5%A4%A7%E5%89%8A-%E7%B7%91/dp/4844395920/ref=pd_bxgy_b_img_y"><img alt="CloudStack実践ガイド[前編]" src="../_images/jp2.jpg" /></a></p>
+</div>
+<div class="section" id="commercial-support">
+<h2>Commercial support<a class="headerlink" href="get_help.html#commercial-support" title="Permalink to this headline">¶</a></h2>
+<p>Some companies offer commercial support for Apache CloudStack or their own
+product based on CloudStack.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../plugins/index.html" class="btn btn-neutral float-right" title="Plugins Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ansible.html" class="btn btn-neutral float-left" title="Deploying CloudStack with Ansible" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Apache Foundation
+      
+        <span class="commit">
+          Revision <code>7c5c9b49</code>.
+        </span>
+      
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Read the Docs</span>
+      v: 4.11.3.0
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="../../../index.html">latest</a></dd>
+        
+          <dd><a href="../../4.12.0.0/index.html">4.12.0.0</a></dd>
+        
+          <dd><a href="../index.html">4.11.3.0</a></dd>
+        
+          <dd><a href="../../4.11.2.0/index.html">4.11.2.0</a></dd>
+        
+          <dd><a href="../../4.11.1.0/index.html">4.11.1.0</a></dd>
+        
+          <dd><a href="http://docs.cloudstack.apache.org/en/master/">master</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>Downloads</dt>
+        
+      </dl>
+      <dl>
+        <dt>On Read the Docs</dt>
+          <dd>
+            <a href="http://readthedocs.org/projects/cloudstack-documentation/?fromdocs=cloudstack-documentation">Project Home</a>
+          </dd>
+          <dd>
+            <a href="http://readthedocs.org/builds/cloudstack-documentation/?fromdocs=cloudstack-documentation">Builds</a>
+          </dd>
+      </dl>
+      <hr/>
+      Free document hosting provided by <a href="http://www.readthedocs.org">Read the Docs</a>.
+
+    </div>
+  </div>
+
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+   
+
+</body>
+</html>

@@ -1,0 +1,532 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Log In to the UI &mdash; Apache CloudStack 4.13.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Roles, Accounts, Users, and Domains" href="accounts.html" />
+    <link rel="prev" title="Usage Guide" href="index.html" /> 
+
+<!-- RTD Extra Head -->
+
+<!-- 
+Always link to the latest version, as canonical.
+http://docs.readthedocs.org/en/latest/canonical.html
+-->
+<link rel="canonical" href="../../latest/adminguide/ui.html" />
+
+<link rel="stylesheet" href="https://assets.readthedocs.org/static/css/readthedocs-doc-embed.css" type="text/css" />
+
+<script type="text/javascript" src="../_static/readthedocs-data.js"></script>
+
+<!-- Add page-specific data, which must exist in the page js, not global -->
+<script type="text/javascript">
+READTHEDOCS_DATA['page'] = "adminguide/ui"
+READTHEDOCS_DATA['source_suffix'] = ".rst"
+</script>
+
+<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js"></script>
+
+<!-- end RTD <extrahead> -->
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Apache CloudStack
+          
+
+          
+          </a>
+
+          
+            
+            
+            
+              <div class="version">
+                4.13.0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../conceptsandterminology/index.html">CloudStack Concepts and Terminology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickinstallationguide/qig.html">Quick Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installguide/index.html">Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../upgrading/index.html">Upgrading CloudStack</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Usage Guide</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#user-interface">User Interface</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="ui.html#">Log In to the UI</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ui.html#end-user-s-ui-overview">End User’s UI Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ui.html#root-administrator-s-ui-overview">Root Administrator’s UI Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ui.html#logging-in-as-the-root-administrator">Logging In as the Root Administrator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ui.html#changing-the-root-password">Changing the Root Password</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ui.html#modifying-the-ui">Modifying the UI</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#managing-accounts-users-and-domains">Managing Accounts, Users and Domains</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#using-projects-to-organize-user-resources">Using Projects to Organize User Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#service-offerings">Service Offerings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#setting-up-networking-for-users">Setting up Networking for Users</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#working-with-virtual-machines">Working with Virtual Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#working-with-templates">Working with Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#working-with-hosts">Working with Hosts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#working-with-storage">Working with Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#working-with-system-virtual-machines">Working with System Virtual Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#working-with-usage">Working with Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#managing-networks-and-traffic">Managing Networks and Traffic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#managing-the-cloud">Managing the Cloud</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#system-reliability-and-availability">System Reliability and Availability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#tuning">Tuning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#events-and-troubleshooting">Events and Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../developersguide/index.html">Developers Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/index.html">Plugins Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Other Documentation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/api.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://cwiki.apache.org/confluence/display/CLOUDSTACK/Home">Apache CloudStack Wiki</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/">Apache CloudStack web site</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/downloads.html">Apache CloudStack Source Code</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/apache/cloudstack">Apache CloudStack on GitHub</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Pre 4.11 Documentation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="../../../projects/cloudstack-installation">Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference external" href="../../../projects/cloudstack-administration">Administration Guide</a></li>
+<li class="toctree-l1"><a class="reference external" href="../../../projects/cloudstack-release-notes">Release Notes</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Apache CloudStack</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Usage Guide</a> &raquo;</li>
+        
+      <li>Log In to the UI</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/apache/cloudstack-documentation/blob/4.13.0.0/source/adminguide/ui.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="log-in-to-the-ui">
+<span id="log-in-to-ui"></span><h1>Log In to the UI<a class="headerlink" href="ui.html#log-in-to-the-ui" title="Permalink to this headline">¶</a></h1>
+<p>CloudStack provides a web-based UI that can be used by both
+administrators and end users. The appropriate version of the UI is
+displayed depending on the credentials used to log in. The UI is
+available in popular browsers including IE7, IE8, IE9, Firefox 3.5+,
+Firefox 4, Safari 4, and Safari 5. The URL is: (substitute your own
+management server IP address)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">http</span><span class="p">:</span><span class="o">//&lt;</span><span class="n">management</span><span class="o">-</span><span class="n">server</span><span class="o">-</span><span class="n">ip</span><span class="o">-</span><span class="n">address</span><span class="o">&gt;</span><span class="p">:</span><span class="mi">8080</span><span class="o">/</span><span class="n">client</span>
+</pre></div>
+</div>
+<p>On a fresh Management Server installation, a guided tour splash screen
+appears. On later visits, you’ll see a login screen where you specify
+the following to proceed to your Dashboard:</p>
+<p>Username -&gt; The user ID of your account. The default username is admin.</p>
+<p>Password -&gt; The password associated with the user ID. The password for
+the default username is password.</p>
+<p>Domain -&gt; If you are a root user, leave this field blank.</p>
+<p>If you are a user in the sub-domains, enter the full path to the domain,
+excluding the root domain.</p>
+<p>For example, suppose multiple levels are created under the root domain,
+such as Comp1/hr. The users in the Comp1 domain should enter Comp1 in
+the Domain field, whereas the users in the Comp1/sales domain should
+enter Comp1/sales.</p>
+<p>For more guidance about the choices that appear when you log in to this
+UI, see Logging In as the Root Administrator.</p>
+<div class="section" id="end-user-s-ui-overview">
+<h2>End User’s UI Overview<a class="headerlink" href="ui.html#end-user-s-ui-overview" title="Permalink to this headline">¶</a></h2>
+<p>The CloudStack UI helps users of cloud infrastructure to view and use
+their cloud resources, including virtual machines, templates and ISOs,
+data volumes and snapshots, guest networks, and IP addresses. If the
+user is a member or administrator of one or more CloudStack projects,
+the UI can provide a project-oriented view.</p>
+</div>
+<div class="section" id="root-administrator-s-ui-overview">
+<h2>Root Administrator’s UI Overview<a class="headerlink" href="ui.html#root-administrator-s-ui-overview" title="Permalink to this headline">¶</a></h2>
+<p>The CloudStack UI helps the CloudStack administrator provision, view,
+and manage the cloud infrastructure, domains, user accounts, projects,
+and configuration settings. The first time you start the UI after a
+fresh Management Server installation, you can choose to follow a guided
+tour to provision your cloud infrastructure. On subsequent logins, the
+dashboard of the logged-in user appears. The various links in this
+screen and the navigation bar on the left provide access to a variety of
+administrative functions. The root administrator can also use the UI to
+perform all the same tasks that are present in the end-user’s UI.</p>
+</div>
+<div class="section" id="logging-in-as-the-root-administrator">
+<h2>Logging In as the Root Administrator<a class="headerlink" href="ui.html#logging-in-as-the-root-administrator" title="Permalink to this headline">¶</a></h2>
+<p>After the Management Server software is installed and running, you can
+run the CloudStack user interface. This UI is there to help you
+provision, view, and manage your cloud infrastructure.</p>
+<ol class="arabic">
+<li><p class="first">Open your favorite Web browser and go to this URL. Substitute the IP
+address of your own Management Server:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">http</span><span class="p">:</span><span class="o">//&lt;</span><span class="n">management</span><span class="o">-</span><span class="n">server</span><span class="o">-</span><span class="n">ip</span><span class="o">-</span><span class="n">address</span><span class="o">&gt;</span><span class="p">:</span><span class="mi">8080</span><span class="o">/</span><span class="n">client</span>
+</pre></div>
+</div>
+<p>After logging into a fresh Management Server installation, a guided
+tour splash screen appears. On later visits, you’ll be taken directly
+into the Dashboard.</p>
+</li>
+<li><p class="first">If you see the first-time splash screen, choose one of the following.</p>
+<ul>
+<li><p class="first"><strong>Continue with basic setup.</strong> Choose this if you’re just trying
+CloudStack, and you want a guided walkthrough of the simplest
+possible configuration so that you can get started right away.
+We’ll help you set up a cloud with the following features: a
+single machine that runs CloudStack software and uses NFS to
+provide storage; a single machine running VMs under the XenServer
+or KVM hypervisor; and a shared public network.</p>
+<p>The prompts in this guided tour should give you all the
+information you need, but if you want just a bit more detail, you
+can follow along in the Trial Installation Guide.</p>
+</li>
+<li><p class="first"><strong>I have used CloudStack before.</strong> Choose this if you have already
+gone through a design phase and planned a more sophisticated
+deployment, or you are ready to start scaling up a trial cloud
+that you set up earlier with the basic setup screens. In the
+Administrator UI, you can start using the more powerful features
+of CloudStack, such as advanced VLAN networking, high
+availability, additional network elements such as load balancers
+and firewalls, and support for multiple hypervisors including
+Citrix XenServer, KVM, and VMware vSphere.</p>
+<p>The root administrator Dashboard appears.</p>
+</li>
+</ul>
+</li>
+<li><p class="first">You should set a new root administrator password. If you chose basic
+setup, you’ll be prompted to create a new password right away. If you
+chose experienced user, use the steps in <a class="reference internal" href="ui.html#changing-root-password"><span class="std std-ref">Changing the Root Password</span></a>.</p>
+</li>
+</ol>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">You are logging in as the root administrator. This account manages the
+CloudStack deployment, including physical infrastructure. The root
+administrator can modify configuration settings to change basic
+functionality, create or delete user accounts, and take many actions
+that should be performed only by an authorized person. Please change
+the default password to a new, unique password.</p>
+</div>
+</div>
+<div class="section" id="changing-the-root-password">
+<span id="changing-root-password"></span><h2>Changing the Root Password<a class="headerlink" href="ui.html#changing-the-root-password" title="Permalink to this headline">¶</a></h2>
+<p>During installation and ongoing cloud administration, you will need to
+log in to the UI as the root administrator. The root administrator
+account manages the CloudStack deployment, including physical
+infrastructure. The root administrator can modify configuration settings
+to change basic functionality, create or delete user accounts, and take
+many actions that should be performed only by an authorized person. When
+first installing CloudStack, be sure to change the default password to a
+new, unique value.</p>
+<ol class="arabic">
+<li><p class="first">Open your favorite Web browser and go to this URL. Substitute the IP
+address of your own Management Server:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">http</span><span class="p">:</span><span class="o">//&lt;</span><span class="n">management</span><span class="o">-</span><span class="n">server</span><span class="o">-</span><span class="n">ip</span><span class="o">-</span><span class="n">address</span><span class="o">&gt;</span><span class="p">:</span><span class="mi">8080</span><span class="o">/</span><span class="n">client</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Log in to the UI using the current root user ID and password. The
+default is admin, password.</p>
+</li>
+<li><p class="first">Click Accounts.</p>
+</li>
+<li><p class="first">Click the admin account name.</p>
+</li>
+<li><p class="first">Click View Users.</p>
+</li>
+<li><p class="first">Click the admin user name.</p>
+</li>
+<li><p class="first">Click the Change Password button. <img alt="button to change a user's password" src="../_images/change-password.png" /></p>
+</li>
+<li><p class="first">Type the new password, and click OK.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="modifying-the-ui">
+<h1>Modifying the UI<a class="headerlink" href="ui.html#modifying-the-ui" title="Permalink to this headline">¶</a></h1>
+<p>Root Administrators can modify some aspect of the UI, like:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Changing the keyboard names/labels (in the “Add Instance” wizard only)</li>
+<li>Changing the text and the title in the “About” dialog box</li>
+<li>Changing the Help link</li>
+<li>Changing the application title on the browser tab</li>
+<li>Hiding some columns in the Instance Metrics and Volume Metrics tables/views</li>
+</ul>
+</div></blockquote>
+<p>This can be done by editing the file “/usr/share/cloudstack-management/webapp/config.js” on your management server(s).
+After the file change, you do need to clear your browser cache. Hiding columns in Instance Metrics and Volume Metrics tables/views is only applicable to end users - i.e. those are always visible to Root Administrators.</p>
+<p>This is the default config.js content (comments ommitted for brevity):</p>
+<div class="code javascript highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cloudStackOptions</span> <span class="o">=</span> <span class="p">{</span>
+   <span class="n">aboutText</span><span class="p">:</span> <span class="s2">&quot;label.app.name&quot;</span><span class="p">,</span> <span class="o">//</span> <span class="n">This</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">text</span> <span class="n">shown</span> <span class="ow">in</span> <span class="n">the</span> <span class="s1">&#39;About&#39;</span> <span class="n">box</span>
+   <span class="n">aboutTitle</span><span class="p">:</span> <span class="s2">&quot;label.about.app&quot;</span><span class="p">,</span> <span class="o">//</span> <span class="n">This</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">Application</span> <span class="s1">&#39;Title&#39;</span> <span class="n">shown</span> <span class="ow">in</span> <span class="n">the</span> <span class="s1">&#39;About&#39;</span> <span class="n">box</span>
+   <span class="n">docTitle</span><span class="p">:</span> <span class="s2">&quot;label.app.name&quot;</span><span class="p">,</span> <span class="o">//</span> <span class="n">This</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">Application</span> <span class="s1">&#39;Title&#39;</span> <span class="n">shown</span> <span class="n">on</span> <span class="n">browser</span> <span class="n">tab</span><span class="o">.</span>
+   <span class="n">helpURL</span><span class="p">:</span> <span class="s2">&quot;http://docs.cloudstack.apache.org/&quot;</span><span class="p">,</span> <span class="o">//</span> <span class="n">This</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">URL</span> <span class="n">that</span> <span class="n">opens</span> <span class="n">when</span> <span class="n">users</span> <span class="n">click</span> <span class="n">Help</span>
+   <span class="n">keyboardOptions</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">&quot;us&quot;</span><span class="p">:</span> <span class="s2">&quot;label.standard.us.keyboard&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;uk&quot;</span><span class="p">:</span> <span class="s2">&quot;label.uk.keyboard&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;fr&quot;</span><span class="p">:</span> <span class="s2">&quot;label.french.azerty.keyboard&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;jp&quot;</span><span class="p">:</span> <span class="s2">&quot;label.japanese.keyboard&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;sc&quot;</span><span class="p">:</span> <span class="s2">&quot;label.simplified.chinese.keyboard&quot;</span>
+   <span class="p">},</span>
+   <span class="n">hiddenFields</span><span class="p">:</span> <span class="p">{</span> <span class="o">//</span> <span class="n">Fields</span> <span class="n">to</span> <span class="n">be</span> <span class="n">hidden</span> <span class="n">only</span> <span class="k">for</span> <span class="n">users</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">tables</span> <span class="n">below</span>
+      <span class="s2">&quot;metrics.instances&quot;</span><span class="p">:</span> <span class="p">[],</span> <span class="o">//</span> <span class="n">Options</span> <span class="o">-</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;state&quot;</span><span class="p">,</span> <span class="s2">&quot;ipaddress&quot;</span><span class="p">,</span> <span class="s2">&quot;zonename&quot;</span><span class="p">,</span> <span class="s2">&quot;cpuused&quot;</span><span class="p">,</span> <span class="s2">&quot;memused&quot;</span><span class="p">,</span> <span class="s2">&quot;network&quot;</span><span class="p">,</span> <span class="s2">&quot;disk&quot;</span>
+      <span class="s2">&quot;metrics.volumes&quot;</span><span class="p">:</span> <span class="p">[]</span> <span class="o">//</span> <span class="n">Options</span> <span class="o">-</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;state&quot;</span><span class="p">,</span> <span class="s2">&quot;vmname&quot;</span><span class="p">,</span> <span class="s2">&quot;sizegb&quot;</span><span class="p">,</span> <span class="s2">&quot;physicalsize&quot;</span><span class="p">,</span> <span class="s2">&quot;utilization&quot;</span><span class="p">,</span> <span class="s2">&quot;storagetype&quot;</span><span class="p">,</span> <span class="s2">&quot;storage&quot;</span>
+   <span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>Example of a changed config.js file is given bellow, as well as the apropriate screenshots which reflect (most of) those changes. Make sure that you are logged in as end user account.</p>
+<div class="code javascript highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cloudStackOptions</span> <span class="o">=</span> <span class="p">{</span>
+   <span class="n">aboutText</span><span class="p">:</span> <span class="s2">&quot;Custom About text!&quot;</span><span class="p">,</span> <span class="o">//</span> <span class="n">This</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">text</span> <span class="n">shown</span> <span class="ow">in</span> <span class="n">the</span> <span class="s1">&#39;About&#39;</span> <span class="n">box</span>
+   <span class="n">aboutTitle</span><span class="p">:</span> <span class="s2">&quot;Custom About Title!&quot;</span><span class="p">,</span> <span class="o">//</span> <span class="n">This</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">Application</span> <span class="s1">&#39;Title&#39;</span> <span class="n">shown</span> <span class="ow">in</span> <span class="n">the</span> <span class="s1">&#39;About&#39;</span> <span class="n">box</span>
+   <span class="n">docTitle</span><span class="p">:</span> <span class="s2">&quot;MyCloud&quot;</span><span class="p">,</span> <span class="o">//</span> <span class="n">This</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">Application</span> <span class="s1">&#39;Title&#39;</span> <span class="n">shown</span> <span class="n">on</span> <span class="n">browser</span> <span class="n">tab</span><span class="o">.</span>
+   <span class="n">helpURL</span><span class="p">:</span> <span class="s2">&quot;http://help.mycloud.com/&quot;</span><span class="p">,</span> <span class="o">//</span> <span class="n">This</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">URL</span> <span class="n">that</span> <span class="n">opens</span> <span class="n">when</span> <span class="n">users</span> <span class="n">click</span> <span class="n">Help</span>
+   <span class="n">keyboardOptions</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">&quot;us&quot;</span><span class="p">:</span> <span class="s2">&quot;US&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;uk&quot;</span><span class="p">:</span> <span class="s2">&quot;UK&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;fr&quot;</span><span class="p">:</span> <span class="s2">&quot;FR&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;jp&quot;</span><span class="p">:</span> <span class="s2">&quot;JP&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;sc&quot;</span><span class="p">:</span> <span class="s2">&quot;CN&quot;</span>
+   <span class="p">},</span>
+   <span class="n">hiddenFields</span><span class="p">:</span> <span class="p">{</span> <span class="o">//</span> <span class="n">Fields</span> <span class="n">to</span> <span class="n">be</span> <span class="n">hidden</span> <span class="n">only</span> <span class="k">for</span> <span class="n">users</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">tables</span> <span class="n">below</span>
+      <span class="s2">&quot;metrics.instances&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;zonename&quot;</span><span class="p">],</span> <span class="o">//</span> <span class="n">Options</span> <span class="o">-</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;state&quot;</span><span class="p">,</span> <span class="s2">&quot;ipaddress&quot;</span><span class="p">,</span> <span class="s2">&quot;zonename&quot;</span><span class="p">,</span> <span class="s2">&quot;cpuused&quot;</span><span class="p">,</span> <span class="s2">&quot;memused&quot;</span><span class="p">,</span> <span class="s2">&quot;network&quot;</span><span class="p">,</span> <span class="s2">&quot;disk&quot;</span>
+      <span class="s2">&quot;metrics.volumes&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;utilization&quot;</span><span class="p">]</span> <span class="o">//</span> <span class="n">Options</span> <span class="o">-</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;state&quot;</span><span class="p">,</span> <span class="s2">&quot;vmname&quot;</span><span class="p">,</span> <span class="s2">&quot;sizegb&quot;</span><span class="p">,</span> <span class="s2">&quot;physicalsize&quot;</span><span class="p">,</span> <span class="s2">&quot;utilization&quot;</span><span class="p">,</span> <span class="s2">&quot;storagetype&quot;</span><span class="p">,</span> <span class="s2">&quot;storage&quot;</span>
+   <span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p><img alt="Notice custom title and text" src="../_images/about-cloudstack-customized.JPG" /></p>
+<p>Notice custom title and text</p>
+<p><img alt="Notice short keyboard names (based on country code)" src="../_images/add-instance-keyboards-customized.JPG" /></p>
+<p>Notice short keyboard names (based on country code)</p>
+<p><img alt="Notice missing &quot;Zone&quot; column" src="../_images/instance-metrics-customized-view.JPG" /></p>
+<p>Notice “Zone” column is hidden</p>
+<p><img alt="Notice missing &quot;Utilisation&quot; column" src="../_images/volume-metrics-customized-view.JPG" /></p>
+<p>Notice “Utilisation” column is hidden</p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="accounts.html" class="btn btn-neutral float-right" title="Roles, Accounts, Users, and Domains" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Usage Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Apache Foundation
+      
+        <span class="commit">
+          Revision <code>29a3d9e2</code>.
+        </span>
+      
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Read the Docs</span>
+      v: 4.13.0.0
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="http://docs.cloudstack.apache.org/en/master/">master</a></dd>
+        
+          <dd><a href="../../../index.html">latest</a></dd>
+        
+          <dd><a href="../index.html">4.13.0.0</a></dd>
+        
+          <dd><a href="../../4.12.0.0/index.html">4.12.0.0</a></dd>
+        
+          <dd><a href="../../4.11.3.0/index.html">4.11.3.0</a></dd>
+        
+          <dd><a href="../../4.11.2.0/index.html">4.11.2.0</a></dd>
+        
+          <dd><a href="../../4.11.1.0/index.html">4.11.1.0</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="http://readthedocs.org/projects/cloudstack-documentation/downloads/htmlzip/4.13.0.0/">html</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>On Read the Docs</dt>
+          <dd>
+            <a href="http://readthedocs.org/projects/cloudstack-documentation/?fromdocs=cloudstack-documentation">Project Home</a>
+          </dd>
+          <dd>
+            <a href="http://readthedocs.org/builds/cloudstack-documentation/?fromdocs=cloudstack-documentation">Builds</a>
+          </dd>
+      </dl>
+      <hr/>
+      Free document hosting provided by <a href="http://www.readthedocs.org">Read the Docs</a>.
+
+    </div>
+  </div>
+
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+   
+
+</body>
+</html>

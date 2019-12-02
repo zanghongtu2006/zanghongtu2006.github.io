@@ -1,0 +1,457 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Using Remote Access VPN &mdash; Apache CloudStack 4.11.1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Using Tags to Organize Resources in the Cloud" href="../management.html" />
+    <link rel="prev" title="Guest Traffic" href="../networking_and_traffic.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+
+<!-- RTD Extra Head -->
+
+<!-- 
+Always link to the latest version, as canonical.
+http://docs.readthedocs.org/en/latest/canonical.html
+-->
+<link rel="canonical" href="using_remote_access.html" />
+
+<link rel="stylesheet" href="https://media.readthedocs.org/css/readthedocs-doc-embed.css" type="text/css" />
+
+<script type="text/javascript" src="../../_static/readthedocs-data.js"></script>
+
+<!-- Add page-specific data, which must exist in the page js, not global -->
+<script type="text/javascript">
+READTHEDOCS_DATA['page'] = 'adminguide/networking/using_remote_access'
+READTHEDOCS_DATA['source_suffix'] = '.rst'
+</script>
+
+<script type="text/javascript" src="https://media.readthedocs.org/javascript/readthedocs-analytics.js"></script>
+
+<!-- end RTD <extrahead> -->
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Apache CloudStack
+          
+
+          
+          </a>
+
+          
+            
+            
+            
+              <div class="version">
+                4.11.1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../conceptsandterminology/index.html">CloudStack Concepts and Terminology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quickinstallationguide/qig.html">Quick Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installguide/index.html">Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../upgrading/index.html">Upgrading CloudStack</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Usage Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../index.html#user-interface">User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#managing-accounts-users-and-domains">Managing Accounts, Users and Domains</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#using-projects-to-organize-user-resources">Using Projects to Organize User Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#service-offerings">Service Offerings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#setting-up-networking-for-users">Setting up Networking for Users</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#working-with-virtual-machines">Working with Virtual Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#working-with-templates">Working with Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#working-with-hosts">Working with Hosts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#working-with-storage">Working with Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#working-with-system-virtual-machines">Working with System Virtual Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#working-with-usage">Working with Usage</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#managing-networks-and-traffic">Managing Networks and Traffic</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../networking_and_traffic.html">Guest Traffic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../networking_and_traffic.html#networking-in-a-pod">Networking in a Pod</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../networking_and_traffic.html#networking-in-a-zone">Networking in a Zone</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../networking_and_traffic.html#basic-zone-physical-network-configuration">Basic Zone Physical Network Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../networking_and_traffic.html#advanced-zone-physical-network-configuration">Advanced Zone Physical Network Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../networking_and_traffic.html#using-multiple-guest-networks">Using Multiple Guest Networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../networking_and_traffic.html#ip-reservation-in-isolated-guest-networks">IP Reservation in Isolated Guest Networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../networking_and_traffic.html#reserving-public-ip-addresses-and-vlans-for-accounts">Reserving Public IP Addresses and VLANs for Accounts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../networking_and_traffic.html#configuring-multiple-ip-addresses-on-a-single-nic">Configuring Multiple IP Addresses on a Single NIC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../networking_and_traffic.html#about-multiple-ip-ranges">About Multiple IP Ranges</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../networking_and_traffic.html#about-elastic-ips">About Elastic IPs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../networking_and_traffic.html#portable-ips">Portable IPs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../networking_and_traffic.html#multiple-subnets-in-shared-network">Multiple Subnets in Shared Network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../networking_and_traffic.html#isolation-in-advanced-zone-using-private-vlan">Isolation in Advanced Zone Using Private VLAN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../networking_and_traffic.html#security-groups">Security Groups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../networking_and_traffic.html#external-firewalls-and-load-balancers">External Firewalls and Load Balancers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../networking_and_traffic.html#global-server-load-balancing-support">Global Server Load Balancing Support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../networking_and_traffic.html#guest-ip-ranges">Guest IP Ranges</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../networking_and_traffic.html#acquiring-a-new-ip-address">Acquiring a New IP Address</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../networking_and_traffic.html#releasing-an-ip-address">Releasing an IP Address</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../networking_and_traffic.html#static-nat">Static NAT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../networking_and_traffic.html#ip-forwarding-and-firewalling">IP Forwarding and Firewalling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../networking_and_traffic.html#ip-load-balancing">IP Load Balancing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../networking_and_traffic.html#dns-and-dhcp">DNS and DHCP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../networking_and_traffic.html#remote-access-vpn">Remote Access VPN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../networking_and_traffic.html#about-inter-vlan-routing-ntier-apps">About Inter-VLAN Routing (nTier Apps)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../networking_and_traffic.html#configuring-a-virtual-private-cloud">Configuring a Virtual Private Cloud</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../networking_and_traffic.html#persistent-networks">Persistent Networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../networking_and_traffic.html#setup-a-palo-alto-networks-firewall">Setup a Palo Alto Networks Firewall</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="using_remote_access.html#">Using Remote Access VPN</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="using_remote_access.html#mac-osx">Mac OSX</a></li>
+<li class="toctree-l4"><a class="reference internal" href="using_remote_access.html#microsoft-windows-8">Microsoft Windows 8</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#managing-the-cloud">Managing the Cloud</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#system-reliability-and-availability">System Reliability and Availability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#tuning">Tuning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#events-and-troubleshooting">Events and Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../developersguide/index.html">Developers Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugins/index.html">Plugins Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../releasenotes/index.html">Release Notes</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Other Documentation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/api.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://cwiki.apache.org/confluence/display/CLOUDSTACK/Home">Apache CloudStack Wiki</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/">Apache CloudStack web site</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/downloads.html">Apache CloudStack Source Code</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/apache/cloudstack">Apache CloudStack on GitHub</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Pre 4.11 Documentation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="../../../../projects/cloudstack-installation">Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference external" href="../../../../projects/cloudstack-administration">Administration Guide</a></li>
+<li class="toctree-l1"><a class="reference external" href="../../../../projects/cloudstack-release-notes">Release Notes</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Apache CloudStack</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Usage Guide</a> &raquo;</li>
+        
+      <li>Using Remote Access VPN</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/apache/cloudstack-documentation/blob/4.11.1.0/source/adminguide/networking/using_remote_access.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="using-remote-access-vpn">
+<h1>Using Remote Access VPN<a class="headerlink" href="using_remote_access.html#using-remote-access-vpn" title="Permalink to this headline">¶</a></h1>
+<div class="sidebar">
+<p class="first sidebar-title">Clients</p>
+<p class="sidebar-subtitle">Per Operating System instructions</p>
+<div class="contents local last topic" id="contents">
+<ul class="simple">
+<li><a class="reference internal" href="using_remote_access.html#mac-osx" id="id1">Mac OSX</a></li>
+<li><a class="reference internal" href="using_remote_access.html#microsoft-windows-8" id="id2">Microsoft Windows 8</a></li>
+</ul>
+</div>
+</div>
+<p>Remote Access VPN connection to VPC or Guest Network to access Instances and applications. This section consider you have enable Remonte acccess VPN, refer to: <a class="reference internal" href="../networking_and_traffic.html#remote-access-vpn"><span class="std std-ref">Remote Access VPN</span></a>.</p>
+<p>When connected to a VPC via VPN, the client have access to all Tiers.</p>
+<p>Following information is required to confiture VPN client:</p>
+<blockquote>
+<div><ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">Public</span> <span class="pre">IP</span></code>: source NAT with VPN enabled.</li>
+<li><code class="docutils literal notranslate"><span class="pre">IPsec</span> <span class="pre">pre-shared</span> <span class="pre">key</span></code>: Provide at the VPN activation.</li>
+<li><code class="docutils literal notranslate"><span class="pre">Username</span></code> VPN account username.</li>
+<li><code class="docutils literal notranslate"><span class="pre">Password</span></code> VPN account password.</li>
+</ul>
+</div></blockquote>
+<div class="section" id="mac-osx">
+<h2><a class="toc-backref" href="using_remote_access.html#id1">Mac OSX</a><a class="headerlink" href="using_remote_access.html#mac-osx" title="Permalink to this headline">¶</a></h2>
+<p>Mac OSX provide native IPsec VPN client.</p>
+<ol class="arabic">
+<li><p class="first">Into System Preferences -&gt; Network</p>
+</li>
+<li><p class="first">Click “+” button and add a VPN:</p>
+<ul class="simple">
+<li>Interface: VPN</li>
+<li>VPN Type: L2TP over IPSec</li>
+<li>Service Name: (ex: test-vpc1)</li>
+</ul>
+<a class="reference internal image-reference" href="../../_images/osxvpn_netconf.png"><img alt="../../_images/osxvpn_netconf.png" class="align-center" src="../../_images/osxvpn_netconf.png" style="width: 400px;" /></a>
+</li>
+<li><p class="first">Configure L2TP over IPsec</p>
+<a class="reference internal image-reference" href="../../_images/osxvpn_form1.png"><img alt="../../_images/osxvpn_form1.png" class="align-center" src="../../_images/osxvpn_form1.png" style="width: 400px;" /></a>
+<a class="reference internal image-reference" href="../../_images/osxvpn_form2.png"><img alt="../../_images/osxvpn_form2.png" class="align-center" src="../../_images/osxvpn_form2.png" style="width: 400px;" /></a>
+</li>
+<li><p class="first">Inside Authentication Settings…</p>
+<a class="reference internal image-reference" href="../../_images/osxvpn_form3.png"><img alt="../../_images/osxvpn_form3.png" class="align-center" src="../../_images/osxvpn_form3.png" style="width: 400px;" /></a>
+</li>
+<li><p class="first">Connect into VPN</p>
+<ol class="arabic">
+<li><p class="first">Click Apply to apply Network configuration changes.</p>
+</li>
+<li><p class="first">Click Connect to initiate VPN connection.</p>
+<a class="reference internal image-reference" href="../../_images/osxvpn_connected.png"><img alt="../../_images/osxvpn_connected.png" class="align-center" src="../../_images/osxvpn_connected.png" style="width: 400px;" /></a>
+</li>
+</ol>
+</li>
+</ol>
+</div>
+<div class="section" id="microsoft-windows-8">
+<h2><a class="toc-backref" href="using_remote_access.html#id2">Microsoft Windows 8</a><a class="headerlink" href="using_remote_access.html#microsoft-windows-8" title="Permalink to this headline">¶</a></h2>
+<p>Following instruction have been perform using Windows 8.1 using Native VPN client.</p>
+<ol class="arabic">
+<li><p class="first">Create network VPN connection</p>
+<a class="reference internal image-reference" href="../../_images/win1.png"><img alt="../../_images/win1.png" class="align-center" src="../../_images/win1.png" style="width: 400px;" /></a>
+<a class="reference internal image-reference" href="../../_images/win2.png"><img alt="../../_images/win2.png" class="align-center" src="../../_images/win2.png" style="width: 400px;" /></a>
+<a class="reference internal image-reference" href="../../_images/win3.png"><img alt="../../_images/win3.png" class="align-center" src="../../_images/win3.png" style="width: 400px;" /></a>
+<a class="reference internal image-reference" href="../../_images/win4.png"><img alt="../../_images/win4.png" class="align-center" src="../../_images/win4.png" style="width: 400px;" /></a>
+<a class="reference internal image-reference" href="../../_images/win5.png"><img alt="../../_images/win5.png" class="align-center" src="../../_images/win5.png" style="width: 400px;" /></a>
+<a class="reference internal image-reference" href="../../_images/win6.png"><img alt="../../_images/win6.png" class="align-center" src="../../_images/win6.png" style="width: 400px;" /></a>
+</li>
+<li><p class="first">Configure VPN settings</p>
+<a class="reference internal image-reference" href="../../_images/win7.png"><img alt="../../_images/win7.png" class="align-center" src="../../_images/win7.png" style="width: 400px;" /></a>
+<a class="reference internal image-reference" href="../../_images/win8.png"><img alt="../../_images/win8.png" class="align-center" src="../../_images/win8.png" style="width: 400px;" /></a>
+<a class="reference internal image-reference" href="../../_images/win9.png"><img alt="../../_images/win9.png" class="align-center" src="../../_images/win9.png" style="width: 400px;" /></a>
+<a class="reference internal image-reference" href="../../_images/win10.png"><img alt="../../_images/win10.png" class="align-center" src="../../_images/win10.png" style="width: 400px;" /></a>
+<a class="reference internal image-reference" href="../../_images/win11.png"><img alt="../../_images/win11.png" class="align-center" src="../../_images/win11.png" style="width: 400px;" /></a>
+</li>
+<li><p class="first">Initiate VPN connection</p>
+<a class="reference internal image-reference" href="../../_images/win12.png"><img alt="../../_images/win12.png" class="align-center" src="../../_images/win12.png" style="width: 400px;" /></a>
+<a class="reference internal image-reference" href="../../_images/win13.png"><img alt="../../_images/win13.png" class="align-center" src="../../_images/win13.png" style="width: 400px;" /></a>
+<a class="reference internal image-reference" href="../../_images/win14.png"><img alt="../../_images/win14.png" class="align-center" src="../../_images/win14.png" style="width: 400px;" /></a>
+</li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../management.html" class="btn btn-neutral float-right" title="Using Tags to Organize Resources in the Cloud" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../networking_and_traffic.html" class="btn btn-neutral" title="Guest Traffic" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Apache Foundation
+      
+        <span class="commit">
+          Revision <code>70858617</code>.
+        </span>
+      
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Read the Docs</span>
+      v: 4.11.1.0
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="../../../../index.html">latest</a></dd>
+        
+          <dd><a href="../../../4.11.2.0/index.html">4.11.2.0</a></dd>
+        
+          <dd><a href="../../index.html">4.11.1.0</a></dd>
+        
+          <dd><a href="http://docs.cloudstack.apache.org/en/master/">master</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="http://readthedocs.org/projects/cloudstack-documentation/downloads/pdf/4.11.1.0/">pdf</a></dd>
+        
+          <dd><a href="http://readthedocs.org/projects/cloudstack-documentation/downloads/htmlzip/4.11.1.0/">htmlzip</a></dd>
+        
+          <dd><a href="http://readthedocs.org/projects/cloudstack-documentation/downloads/epub/4.11.1.0/">epub</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>On Read the Docs</dt>
+          <dd>
+            <a href="http://readthedocs.org/projects/cloudstack-documentation/?fromdocs=cloudstack-documentation">Project Home</a>
+          </dd>
+          <dd>
+            <a href="http://readthedocs.org/builds/cloudstack-documentation/?fromdocs=cloudstack-documentation">Builds</a>
+          </dd>
+      </dl>
+      <hr/>
+      Free document hosting provided by <a href="http://www.readthedocs.org">Read the Docs</a>.
+
+    </div>
+  </div>
+
+
+
+  
+
+    
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../../',
+              VERSION:'4.11.1.0',
+              LANGUAGE:'en',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="https://media.readthedocs.org/javascript/jquery/jquery-2.0.3.min.js"></script>
+        <script type="text/javascript" src="https://media.readthedocs.org/javascript/jquery/jquery-migrate-1.2.1.min.js"></script>
+        <script type="text/javascript" src="https://media.readthedocs.org/javascript/underscore.js"></script>
+        <script type="text/javascript" src="https://media.readthedocs.org/javascript/doctools.js"></script>
+        <script type="text/javascript" src="https://media.readthedocs.org/javascript/readthedocs-doc-embed.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

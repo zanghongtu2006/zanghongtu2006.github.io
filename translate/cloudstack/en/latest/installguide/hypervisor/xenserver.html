@@ -1,0 +1,1031 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Host Citrix XenServer Installation &mdash; Apache CloudStack 4.13.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Additional Installation Options" href="../optional_installation.html" />
+    <link rel="prev" title="Host VMware vSphere Installation" href="vsphere.html" /> 
+
+<!-- RTD Extra Head -->
+
+<!-- 
+Always link to the latest version, as canonical.
+http://docs.readthedocs.org/en/latest/canonical.html
+-->
+<link rel="canonical" href="xenserver.html" />
+
+<link rel="stylesheet" href="https://assets.readthedocs.org/static/css/readthedocs-doc-embed.css" type="text/css" />
+
+<script type="text/javascript" src="../../_static/readthedocs-data.js"></script>
+
+<!-- Add page-specific data, which must exist in the page js, not global -->
+<script type="text/javascript">
+READTHEDOCS_DATA['page'] = "installguide/hypervisor/xenserver"
+READTHEDOCS_DATA['source_suffix'] = ".rst"
+</script>
+
+<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js"></script>
+
+<!-- end RTD <extrahead> -->
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Apache CloudStack
+          
+
+          
+          </a>
+
+          
+            
+            
+            
+              <div class="version">
+                latest
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../conceptsandterminology/index.html">CloudStack Concepts and Terminology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quickinstallationguide/qig.html">Quick Installation Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Installation Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../index.html#building-from-source">Building from Source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#general-installation">General Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#configuration">Configuration</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#hypervisor-setup">Hypervisor Setup</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="hyperv.html">Host Hyper-V Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="kvm.html">Host KVM Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lxc.html">Host LXC Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vsphere.html">Host VMware vSphere Installation</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="xenserver.html#">Host Citrix XenServer Installation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="xenserver.html#system-requirements-for-xenserver-hosts">System Requirements for XenServer Hosts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="xenserver.html#xenserver-installation-steps">XenServer Installation Steps</a></li>
+<li class="toctree-l4"><a class="reference internal" href="xenserver.html#configure-xenserver-dom0-memory">Configure XenServer dom0 Memory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="xenserver.html#username-and-password">Username and Password</a></li>
+<li class="toctree-l4"><a class="reference internal" href="xenserver.html#time-synchronization">Time Synchronization</a></li>
+<li class="toctree-l4"><a class="reference internal" href="xenserver.html#install-cloudstack-xenserver-support-package-csp">Install CloudStack XenServer Support Package (CSP)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="xenserver.html#primary-storage-setup-for-xenserver">Primary Storage Setup for XenServer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="xenserver.html#iscsi-multipath-setup-for-xenserver-optional">iSCSI Multipath Setup for XenServer (Optional)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="xenserver.html#physical-networking-setup-for-xenserver">Physical Networking Setup for XenServer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="xenserver.html#upgrading-xenserver-versions">Upgrading XenServer Versions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#optional-installation">Optional Installation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../upgrading/index.html">Upgrading CloudStack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../adminguide/index.html">Usage Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developersguide/index.html">Developers Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugins/index.html">Plugins Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../releasenotes/index.html">Release Notes</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Other Documentation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/api.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://cwiki.apache.org/confluence/display/CLOUDSTACK/Home">Apache CloudStack Wiki</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/">Apache CloudStack web site</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/downloads.html">Apache CloudStack Source Code</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/apache/cloudstack">Apache CloudStack on GitHub</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Pre 4.11 Documentation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="../../../../projects/cloudstack-installation">Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference external" href="../../../../projects/cloudstack-administration">Administration Guide</a></li>
+<li class="toctree-l1"><a class="reference external" href="../../../../projects/cloudstack-release-notes">Release Notes</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Apache CloudStack</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Installation Guide</a> &raquo;</li>
+        
+      <li>Host Citrix XenServer Installation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/apache/cloudstack-documentation/blob/4.13.0.0/source/installguide/hypervisor/xenserver.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="host-citrix-xenserver-installation">
+<h1>Host Citrix XenServer Installation<a class="headerlink" href="xenserver.html#host-citrix-xenserver-installation" title="Permalink to this headline">¶</a></h1>
+<p>If you want to use the Citrix XenServer hypervisor to run guest virtual
+machines, install XenServer 6.0 or XenServer 6.0.2 on the host(s) in
+your cloud. For an initial installation, follow the steps below. If you
+have previously installed XenServer and want to upgrade to another
+version, see <a class="reference internal" href="xenserver.html#upgrading-xenserver-version"><span class="std std-ref">Upgrading XenServer Versions</span></a>.</p>
+<div class="section" id="system-requirements-for-xenserver-hosts">
+<h2>System Requirements for XenServer Hosts<a class="headerlink" href="xenserver.html#system-requirements-for-xenserver-hosts" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">The host must be certified as compatible with one of the following.
+See the Citrix Hardware Compatibility Guide:
+<a class="reference external" href="http://hcl.xensource.com">http://hcl.xensource.com</a></p>
+<blockquote>
+<div><ul class="simple">
+<li>XenServer 5.6 SP2</li>
+<li>XenServer 6.0</li>
+<li>XenServer 6.0.2</li>
+<li>XenServer 6.1.0</li>
+<li>XenServer 6.2.0</li>
+<li>XenServer 6.5.0</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">You must re-install Citrix XenServer if you are going to re-use a
+host from a previous install.</p>
+</li>
+<li><p class="first">Must support HVM (Intel-VT or AMD-V enabled)</p>
+</li>
+<li><p class="first">Be sure all the hotfixes provided by the hypervisor vendor are
+applied. Track the release of hypervisor patches through your
+hypervisor vendor’s support channel, and apply patches as soon as
+possible after they are released. CloudStack will not track or notify
+you of required hypervisor patches. It is essential that your hosts
+are completely up to date with the provided hypervisor patches. The
+hypervisor vendor is likely to refuse to support any system that is
+not up to date with patches.</p>
+</li>
+<li><p class="first">All hosts within a cluster must be homogeneous. The CPUs must be of
+the same type, count, and feature flags.</p>
+</li>
+<li><p class="first">Must support HVM (Intel-VT or AMD-V enabled in BIOS)</p>
+</li>
+<li><p class="first">64-bit x86 CPU (more cores results in better performance)</p>
+</li>
+<li><p class="first">Hardware virtualization support required</p>
+</li>
+<li><p class="first">4 GB of memory</p>
+</li>
+<li><p class="first">36 GB of local disk</p>
+</li>
+<li><p class="first">At least 1 NIC</p>
+</li>
+<li><p class="first">Statically allocated IP Address</p>
+</li>
+<li><p class="first">When you deploy CloudStack, the hypervisor host must not have any VMs
+already running</p>
+</li>
+</ul>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">The lack of up-to-date hotfixes can lead to data corruption and lost VMs.</p>
+</div>
+</div>
+<div class="section" id="xenserver-installation-steps">
+<h2>XenServer Installation Steps<a class="headerlink" href="xenserver.html#xenserver-installation-steps" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">From <a class="reference external" href="https://www.citrix.com/English/ss/downloads/">https://www.citrix.com/English/ss/downloads/</a>,
+download the appropriate version of XenServer for your CloudStack
+version (see <a class="reference external" href="xenserver.html#system-requirements-for-xenserver-hosts">“System Requirements for XenServer Hosts”</a>). Install it using
+the Citrix XenServer Installation Guide.</p>
+<p>Older Versions of XenServer:</p>
+<p>Note that you can download the most recent release of XenServer
+without having a Citrix account. If you wish to download older
+versions, you will need to create an account and look through the
+download archives.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="configure-xenserver-dom0-memory">
+<h2>Configure XenServer dom0 Memory<a class="headerlink" href="xenserver.html#configure-xenserver-dom0-memory" title="Permalink to this headline">¶</a></h2>
+<p>Configure the XenServer dom0 settings to allocate more memory to dom0.
+This can enable XenServer to handle larger numbers of virtual machines.
+We recommend 2940 MB of RAM for XenServer dom0. For instructions on how
+to do this, see <a class="reference external" href="http://support.citrix.com/article/CTX126531">http://support.citrix.com/article/CTX126531</a>. The article refers to
+XenServer 5.6, but the same information applies to XenServer 6.0.</p>
+</div>
+<div class="section" id="username-and-password">
+<h2>Username and Password<a class="headerlink" href="xenserver.html#username-and-password" title="Permalink to this headline">¶</a></h2>
+<p>All XenServers in a cluster must have the same username and password as
+configured in CloudStack.</p>
+</div>
+<div class="section" id="time-synchronization">
+<h2>Time Synchronization<a class="headerlink" href="xenserver.html#time-synchronization" title="Permalink to this headline">¶</a></h2>
+<p>The host must be set to use NTP. All hosts in a pod must have the same
+time.</p>
+<ol class="arabic">
+<li><p class="first">Install NTP.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># yum install ntp</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Edit the NTP configuration file to point to your NTP server.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># vi /etc/ntp.conf</span>
+</pre></div>
+</div>
+<p>Add one or more server lines in this file with the names of the NTP
+servers you want to use. For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">server</span> <span class="mf">0.</span><span class="n">xenserver</span><span class="o">.</span><span class="n">pool</span><span class="o">.</span><span class="n">ntp</span><span class="o">.</span><span class="n">org</span>
+<span class="n">server</span> <span class="mf">1.</span><span class="n">xenserver</span><span class="o">.</span><span class="n">pool</span><span class="o">.</span><span class="n">ntp</span><span class="o">.</span><span class="n">org</span>
+<span class="n">server</span> <span class="mf">2.</span><span class="n">xenserver</span><span class="o">.</span><span class="n">pool</span><span class="o">.</span><span class="n">ntp</span><span class="o">.</span><span class="n">org</span>
+<span class="n">server</span> <span class="mf">3.</span><span class="n">xenserver</span><span class="o">.</span><span class="n">pool</span><span class="o">.</span><span class="n">ntp</span><span class="o">.</span><span class="n">org</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Restart the NTP client.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># service ntpd restart</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Make sure NTP will start again upon reboot.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># chkconfig ntpd on</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="install-cloudstack-xenserver-support-package-csp">
+<h2>Install CloudStack XenServer Support Package (CSP)<a class="headerlink" href="xenserver.html#install-cloudstack-xenserver-support-package-csp" title="Permalink to this headline">¶</a></h2>
+<p>(Optional)</p>
+<p>To enable security groups, elastic load balancing, and elastic IP on
+XenServer, download and install the CloudStack XenServer Support Package
+(CSP). After installing XenServer, perform the following additional
+steps on each XenServer host.</p>
+<p><strong>For XenServer 6.1:</strong></p>
+<p>CSP functionality is already present in XenServer 6.1</p>
+<ol class="arabic">
+<li><p class="first">Run the below command</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">xe</span><span class="o">-</span><span class="n">switch</span><span class="o">-</span><span class="n">network</span><span class="o">-</span><span class="n">backend</span> <span class="n">bridge</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">update sysctl.conf with the following</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>net.bridge.bridge-nf-call-iptables = 1
+net.bridge.bridge-nf-call-ip6tables = 0
+net.bridge.bridge-nf-call-arptables = 1
+
+$ sysctl -p /etc/sysctl.conf
+</pre></div>
+</div>
+</li>
+</ol>
+<p><strong>For XenServer 6.0.2, 6.0, 5.6 SP2:</strong></p>
+<ol class="arabic">
+<li><p class="first">Download the CSP software onto the XenServer host from one of the
+following links:</p>
+<p>For XenServer 6.0.2:</p>
+<p><a class="reference external" href="http://download.cloud.com/releases/3.0.1/XS-6.0.2/xenserver-cloud-supp.tgz">http://download.cloud.com/releases/3.0.1/XS-6.0.2/xenserver-cloud-supp.tgz</a></p>
+<p>For XenServer 5.6 SP2:</p>
+<p><a class="reference external" href="http://download.cloud.com/releases/2.2.0/xenserver-cloud-supp.tgz">http://download.cloud.com/releases/2.2.0/xenserver-cloud-supp.tgz</a></p>
+<p>For XenServer 6.0:</p>
+<p><a class="reference external" href="http://download.cloud.com/releases/3.0/xenserver-cloud-supp.tgz">http://download.cloud.com/releases/3.0/xenserver-cloud-supp.tgz</a></p>
+</li>
+<li><p class="first">Extract the file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># tar xf xenserver-cloud-supp.tgz</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Run the following script:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># xe-install-supplemental-pack xenserver-cloud-supp.iso</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">If the XenServer host is part of a zone that uses basic networking,
+disable Open vSwitch (OVS):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># xe-switch-network-backend  bridge</span>
+</pre></div>
+</div>
+<p>Restart the host machine when prompted.</p>
+</li>
+</ol>
+<p>The XenServer host is now ready to be added to CloudStack.</p>
+</div>
+<div class="section" id="primary-storage-setup-for-xenserver">
+<h2>Primary Storage Setup for XenServer<a class="headerlink" href="xenserver.html#primary-storage-setup-for-xenserver" title="Permalink to this headline">¶</a></h2>
+<p>CloudStack natively supports NFS, iSCSI and local storage. If you are
+using one of these storage types, there is no need to create the
+XenServer Storage Repository (“SR”).</p>
+<p>If, however, you would like to use storage connected via some other
+technology, such as FiberChannel, you must set up the SR yourself. To do
+so, perform the following steps. If you have your hosts in a XenServer
+pool, perform the steps on the master node. If you are working with a
+single XenServer which is not part of a cluster, perform the steps on
+that XenServer.</p>
+<ol class="arabic">
+<li><p class="first">Connect FiberChannel cable to all hosts in the cluster and to the
+FiberChannel storage host.</p>
+</li>
+<li><p class="first">Rescan the SCSI bus. Either use the following command or use
+XenCenter to perform an HBA rescan.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># scsi-rescan</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Repeat step 2 on every host.</p>
+</li>
+<li><p class="first">Check to be sure you see the new SCSI disk.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># ls /dev/disk/by-id/scsi-360a98000503365344e6f6177615a516b -l</span>
+</pre></div>
+</div>
+<p>The output should look like this, although the specific file name
+will be different (scsi-&lt;scsiID&gt;):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lrwxrwxrwx</span> <span class="mi">1</span> <span class="n">root</span> <span class="n">root</span> <span class="mi">9</span> <span class="n">Mar</span> <span class="mi">16</span> <span class="mi">13</span><span class="p">:</span><span class="mi">47</span>
+<span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">disk</span><span class="o">/</span><span class="n">by</span><span class="o">-</span><span class="nb">id</span><span class="o">/</span><span class="n">scsi</span><span class="o">-</span><span class="mi">360</span><span class="n">a98000503365344e6f6177615a516b</span> <span class="o">-&gt;</span> <span class="o">../../</span><span class="n">sdc</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Repeat step 4 on every host.</p>
+</li>
+<li><p class="first">On the storage server, run this command to get a unique ID for the
+new SR.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># uuidgen</span>
+</pre></div>
+</div>
+<p>The output should look like this, although the specific ID will be
+different:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">e6849e96</span><span class="o">-</span><span class="mi">86</span><span class="n">c3</span><span class="o">-</span><span class="mi">4</span><span class="n">f2c</span><span class="o">-</span><span class="mi">8</span><span class="n">fcc</span><span class="o">-</span><span class="mi">350</span><span class="n">cc711be3d</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Create the FiberChannel SR. In name-label, use the unique ID you just
+generated.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># xe sr-create type=lvmohba shared=true</span>
+<span class="n">device</span><span class="o">-</span><span class="n">config</span><span class="p">:</span><span class="n">SCSIid</span><span class="o">=</span><span class="mi">360</span><span class="n">a98000503365344e6f6177615a516b</span>
+<span class="n">name</span><span class="o">-</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;e6849e96-86c3-4f2c-8fcc-350cc711be3d&quot;</span>
+</pre></div>
+</div>
+<p>This command returns a unique ID for the SR, like the following
+example (your ID will be different):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">7</span><span class="n">a143820</span><span class="o">-</span><span class="n">e893</span><span class="o">-</span><span class="mi">6</span><span class="n">c6a</span><span class="o">-</span><span class="mf">236e-472</span><span class="n">da6ee66bf</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">To create a human-readable description for the SR, use the following
+command. In uuid, use the SR ID returned by the previous command. In
+name-description, set whatever friendly text you prefer.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># xe sr-param-set uuid=7a143820-e893-6c6a-236e-472da6ee66bf name-description=&quot;Fiber Channel storage repository&quot;</span>
+</pre></div>
+</div>
+<p>Make note of the values you will need when you add this storage to
+CloudStack later (see <a class="reference external" href="http://docs.cloudstack.apache.org/en/latest/installguide/hypervisor/configuration.html#add-primary-storage">“Add Primary Storage”</a>). In the Add Primary Storage
+dialog, in Protocol, you will choose PreSetup. In SR Name-Label, you
+will enter the name-label you set earlier (in this example,
+e6849e96-86c3-4f2c-8fcc-350cc711be3d).</p>
+</li>
+<li><p class="first">(Optional) If you want to enable multipath I/O on a FiberChannel SAN,
+refer to the documentation provided by the SAN vendor.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="iscsi-multipath-setup-for-xenserver-optional">
+<h2>iSCSI Multipath Setup for XenServer (Optional)<a class="headerlink" href="xenserver.html#iscsi-multipath-setup-for-xenserver-optional" title="Permalink to this headline">¶</a></h2>
+<p>When setting up the storage repository on a Citrix XenServer, you can
+enable multipath I/O, which uses redundant physical components to
+provide greater reliability in the connection between the server and the
+SAN. To enable multipathing, use a SAN solution that is supported for
+Citrix servers and follow the procedures in Citrix documentation. The
+following links provide a starting point:</p>
+<ul class="simple">
+<li><a class="reference external" href="http://support.citrix.com/article/CTX118791">http://support.citrix.com/article/CTX118791</a></li>
+<li><a class="reference external" href="http://support.citrix.com/article/CTX125403">http://support.citrix.com/article/CTX125403</a></li>
+</ul>
+<p>You can also ask your SAN vendor for advice about setting up your Citrix
+repository for multipathing.</p>
+<p>Make note of the values you will need when you add this storage to the
+CloudStack later (see <a class="reference external" href="http://docs.cloudstack.apache.org/en/latest/installguide/hypervisor/configuration.html#add-primary-storage">“Add Primary Storage”</a>). In the Add Primary Storage
+dialog, in Protocol, you will choose PreSetup. In SR Name-Label, you will
+enter the same name used to create the SR.</p>
+<p>If you encounter difficulty, address the support team for the SAN
+provided by your vendor. If they are not able to solve your issue, see
+Contacting Support.</p>
+</div>
+<div class="section" id="physical-networking-setup-for-xenserver">
+<h2>Physical Networking Setup for XenServer<a class="headerlink" href="xenserver.html#physical-networking-setup-for-xenserver" title="Permalink to this headline">¶</a></h2>
+<p>Once XenServer has been installed, you may need to do some additional
+network configuration. At this point in the installation, you should
+have a plan for what NICs the host will have and what traffic each NIC
+will carry. The NICs should be cabled as necessary to implement your
+plan.</p>
+<p>If you plan on using NIC bonding, the NICs on all hosts in the cluster
+must be cabled exactly the same. For example, if eth0 is in the private
+bond on one host in a cluster, then eth0 must be in the private bond on
+all hosts in the cluster.</p>
+<p>The IP address assigned for the management network interface must be
+static. It can be set on the host itself or obtained via static DHCP.</p>
+<p>CloudStack configures network traffic of various types to use different
+NICs or bonds on the XenServer host. You can control this process and
+provide input to the Management Server through the use of XenServer
+network name labels. The name labels are placed on physical interfaces
+or bonds and configured in CloudStack. In some simple cases the name
+labels are not required.</p>
+<p>When configuring networks in a XenServer environment, network traffic
+labels must be properly configured to ensure that the virtual interfaces
+are created by CloudStack are bound to the correct physical device. The
+name-label of the XenServer network must match the XenServer traffic
+label specified while creating the CloudStack network. This is set by
+running the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">xe</span> <span class="n">network</span><span class="o">-</span><span class="n">param</span><span class="o">-</span><span class="nb">set</span> <span class="n">uuid</span><span class="o">=&lt;</span><span class="n">network</span> <span class="nb">id</span><span class="o">&gt;</span> <span class="n">name</span><span class="o">-</span><span class="n">label</span><span class="o">=&lt;</span><span class="n">CloudStack</span> <span class="n">traffic</span> <span class="n">label</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<div class="section" id="configuring-public-network-with-a-dedicated-nic-for-xenserver-optional">
+<h3>Configuring Public Network with a Dedicated NIC for XenServer (Optional)<a class="headerlink" href="xenserver.html#configuring-public-network-with-a-dedicated-nic-for-xenserver-optional" title="Permalink to this headline">¶</a></h3>
+<p>CloudStack supports the use of a second NIC (or bonded pair of NICs,
+described in <a class="reference internal" href="xenserver.html#nic-bonding-for-xenserver"><span class="std std-ref">NIC Bonding for XenServer (Optional)</span></a>) for the public network. If
+bonding is not used, the public network can be on any NIC and can be on
+different NICs on the hosts in a cluster. For example, the public
+network can be on eth0 on node A and eth1 on node B. However, the
+XenServer name-label for the public network must be identical across all
+hosts. The following examples set the network label to “cloud-public”.
+After the management server is installed and running you must configure
+it with the name of the chosen network label (e.g. “cloud-public”); this
+is discussed in <a class="reference external" href="http://docs.cloudstack.apache.org/en/latest/installguide/hypervisor/installation.html#management-server-installation">“Management Server Installation”</a>.</p>
+<p>If you are using two NICs bonded together to create a public network,
+see <a class="reference internal" href="xenserver.html#nic-bonding-for-xenserver"><span class="std std-ref">NIC Bonding for XenServer (Optional)</span></a>.</p>
+<p>If you are using a single dedicated NIC to provide public network
+access, follow this procedure on each new host that is added to
+CloudStack before adding the host.</p>
+<ol class="arabic">
+<li><p class="first">Run xe network-list and find the public network. This is usually
+attached to the NIC that is public. Once you find the network make
+note of its UUID. Call this &lt;UUID-Public&gt;.</p>
+</li>
+<li><p class="first">Run the following command.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># xe network-param-set name-label=cloud-public uuid=&lt;UUID-Public&gt;</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="configuring-multiple-guest-networks-for-xenserver-optional">
+<h3>Configuring Multiple Guest Networks for XenServer (Optional)<a class="headerlink" href="xenserver.html#configuring-multiple-guest-networks-for-xenserver-optional" title="Permalink to this headline">¶</a></h3>
+<p>CloudStack supports the use of multiple guest networks with the
+XenServer hypervisor. Each network is assigned a name-label in
+XenServer. For example, you might have two networks with the labels
+“cloud-guest” and “cloud-guest2”. After the management server is
+installed and running, you must add the networks and use these labels so
+that CloudStack is aware of the networks.</p>
+<p>Follow this procedure on each new host before adding the host to
+CloudStack:</p>
+<ol class="arabic">
+<li><p class="first">Run xe network-list and find one of the guest networks. Once you find
+the network make note of its UUID. Call this &lt;UUID-Guest&gt;.</p>
+</li>
+<li><p class="first">Run the following command, substituting your own name-label and uuid
+values.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># xe network-param-set name-label=&lt;cloud-guestN&gt; uuid=&lt;UUID-Guest&gt;</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Repeat these steps for each additional guest network, using a
+different name-label and uuid each time.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="separate-storage-network-for-xenserver-optional">
+<h3>Separate Storage Network for XenServer (Optional)<a class="headerlink" href="xenserver.html#separate-storage-network-for-xenserver-optional" title="Permalink to this headline">¶</a></h3>
+<p>You can optionally set up a separate storage network. This should be
+done first on the host, before implementing the bonding steps below.
+This can be done using one or two available NICs. With two NICs bonding
+may be done as above. It is the administrator’s responsibility to set up
+a separate storage network.</p>
+<p>Give the storage network a different name-label than what will be given
+for other networks.</p>
+<p>For the separate storage network to work correctly, it must be the only
+interface that can ping the primary storage device’s IP address. For
+example, if eth0 is the management network NIC, ping -I eth0 &lt;primary
+storage device IP&gt; must fail. In all deployments, secondary storage
+devices must be pingable from the management network NIC or bond. If a
+secondary storage device has been placed on the storage network, it must
+also be pingable via the storage network NIC or bond on the hosts as
+well.</p>
+<p>You can set up two separate storage networks as well. For example, if
+you intend to implement iSCSI multipath, dedicate two non-bonded NICs to
+multipath. Each of the two networks needs a unique name-label.</p>
+<p>If no bonding is done, the administrator must set up and name-label the
+separate storage network on all hosts (masters and slaves).</p>
+<p>Here is an example to set up eth5 to access a storage network on
+172.16.0.0/24.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># xe pif-list host-name-label=&#39;hostname&#39; device=eth5</span>
+<span class="n">uuid</span><span class="p">(</span><span class="n">RO</span><span class="p">):</span> <span class="n">ab0d3dd4</span><span class="o">-</span><span class="mi">5744</span><span class="o">-</span><span class="mi">8</span><span class="n">fae</span><span class="o">-</span><span class="mi">9693</span><span class="o">-</span><span class="n">a022c7a3471d</span>
+<span class="n">device</span> <span class="p">(</span> <span class="n">RO</span><span class="p">):</span> <span class="n">eth5</span>
+<span class="c1">#xe pif-reconfigure-ip DNS=172.16.3.3 gateway=172.16.0.1 IP=172.16.0.55 mode=static netmask=255.255.255.0 uuid=ab0d3dd4-5744-8fae-9693-a022c7a3471d</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="nic-bonding-for-xenserver-optional">
+<span id="nic-bonding-for-xenserver"></span><h3>NIC Bonding for XenServer (Optional)<a class="headerlink" href="xenserver.html#nic-bonding-for-xenserver-optional" title="Permalink to this headline">¶</a></h3>
+<p>XenServer supports Source Level Balancing (SLB) NIC bonding. Two NICs
+can be bonded together to carry public, private, and guest traffic, or
+some combination of these. Separate storage networks are also possible.
+Here are some example supported configurations:</p>
+<ul class="simple">
+<li>2 NICs on private, 2 NICs on public, 2 NICs on storage</li>
+<li>2 NICs on private, 1 NIC on public, storage uses management network</li>
+<li>2 NICs on private, 2 NICs on public, storage uses management network</li>
+<li>1 NIC for private, public, and storage</li>
+</ul>
+<p>All NIC bonding is optional.</p>
+<p>XenServer expects all nodes in a cluster will have the same network
+cabling and same bonds implemented. In an installation the master will
+be the first host that was added to the cluster and the slave hosts will
+be all subsequent hosts added to the cluster. The bonds present on the
+master set the expectation for hosts added to the cluster later. The
+procedure to set up bonds on the master and slaves are different, and
+are described below. There are several important implications of this:</p>
+<ul class="simple">
+<li>You must set bonds on the first host added to a cluster. Then you
+must use xe commands as below to establish the same bonds in the
+second and subsequent hosts added to a cluster.</li>
+<li>Slave hosts in a cluster must be cabled exactly the same as the
+master. For example, if eth0 is in the private bond on the master, it
+must be in the management network for added slave hosts.</li>
+</ul>
+<div class="section" id="management-network-bonding">
+<h4>Management Network Bonding<a class="headerlink" href="xenserver.html#management-network-bonding" title="Permalink to this headline">¶</a></h4>
+<p>The administrator must bond the management network NICs prior to adding
+the host to CloudStack.</p>
+</div>
+<div class="section" id="creating-a-private-bond-on-the-first-host-in-the-cluster">
+<h4>Creating a Private Bond on the First Host in the Cluster<a class="headerlink" href="xenserver.html#creating-a-private-bond-on-the-first-host-in-the-cluster" title="Permalink to this headline">¶</a></h4>
+<p>Use the following steps to create a bond in XenServer. These steps
+should be run on only the first host in a cluster. This example creates
+the cloud-private network with two physical NICs (eth0 and eth1) bonded
+into it.</p>
+<ol class="arabic">
+<li><p class="first">Find the physical NICs that you want to bond together.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># xe pif-list host-name-label=&#39;hostname&#39; device=eth0</span>
+<span class="c1"># xe pif-list host-name-label=&#39;hostname&#39; device=eth1</span>
+</pre></div>
+</div>
+<p>These command shows the eth0 and eth1 NICs and their UUIDs.
+Substitute the ethX devices of your choice. Call the UUID’s returned
+by the above command slave1-UUID and slave2-UUID.</p>
+</li>
+<li><p class="first">Create a new network for the bond. For example, a new network with
+name “cloud-private”.</p>
+<p><strong>This label is important. CloudStack looks for a network by a name
+you configure. You must use the same name-label for all hosts in the
+cloud for the management network.</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># xe network-create name-label=cloud-private</span>
+<span class="c1"># xe bond-create network-uuid=[uuid of cloud-private created above]</span>
+<span class="n">pif</span><span class="o">-</span><span class="n">uuids</span><span class="o">=</span><span class="p">[</span><span class="n">slave1</span><span class="o">-</span><span class="n">uuid</span><span class="p">],[</span><span class="n">slave2</span><span class="o">-</span><span class="n">uuid</span><span class="p">]</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p>Now you have a bonded pair that can be recognized by CloudStack as the
+management network.</p>
+</div>
+<div class="section" id="public-network-bonding">
+<h4>Public Network Bonding<a class="headerlink" href="xenserver.html#public-network-bonding" title="Permalink to this headline">¶</a></h4>
+<p>Bonding can be implemented on a separate, public network. The
+administrator is responsible for creating a bond for the public network
+if that network will be bonded and will be separate from the management
+network.</p>
+</div>
+<div class="section" id="creating-a-public-bond-on-the-first-host-in-the-cluster">
+<h4>Creating a Public Bond on the First Host in the Cluster<a class="headerlink" href="xenserver.html#creating-a-public-bond-on-the-first-host-in-the-cluster" title="Permalink to this headline">¶</a></h4>
+<p>These steps should be run on only the first host in a cluster. This
+example creates the cloud-public network with two physical NICs (eth2
+and eth3) bonded into it.</p>
+<ol class="arabic">
+<li><p class="first">Find the physical NICs that you want to bond together.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># xe pif-list host-name-label=&#39;hostname&#39; device=eth2</span>
+<span class="c1"># xe pif-list host-name-label=&#39;hostname&#39; device=eth3</span>
+</pre></div>
+</div>
+<p>These command shows the eth2 and eth3 NICs and their UUIDs.
+Substitute the ethX devices of your choice. Call the UUID’s returned
+by the above command slave1-UUID and slave2-UUID.</p>
+</li>
+<li><p class="first">Create a new network for the bond. For example, a new network with
+name “cloud-public”.</p>
+<p><strong>This label is important. CloudStack looks for a network by a name
+you configure. You must use the same name-label for all hosts in the
+cloud for the public network.</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># xe network-create name-label=cloud-public</span>
+<span class="c1"># xe bond-create network-uuid=[uuid of cloud-public created above]</span>
+<span class="n">pif</span><span class="o">-</span><span class="n">uuids</span><span class="o">=</span><span class="p">[</span><span class="n">slave1</span><span class="o">-</span><span class="n">uuid</span><span class="p">],[</span><span class="n">slave2</span><span class="o">-</span><span class="n">uuid</span><span class="p">]</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p>Now you have a bonded pair that can be recognized by CloudStack as the
+public network.</p>
+</div>
+<div class="section" id="adding-more-hosts-to-the-cluster">
+<h4>Adding More Hosts to the Cluster<a class="headerlink" href="xenserver.html#adding-more-hosts-to-the-cluster" title="Permalink to this headline">¶</a></h4>
+<p>With the bonds (if any) established on the master, you should add
+additional, slave hosts. Run the following command for all additional
+hosts to be added to the cluster. This will cause the host to join the
+master in a single XenServer pool.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># xe pool-join master-address=[master IP] master-username=root</span>
+<span class="n">master</span><span class="o">-</span><span class="n">password</span><span class="o">=</span><span class="p">[</span><span class="n">your</span> <span class="n">password</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="complete-the-bonding-setup-across-the-cluster">
+<h4>Complete the Bonding Setup Across the Cluster<a class="headerlink" href="xenserver.html#complete-the-bonding-setup-across-the-cluster" title="Permalink to this headline">¶</a></h4>
+<p>With all hosts added to the pool, run the cloud-setup-bond script. This
+script will complete the configuration and set up of the bonds across
+all hosts in the cluster.</p>
+<ol class="arabic">
+<li><p class="first">Copy the script from the Management Server in
+/usr/share/cloudstack-common/scripts/vm/hypervisor/xenserver/cloud-setup-bonding.sh
+to the master host and ensure it is executable.</p>
+</li>
+<li><p class="first">Run the script:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># ./cloud-setup-bonding.sh</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p>Now the bonds are set up and configured properly across the cluster.</p>
+</div>
+</div>
+</div>
+<div class="section" id="upgrading-xenserver-versions">
+<span id="upgrading-xenserver-version"></span><h2>Upgrading XenServer Versions<a class="headerlink" href="xenserver.html#upgrading-xenserver-versions" title="Permalink to this headline">¶</a></h2>
+<p>This section tells how to upgrade XenServer software on CloudStack
+hosts. The actual upgrade is described in XenServer documentation, but
+there are some additional steps you must perform before and after the
+upgrade.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Be sure the hardware is certified compatible with the new version of
+XenServer.</p>
+</div>
+<p>To upgrade XenServer:</p>
+<ol class="arabic">
+<li><p class="first">Upgrade the database. On the Management Server node:</p>
+<ol class="arabic">
+<li><p class="first">Back up the database:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># mysqldump --user=root --databases cloud &gt; cloud.backup.sql</span>
+<span class="c1"># mysqldump --user=root --databases cloud_usage &gt; cloud_usage.backup.sql</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">You might need to change the OS type settings for VMs running on
+the upgraded hosts.</p>
+<ul class="simple">
+<li>If you upgraded from XenServer 5.6 GA to XenServer 5.6 SP2,
+change any VMs that have the OS type CentOS 5.5 (32-bit),
+Oracle Enterprise Linux 5.5 (32-bit), or Red Hat Enterprise
+Linux 5.5 (32-bit) to Other Linux (32-bit). Change any VMs that
+have the 64-bit versions of these same OS types to Other Linux
+(64-bit).</li>
+<li>If you upgraded from XenServer 5.6 SP2 to XenServer 6.0.2,
+change any VMs that have the OS type CentOS 5.6 (32-bit),
+CentOS 5.7 (32-bit), Oracle Enterprise Linux 5.6 (32-bit),
+Oracle Enterprise Linux 5.7 (32-bit), Red Hat Enterprise Linux
+5.6 (32-bit) , or Red Hat Enterprise Linux 5.7 (32-bit) to
+Other Linux (32-bit). Change any VMs that have the 64-bit
+versions of these same OS types to Other Linux (64-bit).</li>
+<li>If you upgraded from XenServer 5.6 to XenServer 6.0.2, do all
+of the above.</li>
+</ul>
+</li>
+<li><p class="first">Restart the Management Server and Usage Server. You only need to
+do this once for all clusters.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># service cloudstack-management start</span>
+<span class="c1"># service cloudstack-usage start</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</li>
+<li><p class="first">Disconnect the XenServer cluster from CloudStack.</p>
+<ol class="arabic simple">
+<li>Log in to the CloudStack UI as root.</li>
+<li>Navigate to the XenServer cluster, and click Actions – Unmanage.</li>
+<li>Watch the cluster status until it shows Unmanaged.</li>
+</ol>
+</li>
+<li><p class="first">Log in to one of the hosts in the cluster, and run this command to
+clean up the VLAN:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># . /opt/xensource/bin/cloud-clean-vlan.sh</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Still logged in to the host, run the upgrade preparation script:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># /opt/xensource/bin/cloud-prepare-upgrade.sh</span>
+</pre></div>
+</div>
+<p>Troubleshooting: If you see the error “can’t eject CD,” log in to the
+VM and umount the CD, then run the script again.</p>
+</li>
+<li><p class="first">Upgrade the XenServer software on all hosts in the cluster. Upgrade
+the master first.</p>
+<ol class="arabic">
+<li><p class="first">Live migrate all VMs on this host to other hosts. See the
+instructions for live migration in the Administrator’s Guide.</p>
+<p>Troubleshooting: You might see the following error when you
+migrate a VM:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">root</span><span class="nd">@xenserver</span><span class="o">-</span><span class="n">qa</span><span class="o">-</span><span class="mi">2</span><span class="o">-</span><span class="mi">49</span><span class="o">-</span><span class="mi">4</span> <span class="o">~</span><span class="p">]</span><span class="c1"># xe vm-migrate live=true host=xenserver-qa-2-49-5 vm=i-2-8-VM</span>
+<span class="n">You</span> <span class="n">attempted</span> <span class="n">an</span> <span class="n">operation</span> <span class="n">on</span> <span class="n">a</span> <span class="n">VM</span> <span class="n">which</span> <span class="n">requires</span> <span class="n">PV</span> <span class="n">drivers</span> <span class="n">to</span> <span class="n">be</span> <span class="n">installed</span> <span class="n">but</span> <span class="n">the</span> <span class="n">drivers</span> <span class="n">were</span> <span class="ow">not</span> <span class="n">detected</span><span class="o">.</span>
+<span class="n">vm</span><span class="p">:</span> <span class="n">b6cf79c8</span><span class="o">-</span><span class="mi">02</span><span class="n">ee</span><span class="o">-</span><span class="mi">050</span><span class="n">b</span><span class="o">-</span><span class="mi">922</span><span class="n">f</span><span class="o">-</span><span class="mi">49583</span><span class="n">d9f1a14</span> <span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="mi">2</span><span class="o">-</span><span class="mi">8</span><span class="o">-</span><span class="n">VM</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>To solve this issue, run the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># /opt/xensource/bin/make_migratable.sh  b6cf79c8-02ee-050b-922f-49583d9f1a14</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Reboot the host.</p>
+</li>
+<li><p class="first">Upgrade to the newer version of XenServer. Use the steps in
+XenServer documentation.</p>
+</li>
+<li><p class="first">After the upgrade is complete, copy the following files from the
+management server to this host, in the directory locations shown
+below:</p>
+<table border="1" class="table-striped table-bordered table-hover docutils">
+<colgroup>
+<col width="68%" />
+<col width="33%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Copy this Management Server file</th>
+<th class="head">To this location on the XenServer host</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>/usr/share/cloudstack-common/scripts/vm/hypervisor/xenserver/xenserver60/NFSSR.py</td>
+<td>/opt/xensource/sm/NFSSR.py</td>
+</tr>
+<tr class="row-odd"><td>/usr/share/cloudstack-common/scripts/vm/hypervisor/xenserver/setupxenserver.sh</td>
+<td>/opt/xensource/bin/setupxenserver.sh</td>
+</tr>
+<tr class="row-even"><td>/usr/share/cloudstack-common/scripts/vm/hypervisor/xenserver/make_migratable.sh</td>
+<td>/opt/xensource/bin/make_migratable.sh</td>
+</tr>
+<tr class="row-odd"><td>/usr/share/cloudstack-common/scripts/vm/hypervisor/xenserver/cloud-clean-vlan.sh</td>
+<td>/opt/xensource/bin/cloud-clean-vlan.sh</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li><p class="first">Run the following script:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># /opt/xensource/bin/setupxenserver.sh</span>
+</pre></div>
+</div>
+<p>Troubleshooting: If you see the following error message, you can
+safely ignore it.</p>
+<pre class="literal-block">
+mv: cannot stat <cite>/etc/cron.daily/logrotate</cite>: No such file or directory
+</pre>
+</li>
+<li><p class="first">Plug in the storage repositories (physical block devices) to the
+XenServer host:</p>
+<pre class="literal-block">
+# for pbd in <cite>xe pbd-list currently-attached=false| grep ^uuid | awk '{print $NF}'</cite>; do xe pbd-plug uuid=$pbd ; done
+</pre>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you add a host to this XenServer pool, you need to migrate all VMs
+on this host to other hosts, and eject this host from XenServer pool.</p>
+</div>
+</li>
+</ol>
+</li>
+<li><p class="first">Repeat these steps to upgrade every host in the cluster to the same
+version of XenServer.</p>
+</li>
+<li><p class="first">Run the following command on one host in the XenServer cluster to
+clean up the host tags:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># for host in $(xe host-list | grep ^uuid | awk &#39;{print $NF}&#39;) ; do xe host-param-clear uuid=$host param-name=tags; done;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">When copying and pasting a command, be sure the command has pasted as
+a single line before executing. Some document viewers may introduce
+unwanted line breaks in copied text.</p>
+</div>
+</li>
+<li><p class="first">Reconnect the XenServer cluster to CloudStack.</p>
+<ol class="arabic simple">
+<li>Log in to the CloudStack UI as root.</li>
+<li>Navigate to the XenServer cluster, and click Actions – Manage.</li>
+<li>Watch the status to see that all the hosts come up.</li>
+</ol>
+</li>
+<li><p class="first">After all hosts are up, run the following on one host in the cluster:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># /opt/xensource/bin/cloud-clean-vlan.sh</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../optional_installation.html" class="btn btn-neutral float-right" title="Additional Installation Options" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="vsphere.html" class="btn btn-neutral float-left" title="Host VMware vSphere Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Apache Foundation
+      
+        <span class="commit">
+          Revision <code>29a3d9e2</code>.
+        </span>
+      
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Read the Docs</span>
+      v: latest
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="http://docs.cloudstack.apache.org/en/master/">master</a></dd>
+        
+          <dd><a href="../../../../index.html">latest</a></dd>
+        
+          <dd><a href="../../../4.13.0.0/index.html">4.13.0.0</a></dd>
+        
+          <dd><a href="../../../4.12.0.0/index.html">4.12.0.0</a></dd>
+        
+          <dd><a href="../../../4.11.3.0/index.html">4.11.3.0</a></dd>
+        
+          <dd><a href="../../../4.11.2.0/index.html">4.11.2.0</a></dd>
+        
+          <dd><a href="../../../4.11.1.0/index.html">4.11.1.0</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="http://readthedocs.org/projects/cloudstack-documentation/downloads/htmlzip/latest/">html</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>On Read the Docs</dt>
+          <dd>
+            <a href="http://readthedocs.org/projects/cloudstack-documentation/?fromdocs=cloudstack-documentation">Project Home</a>
+          </dd>
+          <dd>
+            <a href="http://readthedocs.org/builds/cloudstack-documentation/?fromdocs=cloudstack-documentation">Builds</a>
+          </dd>
+      </dl>
+      <hr/>
+      Free document hosting provided by <a href="http://www.readthedocs.org">Read the Docs</a>.
+
+    </div>
+  </div>
+
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+   
+
+</body>
+</html>

@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>CloudStack Administration Documentation &#8212; Apache CloudStack Administration Documentation 4.11.0.0 documentation</title>
+    <link rel="stylesheet" href="archived-cloudstack-administration/en/latest/_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="archived-cloudstack-administration/en/latest/_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="https://assets.readthedocs.org/static/css/badge_only.css" type="text/css" />
+    <link rel="stylesheet" href="archived-cloudstack-administration/en/latest/_static/bootswatch-3.2.0/spacelab/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="archived-cloudstack-administration/en/latest/_static/bootstrap-sphinx.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="archived-cloudstack-administration/en/latest/_static/documentation_options.js"></script>
+    <script type="text/javascript" src="archived-cloudstack-administration/en/latest/_static/jquery.js"></script>
+    <script type="text/javascript" src="archived-cloudstack-administration/en/latest/_static/underscore.js"></script>
+    <script type="text/javascript" src="archived-cloudstack-administration/en/latest/_static/doctools.js"></script>
+    <script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
+    <script type="text/javascript" src="archived-cloudstack-administration/en/latest/_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="archived-cloudstack-administration/en/latest/_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="archived-cloudstack-administration/en/latest/_static/bootstrap-3.2.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="archived-cloudstack-administration/en/latest/_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="archived-cloudstack-administration/en/latest/genindex.html" />
+    <link rel="search" title="Search" href="archived-cloudstack-administration/en/latest/search.html" />
+    <link rel="next" title="User Interface" href="archived-cloudstack-administration/en/latest/ui.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  
+<!-- RTD Extra Head -->
+
+<!-- 
+Always link to the latest version, as canonical.
+http://docs.readthedocs.org/en/latest/canonical.html
+-->
+<link rel="canonical" href="cloudstack-administration" />
+
+<link rel="stylesheet" href="https://assets.readthedocs.org/static/css/readthedocs-doc-embed.css" type="text/css" />
+
+<script type="text/javascript" src="archived-cloudstack-administration/en/latest/_static/readthedocs-data.js"></script>
+
+<!-- Add page-specific data, which must exist in the page js, not global -->
+<script type="text/javascript">
+READTHEDOCS_DATA['page'] = 'index'
+READTHEDOCS_DATA['source_suffix'] = '.rst'
+</script>
+
+<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js"></script>
+
+<!-- end RTD <extrahead> -->
+</head><body>
+
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="cloudstack-administration#">
+          Administration Guide</a>
+        <span class="navbar-text navbar-version pull-left"><b>4.11</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+                <a role="button"
+                   id="dLabelGlobalToc"
+                   data-toggle="dropdown"
+                   data-target="#"
+                   href="cloudstack-administration#">Sections <b class="caret"></b></a>
+                <ul class="dropdown-menu globaltoc"
+                    role="menu"
+                    aria-labelledby="dLabelGlobalToc">
+                     <ul>
+<li class="toctree-l1"><a class="reference internal" href="archived-cloudstack-administration/en/latest/ui.html">User Interface</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="archived-cloudstack-administration/en/latest/accounts.html">Managing Roles, Accounts, Users and Domains</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="archived-cloudstack-administration/en/latest/projects.html">Using Projects to Organize Users and Resources</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="archived-cloudstack-administration/en/latest/service_offerings.html">Service Offerings</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="archived-cloudstack-administration/en/latest/networking.html">Setting Up Networking for Users</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="archived-cloudstack-administration/en/latest/virtual_machines.html">Working with Virtual Machines</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="archived-cloudstack-administration/en/latest/templates.html">Working with Templates</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="archived-cloudstack-administration/en/latest/hosts.html">Working with Hosts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="archived-cloudstack-administration/en/latest/hosts.html#security">Security</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="archived-cloudstack-administration/en/latest/storage.html">Working with Storage</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="archived-cloudstack-administration/en/latest/systemvm.html">Working with System Virtual Machines</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="archived-cloudstack-administration/en/latest/usage.html">Working with Usage</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="archived-cloudstack-administration/en/latest/networking_and_traffic.html">Managing Networks and Traffic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="archived-cloudstack-administration/en/latest/networking/using_remote_access.html">Using Remote Access VPN</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="archived-cloudstack-administration/en/latest/management.html">Managing the Cloud</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="archived-cloudstack-administration/en/latest/reliability.html">System Reliability and High Availability</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="archived-cloudstack-administration/en/latest/plugins/quota.html">Quota Plugin</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="archived-cloudstack-administration/en/latest/tuning.html">Tuning</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="archived-cloudstack-administration/en/latest/events.html">Event Notification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="archived-cloudstack-administration/en/latest/troubleshooting.html">TroubleShooting</a></li>
+</ul>
+
+
+                </ul>
+              </li>
+              
+                
+              
+            
+            
+              
+                
+  <li>
+    <a href="archived-cloudstack-administration/en/latest/ui.html" title="Next Chapter: User Interface"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">User Interface &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="archived-cloudstack-administration/en/latest/search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul>
+<li class="toctree-l1"><a class="reference internal" href="archived-cloudstack-administration/en/latest/ui.html">User Interface</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="archived-cloudstack-administration/en/latest/accounts.html">Managing Roles, Accounts, Users and Domains</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="archived-cloudstack-administration/en/latest/projects.html">Using Projects to Organize Users and Resources</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="archived-cloudstack-administration/en/latest/service_offerings.html">Service Offerings</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="archived-cloudstack-administration/en/latest/networking.html">Setting Up Networking for Users</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="archived-cloudstack-administration/en/latest/virtual_machines.html">Working with Virtual Machines</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="archived-cloudstack-administration/en/latest/templates.html">Working with Templates</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="archived-cloudstack-administration/en/latest/hosts.html">Working with Hosts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="archived-cloudstack-administration/en/latest/hosts.html#security">Security</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="archived-cloudstack-administration/en/latest/storage.html">Working with Storage</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="archived-cloudstack-administration/en/latest/systemvm.html">Working with System Virtual Machines</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="archived-cloudstack-administration/en/latest/usage.html">Working with Usage</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="archived-cloudstack-administration/en/latest/networking_and_traffic.html">Managing Networks and Traffic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="archived-cloudstack-administration/en/latest/networking/using_remote_access.html">Using Remote Access VPN</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="archived-cloudstack-administration/en/latest/management.html">Managing the Cloud</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="archived-cloudstack-administration/en/latest/reliability.html">System Reliability and High Availability</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="archived-cloudstack-administration/en/latest/plugins/quota.html">Quota Plugin</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="archived-cloudstack-administration/en/latest/tuning.html">Tuning</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="archived-cloudstack-administration/en/latest/events.html">Event Notification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="archived-cloudstack-administration/en/latest/troubleshooting.html">TroubleShooting</a></li>
+</ul>
+
+
+        </div>
+      </div>
+    <div class="col-md-9">
+      
+  <div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p>NOTICE: THIS DOCUMENTATION SITE HAS BEEN SUPERSEDED.</p>
+<p class="last">For the current documentation site goto: <a class="reference external" href="../index.html">http://docs.cloudstack.apache.org</a></p>
+</div>
+<div class="section" id="cloudstack-administration-documentation">
+<h1>CloudStack Administration Documentation<a class="headerlink" href="cloudstack-administration#cloudstack-administration-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="figure align-center">
+<img alt="_images/acslogo.png" src="archived-cloudstack-administration/en/latest/_images/acslogo.png" />
+</div>
+<p>This guide is aimed at Administrators of a CloudStack based Cloud,
+for Release Notes, Installation and General introduction to CloudStack
+see the following guides:</p>
+<ul class="simple">
+<li><a class="reference external" href="../index.html">Documentation Start</a></li>
+<li><a class="reference external" href="cloudstack-installation">Installation Guide</a></li>
+<li><a class="reference external" href="cloudstack-release-notes">Release Notes</a></li>
+</ul>
+<div class="section" id="user-interface">
+<h2>User Interface<a class="headerlink" href="cloudstack-administration#user-interface" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="archived-cloudstack-administration/en/latest/ui.html">User Interface</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/ui.html#log-in-to-the-ui">Log In to the UI</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="managing-accounts-users-and-domains">
+<h2>Managing Accounts, Users and Domains<a class="headerlink" href="cloudstack-administration#managing-accounts-users-and-domains" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="archived-cloudstack-administration/en/latest/accounts.html">Managing Roles, Accounts, Users and Domains</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/accounts.html#roles-accounts-users-and-domains">Roles, Accounts, Users, and Domains</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/accounts.html#using-dynamic-roles">Using Dynamic Roles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/accounts.html#dedicating-resources-to-accounts-and-domains">Dedicating Resources to Accounts and Domains</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/accounts.html#how-to-dedicate-a-zone-cluster-pod-or-host-to-an-account-or-domain">How to Dedicate a Zone, Cluster, Pod, or Host to an Account or Domain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/accounts.html#using-an-ldap-server-for-user-authentication">Using an LDAP Server for User Authentication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/accounts.html#using-a-saml-2-0-identity-provider-for-user-authentication">Using a SAML 2.0 Identity Provider for User Authentication</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="using-projects-to-organize-user-resources">
+<h2>Using Projects to Organize User Resources<a class="headerlink" href="cloudstack-administration#using-projects-to-organize-user-resources" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="archived-cloudstack-administration/en/latest/projects.html">Using Projects to Organize Users and Resources</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/projects.html#overview-of-projects">Overview of Projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/projects.html#configuring-projects">Configuring Projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/projects.html#creating-a-new-project">Creating a New Project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/projects.html#adding-members-to-a-project">Adding Members to a Project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/projects.html#accepting-a-membership-invitation">Accepting a Membership Invitation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/projects.html#suspending-or-deleting-a-project">Suspending or Deleting a Project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/projects.html#using-the-project-view">Using the Project View</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="service-offerings">
+<h2>Service Offerings<a class="headerlink" href="cloudstack-administration#service-offerings" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="archived-cloudstack-administration/en/latest/service_offerings.html">Service Offerings</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/service_offerings.html#service-offerings-disk-offerings-network-offerings-and-templates">Service Offerings, Disk Offerings, Network Offerings, and Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/service_offerings.html#compute-and-disk-service-offerings">Compute and Disk Service Offerings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/service_offerings.html#system-service-offerings">System Service Offerings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/service_offerings.html#network-throttling">Network Throttling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/service_offerings.html#changing-the-default-system-offering-for-system-vms">Changing the Default System Offering for System VMs</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="setting-up-networking-for-users">
+<h2>Setting up Networking for Users<a class="headerlink" href="cloudstack-administration#setting-up-networking-for-users" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="archived-cloudstack-administration/en/latest/networking.html">Setting Up Networking for Users</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/networking.html#overview-of-setting-up-networking-for-users">Overview of Setting Up Networking for Users</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/networking.html#about-virtual-networks">About Virtual Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/networking.html#network-service-providers">Network Service Providers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/networking.html#network-offerings">Network Offerings</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="working-with-virtual-machines">
+<h2>Working with Virtual Machines<a class="headerlink" href="cloudstack-administration#working-with-virtual-machines" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="archived-cloudstack-administration/en/latest/virtual_machines.html">Working with Virtual Machines</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/virtual_machines.html#about-working-with-virtual-machines">About Working with Virtual Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/virtual_machines.html#best-practices-for-virtual-machines">Best Practices for Virtual Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/virtual_machines.html#vm-lifecycle">VM Lifecycle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/virtual_machines.html#creating-vms">Creating VMs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/virtual_machines.html#accessing-vms">Accessing VMs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/virtual_machines.html#stopping-and-starting-vms">Stopping and Starting VMs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/virtual_machines.html#assigning-vms-to-hosts">Assigning VMs to Hosts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/virtual_machines.html#virtual-machine-snapshots">Virtual Machine Snapshots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/virtual_machines.html#changing-the-vm-name-os-or-group">Changing the VM Name, OS, or Group</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/virtual_machines.html#id3">Appending a Display Name to the Guest VM’s Internal Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/virtual_machines.html#changing-the-service-offering-for-a-vm">Changing the Service Offering for a VM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/virtual_machines.html#resetting-the-virtual-machine-root-volume-on-reboot">Resetting the Virtual Machine Root Volume on Reboot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/virtual_machines.html#moving-vms-between-hosts-manual-live-migration">Moving VMs Between Hosts (Manual Live Migration)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/virtual_machines.html#deleting-vms">Deleting VMs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/virtual_machines.html#working-with-isos">Working with ISOs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/virtual_machines.html#using-ssh-keys-for-authentication">Using SSH Keys for Authentication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/virtual_machines.html#user-data-and-meta-data">User-Data and Meta-Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/virtual_machines.html#assigning-gpu-vgpu-to-guest-vms">Assigning GPU/vGPU to Guest VMs</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="working-with-templates">
+<h2>Working with Templates<a class="headerlink" href="cloudstack-administration#working-with-templates" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="archived-cloudstack-administration/en/latest/templates.html">Working with Templates</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/templates.html#creating-templates-overview">Creating Templates: Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/templates.html#requirements-for-templates">Requirements for Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/templates.html#best-practices-for-templates">Best Practices for Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/templates.html#the-default-template">The Default Template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/templates.html#private-and-public-templates">Private and Public Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/templates.html#creating-a-template-from-an-existing-virtual-machine">Creating a Template from an Existing Virtual Machine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/templates.html#creating-a-template-from-a-snapshot">Creating a Template from a Snapshot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/templates.html#uploading-templates">Uploading Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/templates.html#vsphere-templates-and-isos">vSphere Templates and ISOs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/templates.html#exporting-templates">Exporting Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/templates.html#creating-a-linux-template">Creating a Linux Template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/templates.html#creating-a-windows-template">Creating a Windows Template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/templates.html#importing-amazon-machine-images">Importing Amazon Machine Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/templates.html#converting-a-hyper-v-vm-to-a-template">Converting a Hyper-V VM to a Template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/templates.html#adding-password-management-to-your-templates">Adding Password Management to Your Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/templates.html#deleting-templates">Deleting Templates</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="working-with-hosts">
+<h2>Working with Hosts<a class="headerlink" href="cloudstack-administration#working-with-hosts" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="archived-cloudstack-administration/en/latest/hosts.html">Working with Hosts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/hosts.html#adding-hosts">Adding Hosts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/hosts.html#scheduled-maintenance-and-maintenance-mode-for-hosts">Scheduled Maintenance and Maintenance Mode for Hosts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/hosts.html#disabling-and-enabling-zones-pods-and-clusters">Disabling and Enabling Zones, Pods, and Clusters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/hosts.html#removing-hosts">Removing Hosts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/hosts.html#re-installing-hosts">Re-Installing Hosts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/hosts.html#maintaining-hypervisors-on-hosts">Maintaining Hypervisors on Hosts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/hosts.html#changing-host-password">Changing Host Password</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/hosts.html#over-provisioning-and-service-offering-limits">Over-Provisioning and Service Offering Limits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/hosts.html#vlan-provisioning">VLAN Provisioning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/hosts.html#out-of-band-management">Out-of-band Management</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="archived-cloudstack-administration/en/latest/hosts.html#security">Security</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/hosts.html#server-address-usage">Server Address Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/hosts.html#securing-process">Securing Process</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="working-with-storage">
+<h2>Working with Storage<a class="headerlink" href="cloudstack-administration#working-with-storage" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="archived-cloudstack-administration/en/latest/storage.html">Working with Storage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/storage.html#storage-overview">Storage Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/storage.html#primary-storage">Primary Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/storage.html#secondary-storage">Secondary Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/storage.html#working-with-volumes">Working With Volumes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/storage.html#working-with-volume-snapshots">Working with Volume Snapshots</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="working-with-system-virtual-machines">
+<h2>Working with System Virtual Machines<a class="headerlink" href="cloudstack-administration#working-with-system-virtual-machines" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="archived-cloudstack-administration/en/latest/systemvm.html">Working with System Virtual Machines</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/systemvm.html#the-system-vm-template">The System VM Template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/systemvm.html#changing-the-default-system-vm-template">Changing the Default System VM Template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/systemvm.html#multiple-system-vm-support-for-vmware">Multiple System VM Support for VMware</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/systemvm.html#console-proxy">Console Proxy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/systemvm.html#virtual-router">Virtual Router</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/systemvm.html#secondary-storage-vm">Secondary Storage VM</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="working-with-usage">
+<h2>Working with Usage<a class="headerlink" href="cloudstack-administration#working-with-usage" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="archived-cloudstack-administration/en/latest/usage.html">Working with Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/usage.html#configuring-the-usage-server">Configuring the Usage Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/usage.html#setting-usage-limits">Setting Usage Limits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/usage.html#usage-record-format">Usage Record Format</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/usage.html#usage-types">Usage Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/usage.html#example-response-from-listusagerecords">Example response from listUsageRecords</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/usage.html#dates-in-the-usage-record">Dates in the Usage Record</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="managing-networks-and-traffic">
+<h2>Managing Networks and Traffic<a class="headerlink" href="cloudstack-administration#managing-networks-and-traffic" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="archived-cloudstack-administration/en/latest/networking_and_traffic.html">Managing Networks and Traffic</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/networking_and_traffic.html#guest-traffic">Guest Traffic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/networking_and_traffic.html#networking-in-a-pod">Networking in a Pod</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/networking_and_traffic.html#networking-in-a-zone">Networking in a Zone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/networking_and_traffic.html#basic-zone-physical-network-configuration">Basic Zone Physical Network Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/networking_and_traffic.html#advanced-zone-physical-network-configuration">Advanced Zone Physical Network Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/networking_and_traffic.html#using-multiple-guest-networks">Using Multiple Guest Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/networking_and_traffic.html#ip-reservation-in-isolated-guest-networks">IP Reservation in Isolated Guest Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/networking_and_traffic.html#reserving-public-ip-addresses-and-vlans-for-accounts">Reserving Public IP Addresses and VLANs for Accounts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/networking_and_traffic.html#configuring-multiple-ip-addresses-on-a-single-nic">Configuring Multiple IP Addresses on a Single NIC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/networking_and_traffic.html#about-multiple-ip-ranges">About Multiple IP Ranges</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/networking_and_traffic.html#about-elastic-ips">About Elastic IPs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/networking_and_traffic.html#portable-ips">Portable IPs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/networking_and_traffic.html#multiple-subnets-in-shared-network">Multiple Subnets in Shared Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/networking_and_traffic.html#isolation-in-advanced-zone-using-private-vlan">Isolation in Advanced Zone Using Private VLAN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/networking_and_traffic.html#security-groups">Security Groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/networking_and_traffic.html#external-firewalls-and-load-balancers">External Firewalls and Load Balancers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/networking_and_traffic.html#global-server-load-balancing-support">Global Server Load Balancing Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/networking_and_traffic.html#guest-ip-ranges">Guest IP Ranges</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/networking_and_traffic.html#acquiring-a-new-ip-address">Acquiring a New IP Address</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/networking_and_traffic.html#releasing-an-ip-address">Releasing an IP Address</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/networking_and_traffic.html#static-nat">Static NAT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/networking_and_traffic.html#ip-forwarding-and-firewalling">IP Forwarding and Firewalling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/networking_and_traffic.html#ip-load-balancing">IP Load Balancing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/networking_and_traffic.html#dns-and-dhcp">DNS and DHCP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/networking_and_traffic.html#remote-access-vpn">Remote Access VPN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/networking_and_traffic.html#about-inter-vlan-routing-ntier-apps">About Inter-VLAN Routing (nTier Apps)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/networking_and_traffic.html#configuring-a-virtual-private-cloud">Configuring a Virtual Private Cloud</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/networking_and_traffic.html#persistent-networks">Persistent Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/networking_and_traffic.html#setup-a-palo-alto-networks-firewall">Setup a Palo Alto Networks Firewall</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="archived-cloudstack-administration/en/latest/networking/using_remote_access.html">Using Remote Access VPN</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/networking/using_remote_access.html#mac-osx">Mac OSX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/networking/using_remote_access.html#microsoft-windows">Microsoft Windows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/networking/using_remote_access.html#ubuntu">Ubuntu</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="managing-the-cloud">
+<h2>Managing the Cloud<a class="headerlink" href="cloudstack-administration#managing-the-cloud" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="archived-cloudstack-administration/en/latest/management.html">Managing the Cloud</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/management.html#using-tags-to-organize-resources-in-the-cloud">Using Tags to Organize Resources in the Cloud</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/management.html#reporting-cpu-sockets">Reporting CPU Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/management.html#changing-the-database-configuration">Changing the Database Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/management.html#changing-the-database-password">Changing the Database Password</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/management.html#file-encryption-type">File encryption type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/management.html#administrator-alerts">Administrator Alerts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/management.html#customizing-the-network-domain-name">Customizing the Network Domain Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/management.html#stopping-and-restarting-the-management-server">Stopping and Restarting the Management Server</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="system-reliability-and-availability">
+<h2>System Reliability and Availability<a class="headerlink" href="cloudstack-administration#system-reliability-and-availability" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="archived-cloudstack-administration/en/latest/reliability.html">System Reliability and High Availability</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/reliability.html#ha-for-management-server">HA for Management Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/reliability.html#management-server-load-balancing">Management Server Load Balancing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/reliability.html#ha-enabled-virtual-machines">HA-Enabled Virtual Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/reliability.html#ha-for-hosts">HA for Hosts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/reliability.html#primary-storage-outage-and-data-loss">Primary Storage Outage and Data Loss</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/reliability.html#secondary-storage-outage-and-data-loss">Secondary Storage Outage and Data Loss</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/reliability.html#database-high-availability">Database High Availability</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="plugins">
+<h2>Plugins<a class="headerlink" href="cloudstack-administration#plugins" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="archived-cloudstack-administration/en/latest/plugins/quota.html">Quota Plugin</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/plugins/quota.html#enabling-the-quota-service">Enabling the Quota Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/plugins/quota.html#quota-tariff">Quota Tariff</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/plugins/quota.html#quota-credits">Quota Credits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/plugins/quota.html#quota-balance">Quota Balance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/plugins/quota.html#quota-statement">Quota Statement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/plugins/quota.html#quota-monthly-statement">Quota Monthly Statement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/plugins/quota.html#quota-alert-management">Quota Alert Management</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="tuning">
+<h2>Tuning<a class="headerlink" href="cloudstack-administration#tuning" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="archived-cloudstack-administration/en/latest/tuning.html">Tuning</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/tuning.html#performance-monitoring">Performance Monitoring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/tuning.html#increase-management-server-maximum-memory">Increase Management Server Maximum Memory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/tuning.html#set-database-buffer-pool-size">Set Database Buffer Pool Size</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/tuning.html#set-and-monitor-total-vm-limits-per-host">Set and Monitor Total VM Limits per Host</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/tuning.html#configure-xenserver-dom0-memory">Configure XenServer dom0 Memory</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="events-and-troubleshooting">
+<h2>Events and Troubleshooting<a class="headerlink" href="cloudstack-administration#events-and-troubleshooting" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="archived-cloudstack-administration/en/latest/events.html">Event Notification</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/events.html#event-logs">Event Logs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/events.html#notification">Notification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/events.html#standard-events">Standard Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/events.html#long-running-job-events">Long Running Job Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/events.html#event-log-queries">Event Log Queries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/events.html#deleting-and-archiving-events-and-alerts">Deleting and Archiving Events and Alerts</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="archived-cloudstack-administration/en/latest/troubleshooting.html">TroubleShooting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/troubleshooting.html#working-with-server-logs">Working with Server Logs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/troubleshooting.html#data-loss-on-exported-primary-storage">Data Loss on Exported Primary Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/troubleshooting.html#recovering-a-lost-virtual-router">Recovering a Lost Virtual Router</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/troubleshooting.html#maintenance-mode-not-working-on-vcenter">Maintenance mode not working on vCenter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/troubleshooting.html#unable-to-deploy-vms-from-uploaded-vsphere-template">Unable to deploy VMs from uploaded vSphere template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/troubleshooting.html#unable-to-power-on-virtual-machine-on-vmware">Unable to power on virtual machine on VMware</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/troubleshooting.html#load-balancer-rules-fail-after-changing-network-offering">Load balancer rules fail after changing network offering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archived-cloudstack-administration/en/latest/troubleshooting.html#troubleshooting-internet-traffic">Troubleshooting Internet Traffic</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="cloudstack-administration#">Back to top</a>
+          | <a href="archived-cloudstack-administration/en/latest/ui.html" title="Next Chapter: User Interface"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">User Interface &raquo;</span>
+          </a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="archived-cloudstack-administration/en/latest/_sources/index.rst.txt"
+     rel="nofollow">Source</a>
+</div>
+      
+    </p>
+    <p>
+        &copy; Copyright 2016, Apache Software Foundation.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

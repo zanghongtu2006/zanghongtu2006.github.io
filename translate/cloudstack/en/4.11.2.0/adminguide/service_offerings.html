@@ -1,0 +1,903 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Service Offerings, Disk Offerings, Network Offerings, and Templates &mdash; Apache CloudStack 4.11.2.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Overview of Setting Up Networking for Users" href="networking.html" />
+    <link rel="prev" title="Overview of Projects" href="projects.html" /> 
+
+<!-- RTD Extra Head -->
+
+<!-- 
+Always link to the latest version, as canonical.
+http://docs.readthedocs.org/en/latest/canonical.html
+-->
+<link rel="canonical" href="service_offerings.html" />
+
+<link rel="stylesheet" href="https://assets.readthedocs.org/static/css/readthedocs-doc-embed.css" type="text/css" />
+
+<script type="text/javascript" src="../_static/readthedocs-data.js"></script>
+
+<!-- Add page-specific data, which must exist in the page js, not global -->
+<script type="text/javascript">
+READTHEDOCS_DATA['page'] = 'adminguide/service_offerings'
+READTHEDOCS_DATA['source_suffix'] = '.rst'
+</script>
+
+<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js"></script>
+
+<!-- end RTD <extrahead> -->
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Apache CloudStack
+          
+
+          
+          </a>
+
+          
+            
+            
+            
+              <div class="version">
+                4.11.2.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../conceptsandterminology/index.html">CloudStack Concepts and Terminology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickinstallationguide/qig.html">Quick Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installguide/index.html">Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../upgrading/index.html">Upgrading CloudStack</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Usage Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html#user-interface">User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#managing-accounts-users-and-domains">Managing Accounts, Users and Domains</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#using-projects-to-organize-user-resources">Using Projects to Organize User Resources</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#service-offerings">Service Offerings</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="service_offerings.html#">Service Offerings, Disk Offerings, Network Offerings, and Templates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="service_offerings.html#compute-and-disk-service-offerings">Compute and Disk Service Offerings</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="service_offerings.html#custom-compute-offering">Custom Compute Offering</a></li>
+<li class="toctree-l4"><a class="reference internal" href="service_offerings.html#creating-a-new-compute-offering">Creating a New Compute Offering</a></li>
+<li class="toctree-l4"><a class="reference internal" href="service_offerings.html#creating-a-new-disk-offering">Creating a New Disk Offering</a></li>
+<li class="toctree-l4"><a class="reference internal" href="service_offerings.html#modifying-or-deleting-a-service-offering">Modifying or Deleting a Service Offering</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="service_offerings.html#system-service-offerings">System Service Offerings</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="service_offerings.html#creating-a-new-system-service-offering">Creating a New System Service Offering</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="service_offerings.html#network-throttling">Network Throttling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="service_offerings.html#changing-the-default-system-offering-for-system-vms">Changing the Default System Offering for System VMs</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#setting-up-networking-for-users">Setting up Networking for Users</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#working-with-virtual-machines">Working with Virtual Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#working-with-templates">Working with Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#working-with-hosts">Working with Hosts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#working-with-storage">Working with Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#working-with-system-virtual-machines">Working with System Virtual Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#working-with-usage">Working with Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#managing-networks-and-traffic">Managing Networks and Traffic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#managing-the-cloud">Managing the Cloud</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#system-reliability-and-availability">System Reliability and Availability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#tuning">Tuning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#events-and-troubleshooting">Events and Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../developersguide/index.html">Developers Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/index.html">Plugins Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Other Documentation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/api.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://cwiki.apache.org/confluence/display/CLOUDSTACK/Home">Apache CloudStack Wiki</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/">Apache CloudStack web site</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/downloads.html">Apache CloudStack Source Code</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/apache/cloudstack">Apache CloudStack on GitHub</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Pre 4.11 Documentation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="../../../projects/cloudstack-installation">Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference external" href="../../../projects/cloudstack-administration">Administration Guide</a></li>
+<li class="toctree-l1"><a class="reference external" href="../../../projects/cloudstack-release-notes">Release Notes</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Apache CloudStack</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Usage Guide</a> &raquo;</li>
+        
+      <li>Service Offerings, Disk Offerings, Network Offerings, and Templates</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/apache/cloudstack-documentation/blob/4.11.2.0/source/adminguide/service_offerings.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <p>In addition to the physical and logical infrastructure of your cloud and
+the CloudStack software and servers, you also need a layer of user services
+so that people can actually make use of the cloud. This means not just a
+user UI, but a set of options and resources that users can choose from,
+such as templates for creating virtual machines, disk storage, and more.
+If you are running a commercial service, you will be keeping track of
+what services and resources users are consuming and charging them for
+that usage. Even if you do not charge anything for people to use your
+cloud – say, if the users are strictly internal to your organization, or
+just friends who are sharing your cloud – you can still keep track of
+what services they use and how much of them.</p>
+<div class="section" id="service-offerings-disk-offerings-network-offerings-and-templates">
+<h1>Service Offerings, Disk Offerings, Network Offerings, and Templates<a class="headerlink" href="service_offerings.html#service-offerings-disk-offerings-network-offerings-and-templates" title="Permalink to this headline">¶</a></h1>
+<p>A user creating a new instance can make a variety of choices about its
+characteristics and capabilities. CloudStack provides several ways to
+present users with choices when creating a new instance:</p>
+<ul class="simple">
+<li>Service Offerings, defined by the CloudStack administrator, provide a
+choice of CPU speed, number of CPUs, RAM size, tags on the root disk,
+and other choices. See Creating a New Compute Offering.</li>
+<li>Disk Offerings, defined by the CloudStack administrator, provide a
+choice of disk size and IOPS (Quality of Service) for primary data
+storage. See Creating a New Disk Offering.</li>
+<li>Network Offerings, defined by the CloudStack administrator, describe the
+feature set that is available to end users from the virtual router or
+external networking devices on a given guest network. See Network
+Offerings.</li>
+<li>Templates, defined by the CloudStack administrator or by any CloudStack
+user, are the base OS images that the user can choose from when
+creating a new instance. For example, CloudStack includes CentOS as a
+template. See Working with Templates.</li>
+</ul>
+<p>In addition to these choices that are provided for users, there is
+another type of service offering which is available only to the CloudStack
+root administrator, and is used for configuring virtual infrastructure
+resources. For more information, see Upgrading a Virtual Router with
+System Service Offerings.</p>
+</div>
+<div class="section" id="compute-and-disk-service-offerings">
+<h1>Compute and Disk Service Offerings<a class="headerlink" href="service_offerings.html#compute-and-disk-service-offerings" title="Permalink to this headline">¶</a></h1>
+<p>A service offering is a set of virtual hardware features such as CPU
+core count and speed, memory, and disk size. The CloudStack administrator
+can set up various offerings, and then end users choose from the
+available offerings when they create a new VM. Based on the user’s
+selected offering, CloudStack emits usage records that can be integrated
+with billing systems.</p>
+<p>Some characteristics of service offerings must be defined by the CloudStack
+administrator, and others can be left undefined so that the end-user can
+enter their own desired values. This is useful to reduce the number of
+offerings the CloudStack administrator has to define. Instead of defining a
+compute offering for every imaginable combination of values that a user
+might want, the administrator can define offerings that provide some
+flexibility to the users and can serve as the basis for several
+different VM configurations.</p>
+<p>A service offering includes the following elements:</p>
+<ul class="simple">
+<li>CPU, memory, and network resource guarantees</li>
+<li>How resources are metered</li>
+<li>How the resource usage is charged</li>
+<li>How often the charges are generated</li>
+</ul>
+<p>For example, one service offering might allow users to create a virtual
+machine instance that is equivalent to a 1 GHz Intel® Core™ 2 CPU, with
+1 GB memory at $0.20/hour, with network traffic metered at $0.10/GB.</p>
+<p>CloudStack separates service offerings into compute offerings and disk
+offerings. The compute service offering specifies:</p>
+<ul class="simple">
+<li>Guest CPU (optional). If not defined by the CloudStack administrator,
+users can pick the CPU attributes.</li>
+<li>Guest RAM (optional). If not defined by the CloudStack administrator,
+users can pick the RAM.</li>
+<li>Guest Networking type (virtual or direct)</li>
+<li>Tags on the root disk</li>
+</ul>
+<p>The disk offering specifies:</p>
+<ul class="simple">
+<li>Disk size (optional). If not defined by the CloudStack administrator,
+users can pick the disk size.</li>
+<li>Tags on the data disk</li>
+</ul>
+<div class="section" id="custom-compute-offering">
+<h2>Custom Compute Offering<a class="headerlink" href="service_offerings.html#custom-compute-offering" title="Permalink to this headline">¶</a></h2>
+<p>CloudStack provides you the flexibility to specify the desired values for
+the number of CPU, CPU speed, and memory while deploying a VM. As an
+admin, you create a Compute Offering by marking it as custom, and the
+users will be able to customize this dynamic Compute Offering by
+specifying the memory, and CPU at the time of VM creation or upgrade.
+Custom Compute Offering is same as the normal Compute Offering except
+that the values of the dynamic parameters will be set to zeros in the
+given set of templates. Use this offering to deploy VM by specifying
+custom values for the dynamic parameters. Memory, CPU and number of CPUs
+are considered as dynamic parameters.</p>
+<p>Dynamic Compute Offerings can be used in following cases: deploying a
+VM, changing the compute offering of a stopped VM and running VMs, which
+is nothing but scaling up. To support this feature a new field, Custom,
+has been added to the Create Compute Offering page. If the Custom field
+is checked, the user will be able to create a custom Compute Offering by
+filling in the desired values for number of CPU, CPU speed, and memory.
+See ? for more information on this.</p>
+<p><em>Recording Usage Events for Dynamically Assigned Resources</em>.</p>
+<p>To support this feature, usage events has been enhanced to register
+events for dynamically assigned resources. Usage events are registered
+when a VM is created from a custom compute offering, and upon changing
+the compute offering of a stopped or running VM. The values of the
+parameters, such as CPU, speed, RAM are recorded.</p>
+</div>
+<div class="section" id="creating-a-new-compute-offering">
+<h2>Creating a New Compute Offering<a class="headerlink" href="service_offerings.html#creating-a-new-compute-offering" title="Permalink to this headline">¶</a></h2>
+<p>To create a new compute offering:</p>
+<ol class="arabic">
+<li><p class="first">Log in with admin privileges to the CloudStack UI.</p>
+</li>
+<li><p class="first">In the left navigation bar, click Service Offerings.</p>
+</li>
+<li><p class="first">In Select Offering, choose Compute Offering.</p>
+</li>
+<li><p class="first">Click Add Compute Offering.</p>
+</li>
+<li><p class="first">In the dialog, make the following choices:</p>
+<ul>
+<li><p class="first"><strong>Name</strong>: Any desired name for the service offering.</p>
+</li>
+<li><p class="first"><strong>Description</strong>: A short description of the offering that can be
+displayed to users</p>
+</li>
+<li><p class="first"><strong>Storage type</strong>: The type of disk that should be allocated. Local
+allocates from storage attached directly to the host where the
+system VM is running. Shared allocates from storage accessible via
+NFS.</p>
+</li>
+<li><p class="first"><strong>Custom</strong>: Custom compute offerings can be used in following
+cases: deploying a VM, changing the compute offering of a stopped
+VM and running VMs, which is nothing but scaling up.</p>
+<p>If the Custom field is checked, the end-user must fill in the
+desired values for number of CPU, CPU speed, and RAM Memory when
+using a custom compute offering. When you check this box, those
+three input fields are hidden in the dialog box.</p>
+</li>
+<li><p class="first"><strong># of CPU cores</strong>: The number of cores which should be allocated
+to a system VM with this offering. If Custom is checked, this
+field does not appear.</p>
+</li>
+<li><p class="first"><strong>CPU (in MHz)</strong>: The CPU speed of the cores that the system VM is
+allocated. For example, “2000” would provide for a 2 GHz clock. If
+Custom is checked, this field does not appear.</p>
+</li>
+<li><p class="first"><strong>Memory (in MB)</strong>: The amount of memory in megabytes that the
+system VM should be allocated. For example, “2048” would provide
+for a 2 GB RAM allocation. If Custom is checked, this field does
+not appear.</p>
+</li>
+<li><p class="first"><strong>Network Rate</strong>: Allowed data transfer rate in MB per second.</p>
+</li>
+<li><p class="first"><strong>Disk Read Rate</strong>: Allowed disk read rate in bits per second.</p>
+</li>
+<li><p class="first"><strong>Disk Write Rate</strong>: Allowed disk write rate in bits per second.</p>
+</li>
+<li><p class="first"><strong>Disk Read Rate</strong>: Allowed disk read rate in IOPS (input/output
+operations per second).</p>
+</li>
+<li><p class="first"><strong>Disk Write Rate</strong>: Allowed disk write rate in IOPS (input/output
+operations per second).</p>
+</li>
+<li><p class="first"><strong>Offer HA</strong>: If yes, the administrator can choose to have the
+system VM be monitored and as highly available as possible.</p>
+</li>
+<li><p class="first"><strong>QoS Type</strong>: Three options: Empty (no Quality of Service), hypervisor
+(rate limiting enforced on the hypervisor side), and storage
+(guaranteed minimum and maximum IOPS enforced on the storage
+side). If leveraging QoS, make sure that the hypervisor or storage
+system supports this feature.</p>
+</li>
+<li><p class="first"><strong>Custom IOPS</strong>: If checked, the user can set their own IOPS. If not
+checked, the root administrator can define values. If the root
+admin does not set values when using storage QoS, default values
+are used (the defauls can be overridden if the proper parameters
+are passed into CloudStack when creating the primary storage in
+question).</p>
+</li>
+<li><p class="first"><strong>Min IOPS</strong>: Appears only if storage QoS is to be used. Set a
+guaranteed minimum number of IOPS to be enforced on the storage
+side.</p>
+</li>
+<li><p class="first"><strong>Max IOPS</strong>: Appears only if storage QoS is to be used. Set a maximum
+number of IOPS to be enforced on the storage side (the system may
+go above this limit in certain circumstances for short intervals).</p>
+</li>
+<li><p class="first"><strong>Hypervisor Snapshot Reserve</strong>: For managed storage only. This is
+a value that is a percentage of the size of the root disk. For example:
+if the root disk is 20 GB and Hypervisor Snapshot Reserve is 200%, the
+storage volume that backs the storage repository (XenServer) or
+datastore (VMware) in question is sized at 60 GB (20 GB + (20 GB * 2)).
+This enables space for hypervisor snapshots in addition to the virtual
+disk that represents the root disk. This does not apply for KVM.</p>
+</li>
+<li><p class="first"><strong>Storage Tags</strong>: The tags that should be associated with the
+primary storage used by the system VM.</p>
+</li>
+<li><p class="first"><strong>Host Tags</strong>: (Optional) Any tags that you use to organize your
+hosts</p>
+</li>
+<li><p class="first"><strong>CPU cap</strong>: Whether to limit the level of CPU usage even if spare
+capacity is available.</p>
+</li>
+<li><p class="first"><strong>Public</strong>: Indicate whether the service offering should be
+available all domains or only some domains. Choose Yes to make it
+available to all domains. Choose No to limit the scope to a
+subdomain; CloudStack will then prompt for the subdomain’s name.</p>
+</li>
+<li><p class="first"><strong>isVolatile</strong>: If checked, VMs created from this service offering
+will have their root disks reset upon reboot. This is useful for
+secure environments that need a fresh start on every boot and for
+desktops that should not retain state.</p>
+</li>
+<li><p class="first"><strong>Deployment Planner</strong>: Choose the technique that you would like
+CloudStack to use when deploying VMs based on this service
+offering.</p>
+<p>First Fit places new VMs on the first host that is found having
+sufficient capacity to support the VM’s requirements.</p>
+<p>User Dispersing makes the best effort to evenly distribute VMs
+belonging to the same account on different clusters or pods.</p>
+<p>User Concentrated prefers to deploy VMs belonging to the same
+account within a single pod.</p>
+<p>Implicit Dedication will deploy VMs on private infrastructure that
+is dedicated to a specific domain or account. If you choose this
+planner, then you must also pick a value for Planner Mode. See
+<a class="reference external" href="accounts.html#dedicating-resources-to-accounts-and-domains">“Dedicating Resources to Accounts and Domains”</a>.</p>
+<p>Bare Metal is used with bare metal hosts. See Bare Metal
+Installation in the Installation Guide.</p>
+</li>
+<li><p class="first"><strong>Planner Mode</strong>: Used when ImplicitDedicationPlanner is selected
+in the previous field. The planner mode determines how VMs will be
+deployed on private infrastructure that is dedicated to a single
+domain or account.</p>
+<p>Strict: A host will not be shared across multiple accounts. For
+example, strict implicit dedication is useful for deployment of
+certain types of applications, such as desktops, where no host can
+be shared between different accounts without violating the desktop
+software’s terms of license.</p>
+<p>Preferred: The VM will be deployed in dedicated infrastructure if
+possible. Otherwise, the VM can be deployed in shared
+infrastructure.</p>
+</li>
+<li><dl class="first docutils">
+<dt><strong>GPU</strong>: Assign a physical GPU(GPU-passthrough) or a portion of a physicalGPU</dt>
+<dd><p class="first last">GPU card(vGPU) to the guest VM. It allows graphical applications to run on the VM.
+Select the card from the supported list of cards.</p>
+</dd>
+</dl>
+<p>The options given are NVIDIA GRID K1 and NVIDIA GRID K2. These are vGPU
+capable cards that allow multiple vGPUs on a single physical GPU. If you
+want to use a card other than these, follow the instructions in the
+<strong>“GPU and vGPU support for CloudStack Guest VMs”</strong> page in the
+Cloudstack Version 4.4 Design Docs found in the Cloudstack Wiki.</p>
+</li>
+<li><p class="first"><strong>vGPU Type</strong>: Represents the type of virtual GPU to be assigned to a
+guest VM. In this case, only a portion of a physical GPU card (vGPU) is
+assigned to the guest VM.</p>
+<p>Additionally, the <strong>passthrough vGPU</strong> type is defined to represent a physical GPU
+device. A <strong>passthrough vGPU</strong> can directly be assigned to a single guest VM.
+In this case, a physical GPU device is exclusively allotted to a single
+guest VM.</p>
+</li>
+</ul>
+</li>
+<li><p class="first">Click Add.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="creating-a-new-disk-offering">
+<h2>Creating a New Disk Offering<a class="headerlink" href="service_offerings.html#creating-a-new-disk-offering" title="Permalink to this headline">¶</a></h2>
+<p>To create a new disk offering:</p>
+<ol class="arabic simple">
+<li>Log in with admin privileges to the CloudStack UI.</li>
+<li>In the left navigation bar, click Service Offerings.</li>
+<li>In Select Offering, choose Disk Offering.</li>
+<li>Click Add Disk Offering.</li>
+<li>In the dialog, make the following choices:<ul>
+<li><strong>Name</strong>: Any desired name for the disk offering.</li>
+<li><strong>Description</strong>: A short description of the offering that can be
+displayed to users</li>
+<li><strong>Custom Disk Size</strong>: If checked, the user can set their own disk
+size. If not checked, the root administrator must define a value
+in Disk Size.</li>
+<li><strong>Disk Size</strong>: Appears only if Custom Disk Size is not selected.
+Define the volume size in GB (2^30 1GB = 1,073,741,824 Bytes).</li>
+<li><strong>QoS Type</strong>: Three options: Empty (no Quality of Service), hypervisor
+(rate limiting enforced on the hypervisor side), and storage
+(guaranteed minimum and maximum IOPS enforced on the storage
+side). If leveraging QoS, make sure that the hypervisor or storage
+system supports this feature.</li>
+<li><strong>Custom IOPS</strong>: If checked, the user can set their own IOPS. If not
+checked, the root administrator can define values. If the root
+admin does not set values when using storage QoS, default values
+are used (the defauls can be overridden if the proper parameters
+are passed into CloudStack when creating the primary storage in
+question).</li>
+<li><strong>Min IOPS</strong>: Appears only if storage QoS is to be used. Set a
+guaranteed minimum number of IOPS to be enforced on the storage
+side.</li>
+<li><strong>Max IOPS</strong>: Appears only if storage QoS is to be used. Set a maximum
+number of IOPS to be enforced on the storage side (the system may
+go above this limit in certain circumstances for short intervals).</li>
+<li><strong>Hypervisor Snapshot Reserve</strong>: For managed storage only. This is
+a value that is a percentage of the size of the data disk. For example:
+if the data disk is 20 GB and Hypervisor Snapshot Reserve is 200%, the
+storage volume that backs the storage repository (XenServer) or
+datastore (VMware) in question is sized at 60 GB (20 GB + (20 GB * 2)).
+This enables space for hypervisor snapshots in addition to the virtual
+disk that represents the data disk. This does not apply for KVM.</li>
+<li><strong>(Optional)Storage Tags</strong>: The tags that should be associated with
+the primary storage for this disk. Tags are a comma separated list
+of attributes of the storage. For example “ssd,blue”. Tags are
+also added on Primary Storage. CloudStack matches tags on a disk
+offering to tags on the storage. If a tag is present on a disk
+offering that tag (or tags) must also be present on Primary
+Storage for the volume to be provisioned. If no such primary
+storage exists, allocation from the disk offering will fail..</li>
+<li><strong>Public</strong>: Indicate whether the service offering should be available
+all domains or only some domains. Choose Yes to make it available
+to all domains. Choose No to limit the scope to a subdomain;
+CloudStack will then prompt for the subdomain’s name.</li>
+</ul>
+</li>
+<li>Click Add.</li>
+</ol>
+</div>
+<div class="section" id="modifying-or-deleting-a-service-offering">
+<h2>Modifying or Deleting a Service Offering<a class="headerlink" href="service_offerings.html#modifying-or-deleting-a-service-offering" title="Permalink to this headline">¶</a></h2>
+<p>Service offerings cannot be changed once created. This applies to both
+compute offerings and disk offerings.</p>
+<p>A service offering can be deleted. If it is no longer in use, it is
+deleted immediately and permanently. If the service offering is still in
+use, it will remain in the database until all the virtual machines
+referencing it have been deleted. After deletion by the administrator, a
+service offering will not be available to end users that are creating
+new instances.</p>
+</div>
+</div>
+<div class="section" id="system-service-offerings">
+<h1>System Service Offerings<a class="headerlink" href="service_offerings.html#system-service-offerings" title="Permalink to this headline">¶</a></h1>
+<p>System service offerings provide a choice of CPU speed, number of CPUs,
+tags, and RAM size, just as other service offerings do. But rather than
+being used for virtual machine instances and exposed to users, system
+service offerings are used to change the default properties of virtual
+routers, console proxies, and other system VMs. System service offerings
+are visible only to the CloudStack root administrator. CloudStack
+provides default system service offerings. The CloudStack root
+administrator can create additional custom system service offerings.</p>
+<p>When CloudStack creates a virtual router for a guest network, it uses
+default settings which are defined in the system service offering
+associated with the network offering. You can upgrade the capabilities
+of the virtual router by applying a new network offering that contains a
+different system service offering. All virtual routers in that network
+will begin using the settings from the new service offering.</p>
+<div class="section" id="creating-a-new-system-service-offering">
+<h2>Creating a New System Service Offering<a class="headerlink" href="service_offerings.html#creating-a-new-system-service-offering" title="Permalink to this headline">¶</a></h2>
+<p>To create a system service offering:</p>
+<ol class="arabic simple">
+<li>Log in with admin privileges to the CloudStack UI.</li>
+<li>In the left navigation bar, click Service Offerings.</li>
+<li>In Select Offering, choose System Offering.</li>
+<li>Click Add System Service Offering.</li>
+<li>In the dialog, make the following choices:<ul>
+<li>Name. Any desired name for the system offering.</li>
+<li>Description. A short description of the offering that can be
+displayed to users</li>
+<li>System VM Type. Select the type of system virtual machine that
+this offering is intended to support.</li>
+<li>Storage type. The type of disk that should be allocated. Local
+allocates from storage attached directly to the host where the
+system VM is running. Shared allocates from storage accessible via
+NFS.</li>
+<li># of CPU cores. The number of cores which should be allocated to a
+system VM with this offering</li>
+<li>CPU (in MHz). The CPU speed of the cores that the system VM is
+allocated. For example, “2000” would provide for a 2 GHz clock.</li>
+<li>Memory (in MB). The amount of memory in megabytes that the system
+VM should be allocated. For example, “2048” would provide for a 2
+GB RAM allocation.</li>
+<li>Network Rate. Allowed data transfer rate in MB per second.</li>
+<li>Offer HA. If yes, the administrator can choose to have the system
+VM be monitored and as highly available as possible.</li>
+<li>Storage Tags. The tags that should be associated with the primary
+storage used by the system VM.</li>
+<li>Host Tags. (Optional) Any tags that you use to organize your hosts</li>
+<li>CPU cap. Whether to limit the level of CPU usage even if spare
+capacity is available.</li>
+<li>Public. Indicate whether the service offering should be available
+all domains or only some domains. Choose Yes to make it available
+to all domains. Choose No to limit the scope to a subdomain;
+CloudStack will then prompt for the subdomain’s name.</li>
+</ul>
+</li>
+<li>Click Add.</li>
+</ol>
+</div>
+</div>
+<div class="section" id="network-throttling">
+<h1>Network Throttling<a class="headerlink" href="service_offerings.html#network-throttling" title="Permalink to this headline">¶</a></h1>
+<p>Network throttling is the process of controlling the network access and
+bandwidth usage based on certain rules. CloudStack controls this
+behaviour of the guest networks in the cloud by using the network rate
+parameter. This parameter is defined as the default data transfer rate
+in Mbps (Megabits Per Second) allowed in a guest network. It defines the
+upper limits for network utilization. If the current utilization is
+below the allowed upper limits, access is granted, else revoked.</p>
+<p>You can throttle the network bandwidth either to control the usage above
+a certain limit for some accounts, or to control network congestion in a
+large cloud environment. The network rate for your cloud can be
+configured on the following:</p>
+<ul class="simple">
+<li>Network Offering</li>
+<li>Service Offering</li>
+<li>Global parameter</li>
+</ul>
+<p>If network rate is set to NULL in service offering, the value provided
+in the vm.network.throttling.rate global parameter is applied. If the
+value is set to NULL for network offering, the value provided in the
+network.throttling.rate global parameter is considered.</p>
+<p>For the default public, storage, and management networks, network rate
+is set to 0. This implies that the public, storage, and management
+networks will have unlimited bandwidth by default. For default guest
+networks, network rate is set to NULL. In this case, network rate is
+defaulted to the global parameter value.</p>
+<p>The following table gives you an overview of how network rate is applied
+on different types of networks in CloudStack.</p>
+<table border="1" class="table-striped table-bordered table-hover docutils">
+<colgroup>
+<col width="58%" />
+<col width="42%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Networks</th>
+<th class="head">Network Rate Is Taken from</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Guest network of Virtual Router</td>
+<td>Guest Network Offering</td>
+</tr>
+<tr class="row-odd"><td>Public network of Virtual Router</td>
+<td>Guest Network Offering</td>
+</tr>
+<tr class="row-even"><td>Storage network of Secondary Storage VM</td>
+<td>System Network Offering</td>
+</tr>
+<tr class="row-odd"><td>Management network of Secondary Storage VM</td>
+<td>System Network Offering</td>
+</tr>
+<tr class="row-even"><td>Storage network of Console Proxy VM</td>
+<td>System Network Offering</td>
+</tr>
+<tr class="row-odd"><td>Management network of Console Proxy VM</td>
+<td>System Network Offering</td>
+</tr>
+<tr class="row-even"><td>Storage network of Virtual Router</td>
+<td>System Network Offering</td>
+</tr>
+<tr class="row-odd"><td>Management network of Virtual Router</td>
+<td>System Network Offering</td>
+</tr>
+<tr class="row-even"><td>Public network of Secondary Storage VM</td>
+<td>System Network Offering</td>
+</tr>
+<tr class="row-odd"><td>Public network of Console Proxy VM</td>
+<td>System Network Offering</td>
+</tr>
+<tr class="row-even"><td>Default network of a guest VM</td>
+<td>Compute Offering</td>
+</tr>
+<tr class="row-odd"><td>Additional networks of a guest VM</td>
+<td>Corresponding Network Offerings</td>
+</tr>
+</tbody>
+</table>
+<p>A guest VM must have a default network, and can also have many
+additional networks. Depending on various parameters, such as the host
+and virtual switch used, you can observe a difference in the network
+rate in your cloud. For example, on a VMware host the actual network
+rate varies based on where they are configured (compute offering,
+network offering, or both); the network type (shared or isolated); and
+traffic direction (ingress or egress).</p>
+<p>The network rate set for a network offering used by a particular network
+in CloudStack is used for the traffic shaping policy of a port group,
+for example: port group A, for that network: a particular subnet or VLAN
+on the actual network. The virtual routers for that network connects to
+the port group A, and by default instances in that network connects to
+this port group. However, if an instance is deployed with a compute
+offering with the network rate set, and if this rate is used for the
+traffic shaping policy of another port group for the network, for
+example port group B, then instances using this compute offering are
+connected to the port group B, instead of connecting to port group A.</p>
+<p>The traffic shaping policy on standard port groups in VMware only
+applies to the egress traffic, and the net effect depends on the type of
+network used in CloudStack. In shared networks, ingress traffic is
+unlimited for CloudStack, and egress traffic is limited to the rate that
+applies to the port group used by the instance if any. If the compute
+offering has a network rate configured, this rate applies to the egress
+traffic, otherwise the network rate set for the network offering
+applies. For isolated networks, the network rate set for the network
+offering, if any, effectively applies to the ingress traffic. This is
+mainly because the network rate set for the network offering applies to
+the egress traffic from the virtual router to the instance. The egress
+traffic is limited by the rate that applies to the port group used by
+the instance if any, similar to shared networks.</p>
+<p>For example:</p>
+<p>Network rate of network offering = 10 Mbps</p>
+<p>Network rate of compute offering = 200 Mbps</p>
+<p>In shared networks, ingress traffic will not be limited for CloudStack,
+while egress traffic will be limited to 200 Mbps. In an isolated
+network, ingress traffic will be limited to 10 Mbps and egress to 200
+Mbps.</p>
+</div>
+<div class="section" id="changing-the-default-system-offering-for-system-vms">
+<h1>Changing the Default System Offering for System VMs<a class="headerlink" href="service_offerings.html#changing-the-default-system-offering-for-system-vms" title="Permalink to this headline">¶</a></h1>
+<p>You can manually change the system offering for a particular System VM.
+Additionally, as a CloudStack administrator, you can also change the
+default system offering used for System VMs.</p>
+<ol class="arabic">
+<li><p class="first">Create a new system offering.</p>
+<p>For more information, see Creating a New System Service Offering.</p>
+</li>
+<li><p class="first">Back up the database:</p>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mysqldump</span> <span class="o">-</span><span class="n">u</span> <span class="n">root</span> <span class="o">-</span><span class="n">p</span> <span class="n">cloud</span> <span class="o">|</span> <span class="n">bzip2</span> <span class="o">&gt;</span> <span class="n">cloud_backup</span><span class="o">.</span><span class="n">sql</span><span class="o">.</span><span class="n">bz2</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Open an MySQL prompt:</p>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mysql</span> <span class="o">-</span><span class="n">u</span> <span class="n">cloud</span> <span class="o">-</span><span class="n">p</span> <span class="n">cloud</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Run the following queries on the cloud database.</p>
+<ol class="arabic">
+<li><p class="first">In the disk_offering table, identify the original default
+offering and the new offering you want to use by default.</p>
+<p>Take a note of the ID of the new offering.</p>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">select</span> <span class="nb">id</span><span class="p">,</span><span class="n">name</span><span class="p">,</span><span class="n">unique_name</span><span class="p">,</span><span class="nb">type</span> <span class="kn">from</span> <span class="nn">disk_offering</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">For the original default offering, set the value of unique_name
+to NULL.</p>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># update disk_offering set unique_name = NULL where id = 10;</span>
+</pre></div>
+</div>
+<p>Ensure that you use the correct value for the ID.</p>
+</li>
+<li><p class="first">For the new offering that you want to use by default, set the
+value of unique_name as follows:</p>
+<p>For the default Console Proxy VM (CPVM) offering,set unique_name
+to ‘Cloud.com-ConsoleProxy’. For the default Secondary Storage VM
+(SSVM) offering, set unique_name to ‘Cloud.com-SecondaryStorage’.
+For example:</p>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">update</span> <span class="n">disk_offering</span> <span class="nb">set</span> <span class="n">unique_name</span> <span class="o">=</span> <span class="s1">&#39;Cloud.com-ConsoleProxy&#39;</span> <span class="n">where</span> <span class="nb">id</span> <span class="o">=</span> <span class="mi">16</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</li>
+<li><p class="first">Restart CloudStack Management Server. Restarting is required because
+the default offerings are loaded into the memory at startup.</p>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">service</span> <span class="n">cloudstack</span><span class="o">-</span><span class="n">management</span> <span class="n">restart</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Destroy the existing CPVM or SSVM offerings and wait for them to be
+recreated. The new CPVM or SSVM are configured with the new offering.</p>
+</li>
+</ol>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="networking.html" class="btn btn-neutral float-right" title="Overview of Setting Up Networking for Users" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="projects.html" class="btn btn-neutral float-left" title="Overview of Projects" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Apache Foundation
+      
+        <span class="commit">
+          Revision <code>6d954f27</code>.
+        </span>
+      
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Read the Docs</span>
+      v: 4.11.2.0
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="../../../index.html">latest</a></dd>
+        
+          <dd><a href="../index.html">4.11.2.0</a></dd>
+        
+          <dd><a href="../../4.11.1.0/index.html">4.11.1.0</a></dd>
+        
+          <dd><a href="http://docs.cloudstack.apache.org/en/master/">master</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="http://readthedocs.org/projects/cloudstack-documentation/downloads/htmlzip/4.11.2.0/">htmlzip</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>On Read the Docs</dt>
+          <dd>
+            <a href="http://readthedocs.org/projects/cloudstack-documentation/?fromdocs=cloudstack-documentation">Project Home</a>
+          </dd>
+          <dd>
+            <a href="http://readthedocs.org/builds/cloudstack-documentation/?fromdocs=cloudstack-documentation">Builds</a>
+          </dd>
+      </dl>
+      <hr/>
+      Free document hosting provided by <a href="http://www.readthedocs.org">Read the Docs</a>.
+
+    </div>
+  </div>
+
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+   
+
+</body>
+</html>

@@ -1,0 +1,587 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Host Hyper-V Installation &mdash; Apache CloudStack 4.11.2.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Host KVM Installation" href="kvm.html" />
+    <link rel="prev" title="Configuring your CloudStack Installation" href="../configuration.html" /> 
+
+<!-- RTD Extra Head -->
+
+<!-- 
+Always link to the latest version, as canonical.
+http://docs.readthedocs.org/en/latest/canonical.html
+-->
+<link rel="canonical" href="hyperv.html" />
+
+<link rel="stylesheet" href="https://assets.readthedocs.org/static/css/readthedocs-doc-embed.css" type="text/css" />
+
+<script type="text/javascript" src="../../_static/readthedocs-data.js"></script>
+
+<!-- Add page-specific data, which must exist in the page js, not global -->
+<script type="text/javascript">
+READTHEDOCS_DATA['page'] = 'installguide/hypervisor/hyperv'
+READTHEDOCS_DATA['source_suffix'] = '.rst'
+</script>
+
+<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js"></script>
+
+<!-- end RTD <extrahead> -->
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Apache CloudStack
+          
+
+          
+          </a>
+
+          
+            
+            
+            
+              <div class="version">
+                4.11.2.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../conceptsandterminology/index.html">CloudStack Concepts and Terminology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quickinstallationguide/qig.html">Quick Installation Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Installation Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../index.html#building-from-source">Building from Source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#general-installation">General Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#configuration">Configuration</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#hypervisor-setup">Hypervisor Setup</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="hyperv.html#">Host Hyper-V Installation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="hyperv.html#system-requirements-for-hyper-v-hypervisor-hosts">System Requirements for Hyper-V Hypervisor Hosts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="hyperv.html#preparation-checklist-for-hyper-v">Preparation Checklist for Hyper-V</a></li>
+<li class="toctree-l4"><a class="reference internal" href="hyperv.html#hyper-v-installation-steps">Hyper-V Installation Steps</a></li>
+<li class="toctree-l4"><a class="reference internal" href="hyperv.html#installing-the-cloudstack-agent-on-a-hyper-v-host">Installing the CloudStack Agent on a Hyper-V Host</a></li>
+<li class="toctree-l4"><a class="reference internal" href="hyperv.html#physical-network-configuration-for-hyper-v">Physical Network Configuration for Hyper-V</a></li>
+<li class="toctree-l4"><a class="reference internal" href="hyperv.html#storage-preparation-for-hyper-v-optional">Storage Preparation for Hyper-V (Optional)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="kvm.html">Host KVM Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lxc.html">Host LXC Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vsphere.html">Host VMware vSphere Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="xenserver.html">Host Citrix XenServer Installation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#optional-installation">Optional Installation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../upgrading/index.html">Upgrading CloudStack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../adminguide/index.html">Usage Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developersguide/index.html">Developers Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugins/index.html">Plugins Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../releasenotes/index.html">Release Notes</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Other Documentation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/api.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://cwiki.apache.org/confluence/display/CLOUDSTACK/Home">Apache CloudStack Wiki</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/">Apache CloudStack web site</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/downloads.html">Apache CloudStack Source Code</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/apache/cloudstack">Apache CloudStack on GitHub</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Pre 4.11 Documentation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="../../../../projects/cloudstack-installation">Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference external" href="../../../../projects/cloudstack-administration">Administration Guide</a></li>
+<li class="toctree-l1"><a class="reference external" href="../../../../projects/cloudstack-release-notes">Release Notes</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Apache CloudStack</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Installation Guide</a> &raquo;</li>
+        
+      <li>Host Hyper-V Installation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/apache/cloudstack-documentation/blob/4.11.2.0/source/installguide/hypervisor/hyperv.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="host-hyper-v-installation">
+<h1>Host Hyper-V Installation<a class="headerlink" href="hyperv.html#host-hyper-v-installation" title="Permalink to this headline">¶</a></h1>
+<p>If you want to use Hyper-V hypervisor to run guest virtual machines,
+install Hyper-V on the hosts in your cloud. The instructions in this
+section doesn’t duplicate Hyper-V Installation documentation. It
+provides the CloudStack-specific steps that are needed to prepare a
+Hyper-V host to work with CloudStack.</p>
+<div class="section" id="system-requirements-for-hyper-v-hypervisor-hosts">
+<h2>System Requirements for Hyper-V Hypervisor Hosts<a class="headerlink" href="hyperv.html#system-requirements-for-hyper-v-hypervisor-hosts" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="supported-operating-systems-for-hyper-v-hosts">
+<h3>Supported Operating Systems for Hyper-V Hosts<a class="headerlink" href="hyperv.html#supported-operating-systems-for-hyper-v-hosts" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Windows Server 2012 R2 Standard</li>
+<li>Windows Server 2012 R2 Datacenter</li>
+<li>Hyper-V 2012 R2</li>
+</ul>
+</div>
+<div class="section" id="minimum-system-requirements-for-hyper-v-hosts">
+<h3>Minimum System Requirements for Hyper-V Hosts<a class="headerlink" href="hyperv.html#minimum-system-requirements-for-hyper-v-hosts" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>1.4 GHz 64-bit processor with hardware-assisted virtualization.</li>
+<li>800 MB of RAM</li>
+<li>32 GB of disk space</li>
+<li>Gigabit (10/100/1000baseT) Ethernet adapter</li>
+</ul>
+</div>
+<div class="section" id="supported-storage">
+<h3>Supported Storage<a class="headerlink" href="hyperv.html#supported-storage" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Primary Storage: Server Message Block (SMB) Version 3, Local</li>
+<li>Secondary Storage: SMB</li>
+</ul>
+</div>
+</div>
+<div class="section" id="preparation-checklist-for-hyper-v">
+<h2>Preparation Checklist for Hyper-V<a class="headerlink" href="hyperv.html#preparation-checklist-for-hyper-v" title="Permalink to this headline">¶</a></h2>
+<p>For a smoother installation, gather the following information before you
+start:</p>
+<table border="1" class="table-striped table-bordered table-hover docutils">
+<colgroup>
+<col width="16%" />
+<col width="13%" />
+<col width="71%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Hyper-V
+Requiremen
+ts</th>
+<th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Server
+Roles</td>
+<td>Hyper-V</td>
+<td>After the Windows Server 2012 R2 installation,
+ensure that Hyper-V is selected from Server Roles.
+For more information, see <a class="reference external" href="http://technet.microsoft.com/en-us/library/jj134187.aspx#BKMK_Step2">Installing
+Hyper-V</a>.</td>
+</tr>
+<tr class="row-odd"><td>Share
+Location</td>
+<td>New
+folders
+in the
+/Share
+director
+y</td>
+<td><p class="first">Ensure that folders are created for Primary and
+Secondary storage. The SMB share and the hosts
+should be part of the same domain.</p>
+<p class="last">If you are using Windows SMB share, the location of
+the file share for the Hyper-V deployment will be
+the new folder created in the \Shares on the
+selected volume. You can create sub-folders for both
+PRODUCT Primary and Secondary storage within the
+share location. When you select the profile for the
+file shares, ensure that you select SMB Share
+-Applications. This creates the file shares with
+settings appropriate for Hyper-V.</p>
+</td>
+</tr>
+<tr class="row-even"><td>Domain and
+Hosts</td>
+<td>&#160;</td>
+<td>Hosts should be part of the same Active Directory
+domain.</td>
+</tr>
+<tr class="row-odd"><td>Hyper-V
+Users</td>
+<td>Full
+control</td>
+<td>Full control on the SMB file share.</td>
+</tr>
+<tr class="row-even"><td>Virtual
+Switch</td>
+<td>&#160;</td>
+<td><p class="first">If you are using Hyper-V 2012 R2, manually create an
+external virtual switch before adding the host to
+PRODUCT. If the Hyper-V host is added to the Hyper-V
+manager, select the host, then click Virtual Switch
+Manager, then New Virtual Switch. In the External
+Network, select the desired NIC adapter and click
+Apply.</p>
+<p class="last">If you are using Windows 2012 R2, virtual switch is
+created automatically.</p>
+</td>
+</tr>
+<tr class="row-odd"><td>Virtual
+Switch
+Name</td>
+<td>&#160;</td>
+<td>Take a note of the name of the virtual switch. You
+need to specify that when configuring PRODUCT
+physical network labels.</td>
+</tr>
+<tr class="row-even"><td>Hyper-V
+Domain
+Users</td>
+<td>&#160;</td>
+<td><ul class="first last simple">
+<li>Add the Hyper-V domain users to the Hyper-V
+Administrators group.</li>
+<li>A domain user should have full control on the SMB
+share that is exported for primary and secondary
+storage.</li>
+<li>This domain user should be part of the Hyper-V
+Administrators and Local Administrators group on
+the Hyper-V hosts that are to be managed by
+PRODUCT.</li>
+<li>The Hyper-V Agent service runs with the
+credentials of this domain user account.</li>
+<li>Specify the credential of the domain user while
+adding a host to PRODUCT so that it can manage
+it.</li>
+<li>Specify the credential of the domain user while
+adding a shared SMB primary or secondary storage.</li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td>Migration</td>
+<td>Migratio
+n</td>
+<td>Enable Migration.</td>
+</tr>
+<tr class="row-even"><td>Migration</td>
+<td>Delegati
+on</td>
+<td>If you want to use Live Migration, enable
+Delegation. Enable the following services of other
+hosts participating in Live Migration: CIFS and
+Microsoft Virtual System Migration Service.</td>
+</tr>
+<tr class="row-odd"><td>Migration</td>
+<td>Kerberos</td>
+<td>Enable Kerberos for Live Migration.</td>
+</tr>
+<tr class="row-even"><td>Network
+Access
+Permission
+for
+Dial-in</td>
+<td>Allow
+access</td>
+<td>Allow access for Dial-in connections.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="hyper-v-installation-steps">
+<h2>Hyper-V Installation Steps<a class="headerlink" href="hyperv.html#hyper-v-installation-steps" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Download the operating system from <a class="reference external" href="http://technet.microsoft.com/en-us/windowsserver/hh534429">Windows Server 2012 R2</a>.</li>
+<li>Install it on the host as given in <a class="reference external" href="http://technet.microsoft.com/library/hh831620">Install and Deploy Windows Server 2012
+R2</a>.</li>
+<li>Post installation, ensure that you enable Hyper-V role in the server.</li>
+<li>If no Active Directory domain exists in your deployment, create one
+and add users to the domain.</li>
+<li>In the Active Directory domain, ensure that all the Hyper-v hosts are
+added so that all the hosts are part of the domain.</li>
+<li>Add the domain user to the following groups on the Hyper-V host:
+Hyper-V Administrators and Local Administrators.</li>
+</ol>
+</div>
+<div class="section" id="installing-the-cloudstack-agent-on-a-hyper-v-host">
+<h2>Installing the CloudStack Agent on a Hyper-V Host<a class="headerlink" href="hyperv.html#installing-the-cloudstack-agent-on-a-hyper-v-host" title="Permalink to this headline">¶</a></h2>
+<p>The Hyper-V Agent helps CloudStack perform operations on the Hyper-V
+hosts. This Agent communicates with the Management Server and controls
+all the instances on the host. Each Hyper-V host must have the Hyper-V
+Agent installed on it for successful interaction between the host and
+CloudStack. The Hyper-V Agent runs as a Windows service. Install the
+Agent on each host using the following steps.</p>
+<p>CloudStack Management Server communicates with Hyper-V Agent by using
+HTTPS. For secure communication between the Management Server and the
+host, install a self-signed certificate on port 8250.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The Agent installer automatically perform this operation. You have not
+selected this option during the Agent installation, it can also be done
+manually as given in step 1.</p>
+</div>
+<ol class="arabic">
+<li><p class="first">Create and add a self-signed SSL certificate on port 8250:</p>
+<ol class="arabic">
+<li><p class="first">Create A self-signed SSL certificate:</p>
+<pre class="literal-block">
+# New-SelfSignedCertificate -DnsName apachecloudstack -CertStoreLocation Cert:LocalMachineMy
+</pre>
+<p>This command creates the self-signed certificate and add that to
+the certificate store <code class="docutils literal notranslate"><span class="pre">LocalMachine\My</span></code>.</p>
+</li>
+<li><p class="first">Add the created certificate to port 8250 for https communication:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">netsh</span> <span class="n">http</span> <span class="n">add</span> <span class="n">sslcert</span> <span class="n">ipport</span><span class="o">=</span><span class="mf">0.0</span><span class="o">.</span><span class="mf">0.0</span><span class="p">:</span><span class="mi">8250</span> <span class="n">certhash</span><span class="o">=&lt;</span><span class="n">thumbprint</span><span class="o">&gt;</span> <span class="n">appid</span><span class="o">=</span><span class="s2">&quot;{727beb1c-6e7c-49b2-8fbd-f03dbe481b08}&quot;</span>
+</pre></div>
+</div>
+<p>Thumbprint is the thumbprint of the certificate you created.</p>
+</li>
+</ol>
+</li>
+<li><p class="first">Build the CloudStack Agent for Hyper-V as given in <a class="reference external" href="https://cwiki.apache.org/confluence/display/CLOUDSTACK/Creating+Hyperv+Agent+Installer">Building CloudStack
+Hyper-V Agent</a>.</p>
+</li>
+<li><p class="first">As an administrator, run the installer.</p>
+</li>
+<li><p class="first">Provide the Hyper-V admin credentials when prompted.</p>
+<p>When the agent installation is finished, the agent runs as a service
+on the host machine.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="physical-network-configuration-for-hyper-v">
+<h2>Physical Network Configuration for Hyper-V<a class="headerlink" href="hyperv.html#physical-network-configuration-for-hyper-v" title="Permalink to this headline">¶</a></h2>
+<p>You should have a plan for how the hosts will be cabled and which
+physical NICs will carry what types of traffic. By default, CloudStack
+will use the device that is used for the default route.</p>
+<p>If you are using Hyper-V 2012 R2, manually create an external virtual
+switch before adding the host to CloudStack. If the Hyper-V host is
+added to the Hyper-V manager, select the host, then click Virtual Switch
+Manager, then New Virtual Switch. In the External Network, select the
+desired NIC adapter and click Apply.</p>
+<p>If you are using Windows 2012 R2, virtual switch is created
+automatically.</p>
+</div>
+<div class="section" id="storage-preparation-for-hyper-v-optional">
+<h2>Storage Preparation for Hyper-V (Optional)<a class="headerlink" href="hyperv.html#storage-preparation-for-hyper-v-optional" title="Permalink to this headline">¶</a></h2>
+<p>CloudStack allows administrators to set up shared Primary Storage and
+Secondary Storage that uses SMB.</p>
+<ol class="arabic">
+<li><p class="first">Create a SMB storage and expose it over SMB Version 3.</p>
+<p>For more information, see <a class="reference external" href="http://technet.microsoft.com/en-us/library/jj134187.aspx">Deploying Hyper-V over SMB</a>.</p>
+<p>You can also create and export SMB share using Windows. After the
+Windows Server 2012 R2 installation, select File and Storage Services
+from Server Roles to create an SMB file share. For more information,
+see <a class="reference external" href="http://technet.microsoft.com/en-us/library/jj134187.aspx#BKMK_Step3">Creating an SMB File Share Using Server Manager</a>.</p>
+</li>
+<li><p class="first">Add the SMB share to the Active Directory domain.</p>
+<p>The SMB share and the hosts managed by CloudStack need to be in the
+same domain. However, the storage should be accessible from the
+Management Server with the domain user privileges.</p>
+</li>
+<li><p class="first">While adding storage to CloudStack, ensure that the correct domain,
+and credentials are supplied. This user should be able to access the
+storage from the Management Server.</p>
+</li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="kvm.html" class="btn btn-neutral float-right" title="Host KVM Installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../configuration.html" class="btn btn-neutral float-left" title="Configuring your CloudStack Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Apache Foundation
+      
+        <span class="commit">
+          Revision <code>6d954f27</code>.
+        </span>
+      
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Read the Docs</span>
+      v: 4.11.2.0
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="../../../../index.html">latest</a></dd>
+        
+          <dd><a href="../../index.html">4.11.2.0</a></dd>
+        
+          <dd><a href="../../../4.11.1.0/index.html">4.11.1.0</a></dd>
+        
+          <dd><a href="http://docs.cloudstack.apache.org/en/master/">master</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="http://readthedocs.org/projects/cloudstack-documentation/downloads/htmlzip/4.11.2.0/">htmlzip</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>On Read the Docs</dt>
+          <dd>
+            <a href="http://readthedocs.org/projects/cloudstack-documentation/?fromdocs=cloudstack-documentation">Project Home</a>
+          </dd>
+          <dd>
+            <a href="http://readthedocs.org/builds/cloudstack-documentation/?fromdocs=cloudstack-documentation">Builds</a>
+          </dd>
+      </dl>
+      <hr/>
+      Free document hosting provided by <a href="http://www.readthedocs.org">Read the Docs</a>.
+
+    </div>
+  </div>
+
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+   
+
+</body>
+</html>

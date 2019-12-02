@@ -1,0 +1,1457 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>API Changes Introduced in 4.12.0.0 &mdash; Apache CloudStack 4.12.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Known Issues in 4.12" href="known_issues.html" />
+    <link rel="prev" title="Compatibility Matrix" href="compat.html" /> 
+
+<!-- RTD Extra Head -->
+
+<!-- 
+Always link to the latest version, as canonical.
+http://docs.readthedocs.org/en/latest/canonical.html
+-->
+<link rel="canonical" href="../../latest/releasenotes/api-changes.html" />
+
+<link rel="stylesheet" href="https://assets.readthedocs.org/static/css/readthedocs-doc-embed.css" type="text/css" />
+
+<script type="text/javascript" src="../_static/readthedocs-data.js"></script>
+
+<!-- Add page-specific data, which must exist in the page js, not global -->
+<script type="text/javascript">
+READTHEDOCS_DATA['page'] = "releasenotes/api-changes"
+READTHEDOCS_DATA['source_suffix'] = ".rst"
+</script>
+
+<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js"></script>
+
+<!-- end RTD <extrahead> -->
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Apache CloudStack
+          
+
+          
+          </a>
+
+          
+            
+            
+            
+              <div class="version">
+                4.12.0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../conceptsandterminology/index.html">CloudStack Concepts and Terminology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickinstallationguide/qig.html">Quick Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installguide/index.html">Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../upgrading/index.html">Upgrading CloudStack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../adminguide/index.html">Usage Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developersguide/index.html">Developers Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/index.html">Plugins Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Release Notes</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="about.html">What’s New in 4.12.0.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fixed_issues.html">Issues Fixed in 4.12.0.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compat.html">Compatibility Matrix</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="api-changes.html#">API Changes Introduced in 4.12.0.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api-changes.html#api-changes-introduced-in-4-11">API Changes Introduced in 4.11</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api-changes.html#new-api-commands">New API Commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api-changes.html#parameters-changed-api-commands">Parameters Changed API Commands</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="known_issues.html">Known Issues in 4.12</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Other Documentation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/api.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://cwiki.apache.org/confluence/display/CLOUDSTACK/Home">Apache CloudStack Wiki</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/">Apache CloudStack web site</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/downloads.html">Apache CloudStack Source Code</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/apache/cloudstack">Apache CloudStack on GitHub</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Pre 4.11 Documentation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="../../../projects/cloudstack-installation">Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference external" href="../../../projects/cloudstack-administration">Administration Guide</a></li>
+<li class="toctree-l1"><a class="reference external" href="../../../projects/cloudstack-release-notes">Release Notes</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Apache CloudStack</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Release Notes</a> &raquo;</li>
+        
+      <li>API Changes Introduced in 4.12.0.0</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/apache/cloudstack-documentation/blob/4.12.0.0/source/releasenotes/api-changes.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="api-changes-introduced-in-release">
+<h1>API Changes Introduced in 4.12.0.0<a class="headerlink" href="api-changes.html#api-changes-introduced-in-release" title="Permalink to this headline">¶</a></h1>
+<p>For the complete list of API commands and params consult the <a class="reference external" href="http://cloudstack.apache.org/docs/api/">CloudStack Apidocs</a>.</p>
+<p>The 4.12 API commands stayed as the 4.11.</p>
+</div>
+<div class="section" id="api-changes-introduced-in-4-11">
+<h1>API Changes Introduced in 4.11<a class="headerlink" href="api-changes.html#api-changes-introduced-in-4-11" title="Permalink to this headline">¶</a></h1>
+<p>For the complete list of API commands and params consult the <a class="reference external" href="http://cloudstack.apache.org/docs/api/">CloudStack Apidocs</a>.</p>
+<div class="section" id="new-api-commands">
+<h2>New API Commands<a class="headerlink" href="api-changes.html#new-api-commands" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="table-striped table-bordered table-hover docutils">
+<colgroup>
+<col width="36%" />
+<col width="64%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">provisionCertificate</span></code></td>
+<td>Issues and propagates client certificate on a connected host/agent using
+configured CA plugin</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">listElastistorPool</span></code></td>
+<td>Lists the pools of elastistor</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">deleteServicePackageOffering</span></code></td>
+<td>Delete Service Package</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">listAnnotations</span></code></td>
+<td>Lists annotations.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">enableHAForZone</span></code></td>
+<td>Enables HA for a zone</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">enableHAForCluster</span></code></td>
+<td>Enables HA cluster-wide</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">listNuageVspDomainTemplates</span></code></td>
+<td>Lists Nuage VSP domain templates</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">listElastistorInterface</span></code></td>
+<td>Lists the network Interfaces of elastistor</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">stopNetScalerVpx</span></code></td>
+<td>Stops a NetScalervm.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">disableHAForZone</span></code></td>
+<td>Disables HA for a zone</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">revokeCertificate</span></code></td>
+<td>Revokes certificate using configured CA plugin</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">updateSiocInfo</span></code></td>
+<td>Update SIOC info</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">cloudianSsoLogin</span></code></td>
+<td>Generates single-sign-on login url for logged-in CloudStack user to access the
+Cloudian Management Console</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">issueCertificate</span></code></td>
+<td>Issues a client certificate using configured or provided CA plugin</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">listNetscalerControlCenter</span></code></td>
+<td>list control center</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">listCAProviders</span></code></td>
+<td>Lists available certificate authority providers in CloudStack</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">acquirePodIpAddress</span></code></td>
+<td>Allocates IP addresses in respective Pod of a Zone</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">deleteManagementNetworkIpRange</span></code></td>
+<td>Deletes a management network IP range. This action is only allowed when no IPs
+in this range are allocated.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">addAnnotation</span></code></td>
+<td>add an annotation.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">deployNetscalerVpx</span></code></td>
+<td>Creates new NS Vpx</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">listElastistorVolume</span></code></td>
+<td>Lists the volumes of elastistor</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">cloudianIsEnabled</span></code></td>
+<td>Checks if the Cloudian Connector is enabled</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">listNuageVspGlobalDomainTemplate</span></code></td>
+<td>Lists Nuage VSP domain templates</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">listHostHAResources</span></code></td>
+<td>Lists host HA resources</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">enableHAForHost</span></code></td>
+<td>Enables HA for a host</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">registerNetscalerServicePackage</span></code></td>
+<td>Registers NCC Service Package</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">listHostHAProviders</span></code></td>
+<td>Lists HA providers</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">listCaCertificate</span></code></td>
+<td>Lists the CA public certificate(s) as support by the configured/provided CA
+plugin</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">migrateVPC</span></code></td>
+<td>moves a vpc to another physical network</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">configureHAForHost</span></code></td>
+<td>Configures HA for a host</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">listRegisteredServicePackages</span></code></td>
+<td>lists registered service packages</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">disableHAForCluster</span></code></td>
+<td>Disables HA cluster-wide</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">linkAccountToLdap</span></code></td>
+<td>link a cloudstack account to a group or OU in ldap</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">associateNuageVspDomainTemplate</span></code></td>
+<td>associate a vpc with a domain template</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">moveUser</span></code></td>
+<td>Moves a user to another account</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">disableHAForHost</span></code></td>
+<td>Disables HA for a host</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">deleteNetscalerControlCenter</span></code></td>
+<td>Delete Netscaler Control Center</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">migrateNetwork</span></code></td>
+<td>moves a network to another physical network</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">uploadTemplateDirectDownloadCertificate</span></code></td>
+<td>Upload a certificate for HTTPS direct template download on KVM hosts</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">registerNetscalerControlCenter</span></code></td>
+<td>Adds a netscaler control center device</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">createManagementNetworkIpRange</span></code></td>
+<td>Creates a Management network IP range.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">removeAnnotation</span></code></td>
+<td>remove an annotation.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">releasePodIpAddress</span></code></td>
+<td>Releases a Pod IP back to the Pod</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">runDiagnostics</span></code></td>
+<td>Run network-utility commands remotely on system VMs</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="parameters-changed-api-commands">
+<h2>Parameters Changed API Commands<a class="headerlink" href="api-changes.html#parameters-changed-api-commands" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="table-striped table-bordered table-hover docutils">
+<colgroup>
+<col width="36%" />
+<col width="64%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">createPod</span></code></td>
+<td><p class="first"><strong>Response:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">forsystemvms</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">vlanid</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">copyIso</span></code></td>
+<td><p class="first"><strong>Response:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">childtemplates</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">directdownload</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">parenttemplateid</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">physicalsize</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">listHosts</span></code></td>
+<td><p class="first"><strong>Response:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">annotation</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">hostha</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">lastannotated</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">username</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">updateStoragePool</span></code></td>
+<td><p class="first"><strong>Response:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">allocatediops</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">provider</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">rebootSystemVm</span></code></td>
+<td><p class="first"><strong>Response:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">guestvlan</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">publicvlan</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">listNetworks</span></code></td>
+<td><p class="first"><strong>Response:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">externalid</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">updateResourceLimit</span></code></td>
+<td><p class="first"><strong>Response:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">resourcetypename</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">updateHost</span></code></td>
+<td><p class="first"><strong>Request:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">annotation</span></code> (optional)</li>
+</ul>
+<p><strong>Response:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">annotation</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">hostha</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">lastannotated</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">username</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">uploadVolume</span></code></td>
+<td><p class="first"><strong>Response:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">clusterid</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">clustername</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">physicalsize</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">podid</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">podname</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">utilization</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">virtualsize</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">destroySystemVm</span></code></td>
+<td><p class="first"><strong>Response:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">guestvlan</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">publicvlan</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">scaleSystemVm</span></code></td>
+<td><p class="first"><strong>Response:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">guestvlan</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">publicvlan</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">listLdapConfigurations</span></code></td>
+<td><p class="first"><strong>Request:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">domainid</span></code> (optional)</li>
+</ul>
+<p><strong>Response:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">domainid</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">listTemplates</span></code></td>
+<td><p class="first"><strong>Request:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">parenttemplateid</span></code> (optional)</li>
+</ul>
+<p><strong>Response:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">childtemplates</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">directdownload</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">parenttemplateid</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">physicalsize</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">createLoadBalancerRule</span></code></td>
+<td><p class="first"><strong>Response:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">zonename</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">updateNetworkOffering</span></code></td>
+<td><p class="first"><strong>Request:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">tags</span></code> (optional)</li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">stopSystemVm</span></code></td>
+<td><p class="first"><strong>Response:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">guestvlan</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">publicvlan</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">createNetworkOffering</span></code></td>
+<td><p class="first"><strong>Request:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">forvpc</span></code> (optional)</li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">listVolumesMetrics</span></code></td>
+<td><p class="first"><strong>Request:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">clusterid</span></code> (optional)</li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">listSslCerts</span></code></td>
+<td><p class="first"><strong>Response:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">name</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">listPods</span></code></td>
+<td><p class="first"><strong>Response:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">forsystemvms</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">vlanid</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">listSnapshots</span></code></td>
+<td><p class="first"><strong>Response:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">virtualsize</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">listConfigurations</span></code></td>
+<td><p class="first"><strong>Request:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">domainid</span></code> (optional)</li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">listSystemVms</span></code></td>
+<td><p class="first"><strong>Response:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">guestvlan</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">publicvlan</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">detachVolume</span></code></td>
+<td><p class="first"><strong>Response:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">clusterid</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">clustername</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">physicalsize</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">podid</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">podname</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">utilization</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">virtualsize</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">changeServiceForSystemVm</span></code></td>
+<td><p class="first"><strong>Response:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">guestvlan</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">publicvlan</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">createSnapshot</span></code></td>
+<td><p class="first"><strong>Request:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">asyncbackup</span></code> (optional)</li>
+</ul>
+<p><strong>Response:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">virtualsize</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">listNics</span></code></td>
+<td><p class="first"><strong>Response:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">extradhcpoption</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">createSnapshotFromVMSnapshot</span></code></td>
+<td><p class="first"><strong>Response:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">virtualsize</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">listStoragePools</span></code></td>
+<td><p class="first"><strong>Response:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">allocatediops</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">provider</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">addNicToVirtualMachine</span></code></td>
+<td><p class="first"><strong>Request:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">dhcpoptions</span></code> (optional)</li>
+<li><code class="docutils literal notranslate"><span class="pre">macaddress</span></code> (optional)</li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">listExternalLoadBalancers</span></code></td>
+<td><p class="first"><strong>Response:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">annotation</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">hostha</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">lastannotated</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">username</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">updateIso</span></code></td>
+<td><p class="first"><strong>Response:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">childtemplates</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">directdownload</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">parenttemplateid</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">physicalsize</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">prepareTemplate</span></code></td>
+<td><p class="first"><strong>Response:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">childtemplates</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">directdownload</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">parenttemplateid</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">physicalsize</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">copyTemplate</span></code></td>
+<td><p class="first"><strong>Response:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">childtemplates</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">directdownload</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">parenttemplateid</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">physicalsize</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">listNiciraNvpDeviceNetworks</span></code></td>
+<td><p class="first"><strong>Response:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">externalid</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">resizeVolume</span></code></td>
+<td><p class="first"><strong>Response:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">clusterid</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">clustername</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">physicalsize</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">podid</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">podname</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">utilization</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">virtualsize</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">updateTemplate</span></code></td>
+<td><p class="first"><strong>Response:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">childtemplates</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">directdownload</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">parenttemplateid</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">physicalsize</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">createVlanIpRange</span></code></td>
+<td><p class="first"><strong>Request:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">forsystemvms</span></code> (optional)</li>
+</ul>
+<p><strong>Response:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">forsystemvms</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">listPaloAltoFirewallNetworks</span></code></td>
+<td><p class="first"><strong>Response:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">externalid</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">deleteLdapConfiguration</span></code></td>
+<td><p class="first"><strong>Request:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">domainid</span></code> (optional)</li>
+<li><code class="docutils literal notranslate"><span class="pre">port</span></code> (optional)</li>
+</ul>
+<p><strong>Response:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">domainid</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">updateVolume</span></code></td>
+<td><p class="first"><strong>Response:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">clusterid</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">clustername</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">physicalsize</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">podid</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">podname</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">utilization</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">virtualsize</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">updateVirtualMachine</span></code></td>
+<td><p class="first"><strong>Request:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">dhcpoptionsnetworklist</span></code> (optional)</li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">listDomains</span></code></td>
+<td><p class="first"><strong>Request:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">details</span></code> (optional)</li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">updateNetwork</span></code></td>
+<td><p class="first"><strong>Response:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">externalid</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">deleteTemplate</span></code></td>
+<td><p class="first"><strong>Request:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">forced</span></code> (optional)</li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">createTemplate</span></code></td>
+<td><p class="first"><strong>Response:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">childtemplates</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">directdownload</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">parenttemplateid</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">physicalsize</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">updatePortForwardingRule</span></code></td>
+<td><p class="first"><strong>Request:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">privateendport</span></code> (optional)</li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">linkDomainToLdap</span></code></td>
+<td><p class="first"><strong>Request:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">ldapdomain</span></code> (required)</li>
+</ul>
+<p><strong>Response:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">ldapdomain</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">listSrxFirewallNetworks</span></code></td>
+<td><p class="first"><strong>Response:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">externalid</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">prepareHostForMaintenance</span></code></td>
+<td><p class="first"><strong>Response:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">annotation</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">hostha</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">lastannotated</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">username</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">registerIso</span></code></td>
+<td><p class="first"><strong>Request:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">directdownload</span></code> (optional)</li>
+</ul>
+<p><strong>Response:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">childtemplates</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">directdownload</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">parenttemplateid</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">physicalsize</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">deployVirtualMachine</span></code></td>
+<td><p class="first"><strong>Request:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">datadiskofferinglist</span></code> (optional)</li>
+<li><code class="docutils literal notranslate"><span class="pre">dhcpoptionsnetworklist</span></code> (optional)</li>
+<li><code class="docutils literal notranslate"><span class="pre">macaddress</span></code> (optional)</li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">listVlanIpRanges</span></code></td>
+<td><p class="first"><strong>Response:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">forsystemvms</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">cancelHostMaintenance</span></code></td>
+<td><p class="first"><strong>Response:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">annotation</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">hostha</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">lastannotated</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">username</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">listVolumes</span></code></td>
+<td><p class="first"><strong>Request:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">clusterid</span></code> (optional)</li>
+</ul>
+<p><strong>Response:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">clusterid</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">clustername</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">physicalsize</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">podid</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">podname</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">utilization</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">virtualsize</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">lockUser</span></code></td>
+<td><p class="first"><strong>Response:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">usersource</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">createNetwork</span></code></td>
+<td><p class="first"><strong>Request:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">bypassvlanoverlapcheck</span></code> (optional)</li>
+<li><code class="docutils literal notranslate"><span class="pre">externalid</span></code> (optional)</li>
+</ul>
+<p><strong>Response:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">externalid</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">updateUser</span></code></td>
+<td><p class="first"><strong>Response:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">usersource</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">addHost</span></code></td>
+<td><p class="first"><strong>Response:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">annotation</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">hostha</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">lastannotated</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">username</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">attachVolume</span></code></td>
+<td><p class="first"><strong>Response:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">clusterid</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">clustername</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">physicalsize</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">podid</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">podname</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">utilization</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">virtualsize</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">listUsers</span></code></td>
+<td><p class="first"><strong>Response:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">usersource</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">listResourceLimits</span></code></td>
+<td><p class="first"><strong>Request:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">resourcetypename</span></code> (optional)</li>
+</ul>
+<p><strong>Response:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">resourcetypename</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">disableUser</span></code></td>
+<td><p class="first"><strong>Response:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">usersource</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">listIsos</span></code></td>
+<td><p class="first"><strong>Response:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">childtemplates</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">directdownload</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">parenttemplateid</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">physicalsize</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">listNetscalerLoadBalancerNetworks</span></code></td>
+<td><p class="first"><strong>Response:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">externalid</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">startSystemVm</span></code></td>
+<td><p class="first"><strong>Response:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">guestvlan</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">publicvlan</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">migrateVolume</span></code></td>
+<td><p class="first"><strong>Response:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">clusterid</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">clustername</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">physicalsize</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">podid</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">podname</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">utilization</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">virtualsize</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">listEvents</span></code></td>
+<td><p class="first"><strong>Request:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">startid</span></code> (optional)</li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">addLdapConfiguration</span></code></td>
+<td><p class="first"><strong>Request:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">domainid</span></code> (optional)</li>
+</ul>
+<p><strong>Response:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">domainid</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">updateConfiguration</span></code></td>
+<td><p class="first"><strong>Request:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">domainid</span></code> (optional)</li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">dedicatePublicIpRange</span></code></td>
+<td><p class="first"><strong>Response:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">forsystemvms</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">revertSnapshot</span></code></td>
+<td><p class="first"><strong>Response:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">virtualsize</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">migrateSystemVm</span></code></td>
+<td><p class="first"><strong>Response:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">guestvlan</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">publicvlan</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">updateResourceCount</span></code></td>
+<td><p class="first"><strong>Response:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">resourcetypename</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">listBrocadeVcsDeviceNetworks</span></code></td>
+<td><p class="first"><strong>Response:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">externalid</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">listUsageRecords</span></code></td>
+<td><p class="first"><strong>Request:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">includetags</span></code> (optional)</li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">enableUser</span></code></td>
+<td><p class="first"><strong>Response:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">usersource</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">registerTemplate</span></code></td>
+<td><p class="first"><strong>Request:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">directdownload</span></code> (optional)</li>
+</ul>
+<p><strong>Response:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">childtemplates</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">directdownload</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">parenttemplateid</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">physicalsize</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">createStoragePool</span></code></td>
+<td><p class="first"><strong>Response:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">allocatediops</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">provider</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">findStoragePoolsForMigration</span></code></td>
+<td><p class="first"><strong>Response:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">allocatediops</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">provider</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">createVolume</span></code></td>
+<td><p class="first"><strong>Response:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">clusterid</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">clustername</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">physicalsize</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">podid</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">podname</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">utilization</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">virtualsize</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">listF5LoadBalancerNetworks</span></code></td>
+<td><p class="first"><strong>Response:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">externalid</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">updatePod</span></code></td>
+<td><p class="first"><strong>Response:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">forsystemvms</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">vlanid</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">enableStorageMaintenance</span></code></td>
+<td><p class="first"><strong>Response:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">allocatediops</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">provider</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">createUser</span></code></td>
+<td><p class="first"><strong>Response:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">usersource</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">updateRolePermission</span></code></td>
+<td><p class="first"><strong>Request:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">permission</span></code> (optional)</li>
+<li><code class="docutils literal notranslate"><span class="pre">ruleid</span></code> (optional)</li>
+</ul>
+<p><em>Changed Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">ruleorder</span></code> was ‘required’ and is now ‘optional’</li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">cancelStorageMaintenance</span></code></td>
+<td><p class="first"><strong>Response:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">allocatediops</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">provider</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">updateLoadBalancerRule</span></code></td>
+<td><p class="first"><strong>Request:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">protocol</span></code> (optional)</li>
+</ul>
+<p><strong>Response:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">zonename</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">reconnectHost</span></code></td>
+<td><p class="first"><strong>Response:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">annotation</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">hostha</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">lastannotated</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">username</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">getUser</span></code></td>
+<td><p class="first"><strong>Response:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">usersource</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">listLoadBalancerRules</span></code></td>
+<td><p class="first"><strong>Response:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">zonename</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">uploadSslCert</span></code></td>
+<td><p class="first"><strong>Request:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">name</span></code> (required)</li>
+</ul>
+<p><strong>Response:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">name</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">addBaremetalHost</span></code></td>
+<td><p class="first"><strong>Response:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">annotation</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">hostha</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">lastannotated</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">username</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">listCapacity</span></code></td>
+<td><p class="first"><strong>Response:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">capacityallocated</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">name</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">destroyVirtualMachine</span></code></td>
+<td><p class="first"><strong>Request:</strong></p>
+<p><em>New Parameters:</em></p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">volumeids</span></code></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="known_issues.html" class="btn btn-neutral float-right" title="Known Issues in 4.12" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="compat.html" class="btn btn-neutral float-left" title="Compatibility Matrix" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Apache Foundation
+      
+        <span class="commit">
+          Revision <code>af137188</code>.
+        </span>
+      
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Read the Docs</span>
+      v: 4.12.0.0
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="http://docs.cloudstack.apache.org/en/master/">master</a></dd>
+        
+          <dd><a href="../../../index.html">latest</a></dd>
+        
+          <dd><a href="../../4.13.0.0/index.html">4.13.0.0</a></dd>
+        
+          <dd><a href="../index.html">4.12.0.0</a></dd>
+        
+          <dd><a href="../../4.11.3.0/index.html">4.11.3.0</a></dd>
+        
+          <dd><a href="../../4.11.2.0/index.html">4.11.2.0</a></dd>
+        
+          <dd><a href="../../4.11.1.0/index.html">4.11.1.0</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="http://readthedocs.org/projects/cloudstack-documentation/downloads/htmlzip/4.12.0.0/">html</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>On Read the Docs</dt>
+          <dd>
+            <a href="http://readthedocs.org/projects/cloudstack-documentation/?fromdocs=cloudstack-documentation">Project Home</a>
+          </dd>
+          <dd>
+            <a href="http://readthedocs.org/builds/cloudstack-documentation/?fromdocs=cloudstack-documentation">Builds</a>
+          </dd>
+      </dl>
+      <hr/>
+      Free document hosting provided by <a href="http://www.readthedocs.org">Read the Docs</a>.
+
+    </div>
+  </div>
+
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+   
+
+</body>
+</html>

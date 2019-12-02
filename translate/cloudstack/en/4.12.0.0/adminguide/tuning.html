@@ -1,0 +1,424 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Tuning &mdash; Apache CloudStack 4.12.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Event Notification" href="events.html" />
+    <link rel="prev" title="HA for Management Server" href="reliability.html" /> 
+
+<!-- RTD Extra Head -->
+
+<!-- 
+Always link to the latest version, as canonical.
+http://docs.readthedocs.org/en/latest/canonical.html
+-->
+<link rel="canonical" href="../../latest/adminguide/tuning.html" />
+
+<link rel="stylesheet" href="https://assets.readthedocs.org/static/css/readthedocs-doc-embed.css" type="text/css" />
+
+<script type="text/javascript" src="../_static/readthedocs-data.js"></script>
+
+<!-- Add page-specific data, which must exist in the page js, not global -->
+<script type="text/javascript">
+READTHEDOCS_DATA['page'] = "adminguide/tuning"
+READTHEDOCS_DATA['source_suffix'] = ".rst"
+</script>
+
+<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js"></script>
+
+<!-- end RTD <extrahead> -->
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Apache CloudStack
+          
+
+          
+          </a>
+
+          
+            
+            
+            
+              <div class="version">
+                4.12.0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../conceptsandterminology/index.html">CloudStack Concepts and Terminology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickinstallationguide/qig.html">Quick Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installguide/index.html">Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../upgrading/index.html">Upgrading CloudStack</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Usage Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html#user-interface">User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#managing-accounts-users-and-domains">Managing Accounts, Users and Domains</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#using-projects-to-organize-user-resources">Using Projects to Organize User Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#service-offerings">Service Offerings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#setting-up-networking-for-users">Setting up Networking for Users</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#working-with-virtual-machines">Working with Virtual Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#working-with-templates">Working with Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#working-with-hosts">Working with Hosts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#working-with-storage">Working with Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#working-with-system-virtual-machines">Working with System Virtual Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#working-with-usage">Working with Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#managing-networks-and-traffic">Managing Networks and Traffic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#managing-the-cloud">Managing the Cloud</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#system-reliability-and-availability">System Reliability and Availability</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#tuning">Tuning</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="tuning.html#">Tuning</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tuning.html#performance-monitoring">Performance Monitoring</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tuning.html#increase-management-server-maximum-memory">Increase Management Server Maximum Memory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tuning.html#set-database-buffer-pool-size">Set Database Buffer Pool Size</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tuning.html#set-and-monitor-total-vm-limits-per-host">Set and Monitor Total VM Limits per Host</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tuning.html#configure-xenserver-dom0-memory">Configure XenServer dom0 Memory</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#events-and-troubleshooting">Events and Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../developersguide/index.html">Developers Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/index.html">Plugins Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Other Documentation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/api.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://cwiki.apache.org/confluence/display/CLOUDSTACK/Home">Apache CloudStack Wiki</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/">Apache CloudStack web site</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/downloads.html">Apache CloudStack Source Code</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/apache/cloudstack">Apache CloudStack on GitHub</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Pre 4.11 Documentation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="../../../projects/cloudstack-installation">Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference external" href="../../../projects/cloudstack-administration">Administration Guide</a></li>
+<li class="toctree-l1"><a class="reference external" href="../../../projects/cloudstack-release-notes">Release Notes</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Apache CloudStack</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Usage Guide</a> &raquo;</li>
+        
+      <li>Tuning</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/apache/cloudstack-documentation/blob/4.12.0.0/source/adminguide/tuning.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="tuning">
+<h1>Tuning<a class="headerlink" href="tuning.html#tuning" title="Permalink to this headline">¶</a></h1>
+<p>This section provides tips on how to improve the performance of your
+cloud.</p>
+<div class="section" id="performance-monitoring">
+<h2>Performance Monitoring<a class="headerlink" href="tuning.html#performance-monitoring" title="Permalink to this headline">¶</a></h2>
+<p>Host and guest performance monitoring is available to end users and
+administrators. This allows the user to monitor their utilization of
+resources and determine when it is appropriate to choose a more powerful
+service offering or larger disk.</p>
+</div>
+<div class="section" id="increase-management-server-maximum-memory">
+<h2>Increase Management Server Maximum Memory<a class="headerlink" href="tuning.html#increase-management-server-maximum-memory" title="Permalink to this headline">¶</a></h2>
+<p>If the Management Server is subject to high demand, the default maximum
+JVM memory allocation can be insufficient. To increase the memory:</p>
+<ol class="arabic">
+<li><p class="first">Edit the Tomcat configuration file:</p>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">cloudstack</span><span class="o">/</span><span class="n">management</span><span class="o">/</span><span class="n">tomcat6</span><span class="o">.</span><span class="n">conf</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Change the command-line parameter -XmxNNNm to a higher value of N.</p>
+<p>For example, if the current value is -Xmx128m, change it to -Xmx1024m
+or higher.</p>
+</li>
+<li><p class="first">To put the new setting into effect, restart the Management Server.</p>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># service cloudstack-management restart</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p>For more information about memory issues, see “FAQ: Memory” at <a class="reference external" href="http://wiki.apache.org/tomcat/FAQ/Memory">Tomcat
+Wiki.</a></p>
+</div>
+<div class="section" id="set-database-buffer-pool-size">
+<h2>Set Database Buffer Pool Size<a class="headerlink" href="tuning.html#set-database-buffer-pool-size" title="Permalink to this headline">¶</a></h2>
+<p>It is important to provide enough memory space for the MySQL database to
+cache data and indexes:</p>
+<ol class="arabic">
+<li><p class="first">Edit the MySQL configuration file:</p>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">my</span><span class="o">.</span><span class="n">cnf</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Insert the following line in the [mysqld] section, below the datadir
+line. Use a value that is appropriate for your situation. We
+recommend setting the buffer pool at 40% of RAM if MySQL is on the
+same server as the management server or 70% of RAM if MySQL has a
+dedicated server. The following example assumes a dedicated server
+with 1024M of RAM.</p>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">innodb_buffer_pool_size</span><span class="o">=</span><span class="mi">700</span><span class="n">M</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Restart the MySQL service.</p>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># service mysqld restart</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p>For more information about the buffer pool, see “The InnoDB Buffer Pool”
+at <a class="reference external" href="http://dev.mysql.com/doc/refman/5.5/en/innodb-buffer-pool.html">MySQL Reference
+Manual</a>.</p>
+</div>
+<div class="section" id="set-and-monitor-total-vm-limits-per-host">
+<h2>Set and Monitor Total VM Limits per Host<a class="headerlink" href="tuning.html#set-and-monitor-total-vm-limits-per-host" title="Permalink to this headline">¶</a></h2>
+<p>The CloudStack administrator should monitor the total number of VM
+instances in each cluster, and disable allocation to the cluster if the
+total is approaching the maximum that the hypervisor can handle. Be sure
+to leave a safety margin to allow for the possibility of one or more
+hosts failing, which would increase the VM load on the other hosts as
+the VMs are automatically redeployed. Consult the documentation for your
+chosen hypervisor to find the maximum permitted number of VMs per host,
+then use CloudStack global configuration settings to set this as the
+default limit. Monitor the VM activity in each cluster at all times.
+Keep the total number of VMs below a safe level that allows for the
+occasional host failure. For example, if there are N hosts in the
+cluster, and you want to allow for one host in the cluster to be down at
+any given time, the total number of VM instances you can permit in the
+cluster is at most (N-1) * (per-host-limit). Once a cluster reaches
+this number of VMs, use the CloudStack UI to disable allocation of more
+VMs to the cluster.</p>
+</div>
+<div class="section" id="configure-xenserver-dom0-memory">
+<h2>Configure XenServer dom0 Memory<a class="headerlink" href="tuning.html#configure-xenserver-dom0-memory" title="Permalink to this headline">¶</a></h2>
+<p>Configure the XenServer dom0 settings to allocate more memory to dom0.
+This can enable XenServer to handle larger numbers of virtual machines.
+We recommend 2940 MB of RAM for XenServer dom0. For instructions on how
+to do this, see <a class="reference external" href="http://support.citrix.com/article/CTX126531">Citrix Knowledgebase
+Article</a>.The article
+refers to XenServer 5.6, but the same information applies to XenServer 6</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="events.html" class="btn btn-neutral float-right" title="Event Notification" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="reliability.html" class="btn btn-neutral float-left" title="HA for Management Server" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Apache Foundation
+      
+        <span class="commit">
+          Revision <code>af137188</code>.
+        </span>
+      
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Read the Docs</span>
+      v: 4.12.0.0
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="http://docs.cloudstack.apache.org/en/master/">master</a></dd>
+        
+          <dd><a href="../../../index.html">latest</a></dd>
+        
+          <dd><a href="../../4.13.0.0/index.html">4.13.0.0</a></dd>
+        
+          <dd><a href="../index.html">4.12.0.0</a></dd>
+        
+          <dd><a href="../../4.11.3.0/index.html">4.11.3.0</a></dd>
+        
+          <dd><a href="../../4.11.2.0/index.html">4.11.2.0</a></dd>
+        
+          <dd><a href="../../4.11.1.0/index.html">4.11.1.0</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="http://readthedocs.org/projects/cloudstack-documentation/downloads/htmlzip/4.12.0.0/">html</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>On Read the Docs</dt>
+          <dd>
+            <a href="http://readthedocs.org/projects/cloudstack-documentation/?fromdocs=cloudstack-documentation">Project Home</a>
+          </dd>
+          <dd>
+            <a href="http://readthedocs.org/builds/cloudstack-documentation/?fromdocs=cloudstack-documentation">Builds</a>
+          </dd>
+      </dl>
+      <hr/>
+      Free document hosting provided by <a href="http://www.readthedocs.org">Read the Docs</a>.
+
+    </div>
+  </div>
+
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+   
+
+</body>
+</html>

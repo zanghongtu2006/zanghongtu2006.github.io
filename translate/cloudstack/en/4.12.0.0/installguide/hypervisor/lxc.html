@@ -1,0 +1,871 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Host LXC Installation &mdash; Apache CloudStack 4.12.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Host VMware vSphere Installation" href="vsphere.html" />
+    <link rel="prev" title="Host KVM Installation" href="kvm.html" /> 
+
+<!-- RTD Extra Head -->
+
+<!-- 
+Always link to the latest version, as canonical.
+http://docs.readthedocs.org/en/latest/canonical.html
+-->
+<link rel="canonical" href="../../../latest/installguide/hypervisor/lxc.html" />
+
+<link rel="stylesheet" href="https://assets.readthedocs.org/static/css/readthedocs-doc-embed.css" type="text/css" />
+
+<script type="text/javascript" src="../../_static/readthedocs-data.js"></script>
+
+<!-- Add page-specific data, which must exist in the page js, not global -->
+<script type="text/javascript">
+READTHEDOCS_DATA['page'] = "installguide/hypervisor/lxc"
+READTHEDOCS_DATA['source_suffix'] = ".rst"
+</script>
+
+<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js"></script>
+
+<!-- end RTD <extrahead> -->
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Apache CloudStack
+          
+
+          
+          </a>
+
+          
+            
+            
+            
+              <div class="version">
+                4.12.0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../conceptsandterminology/index.html">CloudStack Concepts and Terminology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quickinstallationguide/qig.html">Quick Installation Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Installation Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../index.html#building-from-source">Building from Source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#general-installation">General Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#configuration">Configuration</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#hypervisor-setup">Hypervisor Setup</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="hyperv.html">Host Hyper-V Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="kvm.html">Host KVM Installation</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="lxc.html#">Host LXC Installation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="lxc.html#system-requirements-for-lxc-hosts">System Requirements for LXC Hosts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lxc.html#lxc-installation-overview">LXC Installation Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lxc.html#prepare-the-operating-system">Prepare the Operating System</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lxc.html#install-and-configure-the-agent">Install and configure the Agent</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lxc.html#install-and-configure-libvirt">Install and Configure libvirt</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lxc.html#configure-the-security-policies">Configure the Security Policies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lxc.html#configure-the-network-bridges">Configure the network bridges</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lxc.html#configuring-the-firewall">Configuring the firewall</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lxc.html#add-the-host-to-cloudstack">Add the host to CloudStack</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="vsphere.html">Host VMware vSphere Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="xenserver.html">Host Citrix XenServer Installation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#optional-installation">Optional Installation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../upgrading/index.html">Upgrading CloudStack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../adminguide/index.html">Usage Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developersguide/index.html">Developers Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugins/index.html">Plugins Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../releasenotes/index.html">Release Notes</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Other Documentation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/api.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://cwiki.apache.org/confluence/display/CLOUDSTACK/Home">Apache CloudStack Wiki</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/">Apache CloudStack web site</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/downloads.html">Apache CloudStack Source Code</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/apache/cloudstack">Apache CloudStack on GitHub</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Pre 4.11 Documentation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="../../../../projects/cloudstack-installation">Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference external" href="../../../../projects/cloudstack-administration">Administration Guide</a></li>
+<li class="toctree-l1"><a class="reference external" href="../../../../projects/cloudstack-release-notes">Release Notes</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Apache CloudStack</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Installation Guide</a> &raquo;</li>
+        
+      <li>Host LXC Installation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/apache/cloudstack-documentation/blob/4.12.0.0/source/installguide/hypervisor/lxc.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="host-lxc-installation">
+<h1>Host LXC Installation<a class="headerlink" href="lxc.html#host-lxc-installation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="system-requirements-for-lxc-hosts">
+<h2>System Requirements for LXC Hosts<a class="headerlink" href="lxc.html#system-requirements-for-lxc-hosts" title="Permalink to this headline">¶</a></h2>
+<p>LXC requires the Linux kernel cgroups functionality which is available
+starting 2.6.24. Although you are not required to run these
+distributions, the following are recommended:</p>
+<ul class="simple">
+<li>CentOS / RHEL: 6.3</li>
+<li>Ubuntu: 12.04(.1)</li>
+</ul>
+<p>The main requirement for LXC hypervisors is the libvirt and Qemu
+version. No matter what Linux distribution you are using, make sure the
+following requirements are met:</p>
+<ul class="simple">
+<li>libvirt: 1.0.0 or higher</li>
+<li>Qemu/KVM: 1.0 or higher</li>
+</ul>
+<p>The default bridge in CloudStack is the Linux native bridge
+implementation (bridge module). CloudStack includes an option to work
+with OpenVswitch, the requirements are listed below</p>
+<ul class="simple">
+<li>libvirt: 1.0.0 or higher</li>
+<li>openvswitch: 1.7.1 or higher</li>
+</ul>
+<p>In addition, the following hardware requirements apply:</p>
+<ul class="simple">
+<li>Within a single cluster, the hosts must be of the same distribution
+version.</li>
+<li>All hosts within a cluster must be homogenous. The CPUs must be of
+the same type, count, and feature flags.</li>
+<li>Must support HVM (Intel-VT or AMD-V enabled)</li>
+<li>64-bit x86 CPU (more cores results in better performance)</li>
+<li>4 GB of memory</li>
+<li>At least 1 NIC</li>
+<li>When you deploy CloudStack, the hypervisor host must not have any VMs
+already running</li>
+</ul>
+</div>
+<div class="section" id="lxc-installation-overview">
+<h2>LXC Installation Overview<a class="headerlink" href="lxc.html#lxc-installation-overview" title="Permalink to this headline">¶</a></h2>
+<p>LXC does not have any native system VMs, instead KVM will be used to run
+system VMs. This means that your host will need to support both LXC and
+KVM, thus most of the installation and configuration will be identical
+to the KVM installation. The material in this section doesn’t duplicate
+KVM installation docs. It provides the CloudStack-specific steps that
+are needed to prepare a KVM host to work with CloudStack.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Before continuing, make sure that you have applied the latest updates to
+your host.</p>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">It is NOT recommended to run services on this host not controlled by
+CloudStack.</p>
+</div>
+<p>The procedure for installing an LXC Host is:</p>
+<ol class="arabic simple">
+<li>Prepare the Operating System</li>
+<li>Install and configure libvirt</li>
+<li>Configure Security Policies (AppArmor and SELinux)</li>
+<li>Install and configure the Agent</li>
+</ol>
+</div>
+<div class="section" id="prepare-the-operating-system">
+<h2>Prepare the Operating System<a class="headerlink" href="lxc.html#prepare-the-operating-system" title="Permalink to this headline">¶</a></h2>
+<p>The OS of the Host must be prepared to host the CloudStack Agent and run
+KVM instances.</p>
+<ol class="arabic">
+<li><p class="first">Log in to your OS as root.</p>
+</li>
+<li><p class="first">Check for a fully qualified hostname.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ hostname --fqdn
+</pre></div>
+</div>
+<p>This should return a fully qualified hostname such as
+“kvm1.lab.example.org”. If it does not, edit /etc/hosts so that it
+does.</p>
+</li>
+<li><p class="first">Make sure that the machine can reach the Internet.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ping www.cloudstack.org
+</pre></div>
+</div>
+</li>
+<li><p class="first">Turn on NTP for time synchronization.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">NTP is required to synchronize the clocks of the servers in your
+cloud. Unsynchronized clocks can cause unexpected problems.</p>
+</div>
+<ol class="arabic">
+<li><p class="first">Install NTP</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ yum install ntp
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ apt-get install openntpd
+</pre></div>
+</div>
+</li>
+</ol>
+</li>
+<li><p class="first">Repeat all of these steps on every hypervisor host.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="install-and-configure-the-agent">
+<h2>Install and configure the Agent<a class="headerlink" href="lxc.html#install-and-configure-the-agent" title="Permalink to this headline">¶</a></h2>
+<p>To manage LXC instances on the host CloudStack uses a Agent. This Agent
+communicates with the Management server and controls all the instances
+on the host.</p>
+<p>First we start by installing the agent:</p>
+<p>In RHEL or CentOS:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ yum install cloudstack-agent
+</pre></div>
+</div>
+<p>In Ubuntu:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ apt-get install cloudstack-agent
+</pre></div>
+</div>
+<p>Next step is to update the Agent configuration setttings. The settings
+are in <code class="docutils literal notranslate"><span class="pre">/etc/cloudstack/agent/agent.properties</span></code></p>
+<ol class="arabic">
+<li><p class="first">Set the Agent to run in LXC mode:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">hypervisor</span><span class="o">.</span><span class="n">type</span><span class="o">=</span><span class="n">lxc</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Optional: If you would like to use direct networking (instead of the
+default bridge networking), configure these lines:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">libvirt</span><span class="o">.</span><span class="n">vif</span><span class="o">.</span><span class="n">driver</span><span class="o">=</span><span class="n">com</span><span class="o">.</span><span class="n">cloud</span><span class="o">.</span><span class="n">hypervisor</span><span class="o">.</span><span class="n">kvm</span><span class="o">.</span><span class="n">resource</span><span class="o">.</span><span class="n">DirectVifDriver</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">network</span><span class="o">.</span><span class="n">direct</span><span class="o">.</span><span class="n">source</span><span class="o">.</span><span class="n">mode</span><span class="o">=</span><span class="n">private</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">network</span><span class="o">.</span><span class="n">direct</span><span class="o">.</span><span class="n">device</span><span class="o">=</span><span class="n">eth0</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p>The host is now ready to be added to a cluster. This is covered in a
+later section, see <a class="reference internal" href="../configuration.html#adding-a-host"><span class="std std-ref">Adding a Host</span></a>. It is
+recommended that you continue to read the documentation before adding
+the host!</p>
+</div>
+<div class="section" id="install-and-configure-libvirt">
+<h2>Install and Configure libvirt<a class="headerlink" href="lxc.html#install-and-configure-libvirt" title="Permalink to this headline">¶</a></h2>
+<p>CloudStack uses libvirt for managing virtual machines. Therefore it is
+vital that libvirt is configured correctly. Libvirt is a dependency of
+cloudstack-agent and should already be installed.</p>
+<ol class="arabic">
+<li><p class="first">In order to have live migration working libvirt has to listen for
+unsecured TCP connections. We also need to turn off libvirts attempt
+to use Multicast DNS advertising. Both of these settings are in
+<code class="docutils literal notranslate"><span class="pre">/etc/libvirt/libvirtd.conf</span></code></p>
+<p>Set the following parameters:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">listen_tls</span> <span class="o">=</span> <span class="mi">0</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">listen_tcp</span> <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tcp_port</span> <span class="o">=</span> <span class="s2">&quot;16509&quot;</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">auth_tcp</span> <span class="o">=</span> <span class="s2">&quot;none&quot;</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mdns_adv</span> <span class="o">=</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Turning on “listen_tcp” in libvirtd.conf is not enough, we have to
+change the parameters as well:</p>
+<p>On RHEL or CentOS modify <code class="docutils literal notranslate"><span class="pre">/etc/sysconfig/libvirtd</span></code>:</p>
+<p>Uncomment the following line:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#LIBVIRTD_ARGS=&quot;--listen&quot;</span>
+</pre></div>
+</div>
+<p>On Ubuntu: modify <code class="docutils literal notranslate"><span class="pre">/etc/default/libvirt-bin</span></code></p>
+<p>Add “-l” to the following line</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">libvirtd_opts</span><span class="o">=</span><span class="s2">&quot;-d&quot;</span>
+</pre></div>
+</div>
+<p>so it looks like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">libvirtd_opts</span><span class="o">=</span><span class="s2">&quot;-d -l&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">In order to have the VNC Console work we have to make sure it will
+bind on 0.0.0.0. We do this by editing <code class="docutils literal notranslate"><span class="pre">/etc/libvirt/qemu.conf</span></code></p>
+<p>Make sure this parameter is set:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vnc_listen</span> <span class="o">=</span> <span class="s2">&quot;0.0.0.0&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Restart libvirt</p>
+<p>In RHEL or CentOS:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ service libvirtd restart
+</pre></div>
+</div>
+<p>In Ubuntu:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ service libvirt-bin restart
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="configure-the-security-policies">
+<h2>Configure the Security Policies<a class="headerlink" href="lxc.html#configure-the-security-policies" title="Permalink to this headline">¶</a></h2>
+<p>CloudStack does various things which can be blocked by security
+mechanisms like AppArmor and SELinux. These have to be disabled to
+ensure the Agent has all the required permissions.</p>
+<ol class="arabic">
+<li><p class="first">Configure SELinux (RHEL and CentOS)</p>
+<ol class="arabic">
+<li><p class="first">Check to see whether SELinux is installed on your machine. If not,
+you can skip this section.</p>
+<p>In RHEL or CentOS, SELinux is installed and enabled by default.
+You can verify this with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ rpm -qa | grep selinux
+</pre></div>
+</div>
+</li>
+<li><p class="first">Set the SELINUX variable in <code class="docutils literal notranslate"><span class="pre">/etc/selinux/config</span></code> to
+“permissive”. This ensures that the permissive setting will be
+maintained after a system reboot.</p>
+<p>In RHEL or CentOS:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ vi /etc/selinux/config
+</pre></div>
+</div>
+<p>Change the following line</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELINUX</span><span class="o">=</span><span class="n">enforcing</span>
+</pre></div>
+</div>
+<p>to this</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELINUX</span><span class="o">=</span><span class="n">permissive</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Then set SELinux to permissive starting immediately, without
+requiring a system reboot.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ setenforce permissive
+</pre></div>
+</div>
+</li>
+</ol>
+</li>
+<li><p class="first">Configure Apparmor (Ubuntu)</p>
+<ol class="arabic">
+<li><p class="first">Check to see whether AppArmor is installed on your machine. If
+not, you can skip this section.</p>
+<p>In Ubuntu AppArmor is installed and enabled by default. You can
+verify this with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ dpkg --list &#39;apparmor&#39;
+</pre></div>
+</div>
+</li>
+<li><p class="first">Disable the AppArmor profiles for libvirt</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ln -s /etc/apparmor.d/usr.sbin.libvirtd /etc/apparmor.d/disable/
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ln -s /etc/apparmor.d/usr.lib.libvirt.virt-aa-helper /etc/apparmor.d/disable/
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ apparmor_parser -R /etc/apparmor.d/usr.sbin.libvirtd
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ apparmor_parser -R /etc/apparmor.d/usr.lib.libvirt.virt-aa-helper
+</pre></div>
+</div>
+</li>
+</ol>
+</li>
+</ol>
+</div>
+<div class="section" id="configure-the-network-bridges">
+<h2>Configure the network bridges<a class="headerlink" href="lxc.html#configure-the-network-bridges" title="Permalink to this headline">¶</a></h2>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">This is a very important section, please make sure you read this thoroughly.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This section details how to configure bridges using the native
+implementation in Linux. Please refer to the next section if you intend to
+use OpenVswitch</p>
+</div>
+<p>In order to forward traffic to your instances you will need at least two
+bridges: <em>public</em> and <em>private</em>.</p>
+<p>By default these bridges are called <em>cloudbr0</em> and <em>cloudbr1</em>, but you
+do have to make sure they are available on each hypervisor.</p>
+<p>The most important factor is that you keep the configuration consistent
+on all your hypervisors.</p>
+<div class="section" id="network-example">
+<h3>Network example<a class="headerlink" href="lxc.html#network-example" title="Permalink to this headline">¶</a></h3>
+<p>There are many ways to configure your network. In the Basic networking
+mode you should have two (V)LAN’s, one for your private network and one
+for the public network.</p>
+<p>We assume that the hypervisor has one NIC (eth0) with three tagged
+VLAN’s:</p>
+<ol class="arabic simple">
+<li>VLAN 100 for management of the hypervisor</li>
+<li>VLAN 200 for public network of the instances (cloudbr0)</li>
+<li>VLAN 300 for private network of the instances (cloudbr1)</li>
+</ol>
+<p>On VLAN 100 we give the Hypervisor the IP-Address 192.168.42.11/24 with
+the gateway 192.168.42.1</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The Hypervisor and Management server don’t have to be in the same subnet!</p>
+</div>
+</div>
+<div class="section" id="configuring-the-network-bridges">
+<h3>Configuring the network bridges<a class="headerlink" href="lxc.html#configuring-the-network-bridges" title="Permalink to this headline">¶</a></h3>
+<p>It depends on the distribution you are using how to configure these,
+below you’ll find examples for RHEL/CentOS and Ubuntu.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The goal is to have two bridges called ‘cloudbr0’ and ‘cloudbr1’ after this
+section. This should be used as a guideline only. The exact configuration
+will depend on your network layout.</p>
+</div>
+<div class="section" id="configure-in-rhel-or-centos">
+<h4>Configure in RHEL or CentOS<a class="headerlink" href="lxc.html#configure-in-rhel-or-centos" title="Permalink to this headline">¶</a></h4>
+<p>The required packages were installed when libvirt was installed, we can
+proceed to configuring the network.</p>
+<p>First we configure eth0</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ vi /etc/sysconfig/network-scripts/ifcfg-eth0
+</pre></div>
+</div>
+<p>Make sure it looks similar to:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DEVICE</span><span class="o">=</span><span class="n">eth0</span>
+<span class="n">HWADDR</span><span class="o">=</span><span class="mi">00</span><span class="p">:</span><span class="mi">04</span><span class="p">:</span><span class="n">xx</span><span class="p">:</span><span class="n">xx</span><span class="p">:</span><span class="n">xx</span><span class="p">:</span><span class="n">xx</span>
+<span class="n">ONBOOT</span><span class="o">=</span><span class="n">yes</span>
+<span class="n">HOTPLUG</span><span class="o">=</span><span class="n">no</span>
+<span class="n">BOOTPROTO</span><span class="o">=</span><span class="n">none</span>
+<span class="n">TYPE</span><span class="o">=</span><span class="n">Ethernet</span>
+</pre></div>
+</div>
+<p>We now have to configure the three VLAN interfaces:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ vi /etc/sysconfig/network-scripts/ifcfg-eth0.100
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DEVICE</span><span class="o">=</span><span class="n">eth0</span><span class="o">.</span><span class="mi">100</span>
+<span class="n">HWADDR</span><span class="o">=</span><span class="mi">00</span><span class="p">:</span><span class="mi">04</span><span class="p">:</span><span class="n">xx</span><span class="p">:</span><span class="n">xx</span><span class="p">:</span><span class="n">xx</span><span class="p">:</span><span class="n">xx</span>
+<span class="n">ONBOOT</span><span class="o">=</span><span class="n">yes</span>
+<span class="n">HOTPLUG</span><span class="o">=</span><span class="n">no</span>
+<span class="n">BOOTPROTO</span><span class="o">=</span><span class="n">none</span>
+<span class="n">TYPE</span><span class="o">=</span><span class="n">Ethernet</span>
+<span class="n">VLAN</span><span class="o">=</span><span class="n">yes</span>
+<span class="n">IPADDR</span><span class="o">=</span><span class="mf">192.168</span><span class="o">.</span><span class="mf">42.11</span>
+<span class="n">GATEWAY</span><span class="o">=</span><span class="mf">192.168</span><span class="o">.</span><span class="mf">42.1</span>
+<span class="n">NETMASK</span><span class="o">=</span><span class="mf">255.255</span><span class="o">.</span><span class="mf">255.0</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ vi /etc/sysconfig/network-scripts/ifcfg-eth0.200
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DEVICE</span><span class="o">=</span><span class="n">eth0</span><span class="o">.</span><span class="mi">200</span>
+<span class="n">HWADDR</span><span class="o">=</span><span class="mi">00</span><span class="p">:</span><span class="mi">04</span><span class="p">:</span><span class="n">xx</span><span class="p">:</span><span class="n">xx</span><span class="p">:</span><span class="n">xx</span><span class="p">:</span><span class="n">xx</span>
+<span class="n">ONBOOT</span><span class="o">=</span><span class="n">yes</span>
+<span class="n">HOTPLUG</span><span class="o">=</span><span class="n">no</span>
+<span class="n">BOOTPROTO</span><span class="o">=</span><span class="n">none</span>
+<span class="n">TYPE</span><span class="o">=</span><span class="n">Ethernet</span>
+<span class="n">VLAN</span><span class="o">=</span><span class="n">yes</span>
+<span class="n">BRIDGE</span><span class="o">=</span><span class="n">cloudbr0</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ vi /etc/sysconfig/network-scripts/ifcfg-eth0.300
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DEVICE</span><span class="o">=</span><span class="n">eth0</span><span class="o">.</span><span class="mi">300</span>
+<span class="n">HWADDR</span><span class="o">=</span><span class="mi">00</span><span class="p">:</span><span class="mi">04</span><span class="p">:</span><span class="n">xx</span><span class="p">:</span><span class="n">xx</span><span class="p">:</span><span class="n">xx</span><span class="p">:</span><span class="n">xx</span>
+<span class="n">ONBOOT</span><span class="o">=</span><span class="n">yes</span>
+<span class="n">HOTPLUG</span><span class="o">=</span><span class="n">no</span>
+<span class="n">BOOTPROTO</span><span class="o">=</span><span class="n">none</span>
+<span class="n">TYPE</span><span class="o">=</span><span class="n">Ethernet</span>
+<span class="n">VLAN</span><span class="o">=</span><span class="n">yes</span>
+<span class="n">BRIDGE</span><span class="o">=</span><span class="n">cloudbr1</span>
+</pre></div>
+</div>
+<p>Now we have the VLAN interfaces configured we can add the bridges on top
+of them.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ vi /etc/sysconfig/network-scripts/ifcfg-cloudbr0
+</pre></div>
+</div>
+<p>Now we just configure it is a plain bridge without an IP-Address</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DEVICE</span><span class="o">=</span><span class="n">cloudbr0</span>
+<span class="n">TYPE</span><span class="o">=</span><span class="n">Bridge</span>
+<span class="n">ONBOOT</span><span class="o">=</span><span class="n">yes</span>
+<span class="n">BOOTPROTO</span><span class="o">=</span><span class="n">none</span>
+<span class="n">IPV6INIT</span><span class="o">=</span><span class="n">no</span>
+<span class="n">IPV6_AUTOCONF</span><span class="o">=</span><span class="n">no</span>
+<span class="n">DELAY</span><span class="o">=</span><span class="mi">5</span>
+<span class="n">STP</span><span class="o">=</span><span class="n">yes</span>
+</pre></div>
+</div>
+<p>We do the same for cloudbr1</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ vi /etc/sysconfig/network-scripts/ifcfg-cloudbr1
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DEVICE</span><span class="o">=</span><span class="n">cloudbr1</span>
+<span class="n">TYPE</span><span class="o">=</span><span class="n">Bridge</span>
+<span class="n">ONBOOT</span><span class="o">=</span><span class="n">yes</span>
+<span class="n">BOOTPROTO</span><span class="o">=</span><span class="n">none</span>
+<span class="n">IPV6INIT</span><span class="o">=</span><span class="n">no</span>
+<span class="n">IPV6_AUTOCONF</span><span class="o">=</span><span class="n">no</span>
+<span class="n">DELAY</span><span class="o">=</span><span class="mi">5</span>
+<span class="n">STP</span><span class="o">=</span><span class="n">yes</span>
+</pre></div>
+</div>
+<p>With this configuration you should be able to restart the network,
+although a reboot is recommended to see if everything works properly.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Make sure you have an alternative way like IPMI or ILO to reach the machine
+in case you made a configuration error and the network stops functioning!</p>
+</div>
+</div>
+<div class="section" id="configure-in-ubuntu">
+<h4>Configure in Ubuntu<a class="headerlink" href="lxc.html#configure-in-ubuntu" title="Permalink to this headline">¶</a></h4>
+<p>All the required packages were installed when you installed libvirt, so
+we only have to configure the network.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ vi /etc/network/interfaces
+</pre></div>
+</div>
+<p>Modify the interfaces file to look like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">auto</span> <span class="n">lo</span>
+<span class="n">iface</span> <span class="n">lo</span> <span class="n">inet</span> <span class="n">loopback</span>
+
+<span class="c1"># The primary network interface</span>
+<span class="n">auto</span> <span class="n">eth0</span><span class="o">.</span><span class="mi">100</span>
+<span class="n">iface</span> <span class="n">eth0</span><span class="o">.</span><span class="mi">100</span> <span class="n">inet</span> <span class="n">static</span>
+    <span class="n">address</span> <span class="mf">192.168</span><span class="o">.</span><span class="mf">42.11</span>
+    <span class="n">netmask</span> <span class="mf">255.255</span><span class="o">.</span><span class="mf">255.240</span>
+    <span class="n">gateway</span> <span class="mf">192.168</span><span class="o">.</span><span class="mf">42.1</span>
+    <span class="n">dns</span><span class="o">-</span><span class="n">nameservers</span> <span class="mf">8.8</span><span class="o">.</span><span class="mf">8.8</span> <span class="mf">8.8</span><span class="o">.</span><span class="mf">4.4</span>
+    <span class="n">dns</span><span class="o">-</span><span class="n">domain</span> <span class="n">lab</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">org</span>
+
+<span class="c1"># Public network</span>
+<span class="n">auto</span> <span class="n">cloudbr0</span>
+<span class="n">iface</span> <span class="n">cloudbr0</span> <span class="n">inet</span> <span class="n">manual</span>
+    <span class="n">bridge_ports</span> <span class="n">eth0</span><span class="o">.</span><span class="mi">200</span>
+    <span class="n">bridge_fd</span> <span class="mi">5</span>
+    <span class="n">bridge_stp</span> <span class="n">off</span>
+    <span class="n">bridge_maxwait</span> <span class="mi">1</span>
+
+<span class="c1"># Private network</span>
+<span class="n">auto</span> <span class="n">cloudbr1</span>
+<span class="n">iface</span> <span class="n">cloudbr1</span> <span class="n">inet</span> <span class="n">manual</span>
+    <span class="n">bridge_ports</span> <span class="n">eth0</span><span class="o">.</span><span class="mi">300</span>
+    <span class="n">bridge_fd</span> <span class="mi">5</span>
+    <span class="n">bridge_stp</span> <span class="n">off</span>
+    <span class="n">bridge_maxwait</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p>With this configuration you should be able to restart the network,
+although a reboot is recommended to see if everything works properly.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Make sure you have an alternative way like IPMI or ILO to reach the machine
+in case you made a configuration error and the network stops functioning!</p>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="configuring-the-firewall">
+<h2>Configuring the firewall<a class="headerlink" href="lxc.html#configuring-the-firewall" title="Permalink to this headline">¶</a></h2>
+<p>The hypervisor needs to be able to communicate with other hypervisors
+and the management server needs to be able to reach the hypervisor.</p>
+<p>In order to do so we have to open the following TCP ports (if you are
+using a firewall):</p>
+<ol class="arabic simple">
+<li>22 (SSH)</li>
+<li>1798</li>
+<li>16509 (libvirt)</li>
+<li>5900 - 6100 (VNC consoles)</li>
+<li>49152 - 49216 (libvirt live migration)</li>
+</ol>
+<p>It depends on the firewall you are using how to open these ports. Below
+you’ll find examples how to open these ports in RHEL/CentOS and Ubuntu.</p>
+<div class="section" id="open-ports-in-rhel-centos">
+<h3>Open ports in RHEL/CentOS<a class="headerlink" href="lxc.html#open-ports-in-rhel-centos" title="Permalink to this headline">¶</a></h3>
+<p>RHEL and CentOS use iptables for firewalling the system, you can open
+extra ports by executing the following iptable commands:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ iptables -I INPUT -p tcp -m tcp --dport 22 -j ACCEPT
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ iptables -I INPUT -p tcp -m tcp --dport 1798 -j ACCEPT
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ iptables -I INPUT -p tcp -m tcp --dport 16509 -j ACCEPT
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ iptables -I INPUT -p tcp -m tcp --dport 5900:6100 -j ACCEPT
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ iptables -I INPUT -p tcp -m tcp --dport 49152:49216 -j ACCEPT
+</pre></div>
+</div>
+<p>These iptable settings are not persistent accross reboots, we have to
+save them first.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ iptables-save &gt; /etc/sysconfig/iptables
+</pre></div>
+</div>
+</div>
+<div class="section" id="open-ports-in-ubuntu">
+<h3>Open ports in Ubuntu<a class="headerlink" href="lxc.html#open-ports-in-ubuntu" title="Permalink to this headline">¶</a></h3>
+<p>The default firewall under Ubuntu is UFW (Uncomplicated FireWall), which
+is a Python wrapper around iptables.</p>
+<p>To open the required ports, execute the following commands:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ufw allow proto tcp from any to any port 22
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ufw allow proto tcp from any to any port 1798
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ufw allow proto tcp from any to any port 16509
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ufw allow proto tcp from any to any port 5900:6100
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ufw allow proto tcp from any to any port 49152:49216
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">By default UFW is not enabled on Ubuntu. Executing these commands with the
+firewall disabled does not enable the firewall.</p>
+</div>
+</div>
+</div>
+<div class="section" id="add-the-host-to-cloudstack">
+<h2>Add the host to CloudStack<a class="headerlink" href="lxc.html#add-the-host-to-cloudstack" title="Permalink to this headline">¶</a></h2>
+<p>The host is now ready to be added to a cluster. This is covered in a
+later section, see <a class="reference internal" href="../configuration.html#adding-a-host"><span class="std std-ref">Adding a Host</span></a>. It is
+recommended that you continue to read the documentation before adding
+the host!</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="vsphere.html" class="btn btn-neutral float-right" title="Host VMware vSphere Installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="kvm.html" class="btn btn-neutral float-left" title="Host KVM Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Apache Foundation
+      
+        <span class="commit">
+          Revision <code>af137188</code>.
+        </span>
+      
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Read the Docs</span>
+      v: 4.12.0.0
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="http://docs.cloudstack.apache.org/en/master/">master</a></dd>
+        
+          <dd><a href="../../../../index.html">latest</a></dd>
+        
+          <dd><a href="../../../4.13.0.0/index.html">4.13.0.0</a></dd>
+        
+          <dd><a href="../../index.html">4.12.0.0</a></dd>
+        
+          <dd><a href="../../../4.11.3.0/index.html">4.11.3.0</a></dd>
+        
+          <dd><a href="../../../4.11.2.0/index.html">4.11.2.0</a></dd>
+        
+          <dd><a href="../../../4.11.1.0/index.html">4.11.1.0</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="http://readthedocs.org/projects/cloudstack-documentation/downloads/htmlzip/4.12.0.0/">html</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>On Read the Docs</dt>
+          <dd>
+            <a href="http://readthedocs.org/projects/cloudstack-documentation/?fromdocs=cloudstack-documentation">Project Home</a>
+          </dd>
+          <dd>
+            <a href="http://readthedocs.org/builds/cloudstack-documentation/?fromdocs=cloudstack-documentation">Builds</a>
+          </dd>
+      </dl>
+      <hr/>
+      Free document hosting provided by <a href="http://www.readthedocs.org">Read the Docs</a>.
+
+    </div>
+  </div>
+
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+   
+
+</body>
+</html>

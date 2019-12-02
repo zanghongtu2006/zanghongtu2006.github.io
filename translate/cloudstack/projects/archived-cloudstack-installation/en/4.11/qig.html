@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Quick Installation Guide for CentOS 6 &#8212; Apache CloudStack Installation Documentation 4.11.0.0 documentation</title>
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="https://media.readthedocs.org/css/badge_only.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootswatch-3.2.0/spacelab/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="https://media.readthedocs.org/javascript/jquery/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="https://media.readthedocs.org/javascript/jquery/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="https://media.readthedocs.org/javascript/underscore.js"></script>
+    <script type="text/javascript" src="https://media.readthedocs.org/javascript/doctools.js"></script>
+    <script type="text/javascript" src="https://media.readthedocs.org/javascript/readthedocs-doc-embed.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.2.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Building from Source" href="building_from_source.html" />
+    <link rel="prev" title="Choosing a Deployment Architecture" href="choosing_deployment_architecture.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  
+<!-- RTD Extra Head -->
+
+<!-- 
+Always link to the latest version, as canonical.
+http://docs.readthedocs.org/en/latest/canonical.html
+-->
+<link rel="canonical" href="qig.html" />
+
+<link rel="stylesheet" href="https://media.readthedocs.org/css/readthedocs-doc-embed.css" type="text/css" />
+
+<script type="text/javascript" src="_static/readthedocs-data.js"></script>
+
+<!-- Add page-specific data, which must exist in the page js, not global -->
+<script type="text/javascript">
+READTHEDOCS_DATA['page'] = 'qig'
+READTHEDOCS_DATA['source_suffix'] = '.rst'
+</script>
+
+<script type="text/javascript" src="https://media.readthedocs.org/javascript/readthedocs-analytics.js"></script>
+
+<!-- end RTD <extrahead> -->
+</head><body>
+
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+          Installation Guide</a>
+        <span class="navbar-text navbar-version pull-left"><b>4.11</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+                <a role="button"
+                   id="dLabelGlobalToc"
+                   data-toggle="dropdown"
+                   data-target="#"
+                   href="index.html">Sections <b class="caret"></b></a>
+                <ul class="dropdown-menu globaltoc"
+                    role="menu"
+                    aria-labelledby="dLabelGlobalToc">
+                     <ul>
+<li class="toctree-l1"><a class="reference internal" href="choosing_deployment_architecture.html">Choosing a Deployment Architecture</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="qig.html#">Quick Installation Guide for CentOS 6</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="building_from_source.html">Building from Source</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="overview/index.html">Installation overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="management-server/index.html">Management Server Installation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuring your CloudStack Installation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="hypervisor/hyperv.html">Host Hyper-V Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hypervisor/kvm.html">Host KVM Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hypervisor/lxc.html">Host LXC Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hypervisor/vsphere.html">Host VMware vSphere Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hypervisor/xenserver.html">Host Citrix XenServer Installation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="network_setup.html">Network Setup</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="storage_setup.html">Storage Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="storage_setup.html#small-scale-setup">Small-Scale Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="storage_setup.html#large-scale-setup">Large-Scale Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="storage_setup.html#storage-architecture">Storage Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="storage_setup.html#network-configuration-for-storage">Network Configuration For Storage</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="optional_installation.html">Additional Installation Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encryption.html">About Password and Key Encryption</a></li>
+</ul>
+
+
+                </ul>
+              </li>
+              
+                
+              
+            
+            
+              
+                
+  <li>
+    <a href="choosing_deployment_architecture.html" title="Previous Chapter: Choosing a Deployment Architecture"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Choosing a Deployment Architecture</span>
+    </a>
+  </li>
+  <li>
+    <a href="building_from_source.html" title="Next Chapter: Building from Source"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Building from Source &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul>
+<li><a class="reference internal" href="qig.html#">Quick Installation Guide for CentOS 6</a><ul>
+<li><a class="reference internal" href="qig.html#overview">Overview</a><ul>
+<li><a class="reference internal" href="qig.html#what-exactly-are-we-building">What exactly are we building?</a></li>
+<li><a class="reference internal" href="qig.html#high-level-overview-of-the-process">High level overview of the process</a></li>
+<li><a class="reference internal" href="qig.html#prerequisites">Prerequisites</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="qig.html#environment">Environment</a><ul>
+<li><a class="reference internal" href="qig.html#operating-system">Operating System</a><ul>
+<li><a class="reference internal" href="qig.html#configuring-the-network">Configuring the network</a></li>
+<li><a class="reference internal" href="qig.html#hostname">Hostname</a></li>
+<li><a class="reference internal" href="qig.html#selinux">SELinux</a></li>
+<li><a class="reference internal" href="qig.html#ntp">NTP</a></li>
+<li><a class="reference internal" href="qig.html#configuring-the-cloudstack-package-repository">Configuring the CloudStack Package Repository</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="qig.html#nfs">NFS</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="qig.html#management-server-installation">Management Server Installation</a><ul>
+<li><a class="reference internal" href="qig.html#database-installation-and-configuration">Database Installation and Configuration</a></li>
+<li><a class="reference internal" href="qig.html#mysql-connector-installation">MySQL connector Installation</a></li>
+<li><a class="reference internal" href="qig.html#installation">Installation</a></li>
+<li><a class="reference internal" href="qig.html#system-template-setup">System Template Setup</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="qig.html#kvm-setup-and-installation">KVM Setup and Installation</a><ul>
+<li><a class="reference internal" href="qig.html#id1">Prerequisites</a></li>
+<li><a class="reference internal" href="qig.html#id2">Installation</a></li>
+<li><a class="reference internal" href="qig.html#kvm-configuration">KVM Configuration</a><ul>
+<li><a class="reference internal" href="qig.html#qemu-configuration">QEMU Configuration</a></li>
+<li><a class="reference internal" href="qig.html#libvirt-configuration">Libvirt Configuration</a></li>
+<li><a class="reference internal" href="qig.html#kvm-configuration-complete">KVM configuration complete</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="qig.html#configuration">Configuration</a><ul>
+<li><a class="reference internal" href="qig.html#ui-access">UI Access</a></li>
+<li><a class="reference internal" href="qig.html#setting-up-a-zone">Setting up a Zone</a></li>
+<li><a class="reference internal" href="qig.html#pod-configuration">Pod Configuration</a></li>
+<li><a class="reference internal" href="qig.html#cluster">Cluster</a><ul>
+<li><a class="reference internal" href="qig.html#primary-storage">Primary Storage</a></li>
+<li><a class="reference internal" href="qig.html#secondary-storage">Secondary Storage</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    <div class="col-md-9">
+      
+  <div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p>NOTICE: THIS DOCUMENTATION SITE HAS BEEN SUPERSEDED.</p>
+<p class="last">For the current documentation site goto: <a class="reference external" href="../../../../index.html">http://docs.cloudstack.apache.org</a></p>
+</div>
+<div class="section" id="quick-installation-guide-for-centos-6">
+<h1>Quick Installation Guide for CentOS 6<a class="headerlink" href="qig.html#quick-installation-guide-for-centos-6" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="qig.html#overview" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="what-exactly-are-we-building">
+<h3>What exactly are we building?<a class="headerlink" href="qig.html#what-exactly-are-we-building" title="Permalink to this headline">¶</a></h3>
+<p>Infrastructure-as-a-Service (IaaS) clouds can be a complex thing to build, and
+by definition they have a plethora of options, which often lead to confusion
+for even experienced admins who are newcomers to building cloud platforms. The
+goal for this runbook is to provide a straightforward set of instructions to
+get you up and running with CloudStack with a minimum amount of trouble.</p>
+</div>
+<div class="section" id="high-level-overview-of-the-process">
+<h3>High level overview of the process<a class="headerlink" href="qig.html#high-level-overview-of-the-process" title="Permalink to this headline">¶</a></h3>
+<p>This runbook will focus on building a CloudStack cloud using KVM on CentOS
+6.8 with NFS storage on a flat layer-2 network utilizing layer-3 network
+isolation (aka Security Groups), and doing it all on a single piece of
+hardware.</p>
+<p>KVM, or Kernel-based Virtual Machine is a virtualization technology for the
+Linux kernel. KVM supports native virtualization atop processors with hardware
+virtualization extensions.</p>
+<p>Security Groups act as distributed firewalls that control access to a group of
+virtual machines.</p>
+</div>
+<div class="section" id="prerequisites">
+<h3>Prerequisites<a class="headerlink" href="qig.html#prerequisites" title="Permalink to this headline">¶</a></h3>
+<p>To complete this runbook you’ll need the following items:</p>
+<ol class="arabic simple">
+<li>At least one computer which supports and has enabled hardware virtualization.</li>
+<li>The <a class="reference external" href="http://mirrors.kernel.org/centos/6/isos/x86_64/">CentOS 6.8 x86_64 minimal install CD</a></li>
+<li>A /24 network with the gateway being at xxx.xxx.xxx.1, no DHCP should be on
+this network and none of the computers running CloudStack will have a
+dynamic address. Again this is done for the sake of simplicity.</li>
+</ol>
+</div>
+</div>
+<div class="section" id="environment">
+<h2>Environment<a class="headerlink" href="qig.html#environment" title="Permalink to this headline">¶</a></h2>
+<p>Before you begin , you need to prepare the environment before you install
+CloudStack. We will go over the steps to prepare now.</p>
+<div class="section" id="operating-system">
+<h3>Operating System<a class="headerlink" href="qig.html#operating-system" title="Permalink to this headline">¶</a></h3>
+<p>Using the CentOS 6.8 x86_64 minimal install ISO, you’ll need to install CentOS 6
+on your hardware. The defaults will generally be acceptable for this
+installation.</p>
+<p>Once this installation is complete, you’ll want to connect to your freshly
+installed machine via SSH as the root user. Note that you should not allow
+root logins in a production environment, so be sure to turn off remote logins
+once you have finished the installation and configuration.</p>
+<div class="section" id="configuring-the-network">
+<span id="conf-network"></span><h4>Configuring the network<a class="headerlink" href="qig.html#configuring-the-network" title="Permalink to this headline">¶</a></h4>
+<p>By default the network will not come up on your hardware and you will need to
+configure it to work in your environment. Since we specified that there will
+be no DHCP server in this environment we will be manually configuring your
+network interface. We will assume, for the purposes of this exercise, that
+eth0 is the only network interface that will be connected and used.</p>
+<p>Connecting via the console you should login as root. Check the file
+/etc/sysconfig/network-scripts/ifcfg-eth0, it will look like this by default:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DEVICE</span><span class="o">=</span><span class="s2">&quot;eth0&quot;</span>
+<span class="n">HWADDR</span><span class="o">=</span><span class="s2">&quot;52:54:00:B9:A6:C0&quot;</span>
+<span class="n">NM_CONTROLLED</span><span class="o">=</span><span class="s2">&quot;yes&quot;</span>
+<span class="n">ONBOOT</span><span class="o">=</span><span class="s2">&quot;no&quot;</span>
+</pre></div>
+</div>
+<p>Unfortunately, this configuration will not permit you to connect to the
+network, and is also unsuitable for our purposes with CloudStack. We want to
+configure that file so that it specifies the IP address, netmask, etc., as
+shown in the following example:</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You should not use the Hardware Address (aka the MAC address) from our
+example for your configuration. It is network interface specific, so you
+should keep the address already provided in the HWADDR directive.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DEVICE</span><span class="o">=</span><span class="n">eth0</span>
+<span class="n">HWADDR</span><span class="o">=</span><span class="mi">52</span><span class="p">:</span><span class="mi">54</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="n">B9</span><span class="p">:</span><span class="n">A6</span><span class="p">:</span><span class="n">C0</span>
+<span class="n">NM_CONTROLLED</span><span class="o">=</span><span class="n">no</span>
+<span class="n">ONBOOT</span><span class="o">=</span><span class="n">yes</span>
+<span class="n">BOOTPROTO</span><span class="o">=</span><span class="n">none</span>
+<span class="n">IPADDR</span><span class="o">=</span><span class="mf">172.16</span><span class="o">.</span><span class="mf">10.2</span>
+<span class="n">NETMASK</span><span class="o">=</span><span class="mf">255.255</span><span class="o">.</span><span class="mf">255.0</span>
+<span class="n">GATEWAY</span><span class="o">=</span><span class="mf">172.16</span><span class="o">.</span><span class="mf">10.1</span>
+<span class="n">DNS1</span><span class="o">=</span><span class="mf">8.8</span><span class="o">.</span><span class="mf">8.8</span>
+<span class="n">DNS2</span><span class="o">=</span><span class="mf">8.8</span><span class="o">.</span><span class="mf">4.4</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">IP Addressing - Throughout this document we are assuming that you will have
+a /24 network for your CloudStack implementation. This can be any RFC 1918
+network. However, we are assuming that you will match the machine address
+that we are using. Thus we may use 172.16.10.2 and because you might be
+using the 192.168.55.0/24 network you would use 192.168.55.2</p>
+</div>
+<p>Now that we have the configuration files properly set up, we need to run a few
+commands to start up the network:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># chkconfig network on</span>
+
+<span class="c1"># service network start</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="hostname">
+<span id="conf-hostname"></span><h4>Hostname<a class="headerlink" href="qig.html#hostname" title="Permalink to this headline">¶</a></h4>
+<p>CloudStack requires that the hostname be properly set. If you used the default
+options in the installation, then your hostname is currently set to
+localhost.localdomain. To test this we will run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># hostname --fqdn</span>
+</pre></div>
+</div>
+<p>At this point it will likely return:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>localhost
+</pre></div>
+</div>
+<p>To rectify this situation - we’ll set the hostname by editing the /etc/hosts
+file so that it follows a similar format to this example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="m">127</span>.0.0.1 localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1 localhost localhost.localdomain localhost6 localhost6.localdomain6
+<span class="m">172</span>.16.10.2 srvr1.cloud.priv
+</pre></div>
+</div>
+<p>After you’ve modified that file, go ahead and restart the network using:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># service network restart</span>
+</pre></div>
+</div>
+<p>Now recheck with the hostname –fqdn command and ensure that it returns a FQDN
+response</p>
+</div>
+<div class="section" id="selinux">
+<span id="conf-selinux"></span><h4>SELinux<a class="headerlink" href="qig.html#selinux" title="Permalink to this headline">¶</a></h4>
+<p>At the moment, for CloudStack to work properly SELinux must be set to
+permissive. We want to both configure this for future boots and modify it in
+the current running system.</p>
+<p>To configure SELinux to be permissive in the running system we need to run the
+following command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># setenforce 0</span>
+</pre></div>
+</div>
+<p>To ensure that it remains in that state we need to configure the file
+/etc/selinux/config to reflect the permissive state, as shown in this example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># This file controls the state of SELinux on the system.</span>
+<span class="c1"># SELINUX= can take one of these three values:</span>
+<span class="c1"># enforcing - SELinux security policy is enforced.</span>
+<span class="c1"># permissive - SELinux prints warnings instead of enforcing.</span>
+<span class="c1"># disabled - No SELinux policy is loaded.</span>
+<span class="nv">SELINUX</span><span class="o">=</span>permissive
+<span class="c1"># SELINUXTYPE= can take one of these two values:</span>
+<span class="c1"># targeted - Targeted processes are protected,</span>
+<span class="c1"># mls - Multi Level Security protection.</span>
+<span class="nv">SELINUXTYPE</span><span class="o">=</span>targeted
+</pre></div>
+</div>
+</div>
+<div class="section" id="ntp">
+<span id="conf-ntp"></span><h4>NTP<a class="headerlink" href="qig.html#ntp" title="Permalink to this headline">¶</a></h4>
+<p>NTP configuration is a necessity for keeping all of the clocks in your cloud
+servers in sync. However, NTP is not installed by default. So we’ll install
+and and configure NTP at this stage. Installation is accomplished as follows:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># yum -y install ntp</span>
+</pre></div>
+</div>
+<p>The actual default configuration is fine for our purposes, so we merely need
+to enable it and set it to start on boot as follows:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># chkconfig ntpd on</span>
+<span class="c1"># service ntpd start</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="configuring-the-cloudstack-package-repository">
+<span id="qigconf-pkg-repo"></span><h4>Configuring the CloudStack Package Repository<a class="headerlink" href="qig.html#configuring-the-cloudstack-package-repository" title="Permalink to this headline">¶</a></h4>
+<p>We need to configure the machine to use a CloudStack package repository.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The Apache CloudStack official releases are source code. As such there are
+no ‘official’ binaries available. The full installation guide describes how
+to take the source release and generate RPMs and and yum repository. This
+guide attempts to keep things as simple as possible, and thus we are using
+one of the community-provided yum repositories.</p>
+</div>
+<p>To add the CloudStack repository, create /etc/yum.repos.d/cloudstack.repo and
+insert the following information.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">cloudstack</span><span class="p">]</span>
+<span class="n">name</span><span class="o">=</span><span class="n">cloudstack</span>
+<span class="n">baseurl</span><span class="o">=</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">cloudstack</span><span class="o">.</span><span class="n">apt</span><span class="o">-</span><span class="n">get</span><span class="o">.</span><span class="n">eu</span><span class="o">/</span><span class="n">centos</span><span class="o">/</span><span class="mi">6</span><span class="o">/</span><span class="mf">4.11</span><span class="o">/</span>
+<span class="n">enabled</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">gpgcheck</span><span class="o">=</span><span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="nfs">
+<h3>NFS<a class="headerlink" href="qig.html#nfs" title="Permalink to this headline">¶</a></h3>
+<p>Our configuration is going to use NFS for both primary and secondary storage.
+We are going to go ahead and setup two NFS shares for those purposes. We’ll
+start out by installing nfs-utils.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># yum -y install nfs-utils</span>
+</pre></div>
+</div>
+<p>We now need to configure NFS to serve up two different shares. This is handled
+comparatively easily in the /etc/exports file. You should ensure that it has
+the following content:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/export/secondary *<span class="o">(</span>rw,async,no_root_squash,no_subtree_check<span class="o">)</span>
+/export/primary *<span class="o">(</span>rw,async,no_root_squash,no_subtree_check<span class="o">)</span>
+</pre></div>
+</div>
+<p>You will note that we specified two directories that don’t exist (yet) on the
+system. We’ll go ahead and create those directories and set permissions
+appropriately on them with the following commands:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># mkdir -p /export/primary</span>
+<span class="c1"># mkdir /export/secondary</span>
+</pre></div>
+</div>
+<p>CentOS 6.x releases use NFSv4 by default. NFSv4 requires that domain setting
+matches on all clients. In our case, the domain is cloud.priv, so ensure that
+the domain setting in /etc/idmapd.conf is uncommented and set as follows:
+Domain = cloud.priv</p>
+<p>Now you’ll need uncomment the configuration values in the file
+/etc/sysconfig/nfs</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">LOCKD_TCPPORT</span><span class="o">=</span><span class="m">32803</span>
+<span class="nv">LOCKD_UDPPORT</span><span class="o">=</span><span class="m">32769</span>
+<span class="nv">MOUNTD_PORT</span><span class="o">=</span><span class="m">892</span>
+<span class="nv">RQUOTAD_PORT</span><span class="o">=</span><span class="m">875</span>
+<span class="nv">STATD_PORT</span><span class="o">=</span><span class="m">662</span>
+<span class="nv">STATD_OUTGOING_PORT</span><span class="o">=</span><span class="m">2020</span>
+</pre></div>
+</div>
+<p>Now we need to configure the firewall to permit incoming NFS connections.
+Edit the file /etc/sysconfig/iptables</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-A INPUT -s <span class="m">172</span>.16.10.0/24 -m state --state NEW -p udp --dport <span class="m">111</span> -j ACCEPT
+-A INPUT -s <span class="m">172</span>.16.10.0/24 -m state --state NEW -p tcp --dport <span class="m">111</span> -j ACCEPT
+-A INPUT -s <span class="m">172</span>.16.10.0/24 -m state --state NEW -p tcp --dport <span class="m">2049</span> -j ACCEPT
+-A INPUT -s <span class="m">172</span>.16.10.0/24 -m state --state NEW -p tcp --dport <span class="m">32803</span> -j ACCEPT
+-A INPUT -s <span class="m">172</span>.16.10.0/24 -m state --state NEW -p udp --dport <span class="m">32769</span> -j ACCEPT
+-A INPUT -s <span class="m">172</span>.16.10.0/24 -m state --state NEW -p tcp --dport <span class="m">892</span> -j ACCEPT
+-A INPUT -s <span class="m">172</span>.16.10.0/24 -m state --state NEW -p udp --dport <span class="m">892</span> -j ACCEPT
+-A INPUT -s <span class="m">172</span>.16.10.0/24 -m state --state NEW -p tcp --dport <span class="m">875</span> -j ACCEPT
+-A INPUT -s <span class="m">172</span>.16.10.0/24 -m state --state NEW -p udp --dport <span class="m">875</span> -j ACCEPT
+-A INPUT -s <span class="m">172</span>.16.10.0/24 -m state --state NEW -p tcp --dport <span class="m">662</span> -j ACCEPT
+-A INPUT -s <span class="m">172</span>.16.10.0/24 -m state --state NEW -p udp --dport <span class="m">662</span> -j ACCEPT
+</pre></div>
+</div>
+<p>Now you can restart the iptables service with the following command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># service iptables restart</span>
+</pre></div>
+</div>
+<p>We now need to configure the nfs service to start on boot and actually start
+it on the host by executing the following commands:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># service rpcbind start</span>
+<span class="c1"># service nfs start</span>
+<span class="c1"># chkconfig rpcbind on</span>
+<span class="c1"># chkconfig nfs on</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="management-server-installation">
+<h2>Management Server Installation<a class="headerlink" href="qig.html#management-server-installation" title="Permalink to this headline">¶</a></h2>
+<p>We’re going to install the CloudStack management server and surrounding tools.</p>
+<div class="section" id="database-installation-and-configuration">
+<h3>Database Installation and Configuration<a class="headerlink" href="qig.html#database-installation-and-configuration" title="Permalink to this headline">¶</a></h3>
+<p>We’ll start with installing MySQL and configuring some options to ensure it
+runs well with CloudStack.</p>
+<p>Install by running the following command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># yum -y install mysql-server</span>
+</pre></div>
+</div>
+<p>With MySQL now installed we need to make a few configuration changes to
+/etc/my.cnf. Specifically we need to add the following options to the [mysqld]
+section:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">innodb_rollback_on_timeout</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">innodb_lock_wait_timeout</span><span class="o">=</span><span class="mi">600</span>
+<span class="n">max_connections</span><span class="o">=</span><span class="mi">350</span>
+<span class="n">log</span><span class="o">-</span><span class="nb">bin</span><span class="o">=</span><span class="n">mysql</span><span class="o">-</span><span class="nb">bin</span>
+<span class="n">binlog</span><span class="o">-</span><span class="nb">format</span> <span class="o">=</span> <span class="s1">&#39;ROW&#39;</span>
+</pre></div>
+</div>
+<p>Now that MySQL is properly configured we can start it and configure it to
+start on boot as follows:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># service mysqld start</span>
+<span class="c1"># chkconfig mysqld on</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="mysql-connector-installation">
+<h3>MySQL connector Installation<a class="headerlink" href="qig.html#mysql-connector-installation" title="Permalink to this headline">¶</a></h3>
+<p>Install Python MySQL connector using the official MySQL packages repository.
+Create the file <code class="docutils literal notranslate"><span class="pre">/etc/yum.repos.d/mysql.repo</span></code> with the following content:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>mysql-connectors-community<span class="o">]</span>
+<span class="nv">name</span><span class="o">=</span>MySQL Community connectors
+<span class="nv">baseurl</span><span class="o">=</span>http://repo.mysql.com/yum/mysql-connectors-community/el/<span class="nv">$releasever</span>/<span class="nv">$basearch</span>/
+<span class="nv">enabled</span><span class="o">=</span><span class="m">1</span>
+<span class="nv">gpgcheck</span><span class="o">=</span><span class="m">1</span>
+</pre></div>
+</div>
+<p>Import GPG public key from MySQL:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rpm --import http://repo.mysql.com/RPM-GPG-KEY-mysql
+</pre></div>
+</div>
+<p>Install mysql-connector</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>yum install mysql-connector-python
+</pre></div>
+</div>
+</div>
+<div class="section" id="installation">
+<h3>Installation<a class="headerlink" href="qig.html#installation" title="Permalink to this headline">¶</a></h3>
+<p>We are now going to install the management server. We do that by executing the
+following command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># yum -y install cloudstack-management</span>
+</pre></div>
+</div>
+<p>With the application itself installed we can now setup the database, we’ll do
+that with the following command and options:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># cloudstack-setup-databases cloud:password@localhost --deploy-as=root</span>
+</pre></div>
+</div>
+<p>When this process is finished, you should see a message like “CloudStack has
+successfully initialized the database.”</p>
+<p>Now that the database has been created, we can take the final step in setting
+up the management server by issuing the following command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># cloudstack-setup-management</span>
+</pre></div>
+</div>
+<p>If the servlet container is Tomcat7 the argument –tomcat7 must be used.</p>
+</div>
+<div class="section" id="system-template-setup">
+<h3>System Template Setup<a class="headerlink" href="qig.html#system-template-setup" title="Permalink to this headline">¶</a></h3>
+<p>CloudStack uses a number of system VMs to provide functionality for accessing
+the console of virtual machines, providing various networking services, and
+managing various aspects of storage. This step will acquire those system
+images ready for deployment when we bootstrap your cloud.</p>
+<p>Now we need to download the system VM template and deploy that to the share we
+just mounted. The management server includes a script to properly manipulate
+the system VMs images.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/usr/share/cloudstack-common/scripts/storage/secondary/cloud-install-sys-tmplt <span class="se">\</span>
+-m /export/secondary <span class="se">\</span>
+-u http://cloudstack.apt-get.eu/systemvm/4.6/systemvm64template-4.6.0-kvm.qcow2.bz2 <span class="se">\</span>
+-h kvm -F
+</pre></div>
+</div>
+<p>That concludes our setup of the management server. We still need to configure
+CloudStack, but we will do that after we get our hypervisor set up.</p>
+</div>
+</div>
+<div class="section" id="kvm-setup-and-installation">
+<h2>KVM Setup and Installation<a class="headerlink" href="qig.html#kvm-setup-and-installation" title="Permalink to this headline">¶</a></h2>
+<p>KVM is the hypervisor we’ll be using - we will recover the initial setup which
+has already been done on the hypervisor host and cover installation of the
+agent software, you can use the same steps to add additional KVM nodes to your
+CloudStack environment.</p>
+<div class="section" id="id1">
+<h3>Prerequisites<a class="headerlink" href="qig.html#id1" title="Permalink to this headline">¶</a></h3>
+<p>We explicitly are using the management server as a compute node as well, which
+means that we have already performed many of the prerequisite steps when
+setting up the management server, but we will list them here for clarity.
+Those steps are:</p>
+<ol class="arabic simple">
+<li><a class="reference internal" href="qig.html#conf-network"><span class="std std-ref">Configuring the network</span></a></li>
+<li><a class="reference internal" href="qig.html#conf-hostname"><span class="std std-ref">Hostname</span></a></li>
+<li><a class="reference internal" href="qig.html#conf-selinux"><span class="std std-ref">SELinux</span></a></li>
+<li><a class="reference internal" href="qig.html#conf-ntp"><span class="std std-ref">NTP</span></a></li>
+<li><a class="reference internal" href="qig.html#qigconf-pkg-repo"><span class="std std-ref">Configuring the CloudStack Package Repository</span></a></li>
+</ol>
+<p>You shouldn’t need to do that for the management server, of course, but any
+additional hosts will need for you to complete the above steps.</p>
+</div>
+<div class="section" id="id2">
+<h3>Installation<a class="headerlink" href="qig.html#id2" title="Permalink to this headline">¶</a></h3>
+<p>Installation of the KVM agent is trivial with just a single command, but
+afterwards we’ll need to configure a few things.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># yum -y install cloudstack-agent</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="kvm-configuration">
+<h3>KVM Configuration<a class="headerlink" href="qig.html#kvm-configuration" title="Permalink to this headline">¶</a></h3>
+<p>We have two different parts of KVM to configure, libvirt, and QEMU.</p>
+<div class="section" id="qemu-configuration">
+<h4>QEMU Configuration<a class="headerlink" href="qig.html#qemu-configuration" title="Permalink to this headline">¶</a></h4>
+<p>KVM configuration is relatively simple at only a single item. We need to edit
+the QEMU VNC configuration. This is done by editing /etc/libvirt/qemu.conf and
+ensuring the following line is present and uncommented.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vnc_listen</span><span class="o">=</span><span class="mf">0.0</span><span class="o">.</span><span class="mf">0.0</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="libvirt-configuration">
+<h4>Libvirt Configuration<a class="headerlink" href="qig.html#libvirt-configuration" title="Permalink to this headline">¶</a></h4>
+<p>CloudStack uses libvirt for managing virtual machines. Therefore it is vital
+that libvirt is configured correctly. Libvirt is a dependency of cloud-agent
+and should already be installed.</p>
+<ol class="arabic">
+<li><p class="first">In order to have live migration working libvirt has to listen for unsecured
+TCP connections. We also need to turn off libvirts attempt to use Multicast
+DNS advertising. Both of these settings are in /etc/libvirt/libvirtd.conf</p>
+<p>Set the following paramaters:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">listen_tls</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">listen_tcp</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">tcp_port</span> <span class="o">=</span> <span class="s2">&quot;16059&quot;</span>
+<span class="n">auth_tcp</span> <span class="o">=</span> <span class="s2">&quot;none&quot;</span>
+<span class="n">mdns_adv</span> <span class="o">=</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Turning on “listen_tcp” in libvirtd.conf is not enough, we have to change
+the parameters as well we also need to modify /etc/sysconfig/libvirtd:</p>
+<p>Uncomment the following line:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#LIBVIRTD_ARGS=&quot;--listen&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Restart libvirt</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># service libvirtd restart</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="kvm-configuration-complete">
+<h4>KVM configuration complete<a class="headerlink" href="qig.html#kvm-configuration-complete" title="Permalink to this headline">¶</a></h4>
+<dl class="docutils">
+<dt>For the sake of completeness you should check if KVM is running OK on your machine:</dt>
+<dd><div class="first last highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># lsmod | grep kvm</span>
+kvm_intel              <span class="m">55496</span>  <span class="m">0</span>
+kvm                   <span class="m">337772</span>  <span class="m">1</span> kvm_intel
+</pre></div>
+</div>
+</dd>
+</dl>
+<p>That concludes our installation and configuration of KVM, and we’ll now move
+to using the CloudStack UI for the actual configuration of our cloud.</p>
+</div>
+</div>
+</div>
+<div class="section" id="configuration">
+<h2>Configuration<a class="headerlink" href="qig.html#configuration" title="Permalink to this headline">¶</a></h2>
+<p>As we noted before we will be using security groups to provide isolation and
+by default that implies that we’ll be using a flat layer-2 network. It also
+means that the simplicity of our setup means that we can use the quick
+installer.</p>
+<div class="section" id="ui-access">
+<h3>UI Access<a class="headerlink" href="qig.html#ui-access" title="Permalink to this headline">¶</a></h3>
+<p>To get access to CloudStack’s web interface, merely point your browser to
+<a class="reference external" href="http://172.16.10.2:8080/client">http://172.16.10.2:8080/client</a> The default username is ‘admin’, and the
+default password is ‘password’. You should see a splash screen that allows you
+to choose several options for setting up CloudStack. You should choose the
+Continue with Basic Setup option.</p>
+<p>You should now see a prompt requiring you to change the password for the admin
+user. Please do so.</p>
+</div>
+<div class="section" id="setting-up-a-zone">
+<h3>Setting up a Zone<a class="headerlink" href="qig.html#setting-up-a-zone" title="Permalink to this headline">¶</a></h3>
+<p>A zone is the largest organization entity in CloudStack - and we’ll be
+creating one, this should be the screen that you see in front of you now. And
+for us there are 5 pieces of information that we need.</p>
+<ol class="arabic simple">
+<li>Name - we will set this to the ever-descriptive ‘Zone1’ for our cloud.</li>
+<li>Public DNS 1 - we will set this to <code class="docutils literal notranslate"><span class="pre">8.8.8.8</span></code> for our cloud.</li>
+<li>Public DNS 2 - we will set this to <code class="docutils literal notranslate"><span class="pre">8.8.4.4</span></code> for our cloud.</li>
+<li>Internal DNS1 - we will also set this to <code class="docutils literal notranslate"><span class="pre">8.8.8.8</span></code> for our cloud.</li>
+<li>Internal DNS2 - we will also set this to <code class="docutils literal notranslate"><span class="pre">8.8.4.4</span></code> for our cloud.</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">CloudStack distinguishes between internal and public DNS. Internal DNS is
+assumed to be capable of resolving internal-only hostnames, such as your
+NFS server’s DNS name. Public DNS is provided to the guest VMs to resolve
+public IP addresses. You can enter the same DNS server for both types, but
+if you do so, you must make sure that both internal and public IP addresses
+can route to the DNS server. In our specific case we will not use any names
+for resources internally, and we have indeed them set to look to the same
+external resource so as to not add a namerserver setup to our list of
+requirements.</p>
+</div>
+</div>
+<div class="section" id="pod-configuration">
+<h3>Pod Configuration<a class="headerlink" href="qig.html#pod-configuration" title="Permalink to this headline">¶</a></h3>
+<p>Now that we’ve added a Zone, the next step that comes up is a prompt for
+information regading a pod. Which is looking for several items.</p>
+<ol class="arabic simple">
+<li>Name - We’ll use <code class="docutils literal notranslate"><span class="pre">Pod1</span></code> for our cloud.</li>
+<li>Gateway - We’ll use <code class="docutils literal notranslate"><span class="pre">172.16.10.1</span></code> as our gateway</li>
+<li>Netmask - We’ll use <code class="docutils literal notranslate"><span class="pre">255.255.255.0</span></code></li>
+<li>Start/end reserved system IPs - we will use <code class="docutils literal notranslate"><span class="pre">172.16.10.10-172.16.10.20</span></code></li>
+<li>Guest gateway - We’ll use <code class="docutils literal notranslate"><span class="pre">172.16.10.1</span></code></li>
+<li>Guest netmask - We’ll use <code class="docutils literal notranslate"><span class="pre">255.255.255.0</span></code></li>
+<li>Guest start/end IP - We’ll use <code class="docutils literal notranslate"><span class="pre">172.16.10.30-172.16.10.200</span></code></li>
+</ol>
+</div>
+<div class="section" id="cluster">
+<h3>Cluster<a class="headerlink" href="qig.html#cluster" title="Permalink to this headline">¶</a></h3>
+<p>Now that we’ve added a Zone, we need only add a few more items for configuring
+the cluster.</p>
+<ol class="arabic simple">
+<li>Name - We’ll use <code class="docutils literal notranslate"><span class="pre">Cluster1</span></code></li>
+<li>Hypervisor - Choose <code class="docutils literal notranslate"><span class="pre">KVM</span></code></li>
+</ol>
+<p>You should be prompted to add the first host to your cluster at this point.
+Only a few bits of information are needed.</p>
+<ol class="arabic simple">
+<li>Hostname - we’ll use the IP address <code class="docutils literal notranslate"><span class="pre">172.16.10.2</span></code> since we didn’t set up a
+DNS server.</li>
+<li>Username - we’ll use <code class="docutils literal notranslate"><span class="pre">root</span></code></li>
+<li>Password - enter the operating system password for the root user</li>
+</ol>
+<div class="section" id="primary-storage">
+<h4>Primary Storage<a class="headerlink" href="qig.html#primary-storage" title="Permalink to this headline">¶</a></h4>
+<p>With your cluster now setup - you should be prompted for primary storage
+information. Choose NFS as the storage type and then enter the following
+values in the fields:</p>
+<ol class="arabic simple">
+<li>Name - We’ll use <code class="docutils literal notranslate"><span class="pre">Primary1</span></code></li>
+<li>Server - We’ll be using the IP address <code class="docutils literal notranslate"><span class="pre">172.16.10.2</span></code></li>
+<li>Path - Well define <code class="docutils literal notranslate"><span class="pre">/export/primary</span></code> as the path we are using</li>
+</ol>
+</div>
+<div class="section" id="secondary-storage">
+<h4>Secondary Storage<a class="headerlink" href="qig.html#secondary-storage" title="Permalink to this headline">¶</a></h4>
+<p>If this is a new zone, you’ll be prompted for secondary storage information -
+populate it as follows:</p>
+<ol class="arabic simple">
+<li>NFS server - We’ll use the IP address <code class="docutils literal notranslate"><span class="pre">172.16.10.2</span></code></li>
+<li>Path - We’ll use <code class="docutils literal notranslate"><span class="pre">/export/secondary</span></code></li>
+</ol>
+<p>Now, click Launch and your cloud should begin setup - it may take several
+minutes depending on your internet connection speed for setup to finalize.</p>
+<p>That’s it, you are done with installation of your Apache CloudStack cloud.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="qig.html#">Back to top</a>
+          | <a href="choosing_deployment_architecture.html" title="Previous Chapter: Choosing a Deployment Architecture"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Choosing a Deployment Architecture</span>
+          </a>
+          | <a href="building_from_source.html" title="Next Chapter: Building from Source"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Building from Source &raquo;</span>
+          </a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="_sources/qig.rst.txt"
+     rel="nofollow">Source</a>
+</div>
+      
+    </p>
+    <p>
+        &copy; Copyright 2018, Apache Software Foundation.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

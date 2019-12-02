@@ -1,0 +1,484 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>IPv6 Support in CloudStack &mdash; Apache CloudStack 4.11.3.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Quota Plugin" href="quota.html" />
+    <link rel="prev" title="The OVS Plugin" href="ovs-plugin.html" /> 
+
+<!-- RTD Extra Head -->
+
+<!-- 
+Always link to the latest version, as canonical.
+http://docs.readthedocs.org/en/latest/canonical.html
+-->
+<link rel="canonical" href="../../latest/plugins/ipv6.html" />
+
+<link rel="stylesheet" href="https://assets.readthedocs.org/static/css/readthedocs-doc-embed.css" type="text/css" />
+
+<script type="text/javascript" src="../_static/readthedocs-data.js"></script>
+
+<!-- Add page-specific data, which must exist in the page js, not global -->
+<script type="text/javascript">
+READTHEDOCS_DATA['page'] = "plugins/ipv6"
+READTHEDOCS_DATA['source_suffix'] = ".rst"
+</script>
+
+<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js"></script>
+
+<!-- end RTD <extrahead> -->
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Apache CloudStack
+          
+
+          
+          </a>
+
+          
+            
+            
+            
+              <div class="version">
+                4.11.3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../conceptsandterminology/index.html">CloudStack Concepts and Terminology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickinstallationguide/qig.html">Quick Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installguide/index.html">Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../upgrading/index.html">Upgrading CloudStack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../adminguide/index.html">Usage Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developersguide/index.html">Developers Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Plugins Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cloudian-connector.html">The Cloudian Connector Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nicira-plugin.html">The Nicira NVP Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nuage-plugin.html">The Nuage VSP Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vxlan.html">The VXLAN Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ovs-plugin.html">The OVS Plugin</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="ipv6.html#">IPv6 Support in CloudStack</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ipv6.html#prerequisites-and-guidelines">Prerequisites and Guidelines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ipv6.html#limitations-of-ipv6-in-cloudstack">Limitations of IPv6 in CloudStack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ipv6.html#guest-vm-configuration-for-dhcpv6">Guest VM Configuration for DHCPv6</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="quota.html">Quota Plugin</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Other Documentation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/api.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://cwiki.apache.org/confluence/display/CLOUDSTACK/Home">Apache CloudStack Wiki</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/">Apache CloudStack web site</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/downloads.html">Apache CloudStack Source Code</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/apache/cloudstack">Apache CloudStack on GitHub</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Pre 4.11 Documentation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="../../../projects/cloudstack-installation">Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference external" href="../../../projects/cloudstack-administration">Administration Guide</a></li>
+<li class="toctree-l1"><a class="reference external" href="../../../projects/cloudstack-release-notes">Release Notes</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Apache CloudStack</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Plugins Guide</a> &raquo;</li>
+        
+      <li>IPv6 Support in CloudStack</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/apache/cloudstack-documentation/blob/4.11.3.0/source/plugins/ipv6.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ipv6-support-in-cloudstack">
+<h1>IPv6 Support in CloudStack<a class="headerlink" href="ipv6.html#ipv6-support-in-cloudstack" title="Permalink to this headline">¶</a></h1>
+<p>CloudStack supports Internet Protocol version 6 (IPv6), the recent
+version of the Internet Protocol (IP) that defines routing the network
+traffic. IPv6 uses a 128-bit address that exponentially expands the
+current address space that is available to the users. IPv6 addresses
+consist of eight groups of four hexadecimal digits separated by colons,
+for example, 5001:0dt8:83a3:1012:1000:8s2e:0870:7454. CloudStack
+supports IPv6 for public IPs in shared networks. With IPv6 support, VMs
+in shared networks can obtain both IPv4 and IPv6 addresses from the DHCP
+server. You can deploy VMs either in a IPv6 or IPv4 network, or in a
+dual network environment. If IPv6 network is used, the VM generates a
+link-local IPv6 address by itself, and receives a stateful IPv6 address
+from the DHCPv6 server.</p>
+<p>IPv6 is supported only on KVM and XenServer hypervisors. The IPv6
+support is only an experimental feature.</p>
+<p>Here’s the sequence of events when IPv6 is used:</p>
+<ol class="arabic simple">
+<li>The administrator creates an IPv6 shared network in an advanced zone.</li>
+<li>The user deploys a VM in an IPv6 shared network.</li>
+<li>The user VM generates an IPv6 link local address by itself, and gets
+an IPv6 global or site local address through DHCPv6.</li>
+</ol>
+<div class="section" id="prerequisites-and-guidelines">
+<h2>Prerequisites and Guidelines<a class="headerlink" href="ipv6.html#prerequisites-and-guidelines" title="Permalink to this headline">¶</a></h2>
+<p>Consider the following:</p>
+<ul>
+<li><p class="first">CIDR size must be 64 for IPv6 networks.</p>
+</li>
+<li><p class="first">The DHCP client of the guest VMs should support generating DUID based
+on Link-layer Address (DUID- LL). DUID-LL derives from the MAC
+address of guest VMs, and therefore the user VM can be identified by
+using DUID. See <a class="reference external" href="http://tools.ietf.org/html/rfc3315">Dynamic Host Configuration Protocol for
+IPv6</a>for more information.</p>
+</li>
+<li><p class="first">The gateway of the guest network generates Router Advisement and
+Response messages to Router Solicitation. The M (Managed Address
+Configuration) flag of Router Advisement should enable stateful IP
+address configuration. Set the M flag to where the end nodes receive
+their IPv6 addresses from the DHCPv6 server as opposed to the router
+or switch.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The M flag is the 1-bit Managed Address Configuration flag for Router
+Advisement. When set, Dynamic Host Configuration Protocol (DHCPv6) is
+available for address configuration in addition to any IPs set by
+using stateless address auto-configuration.</p>
+</div>
+</li>
+<li><p class="first">Use the System VM template exclusively designed to support IPv6.
+Download the System VM template from
+<a class="reference external" href="http://download.cloudstack.org/systemvm/">http://download.cloudstack.org/systemvm/</a>.</p>
+</li>
+<li><p class="first">The concept of Default Network applies to IPv6 networks. However,
+unlike IPv4 CloudStack does not control the routing information of
+IPv6 in shared network; the choice of Default Network will not affect
+the routing in the user VM.</p>
+</li>
+<li><p class="first">In a multiple shared network, the default route is set by the rack
+router, rather than the DHCP server, which is out of CloudStack
+control. Therefore, in order for the user VM to get only the default
+route from the default NIC, modify the configuration of the user VM,
+and set non-default NIC’s <code class="docutils literal notranslate"><span class="pre">accept_ra</span></code> to 0 explicitly. The
+<code class="docutils literal notranslate"><span class="pre">accept_ra</span></code> parameter accepts Router Advertisements and
+auto-configure <code class="docutils literal notranslate"><span class="pre">/proc/sys/net/ipv6/conf/interface</span></code> with received
+data.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="limitations-of-ipv6-in-cloudstack">
+<h2>Limitations of IPv6 in CloudStack<a class="headerlink" href="ipv6.html#limitations-of-ipv6-in-cloudstack" title="Permalink to this headline">¶</a></h2>
+<p>The following are not yet supported:</p>
+<ol class="arabic simple">
+<li>Security groups</li>
+<li>Userdata and metadata</li>
+<li>Passwords</li>
+</ol>
+</div>
+<div class="section" id="guest-vm-configuration-for-dhcpv6">
+<h2>Guest VM Configuration for DHCPv6<a class="headerlink" href="ipv6.html#guest-vm-configuration-for-dhcpv6" title="Permalink to this headline">¶</a></h2>
+<p>For the guest VMs to get IPv6 address, run dhclient command manually on
+each of the VMs. Use DUID-LL to set up dhclient.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The IPv6 address is lost when a VM is stopped and started. Therefore,
+use the same procedure to get an IPv6 address when a VM is stopped and
+started.</p>
+</div>
+<ol class="arabic">
+<li><p class="first">Set up dhclient by using DUID-LL.</p>
+<p>Perform the following for DHCP Client 4.2 and above:</p>
+<ol class="arabic">
+<li><p class="first">Run the following command on the selected VM to get the dhcpv6
+offer from VR:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dhclient</span> <span class="o">-</span><span class="mi">6</span> <span class="o">-</span><span class="n">D</span> <span class="n">LL</span> <span class="o">&lt;</span><span class="n">dev</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p>Perform the following for DHCP Client 4.1:</p>
+<ol class="arabic">
+<li><p class="first">Open the following to the dhclient configuration file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vi</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">dhcp</span><span class="o">/</span><span class="n">dhclient</span><span class="o">.</span><span class="n">conf</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Add the following to the dhclient configuration file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">send</span> <span class="n">dhcp6</span><span class="o">.</span><span class="n">client</span><span class="o">-</span><span class="nb">id</span> <span class="o">=</span> <span class="n">concat</span><span class="p">(</span><span class="mi">00</span><span class="p">:</span><span class="mi">03</span><span class="p">:</span><span class="mi">00</span><span class="p">,</span> <span class="n">hardware</span><span class="p">);</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</li>
+<li><p class="first">Get IPv6 address from DHCP server as part of the system or network
+restart.</p>
+<p>Based on the operating systems, perform the following:</p>
+<p>On CentOS 6.2:</p>
+<ol class="arabic">
+<li><p class="first">Open the Ethernet interface configuration file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vi</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">sysconfig</span><span class="o">/</span><span class="n">network</span><span class="o">-</span><span class="n">scripts</span><span class="o">/</span><span class="n">ifcfg</span><span class="o">-</span><span class="n">eth0</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">ifcfg-eth0</span></code> file controls the first NIC in a system.</p>
+</li>
+<li><p class="first">Make the necessary configuration changes, as given below:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DEVICE</span><span class="o">=</span><span class="n">eth0</span>
+<span class="n">HWADDR</span><span class="o">=</span><span class="mi">06</span><span class="p">:</span><span class="n">A0</span><span class="p">:</span><span class="n">F0</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">38</span>
+<span class="n">NM_CONTROLLED</span><span class="o">=</span><span class="n">no</span>
+<span class="n">ONBOOT</span><span class="o">=</span><span class="n">yes</span>
+<span class="n">BOOTPROTO</span><span class="o">=</span><span class="n">dhcp6</span>
+<span class="n">TYPE</span><span class="o">=</span><span class="n">Ethernet</span>
+<span class="n">USERCTL</span><span class="o">=</span><span class="n">no</span>
+<span class="n">PEERDNS</span><span class="o">=</span><span class="n">yes</span>
+<span class="n">IPV6INIT</span><span class="o">=</span><span class="n">yes</span>
+<span class="n">DHCPV6C</span><span class="o">=</span><span class="n">yes</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Open the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vi</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">sysconfig</span><span class="o">/</span><span class="n">network</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Make the necessary configuration changes, as given below:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">NETWORKING</span><span class="o">=</span><span class="n">yes</span>
+<span class="n">HOSTNAME</span><span class="o">=</span><span class="n">centos62mgmt</span><span class="o">.</span><span class="n">lab</span><span class="o">.</span><span class="n">vmops</span><span class="o">.</span><span class="n">com</span>
+<span class="n">NETWORKING_IPV6</span><span class="o">=</span><span class="n">yes</span>
+<span class="n">IPV6_AUTOCONF</span><span class="o">=</span><span class="n">no</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p>On Ubuntu 12.10</p>
+<ol class="arabic">
+<li><p class="first">Open the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">etc</span><span class="o">/</span><span class="n">network</span><span class="o">/</span><span class="n">interfaces</span><span class="p">:</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Make the necessary configuration changes, as given below:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">iface</span> <span class="n">eth0</span> <span class="n">inet6</span> <span class="n">dhcp</span>
+<span class="n">autoconf</span> <span class="mi">0</span>
+<span class="n">accept_ra</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="quota.html" class="btn btn-neutral float-right" title="Quota Plugin" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ovs-plugin.html" class="btn btn-neutral float-left" title="The OVS Plugin" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Apache Foundation
+      
+        <span class="commit">
+          Revision <code>7c5c9b49</code>.
+        </span>
+      
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Read the Docs</span>
+      v: 4.11.3.0
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="../../../index.html">latest</a></dd>
+        
+          <dd><a href="../../4.12.0.0/index.html">4.12.0.0</a></dd>
+        
+          <dd><a href="../index.html">4.11.3.0</a></dd>
+        
+          <dd><a href="../../4.11.2.0/index.html">4.11.2.0</a></dd>
+        
+          <dd><a href="../../4.11.1.0/index.html">4.11.1.0</a></dd>
+        
+          <dd><a href="http://docs.cloudstack.apache.org/en/master/">master</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>Downloads</dt>
+        
+      </dl>
+      <dl>
+        <dt>On Read the Docs</dt>
+          <dd>
+            <a href="http://readthedocs.org/projects/cloudstack-documentation/?fromdocs=cloudstack-documentation">Project Home</a>
+          </dd>
+          <dd>
+            <a href="http://readthedocs.org/builds/cloudstack-documentation/?fromdocs=cloudstack-documentation">Builds</a>
+          </dd>
+      </dl>
+      <hr/>
+      Free document hosting provided by <a href="http://www.readthedocs.org">Read the Docs</a>.
+
+    </div>
+  </div>
+
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+   
+
+</body>
+</html>

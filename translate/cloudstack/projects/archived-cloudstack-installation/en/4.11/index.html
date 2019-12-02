@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>CloudStack Installation Documentation &#8212; Apache CloudStack Installation Documentation 4.11.0.0 documentation</title>
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="https://media.readthedocs.org/css/badge_only.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootswatch-3.2.0/spacelab/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="https://media.readthedocs.org/javascript/jquery/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="https://media.readthedocs.org/javascript/jquery/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="https://media.readthedocs.org/javascript/underscore.js"></script>
+    <script type="text/javascript" src="https://media.readthedocs.org/javascript/doctools.js"></script>
+    <script type="text/javascript" src="https://media.readthedocs.org/javascript/readthedocs-doc-embed.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.2.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Choosing a Deployment Architecture" href="choosing_deployment_architecture.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  
+<!-- RTD Extra Head -->
+
+<!-- 
+Always link to the latest version, as canonical.
+http://docs.readthedocs.org/en/latest/canonical.html
+-->
+<link rel="canonical" href="../../../cloudstack-installation" />
+
+<link rel="stylesheet" href="https://media.readthedocs.org/css/readthedocs-doc-embed.css" type="text/css" />
+
+<script type="text/javascript" src="_static/readthedocs-data.js"></script>
+
+<!-- Add page-specific data, which must exist in the page js, not global -->
+<script type="text/javascript">
+READTHEDOCS_DATA['page'] = 'index'
+READTHEDOCS_DATA['source_suffix'] = '.rst'
+</script>
+
+<script type="text/javascript" src="https://media.readthedocs.org/javascript/readthedocs-analytics.js"></script>
+
+<!-- end RTD <extrahead> -->
+</head><body>
+
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html#">
+          Installation Guide</a>
+        <span class="navbar-text navbar-version pull-left"><b>4.11</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+                <a role="button"
+                   id="dLabelGlobalToc"
+                   data-toggle="dropdown"
+                   data-target="#"
+                   href="index.html#">Sections <b class="caret"></b></a>
+                <ul class="dropdown-menu globaltoc"
+                    role="menu"
+                    aria-labelledby="dLabelGlobalToc">
+                     <ul>
+<li class="toctree-l1"><a class="reference internal" href="choosing_deployment_architecture.html">Choosing a Deployment Architecture</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="qig.html">Quick Installation Guide for CentOS 6</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="building_from_source.html">Building from Source</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="overview/index.html">Installation overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="management-server/index.html">Management Server Installation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuring your CloudStack Installation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="hypervisor/hyperv.html">Host Hyper-V Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hypervisor/kvm.html">Host KVM Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hypervisor/lxc.html">Host LXC Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hypervisor/vsphere.html">Host VMware vSphere Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hypervisor/xenserver.html">Host Citrix XenServer Installation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="network_setup.html">Network Setup</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="storage_setup.html">Storage Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="storage_setup.html#small-scale-setup">Small-Scale Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="storage_setup.html#large-scale-setup">Large-Scale Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="storage_setup.html#storage-architecture">Storage Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="storage_setup.html#network-configuration-for-storage">Network Configuration For Storage</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="optional_installation.html">Additional Installation Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encryption.html">About Password and Key Encryption</a></li>
+</ul>
+
+
+                </ul>
+              </li>
+              
+                
+              
+            
+            
+              
+                
+  <li>
+    <a href="choosing_deployment_architecture.html" title="Next Chapter: Choosing a Deployment Architecture"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Choosing a Deployment Architecture &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul>
+<li class="toctree-l1"><a class="reference internal" href="choosing_deployment_architecture.html">Choosing a Deployment Architecture</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="qig.html">Quick Installation Guide for CentOS 6</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="building_from_source.html">Building from Source</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="overview/index.html">Installation overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="management-server/index.html">Management Server Installation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuring your CloudStack Installation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="hypervisor/hyperv.html">Host Hyper-V Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hypervisor/kvm.html">Host KVM Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hypervisor/lxc.html">Host LXC Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hypervisor/vsphere.html">Host VMware vSphere Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hypervisor/xenserver.html">Host Citrix XenServer Installation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="network_setup.html">Network Setup</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="storage_setup.html">Storage Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="storage_setup.html#small-scale-setup">Small-Scale Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="storage_setup.html#large-scale-setup">Large-Scale Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="storage_setup.html#storage-architecture">Storage Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="storage_setup.html#network-configuration-for-storage">Network Configuration For Storage</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="optional_installation.html">Additional Installation Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encryption.html">About Password and Key Encryption</a></li>
+</ul>
+
+
+        </div>
+      </div>
+    <div class="col-md-9">
+      
+  <div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p>NOTICE: THIS DOCUMENTATION SITE HAS BEEN SUPERSEDED.</p>
+<p class="last">For the current documentation site goto: <a class="reference external" href="../../../../index.html">http://docs.cloudstack.apache.org</a></p>
+</div>
+<div class="section" id="cloudstack-installation-documentation">
+<h1>CloudStack Installation Documentation<a class="headerlink" href="index.html#cloudstack-installation-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="figure align-center">
+<a class="reference external image-reference" href="http://cloudstack.apache.org/"><img alt="_images/acslogo.png" src="_images/acslogo.png" /></a>
+</div>
+<p>This is the Apache CloudStack installation guide, for the Documentation home,
+the administrator guide or the Release-Notes please see:</p>
+<ul class="simple">
+<li><a class="reference external" href="../../../../index.html">Documentation home</a></li>
+<li><a class="reference external" href="../../../cloudstack-administration">Administration Guide</a></li>
+<li><a class="reference external" href="../../../cloudstack-release-notes">Release Notes</a></li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">In this guide we first go through some design and architectural <a class="reference internal" href="index.html#choices">choices</a> to
+build your cloud. Then we dive into a single node quick start <a class="reference internal" href="index.html#guide">guide</a> to
+give you a feel for the installation process. The source installation
+<a class="reference internal" href="index.html#steps">steps</a> are given in the follow-on section for people who want to build
+their own packages. Otherwise you can use the general <a class="reference internal" href="index.html#installation">installation</a> which
+makes use of community maintained package repositories. The rest of the
+guide goes through the <a class="reference internal" href="index.html#configuration">configuration</a> of the data-center and the setup of
+the <a class="reference internal" href="index.html#network">network</a>, <a class="reference internal" href="index.html#storage">storage</a> and <a class="reference internal" href="index.html#hypervisors">hypervisors</a>.</p>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="section" id="choosing-a-deployment-architecture">
+<span id="choices"></span><h2>Choosing a Deployment Architecture<a class="headerlink" href="index.html#choosing-a-deployment-architecture" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="choosing_deployment_architecture.html">Choosing a Deployment Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="choosing_deployment_architecture.html#small-scale-deployment">Small-Scale Deployment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="choosing_deployment_architecture.html#large-scale-redundant-setup">Large-Scale Redundant Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="choosing_deployment_architecture.html#separate-storage-network">Separate Storage Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="choosing_deployment_architecture.html#multi-node-management-server">Multi-Node Management Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="choosing_deployment_architecture.html#multi-site-deployment">Multi-Site Deployment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="choosing_deployment_architecture.html#choosing-a-hypervisor">Choosing a Hypervisor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="choosing_deployment_architecture.html#best-practices">Best Practices</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="quick-installation-guide">
+<span id="guide"></span><h2>Quick Installation Guide<a class="headerlink" href="index.html#quick-installation-guide" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="qig.html">Quick Installation Guide for CentOS 6</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="qig.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qig.html#environment">Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qig.html#management-server-installation">Management Server Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qig.html#kvm-setup-and-installation">KVM Setup and Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qig.html#configuration">Configuration</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="source-installation">
+<span id="steps"></span><h2>Source Installation<a class="headerlink" href="index.html#source-installation" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="building_from_source.html">Building from Source</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="building_from_source.html#getting-the-release">Getting the release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="building_from_source.html#verifying-the-downloaded-release">Verifying the downloaded release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="building_from_source.html#prerequisites-for-building-apache-cloudstack">Prerequisites for building Apache CloudStack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="building_from_source.html#extracting-source">Extracting source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="building_from_source.html#install-new-mysql-connector">Install new MySQL connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="building_from_source.html#building-deb-packages">Building DEB packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="building_from_source.html#building-rpms-from-source">Building RPMs from Source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="building_from_source.html#building-non-oss">Building Non-OSS</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="general-installation">
+<span id="installation"></span><h2>General Installation<a class="headerlink" href="index.html#general-installation" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="overview/index.html">Installation overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="overview/index.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview/index.html#minimum-system-requirements">Minimum System Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview/index.html#package-repository">Package Repository</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="management-server/index.html">Management Server Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="management-server/index.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="management-server/index.html#prepare-the-operating-system">Prepare the Operating System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="management-server/index.html#install-the-management-server-on-the-first-host">Install the Management Server on the First Host</a></li>
+<li class="toctree-l2"><a class="reference internal" href="management-server/index.html#downloading-vhd-util">Downloading vhd-util</a></li>
+<li class="toctree-l2"><a class="reference internal" href="management-server/index.html#install-the-database-server">Install the database server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="management-server/index.html#prepare-nfs-shares">Prepare NFS Shares</a></li>
+<li class="toctree-l2"><a class="reference internal" href="management-server/index.html#additional-management-servers">Additional Management Servers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="management-server/index.html#prepare-the-system-vm-template">Prepare the System VM Template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="management-server/index.html#installation-complete-next-steps">Installation Complete! Next Steps</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="configuration">
+<span id="id1"></span><h2>Configuration<a class="headerlink" href="index.html#configuration" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuring your CloudStack Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#overview-of-provisioning-steps">Overview of Provisioning Steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#adding-regions-optional">Adding Regions (optional)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#adding-a-zone">Adding a Zone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#adding-a-pod">Adding a Pod</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#adding-a-cluster">Adding a Cluster</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#adding-a-host">Adding a Host</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#add-primary-storage">Add Primary Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#add-secondary-storage">Add Secondary Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#initialize-and-test">Initialize and Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#configuration-parameters">Configuration Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#granular-global-configuration-parameters">Granular Global Configuration Parameters</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="hypervisor-setup">
+<span id="hypervisors"></span><h2>Hypervisor Setup<a class="headerlink" href="index.html#hypervisor-setup" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="hypervisor/hyperv.html">Host Hyper-V Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="hypervisor/hyperv.html#system-requirements-for-hyper-v-hypervisor-hosts">System Requirements for Hyper-V Hypervisor Hosts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hypervisor/hyperv.html#preparation-checklist-for-hyper-v">Preparation Checklist for Hyper-V</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hypervisor/hyperv.html#hyper-v-installation-steps">Hyper-V Installation Steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hypervisor/hyperv.html#installing-the-cloudstack-agent-on-a-hyper-v-host">Installing the CloudStack Agent on a Hyper-V Host</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hypervisor/hyperv.html#physical-network-configuration-for-hyper-v">Physical Network Configuration for Hyper-V</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hypervisor/hyperv.html#storage-preparation-for-hyper-v-optional">Storage Preparation for Hyper-V (Optional)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="hypervisor/kvm.html">Host KVM Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="hypervisor/kvm.html#system-requirements-for-kvm-hypervisor-hosts">System Requirements for KVM Hypervisor Hosts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hypervisor/kvm.html#kvm-installation-overview">KVM Installation Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hypervisor/kvm.html#prepare-the-operating-system">Prepare the Operating System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hypervisor/kvm.html#install-and-configure-the-agent">Install and configure the Agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hypervisor/kvm.html#install-and-configure-libvirt">Install and Configure libvirt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hypervisor/kvm.html#configure-the-security-policies">Configure the Security Policies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hypervisor/kvm.html#configuring-the-networking">Configuring the Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hypervisor/kvm.html#configure-the-network-using-openvswitch">Configure the network using OpenVswitch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hypervisor/kvm.html#configuring-the-firewall">Configuring the firewall</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hypervisor/kvm.html#additional-packages-required-for-features">Additional Packages Required for Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hypervisor/kvm.html#add-the-host-to-cloudstack">Add the host to CloudStack</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="hypervisor/lxc.html">Host LXC Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="hypervisor/lxc.html#system-requirements-for-lxc-hosts">System Requirements for LXC Hosts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hypervisor/lxc.html#lxc-installation-overview">LXC Installation Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hypervisor/lxc.html#prepare-the-operating-system">Prepare the Operating System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hypervisor/lxc.html#install-and-configure-the-agent">Install and configure the Agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hypervisor/lxc.html#install-and-configure-libvirt">Install and Configure libvirt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hypervisor/lxc.html#configure-the-security-policies">Configure the Security Policies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hypervisor/lxc.html#configure-the-network-bridges">Configure the network bridges</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hypervisor/lxc.html#configuring-the-firewall">Configuring the firewall</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hypervisor/lxc.html#add-the-host-to-cloudstack">Add the host to CloudStack</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="hypervisor/vsphere.html">Host VMware vSphere Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="hypervisor/vsphere.html#system-requirements-for-vsphere-hosts">System Requirements for vSphere Hosts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hypervisor/vsphere.html#preparation-checklist-for-vmware">Preparation Checklist for VMware</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hypervisor/vsphere.html#vsphere-installation-steps">vSphere Installation Steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hypervisor/vsphere.html#esxi-host-setup">ESXi Host setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hypervisor/vsphere.html#physical-host-networking">Physical Host Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hypervisor/vsphere.html#configuring-a-vsphere-cluster-with-nexus-1000v-virtual-switch">Configuring a vSphere Cluster with Nexus 1000v Virtual Switch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hypervisor/vsphere.html#configuring-a-vmware-datacenter-with-vmware-distributed-virtual-switch">Configuring a VMware Datacenter with VMware Distributed Virtual Switch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hypervisor/vsphere.html#storage-preparation-for-vsphere-iscsi-only">Storage Preparation for vSphere (iSCSI only)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hypervisor/vsphere.html#add-hosts-or-configure-clusters-vsphere">Add Hosts or Configure Clusters (vSphere)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hypervisor/vsphere.html#applying-hotfixes-to-a-vmware-vsphere-host">Applying Hotfixes to a VMware vSphere Host</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="hypervisor/xenserver.html">Host Citrix XenServer Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="hypervisor/xenserver.html#system-requirements-for-xenserver-hosts">System Requirements for XenServer Hosts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hypervisor/xenserver.html#xenserver-installation-steps">XenServer Installation Steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hypervisor/xenserver.html#configure-xenserver-dom0-memory">Configure XenServer dom0 Memory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hypervisor/xenserver.html#username-and-password">Username and Password</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hypervisor/xenserver.html#time-synchronization">Time Synchronization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hypervisor/xenserver.html#install-cloudstack-xenserver-support-package-csp">Install CloudStack XenServer Support Package (CSP)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hypervisor/xenserver.html#primary-storage-setup-for-xenserver">Primary Storage Setup for XenServer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hypervisor/xenserver.html#iscsi-multipath-setup-for-xenserver-optional">iSCSI Multipath Setup for XenServer (Optional)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hypervisor/xenserver.html#physical-networking-setup-for-xenserver">Physical Networking Setup for XenServer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hypervisor/xenserver.html#upgrading-xenserver-versions">Upgrading XenServer Versions</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="network-setup">
+<span id="network"></span><h2>Network Setup<a class="headerlink" href="index.html#network-setup" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="network_setup.html">Network Setup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="network_setup.html#basic-and-advanced-networking">Basic and Advanced Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network_setup.html#vlan-allocation-example">VLAN Allocation Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network_setup.html#example-hardware-configuration">Example Hardware Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network_setup.html#layer-2-switch">Layer-2 Switch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network_setup.html#hardware-firewall">Hardware Firewall</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network_setup.html#management-server-load-balancing">Management Server Load Balancing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network_setup.html#topology-requirements">Topology Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network_setup.html#guest-network-usage-integration-for-traffic-sentinel">Guest Network Usage Integration for Traffic Sentinel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network_setup.html#setting-zone-vlan-and-running-vm-maximums">Setting Zone VLAN and Running VM Maximums</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="storage-setup">
+<span id="storage"></span><h2>Storage Setup<a class="headerlink" href="index.html#storage-setup" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="storage_setup.html">Storage Setup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="storage_setup.html#primary-storage">Primary Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="storage_setup.html#secondary-storage">Secondary Storage</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="storage_setup.html#small-scale-setup">Small-Scale Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="storage_setup.html#large-scale-setup">Large-Scale Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="storage_setup.html#storage-architecture">Storage Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="storage_setup.html#local-storage">Local Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="storage_setup.html#traditional-node-based-shared-storage">‘Traditional’ node-based Shared Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="storage_setup.html#clustered-shared-storage">Clustered Shared Storage</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="storage_setup.html#network-configuration-for-storage">Network Configuration For Storage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="storage_setup.html#cloudstack-networking-for-storage">CloudStack Networking For Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="storage_setup.html#small-scale-example-configurations">Small-Scale Example Configurations</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="optional-installation">
+<h2>Optional Installation<a class="headerlink" href="index.html#optional-installation" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="optional_installation.html">Additional Installation Options</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="optional_installation.html#installing-the-usage-server-optional">Installing the Usage Server (Optional)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optional_installation.html#ssl-optional">SSL (Optional)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optional_installation.html#database-replication-optional">Database Replication (Optional)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optional_installation.html#amazon-web-services-interface">Amazon Web Services Interface</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="encryption.html">About Password and Key Encryption</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="encryption.html#changing-the-default-password-encryption">Changing the Default Password Encryption</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="index.html#">Back to top</a>
+          | <a href="choosing_deployment_architecture.html" title="Next Chapter: Choosing a Deployment Architecture"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Choosing a Deployment Architecture &raquo;</span>
+          </a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="_sources/index.rst.txt"
+     rel="nofollow">Source</a>
+</div>
+      
+    </p>
+    <p>
+        &copy; Copyright 2018, Apache Software Foundation.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

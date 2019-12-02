@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Choosing a Deployment Architecture &#8212; Apache CloudStack Installation Documentation 4.11.0.0 documentation</title>
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="https://media.readthedocs.org/css/badge_only.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootswatch-3.2.0/spacelab/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="https://media.readthedocs.org/javascript/jquery/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="https://media.readthedocs.org/javascript/jquery/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="https://media.readthedocs.org/javascript/underscore.js"></script>
+    <script type="text/javascript" src="https://media.readthedocs.org/javascript/doctools.js"></script>
+    <script type="text/javascript" src="https://media.readthedocs.org/javascript/readthedocs-doc-embed.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.2.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Quick Installation Guide for CentOS 6" href="qig.html" />
+    <link rel="prev" title="CloudStack Installation Documentation" href="index.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  
+<!-- RTD Extra Head -->
+
+<!-- 
+Always link to the latest version, as canonical.
+http://docs.readthedocs.org/en/latest/canonical.html
+-->
+<link rel="canonical" href="choosing_deployment_architecture.html" />
+
+<link rel="stylesheet" href="https://media.readthedocs.org/css/readthedocs-doc-embed.css" type="text/css" />
+
+<script type="text/javascript" src="_static/readthedocs-data.js"></script>
+
+<!-- Add page-specific data, which must exist in the page js, not global -->
+<script type="text/javascript">
+READTHEDOCS_DATA['page'] = 'choosing_deployment_architecture'
+READTHEDOCS_DATA['source_suffix'] = '.rst'
+</script>
+
+<script type="text/javascript" src="https://media.readthedocs.org/javascript/readthedocs-analytics.js"></script>
+
+<!-- end RTD <extrahead> -->
+</head><body>
+
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+          Installation Guide</a>
+        <span class="navbar-text navbar-version pull-left"><b>4.11</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+                <a role="button"
+                   id="dLabelGlobalToc"
+                   data-toggle="dropdown"
+                   data-target="#"
+                   href="index.html">Sections <b class="caret"></b></a>
+                <ul class="dropdown-menu globaltoc"
+                    role="menu"
+                    aria-labelledby="dLabelGlobalToc">
+                     <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="choosing_deployment_architecture.html#">Choosing a Deployment Architecture</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="qig.html">Quick Installation Guide for CentOS 6</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="building_from_source.html">Building from Source</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="overview/index.html">Installation overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="management-server/index.html">Management Server Installation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuring your CloudStack Installation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="hypervisor/hyperv.html">Host Hyper-V Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hypervisor/kvm.html">Host KVM Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hypervisor/lxc.html">Host LXC Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hypervisor/vsphere.html">Host VMware vSphere Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hypervisor/xenserver.html">Host Citrix XenServer Installation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="network_setup.html">Network Setup</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="storage_setup.html">Storage Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="storage_setup.html#small-scale-setup">Small-Scale Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="storage_setup.html#large-scale-setup">Large-Scale Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="storage_setup.html#storage-architecture">Storage Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="storage_setup.html#network-configuration-for-storage">Network Configuration For Storage</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="optional_installation.html">Additional Installation Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encryption.html">About Password and Key Encryption</a></li>
+</ul>
+
+
+                </ul>
+              </li>
+              
+                
+              
+            
+            
+              
+                
+  <li>
+    <a href="index.html" title="Previous Chapter: CloudStack Installation Documentation"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; CloudStack Installation Documentation</span>
+    </a>
+  </li>
+  <li>
+    <a href="qig.html" title="Next Chapter: Quick Installation Guide for CentOS 6"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Quick Installation Guide for CentOS 6 &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul>
+<li><a class="reference internal" href="choosing_deployment_architecture.html#">Choosing a Deployment Architecture</a><ul>
+<li><a class="reference internal" href="choosing_deployment_architecture.html#small-scale-deployment">Small-Scale Deployment</a></li>
+<li><a class="reference internal" href="choosing_deployment_architecture.html#large-scale-redundant-setup">Large-Scale Redundant Setup</a></li>
+<li><a class="reference internal" href="choosing_deployment_architecture.html#separate-storage-network">Separate Storage Network</a></li>
+<li><a class="reference internal" href="choosing_deployment_architecture.html#multi-node-management-server">Multi-Node Management Server</a></li>
+<li><a class="reference internal" href="choosing_deployment_architecture.html#multi-site-deployment">Multi-Site Deployment</a></li>
+<li><a class="reference internal" href="choosing_deployment_architecture.html#choosing-a-hypervisor">Choosing a Hypervisor</a><ul>
+<li><a class="reference internal" href="choosing_deployment_architecture.html#hypervisor-support-for-primary-storage">Hypervisor Support for Primary Storage</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="choosing_deployment_architecture.html#best-practices">Best Practices</a><ul>
+<li><a class="reference internal" href="choosing_deployment_architecture.html#process-best-practices">Process Best Practices</a></li>
+<li><a class="reference internal" href="choosing_deployment_architecture.html#setup-best-practices">Setup Best Practices</a></li>
+<li><a class="reference internal" href="choosing_deployment_architecture.html#maintenance-best-practices">Maintenance Best Practices</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    <div class="col-md-9">
+      
+  <div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p>NOTICE: THIS DOCUMENTATION SITE HAS BEEN SUPERSEDED.</p>
+<p class="last">For the current documentation site goto: <a class="reference external" href="../../../../index.html">http://docs.cloudstack.apache.org</a></p>
+</div>
+<div class="section" id="choosing-a-deployment-architecture">
+<h1>Choosing a Deployment Architecture<a class="headerlink" href="choosing_deployment_architecture.html#choosing-a-deployment-architecture" title="Permalink to this headline">¶</a></h1>
+<p>The architecture used in a deployment will vary depending on the size
+and purpose of the deployment. This section contains examples of
+deployment architecture, including a small-scale deployment useful for
+test and trial deployments and a fully-redundant large-scale setup for
+production deployments.</p>
+<div class="section" id="small-scale-deployment">
+<h2>Small-Scale Deployment<a class="headerlink" href="choosing_deployment_architecture.html#small-scale-deployment" title="Permalink to this headline">¶</a></h2>
+<p><img alt="Small-Scale Deployment" src="_images/small-scale-deployment.png" /></p>
+<p>This diagram illustrates the network architecture of a small-scale
+CloudStack deployment.</p>
+<ul class="simple">
+<li>A firewall provides a connection to the Internet. The firewall is
+configured in NAT mode. The firewall forwards HTTP requests and API
+calls from the Internet to the Management Server. The Management
+Server resides on the management network.</li>
+<li>A layer-2 switch connects all physical servers and storage.</li>
+<li>A single NFS server functions as both the primary and secondary
+storage.</li>
+<li>The Management Server is connected to the management network.</li>
+</ul>
+</div>
+<div class="section" id="large-scale-redundant-setup">
+<h2>Large-Scale Redundant Setup<a class="headerlink" href="choosing_deployment_architecture.html#large-scale-redundant-setup" title="Permalink to this headline">¶</a></h2>
+<p><img alt="Large-Scale Redundant Setup" src="_images/large-scale-redundant-setup.png" /></p>
+<p>This diagram illustrates the network architecture of a large-scale
+CloudStack deployment.</p>
+<ul class="simple">
+<li>A layer-3 switching layer is at the core of the data center. A router
+redundancy protocol like VRRP should be deployed. Typically high-end
+core switches also include firewall modules. Separate firewall
+appliances may also be used if the layer-3 switch does not have
+integrated firewall capabilities. The firewalls are configured in NAT
+mode. The firewalls provide the following functions:<ul>
+<li>Forwards HTTP requests and API calls from the Internet to the
+Management Server. The Management Server resides on the management
+network.</li>
+<li>When the cloud spans multiple zones, the firewalls should enable
+site-to-site VPN such that servers in different zones can directly
+reach each other.</li>
+</ul>
+</li>
+<li>A layer-2 access switch layer is established for each pod. Multiple
+switches can be stacked to increase port count. In either case,
+redundant pairs of layer-2 switches should be deployed.</li>
+<li>The Management Server cluster (including front-end load balancers,
+Management Server nodes, and the MySQL database) is connected to the
+management network through a pair of load balancers.</li>
+<li>Secondary storage servers are connected to the management network.</li>
+<li>Each pod contains storage and computing servers. Each storage and
+computing server should have redundant NICs connected to separate
+layer-2 access switches.</li>
+</ul>
+</div>
+<div class="section" id="separate-storage-network">
+<h2>Separate Storage Network<a class="headerlink" href="choosing_deployment_architecture.html#separate-storage-network" title="Permalink to this headline">¶</a></h2>
+<p>In the large-scale redundant setup described in the previous section,
+storage traffic can overload the management network. A separate storage
+network is optional for deployments. Storage protocols such as iSCSI are
+sensitive to network delays. A separate storage network ensures guest
+network traffic contention does not impact storage performance.</p>
+</div>
+<div class="section" id="multi-node-management-server">
+<h2>Multi-Node Management Server<a class="headerlink" href="choosing_deployment_architecture.html#multi-node-management-server" title="Permalink to this headline">¶</a></h2>
+<p>The CloudStack Management Server is deployed on one or more front-end
+servers connected to a single MySQL database. Optionally a pair of
+hardware load balancers distributes requests from the web. A backup
+management server set may be deployed using MySQL replication at a
+remote site to add DR capabilities.</p>
+<p><img alt="Multi-Node Management Server" src="_images/multi-node-management-server.png" /></p>
+<p>The administrator must decide the following.</p>
+<ul class="simple">
+<li>Whether or not load balancers will be used.</li>
+<li>How many Management Servers will be deployed.</li>
+<li>Whether MySQL replication will be deployed to enable disaster
+recovery.</li>
+</ul>
+</div>
+<div class="section" id="multi-site-deployment">
+<h2>Multi-Site Deployment<a class="headerlink" href="choosing_deployment_architecture.html#multi-site-deployment" title="Permalink to this headline">¶</a></h2>
+<p>The CloudStack platform scales well into multiple sites through the use
+of zones. The following diagram shows an example of a multi-site
+deployment.</p>
+<p><img alt="Example Of A Multi-Site Deployment" src="_images/multi-site-deployment.png" /></p>
+<p>Data Center 1 houses the primary Management Server as well as zone 1.
+The MySQL database is replicated in real time to the secondary
+Management Server installation in Data Center 2.</p>
+<p><img alt="Separate Storage Network" src="_images/separate-storage-network.png" /></p>
+<p>This diagram illustrates a setup with a separate storage network. Each
+server has four NICs, two connected to pod-level network switches and
+two connected to storage network switches.</p>
+<p>There are two ways to configure the storage network:</p>
+<ul class="simple">
+<li>Bonded NIC and redundant switches can be deployed for NFS. In NFS
+deployments, redundant switches and bonded NICs still result in one
+network (one CIDR block+ default gateway address).</li>
+<li>iSCSI can take advantage of two separate storage networks (two CIDR
+blocks each with its own default gateway). Multipath iSCSI client can
+failover and load balance between separate storage networks.</li>
+</ul>
+<p><img alt="NIC Bonding And Multipath I/O" src="_images/nic-bonding-and-multipath-io.png" /></p>
+<p>This diagram illustrates the differences between NIC bonding and
+Multipath I/O (MPIO). NIC bonding configuration involves only one
+network. MPIO involves two separate networks.</p>
+</div>
+<div class="section" id="choosing-a-hypervisor">
+<h2>Choosing a Hypervisor<a class="headerlink" href="choosing_deployment_architecture.html#choosing-a-hypervisor" title="Permalink to this headline">¶</a></h2>
+<p>CloudStack supports many popular hypervisors. Your cloud can consist
+entirely of hosts running a single hypervisor, or you can use multiple
+hypervisors. Each cluster of hosts must run the same hypervisor.</p>
+<p>You might already have an installed base of nodes running a particular
+hypervisor, in which case, your choice of hypervisor has already been
+made. If you are starting from scratch, you need to decide what
+hypervisor software best suits your needs. A discussion of the relative
+advantages of each hypervisor is outside the scope of our documentation.
+However, it will help you to know which features of each hypervisor are
+supported by CloudStack. The following table provides this information.</p>
+<table border="1" class="table-striped table-bordered table-hover docutils">
+<colgroup>
+<col width="35%" />
+<col width="11%" />
+<col width="15%" />
+<col width="13%" />
+<col width="5%" />
+<col width="8%" />
+<col width="13%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Feature</th>
+<th class="head">XenServer</th>
+<th class="head">vSphere</th>
+<th class="head">KVM - RHEL</th>
+<th class="head">LXC</th>
+<th class="head">HyperV</th>
+<th class="head">Bare Metal</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Network Throttling</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+<td>?</td>
+<td>N/A</td>
+</tr>
+<tr class="row-odd"><td>Security groups in zones that use
+basic networking</td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>?</td>
+<td>No</td>
+</tr>
+<tr class="row-even"><td>iSCSI</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>N/A</td>
+</tr>
+<tr class="row-odd"><td>FibreChannel</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>N/A</td>
+</tr>
+<tr class="row-even"><td>Local Disk</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr class="row-odd"><td>HA</td>
+<td>Yes</td>
+<td>Yes (Native)</td>
+<td>Yes</td>
+<td>?</td>
+<td>Yes</td>
+<td>N/A</td>
+</tr>
+<tr class="row-even"><td>Snapshots of local disk</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>?</td>
+<td>?</td>
+<td>N/A</td>
+</tr>
+<tr class="row-odd"><td>Local disk as data disk</td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>N/A</td>
+</tr>
+<tr class="row-even"><td>Work load balancing</td>
+<td>No</td>
+<td>DRS</td>
+<td>No</td>
+<td>No</td>
+<td>?</td>
+<td>N/A</td>
+</tr>
+<tr class="row-odd"><td>Manual live migration of VMs from
+host to host</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>?</td>
+<td>Yes</td>
+<td>N/A</td>
+</tr>
+<tr class="row-even"><td>Conserve management traffic IP
+address by using link local
+network to communicate with
+virtual router</td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>?</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="hypervisor-support-for-primary-storage">
+<h3>Hypervisor Support for Primary Storage<a class="headerlink" href="choosing_deployment_architecture.html#hypervisor-support-for-primary-storage" title="Permalink to this headline">¶</a></h3>
+<p>The following table shows storage options and parameters for different
+hypervisors.</p>
+<table border="1" class="table-striped table-bordered table-hover docutils">
+<colgroup>
+<col width="33%" />
+<col width="13%" />
+<col width="15%" />
+<col width="16%" />
+<col width="16%" />
+<col width="8%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Primary Storage Type</th>
+<th class="head">XenServer</th>
+<th class="head">vSphere</th>
+<th class="head">KVM - RHEL</th>
+<th class="head">LXC</th>
+<th class="head">HyperV</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Format for Disks, Templates,
+and Snapshots</td>
+<td>VHD</td>
+<td>VMDK</td>
+<td>QCOW2</td>
+<td>&#160;</td>
+<td>VHD</td>
+</tr>
+<tr class="row-odd"><td>iSCSI support</td>
+<td>CLVM</td>
+<td>VMFS</td>
+<td>Yes via Shared
+Mountpoint</td>
+<td>Yes via Shared
+Mountpoint</td>
+<td>No</td>
+</tr>
+<tr class="row-even"><td>Fiber Channel support</td>
+<td>Yes, Via
+existing SR</td>
+<td>VMFS</td>
+<td>Yes via Shared
+Mountpoint</td>
+<td>Yes via Shared
+Mountpoint</td>
+<td>No</td>
+</tr>
+<tr class="row-odd"><td>NFS support</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr class="row-even"><td>Local storage support</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr class="row-odd"><td>Storage over-provisioning</td>
+<td>NFS</td>
+<td>NFS and iSCSI</td>
+<td>NFS</td>
+<td>&#160;</td>
+<td>No</td>
+</tr>
+<tr class="row-even"><td>SMB/CIFS</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<p>XenServer uses a clustered LVM system to store VM images on iSCSI and
+Fiber Channel volumes and does not support over-provisioning in the
+hypervisor. The storage server itself, however, can support
+thin-provisioning. As a result the CloudStack can still support storage
+over-provisioning by running on thin-provisioned storage volumes.</p>
+<p>KVM supports “Shared Mountpoint” storage. A shared mountpoint is a file
+system path local to each server in a given cluster. The path must be
+the same across all Hosts in the cluster, for example /mnt/primary1.
+This shared mountpoint is assumed to be a clustered filesystem such as
+OCFS2. In this case the CloudStack does not attempt to mount or unmount
+the storage as is done with NFS. The CloudStack requires that the
+administrator insure that the storage is available</p>
+<p>With NFS storage, CloudStack manages the overprovisioning. In this case
+the global configuration parameter storage.overprovisioning.factor
+controls the degree of overprovisioning. This is independent of
+hypervisor type.</p>
+<p>Local storage is an option for primary storage for vSphere, XenServer,
+and KVM. When the local disk option is enabled, a local disk storage
+pool is automatically created on each host. To use local storage for the
+System Virtual Machines (such as the Virtual Router), set
+system.vm.use.local.storage to true in global configuration.</p>
+<p>CloudStack supports multiple primary storage pools in a Cluster. For
+example, you could provision 2 NFS servers in primary storage. Or you
+could provision 1 iSCSI LUN initially and then add a second iSCSI LUN
+when the first approaches capacity.</p>
+</div>
+</div>
+<div class="section" id="best-practices">
+<h2>Best Practices<a class="headerlink" href="choosing_deployment_architecture.html#best-practices" title="Permalink to this headline">¶</a></h2>
+<p>Deploying a cloud is challenging. There are many different technology
+choices to make, and CloudStack is flexible enough in its configuration
+that there are many possible ways to combine and configure the chosen
+technology. This section contains suggestions and requirements about
+cloud deployments.</p>
+<p>These should be treated as suggestions and not absolutes. However, we do
+encourage anyone planning to build a cloud outside of these guidelines
+to seek guidance and advice on the project mailing lists.</p>
+<div class="section" id="process-best-practices">
+<h3>Process Best Practices<a class="headerlink" href="choosing_deployment_architecture.html#process-best-practices" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>A staging system that models the production environment is strongly
+advised. It is critical if customizations have been applied to
+CloudStack.</li>
+<li>Allow adequate time for installation, a beta, and learning the
+system. Installs with basic networking can be done in hours. Installs
+with advanced networking usually take several days for the first
+attempt, with complicated installations taking longer. For a full
+production system, allow at least 4-8 weeks for a beta to work
+through all of the integration issues. You can get help from fellow
+users on the cloudstack-users mailing list.</li>
+</ul>
+</div>
+<div class="section" id="setup-best-practices">
+<h3>Setup Best Practices<a class="headerlink" href="choosing_deployment_architecture.html#setup-best-practices" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Each host should be configured to accept connections only from
+well-known entities such as the CloudStack Management Server or your
+network monitoring software.</li>
+<li>Use multiple clusters per pod if you need to achieve a certain switch
+density.</li>
+<li>Primary storage mountpoints or LUNs should not exceed 6 TB in size.
+It is better to have multiple smaller primary storage elements per
+cluster than one large one.</li>
+<li>When exporting shares on primary storage, avoid data loss by
+restricting the range of IP addresses that can access the storage.
+See “Linux NFS on Local Disks and DAS” or “Linux NFS on iSCSI”.</li>
+<li>NIC bonding is straightforward to implement and provides increased
+reliability.</li>
+<li>10G networks are generally recommended for storage access when larger
+servers that can support relatively more VMs are used.</li>
+<li>Host capacity should generally be modeled in terms of RAM for the
+guests. Storage and CPU may be overprovisioned. RAM may not. RAM is
+usually the limiting factor in capacity designs.</li>
+<li>(XenServer) Configure the XenServer dom0 settings to allocate more
+memory to dom0. This can enable XenServer to handle larger numbers of
+virtual machines. We recommend 2940 MB of RAM for XenServer dom0. For
+instructions on how to do this, see
+<a class="reference external" href="http://support.citrix.com/article/CTX126531">http://support.citrix.com/article/CTX126531</a>.
+The article refers to XenServer 5.6, but the same information applies
+to XenServer 6.0.</li>
+</ul>
+</div>
+<div class="section" id="maintenance-best-practices">
+<h3>Maintenance Best Practices<a class="headerlink" href="choosing_deployment_architecture.html#maintenance-best-practices" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Monitor host disk space. Many host failures occur because the host’s
+root disk fills up from logs that were not rotated adequately.</li>
+<li>Monitor the total number of VM instances in each cluster, and disable
+allocation to the cluster if the total is approaching the maximum
+that the hypervisor can handle. Be sure to leave a safety margin to
+allow for the possibility of one or more hosts failing, which would
+increase the VM load on the other hosts as the VMs are redeployed.
+Consult the documentation for your chosen hypervisor to find the
+maximum permitted number of VMs per host, then use CloudStack global
+configuration settings to set this as the default limit. Monitor the
+VM activity in each cluster and keep the total number of VMs below a
+safe level that allows for the occasional host failure. For example,
+if there are N hosts in the cluster, and you want to allow for one
+host in the cluster to be down at any given time, the total number of
+VM instances you can permit in the cluster is at most (N-1) *
+(per-host-limit). Once a cluster reaches this number of VMs, use the
+CloudStack UI to disable allocation to the cluster.</li>
+</ul>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">The lack of up-do-date hotfixes can lead to data corruption and lost VMs.</p>
+</div>
+<p>Be sure all the hotfixes provided by the hypervisor vendor are applied. Track
+the release of hypervisor patches through your hypervisor vendor’s support
+channel, and apply patches as soon as possible after they are released.
+CloudStack will not track or notify you of required hypervisor patches. It is
+essential that your hosts are completely up to date with the provided
+hypervisor patches. The hypervisor vendor is likely to refuse to support any
+system that is not up to date with patches.</p>
+</div>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="choosing_deployment_architecture.html#">Back to top</a>
+          | <a href="index.html" title="Previous Chapter: CloudStack Installation Documentation"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; CloudStack Installation Documentation</span>
+          </a>
+          | <a href="qig.html" title="Next Chapter: Quick Installation Guide for CentOS 6"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Quick Installation Guide for CentOS 6 &raquo;</span>
+          </a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="_sources/choosing_deployment_architecture.rst.txt"
+     rel="nofollow">Source</a>
+</div>
+      
+    </p>
+    <p>
+        &copy; Copyright 2018, Apache Software Foundation.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

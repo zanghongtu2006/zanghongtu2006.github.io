@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>General Upgrade Notes &#8212; Apache CloudStack Release Notes 4.12.0.0 documentation</title>
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="https://media.readthedocs.org/css/badge_only.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.2.0/spacelab/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="https://media.readthedocs.org/javascript/jquery/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="https://media.readthedocs.org/javascript/jquery/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="https://media.readthedocs.org/javascript/underscore.js"></script>
+    <script type="text/javascript" src="https://media.readthedocs.org/javascript/doctools.js"></script>
+    <script type="text/javascript" src="https://media.readthedocs.org/javascript/readthedocs-doc-embed.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.2.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Upgrade Instruction from 4.11.0.0" href="upgrade-4.11.html" />
+    <link rel="prev" title="API Changes Introduced in 4.12" href="../api-changes.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  
+<!-- RTD Extra Head -->
+
+<!-- 
+Always link to the latest version, as canonical.
+http://docs.readthedocs.org/en/latest/canonical.html
+-->
+<link rel="canonical" href="upgrade_notes.html" />
+
+<link rel="stylesheet" href="https://media.readthedocs.org/css/readthedocs-doc-embed.css" type="text/css" />
+
+<script type="text/javascript" src="../_static/readthedocs-data.js"></script>
+
+<!-- Add page-specific data, which must exist in the page js, not global -->
+<script type="text/javascript">
+READTHEDOCS_DATA['page'] = 'upgrade/upgrade_notes'
+READTHEDOCS_DATA['source_suffix'] = '.rst'
+</script>
+
+<script type="text/javascript" src="https://media.readthedocs.org/javascript/readthedocs-analytics.js"></script>
+
+<!-- end RTD <extrahead> -->
+</head><body>
+
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          Release Notes</a>
+        <span class="navbar-text navbar-version pull-left"><b>4.12</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+                <a role="button"
+                   id="dLabelGlobalToc"
+                   data-toggle="dropdown"
+                   data-target="#"
+                   href="../index.html">Sections <b class="caret"></b></a>
+                <ul class="dropdown-menu globaltoc"
+                    role="menu"
+                    aria-labelledby="dLabelGlobalToc">
+                     <ul>
+<li class="toctree-l1"><a class="reference internal" href="../about.html">What’s New in 4.12</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../fixed_issues.html">Issues Fixed in 4.12</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../compat.html">Compatibility Matrix</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-changes.html">API Changes Introduced in 4.12</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="upgrade_notes.html#">General Upgrade Notes</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="upgrade-4.11.html">Upgrade Instruction from 4.11.0.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="upgrade-4.10.html">Upgrade Instruction from 4.10.x</a></li>
+<li class="toctree-l1"><a class="reference internal" href="upgrade-4.9.html">Upgrade Instruction from 4.9.x</a></li>
+<li class="toctree-l1"><a class="reference internal" href="upgrade-4.8.html">Upgrade Instruction from 4.8.x</a></li>
+<li class="toctree-l1"><a class="reference internal" href="upgrade-4.7.html">Upgrade Instruction from 4.7.x</a></li>
+<li class="toctree-l1"><a class="reference internal" href="upgrade-4.6.html">Upgrade Instruction from 4.6.x</a></li>
+<li class="toctree-l1"><a class="reference internal" href="upgrade-4.5.html">Upgrade Instruction from 4.5.x</a></li>
+<li class="toctree-l1"><a class="reference internal" href="upgrade-4.4.html">Upgrade Instruction from 4.4.x</a></li>
+<li class="toctree-l1"><a class="reference internal" href="upgrade-4.3.html">Upgrade Instruction from 4.3.x</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../known_issues.html">Known Issues in 4.12.0.0</a></li>
+</ul>
+
+
+                </ul>
+              </li>
+              
+                
+              
+            
+            
+              
+                
+  <li>
+    <a href="../api-changes.html" title="Previous Chapter: API Changes Introduced in 4.12"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; API Changes Introduced in 4.12</span>
+    </a>
+  </li>
+  <li>
+    <a href="upgrade-4.11.html" title="Next Chapter: Upgrade Instruction from 4.11.0.0"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Upgrade Instruction from 4.11.0.0 &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul>
+<li><a class="reference internal" href="upgrade_notes.html#">General Upgrade Notes</a><ul>
+<li><a class="reference internal" href="upgrade_notes.html#java-version-upgraded-to-java-1-8">Java version upgraded to Java 1.8</a></li>
+<li><a class="reference internal" href="upgrade_notes.html#java-8-jre-on-ubuntu">Java 8 JRE on Ubuntu</a></li>
+<li><a class="reference internal" href="upgrade_notes.html#migrating-to-dynamic-roles-feature">Migrating to dynamic roles feature</a></li>
+<li><a class="reference internal" href="upgrade_notes.html#agent-and-kvm-host-security">Agent and KVM Host Security</a></li>
+<li><a class="reference internal" href="upgrade_notes.html#ovs-plug-in">OVS plug-in</a></li>
+<li><a class="reference internal" href="upgrade_notes.html#active-directory-authentication-ldap">Active-Directory Authentication (LDAP)</a></li>
+<li><a class="reference internal" href="upgrade_notes.html#systemvm-32bit-deprecated">SystemVM 32bit deprecated</a></li>
+<li><a class="reference internal" href="upgrade_notes.html#explicit-jdbc-driver-declaration">Explicit JDBC driver declaration</a></li>
+<li><a class="reference internal" href="upgrade_notes.html#other-notes">Other Notes</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    <div class="col-md-9">
+      
+  <div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p>NOTICE: THIS DOCUMENTATION SITE HAS BEEN SUPERSEDED.</p>
+<p class="last">For the current documentation site goto: <a class="reference external" href="../../../../../index.html">http://docs.cloudstack.apache.org</a></p>
+</div>
+<div class="section" id="general-upgrade-notes">
+<h1>General Upgrade Notes<a class="headerlink" href="upgrade_notes.html#general-upgrade-notes" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="java-version-upgraded-to-java-1-8">
+<h2>Java version upgraded to Java 1.8<a class="headerlink" href="upgrade_notes.html#java-version-upgraded-to-java-1-8" title="Permalink to this headline">¶</a></h2>
+<p>As of Apache CloudStack 4.10, Java version required is 1.8 for the
+management-server, cloudstack-usage, KVM agent and system-VMs.</p>
+</div>
+<div class="section" id="java-8-jre-on-ubuntu">
+<h2>Java 8 JRE on Ubuntu<a class="headerlink" href="upgrade_notes.html#java-8-jre-on-ubuntu" title="Permalink to this headline">¶</a></h2>
+<p>CloudStack 4.12.0.0 requires installation of Java 8 JRE from an external PPA
+such as openjdk-r for Ubuntu distributions where the openjdk-8 packages are not
+available from the main repositories such as on Ubuntu 14.04. The PPA can be
+added before installation/upgrade:</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo add-apt-repository ppa:openjdk-r/ppa
+$ sudo apt-get update
+</pre></div>
+</div>
+</div></blockquote>
+<p>Users can also choose to install Java 8 distribution from Oracle, or <a class="reference external" href="http://repos.azulsystems.com/">Xulu-8</a> OpenJDK distribution from Azul.</p>
+</div>
+<div class="section" id="migrating-to-dynamic-roles-feature">
+<h2>Migrating to dynamic roles feature<a class="headerlink" href="upgrade_notes.html#migrating-to-dynamic-roles-feature" title="Permalink to this headline">¶</a></h2>
+<p>As of Apache CloudStack 4.9, dynamic roles feature can be enabled after an
+upgrade. Dyanamic roles feature is enabled by default on new installations.</p>
+<p>Please read more about <a class="reference external" href="http://docs.cloudstack.apache.org/projects/cloudstack-administration/en/4.9/accounts.html#using-dynamic-roles">using dynamic roles</a>
+feature and process of migrating to using this after an upgrade.</p>
+</div>
+<div class="section" id="agent-and-kvm-host-security">
+<h2>Agent and KVM Host Security<a class="headerlink" href="upgrade_notes.html#agent-and-kvm-host-security" title="Permalink to this headline">¶</a></h2>
+<p>Starting 4.11, a new CA framework has been introduced that is used to secure
+agent and management server connections. Starting 4.11.1, KVM hosts in UP
+state that are not secured (i.e. the KVM host agent and libvirtd don’t have
+CA framework provisioned X509 certificates) will show up as ‘Unsecure’. A new
+button in the UI is available as well as an API to secure and onboard such
+hosts.</p>
+<p>Please read more about <a class="reference external" href="http://docs.cloudstack.apache.org/projects/cloudstack-administration/en/latest/hosts.html#security">host security</a>
+and process of migrating existing KVM hosts and agents to use the new security
+feature.</p>
+</div>
+<div class="section" id="ovs-plug-in">
+<h2>OVS plug-in<a class="headerlink" href="upgrade_notes.html#ovs-plug-in" title="Permalink to this headline">¶</a></h2>
+<p>OVS plug-in functionality is disrupted if ovsdaemon crashes</p>
+<p>A critical functionality issue came out with <a class="reference external" href="https://issues.apache.org/jira/browse/CLOUDSTACK-6779">CLOUDSTACK-6779</a>. On XenServer it
+is observed that on VIF unplug Ovs-Vswitchd is crashing resulting in loosing all
+the openflow rules added to the bridge. Ovs daemon gets started and creates a
+bridge but configure openflow rules are lost resulting in the disruption of
+connectivity for the VM’s on the host.</p>
+</div>
+<div class="section" id="active-directory-authentication-ldap">
+<h2>Active-Directory Authentication (LDAP)<a class="headerlink" href="upgrade_notes.html#active-directory-authentication-ldap" title="Permalink to this headline">¶</a></h2>
+<p>If using Active-Directory (LDAP/LDAPs) as user authentication; Upgrading to
+4.3 and later require changes in Global Settings. After upgrading CloudStack
+to 4.3 or latest, following Global Settings must be change:</p>
+<table border="1" class="table-striped table-bordered table-hover docutils">
+<colgroup>
+<col width="45%" />
+<col width="27%" />
+<col width="27%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Global Settings</th>
+<th class="head">Default</th>
+<th class="head">New</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>ldap.user.object</td>
+<td>inetOrgPerson</td>
+<td>user</td>
+</tr>
+<tr class="row-odd"><td>ldap.username.attribute</td>
+<td>uid</td>
+<td>sAMAccountName</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="systemvm-32bit-deprecated">
+<h2>SystemVM 32bit deprecated<a class="headerlink" href="upgrade_notes.html#systemvm-32bit-deprecated" title="Permalink to this headline">¶</a></h2>
+<p>32bit versions of systemvm templates are in the process of behing deprecated. Upgrade instructions from this Release Notes use 64bit templates.</p>
+</div>
+<div class="section" id="explicit-jdbc-driver-declaration">
+<h2>Explicit JDBC driver declaration<a class="headerlink" href="upgrade_notes.html#explicit-jdbc-driver-declaration" title="Permalink to this headline">¶</a></h2>
+<p>While upgrading, on some environments the following may be required to be
+added in CloudStack’s db.properties file:</p>
+<blockquote>
+<div><p># Add these to your db.properties file</p>
+<p>db.cloud.driver=jdbc:mysql</p>
+<p>db.usage.driver=jdbc:mysql</p>
+</div></blockquote>
+</div>
+<div class="section" id="other-notes">
+<h2>Other Notes<a class="headerlink" href="upgrade_notes.html#other-notes" title="Permalink to this headline">¶</a></h2>
+<p>If you are experiencing CloudStack UI issues, please consider upgrading your
+tomcat instance to version 6.0.43  (tested version, but earlier versions prior
+to 6.0.37 might work as well), to address the tomcat response issues caused by
+latency between the browser/client and CloudStack Management server.</p>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="upgrade_notes.html#">Back to top</a>
+          | <a href="../api-changes.html" title="Previous Chapter: API Changes Introduced in 4.12"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; API Changes Introduced in 4.12</span>
+          </a>
+          | <a href="upgrade-4.11.html" title="Next Chapter: Upgrade Instruction from 4.11.0.0"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Upgrade Instruction from 4.11.0.0 &raquo;</span>
+          </a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../_sources/upgrade/upgrade_notes.rst.txt"
+     rel="nofollow">Source</a>
+</div>
+      
+    </p>
+    <p>
+        &copy; Copyright 2018, Apache CloudStack.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

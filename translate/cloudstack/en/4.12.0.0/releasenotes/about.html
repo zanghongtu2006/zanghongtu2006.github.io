@@ -1,0 +1,433 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>What’s New in 4.12.0.0 &mdash; Apache CloudStack 4.12.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Issues Fixed in 4.12.0.0" href="fixed_issues.html" />
+    <link rel="prev" title="Release Notes" href="index.html" /> 
+
+<!-- RTD Extra Head -->
+
+<!-- 
+Always link to the latest version, as canonical.
+http://docs.readthedocs.org/en/latest/canonical.html
+-->
+<link rel="canonical" href="../../latest/releasenotes/about.html" />
+
+<link rel="stylesheet" href="https://assets.readthedocs.org/static/css/readthedocs-doc-embed.css" type="text/css" />
+
+<script type="text/javascript" src="../_static/readthedocs-data.js"></script>
+
+<!-- Add page-specific data, which must exist in the page js, not global -->
+<script type="text/javascript">
+READTHEDOCS_DATA['page'] = "releasenotes/about"
+READTHEDOCS_DATA['source_suffix'] = ".rst"
+</script>
+
+<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js"></script>
+
+<!-- end RTD <extrahead> -->
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Apache CloudStack
+          
+
+          
+          </a>
+
+          
+            
+            
+            
+              <div class="version">
+                4.12.0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../conceptsandterminology/index.html">CloudStack Concepts and Terminology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickinstallationguide/qig.html">Quick Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installguide/index.html">Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../upgrading/index.html">Upgrading CloudStack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../adminguide/index.html">Usage Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developersguide/index.html">Developers Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/index.html">Plugins Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Release Notes</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="about.html#">What’s New in 4.12.0.0</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="about.html#what-s-new-in-4-11-2-0">What’s New in 4.11.2.0</a></li>
+<li class="toctree-l3"><a class="reference internal" href="about.html#what-s-new-in-4-11-1-0">What’s New in 4.11.1.0</a></li>
+<li class="toctree-l3"><a class="reference internal" href="about.html#what-s-new-in-4-11-0-0">What’s New in 4.11.0.0</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fixed_issues.html">Issues Fixed in 4.12.0.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compat.html">Compatibility Matrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api-changes.html">API Changes Introduced in 4.12.0.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api-changes.html#api-changes-introduced-in-4-11">API Changes Introduced in 4.11</a></li>
+<li class="toctree-l2"><a class="reference internal" href="known_issues.html">Known Issues in 4.12</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Other Documentation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/api.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://cwiki.apache.org/confluence/display/CLOUDSTACK/Home">Apache CloudStack Wiki</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/">Apache CloudStack web site</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/downloads.html">Apache CloudStack Source Code</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/apache/cloudstack">Apache CloudStack on GitHub</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Pre 4.11 Documentation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="../../../projects/cloudstack-installation">Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference external" href="../../../projects/cloudstack-administration">Administration Guide</a></li>
+<li class="toctree-l1"><a class="reference external" href="../../../projects/cloudstack-release-notes">Release Notes</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Apache CloudStack</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Release Notes</a> &raquo;</li>
+        
+      <li>What’s New in 4.12.0.0</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/apache/cloudstack-documentation/blob/4.12.0.0/source/releasenotes/about.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="what-s-new-in-release">
+<h1>What’s New in 4.12.0.0<a class="headerlink" href="about.html#what-s-new-in-release" title="Permalink to this headline">¶</a></h1>
+<p>Version 4.12.0.0 is a 4.12 non-LTS release adding multiple features for those who want to access a fresh CloudStack prior to our next LTS.
+4.12.0.0 combines 12 months of work and adds +200 commits, with multiple new features and fixes.</p>
+<p>Some of the changes are presented in this quick summary (this is not a complete list):</p>
+<ul class="simple">
+<li>Drop support for Ubuntu 14.04</li>
+<li>Allow users of all types to create L2 networks</li>
+<li>keystore: don’t restart systemvm cloud.service post cert</li>
+<li>Add back ability to disable backup of snapshot to secondary</li>
+<li>API: add command to list management servers</li>
+<li>UI: Fix “Migrate instance to another host” popup modal</li>
+<li>UI: Fix issue with verification of ipv4/ipv6 address.</li>
+<li>UI: Fix UI bug: Create Network Offering Popup has no fields</li>
+<li>UI: Update jquery and related libraries</li>
+<li>network: Offerings do not have to have Security Grouping enabled</li>
+<li>Vmware offline migration</li>
+<li>IP address acquired with associate ip address is marked as source nat</li>
+<li>ipv6: allow Secondary IPv6 addresses to be EUI-64</li>
+<li>ipv6: Send userdata to Virtual Router if IPv6 is enabled</li>
+<li>ipv6: Calculate IPv6 address instead of fetching one from a pool</li>
+<li>ipv6: Advanced Networking Security Groups are supported</li>
+<li>ipv6: Allow specification of IPv6 details when creating Basic network</li>
+<li>Enable remote debugging for the management server, usage server, and KVM agent</li>
+<li>Security Group: add secondary ips to the correct ipset based on ip family (4.11)</li>
+<li>Security Group: add secondary ips to the correct ipset</li>
+<li>XenServer: fix Security Groups ‘vmops’ script</li>
+<li>XenServer: Support online storage migration from non-managed to managed storage</li>
+<li>KVM: Security Group enhancements and refactor old code</li>
+<li>KVM: Properly report available memory to Management Server</li>
+<li>KVM: Add influxdb to statscollector</li>
+<li>KVM: add libvirt / qemu IO bursting</li>
+<li>KVM: Refactory VXLAN script and add IPv6 support</li>
+<li>KVM: Set amount of queues for Virtio SCSI driver to vCPU of Instance</li>
+<li>KVM: Use ‘ip route show default 0.0.0.0/0’ to find the default gateway</li>
+<li>KVM: Add KVM Guest OS mapping for Windows Server 2019</li>
+<li>KVM: Enable DPDK support on KVM</li>
+<li>KVM: Allow KVM VM live migration with ROOT volume on file storage type</li>
+<li>Prevent corner case for infinite PrepareForMaintenance</li>
+<li>Enhance bypass vlan overlap check</li>
+<li>Improved support for Java 8 for building&nbsp;artifacts/modules, packaging, and in</li>
+<li>Destroy VM also removes volumes</li>
+<li>Users are able to change/edit the protocol of an ACL rule</li>
+<li>allows to remove local primary storage</li>
+<li>Support requesting a specific IPv4 address in Basic Networking during Instance creation</li>
+<li>Adding zone disablement during deletion of the range</li>
+<li>Display mac address in nic detail view</li>
+<li>Cleanup methods, classes, and POMs</li>
+</ul>
+<div class="section" id="what-s-new-in-4-11-2-0">
+<h2>What’s New in 4.11.2.0<a class="headerlink" href="about.html#what-s-new-in-4-11-2-0" title="Permalink to this headline">¶</a></h2>
+<p>The new 4.11.2.0 version is a 4.11 maintainance release containing over 70
+fixes and improvements on the 4.11.1.0 release.</p>
+</div>
+<div class="section" id="what-s-new-in-4-11-1-0">
+<h2>What’s New in 4.11.1.0<a class="headerlink" href="about.html#what-s-new-in-4-11-1-0" title="Permalink to this headline">¶</a></h2>
+<p>The new 4.11.1.0 version is a 4.11 maintainance release containing over 140
+fixes and improvements on the 4.11.0.0 release.</p>
+<p>These include the speeding up of virtual router deployments and fixes for corner cases
+effecting the new config drive and L2 features and some hypervisor specific fixes to improve compatibility
+with current hypervisor versions including the XCP-ng fork of XenServer.</p>
+</div>
+<div class="section" id="what-s-new-in-4-11-0-0">
+<h2>What’s New in 4.11.0.0<a class="headerlink" href="about.html#what-s-new-in-4-11-0-0" title="Permalink to this headline">¶</a></h2>
+<p>Version 4.11.0.0 included more than 400 commits, 220 pull requests that fixes
+more than 250 issues since the last release. Version 4.11.0.0 was a large
+release that was worked on for 8 months.</p>
+<p>A LOT changed in this release, so this is not a complete list, but here is a
+quick summary of some of the changes:</p>
+<ul class="simple">
+<li>Support for XenServer 7.1, 7.2, 7.3 and 7.4, and support for XCP-ng 7.4.</li>
+<li>Improved support for VMware 6.5.</li>
+<li>Host-HA framework and HA-provider for KVM hosts with and NFS as primary storage, and a new background polling task manager.</li>
+<li>Secure agents communication: new certificate authority framework and a default built-in root CA provider.</li>
+<li>New network type - L2.</li>
+<li>CloudStack metrics exporter for Prometheus.</li>
+<li>Cloudian Hyperstore&nbsp;connector for CloudStack.</li>
+<li>Annotation feature for CloudStack entities such as hosts.</li>
+<li>Separation of volume snapshot creation on primary storage and backing operation on secondary storage.</li>
+<li>Limit admin access from specified CIDRs.</li>
+<li>Expansion of Management IP Range.</li>
+<li>Dedication of public IPs to SSVM and CPVM.</li>
+<li>Support for separate subnet for SSVM and CPVM.</li>
+<li>Bypass secondary storage template copy/transfer for KVM.</li>
+<li>Support for multi-disk OVA template for VMware.</li>
+<li>Storage overprovisioning for local storage.</li>
+<li>LDAP mapping with domain scope, and mapping of LDAP group to an account.</li>
+<li>Move user across accounts.</li>
+<li>Managed storage enhancements.</li>
+<li>Extend config drive support for user data, metadata, and password (Nuage Networks).</li>
+<li>Extra DHCP options support (Nuage Networks).</li>
+<li>Nuage VSP 5.0 support and caching of NuageVsp ID’s.</li>
+<li>Nuage domain template selection per VPC and support for network migration.</li>
+<li>Support for watchdog timer to KVM Instances.</li>
+<li>Support for Secondary IPv6 Addresses and Subnets.</li>
+<li>IPv6 Prefix Delegation support in basic networking.</li>
+<li>Ability to specific MAC address while deploying VM or adding a NIC to a VM.</li>
+<li>VMware dvSwitch security policies configuration in network offering</li>
+<li>Allow more than 7 NICs to be added to a VMware VM.</li>
+<li>Network rate usage for guest offering for VRs.</li>
+<li>Usage metrics for VM snapshot on primary storage.</li>
+<li>Enable Netscaler inline mode.</li>
+<li>NCC integration in CloudStack.</li>
+<li>The retirement of the Midonet&nbsp;network plugin.</li>
+<li>Several UI Improvements.</li>
+<li>Embedded Jetty and improved CloudStack management server configuration.</li>
+<li>Improved support for Java 8 for building&nbsp;artifacts/modules, packaging, and in
+the&nbsp;systemvm template.</li>
+<li>A faster console proxy startup and service availability.</li>
+<li>A new Debian 9 based smaller systemvm template that patches systemvm without
+requiring reboot.</li>
+<li>Several optimizations and improvements to the virtual router including better
+support for redundant virtual routers and strongswan provided s2s and remote
+access vpn.</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="fixed_issues.html" class="btn btn-neutral float-right" title="Issues Fixed in 4.12.0.0" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Release Notes" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Apache Foundation
+      
+        <span class="commit">
+          Revision <code>af137188</code>.
+        </span>
+      
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Read the Docs</span>
+      v: 4.12.0.0
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="http://docs.cloudstack.apache.org/en/master/">master</a></dd>
+        
+          <dd><a href="../../../index.html">latest</a></dd>
+        
+          <dd><a href="../../4.13.0.0/index.html">4.13.0.0</a></dd>
+        
+          <dd><a href="../index.html">4.12.0.0</a></dd>
+        
+          <dd><a href="../../4.11.3.0/index.html">4.11.3.0</a></dd>
+        
+          <dd><a href="../../4.11.2.0/index.html">4.11.2.0</a></dd>
+        
+          <dd><a href="../../4.11.1.0/index.html">4.11.1.0</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="http://readthedocs.org/projects/cloudstack-documentation/downloads/htmlzip/4.12.0.0/">html</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>On Read the Docs</dt>
+          <dd>
+            <a href="http://readthedocs.org/projects/cloudstack-documentation/?fromdocs=cloudstack-documentation">Project Home</a>
+          </dd>
+          <dd>
+            <a href="http://readthedocs.org/builds/cloudstack-documentation/?fromdocs=cloudstack-documentation">Builds</a>
+          </dd>
+      </dl>
+      <hr/>
+      Free document hosting provided by <a href="http://www.readthedocs.org">Read the Docs</a>.
+
+    </div>
+  </div>
+
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+   
+
+</body>
+</html>

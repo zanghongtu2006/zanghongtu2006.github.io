@@ -1,0 +1,1144 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Working with Usage &mdash; Apache CloudStack 4.13.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Guest Traffic" href="networking_and_traffic.html" />
+    <link rel="prev" title="The System VM Template" href="systemvm.html" /> 
+
+<!-- RTD Extra Head -->
+
+<!-- 
+Always link to the latest version, as canonical.
+http://docs.readthedocs.org/en/latest/canonical.html
+-->
+<link rel="canonical" href="../../latest/adminguide/usage.html" />
+
+<link rel="stylesheet" href="https://assets.readthedocs.org/static/css/readthedocs-doc-embed.css" type="text/css" />
+
+<script type="text/javascript" src="../_static/readthedocs-data.js"></script>
+
+<!-- Add page-specific data, which must exist in the page js, not global -->
+<script type="text/javascript">
+READTHEDOCS_DATA['page'] = "adminguide/usage"
+READTHEDOCS_DATA['source_suffix'] = ".rst"
+</script>
+
+<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js"></script>
+
+<!-- end RTD <extrahead> -->
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Apache CloudStack
+          
+
+          
+          </a>
+
+          
+            
+            
+            
+              <div class="version">
+                4.13.0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../conceptsandterminology/index.html">CloudStack Concepts and Terminology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickinstallationguide/qig.html">Quick Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installguide/index.html">Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../upgrading/index.html">Upgrading CloudStack</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Usage Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html#user-interface">User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#managing-accounts-users-and-domains">Managing Accounts, Users and Domains</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#using-projects-to-organize-user-resources">Using Projects to Organize User Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#service-offerings">Service Offerings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#setting-up-networking-for-users">Setting up Networking for Users</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#working-with-virtual-machines">Working with Virtual Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#working-with-templates">Working with Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#working-with-hosts">Working with Hosts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#working-with-storage">Working with Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#working-with-system-virtual-machines">Working with System Virtual Machines</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#working-with-usage">Working with Usage</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="usage.html#">Working with Usage</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="usage.html#configuring-the-usage-server">Configuring the Usage Server</a></li>
+<li class="toctree-l4"><a class="reference internal" href="usage.html#setting-usage-limits">Setting Usage Limits</a></li>
+<li class="toctree-l4"><a class="reference internal" href="usage.html#usage-record-format">Usage Record Format</a></li>
+<li class="toctree-l4"><a class="reference internal" href="usage.html#usage-types">Usage Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="usage.html#example-response-from-listusagerecords">Example response from listUsageRecords</a></li>
+<li class="toctree-l4"><a class="reference internal" href="usage.html#dates-in-the-usage-record">Dates in the Usage Record</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#managing-networks-and-traffic">Managing Networks and Traffic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#managing-the-cloud">Managing the Cloud</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#system-reliability-and-availability">System Reliability and Availability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#tuning">Tuning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#events-and-troubleshooting">Events and Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../developersguide/index.html">Developers Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/index.html">Plugins Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Other Documentation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/api.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://cwiki.apache.org/confluence/display/CLOUDSTACK/Home">Apache CloudStack Wiki</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/">Apache CloudStack web site</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/downloads.html">Apache CloudStack Source Code</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/apache/cloudstack">Apache CloudStack on GitHub</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Pre 4.11 Documentation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="../../../projects/cloudstack-installation">Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference external" href="../../../projects/cloudstack-administration">Administration Guide</a></li>
+<li class="toctree-l1"><a class="reference external" href="../../../projects/cloudstack-release-notes">Release Notes</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Apache CloudStack</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Usage Guide</a> &raquo;</li>
+        
+      <li>Working with Usage</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/apache/cloudstack-documentation/blob/4.13.0.0/source/adminguide/usage.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="working-with-usage">
+<span id="id1"></span><h1>Working with Usage<a class="headerlink" href="usage.html#working-with-usage" title="Permalink to this headline">¶</a></h1>
+<p>The Usage Server is an optional, separately-installed part of CloudStack
+that provides aggregated usage records which you can use to create
+billing integration for CloudStack. The Usage Server works by taking
+data from the events log and creating summary usage records that you can
+access using the listUsageRecords API call. Starting version 4.13 and above,
+the usage records description returned by the listUsageRecords API call
+will use CloudStack resource UUIDs instead of internal database IDs. To get
+description in the old format, an API parameter “oldformat” is introduced
+which is false by default.</p>
+<p>The usage records show the amount of resources, such as VM run time or
+template storage space, consumed by guest instances.</p>
+<p>The Usage Server runs at least once per day. It can be configured to run
+multiple times per day.</p>
+<div class="section" id="configuring-the-usage-server">
+<h2>Configuring the Usage Server<a class="headerlink" href="usage.html#configuring-the-usage-server" title="Permalink to this headline">¶</a></h2>
+<p>To configure the usage server:</p>
+<ol class="arabic">
+<li><p class="first">Be sure the Usage Server has been installed. This requires extra
+steps beyond just installing the CloudStack software. See Installing
+the Usage Server (Optional) in the Advanced Installation Guide.</p>
+</li>
+<li><p class="first">Log in to the CloudStack UI as administrator.</p>
+</li>
+<li><p class="first">Click Global Settings.</p>
+</li>
+<li><p class="first">In Search, type usage. Find the configuration parameter that controls
+the behavior you want to set. See the table below for a description
+of the available parameters.</p>
+</li>
+<li><p class="first">In Actions, click the Edit icon.</p>
+</li>
+<li><p class="first">Type the desired value and click the Save icon.</p>
+</li>
+<li><p class="first">Restart the Management Server (as usual with any global configuration
+change) and also the Usage Server:</p>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># service cloudstack-management restart</span>
+<span class="c1"># service cloudstack-usage restart</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p>The following table shows the global configuration settings that control
+the behavior of the Usage Server.</p>
+<p>Parameter Name  Description</p>
+<p>enable.usage.server  Whether the Usage Server is active.</p>
+<p>usage.aggregation.timezone</p>
+<p>Time zone of usage records. Set this if the usage records and daily job
+execution are in different time zones. For example, with the following
+settings, the usage job will run at PST 00:15 and generate usage records
+for the 24 hours from 00:00:00 GMT to 23:59:59 GMT:</p>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">usage</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">job</span><span class="o">.</span><span class="n">exec</span><span class="o">.</span><span class="n">time</span> <span class="o">=</span> <span class="mi">00</span><span class="p">:</span><span class="mi">15</span>
+<span class="n">usage</span><span class="o">.</span><span class="n">execution</span><span class="o">.</span><span class="n">timezone</span> <span class="o">=</span> <span class="n">PST</span>
+<span class="n">usage</span><span class="o">.</span><span class="n">aggregation</span><span class="o">.</span><span class="n">timezone</span> <span class="o">=</span> <span class="n">GMT</span>
+</pre></div>
+</div>
+<p>Valid values for the time zone are specified in the <a class="reference internal" href="../developersguide/dev.html#time-zones"><span class="std std-ref">Time Zones</span></a> section</p>
+<p>Default: GMT</p>
+<p>usage.execution.timezone</p>
+<p>The time zone of usage.stats.job.exec.time. Valid values for the time
+zone are specified in the <a class="reference internal" href="../developersguide/dev.html#time-zones"><span class="std std-ref">Time Zones</span></a> section</p>
+<p>Default: The time zone of the management server.</p>
+<p>usage.sanity.check.interval</p>
+<p>The number of days between sanity checks. Set this in order to
+periodically search for records with erroneous data before issuing
+customer invoices. For example, this checks for VM usage records created
+after the VM was destroyed, and similar checks for templates, volumes,
+and so on. It also checks for usage times longer than the aggregation
+range. If any issue is found, the alert
+ALERT_TYPE_USAGE_SANITY_RESULT = 21 is sent.</p>
+<p>usage.stats.job.aggregation.range</p>
+<p>The time period in minutes between Usage Server processing jobs. For
+example, if you set it to 1440, the Usage Server will run once per day.
+If you set it to 600, it will run every ten hours. In general, when a
+Usage Server job runs, it processes all events generated since usage was
+last run.</p>
+<p>There is special handling for the case of 1440 (once per day). In this
+case the Usage Server does not necessarily process all records since
+Usage was last run. CloudStack assumes that you require processing once
+per day for the previous, complete day’s records. For example, if the
+current day is October 7, then it is assumed you would like to process
+records for October 6, from midnight to midnight. CloudStack assumes
+this “midnight to midnight” is relative to the usage.execution.timezone.</p>
+<p>Default: 1440</p>
+<p>usage.stats.job.exec.time</p>
+<p>The time when the Usage Server processing will start. It is specified in
+24-hour format (HH:MM) in the time zone of the server, which should be
+GMT. For example, to start the Usage job at 10:30 GMT, enter “10:30”.</p>
+<p>If usage.stats.job.aggregation.range is also set, and its value is not
+1440, then its value will be added to usage.stats.job.exec.time to get
+the time to run the Usage Server job again. This is repeated until 24
+hours have elapsed, and the next day’s processing begins again at
+usage.stats.job.exec.time.</p>
+<p>Default: 00:15.</p>
+<p>For example, suppose that your server is in GMT, your user population is
+predominantly in the East Coast of the United States, and you would like
+to process usage records every night at 2 AM local (EST) time. Choose
+these settings:</p>
+<ul class="simple">
+<li>enable.usage.server = true</li>
+<li>usage.execution.timezone = America/New_York</li>
+<li>usage.stats.job.exec.time = 07:00. This will run the Usage job at
+2:00 AM EST. Note that this will shift by an hour as the East Coast
+of the U.S. enters and exits Daylight Savings Time.</li>
+<li>usage.stats.job.aggregation.range = 1440</li>
+</ul>
+<p>With this configuration, the Usage job will run every night at 2 AM EST
+and will process records for the previous day’s midnight-midnight as
+defined by the EST (America/New_York) time zone.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Because the special value 1440 has been used for
+usage.stats.job.aggregation.range, the Usage Server will ignore the data
+between midnight and 2 AM. That data will be included in the next day’s
+run.</p>
+</div>
+</div>
+<div class="section" id="setting-usage-limits">
+<h2>Setting Usage Limits<a class="headerlink" href="usage.html#setting-usage-limits" title="Permalink to this headline">¶</a></h2>
+<p>CloudStack provides several administrator control points for capping
+resource usage by users. Some of these limits are global configuration
+parameters. Others are applied at the ROOT domain and may be overridden
+on a per-account basis.</p>
+<div class="section" id="globally-configured-limits">
+<h3>Globally Configured Limits<a class="headerlink" href="usage.html#globally-configured-limits" title="Permalink to this headline">¶</a></h3>
+<p>In a zone, the guest virtual network has a 24 bit CIDR by default. This
+limits the guest virtual network to 254 running instances. It can be
+adjusted as needed, but this must be done before any instances are
+created in the zone. For example, 10.1.1.0/22 would provide for ~1000
+addresses.</p>
+<p>The following table lists limits set in the Global Configuration:</p>
+<table border="1" class="table-striped table-bordered table-hover docutils">
+<colgroup>
+<col width="9%" />
+<col width="91%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter Name</th>
+<th class="head">Definition</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>max.account.public.ips</td>
+<td>Number of public IP addresses that can be owned by an account</td>
+</tr>
+<tr class="row-odd"><td>max.account.snapshots</td>
+<td>Number of snapshots that can exist for an account</td>
+</tr>
+<tr class="row-even"><td>max.account.templates</td>
+<td>Number of templates that can exist for an account</td>
+</tr>
+<tr class="row-odd"><td>max.account.user.vms</td>
+<td>Number of virtual machine instances that can exist for an account</td>
+</tr>
+<tr class="row-even"><td>max.account.volumes</td>
+<td>Number of disk volumes that can exist for an account</td>
+</tr>
+<tr class="row-odd"><td>max.template.iso.size</td>
+<td>Maximum size for a downloaded template or ISO in GB</td>
+</tr>
+<tr class="row-even"><td>max.volume.size.gb</td>
+<td>Maximum size for a volume in GB</td>
+</tr>
+<tr class="row-odd"><td>network.throttling.rate</td>
+<td>Default data transfer rate in megabits per second allowed per user (supported on XenServer)</td>
+</tr>
+<tr class="row-even"><td>snapshot.max.hourly</td>
+<td>Maximum recurring hourly snapshots to be retained for a volume. If the limit is reached, early snapshots from the start of the hour are deleted so that newer ones can be saved. This limit does not apply to manual snapshots. If set to 0, recurring hourly snapshots can not be scheduled</td>
+</tr>
+<tr class="row-odd"><td>snapshot.max.daily</td>
+<td>Maximum recurring daily snapshots to be retained for a volume. If the limit is reached, snapshots from the start of the day are deleted so that newer ones can be saved. This limit does not apply to manual snapshots. If set to 0, recurring daily snapshots can not be scheduled</td>
+</tr>
+<tr class="row-even"><td>snapshot.max.weekly</td>
+<td>Maximum recurring weekly snapshots to be retained for a volume. If the limit is reached, snapshots from the beginning of the week are deleted so that newer ones can be saved. This limit does not apply to manual snapshots. If set to 0, recurring weekly snapshots can not be scheduled</td>
+</tr>
+<tr class="row-odd"><td>snapshot.max.monthly</td>
+<td>Maximum recurring monthly snapshots to be retained for a volume. If the limit is reached, snapshots from the beginning of the month are deleted so that newer ones can be saved. This limit does not apply to manual snapshots. If set to 0, recurring monthly snapshots can not be scheduled.</td>
+</tr>
+</tbody>
+</table>
+<p>To modify global configuration parameters, use the global configuration
+screen in the CloudStack UI. See Setting Global Configuration Parameters</p>
+</div>
+<div class="section" id="limiting-resource-usage">
+<h3>Limiting Resource Usage<a class="headerlink" href="usage.html#limiting-resource-usage" title="Permalink to this headline">¶</a></h3>
+<p>CloudStack allows you to control resource usage based on the types of
+resources, such as CPU, RAM, Primary storage, and Secondary storage. A
+new set of resource types has been added to the existing pool of
+resources to support the new customization model—need-basis usage, such
+as large VM or small VM. The new resource types are now broadly
+classified as CPU, RAM, Primary storage, and Secondary storage. The root
+administrator is able to impose resource usage limit by the following
+resource types for Domain, Project, and Accounts.</p>
+<ul class="simple">
+<li>CPUs</li>
+<li>Memory (RAM)</li>
+<li>Primary Storage (Volumes)</li>
+<li>Secondary Storage (Snapshots, Templates, ISOs)</li>
+</ul>
+<p>To control the behaviour of this feature, the following configuration
+parameters have been added:</p>
+<table border="1" class="table-striped table-bordered table-hover docutils">
+<colgroup>
+<col width="35%" />
+<col width="65%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter Name</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>max.account.cpus</td>
+<td>Maximum number of CPU cores that can be used for an account.
+Default is 40.</td>
+</tr>
+<tr class="row-odd"><td>max.account.ram (MB)</td>
+<td>Maximum RAM that can be used for an account.
+Default is 40960.</td>
+</tr>
+<tr class="row-even"><td>max.account.primary.storage (GB)</td>
+<td>Maximum primary storage space that can be used for an account.
+Default is 200.</td>
+</tr>
+<tr class="row-odd"><td>max.account.secondary.storage (GB)</td>
+<td>Maximum secondary storage space that can be used for an account.
+Default is 400.</td>
+</tr>
+<tr class="row-even"><td>max.project.cpus</td>
+<td>Maximum number of CPU cores that can be used for an account.
+Default is 40.</td>
+</tr>
+<tr class="row-odd"><td>max.project.ram (MB)</td>
+<td>Maximum RAM that can be used for an account.
+Default is 40960.</td>
+</tr>
+<tr class="row-even"><td>max.project.primary.storage (GB)</td>
+<td>Maximum primary storage space that can be used for an account.
+Default is 200.</td>
+</tr>
+<tr class="row-odd"><td>max.project.secondary.storage (GB)</td>
+<td>Maximum secondary storage space that can be used for an account.
+Default is 400.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="user-permission">
+<h3>User Permission<a class="headerlink" href="usage.html#user-permission" title="Permalink to this headline">¶</a></h3>
+<p>The root administrator, domain administrators and users are able to list
+resources. Ensure that proper logs are maintained in the <code class="docutils literal notranslate"><span class="pre">vmops.log</span></code>
+and <code class="docutils literal notranslate"><span class="pre">api.log</span></code> files.</p>
+<ul class="simple">
+<li>The root admin will have the privilege to list and update resource
+limits.</li>
+<li>The domain administrators are allowed to list and change these
+resource limits only for the sub-domains and accounts under their own
+domain or the sub-domains.</li>
+<li>The end users will the privilege to list resource limits. Use the
+listResourceLimits API.</li>
+</ul>
+</div>
+<div class="section" id="limit-usage-considerations">
+<h3>Limit Usage Considerations<a class="headerlink" href="usage.html#limit-usage-considerations" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p class="first">Primary or Secondary storage space refers to the stated size of the
+volume and not the physical size— the actual consumed size on disk in
+case of thin provisioning.</p>
+</li>
+<li><p class="first">If the admin reduces the resource limit for an account and set it to
+less than the resources that are currently being consumed, the
+existing VMs/templates/volumes are not destroyed. Limits are imposed
+only if the user under that account tries to execute a new operation
+using any of these resources. For example, the existing behavior in
+the case of a VM are:</p>
+<ul class="simple">
+<li>migrateVirtualMachine: The users under that account will be able
+to migrate the running VM into any other host without facing any
+limit issue.</li>
+<li>recoverVirtualMachine: Destroyed VMs cannot be recovered.</li>
+</ul>
+</li>
+<li><p class="first">For any resource type, if a domain has limit X, sub-domains or
+accounts under that domain can have there own limits. However, the
+sum of resource allocated to a sub-domain or accounts under the
+domain at any point of time should not exceed the value X.</p>
+<p>For example, if a domain has the CPU limit of 40 and the sub-domain
+D1 and account A1 can have limits of 30 each, but at any point of
+time the resource allocated to D1 and A1 should not exceed the limit
+of 40.</p>
+</li>
+<li><p class="first">If any operation needs to pass through two of more resource limit
+check, then the lower of 2 limits will be enforced, For example: if
+an account has the VM limit of 10 and CPU limit of 20, and a user
+under that account requests 5 VMs of 4 CPUs each. The user can deploy
+5 more VMs because VM limit is 10. However, the user cannot deploy
+any more instances because the CPU limit has been exhausted.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="limiting-resource-usage-in-a-domain">
+<h3>Limiting Resource Usage in a Domain<a class="headerlink" href="usage.html#limiting-resource-usage-in-a-domain" title="Permalink to this headline">¶</a></h3>
+<p>CloudStack allows the configuration of limits on a domain basis. With a
+domain limit in place, all users still have their account limits. They
+are additionally limited, as a group, to not exceed the resource limits
+set on their domain. Domain limits aggregate the usage of all accounts
+in the domain as well as all the accounts in all the sub-domains of that
+domain. Limits set at the root domain level apply to the sum of resource
+usage by the accounts in all the domains and sub-domains below that root
+domain.</p>
+<p>To set a domain limit:</p>
+<ol class="arabic">
+<li><p class="first">Log in to the CloudStack UI.</p>
+</li>
+<li><p class="first">In the left navigation tree, click Domains.</p>
+</li>
+<li><p class="first">Select the domain you want to modify. The current domain limits are
+displayed.</p>
+<p>A value of -1 shows that there is no limit in place.</p>
+</li>
+<li><p class="first">Click the Edit button <img alt="edits the settings." src="../_images/edit-icon.png" /></p>
+</li>
+<li><p class="first">Edit the following as per your requirement:</p>
+<ul>
+<li><p class="first">Parameter Name</p>
+</li>
+<li><p class="first">Description</p>
+</li>
+<li><p class="first">Instance Limits</p>
+<p>The number of instances that can be used in a domain.</p>
+</li>
+<li><p class="first">Public IP Limits</p>
+<p>The number of public IP addresses that can be used in a domain.</p>
+</li>
+<li><p class="first">Volume Limits</p>
+<p>The number of disk volumes that can be created in a domain.</p>
+</li>
+<li><p class="first">Snapshot Limits</p>
+<p>The number of snapshots that can be created in a domain.</p>
+</li>
+<li><p class="first">Template Limits</p>
+<p>The number of templates that can be registered in a domain.</p>
+</li>
+<li><p class="first">VPC limits</p>
+<p>The number of VPCs that can be created in a domain.</p>
+</li>
+<li><p class="first">CPU limits</p>
+<p>The number of CPU cores that can be used for a domain.</p>
+</li>
+<li><p class="first">Memory limits (MB)</p>
+<p>The number of RAM that can be used for a domain.</p>
+</li>
+<li><p class="first">Primary Storage limits (GB)</p>
+<p>The primary storage space that can be used for a domain.</p>
+</li>
+<li><p class="first">Secondary Storage limits (GB)</p>
+<p>The secondary storage space that can be used for a domain.</p>
+</li>
+</ul>
+</li>
+<li><p class="first">Click Apply.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="default-account-resource-limits">
+<h3>Default Account Resource Limits<a class="headerlink" href="usage.html#default-account-resource-limits" title="Permalink to this headline">¶</a></h3>
+<p>You can limit resource use by accounts. The default limits are set by
+using Global configuration parameters, and they affect all accounts
+within a cloud. The relevant parameters are those beginning with
+max.account, for example: max.account.snapshots.</p>
+<p>To override a default limit for a particular account, set a per-account
+resource limit.</p>
+<ol class="arabic">
+<li><p class="first">Log in to the CloudStack UI.</p>
+</li>
+<li><p class="first">In the left navigation tree, click Accounts.</p>
+</li>
+<li><p class="first">Select the account you want to modify. The current limits are
+displayed.</p>
+<p>A value of -1 shows that there is no limit in place.</p>
+</li>
+<li><p class="first">Click the Edit button. <img alt="edits the settings." src="../_images/edit-icon.png" /></p>
+</li>
+<li><p class="first">Edit the following as per your requirement:</p>
+<ul>
+<li><p class="first">Parameter Name</p>
+</li>
+<li><p class="first">Description</p>
+</li>
+<li><p class="first">Instance Limits</p>
+<p>The number of instances that can be used in an account.</p>
+<p>The default is 20.</p>
+</li>
+<li><p class="first">Public IP Limits</p>
+<p>The number of public IP addresses that can be used in an account.</p>
+<p>The default is 20.</p>
+</li>
+<li><p class="first">Volume Limits</p>
+<p>The number of disk volumes that can be created in an account.</p>
+<p>The default is 20.</p>
+</li>
+<li><p class="first">Snapshot Limits</p>
+<p>The number of snapshots that can be created in an account.</p>
+<p>The default is 20.</p>
+</li>
+<li><p class="first">Template Limits</p>
+<p>The number of templates that can be registered in an account.</p>
+<p>The default is 20.</p>
+</li>
+<li><p class="first">VPC limits</p>
+<p>The number of VPCs that can be created in an account.</p>
+<p>The default is 20.</p>
+</li>
+<li><p class="first">CPU limits</p>
+<p>The number of CPU cores that can be used for an account.</p>
+<p>The default is 40.</p>
+</li>
+<li><p class="first">Memory limits (MB)</p>
+<p>The number of RAM that can be used for an account.</p>
+<p>The default is 40960.</p>
+</li>
+<li><p class="first">Primary Storage limits (GB)</p>
+<p>The primary storage space that can be used for an account.</p>
+<p>The default is 200.</p>
+</li>
+<li><p class="first">Secondary Storage limits (GB)</p>
+<p>The secondary storage space that can be used for an account.</p>
+<p>The default is 400.</p>
+</li>
+</ul>
+</li>
+<li><p class="first">Click Apply.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="usage-record-format">
+<h2>Usage Record Format<a class="headerlink" href="usage.html#usage-record-format" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="virtual-machine-usage-record-format">
+<h3>Virtual Machine Usage Record Format<a class="headerlink" href="usage.html#virtual-machine-usage-record-format" title="Permalink to this headline">¶</a></h3>
+<p>For running and allocated virtual machine usage, the following fields
+exist in a usage record:</p>
+<ul class="simple">
+<li>account – name of the account</li>
+<li>accountid – ID of the account</li>
+<li>domainid – ID of the domain in which this account resides</li>
+<li>zoneid – Zone where the usage occurred</li>
+<li>description – A string describing what the usage record is tracking</li>
+<li>usage – String representation of the usage, including the units of
+usage (e.g. ‘Hrs’ for VM running time)</li>
+<li>usagetype – A number representing the usage type (see Usage Types)</li>
+<li>rawusage – A number representing the actual usage in hours</li>
+<li>virtualMachineId – The ID of the virtual machine</li>
+<li>name – The name of the virtual machine</li>
+<li>offeringid – The ID of the service offering</li>
+<li>templateid – The ID of the template or the ID of the parent template.
+The parent template value is present when the current template was
+created from a volume.</li>
+<li>usageid – Virtual machine</li>
+<li>type – Hypervisor</li>
+<li>startdate, enddate – The range of time for which the usage is
+aggregated; see Dates in the Usage Record</li>
+</ul>
+</div>
+<div class="section" id="network-usage-record-format">
+<h3>Network Usage Record Format<a class="headerlink" href="usage.html#network-usage-record-format" title="Permalink to this headline">¶</a></h3>
+<p>For network usage (bytes sent/received), the following fields exist in a
+usage record.</p>
+<ul class="simple">
+<li>account – name of the account</li>
+<li>accountid – ID of the account</li>
+<li>domainid – ID of the domain in which this account resides</li>
+<li>zoneid – Zone where the usage occurred</li>
+<li>description – A string describing what the usage record is tracking</li>
+<li>usagetype – A number representing the usage type (see Usage Types)</li>
+<li>rawusage – A number representing the actual usage in hours</li>
+<li>usageid – Device ID (virtual router ID or external device ID)</li>
+<li>type – Device type (domain router, external load balancer, etc.)</li>
+<li>startdate, enddate – The range of time for which the usage is
+aggregated; see Dates in the Usage Record</li>
+</ul>
+</div>
+<div class="section" id="ip-address-usage-record-format">
+<h3>IP Address Usage Record Format<a class="headerlink" href="usage.html#ip-address-usage-record-format" title="Permalink to this headline">¶</a></h3>
+<p>For IP address usage the following fields exist in a usage record.</p>
+<ul class="simple">
+<li>account - name of the account</li>
+<li>accountid - ID of the account</li>
+<li>domainid - ID of the domain in which this account resides</li>
+<li>zoneid - Zone where the usage occurred</li>
+<li>description - A string describing what the usage record is tracking</li>
+<li>usage - String representation of the usage, including the units of
+usage</li>
+<li>usagetype - A number representing the usage type (see Usage Types)</li>
+<li>rawusage - A number representing the actual usage in hours</li>
+<li>usageid - IP address ID</li>
+<li>startdate, enddate - The range of time for which the usage is
+aggregated; see Dates in the Usage Record</li>
+<li>issourcenat - Whether source NAT is enabled for the IP address</li>
+<li>iselastic - True if the IP address is elastic.</li>
+</ul>
+</div>
+<div class="section" id="disk-volume-usage-record-format">
+<h3>Disk Volume Usage Record Format<a class="headerlink" href="usage.html#disk-volume-usage-record-format" title="Permalink to this headline">¶</a></h3>
+<p>For disk volumes, the following fields exist in a usage record.</p>
+<ul class="simple">
+<li>account – name of the account</li>
+<li>accountid – ID of the account</li>
+<li>domainid – ID of the domain in which this account resides</li>
+<li>zoneid – Zone where the usage occurred</li>
+<li>description – A string describing what the usage record is tracking</li>
+<li>usage – String representation of the usage, including the units of
+usage (e.g. ‘Hrs’ for hours)</li>
+<li>usagetype – A number representing the usage type (see Usage Types)</li>
+<li>rawusage – A number representing the actual usage in hours</li>
+<li>usageid – The volume ID</li>
+<li>offeringid – The ID of the disk offering</li>
+<li>type – Hypervisor</li>
+<li>templateid – ROOT template ID</li>
+<li>size – The amount of storage allocated</li>
+<li>startdate, enddate – The range of time for which the usage is
+aggregated; see Dates in the Usage Record</li>
+</ul>
+</div>
+<div class="section" id="template-iso-and-snapshot-usage-record-format">
+<h3>Template, ISO, and Snapshot Usage Record Format<a class="headerlink" href="usage.html#template-iso-and-snapshot-usage-record-format" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>account – name of the account</li>
+<li>accountid – ID of the account</li>
+<li>domainid – ID of the domain in which this account resides</li>
+<li>zoneid – Zone where the usage occurred</li>
+<li>description – A string describing what the usage record is tracking</li>
+<li>usage – String representation of the usage, including the units of
+usage (e.g. ‘Hrs’ for hours)</li>
+<li>usagetype – A number representing the usage type (see Usage Types)</li>
+<li>rawusage – A number representing the actual usage in hours</li>
+<li>usageid – The ID of the the template, ISO, or snapshot</li>
+<li>offeringid – The ID of the disk offering</li>
+<li>templateid – – Included only for templates (usage type 7). Source
+template ID.</li>
+<li>size – Size of the template, ISO, or snapshot</li>
+<li>startdate, enddate – The range of time for which the usage is
+aggregated; see Dates in the Usage Record</li>
+</ul>
+</div>
+<div class="section" id="load-balancer-policy-or-port-forwarding-rule-usage-record-format">
+<h3>Load Balancer Policy or Port Forwarding Rule Usage Record Format<a class="headerlink" href="usage.html#load-balancer-policy-or-port-forwarding-rule-usage-record-format" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>account - name of the account</li>
+<li>accountid - ID of the account</li>
+<li>domainid - ID of the domain in which this account resides</li>
+<li>zoneid - Zone where the usage occurred</li>
+<li>description - A string describing what the usage record is tracking</li>
+<li>usage - String representation of the usage, including the units of
+usage (e.g. ‘Hrs’ for hours)</li>
+<li>usagetype - A number representing the usage type (see Usage Types)</li>
+<li>rawusage - A number representing the actual usage in hours</li>
+<li>usageid - ID of the load balancer policy or port forwarding rule</li>
+<li>usagetype - A number representing the usage type (see Usage Types)</li>
+<li>startdate, enddate - The range of time for which the usage is
+aggregated; see Dates in the Usage Record</li>
+</ul>
+</div>
+<div class="section" id="network-offering-usage-record-format">
+<h3>Network Offering Usage Record Format<a class="headerlink" href="usage.html#network-offering-usage-record-format" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>account – name of the account</li>
+<li>accountid – ID of the account</li>
+<li>domainid – ID of the domain in which this account resides</li>
+<li>zoneid – Zone where the usage occurred</li>
+<li>description – A string describing what the usage record is tracking</li>
+<li>usage – String representation of the usage, including the units of
+usage (e.g. ‘Hrs’ for hours)</li>
+<li>usagetype – A number representing the usage type (see Usage Types)</li>
+<li>rawusage – A number representing the actual usage in hours</li>
+<li>usageid – ID of the network offering</li>
+<li>usagetype – A number representing the usage type (see Usage Types)</li>
+<li>offeringid – Network offering ID</li>
+<li>virtualMachineId – The ID of the virtual machine</li>
+<li>virtualMachineId – The ID of the virtual machine</li>
+<li>startdate, enddate – The range of time for which the usage is
+aggregated; see Dates in the Usage Record</li>
+</ul>
+</div>
+<div class="section" id="vpn-user-usage-record-format">
+<h3>VPN User Usage Record Format<a class="headerlink" href="usage.html#vpn-user-usage-record-format" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>account – name of the account</li>
+<li>accountid – ID of the account</li>
+<li>domainid – ID of the domain in which this account resides</li>
+<li>zoneid – Zone where the usage occurred</li>
+<li>description – A string describing what the usage record is tracking</li>
+<li>usage – String representation of the usage, including the units of
+usage (e.g. ‘Hrs’ for hours)</li>
+<li>usagetype – A number representing the usage type (see Usage Types)</li>
+<li>rawusage – A number representing the actual usage in hours</li>
+<li>usageid – VPN user ID</li>
+<li>usagetype – A number representing the usage type (see Usage Types)</li>
+<li>startdate, enddate – The range of time for which the usage is
+aggregated; see Dates in the Usage Record</li>
+</ul>
+</div>
+</div>
+<div class="section" id="usage-types">
+<h2>Usage Types<a class="headerlink" href="usage.html#usage-types" title="Permalink to this headline">¶</a></h2>
+<p>The following table shows all usage types.</p>
+<table border="1" class="table-striped table-bordered table-hover docutils">
+<colgroup>
+<col width="24%" />
+<col width="46%" />
+<col width="30%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Type ID</th>
+<th class="head">Type Name</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1</td>
+<td>RUNNING_VM</td>
+<td>Tracks the total
+running time of a VM
+per usage record
+period. If the VM is
+upgraded during the
+usage period, you
+will get a separate
+Usage Record for the
+new upgraded VM.</td>
+</tr>
+<tr class="row-odd"><td>2</td>
+<td>ALLOCATED_VM</td>
+<td>Tracks the total time
+the VM has been
+created to the time
+when it has been
+destroyed. This usage
+type is also useful
+in determining usage
+for specific
+templates such as
+Windows-based
+templates.</td>
+</tr>
+<tr class="row-even"><td>3</td>
+<td>IP_ADDRESS</td>
+<td>Tracks the public IP
+address owned by the
+account.</td>
+</tr>
+<tr class="row-odd"><td>4</td>
+<td>NETWORK_BYTES_SENT</td>
+<td>Tracks the total
+number of bytes sent
+by all the VMs for an
+account. Cloud.com
+does not currently
+track network traffic
+per VM.</td>
+</tr>
+<tr class="row-even"><td>5</td>
+<td>NETWORK_BYTES_RECEIVED</td>
+<td>Tracks the total
+number of bytes
+received by all the
+VMs for an account.
+Cloud.com does not
+currently track
+network traffic per
+VM.</td>
+</tr>
+<tr class="row-odd"><td>6</td>
+<td>VOLUME</td>
+<td>Tracks the total time
+a disk volume has
+been created to the
+time when it has been
+destroyed.</td>
+</tr>
+<tr class="row-even"><td>7</td>
+<td>TEMPLATE</td>
+<td>Tracks the total time
+a template (either
+created from a
+snapshot or uploaded
+to the cloud) has
+been created to the
+time it has been
+destroyed. The size
+of the template is
+also returned.</td>
+</tr>
+<tr class="row-odd"><td>8</td>
+<td>ISO</td>
+<td>Tracks the total time
+an ISO has been
+uploaded to the time
+it has been removed
+from the cloud. The
+size of the ISO is
+also returned.</td>
+</tr>
+<tr class="row-even"><td>9</td>
+<td>SNAPSHOT</td>
+<td>Tracks the total time
+from when a snapshot
+has been created to
+the time it have been
+destroyed.</td>
+</tr>
+<tr class="row-odd"><td>11</td>
+<td>LOAD_BALANCER_POLICY</td>
+<td>Tracks the total time
+a load balancer
+policy has been
+created to the time
+it has been removed.
+Cloud.com does not
+track whether a VM
+has been assigned to
+a policy.</td>
+</tr>
+<tr class="row-even"><td>12</td>
+<td>PORT_FORWARDING_RULE</td>
+<td>Tracks the time from
+when a port
+forwarding rule was
+created until the
+time it was removed.</td>
+</tr>
+<tr class="row-odd"><td>13</td>
+<td>NETWORK_OFFERING</td>
+<td>The time from when a
+network offering was
+assigned to a VM
+until it is removed.</td>
+</tr>
+<tr class="row-even"><td>14</td>
+<td>VPN_USERS</td>
+<td>The time from when a
+VPN user is created
+until it is removed.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="example-response-from-listusagerecords">
+<h2>Example response from listUsageRecords<a class="headerlink" href="usage.html#example-response-from-listusagerecords" title="Permalink to this headline">¶</a></h2>
+<p>All CloudStack API requests are submitted in the form of a HTTP GET/POST
+with an associated command and any parameters. A request is composed of
+the following whether in HTTP or HTTPS:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;listusagerecordsresponse&gt;
+   &lt;count&gt;1816&lt;/count&gt;
+   &lt;usagerecord&gt;
+      &lt;account&gt;user5&lt;/account&gt;
+      &lt;accountid&gt;10004&lt;/accountid&gt;
+      &lt;domainid&gt;1&lt;/domainid&gt;
+      &lt;zoneid&gt;1&lt;/zoneid&gt;
+      &lt;description&gt;i-3-4-WC running time (ServiceOffering: 1) (Template: 3)&lt;/description&gt;
+      &lt;usage&gt;2.95288 Hrs&lt;/usage&gt;
+      &lt;usagetype&gt;1&lt;/usagetype&gt;
+      &lt;rawusage&gt;2.95288&lt;/rawusage&gt;
+      &lt;virtualmachineid&gt;4&lt;/virtualmachineid&gt;
+      &lt;name&gt;i-3-4-WC&lt;/name&gt;
+      &lt;offeringid&gt;1&lt;/offeringid&gt;
+      &lt;templateid&gt;3&lt;/templateid&gt;
+      &lt;usageid&gt;245554&lt;/usageid&gt;
+      &lt;type&gt;XenServer&lt;/type&gt;
+      &lt;startdate&gt;2009-09-15T00:00:00-0700&lt;/startdate&gt;
+      &lt;enddate&gt;2009-09-18T16:14:26-0700&lt;/enddate&gt;
+   &lt;/usagerecord&gt;
+
+   … (1,815 more usage records)
+&lt;/listusagerecordsresponse&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="dates-in-the-usage-record">
+<h2>Dates in the Usage Record<a class="headerlink" href="usage.html#dates-in-the-usage-record" title="Permalink to this headline">¶</a></h2>
+<p>Usage records include a start date and an end date. These dates define
+the period of time for which the raw usage number was calculated. If
+daily aggregation is used, the start date is midnight on the day in
+question and the end date is 23:59:59 on the day in question (with one
+exception; see below). A virtual machine could have been deployed at
+noon on that day, stopped at 6pm on that day, then started up again at
+11pm. When usage is calculated on that day, there will be 7 hours of
+running VM usage (usage type 1) and 12 hours of allocated VM usage
+(usage type 2). If the same virtual machine runs for the entire next
+day, there will 24 hours of both running VM usage (type 1) and allocated
+VM usage (type 2).</p>
+<p>Note: The start date is not the time a virtual machine was started, and
+the end date is not the time when a virtual machine was stopped. The
+start and end dates give the time range within which usage was
+calculated.</p>
+<p>For network usage, the start date and end date again define the range in
+which the number of bytes transferred was calculated. If a user
+downloads 10 MB and uploads 1 MB in one day, there will be two records,
+one showing the 10 megabytes received and one showing the 1 megabyte
+sent.</p>
+<p>There is one case where the start date and end date do not correspond to
+midnight and 11:59:59pm when daily aggregation is used. This occurs only
+for network usage records. When the usage server has more than one day’s
+worth of unprocessed data, the old data will be included in the
+aggregation period. The start date in the usage record will show the
+date and time of the earliest event. For other types of usage, such as
+IP addresses and VMs, the old unprocessed data is not included in daily
+aggregation.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="networking_and_traffic.html" class="btn btn-neutral float-right" title="Guest Traffic" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="systemvm.html" class="btn btn-neutral float-left" title="The System VM Template" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Apache Foundation
+      
+        <span class="commit">
+          Revision <code>29a3d9e2</code>.
+        </span>
+      
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Read the Docs</span>
+      v: 4.13.0.0
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="http://docs.cloudstack.apache.org/en/master/">master</a></dd>
+        
+          <dd><a href="../../../index.html">latest</a></dd>
+        
+          <dd><a href="../index.html">4.13.0.0</a></dd>
+        
+          <dd><a href="../../4.12.0.0/index.html">4.12.0.0</a></dd>
+        
+          <dd><a href="../../4.11.3.0/index.html">4.11.3.0</a></dd>
+        
+          <dd><a href="../../4.11.2.0/index.html">4.11.2.0</a></dd>
+        
+          <dd><a href="../../4.11.1.0/index.html">4.11.1.0</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="http://readthedocs.org/projects/cloudstack-documentation/downloads/htmlzip/4.13.0.0/">html</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>On Read the Docs</dt>
+          <dd>
+            <a href="http://readthedocs.org/projects/cloudstack-documentation/?fromdocs=cloudstack-documentation">Project Home</a>
+          </dd>
+          <dd>
+            <a href="http://readthedocs.org/builds/cloudstack-documentation/?fromdocs=cloudstack-documentation">Builds</a>
+          </dd>
+      </dl>
+      <hr/>
+      Free document hosting provided by <a href="http://www.readthedocs.org">Read the Docs</a>.
+
+    </div>
+  </div>
+
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+   
+
+</body>
+</html>

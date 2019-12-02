@@ -1,0 +1,469 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>CloudStack Concepts and Terminology &mdash; Apache CloudStack 4.11.3.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="What is Apache CloudStack?" href="concepts.html" />
+    <link rel="prev" title="Welcome to Apache CloudStack’s Documentation" href="../index.html" /> 
+
+<!-- RTD Extra Head -->
+
+<!-- 
+Always link to the latest version, as canonical.
+http://docs.readthedocs.org/en/latest/canonical.html
+-->
+<link rel="canonical" href="../../latest/conceptsandterminology/index.html" />
+
+<link rel="stylesheet" href="https://assets.readthedocs.org/static/css/readthedocs-doc-embed.css" type="text/css" />
+
+<script type="text/javascript" src="../_static/readthedocs-data.js"></script>
+
+<!-- Add page-specific data, which must exist in the page js, not global -->
+<script type="text/javascript">
+READTHEDOCS_DATA['page'] = "conceptsandterminology/index"
+READTHEDOCS_DATA['source_suffix'] = ".rst"
+</script>
+
+<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js"></script>
+
+<!-- end RTD <extrahead> -->
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Apache CloudStack
+          
+
+          
+          </a>
+
+          
+            
+            
+            
+              <div class="version">
+                4.11.3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="index.html#">CloudStack Concepts and Terminology</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html#concepts-and-terminolgy">Concepts and Terminolgy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="concepts.html">What is Apache CloudStack?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="concepts.html#what-can-apache-cloudstack-do">What can Apache CloudStack do?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="concepts.html#deployment-architecture-overview">Deployment Architecture Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="concepts.html#cloudstack-terminology">CloudStack Terminology</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#choosing-a-deployment-architecture">Choosing a Deployment Architecture</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="choosing_deployment_architecture.html">Small-Scale Deployment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="choosing_deployment_architecture.html#large-scale-redundant-setup">Large-Scale Redundant Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="choosing_deployment_architecture.html#separate-storage-network">Separate Storage Network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="choosing_deployment_architecture.html#multi-node-management-server">Multi-Node Management Server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="choosing_deployment_architecture.html#multi-site-deployment">Multi-Site Deployment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="choosing_deployment_architecture.html#choosing-a-hypervisor">Choosing a Hypervisor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="choosing_deployment_architecture.html#best-practices">Best Practices</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#network-setup">Network Setup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="network_setup.html">Basic and Advanced Networking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="network_setup.html#vlan-allocation-example">VLAN Allocation Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="network_setup.html#example-hardware-configuration">Example Hardware Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="network_setup.html#layer-2-switch">Layer-2 Switch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="network_setup.html#hardware-firewall">Hardware Firewall</a></li>
+<li class="toctree-l3"><a class="reference internal" href="network_setup.html#management-server-load-balancing">Management Server Load Balancing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="network_setup.html#topology-requirements">Topology Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="network_setup.html#guest-network-usage-integration-for-traffic-sentinel">Guest Network Usage Integration for Traffic Sentinel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="network_setup.html#setting-zone-vlan-and-running-vm-maximums">Setting Zone VLAN and Running VM Maximums</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#storage-setup">Storage Setup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="storage_setup.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="storage_setup.html#configurations">Configurations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="storage_setup.html#storage-architecture">Storage Architecture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="storage_setup.html#cloudstack-networking-for-storage">CloudStack Networking For Storage</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../quickinstallationguide/qig.html">Quick Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installguide/index.html">Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../upgrading/index.html">Upgrading CloudStack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../adminguide/index.html">Usage Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developersguide/index.html">Developers Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/index.html">Plugins Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Other Documentation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/api.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://cwiki.apache.org/confluence/display/CLOUDSTACK/Home">Apache CloudStack Wiki</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/">Apache CloudStack web site</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/downloads.html">Apache CloudStack Source Code</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/apache/cloudstack">Apache CloudStack on GitHub</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Pre 4.11 Documentation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="../../../projects/cloudstack-installation">Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference external" href="../../../projects/cloudstack-administration">Administration Guide</a></li>
+<li class="toctree-l1"><a class="reference external" href="../../../projects/cloudstack-release-notes">Release Notes</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Apache CloudStack</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>CloudStack Concepts and Terminology</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/apache/cloudstack-documentation/blob/4.11.3.0/source/conceptsandterminology/index.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <p><img alt="menu_acs_logo" src="../_images/acslogo.png" /></p>
+<div class="section" id="cloudstack-concepts-and-terminology">
+<h1>CloudStack Concepts and Terminology<a class="headerlink" href="index.html#cloudstack-concepts-and-terminology" title="Permalink to this headline">¶</a></h1>
+<p>This is the Apache CloudStack installation guide. In this guide we first go through some design and architectural to build your cloud.</p>
+<div class="toctree-wrapper compound">
+</div>
+<div class="section" id="concepts-and-terminolgy">
+<h2>Concepts and Terminolgy<a class="headerlink" href="index.html#concepts-and-terminolgy" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="concepts.html">What is Apache CloudStack?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts.html#what-can-apache-cloudstack-do">What can Apache CloudStack do?</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="concepts.html#multiple-hypervisor-support">Multiple Hypervisor Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="concepts.html#massively-scalable-infrastructure-management">Massively Scalable Infrastructure Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="concepts.html#automatic-cloud-configuration-management">Automatic Cloud Configuration Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="concepts.html#graphical-user-interface">Graphical User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="concepts.html#api">API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="concepts.html#aws-ec2-api-support">AWS EC2 API Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="concepts.html#high-availability">High Availability</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="concepts.html#deployment-architecture-overview">Deployment Architecture Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="concepts.html#management-server-overview">Management Server Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="concepts.html#cloud-infrastructure-overview">Cloud Infrastructure Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="concepts.html#networking-overview">Networking Overview</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="concepts.html#cloudstack-terminology">CloudStack Terminology</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="concepts.html#about-regions">About Regions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="concepts.html#about-zones">About Zones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="concepts.html#about-pods">About Pods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="concepts.html#about-clusters">About Clusters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="concepts.html#about-hosts">About Hosts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="concepts.html#about-primary-storage">About Primary Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="concepts.html#about-secondary-storage">About Secondary Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="concepts.html#about-physical-networks">About Physical Networks</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="choosing-a-deployment-architecture">
+<h2>Choosing a Deployment Architecture<a class="headerlink" href="index.html#choosing-a-deployment-architecture" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="choosing_deployment_architecture.html">Small-Scale Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="choosing_deployment_architecture.html#large-scale-redundant-setup">Large-Scale Redundant Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="choosing_deployment_architecture.html#separate-storage-network">Separate Storage Network</a></li>
+<li class="toctree-l1"><a class="reference internal" href="choosing_deployment_architecture.html#multi-node-management-server">Multi-Node Management Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="choosing_deployment_architecture.html#multi-site-deployment">Multi-Site Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="choosing_deployment_architecture.html#choosing-a-hypervisor">Choosing a Hypervisor</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="choosing_deployment_architecture.html#hypervisor-support-for-primary-storage">Hypervisor Support for Primary Storage</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="choosing_deployment_architecture.html#best-practices">Best Practices</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="choosing_deployment_architecture.html#process-best-practices">Process Best Practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="choosing_deployment_architecture.html#setup-best-practices">Setup Best Practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="choosing_deployment_architecture.html#maintenance-best-practices">Maintenance Best Practices</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="network-setup">
+<span id="network"></span><h2>Network Setup<a class="headerlink" href="index.html#network-setup" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="network_setup.html">Basic and Advanced Networking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="network_setup.html#vlan-allocation-example">VLAN Allocation Example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="network_setup.html#example-hardware-configuration">Example Hardware Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="network_setup.html#dell-62xx">Dell 62xx</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network_setup.html#cisco-3750">Cisco 3750</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="network_setup.html#layer-2-switch">Layer-2 Switch</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="network_setup.html#id1">Dell 62xx</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network_setup.html#id2">Cisco 3750</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="network_setup.html#hardware-firewall">Hardware Firewall</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="network_setup.html#generic-firewall-provisions">Generic Firewall Provisions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network_setup.html#external-guest-firewall-integration-for-juniper-srx-optional">External Guest Firewall Integration for Juniper SRX (Optional)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network_setup.html#external-guest-firewall-integration-for-cisco-vnmc-optional">External Guest Firewall Integration for Cisco VNMC (Optional)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network_setup.html#external-guest-load-balancer-integration-optional">External Guest Load Balancer Integration (Optional)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="network_setup.html#management-server-load-balancing">Management Server Load Balancing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="network_setup.html#topology-requirements">Topology Requirements</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="network_setup.html#security-requirements">Security Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network_setup.html#runtime-internal-communications-requirements">Runtime Internal Communications Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network_setup.html#storage-network-topology-requirements">Storage Network Topology Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network_setup.html#external-firewall-topology-requirements">External Firewall Topology Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network_setup.html#advanced-zone-topology-requirements">Advanced Zone Topology Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network_setup.html#xenserver-topology-requirements">XenServer Topology Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network_setup.html#vmware-topology-requirements">VMware Topology Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network_setup.html#hyper-v-topology-requirements">Hyper-V Topology Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network_setup.html#kvm-topology-requirements">KVM Topology Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network_setup.html#lxc-topology-requirements">LXC Topology Requirements</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="network_setup.html#guest-network-usage-integration-for-traffic-sentinel">Guest Network Usage Integration for Traffic Sentinel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="network_setup.html#setting-zone-vlan-and-running-vm-maximums">Setting Zone VLAN and Running VM Maximums</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="storage-setup">
+<span id="storage"></span><h2>Storage Setup<a class="headerlink" href="index.html#storage-setup" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="storage_setup.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="storage_setup.html#primary-storage">Primary Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="storage_setup.html#secondary-storage">Secondary Storage</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="storage_setup.html#configurations">Configurations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="storage_setup.html#small-scale-setup">Small-Scale Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="storage_setup.html#large-scale-setup">Large-Scale Setup</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="storage_setup.html#storage-architecture">Storage Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="storage_setup.html#local-storage">Local Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="storage_setup.html#traditional-node-based-shared-storage">‘Traditional’ node-based Shared Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="storage_setup.html#clustered-shared-storage">Clustered Shared Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="storage_setup.html#network-configuration-for-storage">Network Configuration For Storage</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="storage_setup.html#cloudstack-networking-for-storage">CloudStack Networking For Storage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="storage_setup.html#small-scale-example-configurations">Small-Scale Example Configurations</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="concepts.html" class="btn btn-neutral float-right" title="What is Apache CloudStack?" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral float-left" title="Welcome to Apache CloudStack’s Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Apache Foundation
+      
+        <span class="commit">
+          Revision <code>7c5c9b49</code>.
+        </span>
+      
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Read the Docs</span>
+      v: 4.11.3.0
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="../../../index.html">latest</a></dd>
+        
+          <dd><a href="../../4.12.0.0/index.html">4.12.0.0</a></dd>
+        
+          <dd><a href="../index.html">4.11.3.0</a></dd>
+        
+          <dd><a href="../../4.11.2.0/index.html">4.11.2.0</a></dd>
+        
+          <dd><a href="../../4.11.1.0/index.html">4.11.1.0</a></dd>
+        
+          <dd><a href="http://docs.cloudstack.apache.org/en/master/">master</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>Downloads</dt>
+        
+      </dl>
+      <dl>
+        <dt>On Read the Docs</dt>
+          <dd>
+            <a href="http://readthedocs.org/projects/cloudstack-documentation/?fromdocs=cloudstack-documentation">Project Home</a>
+          </dd>
+          <dd>
+            <a href="http://readthedocs.org/builds/cloudstack-documentation/?fromdocs=cloudstack-documentation">Builds</a>
+          </dd>
+      </dl>
+      <hr/>
+      Free document hosting provided by <a href="http://www.readthedocs.org">Read the Docs</a>.
+
+    </div>
+  </div>
+
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+   
+
+</body>
+</html>

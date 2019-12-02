@@ -1,0 +1,674 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Introduction &mdash; Apache CloudStack 4.11.1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Quick Installation Guide" href="../quickinstallationguide/qig.html" />
+    <link rel="prev" title="Basic and Advanced Networking" href="network_setup.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+
+<!-- RTD Extra Head -->
+
+<!-- 
+Always link to the latest version, as canonical.
+http://docs.readthedocs.org/en/latest/canonical.html
+-->
+<link rel="canonical" href="storage_setup.html" />
+
+<link rel="stylesheet" href="https://media.readthedocs.org/css/readthedocs-doc-embed.css" type="text/css" />
+
+<script type="text/javascript" src="../_static/readthedocs-data.js"></script>
+
+<!-- Add page-specific data, which must exist in the page js, not global -->
+<script type="text/javascript">
+READTHEDOCS_DATA['page'] = 'conceptsandterminology/storage_setup'
+READTHEDOCS_DATA['source_suffix'] = '.rst'
+</script>
+
+<script type="text/javascript" src="https://media.readthedocs.org/javascript/readthedocs-analytics.js"></script>
+
+<!-- end RTD <extrahead> -->
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Apache CloudStack
+          
+
+          
+          </a>
+
+          
+            
+            
+            
+              <div class="version">
+                4.11.1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">CloudStack Concepts and Terminology</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html#concepts-and-terminolgy">Concepts and Terminolgy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#choosing-a-deployment-architecture">Choosing a Deployment Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#network-setup">Network Setup</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#storage-setup">Storage Setup</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="storage_setup.html#">Introduction</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="storage_setup.html#primary-storage">Primary Storage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="storage_setup.html#secondary-storage">Secondary Storage</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="storage_setup.html#configurations">Configurations</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="storage_setup.html#small-scale-setup">Small-Scale Setup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="storage_setup.html#large-scale-setup">Large-Scale Setup</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="storage_setup.html#storage-architecture">Storage Architecture</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="storage_setup.html#local-storage">Local Storage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="storage_setup.html#traditional-node-based-shared-storage">‘Traditional’ node-based Shared Storage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="storage_setup.html#clustered-shared-storage">Clustered Shared Storage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="storage_setup.html#network-configuration-for-storage">Network Configuration For Storage</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="storage_setup.html#cloudstack-networking-for-storage">CloudStack Networking For Storage</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="storage_setup.html#small-scale-example-configurations">Small-Scale Example Configurations</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../quickinstallationguide/qig.html">Quick Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installguide/index.html">Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../upgrading/index.html">Upgrading CloudStack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../adminguide/index.html">Usage Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developersguide/index.html">Developers Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/index.html">Plugins Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Other Documentation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/api.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://cwiki.apache.org/confluence/display/CLOUDSTACK/Home">Apache CloudStack Wiki</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/">Apache CloudStack web site</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/downloads.html">Apache CloudStack Source Code</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/apache/cloudstack">Apache CloudStack on GitHub</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Pre 4.11 Documentation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="../../../projects/cloudstack-installation">Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference external" href="../../../projects/cloudstack-administration">Administration Guide</a></li>
+<li class="toctree-l1"><a class="reference external" href="../../../projects/cloudstack-release-notes">Release Notes</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Apache CloudStack</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">CloudStack Concepts and Terminology</a> &raquo;</li>
+        
+      <li>Introduction</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/apache/cloudstack-documentation/blob/4.11.1.0/source/conceptsandterminology/storage_setup.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="introduction">
+<h1>Introduction<a class="headerlink" href="storage_setup.html#introduction" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="primary-storage">
+<span id="about-primary-storage"></span><h2>Primary Storage<a class="headerlink" href="storage_setup.html#primary-storage" title="Permalink to this headline">¶</a></h2>
+<p>CloudStack is designed to work with a wide variety of commodity and enterprise-rated storage systems.
+CloudStack can also leverage the local disks within the hypervisor hosts if supported by the selected
+hypervisor. Storage type support for guest virtual disks differs based on hypervisor selection.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="14%" />
+<col width="31%" />
+<col width="19%" />
+<col width="36%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Storage Type</th>
+<th class="head">XenServer</th>
+<th class="head">vSphere</th>
+<th class="head">KVM</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>NFS</td>
+<td>Supported</td>
+<td>Supported</td>
+<td>Supported</td>
+</tr>
+<tr class="row-odd"><td>iSCSI</td>
+<td>Supported</td>
+<td>Supported via VMFS</td>
+<td>Supported via Clustered Filesystems</td>
+</tr>
+<tr class="row-even"><td>Fiber Channel</td>
+<td>Supported via Pre-existing SR</td>
+<td>Supported</td>
+<td>Supported via Clustered Filesystems</td>
+</tr>
+<tr class="row-odd"><td>Local Disk</td>
+<td>Supported</td>
+<td>Supported</td>
+<td>Supported</td>
+</tr>
+</tbody>
+</table>
+<p>The use of the Cluster Logical Volume Manager (CLVM) for KVM is not officially supported with
+CloudStack.</p>
+</div>
+<div class="section" id="secondary-storage">
+<span id="about-secondary-storage"></span><h2>Secondary Storage<a class="headerlink" href="storage_setup.html#secondary-storage" title="Permalink to this headline">¶</a></h2>
+<p>CloudStack is designed to work with any scalable secondary storage system. The only requirement is
+that the secondary storage system supports the NFS protocol. For large, multi-zone deployments, S3
+compatible storage is also supported for secondary storage. This allows for secondary storage which can
+span an entire region, however an NFS staging area must be maintained in each zone as most hypervisors
+are not capable of directly mounting S3 type storage.</p>
+</div>
+</div>
+<div class="section" id="configurations">
+<h1>Configurations<a class="headerlink" href="storage_setup.html#configurations" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="small-scale-setup">
+<h2>Small-Scale Setup<a class="headerlink" href="storage_setup.html#small-scale-setup" title="Permalink to this headline">¶</a></h2>
+<p>In a small-scale setup, a single NFS server can function as both primary and secondary storage. The NFS
+server must export two separate shares, one for primary storage and the other for secondary storage. This
+could be a VM or physical host running an NFS service on a Linux OS or a virtual software appliance. Disk
+and network performance are still important in a small scale setup to get a good experience when deploying,
+running or snapshotting VMs.</p>
+</div>
+<div class="section" id="large-scale-setup">
+<h2>Large-Scale Setup<a class="headerlink" href="storage_setup.html#large-scale-setup" title="Permalink to this headline">¶</a></h2>
+<p>In large-scale environments primary and secondary storage typically consist of independent physical storage arrays.</p>
+<p>Primary storage is likely to have to support mostly random read/write I/O once a template has been
+deployed.  Secondary storage is only going to experience sustained sequential reads or writes.</p>
+<p>In clouds which will experience a large number of users taking snapshots or deploying VMs at the
+same time, secondary storage performance will be important to maintain a good user experience.</p>
+<p>It is important to start the design of your storage with the a rough profile of the workloads which it will
+be required to support. Care should be taken to consider the IOPS demands of your guest VMs as much as the
+volume of data to be stored and the bandwidth (MB/s) available at the storage interfaces.</p>
+</div>
+</div>
+<div class="section" id="storage-architecture">
+<h1>Storage Architecture<a class="headerlink" href="storage_setup.html#storage-architecture" title="Permalink to this headline">¶</a></h1>
+<p>There are many different storage types available which are generally suitable for CloudStack environments.
+Specific use cases should be considered when deciding the best one for your environment and financial
+constraints often make the ‘perfect’ storage architecture economically unrealistic.</p>
+<p>Broadly, the architectures of the available primary storage types can be split into 3 types:</p>
+<div class="section" id="local-storage">
+<h2>Local Storage<a class="headerlink" href="storage_setup.html#local-storage" title="Permalink to this headline">¶</a></h2>
+<p>Local storage works best for pure ‘cloud-era’ workloads which rarely need to be migrated between storage
+pools and where HA of individual VMs is not required. As SSDs become more mainstream/affordable, local
+storage based VMs can now be served with the size of IOPS which previously could only be generated by
+large arrays with 10s of spindles. Local storage is highly scalable because as you add hosts you would
+add the same proportion of storage. Local Storage is relatively inefficent as it can not take advantage
+of linked clones or any deduplication.</p>
+</div>
+<div class="section" id="traditional-node-based-shared-storage">
+<h2>‘Traditional’ node-based Shared Storage<a class="headerlink" href="storage_setup.html#traditional-node-based-shared-storage" title="Permalink to this headline">¶</a></h2>
+<p>Traditional node-based storage are arrays which consist of a controller/controller pair attached to a
+number of disks in shelves.
+Ideally a cloud architecture would have one of these physical arrays per CloudStack pod to limit the
+‘blast-radius’ of a failure to a single pod.  This is often not economically viable, however one should
+look to try to reduce the scale of any incident relative to any zone with any single array where
+possible.
+The use of shared storage enables workloads to be immediately restarted on an alternate host should a
+host fail. These shared storage arrays often have the ability to create ‘tiers’ of storage utilising
+say large SATA disks, 15k SAS disks and SSDs. These differently performing tiers can then be presented as
+different offerings to users.
+The sizing of an array should take into account the IOPS required by the workload as well as the volume
+of data to be stored.  One should also consider the number of VMs which a storage array will be expected
+to support, and the maximum network bandwidth possible through the controllers.</p>
+</div>
+<div class="section" id="clustered-shared-storage">
+<h2>Clustered Shared Storage<a class="headerlink" href="storage_setup.html#clustered-shared-storage" title="Permalink to this headline">¶</a></h2>
+<p>Clustered shared storage arrays are the new generation of storage which do not have a single set of
+interfaces where data enters and exits the array.  Instead it is distributed between all of the active
+nodes giving greatly improved scalability and performance.  Some shared storage arrays enable all data
+to continue to be accessible even in the event of the loss of an entire node.</p>
+<p>The network topology should be carefully considered when using clustered shared storage to avoid creating
+bottlenecks in the network fabric.</p>
+</div>
+<div class="section" id="network-configuration-for-storage">
+<h2>Network Configuration For Storage<a class="headerlink" href="storage_setup.html#network-configuration-for-storage" title="Permalink to this headline">¶</a></h2>
+<p>Care should be taken when designing your cloud to take into consideration not only the performance
+of your disk arrays but also the bandwidth available to move that traffic between the switch fabric and
+the array interfaces.</p>
+</div>
+</div>
+<div class="section" id="cloudstack-networking-for-storage">
+<h1>CloudStack Networking For Storage<a class="headerlink" href="storage_setup.html#cloudstack-networking-for-storage" title="Permalink to this headline">¶</a></h1>
+<p>The first thing to understand is the process of provisioning primary storage. When you create a primary
+storage pool for any given cluster, the CloudStack management server tells each hosts’ hypervisor to
+mount the NFS share or (iSCSI LUN). The storage pool will be presented within the hypervisor as a
+datastore (VMware), storage repository (XenServer/XCP) or a mount point (KVM), the important point is
+that it is the hypervisor itself that communicates with the primary storage, the CloudStack management
+server only communicates with the host hypervisor. Now, all hypervisors communicate with the outside
+world via some kind of management interface – think VMKernel port on ESXi or ‘Management Interface’ on
+XenServer. As the CloudStack management server needs to communicate with the hypervisor in the host,
+this management interface must be on the CloudStack ‘management’ or ‘private’ network.  There may be
+other interfaces configured on your host carrying guest and public traffic to/from VMs within the hosts
+but the hypervisor itself doesn’t/can’t communicate over these interfaces.</p>
+<p><img alt="hypervisor storage communication" src="../_images/hypervisorcomms.png" />
+<em>Figure 1</em>: Hypervisor communications</p>
+<p>Separating Primary Storage traffic
+For those from a pure virtualisation background, the concept of creating a specific interface for storage
+traffic will not be new; it has long been best practice for iSCSI traffic to have a dedicated switch
+fabric to avoid any latency or contention issues.
+Sometimes in the cloud(Stack) world we forget that we are simply orchestrating processes that the
+hypervisors already carry out and that many ‘normal’ hypervisor configurations still apply.
+The logical reasoning which explains how this splitting of traffic works is as follows:</p>
+<ol class="arabic simple">
+<li>If you want an additional interface over which the hypervisor can communicate (excluding teamed or bonded interfaces) you need to give it an IP address.</li>
+<li>The mechanism to create an additional interface that the hypervisor can use is to create an additional management interface</li>
+<li>So that the hypervisor can differentiate between the management interfaces they have to be in different (non-overlapping) subnets</li>
+<li>In order for the ‘primary storage’ management interface to communicate with the primary storage, the interfaces on the primary storage arrays must be in the same CIDR as the ‘primary storage’ management interface.</li>
+<li>Therefore the primary storage must be in a different subnet to the management network</li>
+</ol>
+<p><img alt="subnetted storage interfaces" src="../_images/subnetting_storage.png" />
+<em>Figure 2</em>: Subnetting of Storage Traffic</p>
+<p><img alt="hypervisor communications to secondary storage" src="../_images/hypervisorcomms-secstorage.png" />
+<em>Figure 3</em>: Hypervisor Communications with Separated Storage Traffic</p>
+<p>Other Primary Storage Types
+If you are using PreSetup or SharedMountPoints to connect to IP based storage then the same principles
+apply; if the primary storage and ‘primary storage interface’ are in a different subnet to the ‘management
+subnet’ then the hypervisor will use the ‘primary storage interface’ to communicate with the primary
+storage.</p>
+<div class="section" id="small-scale-example-configurations">
+<h2>Small-Scale Example Configurations<a class="headerlink" href="storage_setup.html#small-scale-example-configurations" title="Permalink to this headline">¶</a></h2>
+<p>In this section we go through a few examples of how to set up storage to
+work properly on a few types of NFS and iSCSI storage systems.</p>
+<div class="section" id="linux-nfs-on-local-disks-and-das">
+<h3>Linux NFS on Local Disks and DAS<a class="headerlink" href="storage_setup.html#linux-nfs-on-local-disks-and-das" title="Permalink to this headline">¶</a></h3>
+<p>This section describes how to configure an NFS export on a standard
+Linux installation. The exact commands might vary depending on the
+operating system version.</p>
+<ol class="arabic">
+<li><p class="first">Install the RHEL/CentOS distribution on the storage server.</p>
+</li>
+<li><p class="first">If the root volume is more than 2 TB in size, create a smaller boot
+volume to install RHEL/CentOS. A root volume of 20 GB should be
+sufficient.</p>
+</li>
+<li><p class="first">After the system is installed, create a directory called /export.
+This can each be a directory in the root partition itself or a mount
+point for a large disk volume.</p>
+</li>
+<li><p class="first">If you have more than 16TB of storage on one host, create multiple
+EXT3 file systems and multiple NFS exports. Individual EXT3 file
+systems cannot exceed 16TB.</p>
+</li>
+<li><p class="first">After /export directory is created, run the following command to
+configure it as an NFS export.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># echo &quot;/export &lt;CIDR&gt;(rw,async,no_root_squash,no_subtree_check)&quot; &gt;&gt; /etc/exports</span>
+</pre></div>
+</div>
+<p>Adjust the above command to suit your deployment needs.</p>
+</li>
+</ol>
+<ul class="simple">
+<li><strong>Limiting NFS export.</strong> It is highly recommended that you limit the NFS export to a particular subnet by specifying a subnet mask (e.g.,”192.168.1.0/24”). By allowing access from only within the expected cluster, you avoid having non-pool member mount the storage. The limit you place must include the management network(s) and the storage network(s). If the two are the same network then one CIDR is sufficient. If you have a separate storage network you must provide separate CIDR’s for both or one CIDR that is broad enough to span both.</li>
+</ul>
+<blockquote>
+<div><p>The following is an example with separate CIDRs:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">export</span> <span class="mf">192.168</span><span class="o">.</span><span class="mf">1.0</span><span class="o">/</span><span class="mi">24</span><span class="p">(</span><span class="n">rw</span><span class="p">,</span><span class="k">async</span><span class="p">,</span><span class="n">no_root_squash</span><span class="p">,</span><span class="n">no_subtree_check</span><span class="p">)</span> <span class="mf">10.50</span><span class="o">.</span><span class="mf">1.0</span><span class="o">/</span><span class="mi">24</span><span class="p">(</span><span class="n">rw</span><span class="p">,</span><span class="k">async</span><span class="p">,</span><span class="n">no_root_squash</span><span class="p">,</span><span class="n">no_subtree_check</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<ul class="simple">
+<li><strong>Removing the async flag.</strong> The async flag improves performance by allowing the NFS server to respond before writes are committed to the disk. Remove the async flag in your mission critical production deployment.</li>
+</ul>
+<ol class="arabic" start="6">
+<li><p class="first">Run the following command to enable NFS service.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># chkconfig nfs on</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Edit the /etc/sysconfig/nfs file and uncomment the following lines.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LOCKD_TCPPORT</span><span class="o">=</span><span class="mi">32803</span>
+<span class="n">LOCKD_UDPPORT</span><span class="o">=</span><span class="mi">32769</span>
+<span class="n">MOUNTD_PORT</span><span class="o">=</span><span class="mi">892</span>
+<span class="n">RQUOTAD_PORT</span><span class="o">=</span><span class="mi">875</span>
+<span class="n">STATD_PORT</span><span class="o">=</span><span class="mi">662</span>
+<span class="n">STATD_OUTGOING_PORT</span><span class="o">=</span><span class="mi">2020</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Edit the /etc/sysconfig/iptables file and add the following lines at
+the beginning of the INPUT chain.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">A</span> <span class="n">INPUT</span> <span class="o">-</span><span class="n">m</span> <span class="n">state</span> <span class="o">--</span><span class="n">state</span> <span class="n">NEW</span> <span class="o">-</span><span class="n">p</span> <span class="n">udp</span> <span class="o">--</span><span class="n">dport</span> <span class="mi">111</span> <span class="o">-</span><span class="n">j</span> <span class="n">ACCEPT</span>
+<span class="o">-</span><span class="n">A</span> <span class="n">INPUT</span> <span class="o">-</span><span class="n">m</span> <span class="n">state</span> <span class="o">--</span><span class="n">state</span> <span class="n">NEW</span> <span class="o">-</span><span class="n">p</span> <span class="n">tcp</span> <span class="o">--</span><span class="n">dport</span> <span class="mi">111</span> <span class="o">-</span><span class="n">j</span> <span class="n">ACCEPT</span>
+<span class="o">-</span><span class="n">A</span> <span class="n">INPUT</span> <span class="o">-</span><span class="n">m</span> <span class="n">state</span> <span class="o">--</span><span class="n">state</span> <span class="n">NEW</span> <span class="o">-</span><span class="n">p</span> <span class="n">tcp</span> <span class="o">--</span><span class="n">dport</span> <span class="mi">2049</span> <span class="o">-</span><span class="n">j</span> <span class="n">ACCEPT</span>
+<span class="o">-</span><span class="n">A</span> <span class="n">INPUT</span> <span class="o">-</span><span class="n">m</span> <span class="n">state</span> <span class="o">--</span><span class="n">state</span> <span class="n">NEW</span> <span class="o">-</span><span class="n">p</span> <span class="n">tcp</span> <span class="o">--</span><span class="n">dport</span> <span class="mi">32803</span> <span class="o">-</span><span class="n">j</span> <span class="n">ACCEPT</span>
+<span class="o">-</span><span class="n">A</span> <span class="n">INPUT</span> <span class="o">-</span><span class="n">m</span> <span class="n">state</span> <span class="o">--</span><span class="n">state</span> <span class="n">NEW</span> <span class="o">-</span><span class="n">p</span> <span class="n">udp</span> <span class="o">--</span><span class="n">dport</span> <span class="mi">32769</span> <span class="o">-</span><span class="n">j</span> <span class="n">ACCEPT</span>
+<span class="o">-</span><span class="n">A</span> <span class="n">INPUT</span> <span class="o">-</span><span class="n">m</span> <span class="n">state</span> <span class="o">--</span><span class="n">state</span> <span class="n">NEW</span> <span class="o">-</span><span class="n">p</span> <span class="n">tcp</span> <span class="o">--</span><span class="n">dport</span> <span class="mi">892</span> <span class="o">-</span><span class="n">j</span> <span class="n">ACCEPT</span>
+<span class="o">-</span><span class="n">A</span> <span class="n">INPUT</span> <span class="o">-</span><span class="n">m</span> <span class="n">state</span> <span class="o">--</span><span class="n">state</span> <span class="n">NEW</span> <span class="o">-</span><span class="n">p</span> <span class="n">udp</span> <span class="o">--</span><span class="n">dport</span> <span class="mi">892</span> <span class="o">-</span><span class="n">j</span> <span class="n">ACCEPT</span>
+<span class="o">-</span><span class="n">A</span> <span class="n">INPUT</span> <span class="o">-</span><span class="n">m</span> <span class="n">state</span> <span class="o">--</span><span class="n">state</span> <span class="n">NEW</span> <span class="o">-</span><span class="n">p</span> <span class="n">tcp</span> <span class="o">--</span><span class="n">dport</span> <span class="mi">875</span> <span class="o">-</span><span class="n">j</span> <span class="n">ACCEPT</span>
+<span class="o">-</span><span class="n">A</span> <span class="n">INPUT</span> <span class="o">-</span><span class="n">m</span> <span class="n">state</span> <span class="o">--</span><span class="n">state</span> <span class="n">NEW</span> <span class="o">-</span><span class="n">p</span> <span class="n">udp</span> <span class="o">--</span><span class="n">dport</span> <span class="mi">875</span> <span class="o">-</span><span class="n">j</span> <span class="n">ACCEPT</span>
+<span class="o">-</span><span class="n">A</span> <span class="n">INPUT</span> <span class="o">-</span><span class="n">m</span> <span class="n">state</span> <span class="o">--</span><span class="n">state</span> <span class="n">NEW</span> <span class="o">-</span><span class="n">p</span> <span class="n">tcp</span> <span class="o">--</span><span class="n">dport</span> <span class="mi">662</span> <span class="o">-</span><span class="n">j</span> <span class="n">ACCEPT</span>
+<span class="o">-</span><span class="n">A</span> <span class="n">INPUT</span> <span class="o">-</span><span class="n">m</span> <span class="n">state</span> <span class="o">--</span><span class="n">state</span> <span class="n">NEW</span> <span class="o">-</span><span class="n">p</span> <span class="n">udp</span> <span class="o">--</span><span class="n">dport</span> <span class="mi">662</span> <span class="o">-</span><span class="n">j</span> <span class="n">ACCEPT</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Reboot the server.</p>
+<p>An NFS share called /export is now set up.</p>
+</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">When copying and pasting a command, be sure the command has pasted as a single line before executing. Some document viewers may introduce unwanted line breaks in copied text.</p>
+</div>
+</div>
+<div class="section" id="linux-nfs-on-iscsi">
+<h3>Linux NFS on iSCSI<a class="headerlink" href="storage_setup.html#linux-nfs-on-iscsi" title="Permalink to this headline">¶</a></h3>
+<p>Use the following steps to set up a Linux NFS server export on an iSCSI
+volume. These steps apply to RHEL/CentOS 5 distributions.</p>
+<ol class="arabic">
+<li><p class="first">Install iscsiadm.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># yum install iscsi-initiator-utils</span>
+<span class="c1"># service iscsi start</span>
+<span class="c1"># chkconfig --add iscsi</span>
+<span class="c1"># chkconfig iscsi on</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Discover the iSCSI target.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># iscsiadm -m discovery -t st -p &lt;iSCSI Server IP address&gt;:3260</span>
+</pre></div>
+</div>
+<p>For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># iscsiadm -m discovery -t st -p 172.23.10.240:3260 172.23.10.240:3260,1 iqn.2001-05.com.equallogic:0-8a0906-83bcb3401-16e0002fd0a46f3d-rhel5-test</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Log in.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># iscsiadm -m node -T &lt;Complete Target Name&gt; -l -p &lt;Group IP&gt;:3260</span>
+</pre></div>
+</div>
+<p>For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># iscsiadm -m node -l -T iqn.2001-05.com.equallogic:83bcb3401-16e0002fd0a46f3d-rhel5-test -p 172.23.10.240:3260</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Discover the SCSI disk. For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># iscsiadm -m session -P3 | grep Attached</span>
+<span class="n">Attached</span> <span class="n">scsi</span> <span class="n">disk</span> <span class="n">sdb</span> <span class="n">State</span><span class="p">:</span> <span class="n">running</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Format the disk as ext3 and mount the volume.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># mkfs.ext3 /dev/sdb</span>
+<span class="c1"># mkdir -p /export</span>
+<span class="c1"># mount /dev/sdb /export</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Add the disk to /etc/fstab to make sure it gets mounted on boot.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">sdb</span> <span class="o">/</span><span class="n">export</span> <span class="n">ext3</span> <span class="n">_netdev</span> <span class="mi">0</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p>Now you can set up /export as an NFS share.</p>
+<ul>
+<li><p class="first"><strong>Limiting NFS export.</strong> In order to avoid data loss, it is highly
+recommended that you limit the NFS export to a particular subnet by
+specifying a subnet mask (e.g.,”192.168.1.0/24”). By allowing access
+from only within the expected cluster, you avoid having non-pool
+member mount the storage and inadvertently delete all its data. The
+limit you place must include the management network(s) and the
+storage network(s). If the two are the same network then one CIDR is
+sufficient. If you have a separate storage network you must provide
+separate CIDRs for both or one CIDR that is broad enough to span
+both.</p>
+<p>The following is an example with separate CIDRs:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">export</span> <span class="mf">192.168</span><span class="o">.</span><span class="mf">1.0</span><span class="o">/</span><span class="mi">24</span><span class="p">(</span><span class="n">rw</span><span class="p">,</span><span class="k">async</span><span class="p">,</span><span class="n">no_root_squash</span><span class="p">,</span><span class="n">no_subtree_check</span><span class="p">)</span> <span class="mf">10.50</span><span class="o">.</span><span class="mf">1.0</span><span class="o">/</span><span class="mi">24</span><span class="p">(</span><span class="n">rw</span><span class="p">,</span><span class="k">async</span><span class="p">,</span><span class="n">no_root_squash</span><span class="p">,</span><span class="n">no_subtree_check</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><strong>Removing the async flag.</strong> The async flag improves performance by
+allowing the NFS server to respond before writes are committed to the
+disk. Remove the async flag in your mission critical production
+deployment.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../quickinstallationguide/qig.html" class="btn btn-neutral float-right" title="Quick Installation Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="network_setup.html" class="btn btn-neutral" title="Basic and Advanced Networking" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Apache Foundation
+      
+        <span class="commit">
+          Revision <code>70858617</code>.
+        </span>
+      
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Read the Docs</span>
+      v: 4.11.1.0
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="../../../index.html">latest</a></dd>
+        
+          <dd><a href="../../4.11.2.0/index.html">4.11.2.0</a></dd>
+        
+          <dd><a href="../index.html">4.11.1.0</a></dd>
+        
+          <dd><a href="http://docs.cloudstack.apache.org/en/master/">master</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="http://readthedocs.org/projects/cloudstack-documentation/downloads/pdf/4.11.1.0/">pdf</a></dd>
+        
+          <dd><a href="http://readthedocs.org/projects/cloudstack-documentation/downloads/htmlzip/4.11.1.0/">htmlzip</a></dd>
+        
+          <dd><a href="http://readthedocs.org/projects/cloudstack-documentation/downloads/epub/4.11.1.0/">epub</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>On Read the Docs</dt>
+          <dd>
+            <a href="http://readthedocs.org/projects/cloudstack-documentation/?fromdocs=cloudstack-documentation">Project Home</a>
+          </dd>
+          <dd>
+            <a href="http://readthedocs.org/builds/cloudstack-documentation/?fromdocs=cloudstack-documentation">Builds</a>
+          </dd>
+      </dl>
+      <hr/>
+      Free document hosting provided by <a href="http://www.readthedocs.org">Read the Docs</a>.
+
+    </div>
+  </div>
+
+
+
+  
+
+    
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'4.11.1.0',
+              LANGUAGE:'en',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="https://media.readthedocs.org/javascript/jquery/jquery-2.0.3.min.js"></script>
+        <script type="text/javascript" src="https://media.readthedocs.org/javascript/jquery/jquery-migrate-1.2.1.min.js"></script>
+        <script type="text/javascript" src="https://media.readthedocs.org/javascript/underscore.js"></script>
+        <script type="text/javascript" src="https://media.readthedocs.org/javascript/doctools.js"></script>
+        <script type="text/javascript" src="https://media.readthedocs.org/javascript/readthedocs-doc-embed.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

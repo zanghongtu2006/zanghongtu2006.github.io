@@ -1,0 +1,819 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>The Cloudian Connector Plugin &mdash; Apache CloudStack 4.12.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="The Nicira NVP Plugin" href="nicira-plugin.html" />
+    <link rel="prev" title="Plugins Guide" href="index.html" /> 
+
+<!-- RTD Extra Head -->
+
+<!-- 
+Always link to the latest version, as canonical.
+http://docs.readthedocs.org/en/latest/canonical.html
+-->
+<link rel="canonical" href="../../latest/plugins/cloudian-connector.html" />
+
+<link rel="stylesheet" href="https://assets.readthedocs.org/static/css/readthedocs-doc-embed.css" type="text/css" />
+
+<script type="text/javascript" src="../_static/readthedocs-data.js"></script>
+
+<!-- Add page-specific data, which must exist in the page js, not global -->
+<script type="text/javascript">
+READTHEDOCS_DATA['page'] = "plugins/cloudian-connector"
+READTHEDOCS_DATA['source_suffix'] = ".rst"
+</script>
+
+<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js"></script>
+
+<!-- end RTD <extrahead> -->
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Apache CloudStack
+          
+
+          
+          </a>
+
+          
+            
+            
+            
+              <div class="version">
+                4.12.0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../conceptsandterminology/index.html">CloudStack Concepts and Terminology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickinstallationguide/qig.html">Quick Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installguide/index.html">Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../upgrading/index.html">Upgrading CloudStack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../adminguide/index.html">Usage Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developersguide/index.html">Developers Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Plugins Guide</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="cloudian-connector.html#">The Cloudian Connector Plugin</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cloudian-connector.html#introduction-to-the-cloudian-connector-plugin">Introduction to the Cloudian Connector Plugin</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudian-connector.html#compatibilty">Compatibilty</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudian-connector.html#connector-overview">Connector Overview</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudian-connector.html#single-sign-on-integration">Single-Sign-On Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudian-connector.html#user-mapping-and-provisioning-de-provisioning">User Mapping and Provisioning/De-provisioning</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudian-connector.html#special-admin-user-mapping">Special Admin User Mapping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudian-connector.html#dns-resolution-requirements">DNS Resolution Requirements</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudian-connector.html#configuring-the-cloudian-connector">Configuring the Cloudian Connector</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudian-connector.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudian-connector.html#connector-configuration">Connector Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudian-connector.html#enabling-the-cloudian-connector">Enabling the Cloudian Connector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudian-connector.html#troubleshooting">Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudian-connector.html#cloudian-as-cloudstack-secondary-storage">Cloudian as CloudStack Secondary Storage</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudian-connector.html#nfs-secondary-storage-staging-server-requirement">NFS Secondary Storage Staging Server Requirement</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudian-connector.html#dns-name-resolution-requirement">DNS Name Resolution Requirement</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudian-connector.html#adding-cloudian-as-cloudstack-secondary-storage">Adding Cloudian as CloudStack Secondary Storage</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudian-connector.html#setup-a-cloudian-user-and-bucket-for-secondary-storage">Setup a Cloudian User and Bucket for Secondary Storage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudian-connector.html#open-up-access-to-your-s3-network-from-secondary-storage">Open Up Access to your S3 Network from Secondary Storage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudian-connector.html#add-an-nfs-secondary-storage-staging-server">Add an NFS Secondary Storage Staging Server</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudian-connector.html#attach-cloudian-as-secondary-storage">Attach Cloudian as Secondary Storage</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudian-connector.html#revision-history">Revision History</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nicira-plugin.html">The Nicira NVP Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nuage-plugin.html">The Nuage VSP Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vxlan.html">The VXLAN Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ovs-plugin.html">The OVS Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ipv6.html">IPv6 Support in CloudStack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quota.html">Quota Plugin</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Other Documentation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/api.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://cwiki.apache.org/confluence/display/CLOUDSTACK/Home">Apache CloudStack Wiki</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/">Apache CloudStack web site</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/downloads.html">Apache CloudStack Source Code</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/apache/cloudstack">Apache CloudStack on GitHub</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Pre 4.11 Documentation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="../../../projects/cloudstack-installation">Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference external" href="../../../projects/cloudstack-administration">Administration Guide</a></li>
+<li class="toctree-l1"><a class="reference external" href="../../../projects/cloudstack-release-notes">Release Notes</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Apache CloudStack</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Plugins Guide</a> &raquo;</li>
+        
+      <li>The Cloudian Connector Plugin</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/apache/cloudstack-documentation/blob/4.12.0.0/source/plugins/cloudian-connector.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="the-cloudian-connector-plugin">
+<h1>The Cloudian Connector Plugin<a class="headerlink" href="cloudian-connector.html#the-cloudian-connector-plugin" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction-to-the-cloudian-connector-plugin">
+<h2>Introduction to the Cloudian Connector Plugin<a class="headerlink" href="cloudian-connector.html#introduction-to-the-cloudian-connector-plugin" title="Permalink to this headline">¶</a></h2>
+<p>The Cloudian (HyperStore) Connector is a native CloudStack plugin that allow
+integration between Apache CloudStack and Cloudian Management Console (CMC). The
+Connector integrates Cloudian S3 Storage into the CloudStack Management GUI and
+allows administrators to easily give their CloudStack users access to and manage
+their own S3 storage areas.</p>
+<div class="section" id="compatibilty">
+<h3>Compatibilty<a class="headerlink" href="cloudian-connector.html#compatibilty" title="Permalink to this headline">¶</a></h3>
+<p>The following table shows the compatiblity of Cloudian Connector with CloudStack.</p>
+<table border="1" class="table-striped table-bordered table-hover docutils">
+<colgroup>
+<col width="31%" />
+<col width="32%" />
+<col width="37%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Connector Version</th>
+<th class="head">CloudStack version</th>
+<th class="head">Cloudian Compatibility</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>4.9_6.2-1</td>
+<td>4.9</td>
+<td>Version 6.2 and onwards</td>
+</tr>
+<tr class="row-odd"><td>4.11+</td>
+<td>4.11+</td>
+<td>Version 6.2 and onwards</td>
+</tr>
+</tbody>
+</table>
+<p>Table: Support Matrix</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Starting CloudStack 4.11, the Connector will be part of the CloudStack
+release and will not need to be externally installed.</p>
+</div>
+</div>
+</div>
+<div class="section" id="connector-overview">
+<h2>Connector Overview<a class="headerlink" href="cloudian-connector.html#connector-overview" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="single-sign-on-integration">
+<h3>Single-Sign-On Integration<a class="headerlink" href="cloudian-connector.html#single-sign-on-integration" title="Permalink to this headline">¶</a></h3>
+<p>The connector plugin adds a Cloudian Storage button to the CloudStack UI. This
+button is available for all users on the bottom left of the menu.</p>
+<div class="figure align-center">
+<img alt="a screenshot of an enabled Cloudian Connector" src="../_images/cloudian-tab.png" />
+</div>
+<p>When a user clicks this button, a new window or tab (depending on the web
+browser preferences) is opened for the HyperStore CMC GUI. The CloudStack user
+is automatically logged in to CMC as the correctly mapped HyperStore user using
+Single-Sign-On (SSO).</p>
+<p>With the connector enabled, when the user clicks ‘Log Out’ in the CloudStack UI
+this first logs the user out of CloudStack and then redirects the page to log
+out any logged-in Cloudian user out of CMC GUI and finally redirects the page to
+the CloudStack login page.</p>
+<p>Single-Sign-On is a technique where CloudStack and HyperStore are configured to
+trust each other. This is achieved by configuring both HyperStore and the
+CloudStack connector with the same SSO Shared Key. The CloudStack connector
+creates a special login URL for CMC which it signs using this shared key. Upon
+receiving the special signed login URL, CMC validates the request by comparing
+the signature to its own copy of the shared key and the user is automatically
+logged in.</p>
+</div>
+<div class="section" id="user-mapping-and-provisioning-de-provisioning">
+<h3>User Mapping and Provisioning/De-provisioning<a class="headerlink" href="cloudian-connector.html#user-mapping-and-provisioning-de-provisioning" title="Permalink to this headline">¶</a></h3>
+<p>CloudStack domains are mapped to Cloudian Groups. CloudStack accounts within
+those domains are mapped to Cloudian users. The Cloudian user and group are
+created on demand if it doesn’t already exist when the CloudStack user accesses
+CMC through the Cloudian Storage button. When accounts and domains are created
+or removed in CloudStack, they automatically create or remove users or groups in
+CMC.</p>
+<table border="1" class="table-striped table-bordered table-hover docutils">
+<colgroup>
+<col width="43%" />
+<col width="57%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">CloudStack Entity</th>
+<th class="head">Equivalent Cloudian Entity</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Account</td>
+<td>User</td>
+</tr>
+<tr class="row-odd"><td>Domain</td>
+<td>Group</td>
+</tr>
+</tbody>
+</table>
+<p>Table: Mapping Between Cloudian and CloudStack</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Adding groups or users directly through Cloudian does not add
+corresponding CloudStack Domains or Accounts. The integration is driven
+completely from the CloudStack side.</p>
+</div>
+</div>
+<div class="section" id="special-admin-user-mapping">
+<h3>Special Admin User Mapping<a class="headerlink" href="cloudian-connector.html#special-admin-user-mapping" title="Permalink to this headline">¶</a></h3>
+<p>The special CloudStack admin is are mapped to a special HyperStore Admin user
+account which defaults to the user id admin. As the admin user on HyperStore is
+configurable, there is a configuration option to control this mapping. This
+mapping dictates which HyperStore user is automatically logged in using SSO when
+the CloudStack admin user clicks “Cloudian Storage”.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The Cloudian Admin user default is called admin. Older versions of
+Cloudian used to use <a class="reference external" href="mailto:admin&#37;&#52;&#48;cloudian&#46;com">admin<span>&#64;</span>cloudian<span>&#46;</span>com</a>.</p>
+</div>
+</div>
+<div class="section" id="dns-resolution-requirements">
+<h3>DNS Resolution Requirements<a class="headerlink" href="cloudian-connector.html#dns-resolution-requirements" title="Permalink to this headline">¶</a></h3>
+<p>The CloudStack Management Server will need to be access the Cloudian admin
+service. The Cloudian admin service is commonly run on the same nodes as your
+Cloudian S3 servers. The admin service is used to provision and deprovision
+Cloudian users and groups automatically by CloudStack.</p>
+<p>Additionally, your CloudStack users will need to be able to resolve your CMC
+server hostname on their desktops so that they can access CMC.</p>
+<p>Example domain names that should resolve:</p>
+<table border="1" class="table-striped table-bordered table-hover docutils">
+<colgroup>
+<col width="29%" />
+<col width="30%" />
+<col width="41%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Resolvable Name</th>
+<th class="head">Required By</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>mgmt.abc-cloud.com</td>
+<td>User’s browser</td>
+<td>CloudStack Management Server</td>
+</tr>
+<tr class="row-odd"><td>cmc.abc-cloud.com</td>
+<td>User’s browser</td>
+<td>Cloudian CMC</td>
+</tr>
+<tr class="row-even"><td>admin.abc-cloud.com</td>
+<td>Management Server</td>
+<td>Cloudian Admin Server</td>
+</tr>
+</tbody>
+</table>
+<p>Table: DNS Name Resolution Example</p>
+</div>
+</div>
+<div class="section" id="configuring-the-cloudian-connector">
+<h2>Configuring the Cloudian Connector<a class="headerlink" href="cloudian-connector.html#configuring-the-cloudian-connector" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="prerequisites">
+<h3>Prerequisites<a class="headerlink" href="cloudian-connector.html#prerequisites" title="Permalink to this headline">¶</a></h3>
+<p>Cloudian ships with SSO disabled by default. You will need to enable it on each
+CMC server. Additionally, you will need to choose a unique SSO shared key that
+you will also configure in the CloudStack connector further below.</p>
+<p>Edit Puppet config to enable SSO on all CMC servers:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># vi /etc/cloudian-[version]-puppet/modules/cmc/templates/mts-ui.properties.erb</span>
+  <span class="n">sso</span><span class="o">.</span><span class="n">enabled</span><span class="o">=</span><span class="n">true</span>
+  <span class="n">sso</span><span class="o">.</span><span class="n">shared</span><span class="o">.</span><span class="n">key</span><span class="o">=</span><span class="n">YourSecretKeyHere</span>
+</pre></div>
+</div>
+</div></blockquote>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Once configured in Puppet, you should roll out out to each CMC server and
+restart CMC services. Please refer to the HyperStore documentation for how to
+do this.</p>
+</div>
+</div>
+<div class="section" id="connector-configuration">
+<h3>Connector Configuration<a class="headerlink" href="cloudian-connector.html#connector-configuration" title="Permalink to this headline">¶</a></h3>
+<p>The main way to configure, enable and disable the connector is using the
+CloudStack global setting. The global settings provide an easy way to configure
+the connector and synchronize setting across multiple management server(s). The
+following global setting can be accessed and changed using the CloudStack UI:</p>
+<table border="1" class="table-striped table-bordered table-hover docutils">
+<colgroup>
+<col width="38%" />
+<col width="62%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Global Setting</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>cloudian.connector.enabled</td>
+<td>Setting to enable/disable the plugin</td>
+</tr>
+<tr class="row-odd"><td>cloudian.admin.host</td>
+<td>The Cloudian admin server host</td>
+</tr>
+<tr class="row-even"><td>cloudian.admin.port</td>
+<td>The Cloudian admin server port, usually 19443
+(https) or 18081 (http)</td>
+</tr>
+<tr class="row-odd"><td>cloudian.admin.protocol</td>
+<td>The Cloudian admin server protocol, http/https</td>
+</tr>
+<tr class="row-even"><td>cloudian.validate.ssl</td>
+<td>Whether to validate SSL certificate of Cloudian
+admin service while making API calls</td>
+</tr>
+<tr class="row-odd"><td>cloudian.admin.user</td>
+<td>Basic auth user name for Cloudian admin server</td>
+</tr>
+<tr class="row-even"><td>cloudian.admin.password</td>
+<td>Basic auth password for Cloudian admin server</td>
+</tr>
+<tr class="row-odd"><td>cloudian.api.request.timeout</td>
+<td>The admin API request timeout in seconds</td>
+</tr>
+<tr class="row-even"><td>cloudian.cmc.admin.user</td>
+<td>The user id of the CMC admin that maps to
+CloudStack admin user</td>
+</tr>
+<tr class="row-odd"><td>cloudian.cmc.host</td>
+<td>The Cloudian Management Console hostname</td>
+</tr>
+<tr class="row-even"><td>cloudian.cmc.port</td>
+<td>The Cloudian Management Console port</td>
+</tr>
+<tr class="row-odd"><td>cloudian.cmc.protocol</td>
+<td>The Cloudian Management Console protocol</td>
+</tr>
+<tr class="row-even"><td>cloudian.sso.key</td>
+<td>The shared secret as configured in Cloudian CMC</td>
+</tr>
+</tbody>
+</table>
+<p>Table: Cloudian Connector Global Settings</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Change in only ‘cloudian.connector.enabled’ setting requires restarting of
+all the CloudStack management server(s), rest of the setting can be changed
+dynamically without requiring to restart the CloudStack management server(s).</p>
+</div>
+</div>
+<div class="section" id="enabling-the-cloudian-connector">
+<h3>Enabling the Cloudian Connector<a class="headerlink" href="cloudian-connector.html#enabling-the-cloudian-connector" title="Permalink to this headline">¶</a></h3>
+<p>The Cloudian Connector comes disabled by default, enabling the connector is the
+last step. You should have already configured the Cloudian Connector global
+settings. To enable the connector, ensure that the global setting
+“cloudian.connector.enabled” is set to true. Finally, restart each of the
+management server(s) to reload and enable the connector.</p>
+<p>For example, here is how you can restart the CloudStack management server
+installed on CentOS7:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># systemctl restart cloudstack-management</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="troubleshooting">
+<h3>Troubleshooting<a class="headerlink" href="cloudian-connector.html#troubleshooting" title="Permalink to this headline">¶</a></h3>
+<p>Most of the trouble you may run into will be configuration related.</p>
+<p>There are a few things which can go wrong for SSO. Here are the most common
+problems and things to check:</p>
+<ul class="simple">
+<li>Does the global settings cloudian.cmc.admin.user point to the correct Cloudian
+(admin) user?</li>
+<li>Is SSO configured and enabled on Cloudian HyperStore CMC?</li>
+<li>Check for errors in the CMC log file.</li>
+<li>Are both CloudStack and HyperStore CMC configured with the same cloudian.sso.key?</li>
+<li>Check the /var/log/cloudstack/management/management-server.log file and
+search for errors relating to SSO.</li>
+<li>Try access the CMC host directly from the problem users host using the
+configured cloudian.cmc.host, cloudian.cmc.port and cloudian.cmc.protocol
+configured in the CloudStack global settings.</li>
+<li>If you log out of the management server and log in again, does the Cloudian
+Storage button work?</li>
+</ul>
+<p>Adding/Deleting Domains or Accounts fails: These operations use the Cloudian
+Admin Server. It’s likely that something has changed with the connection or the
+admin server is down. Check list:</p>
+<ul class="simple">
+<li>Is the admin server alive and listening?</li>
+<li>Try access the admin server host directly from the problem users host using
+the configured cloudian.admin.host, cloudian.admin.port and
+cloudian.admin.protocol configured in the CloudStack global settings. Check the
+configured auth settings cloudian.admin.user and cloudian.admin.password.</li>
+<li>If you’re experiencing timeout issues, trying changing the API timeout value
+defined in cloudian.api.request.timeout global setting.</li>
+<li>Look for errors in the admin log file /var/log/cloudian/cloudian-admin.log.</li>
+</ul>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="cloudian-as-cloudstack-secondary-storage">
+<h2>Cloudian as CloudStack Secondary Storage<a class="headerlink" href="cloudian-connector.html#cloudian-as-cloudstack-secondary-storage" title="Permalink to this headline">¶</a></h2>
+<p>This section is a supplementary guide for CloudStack and describes how to
+configure CloudStack to use Cloudian HyperStore as Secondary Storage. Please
+also review CloudStack’s documentation (Getting Started Guide) for configuring
+and using S3 as Secondary Storage.</p>
+<p>CloudStack, as of version 4.2.1, can utilize Cloudian HyperStore as S3 Secondary
+Storage out of the box. There is no need for any modifications or to install any
+connectors. Secondary Storage is used to store ISOs, Templates, Snapshots and
+Volumes.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">CloudStack still requires an NFS Secondary Storage Staging Server with is
+mentioned in the requirements below.</p>
+</div>
+<p>Requirements:</p>
+<ul class="simple">
+<li>CloudStack 4.5+ (installed/configured and running)</li>
+<li>Cloudian HyperStore 5.0 or greater (installed/configured and running)</li>
+</ul>
+<div class="section" id="nfs-secondary-storage-staging-server-requirement">
+<h3>NFS Secondary Storage Staging Server Requirement<a class="headerlink" href="cloudian-connector.html#nfs-secondary-storage-staging-server-requirement" title="Permalink to this headline">¶</a></h3>
+<p>The use of S3 as Secondary Storage for CloudStack also requires an NFS server.
+The NFS server is required because the various hypervisors cannot yet talk
+directly to S3 but instead talk through the standard file system API. As such,
+CloudStack requires an NFS staging server which the Hypervisors use to read and
+write data from/to. The NFS storage requirements for the staging server are
+small however as space is only required while objects are staged (moving)
+between the S3 server and the VMs.</p>
+</div>
+<div class="section" id="dns-name-resolution-requirement">
+<h3>DNS Name Resolution Requirement<a class="headerlink" href="cloudian-connector.html#dns-name-resolution-requirement" title="Permalink to this headline">¶</a></h3>
+<p>All CloudStack Management Servers, system VMs and customer VMs (if required)
+must be able to resolve your S3 bucket names. Usually, if you already have
+Cloudian installed and running in your environment, this is already working.
+At a minimum the following names should resolve to the correct IP addresses
+using the DNS server that your Management Server and System VMs are using.</p>
+<table border="1" class="table-striped table-bordered table-hover docutils">
+<colgroup>
+<col width="41%" />
+<col width="59%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Example Name</th>
+<th class="head">DNS Name Types</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>s3.mycloud.com</td>
+<td>Cloudian S3 Endpoint</td>
+</tr>
+<tr class="row-odd"><td>sec.s3.mycloud.com</td>
+<td>Bucket for Secondary Storage</td>
+</tr>
+<tr class="row-even"><td>s3-admin.mycloud.com</td>
+<td>Cloudian Admin Server</td>
+</tr>
+</tbody>
+</table>
+<p>Table: Example Domain Names that should Resolve on CloudStack Servers</p>
+</div>
+</div>
+<div class="section" id="adding-cloudian-as-cloudstack-secondary-storage">
+<h2>Adding Cloudian as CloudStack Secondary Storage<a class="headerlink" href="cloudian-connector.html#adding-cloudian-as-cloudstack-secondary-storage" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="setup-a-cloudian-user-and-bucket-for-secondary-storage">
+<h3>Setup a Cloudian User and Bucket for Secondary Storage<a class="headerlink" href="cloudian-connector.html#setup-a-cloudian-user-and-bucket-for-secondary-storage" title="Permalink to this headline">¶</a></h3>
+<p>S3 Secondary Storage stores the CloudStack templates, snapshots etc in a
+dedicated S3 Bucket. To properly configure CloudStack you will need to know the
+S3 Bucket name and how to access your S3 Server (the S3 endpoint, access key and
+secret key).</p>
+<p>Below, we will create a dedicated Cloudian user and a dedicated bucket which we
+will assign for use as Secondary Storage.</p>
+<p>Create a dedicated user/group:</p>
+<ul class="simple">
+<li>Login to the Cloudian Management Console (CMC) as the Cloudian admin user.</li>
+<li>Create a new group called cloudstack. Any group name is ok.</li>
+<li>Create a new user called cloudstack in the cloudstack group. Any user name is ok.</li>
+</ul>
+<p>Create a dedicated bucket:</p>
+<ul class="simple">
+<li>Login to CMC as the cloudstack user created above.</li>
+<li>Create a bucket called secondary. Any bucket name will do.</li>
+<li>On the top menu bar on the right hand side, use the drop down menu under your
+user name to select Security Credentials and copy and paste your Access and
+Secret Keys to a note for later use. CloudStack will need these when you attach
+Cloudian as Secondary Storage in a later step below.</li>
+</ul>
+</div>
+<div class="section" id="open-up-access-to-your-s3-network-from-secondary-storage">
+<h3>Open Up Access to your S3 Network from Secondary Storage<a class="headerlink" href="cloudian-connector.html#open-up-access-to-your-s3-network-from-secondary-storage" title="Permalink to this headline">¶</a></h3>
+<p>If your S3 server is on a different network to your Secondary Storage VM, you
+will need to open up access to the S3 network. This also allows users to
+download templates from their S3 object store areas.</p>
+<div class="figure align-center">
+<img alt="a screenshot of changing global settings" src="../_images/cloudian-ss_globalopt.png" />
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Editing the Global Settings requires you to restart the management server(s).</p>
+</div>
+</div>
+<div class="section" id="add-an-nfs-secondary-storage-staging-server">
+<h3>Add an NFS Secondary Storage Staging Server<a class="headerlink" href="cloudian-connector.html#add-an-nfs-secondary-storage-staging-server" title="Permalink to this headline">¶</a></h3>
+<p>As mentioned previously, S3 Secondary Storage currently requires the use of an
+NFS Secondary Staging Server. Add NFS Secondary Storage Staging Server:</p>
+<ul class="simple">
+<li>Login to CloudStack Management Server as the admin user.</li>
+<li>Navigate to Infrastructure → Secondary Storage.</li>
+<li>Click Select View and select Secondary Staging Store.</li>
+<li>Click Add Secondary Staging Store.</li>
+<li>Configure the zone, server and path for your desired secondary staging store.
+For example nfs.mycloud.com and /export/staging.</li>
+</ul>
+<div class="figure align-center">
+<img alt="a screenshot of adding secondary staging store" src="../_images/cloudian-s3_ss_cache.png" />
+</div>
+</div>
+<div class="section" id="attach-cloudian-as-secondary-storage">
+<h3>Attach Cloudian as Secondary Storage<a class="headerlink" href="cloudian-connector.html#attach-cloudian-as-secondary-storage" title="Permalink to this headline">¶</a></h3>
+<p>CloudStack supports using either S3 or NFS as Secondary Storage but not both.
+The below instructions assume you are not using Secondary Storage on NFS and
+that you can delete it to add the S3 storage.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Already using NFS for Secondary Storage with CloudStack? You need to migrate
+your Secondary Storage. Refer to CloudStack’s instructions for migrating
+existing NFS Secondary Storage to an S3 object storage. CloudStack 4.5 onwards
+supports migrating data via special commands which are described in the Getting
+Started Guide in a section titled Upgrading from NFS to Object Storage.</p>
+</div>
+<p>Adding S3 Secondary Storage:</p>
+<ul class="simple">
+<li>Login to CloudStack Management Server as the admin user.</li>
+<li>Navigate to Infrastructure → Secondary Storage.</li>
+<li>If it exists, select and delete any existing NFS Secondary Storage server
+setting. NOTE: Do not do this if you want to migrate existing NFS secondary
+storage to S3. Instead, see warning above.</li>
+<li>Click the Add Secondary Storage button. This will open up a pop-up form which
+you can fill out similarly to below.</li>
+</ul>
+<div class="figure align-center">
+<img alt="a screenshot of configuring S3 secondary storage" src="../_images/cloudian-s3_ss_config.png" />
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">CloudStack doesn’t currently allow you to re-edit the S3 configuration so take
+time to double check what you enter. If you make a mistake the only options
+currently are either a) delete and recreate the storage or b) directly edit the
+entry in the database.</p>
+</div>
+<p>When you have finished adding Cloudian as Secondary Storage in the previous
+steps, CloudStack will populate the new secondary storage with the system and
+default templates. This can take some time do download as the templates are
+quite big.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You can check if the system template and the default template have properly
+downloaded to the new secondary storage by navigating to Templates, selecting a
+template, clicking on the Zones tab and checking its Status is Ready 100%
+Downloaded.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Should you continue to have problems, sometimes it is necessary to restart
+the Secondary Storage VM. You can do this by navigating to Infrastructure,
+System VMs, selecting and rebooting the Secondary Storage VM.</p>
+</div>
+<p>CloudStack should now ready to use Cloudian HyperStore for S3 Secondary Storage.</p>
+</div>
+</div>
+<div class="section" id="revision-history">
+<h2>Revision History<a class="headerlink" href="cloudian-connector.html#revision-history" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Fri Oct 6 2017 Rohit Yadav <a class="reference external" href="mailto:rohit&#46;yadav&#37;&#52;&#48;shapeblue&#46;com">rohit<span>&#46;</span>yadav<span>&#64;</span>shapeblue<span>&#46;</span>com</a> Documentation
+created for 4.11.0 version of the Cloudian Connector Plugin</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="nicira-plugin.html" class="btn btn-neutral float-right" title="The Nicira NVP Plugin" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Plugins Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Apache Foundation
+      
+        <span class="commit">
+          Revision <code>af137188</code>.
+        </span>
+      
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Read the Docs</span>
+      v: 4.12.0.0
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="http://docs.cloudstack.apache.org/en/master/">master</a></dd>
+        
+          <dd><a href="../../../index.html">latest</a></dd>
+        
+          <dd><a href="../../4.13.0.0/index.html">4.13.0.0</a></dd>
+        
+          <dd><a href="../index.html">4.12.0.0</a></dd>
+        
+          <dd><a href="../../4.11.3.0/index.html">4.11.3.0</a></dd>
+        
+          <dd><a href="../../4.11.2.0/index.html">4.11.2.0</a></dd>
+        
+          <dd><a href="../../4.11.1.0/index.html">4.11.1.0</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="http://readthedocs.org/projects/cloudstack-documentation/downloads/htmlzip/4.12.0.0/">html</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>On Read the Docs</dt>
+          <dd>
+            <a href="http://readthedocs.org/projects/cloudstack-documentation/?fromdocs=cloudstack-documentation">Project Home</a>
+          </dd>
+          <dd>
+            <a href="http://readthedocs.org/builds/cloudstack-documentation/?fromdocs=cloudstack-documentation">Builds</a>
+          </dd>
+      </dl>
+      <hr/>
+      Free document hosting provided by <a href="http://www.readthedocs.org">Read the Docs</a>.
+
+    </div>
+  </div>
+
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+   
+
+</body>
+</html>

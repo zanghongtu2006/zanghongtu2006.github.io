@@ -1,0 +1,885 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>CloudStack Installation from GIT repo for Developers &mdash; Apache CloudStack 4.11.1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Programmer Guide" href="dev.html" />
+    <link rel="prev" title="Developers Guide" href="index.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+
+<!-- RTD Extra Head -->
+
+<!-- 
+Always link to the latest version, as canonical.
+http://docs.readthedocs.org/en/latest/canonical.html
+-->
+<link rel="canonical" href="developer_guide.html" />
+
+<link rel="stylesheet" href="https://media.readthedocs.org/css/readthedocs-doc-embed.css" type="text/css" />
+
+<script type="text/javascript" src="../_static/readthedocs-data.js"></script>
+
+<!-- Add page-specific data, which must exist in the page js, not global -->
+<script type="text/javascript">
+READTHEDOCS_DATA['page'] = 'developersguide/developer_guide'
+READTHEDOCS_DATA['source_suffix'] = '.rst'
+</script>
+
+<script type="text/javascript" src="https://media.readthedocs.org/javascript/readthedocs-analytics.js"></script>
+
+<!-- end RTD <extrahead> -->
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Apache CloudStack
+          
+
+          
+          </a>
+
+          
+            
+            
+            
+              <div class="version">
+                4.11.1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../conceptsandterminology/index.html">CloudStack Concepts and Terminology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickinstallationguide/qig.html">Quick Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installguide/index.html">Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../upgrading/index.html">Upgrading CloudStack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../adminguide/index.html">Usage Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Developers Guide</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="developer_guide.html#">CloudStack Installation from GIT repo for Developers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="developer_guide.html#prerequisites">Prerequisites</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="developer_guide.html#on-ubuntu-12-04">On Ubuntu 12.04</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer_guide.html#on-centos-6-4">On CentOS 6.4</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="developer_guide.html#installing-from-source">Installing from Source</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer_guide.html#using-the-simulator">Using the Simulator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer_guide.html#using-devcloud">Using DevCloud</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="developer_guide.html#adding-devcloud-as-an-hypervisor">Adding DevCloud as an Hypervisor</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="developer_guide.html#building-packages">Building Packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer_guide.html#the-cloudstack-api">The CloudStack API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer_guide.html#testing-the-aws-api-interface">Testing the AWS API interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer_guide.html#conclusions">Conclusions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="dev.html">Programmer Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugins.html">Plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alloc.html">Allocators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ansible.html">Deploying CloudStack with Ansible</a></li>
+<li class="toctree-l2"><a class="reference internal" href="get_help.html">Getting Help</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/index.html">Plugins Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Other Documentation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/api.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://cwiki.apache.org/confluence/display/CLOUDSTACK/Home">Apache CloudStack Wiki</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/">Apache CloudStack web site</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/downloads.html">Apache CloudStack Source Code</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/apache/cloudstack">Apache CloudStack on GitHub</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Pre 4.11 Documentation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="../../../projects/cloudstack-installation">Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference external" href="../../../projects/cloudstack-administration">Administration Guide</a></li>
+<li class="toctree-l1"><a class="reference external" href="../../../projects/cloudstack-release-notes">Release Notes</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Apache CloudStack</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Developers Guide</a> &raquo;</li>
+        
+      <li>CloudStack Installation from GIT repo for Developers</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/apache/cloudstack-documentation/blob/4.11.1.0/source/developersguide/developer_guide.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="cloudstack-installation-from-git-repo-for-developers">
+<h1>CloudStack Installation from GIT repo for Developers<a class="headerlink" href="developer_guide.html#cloudstack-installation-from-git-repo-for-developers" title="Permalink to this headline">¶</a></h1>
+<p>This book is aimed at CloudStack developers who need to build the code.
+These instructions are valid on a Ubuntu 12.04 and CentOS 6.4 systems
+and were tested with the 4.2 release of Apache CloudStack, please adapt
+them if you are on a different operating system or using a newer/older
+version of CloudStack. This book is composed of the following sections:</p>
+<ol class="arabic simple">
+<li>Installation of the prerequisites</li>
+<li>Compiling and installation from source</li>
+<li>Using the CloudStack simulator</li>
+<li>Installation with DevCloud the CloudStack sandbox</li>
+<li>Building your own packages</li>
+<li>The CloudStack API</li>
+<li>Testing the AWS API interface</li>
+</ol>
+<div class="section" id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="developer_guide.html#prerequisites" title="Permalink to this headline">¶</a></h2>
+<p>In this section we’ll look at installing the dependencies you’ll need
+for Apache CloudStack development.</p>
+<div class="section" id="on-ubuntu-12-04">
+<h3>On Ubuntu 12.04<a class="headerlink" href="developer_guide.html#on-ubuntu-12-04" title="Permalink to this headline">¶</a></h3>
+<p>First update and upgrade your system:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">update</span>
+<span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">upgrade</span>
+</pre></div>
+</div>
+<p>NTP might already be installed, check it with <code class="docutils literal notranslate"><span class="pre">service</span> <span class="pre">ntp</span> <span class="pre">status</span></code>. If
+it’s not then install NTP to synchronize the clocks:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">openntpd</span>
+</pre></div>
+</div>
+<p>Install <code class="docutils literal notranslate"><span class="pre">openjdk</span></code>. As we’re using Linux, OpenJDK is our first choice.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">openjdk</span><span class="o">-</span><span class="mi">7</span><span class="o">-</span><span class="n">jdk</span>
+</pre></div>
+</div>
+<p>Install <code class="docutils literal notranslate"><span class="pre">tomcat6</span></code>, note that the new version of tomcat on
+<a class="reference external" href="http://packages.ubuntu.com/precise/all/tomcat6">Ubuntu</a> is the
+6.0.35 version.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">tomcat6</span>
+</pre></div>
+</div>
+<p>Next, we’ll install MySQL if it’s not already present on the system.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">mysql</span><span class="o">-</span><span class="n">server</span>
+</pre></div>
+</div>
+<p>Remember to set the correct <code class="docutils literal notranslate"><span class="pre">mysql</span></code> password in the CloudStack
+properties file. Mysql should be running but you can check it’s status
+with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">service</span> <span class="n">mysql</span> <span class="n">status</span>
+</pre></div>
+</div>
+<p>Developers wanting to build CloudStack from source will want to install
+the following additional packages. If you dont’ want to build from
+source just jump to the next section.</p>
+<p>Install <code class="docutils literal notranslate"><span class="pre">git</span></code> to later clone the CloudStack source code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">git</span>
+</pre></div>
+</div>
+<p>Install <code class="docutils literal notranslate"><span class="pre">Maven</span></code> to later build CloudStack</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">maven</span>
+</pre></div>
+</div>
+<p>This should have installed Maven 3.0, check the version number with
+<code class="docutils literal notranslate"><span class="pre">mvn</span> <span class="pre">--version</span></code></p>
+<p>A little bit of Python can be used (e.g simulator), install the Python
+package management tools:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">python</span><span class="o">-</span><span class="n">pip</span> <span class="n">python</span><span class="o">-</span><span class="n">setuptools</span>
+</pre></div>
+</div>
+<p>Finally install <code class="docutils literal notranslate"><span class="pre">mkisofs</span></code> with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">genisoimage</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="on-centos-6-4">
+<h3>On CentOS 6.4<a class="headerlink" href="developer_guide.html#on-centos-6-4" title="Permalink to this headline">¶</a></h3>
+<p>First update and upgrade your system:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">yum</span> <span class="o">-</span><span class="n">y</span> <span class="n">update</span>
+<span class="n">yum</span> <span class="o">-</span><span class="n">y</span> <span class="n">upgrade</span>
+</pre></div>
+</div>
+<p>If not already installed, install NTP for clock synchornization</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">yum</span> <span class="o">-</span><span class="n">y</span> <span class="n">install</span> <span class="n">ntp</span>
+</pre></div>
+</div>
+<p>Install <code class="docutils literal notranslate"><span class="pre">openjdk</span></code>. As we’re using Linux, OpenJDK is our first choice.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">yum</span> <span class="o">-</span><span class="n">y</span> <span class="n">install</span> <span class="n">java</span><span class="o">-</span><span class="mf">1.7</span><span class="o">.</span><span class="mi">0</span><span class="o">-</span><span class="n">openjdk</span><span class="o">-</span><span class="n">devel</span>
+</pre></div>
+</div>
+<p>Install <code class="docutils literal notranslate"><span class="pre">tomcat6</span></code>, note that the version of tomcat6 in the default
+CentOS 6.4 repo is 6.0.24, so we will grab the 6.0.35 version. The
+6.0.24 version will be installed anyway as a dependency to cloudstack.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">wget</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">archive</span><span class="o">.</span><span class="n">apache</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">dist</span><span class="o">/</span><span class="n">tomcat</span><span class="o">/</span><span class="n">tomcat</span><span class="o">-</span><span class="mi">6</span><span class="o">/</span><span class="n">v6</span><span class="o">.</span><span class="mf">0.35</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">apache</span><span class="o">-</span><span class="n">tomcat</span><span class="o">-</span><span class="mf">6.0</span><span class="o">.</span><span class="mf">35.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span>
+<span class="n">tar</span> <span class="n">xzvf</span> <span class="n">apache</span><span class="o">-</span><span class="n">tomcat</span><span class="o">-</span><span class="mf">6.0</span><span class="o">.</span><span class="mf">35.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span> <span class="o">-</span><span class="n">C</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span>
+</pre></div>
+</div>
+<p>Setup tomcat6 system wide by creating a file
+<code class="docutils literal notranslate"><span class="pre">/etc/profile.d/tomcat.sh</span></code> with the following content:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">export</span> <span class="n">CATALINA_BASE</span><span class="o">=/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">apache</span><span class="o">-</span><span class="n">tomcat</span><span class="o">-</span><span class="mf">6.0</span><span class="o">.</span><span class="mi">35</span>
+<span class="n">export</span> <span class="n">CATALINA_HOME</span><span class="o">=/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">apache</span><span class="o">-</span><span class="n">tomcat</span><span class="o">-</span><span class="mf">6.0</span><span class="o">.</span><span class="mi">35</span>
+</pre></div>
+</div>
+<p>Next, we’ll install MySQL if it’s not already present on the system.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">yum</span> <span class="o">-</span><span class="n">y</span> <span class="n">install</span> <span class="n">mysql</span> <span class="n">mysql</span><span class="o">-</span><span class="n">server</span>
+</pre></div>
+</div>
+<p>Remember to set the correct <code class="docutils literal notranslate"><span class="pre">mysql</span></code> password in the CloudStack
+properties file. Mysql should be running but you can check it’s status
+with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">service</span> <span class="n">mysqld</span> <span class="n">status</span>
+</pre></div>
+</div>
+<p>Install <code class="docutils literal notranslate"><span class="pre">git</span></code> to later clone the CloudStack source code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">yum</span> <span class="o">-</span><span class="n">y</span> <span class="n">install</span> <span class="n">git</span>
+</pre></div>
+</div>
+<p>Install <code class="docutils literal notranslate"><span class="pre">Maven</span></code> to later build CloudStack. Grab the 3.0.5 release from
+the Maven <a class="reference external" href="http://maven.apache.org/download.cgi">website</a></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">wget</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">mirror</span><span class="o">.</span><span class="n">cc</span><span class="o">.</span><span class="n">columbia</span><span class="o">.</span><span class="n">edu</span><span class="o">/</span><span class="n">pub</span><span class="o">/</span><span class="n">software</span><span class="o">/</span><span class="n">apache</span><span class="o">/</span><span class="n">maven</span><span class="o">/</span><span class="n">maven</span><span class="o">-</span><span class="mi">3</span><span class="o">/</span><span class="mf">3.0</span><span class="o">.</span><span class="mi">5</span><span class="o">/</span><span class="n">binaries</span><span class="o">/</span><span class="n">apache</span><span class="o">-</span><span class="n">maven</span><span class="o">-</span><span class="mf">3.0</span><span class="o">.</span><span class="mi">5</span><span class="o">-</span><span class="nb">bin</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span>
+<span class="n">tar</span> <span class="n">xzf</span> <span class="n">apache</span><span class="o">-</span><span class="n">maven</span><span class="o">-</span><span class="mf">3.0</span><span class="o">.</span><span class="mi">5</span><span class="o">-</span><span class="nb">bin</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span> <span class="o">-</span><span class="n">C</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span>
+<span class="n">cd</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span>
+<span class="n">ln</span> <span class="o">-</span><span class="n">s</span> <span class="n">apache</span><span class="o">-</span><span class="n">maven</span><span class="o">-</span><span class="mf">3.0</span><span class="o">.</span><span class="mi">5</span> <span class="n">maven</span>
+</pre></div>
+</div>
+<p>Setup Maven system wide by creating a <code class="docutils literal notranslate"><span class="pre">/etc/profile.d/maven.sh</span></code> file
+with the following content:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>export M2_HOME=/usr/local/maven
+export PATH=${M2_HOME}/bin:${PATH}
+</pre></div>
+</div>
+<p>Log out and log in again and you will have maven in your PATH:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mvn</span> <span class="o">--</span><span class="n">version</span>
+</pre></div>
+</div>
+<p>This should have installed Maven 3.0, check the version number with
+<code class="docutils literal notranslate"><span class="pre">mvn</span> <span class="pre">--version</span></code></p>
+<p>A little bit of Python can be used (e.g simulator), install the Python
+package management tools:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">yum</span> <span class="o">-</span><span class="n">y</span> <span class="n">install</span> <span class="n">python</span><span class="o">-</span><span class="n">setuptools</span>
+</pre></div>
+</div>
+<p>To install python-pip you might want to setup the Extra Packages for
+Enterprise Linux (EPEL) repo</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">/</span><span class="n">tmp</span>
+<span class="n">wget</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">mirror</span><span class="o">-</span><span class="n">fpt</span><span class="o">-</span><span class="n">telecom</span><span class="o">.</span><span class="n">fpt</span><span class="o">.</span><span class="n">net</span><span class="o">/</span><span class="n">fedora</span><span class="o">/</span><span class="n">epel</span><span class="o">/</span><span class="mi">6</span><span class="o">/</span><span class="n">i386</span><span class="o">/</span><span class="n">epel</span><span class="o">-</span><span class="n">release</span><span class="o">-</span><span class="mi">6</span><span class="o">-</span><span class="mf">8.</span><span class="n">noarch</span><span class="o">.</span><span class="n">rpm</span>
+<span class="n">rpm</span> <span class="o">-</span><span class="n">ivh</span> <span class="n">epel</span><span class="o">-</span><span class="n">release</span><span class="o">-</span><span class="mi">6</span><span class="o">-</span><span class="mf">8.</span><span class="n">noarch</span><span class="o">.</span><span class="n">rpm</span>
+</pre></div>
+</div>
+<p>Then update you repository cache <code class="docutils literal notranslate"><span class="pre">yum</span> <span class="pre">update</span></code> and install pip
+<code class="docutils literal notranslate"><span class="pre">yum</span> <span class="pre">-y</span> <span class="pre">install</span> <span class="pre">python-pip</span></code></p>
+<p>Finally install <code class="docutils literal notranslate"><span class="pre">mkisofs</span></code> with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">yum</span> <span class="o">-</span><span class="n">y</span> <span class="n">install</span> <span class="n">genisoimage</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="installing-from-source">
+<h2>Installing from Source<a class="headerlink" href="developer_guide.html#installing-from-source" title="Permalink to this headline">¶</a></h2>
+<p>CloudStack uses git for source version control, if you know little about
+<a class="reference external" href="http://book.git-scm.com/">git</a> is a good start. Once you have git
+setup on your machine, pull the source with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">git</span><span class="o">-</span><span class="n">wip</span><span class="o">-</span><span class="n">us</span><span class="o">.</span><span class="n">apache</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">repos</span><span class="o">/</span><span class="n">asf</span><span class="o">/</span><span class="n">cloudstack</span><span class="o">.</span><span class="n">git</span>
+</pre></div>
+</div>
+<p>To build the latest stable release:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">checkout</span> <span class="mf">4.8</span>
+</pre></div>
+</div>
+<p>To compile Apache CloudStack, go to the cloudstack source folder and
+run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mvn</span> <span class="o">-</span><span class="n">Pdeveloper</span><span class="p">,</span><span class="n">systemvm</span> <span class="n">clean</span> <span class="n">install</span>
+</pre></div>
+</div>
+<p>If you want to skip the tests add <code class="docutils literal notranslate"><span class="pre">-DskipTests</span></code> to the command above.
+Do NOT use <code class="docutils literal notranslate"><span class="pre">-Dmaven.test.skip=true</span></code> because that will break the build.</p>
+<p>You will have made sure to set the proper db password in
+<code class="docutils literal notranslate"><span class="pre">utils/conf/db.properties</span></code></p>
+<p>Deploy the database next:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mvn</span> <span class="o">-</span><span class="n">P</span> <span class="n">developer</span> <span class="o">-</span><span class="n">pl</span> <span class="n">developer</span> <span class="o">-</span><span class="n">Ddeploydb</span>
+</pre></div>
+</div>
+<p>Run Apache CloudStack with jetty for testing. Note that <code class="docutils literal notranslate"><span class="pre">tomcat</span></code> maybe
+be running on port 8080, stop it before you use <code class="docutils literal notranslate"><span class="pre">jetty</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mvn</span> <span class="o">-</span><span class="n">pl</span> <span class="p">:</span><span class="n">cloud</span><span class="o">-</span><span class="n">client</span><span class="o">-</span><span class="n">ui</span> <span class="n">jetty</span><span class="p">:</span><span class="n">run</span>
+</pre></div>
+</div>
+<p>Log Into Apache CloudStack:</p>
+<p>Open your Web browser and use this URL to connect to CloudStack:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="p">:</span><span class="mi">8080</span><span class="o">/</span><span class="n">client</span><span class="o">/</span>
+</pre></div>
+</div>
+<p>Replace <code class="docutils literal notranslate"><span class="pre">localhost</span></code> with the IP of your management server if need be.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you have iptables enabled, you may have to open the ports used by
+CloudStack. Specifically, ports 8080, 8250, and 9090.</p>
+</div>
+<p>You can now start configuring a Zone, playing with the API. Of course we
+did not setup any infrastructure, there is no storage, no
+hypervisors…etc. However you can run tests using the simulator. The
+following section shows you how to use the simulator so that you don’t
+have to setup a physical infrastructure.</p>
+</div>
+<div class="section" id="using-the-simulator">
+<h2>Using the Simulator<a class="headerlink" href="developer_guide.html#using-the-simulator" title="Permalink to this headline">¶</a></h2>
+<p>CloudStack comes with a simulator based on Python bindings called
+<em>Marvin</em>. Marvin is available in the CloudStack source code or on Pypi.
+With Marvin you can simulate your data center infrastructure by
+providing CloudStack with a configuration file that defines the number
+of zones/pods/clusters/hosts, types of storage etc. You can then develop
+and test the CloudStack management server <em>as if</em> it was managing your
+production infrastructure.</p>
+<p>Do a clean build:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mvn</span> <span class="o">-</span><span class="n">Pdeveloper</span> <span class="o">-</span><span class="n">Dsimulator</span> <span class="o">-</span><span class="n">DskipTests</span> <span class="n">clean</span> <span class="n">install</span>
+</pre></div>
+</div>
+<p>Deploy the database:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mvn</span> <span class="o">-</span><span class="n">Pdeveloper</span> <span class="o">-</span><span class="n">pl</span> <span class="n">developer</span> <span class="o">-</span><span class="n">Ddeploydb</span>
+<span class="n">mvn</span> <span class="o">-</span><span class="n">Pdeveloper</span> <span class="o">-</span><span class="n">pl</span> <span class="n">developer</span> <span class="o">-</span><span class="n">Ddeploydb</span><span class="o">-</span><span class="n">simulator</span>
+</pre></div>
+</div>
+<p>Install marvin. Note that you will need to have installed <code class="docutils literal notranslate"><span class="pre">pip</span></code>
+properly in the prerequisites step.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">tools</span><span class="o">/</span><span class="n">marvin</span><span class="o">/</span><span class="n">dist</span><span class="o">/</span><span class="n">Marvin</span><span class="o">-|</span><span class="n">release</span><span class="o">|.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span>
+</pre></div>
+</div>
+<p>Stop jetty (from any previous runs)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mvn</span> <span class="o">-</span><span class="n">pl</span> <span class="p">:</span><span class="n">cloud</span><span class="o">-</span><span class="n">client</span><span class="o">-</span><span class="n">ui</span> <span class="n">jetty</span><span class="p">:</span><span class="n">stop</span>
+</pre></div>
+</div>
+<p>Start jetty</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mvn</span> <span class="o">-</span><span class="n">pl</span> <span class="n">client</span> <span class="n">jetty</span><span class="p">:</span><span class="n">run</span>
+</pre></div>
+</div>
+<p>Setup a basic zone with Marvin. In a separate shell://</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mvn</span> <span class="o">-</span><span class="n">Pdeveloper</span><span class="p">,</span><span class="n">marvin</span><span class="o">.</span><span class="n">setup</span> <span class="o">-</span><span class="n">Dmarvin</span><span class="o">.</span><span class="n">config</span><span class="o">=</span><span class="n">setup</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">basic</span><span class="o">.</span><span class="n">cfg</span> <span class="o">-</span><span class="n">pl</span> <span class="p">:</span><span class="n">cloud</span><span class="o">-</span><span class="n">marvin</span> <span class="n">integration</span><span class="o">-</span><span class="n">test</span>
+</pre></div>
+</div>
+<p>At this stage log in the CloudStack management server at
+<a class="reference external" href="http://localhost:8080/client">http://localhost:8080/client</a> with the credentials admin/password, you
+should see a fully configured basic zone infrastructure. To simulate an
+advanced zone replace <code class="docutils literal notranslate"><span class="pre">basic.cfg</span></code> with <code class="docutils literal notranslate"><span class="pre">advanced.cfg</span></code>.</p>
+<p>You can now run integration tests, use the API etc…</p>
+</div>
+<div class="section" id="using-devcloud">
+<h2>Using DevCloud<a class="headerlink" href="developer_guide.html#using-devcloud" title="Permalink to this headline">¶</a></h2>
+<p>The Installing from source section will only get you to the point of
+runnign the management server, it does not get you any hypervisors. The
+simulator section gets you a simulated datacenter for testing. With
+DevCloud you can run at least one hypervisor and add it to your
+management server the way you would a real physical machine.</p>
+<p><a class="reference external" href="https://cwiki.apache.org/confluence/display/CLOUDSTACK/DevCloud">DevCloud</a>
+is the CloudStack sandbox, the standard version is a VirtualBox based
+image. There is also a KVM based image for it. Here we only show steps
+with the VirtualBox image. For KVM see the
+<a class="reference external" href="https://cwiki.apache.org/confluence/display/CLOUDSTACK/devcloud-kvm">wiki</a>.</p>
+<p>** DevCloud Pre-requisites</p>
+<ol class="arabic">
+<li><p class="first">Install <a class="reference external" href="http://www.virtualbox.org">VirtualBox</a> on your machine</p>
+</li>
+<li><p class="first">Run VirtualBox and under &gt;Preferences create a <em>host-only interface</em>
+on which you disable the DHCP server</p>
+</li>
+<li><p class="first">Download the DevCloud <a class="reference external" href="http://people.apache.org/~bhaisaab/cloudstack/devcloud/devcloud2.ova">image</a></p>
+</li>
+<li><p class="first">In VirtualBox, under File &gt; Import Appliance import the DevCloud
+image.</p>
+</li>
+<li><p class="first">Verify the settings under &gt; Settings and check the <code class="docutils literal notranslate"><span class="pre">enable</span> <span class="pre">PAE</span></code>
+option in the processor menu</p>
+</li>
+<li><p class="first">Once the VM has booted try to <code class="docutils literal notranslate"><span class="pre">ssh</span></code> to it with credentials:
+<code class="docutils literal notranslate"><span class="pre">root/password</span></code></p>
+<p>ssh <a class="reference external" href="mailto:root&#37;&#52;&#48;192&#46;168&#46;56&#46;10">root<span>&#64;</span>192<span>&#46;</span>168<span>&#46;</span>56<span>&#46;</span>10</a></p>
+</li>
+</ol>
+<div class="section" id="adding-devcloud-as-an-hypervisor">
+<h3>Adding DevCloud as an Hypervisor<a class="headerlink" href="developer_guide.html#adding-devcloud-as-an-hypervisor" title="Permalink to this headline">¶</a></h3>
+<p>Picking up from a clean build:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mvn</span> <span class="o">-</span><span class="n">Pdeveloper</span><span class="p">,</span><span class="n">systemvm</span> <span class="n">clean</span> <span class="n">install</span>
+<span class="n">mvn</span> <span class="o">-</span><span class="n">P</span> <span class="n">developer</span> <span class="o">-</span><span class="n">pl</span> <span class="n">developer</span><span class="p">,</span><span class="n">tools</span><span class="o">/</span><span class="n">devcloud</span> <span class="o">-</span><span class="n">Ddeploydb</span>
+</pre></div>
+</div>
+<p>At this stage install marvin similarly than with the simulator:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">tools</span><span class="o">/</span><span class="n">marvin</span><span class="o">/</span><span class="n">dist</span><span class="o">/</span><span class="n">Marvin</span><span class="o">-|</span><span class="n">release</span><span class="o">|.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span>
+</pre></div>
+</div>
+<p>Start the management server</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mvn</span> <span class="o">-</span><span class="n">pl</span> <span class="n">client</span> <span class="n">jetty</span><span class="p">:</span><span class="n">run</span>
+</pre></div>
+</div>
+<p>Then you are going to configure CloudStack to use the running DevCloud
+instance:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">tools</span><span class="o">/</span><span class="n">devcloud</span>
+<span class="n">python</span> <span class="o">../</span><span class="n">marvin</span><span class="o">/</span><span class="n">marvin</span><span class="o">/</span><span class="n">deployDataCenter</span><span class="o">.</span><span class="n">py</span> <span class="o">-</span><span class="n">i</span> <span class="n">devcloud</span><span class="o">.</span><span class="n">cfg</span>
+</pre></div>
+</div>
+<p>If you are curious, check the <code class="docutils literal notranslate"><span class="pre">devcloud.cfg</span></code> file and see how the data
+center is defined: 1 Zone, 1 Pod, 1 Cluster, 1 Host, 1 primary Storage,
+1 Seondary Storage, all provided by Devcloud.</p>
+<p>You can now log in the management server at
+<code class="docutils literal notranslate"><span class="pre">http://localhost:8080/client</span></code> and start experimenting with the UI or
+the API.</p>
+<p>Do note that the management server is running in your local machine and
+that DevCloud is used only as a n Hypervisor. You could potentially run
+the management server within DevCloud as well, or memory granted, run
+multiple DevClouds.</p>
+</div>
+</div>
+<div class="section" id="building-packages">
+<h2>Building Packages<a class="headerlink" href="developer_guide.html#building-packages" title="Permalink to this headline">¶</a></h2>
+<p>Working from source is necessary when developing CloudStack. As
+mentioned earlier this is not primarily intended for users. However some
+may want to modify the code for their own use and specific
+infrastructure. The may also need to build their own packages for
+security reasons and due to network connectivity constraints. This
+section shows you the gist of how to build packages. We assume that the
+reader will know how to create a repository to serve this packages. The
+complete documentation is available in the <a class="reference internal" href="../installguide/building_from_source.html#building-deb-packages"><span class="std std-ref">Building DEB packages</span></a> section.</p>
+<p>To build debian packages you will need couple extra packages that we did
+not need to install for source compilation:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">python</span><span class="o">-</span><span class="n">mysqldb</span>
+<span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">debhelper</span>
+</pre></div>
+</div>
+<p>Then build the packages with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dpkg</span><span class="o">-</span><span class="n">buildpackage</span> <span class="o">-</span><span class="n">uc</span> <span class="o">-</span><span class="n">us</span>
+</pre></div>
+</div>
+<p>One directory up from the CloudStack root dir you will find:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cloudstack_</span><span class="o">|</span><span class="n">release</span><span class="o">|</span><span class="n">_amd64</span><span class="o">.</span><span class="n">changes</span>
+<span class="n">cloudstack_</span><span class="o">|</span><span class="n">release</span><span class="o">|.</span><span class="n">dsc</span>
+<span class="n">cloudstack_</span><span class="o">|</span><span class="n">release</span><span class="o">|.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span>
+<span class="n">cloudstack</span><span class="o">-</span><span class="n">agent_</span><span class="o">|</span><span class="n">release</span><span class="o">|</span><span class="n">_all</span><span class="o">.</span><span class="n">deb</span>
+<span class="n">cloudstack</span><span class="o">-</span><span class="n">awsapi_</span><span class="o">|</span><span class="n">release</span><span class="o">|</span><span class="n">_all</span><span class="o">.</span><span class="n">deb</span>
+<span class="n">cloudstack</span><span class="o">-</span><span class="n">cli_</span><span class="o">|</span><span class="n">release</span><span class="o">|</span><span class="n">_all</span><span class="o">.</span><span class="n">deb</span>
+<span class="n">cloudstack</span><span class="o">-</span><span class="n">common_</span><span class="o">|</span><span class="n">release</span><span class="o">|</span><span class="n">_all</span><span class="o">.</span><span class="n">deb</span>
+<span class="n">cloudstack</span><span class="o">-</span><span class="n">docs_</span><span class="o">|</span><span class="n">release</span><span class="o">|</span><span class="n">_all</span><span class="o">.</span><span class="n">deb</span>
+<span class="n">cloudstack</span><span class="o">-</span><span class="n">management_</span><span class="o">|</span><span class="n">release</span><span class="o">|</span><span class="n">_all</span><span class="o">.</span><span class="n">deb</span>
+<span class="n">cloudstack</span><span class="o">-</span><span class="n">usage_</span><span class="o">|</span><span class="n">release</span><span class="o">|</span><span class="n">_all</span><span class="o">.</span><span class="n">deb</span>
+</pre></div>
+</div>
+<p>Of course the community provides a repository for these packages and you
+can use it instead of building your own packages and putting them in
+your own repo. Instructions on how to use this community repository are
+available in the installation book.</p>
+</div>
+<div class="section" id="the-cloudstack-api">
+<span id="the-api"></span><h2>The CloudStack API<a class="headerlink" href="developer_guide.html#the-cloudstack-api" title="Permalink to this headline">¶</a></h2>
+<p>The CloudStack API is a query based API using http that return results
+in XML or JSON. It is used to implement the default web UI. This API is
+not a standard like <a class="reference external" href="http://www.ogf.org/gf/group_info/view.php?group=occi-wg">OGF
+OCCI</a> or
+<a class="reference external" href="http://dmtf.org/standards/cloud">DMTF CIMI</a> but is easy to learn.
+Mapping exists between the AWS API and the CloudStack API as will be
+seen in the next section. Recently a Google Compute Engine interface was
+also developed that maps the GCE REST API to the CloudStack API
+described here. The API
+<a class="reference external" href="http://cloudstack.apache.org/docs/api/">docs</a> are a good start to
+learn the extent of the API. Multiple clients exist on
+<a class="reference external" href="https://github.com/search?q=cloudstack+client&amp;ref=cmdform">github</a>
+to use this API, you should be able to find one in your favorite
+language. The reference documentation for the API and changes that might
+occur from version to version is availble
+<a class="reference external" href="http://cloudstack.apache.org/docs/en-US/Apache_CloudStack/4.1.1/html/Developers_Guide/index.html">on-line</a>.
+This short section is aimed at providing a quick summary to give you a
+base understanding of how to use this API. As a quick start, a good way
+to explore the API is to navigate the dashboard with a firebug console
+(or similar developer console) to study the queries.</p>
+<p>In a succint statement, the CloudStack query API can be used via http
+GET requests made against your cloud endpoint (e.g
+<a class="reference external" href="http://localhost:8080/client/api">http://localhost:8080/client/api</a>). The API name is passed using the
+<code class="docutils literal notranslate"><span class="pre">command</span></code> key and the various parameters for this API call are passed
+as key value pairs. The request is signed using the access key and
+secret key of the user making the call. Some calls are synchronous while
+some are asynchronous, this is documented in the API
+<a class="reference external" href="http://cloudstack.apache.org/docs/api/">docs</a>. Asynchronous calls
+return a <code class="docutils literal notranslate"><span class="pre">jobid</span></code>, the status and result of a job can be queried with
+the <code class="docutils literal notranslate"><span class="pre">queryAsyncJobResult</span></code> call. Let’s get started and give an example
+of calling the <code class="docutils literal notranslate"><span class="pre">listUsers</span></code> API in Python.</p>
+<p>First you will need to generate keys to make requests. Going through the
+dashboard, go under <code class="docutils literal notranslate"><span class="pre">Accounts</span></code> select the appropriate account then
+click on <code class="docutils literal notranslate"><span class="pre">Show</span> <span class="pre">Users</span></code> select the intended users and generate keys
+using the <code class="docutils literal notranslate"><span class="pre">Generate</span> <span class="pre">Keys</span></code> icon. You will see an <code class="docutils literal notranslate"><span class="pre">API</span> <span class="pre">Key</span></code> and
+<code class="docutils literal notranslate"><span class="pre">Secret</span> <span class="pre">Key</span></code> field being generated. The keys will be of the form:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">API</span> <span class="n">Key</span> <span class="p">:</span> <span class="n">XzAz0uC0t888gOzPs3HchY72qwDc7pUPIO8LxC</span><span class="o">-</span><span class="n">VkIHo4C3fvbEBY_Ccj8fo3mBapN5qRDg_0_EbGdbxi8oy1A</span>
+<span class="n">Secret</span> <span class="n">Key</span><span class="p">:</span> <span class="n">zmBOXAXPlfb</span><span class="o">-</span><span class="n">LIygOxUVblAbz7E47eukDS_0JYUxP3JAmknOYo56T0R</span><span class="o">-</span><span class="n">AcM7rK7SMyo11Y6XW22gyuXzOdiybQ</span>
+</pre></div>
+</div>
+<p>Open a Python shell and import the basic modules necessary to make the
+request. Do note that this request could be made many different ways,
+this is just a low level example. The <code class="docutils literal notranslate"><span class="pre">urllib*</span></code> modules are used to
+make the http request and do url encoding. The <code class="docutils literal notranslate"><span class="pre">hashlib</span></code> module gives
+us the sha1 hash function. It used to geenrate the <code class="docutils literal notranslate"><span class="pre">hmac</span></code> (Keyed
+Hashing for Message Authentication) using the secretkey. The result is
+encoded using the <code class="docutils literal notranslate"><span class="pre">base64</span></code> module.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$python
+Python 2.7.3 (default, Nov 17 2012, 19:54:34)
+[GCC 4.2.1 Compatible Apple Clang 4.1 ((tags/Apple/clang-421.11.66))] on darwin
+Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
+&gt;&gt;&gt; import urllib2
+&gt;&gt;&gt; import urllib
+&gt;&gt;&gt; import hashlib
+&gt;&gt;&gt; import hmac
+&gt;&gt;&gt; import base64
+</pre></div>
+</div>
+<p>Define the endpoint of the Cloud, the command that you want to execute,
+the type of the response (i.e XML or JSON) and the keys of the user.
+Note that we do not put the secretkey in our request dictionary because
+it is only used to compute the hmac.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">baseurl</span><span class="o">=</span><span class="s1">&#39;http://localhost:8080/client/api?&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">request</span><span class="o">=</span><span class="p">{}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">request</span><span class="p">[</span><span class="s1">&#39;command&#39;</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;listUsers&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">request</span><span class="p">[</span><span class="s1">&#39;response&#39;</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;json&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">request</span><span class="p">[</span><span class="s1">&#39;apikey&#39;</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;plgWJfZK4gyS3mOMTVmjUVg-X-jlWlnfaUJ9GAbBbf9EdM-kAYMmAiLqzzq1ElZLYq_u38zCm0bewzGUdP66mg&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">secretkey</span><span class="o">=</span><span class="s1">&#39;VDaACYb0LV9eNjTetIOElcVQkvJck_J_QljX_FcHRj87ZKiy0z0ty0ZsYBkoXkY9b7eq1EhwJaw7FF3akA3KBQ&#39;</span>
+</pre></div>
+</div>
+<p>Build the base request string, the combination of all the key/pairs of
+the request, url encoded and joined with ampersand.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">request_str</span><span class="o">=</span><span class="s1">&#39;&amp;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s1">&#39;=&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">k</span><span class="p">,</span><span class="n">urllib</span><span class="o">.</span><span class="n">quote_plus</span><span class="p">(</span><span class="n">request</span><span class="p">[</span><span class="n">k</span><span class="p">])])</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">request</span><span class="o">.</span><span class="n">keys</span><span class="p">()])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">request_str</span>
+<span class="go">&#39;apikey=plgWJfZK4gyS3mOMTVmjUVg-X-jlWlnfaUJ9GAbBbf9EdM-kAYMmAiLqzzq1ElZLYq_u38zCm0bewzGUdP66mg&amp;command=listUsers&amp;response=json&#39;</span>
+</pre></div>
+</div>
+<p>Compute the signature with hmac, do a 64 bit encoding and a url
+encoding, the string used for the signature is similar to the base
+request string shown above but the keys/values are lower cased and
+joined in a sorted order</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sig_str</span><span class="o">=</span><span class="s1">&#39;&amp;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s1">&#39;=&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">k</span><span class="o">.</span><span class="n">lower</span><span class="p">(),</span><span class="n">urllib</span><span class="o">.</span><span class="n">quote_plus</span><span class="p">(</span><span class="n">request</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;+&#39;</span><span class="p">,</span><span class="s1">&#39;%20&#39;</span><span class="p">))])</span><span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">iterkeys</span><span class="p">())])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sig_str</span>
+<span class="go">&#39;apikey=plgwjfzk4gys3momtvmjuvg-x-jlwlnfauj9gabbbf9edm-kaymmailqzzq1elzlyq_u38zcm0bewzgudp66mg&amp;command=listusers&amp;response=json&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sig</span><span class="o">=</span><span class="n">hmac</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">secretkey</span><span class="p">,</span><span class="n">sig_str</span><span class="p">,</span><span class="n">hashlib</span><span class="o">.</span><span class="n">sha1</span><span class="p">)</span><span class="o">.</span><span class="n">digest</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sig</span>
+<span class="go">&#39;M:]\x0e\xaf\xfb\x8f\xf2y\xf1p\x91\x1e\x89\x8a\xa1\x05\xc4A\xdb&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sig</span><span class="o">=</span><span class="n">base64</span><span class="o">.</span><span class="n">encodestring</span><span class="p">(</span><span class="n">hmac</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">secretkey</span><span class="p">,</span><span class="n">sig_str</span><span class="p">,</span><span class="n">hashlib</span><span class="o">.</span><span class="n">sha1</span><span class="p">)</span><span class="o">.</span><span class="n">digest</span><span class="p">())</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sig</span>
+<span class="go">&#39;TTpdDq/7j/J58XCRHomKoQXEQds=\n&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sig</span><span class="o">=</span><span class="n">base64</span><span class="o">.</span><span class="n">encodestring</span><span class="p">(</span><span class="n">hmac</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">secretkey</span><span class="p">,</span><span class="n">sig_str</span><span class="p">,</span><span class="n">hashlib</span><span class="o">.</span><span class="n">sha1</span><span class="p">)</span><span class="o">.</span><span class="n">digest</span><span class="p">())</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sig</span>
+<span class="go">&#39;TTpdDq/7j/J58XCRHomKoQXEQds=&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sig</span><span class="o">=</span><span class="n">urllib</span><span class="o">.</span><span class="n">quote_plus</span><span class="p">(</span><span class="n">base64</span><span class="o">.</span><span class="n">encodestring</span><span class="p">(</span><span class="n">hmac</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">secretkey</span><span class="p">,</span><span class="n">sig_str</span><span class="p">,</span><span class="n">hashlib</span><span class="o">.</span><span class="n">sha1</span><span class="p">)</span><span class="o">.</span><span class="n">digest</span><span class="p">())</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>Finally, build the entire string by joining the baseurl, the request str
+and the signature. Then do an http GET:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">req</span><span class="o">=</span><span class="n">baseurl</span><span class="o">+</span><span class="n">request_str</span><span class="o">+</span><span class="s1">&#39;&amp;signature=&#39;</span><span class="o">+</span><span class="n">sig</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">req</span>
+<span class="go">&#39;http://localhost:8080/client/api?apikey=plgWJfZK4gyS3mOMTVmjUVg-X-jlWlnfaUJ9GAbBbf9EdM-kAYMmAiLqzzq1ElZLYq_u38zCm0bewzGUdP66mg&amp;command=listUsers&amp;response=json&amp;signature=TTpdDq%2F7j%2FJ58XCRHomKoQXEQds%3D&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">res</span><span class="o">=</span><span class="n">urllib2</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">req</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">res</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="go">{</span>
+<span class="go">   &quot;listusersresponse&quot; : {</span>
+<span class="go">      &quot;count&quot;:1 ,</span>
+<span class="go">      &quot;user&quot; : [</span>
+<span class="go">         {</span>
+<span class="go">            &quot;id&quot;:&quot;7ed6d5da-93b2-4545-a502-23d20b48ef2a&quot;,</span>
+<span class="go">            &quot;username&quot;:&quot;admin&quot;,</span>
+<span class="go">            &quot;firstname&quot;:&quot;admin&quot;,</span>
+<span class="go">            &quot;lastname&quot;:&quot;cloud&quot;,</span>
+<span class="go">            &quot;created&quot;:&quot;2012-07-05T12:18:27-0700&quot;,</span>
+<span class="go">            &quot;state&quot;:&quot;enabled&quot;,</span>
+<span class="go">            &quot;account&quot;:&quot;admin&quot;,</span>
+<span class="go">            &quot;accounttype&quot;:1,</span>
+<span class="go">            &quot;domainid&quot;:&quot;8a111e58-e155-4482-93ce-84efff3c7c77&quot;,</span>
+<span class="go">            &quot;domain&quot;:&quot;ROOT&quot;,</span>
+<span class="go">            &quot;apikey&quot;:&quot;plgWJfZK4gyS3mOMTVmjUVg-X-jlWlnfaUJ9GAbBbf9EdM-kAYMmAiLqzzq1ElZLYq_u38zCm0bewzGUdP66mg&quot;,</span>
+<span class="go">            &quot;secretkey&quot;:&quot;VDaACYb0LV9eNjTetIOElcVQkvJck_J_QljX_FcHRj87ZKiy0z0ty0ZsYBkoXkY9b7eq1EhwJaw7FF3akA3KBQ&quot;,</span>
+<span class="go">            &quot;accountid&quot;:&quot;7548ac03-af1d-4c1c-9064-2f3e2c0eda0d&quot;</span>
+<span class="go">         }</span>
+<span class="go">      ]</span>
+<span class="go">   }</span>
+<span class="go">}</span>
+</pre></div>
+</div>
+<p>All the clients that you will find on github will implement this
+signature technique, you should not have to do it by hand. Now that you
+have explored the API through the UI and that you understand how to make
+low level calls, pick your favorite client of use
+<a class="reference external" href="https://pypi.python.org/pypi/cloudmonkey/">CloudMonkey</a>. CloudMonkey
+is a sub-project of Apache CloudStack and gives operators/developers the
+ability to use any of the API methods. It has nice auto-completion and
+help feature as well as an API discovery mechanism since 4.2.</p>
+</div>
+<div class="section" id="testing-the-aws-api-interface">
+<h2>Testing the AWS API interface<a class="headerlink" href="developer_guide.html#testing-the-aws-api-interface" title="Permalink to this headline">¶</a></h2>
+<p>While the native CloudStack API is not a standard, CloudStack provides a
+AWS EC2 compatible interface. It has the great advantage that existing
+tools written with EC2 libraries can be re-used against a CloudStack
+based cloud. In the installation books we described how to run this
+interface from installing packages. In this section we show you how to
+compile the interface with <code class="docutils literal notranslate"><span class="pre">maven</span></code> and test it with Python boto
+module.</p>
+<p>Starting from a running management server (with DevCloud for instance),
+start the AWS API interface in a separate shell with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mvn</span> <span class="o">-</span><span class="n">Pawsapi</span> <span class="o">-</span><span class="n">pl</span> <span class="p">:</span><span class="n">cloud</span><span class="o">-</span><span class="n">awsapi</span> <span class="n">jetty</span><span class="p">:</span><span class="n">run</span>
+</pre></div>
+</div>
+<p>Log into the CloudStack UI <code class="docutils literal notranslate"><span class="pre">http://localhost:8080/client</span></code>, go to
+<em>Service Offerings</em> and edit one of the compute offerings to have the
+name <code class="docutils literal notranslate"><span class="pre">m1.small</span></code> or any of the other AWS EC2 instance types.</p>
+<p>With access and secret keys generated for a user you should now be able
+to use Python <a class="reference external" href="http://docs.pythonboto.org/en/latest/">Boto</a> module:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">boto</span>
+<span class="kn">import</span> <span class="nn">boto.ec2</span>
+
+<span class="n">accesskey</span><span class="o">=</span><span class="s2">&quot;2IUSA5xylbsPSnBQFoWXKg3RvjHgsufcKhC1SeiCbeEc0obKwUlwJamB_gFmMJkFHYHTIafpUx0pHcfLvt-dzw&quot;</span>
+<span class="n">secretkey</span><span class="o">=</span><span class="s2">&quot;oxV5Dhhk5ufNowey7OVHgWxCBVS4deTl9qL0EqMthfPBuy3ScHPo2fifDxw1aXeL5cyH10hnLOKjyKphcXGeDA&quot;</span>
+
+<span class="n">region</span> <span class="o">=</span> <span class="n">boto</span><span class="o">.</span><span class="n">ec2</span><span class="o">.</span><span class="n">regioninfo</span><span class="o">.</span><span class="n">RegionInfo</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;ROOT&quot;</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="s2">&quot;localhost&quot;</span><span class="p">)</span>
+<span class="n">conn</span> <span class="o">=</span> <span class="n">boto</span><span class="o">.</span><span class="n">connect_ec2</span><span class="p">(</span><span class="n">aws_access_key_id</span><span class="o">=</span><span class="n">accesskey</span><span class="p">,</span> <span class="n">aws_secret_access_key</span><span class="o">=</span><span class="n">secretkey</span><span class="p">,</span> <span class="n">is_secure</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">region</span><span class="o">=</span><span class="n">region</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">7080</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="s2">&quot;/awsapi&quot;</span><span class="p">,</span> <span class="n">api_version</span><span class="o">=</span><span class="s2">&quot;2012-08-15&quot;</span><span class="p">)</span>
+
+<span class="n">images</span><span class="o">=</span><span class="n">conn</span><span class="o">.</span><span class="n">get_all_images</span><span class="p">()</span>
+<span class="nb">print</span> <span class="n">images</span>
+
+<span class="n">res</span> <span class="o">=</span> <span class="n">images</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">instance_type</span><span class="o">=</span><span class="s1">&#39;m1.small&#39;</span><span class="p">,</span><span class="n">security_groups</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;default&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Note the new <code class="docutils literal notranslate"><span class="pre">api_version</span></code> number in the connection object and also
+note that there was no user registration to make like in previous
+CloudStack releases.</p>
+</div>
+<div class="section" id="conclusions">
+<h2>Conclusions<a class="headerlink" href="developer_guide.html#conclusions" title="Permalink to this headline">¶</a></h2>
+<p>CloudStack is a mostly Java application running with Tomcat and Mysql.
+It consists of a management server and depending on the hypervisors
+being used, an agent installed on the hypervisor farm. To complete a
+Cloud infrastructure however you will also need some Zone wide storage
+a.k.a Secondary Storage and some Cluster wide storage a.k.a Primary
+storage. The choice of hypervisor, storage solution and type of Zone
+(i.e Basic vs. Advanced) will dictate how complex your installation can
+be. As a quick start, you might want to consider KVM+NFS and a Basic
+Zone.</p>
+<p>If you’ve run into any problems with this, please ask on the
+cloudstack-dev <a class="reference external" href="http://docs.cloudstack.apache.org/mailing-lists.html">mailing list</a>.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="dev.html" class="btn btn-neutral float-right" title="Programmer Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Developers Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Apache Foundation
+      
+        <span class="commit">
+          Revision <code>70858617</code>.
+        </span>
+      
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Read the Docs</span>
+      v: 4.11.1.0
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="../../../index.html">latest</a></dd>
+        
+          <dd><a href="../../4.11.2.0/index.html">4.11.2.0</a></dd>
+        
+          <dd><a href="../index.html">4.11.1.0</a></dd>
+        
+          <dd><a href="http://docs.cloudstack.apache.org/en/master/">master</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="http://readthedocs.org/projects/cloudstack-documentation/downloads/pdf/4.11.1.0/">pdf</a></dd>
+        
+          <dd><a href="http://readthedocs.org/projects/cloudstack-documentation/downloads/htmlzip/4.11.1.0/">htmlzip</a></dd>
+        
+          <dd><a href="http://readthedocs.org/projects/cloudstack-documentation/downloads/epub/4.11.1.0/">epub</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>On Read the Docs</dt>
+          <dd>
+            <a href="http://readthedocs.org/projects/cloudstack-documentation/?fromdocs=cloudstack-documentation">Project Home</a>
+          </dd>
+          <dd>
+            <a href="http://readthedocs.org/builds/cloudstack-documentation/?fromdocs=cloudstack-documentation">Builds</a>
+          </dd>
+      </dl>
+      <hr/>
+      Free document hosting provided by <a href="http://www.readthedocs.org">Read the Docs</a>.
+
+    </div>
+  </div>
+
+
+
+  
+
+    
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'4.11.1.0',
+              LANGUAGE:'en',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="https://media.readthedocs.org/javascript/jquery/jquery-2.0.3.min.js"></script>
+        <script type="text/javascript" src="https://media.readthedocs.org/javascript/jquery/jquery-migrate-1.2.1.min.js"></script>
+        <script type="text/javascript" src="https://media.readthedocs.org/javascript/underscore.js"></script>
+        <script type="text/javascript" src="https://media.readthedocs.org/javascript/doctools.js"></script>
+        <script type="text/javascript" src="https://media.readthedocs.org/javascript/readthedocs-doc-embed.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

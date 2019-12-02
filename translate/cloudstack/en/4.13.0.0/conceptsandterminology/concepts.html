@@ -1,0 +1,910 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>What is Apache CloudStack? &mdash; Apache CloudStack 4.13.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Small-Scale Deployment" href="choosing_deployment_architecture.html" />
+    <link rel="prev" title="CloudStack Concepts and Terminology" href="index.html" /> 
+
+<!-- RTD Extra Head -->
+
+<!-- 
+Always link to the latest version, as canonical.
+http://docs.readthedocs.org/en/latest/canonical.html
+-->
+<link rel="canonical" href="../../latest/conceptsandterminology/concepts.html" />
+
+<link rel="stylesheet" href="https://assets.readthedocs.org/static/css/readthedocs-doc-embed.css" type="text/css" />
+
+<script type="text/javascript" src="../_static/readthedocs-data.js"></script>
+
+<!-- Add page-specific data, which must exist in the page js, not global -->
+<script type="text/javascript">
+READTHEDOCS_DATA['page'] = "conceptsandterminology/concepts"
+READTHEDOCS_DATA['source_suffix'] = ".rst"
+</script>
+
+<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js"></script>
+
+<!-- end RTD <extrahead> -->
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Apache CloudStack
+          
+
+          
+          </a>
+
+          
+            
+            
+            
+              <div class="version">
+                4.13.0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">CloudStack Concepts and Terminology</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#concepts-and-terminolgy">Concepts and Terminolgy</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="concepts.html#">What is Apache CloudStack?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="concepts.html#what-can-apache-cloudstack-do">What can Apache CloudStack do?</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="concepts.html#multiple-hypervisor-support">Multiple Hypervisor Support</a></li>
+<li class="toctree-l4"><a class="reference internal" href="concepts.html#massively-scalable-infrastructure-management">Massively Scalable Infrastructure Management</a></li>
+<li class="toctree-l4"><a class="reference internal" href="concepts.html#automatic-cloud-configuration-management">Automatic Cloud Configuration Management</a></li>
+<li class="toctree-l4"><a class="reference internal" href="concepts.html#graphical-user-interface">Graphical User Interface</a></li>
+<li class="toctree-l4"><a class="reference internal" href="concepts.html#api">API</a></li>
+<li class="toctree-l4"><a class="reference internal" href="concepts.html#aws-ec2-api-support">AWS EC2 API Support</a></li>
+<li class="toctree-l4"><a class="reference internal" href="concepts.html#high-availability">High Availability</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="concepts.html#deployment-architecture-overview">Deployment Architecture Overview</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="concepts.html#management-server-overview">Management Server Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="concepts.html#cloud-infrastructure-overview">Cloud Infrastructure Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="concepts.html#networking-overview">Networking Overview</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="concepts.html#cloudstack-terminology">CloudStack Terminology</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="concepts.html#about-regions">About Regions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="concepts.html#about-zones">About Zones</a></li>
+<li class="toctree-l4"><a class="reference internal" href="concepts.html#about-pods">About Pods</a></li>
+<li class="toctree-l4"><a class="reference internal" href="concepts.html#about-clusters">About Clusters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="concepts.html#about-hosts">About Hosts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="concepts.html#about-primary-storage">About Primary Storage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="concepts.html#about-secondary-storage">About Secondary Storage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="concepts.html#about-physical-networks">About Physical Networks</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#choosing-a-deployment-architecture">Choosing a Deployment Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#network-setup">Network Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#storage-setup">Storage Setup</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../quickinstallationguide/qig.html">Quick Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installguide/index.html">Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../upgrading/index.html">Upgrading CloudStack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../adminguide/index.html">Usage Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developersguide/index.html">Developers Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/index.html">Plugins Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Other Documentation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/api.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://cwiki.apache.org/confluence/display/CLOUDSTACK/Home">Apache CloudStack Wiki</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/">Apache CloudStack web site</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/downloads.html">Apache CloudStack Source Code</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/apache/cloudstack">Apache CloudStack on GitHub</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Pre 4.11 Documentation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="../../../projects/cloudstack-installation">Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference external" href="../../../projects/cloudstack-administration">Administration Guide</a></li>
+<li class="toctree-l1"><a class="reference external" href="../../../projects/cloudstack-release-notes">Release Notes</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Apache CloudStack</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">CloudStack Concepts and Terminology</a> &raquo;</li>
+        
+      <li>What is Apache CloudStack?</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/apache/cloudstack-documentation/blob/4.13.0.0/source/conceptsandterminology/concepts.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="what-is-apache-cloudstack">
+<h1>What is Apache CloudStack?<a class="headerlink" href="concepts.html#what-is-apache-cloudstack" title="Permalink to this headline">¶</a></h1>
+<p>Apache CloudStack is an open source Infrastructure-as-a-Service platform that
+manages and orchestrates pools of storage, network, and computer resources to
+build a public or private IaaS compute cloud.</p>
+<p>With CloudStack you can:</p>
+<ul class="simple">
+<li>Set up an on-demand elastic cloud computing service.</li>
+<li>Allow end-users to provision resources</li>
+</ul>
+</div>
+<div class="section" id="what-can-apache-cloudstack-do">
+<h1>What can Apache CloudStack do?<a class="headerlink" href="concepts.html#what-can-apache-cloudstack-do" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="multiple-hypervisor-support">
+<h2>Multiple Hypervisor Support<a class="headerlink" href="concepts.html#multiple-hypervisor-support" title="Permalink to this headline">¶</a></h2>
+<p>CloudStack works with a variety of hypervisors and hypervisor-like
+technologies. A single cloud can contain multiple hypervisor implementations.
+As of the current release CloudStack supports:</p>
+<ul class="simple">
+<li>BareMetal (via IPMI)</li>
+<li>Hyper-V</li>
+<li>KVM</li>
+<li>LXC</li>
+<li>vSphere (via vCenter)</li>
+<li>Xenserver</li>
+<li>Xen Project</li>
+</ul>
+</div>
+<div class="section" id="massively-scalable-infrastructure-management">
+<h2>Massively Scalable Infrastructure Management<a class="headerlink" href="concepts.html#massively-scalable-infrastructure-management" title="Permalink to this headline">¶</a></h2>
+<p>CloudStack can manage tens of thousands of physical servers installed in
+geographically distributed datacenters. The management server scales
+near-linearly eliminating the need for cluster-level management servers.
+Maintenance or other outages of the management server can occur without
+affecting the virtual machines running in the cloud.</p>
+</div>
+<div class="section" id="automatic-cloud-configuration-management">
+<h2>Automatic Cloud Configuration Management<a class="headerlink" href="concepts.html#automatic-cloud-configuration-management" title="Permalink to this headline">¶</a></h2>
+<p>CloudStack automatically configures the network and storage settings for each
+virtual machine deployment. Internally, a pool of virtual appliances support
+the operation of configuration of the cloud itself. These appliances offer
+services such as firewalling, routing, DHCP, VPN, console proxy, storage
+access, and storage replication. The extensive use of horizontally scalable
+virtual machines simplifies the installation and ongoing operation of a cloud.</p>
+</div>
+<div class="section" id="graphical-user-interface">
+<h2>Graphical User Interface<a class="headerlink" href="concepts.html#graphical-user-interface" title="Permalink to this headline">¶</a></h2>
+<p>CloudStack offers an administrators web interface used for provisioning and
+managing the cloud, as well as an end-user’s Web interface, used for running
+VMs and managing VM templates. The UI can be customized to reflect the desired
+service provider or enterprise look and feel.</p>
+</div>
+<div class="section" id="api">
+<h2>API<a class="headerlink" href="concepts.html#api" title="Permalink to this headline">¶</a></h2>
+<p>CloudStack provides a REST-like API for the operation, management and use of
+the cloud.</p>
+</div>
+<div class="section" id="aws-ec2-api-support">
+<h2>AWS EC2 API Support<a class="headerlink" href="concepts.html#aws-ec2-api-support" title="Permalink to this headline">¶</a></h2>
+<p>CloudStack provides an EC2 API translation layer to permit the common EC2
+tools to be used in the use of a CloudStack cloud.</p>
+</div>
+<div class="section" id="high-availability">
+<h2>High Availability<a class="headerlink" href="concepts.html#high-availability" title="Permalink to this headline">¶</a></h2>
+<p>CloudStack has a number of features to increase the availability of the
+system. The Management Server itself may be deployed in a multi-node
+installation where the servers are load balanced. MySQL may be configured to
+use replication to provide for failover in the event of database loss. For the
+hosts, CloudStack supports NIC bonding and the use of separate networks for
+storage as well as iSCSI Multipath.</p>
+</div>
+</div>
+<div class="section" id="deployment-architecture-overview">
+<h1>Deployment Architecture Overview<a class="headerlink" href="concepts.html#deployment-architecture-overview" title="Permalink to this headline">¶</a></h1>
+<p>Generally speaking, most CloudStack deployments consist of the management
+server and the resources to be managed. During deployment you inform the
+management server of the resources to be managed, such as IP address blocks,
+storage devices, hypervisors, and VLANs.</p>
+<p>The minimum installation consists of one machine running the CloudStack
+Management Server and another machine to act as the cloud infrastructure (in
+this case, a very simple infrastructure consisting of one host running
+hypervisor software). In its smallest deployment, a single machine can act as
+both the Management Server and the hypervisor host (using the KVM hypervisor).</p>
+<img alt="../_images/basic-deployment.png" src="../_images/basic-deployment.png" />
+<p>A more full-featured installation consists of a highly-available multi-node
+Management Server installation and up to tens of thousands of hosts using any
+of several networking technologies.</p>
+<div class="section" id="management-server-overview">
+<h2>Management Server Overview<a class="headerlink" href="concepts.html#management-server-overview" title="Permalink to this headline">¶</a></h2>
+<p>The management server orchestrates and allocates the resources in your cloud
+deployment.</p>
+<p>The management server typically runs on a dedicated machine or as a virtual
+machine.  It controls allocation of virtual machines to hosts and assigns
+storage and IP addresses to the virtual machine instances. The Management
+Server runs in an Apache Tomcat container and requires a MySQL database for
+persistence.</p>
+<p>The management server:</p>
+<ul class="simple">
+<li>Provides the web interface for both the adminstrator and end user.</li>
+<li>Provides the API interfaces for both the CloudStack API as well as the EC2
+interface.</li>
+<li>Manages the assignment of guest VMs to a specific compute resource</li>
+<li>Manages the assignment of public and private IP addresses.</li>
+<li>Allocates storage during the VM instantiation process.</li>
+<li>Manages snapshots, disk images (templates), and ISO images.</li>
+<li>Provides a single point of configuration for your cloud.</li>
+</ul>
+</div>
+<div class="section" id="cloud-infrastructure-overview">
+<span id="infrastructure-overview"></span><h2>Cloud Infrastructure Overview<a class="headerlink" href="concepts.html#cloud-infrastructure-overview" title="Permalink to this headline">¶</a></h2>
+<p>Resources within the cloud are managed as follows:</p>
+<ul class="simple">
+<li>Regions: A collection of one or more geographically proximate zones managed
+by one or more management servers.</li>
+<li>Zones: Typically, a zone is equivalent to a single datacenter. A zone
+consists of one or more pods and secondary storage.</li>
+<li>Pods: A pod is usually a rack, or row of racks that includes a layer-2
+switch and one or more clusters.</li>
+<li>Clusters: A cluster consists of one or more homogenous hosts and primary
+storage.</li>
+<li>Host: A single compute node within a cluster; often a hypervisor.</li>
+<li>Primary Storage: A storage resource typically provided to a single cluster
+for the actual running of instance disk images. (Zone-wide primary storage
+is an option, though not typically used.)</li>
+<li>Secondary Storage: A zone-wide resource which stores disk templates, ISO
+images, and snapshots.</li>
+</ul>
+</div>
+<div class="section" id="networking-overview">
+<h2>Networking Overview<a class="headerlink" href="concepts.html#networking-overview" title="Permalink to this headline">¶</a></h2>
+<p>CloudStack offers many types of networking, but they typically fall into one
+of two scenarios:</p>
+<ul class="simple">
+<li>Basic: Most analogous to AWS-classic style networking. Provides a single
+flat layer-2 network where guest isolation is provided at layer-3 by the
+hypervisors bridge device.</li>
+<li>Advanced: This typically uses layer-2 isolation such as VLANs, though this
+category also includes SDN technologies such as Nicira NVP.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="cloudstack-terminology">
+<h1>CloudStack Terminology<a class="headerlink" href="concepts.html#cloudstack-terminology" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="about-regions">
+<span id="id1"></span><h2>About Regions<a class="headerlink" href="concepts.html#about-regions" title="Permalink to this headline">¶</a></h2>
+<p>To increase reliability of the cloud, you can optionally group resources
+into multiple geographic regions. A region is the largest available
+organizational unit within a CloudStack deployment. A region is made up
+of several availability zones, where each zone is roughly equivalent to
+a datacenter. Each region is controlled by its own cluster of Management
+Servers, running in one of the zones. The zones in a region are
+typically located in close geographical proximity. Regions are a useful
+technique for providing fault tolerance and disaster recovery.</p>
+<p>By grouping zones into regions, the cloud can achieve higher
+availability and scalability. User accounts can span regions, so that
+users can deploy VMs in multiple, widely-dispersed regions. Even if one
+of the regions becomes unavailable, the services are still available to
+the end-user through VMs deployed in another region. And by grouping
+communities of zones under their own nearby Management Servers, the
+latency of communications within the cloud is reduced compared to
+managing widely-dispersed zones from a single central Management Server.</p>
+<p>Usage records can also be consolidated and tracked at the region level,
+creating reports or invoices for each geographic region.</p>
+<div class="figure">
+<img alt="../_images/region-overview.png" src="../_images/region-overview.png" />
+</div>
+<p>Regions are visible to the end user. When a user starts a guest VM on a
+particular CloudStack Management Server, the user is implicitly
+selecting that region for their guest. Users might also be required to
+copy their private templates to additional regions to enable creation of
+guest VMs using their templates in those regions.</p>
+</div>
+<div class="section" id="about-zones">
+<span id="id2"></span><h2>About Zones<a class="headerlink" href="concepts.html#about-zones" title="Permalink to this headline">¶</a></h2>
+<p>A zone is the second largest organizational unit within a CloudStack
+deployment. A zone typically corresponds to a single datacenter,
+although it is permissible to have multiple zones in a datacenter. The
+benefit of organizing infrastructure into zones is to provide physical
+isolation and redundancy. For example, each zone can have its own power
+supply and network uplink, and the zones can be widely separated
+geographically (though this is not required).</p>
+<p>A zone consists of:</p>
+<ul class="simple">
+<li>One or more pods. Each pod contains one or more clusters of hosts and
+one or more primary storage servers.</li>
+<li>A zone may contain one or more primary storage servers, which are
+shared by all the pods in the zone.</li>
+<li>Secondary storage, which is shared by all the pods in the zone.</li>
+</ul>
+<div class="figure">
+<img alt="../_images/zone-overview.png" src="../_images/zone-overview.png" />
+</div>
+<p>Zones are visible to the end user. When a user starts a guest VM, the
+user must select a zone for their guest. Users might also be required to
+copy their private templates to additional zones to enable creation of
+guest VMs using their templates in those zones.</p>
+<p>Zones can be public or private. Public zones are visible to all users.
+This means that any user may create a guest in that zone. Private zones
+are reserved for a specific domain. Only users in that domain or its
+subdomains may create guests in that zone.</p>
+<p>Hosts in the same zone are directly accessible to each other without
+having to go through a firewall. Hosts in different zones can access
+each other through statically configured VPN tunnels.</p>
+<p>For each zone, the administrator must decide the following.</p>
+<ul class="simple">
+<li>How many pods to place in each zone.</li>
+<li>How many clusters to place in each pod.</li>
+<li>How many hosts to place in each cluster.</li>
+<li>(Optional) How many primary storage servers to place in each zone and
+total capacity for these storage servers.</li>
+<li>How many primary storage servers to place in each cluster and total
+capacity for these storage servers.</li>
+<li>How much secondary storage to deploy in a zone.</li>
+</ul>
+<p>When you add a new zone using the CloudStack UI, you will be prompted to
+configure the zone’s physical network and add the first pod, cluster,
+host, primary storage, and secondary storage.</p>
+<p>In order to support zone-wide functions for VMware, CloudStack is aware
+of VMware Datacenters and can map each Datacenter to a CloudStack zone.
+To enable features like storage live migration and zone-wide primary
+storage for VMware hosts, CloudStack has to make sure that a zone
+contains only a single VMware Datacenter. Therefore, when you are
+creating a new CloudStack zone, you can select a VMware Datacenter for
+the zone. If you are provisioning multiple VMware Datacenters, each one
+will be set up as a single zone in CloudStack.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you are upgrading from a previous CloudStack version, and your existing
+deployment contains a zone with clusters from multiple VMware Datacenters,
+that zone will not be forcibly migrated to the new model. It will continue
+to function as before. However, any new zone-wide operations, such as
+zone-wide primary storage and live storage migration, will not be available
+in that zone.</p>
+</div>
+</div>
+<div class="section" id="about-pods">
+<span id="id3"></span><h2>About Pods<a class="headerlink" href="concepts.html#about-pods" title="Permalink to this headline">¶</a></h2>
+<p>A pod often represents a single rack. Hosts in the same pod are in the
+same subnet. A pod is the third-largest organizational unit within a
+CloudStack deployment. Pods are contained within zones. Each zone can
+contain one or more pods. A pod consists of one or more clusters of
+hosts and one or more primary storage servers. Pods are not visible to
+the end user.</p>
+<div class="figure">
+<img alt="../_images/pod-overview.png" src="../_images/pod-overview.png" />
+</div>
+</div>
+<div class="section" id="about-clusters">
+<span id="id4"></span><h2>About Clusters<a class="headerlink" href="concepts.html#about-clusters" title="Permalink to this headline">¶</a></h2>
+<p>A cluster provides a way to group hosts. To be precise, a cluster is a
+XenServer server pool, a set of KVM servers, , or a VMware cluster
+preconfigured in vCenter. The hosts in a cluster all have identical
+hardware, run the same hypervisor, are on the same subnet, and access
+the same shared primary storage. Virtual machine instances (VMs) can be
+live-migrated from one host to another within the same cluster, without
+interrupting service to the user.</p>
+<p>A cluster is the fourth-largest organizational unit within a CloudStack
+deployment. Clusters are contained within pods, and pods are contained
+within zones. Size of the cluster is limited by the underlying
+hypervisor, although the CloudStack recommends less in most cases; see
+Best Practices.</p>
+<p>A cluster consists of one or more hosts and one or more primary storage
+servers.</p>
+<div class="figure">
+<img alt="../_images/cluster-overview.png" src="../_images/cluster-overview.png" />
+</div>
+<p>CloudStack allows multiple clusters in a cloud deployment.</p>
+<p>Even when local storage is used exclusively, clusters are still required
+organizationally, even if there is just one host per cluster.</p>
+<p>When VMware is used, every VMware cluster is managed by a vCenter
+server. An Administrator must register the vCenter server with
+CloudStack. There may be multiple vCenter servers per zone. Each vCenter
+server may manage multiple VMware clusters.</p>
+</div>
+<div class="section" id="about-hosts">
+<span id="id5"></span><h2>About Hosts<a class="headerlink" href="concepts.html#about-hosts" title="Permalink to this headline">¶</a></h2>
+<p>A host is a single computer. Hosts provide the computing resources that
+run guest virtual machines. Each host has hypervisor software installed
+on it to manage the guest VMs. For example, a host can be a Citrix
+XenServer server, a Linux KVM-enabled server, an ESXi server, or a
+Windows Hyper-V server.</p>
+<p>The host is the smallest organizational unit within a CloudStack
+deployment. Hosts are contained within clusters, clusters are contained
+within pods, pods are contained within zones, and zones can be contained
+within regions.</p>
+<p>Hosts in a CloudStack deployment:</p>
+<ul class="simple">
+<li>Provide the CPU, memory, storage, and networking resources needed to
+host the virtual machines</li>
+<li>Interconnect using a high bandwidth TCP/IP network and connect to the
+Internet</li>
+<li>May reside in multiple data centers across different geographic
+locations</li>
+<li>May have different capacities (different CPU speeds, different
+amounts of RAM, etc.), although the hosts within a cluster must all
+be homogeneous</li>
+</ul>
+<p>Additional hosts can be added at any time to provide more capacity for
+guest VMs.</p>
+<p>CloudStack automatically detects the amount of CPU and memory resources
+provided by the hosts.</p>
+<p>Hosts are not visible to the end user. An end user cannot determine
+which host their guest has been assigned to.</p>
+<p>For a host to function in CloudStack, you must do the following:</p>
+<ul class="simple">
+<li>Install hypervisor software on the host</li>
+<li>Assign an IP address to the host</li>
+<li>Ensure the host is connected to the CloudStack Management Server.</li>
+</ul>
+</div>
+<div class="section" id="about-primary-storage">
+<h2>About Primary Storage<a class="headerlink" href="concepts.html#about-primary-storage" title="Permalink to this headline">¶</a></h2>
+<p>Primary storage is associated with a cluster, and it stores
+virtual disks for all the VMs running on hosts in that cluster.
+On KVM and VMware, you can provision primary storage on a per-zone basis.</p>
+<p>You can add multiple primary storage servers to a cluster or zone. At
+least one is required. It is typically located close to the hosts for
+increased performance. CloudStack manages the allocation of guest
+virtual disks to particular primary storage devices.</p>
+<p>It is useful to set up zone-wide primary storage when you want to avoid
+extra data copy operations. With cluster-based primary storage, data in
+the primary storage is directly available only to VMs within that
+cluster. If a VM in a different cluster needs some of the data, it must
+be copied from one cluster to another, using the zone’s secondary
+storage as an intermediate step. This operation can be unnecessarily
+time-consuming.</p>
+<p>For Hyper-V, SMB/CIFS storage is supported. Note that Zone-wide Primary
+Storage is not supported in Hyper-V.</p>
+<p>Ceph/RBD storage is only supported by the KVM hypervisor. It can be used
+as Zone-wide Primary Storage.</p>
+<p>CloudStack is designed to work with all standards-compliant iSCSI and
+NFS servers that are supported by the underlying hypervisor, including,
+for example:</p>
+<ul class="simple">
+<li>SolidFire for iSCSI</li>
+<li>Dell EqualLogic™ for iSCSI</li>
+<li>Network Appliances filers for NFS and iSCSI</li>
+<li>Scale Computing for NFS</li>
+</ul>
+<p>If you intend to use only local disk for your installation, you can skip
+adding separate primary storage.</p>
+</div>
+<div class="section" id="about-secondary-storage">
+<h2>About Secondary Storage<a class="headerlink" href="concepts.html#about-secondary-storage" title="Permalink to this headline">¶</a></h2>
+<p>Secondary storage stores the following:</p>
+<ul class="simple">
+<li>Templates — OS images that can be used to boot VMs and can include
+additional configuration information, such as installed applications</li>
+<li>ISO images — disc images containing data or bootable media for
+operating systems</li>
+<li>Disk volume snapshots — saved copies of VM data which can be used for
+data recovery or to create new templates</li>
+</ul>
+<p>The items in secondary storage are available to all hosts in the scope
+of the secondary storage, which may be defined as per zone or per
+region.</p>
+<p>To make items in secondary storage available to all hosts throughout the
+cloud, you can add object storage in addition to the zone-based NFS
+Secondary Staging Store. It is not necessary to copy templates and
+snapshots from one zone to another, as would be required when using zone
+NFS alone. Everything is available everywhere.</p>
+<p>For Hyper-V hosts, SMB/CIFS storage is supported.</p>
+<p>CloudStack provides plugins that enable both OpenStack Object Storage
+(Swift, <a class="reference external" href="http://swift.openstack.org">swift.openstack.org</a>) and Amazon
+Simple Storage Service (S3) object storage. When using one of these
+storage plugins, you configure Swift or S3 storage for the entire
+CloudStack, then set up the NFS Secondary Staging Store for each zone.
+The NFS storage in each zone acts as a staging area through which all
+templates and other secondary storage data pass before being forwarded
+to Swift or S3. The backing object storage acts as a cloud-wide
+resource, making templates and other data available to any zone in the
+cloud.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Heterogeneous Secondary Storage is not supported in Regions. For example,
+you cannot set up multiple zones, one using NFS secondary and the other
+using S3 or Swift secondary.</p>
+</div>
+</div>
+<div class="section" id="about-physical-networks">
+<h2>About Physical Networks<a class="headerlink" href="concepts.html#about-physical-networks" title="Permalink to this headline">¶</a></h2>
+<p>Part of adding a zone is setting up the physical network. One or (in an
+advanced zone) more physical networks can be associated with each zone.
+The network corresponds to a NIC on the hypervisor host. Each physical
+network can carry one or more types of network traffic. The choices of
+traffic type for each network vary depending on whether you are creating
+a zone with basic networking or advanced networking.</p>
+<p>A physical network is the actual network hardware and wiring in a zone.
+A zone can have multiple physical networks. An administrator can:</p>
+<ul class="simple">
+<li>Add/Remove/Update physical networks in a zone</li>
+<li>Configure VLANs on the physical network</li>
+<li>Configure a name so the network can be recognized by hypervisors</li>
+<li>Configure the service providers (firewalls, load balancers, etc.)
+available on a physical network</li>
+<li>Configure the IP addresses trunked to a physical network</li>
+<li>Specify what type of traffic is carried on the physical network, as
+well as other properties like network speed</li>
+</ul>
+<div class="section" id="basic-zone-network-traffic-types">
+<h3>Basic Zone Network Traffic Types<a class="headerlink" href="concepts.html#basic-zone-network-traffic-types" title="Permalink to this headline">¶</a></h3>
+<p>When basic networking is used, there can be only one physical network in
+the zone. That physical network carries the following traffic types:</p>
+<ul class="simple">
+<li>Guest. When end users run VMs, they generate guest traffic. The guest
+VMs communicate with each other over a network that can be referred
+to as the guest network. Each pod in a basic zone is a broadcast
+domain, and therefore each pod has a different IP range for the guest
+network. The administrator must configure the IP range for each pod.</li>
+<li>Management. When CloudStack’s internal resources communicate with
+each other, they generate management traffic. This includes
+communication between hosts, system VMs (VMs used by CloudStack to
+perform various tasks in the cloud), and any other component that
+communicates directly with the CloudStack Management Server. You must
+configure the IP range for the system VMs to use.</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">We strongly recommend the use of separate NICs for management traffic
+and guest traffic.</p>
+</div>
+<ul class="simple">
+<li>Public. Public traffic is generated when VMs in the cloud access the
+Internet. Publicly accessible IPs must be allocated for this purpose.
+End users can use the CloudStack UI to acquire these IPs to implement
+NAT between their guest network and the public network, as described
+in Acquiring a New IP Address.</li>
+<li>Storage. While labeled “storage” this is specifically about secondary
+storage, and doesn’t affect traffic for primary storage. This
+includes traffic such as VM templates and snapshots, which is sent
+between the secondary storage VM and secondary storage servers.
+CloudStack uses a separate Network Interface Controller (NIC) named
+storage NIC for storage network traffic. Use of a storage NIC that
+always operates on a high bandwidth network allows fast template and
+snapshot copying. You must configure the IP range to use for the
+storage network.</li>
+</ul>
+<p>In a basic network, configuring the physical network is fairly
+straightforward. In most cases, you only need to configure one guest
+network to carry traffic that is generated by guest VMs. If you use a
+NetScaler load balancer and enable its elastic IP and elastic load
+balancing (EIP and ELB) features, you must also configure a network to
+carry public traffic. CloudStack takes care of presenting the necessary
+network configuration steps to you in the UI when you add a new zone.</p>
+</div>
+<div class="section" id="basic-zone-guest-ip-addresses">
+<h3>Basic Zone Guest IP Addresses<a class="headerlink" href="concepts.html#basic-zone-guest-ip-addresses" title="Permalink to this headline">¶</a></h3>
+<p>When basic networking is used, CloudStack will assign IP addresses in
+the CIDR of the pod to the guests in that pod. The administrator must
+add a Direct IP range on the pod for this purpose. These IPs are in the
+same VLAN as the hosts.</p>
+</div>
+<div class="section" id="advanced-zone-network-traffic-types">
+<span id="about-adv-network-traffic-types"></span><h3>Advanced Zone Network Traffic Types<a class="headerlink" href="concepts.html#advanced-zone-network-traffic-types" title="Permalink to this headline">¶</a></h3>
+<p>When advanced networking is used, there can be multiple physical
+networks in the zone. Each physical network can carry one or more
+traffic types, and you need to let CloudStack know which type of network
+traffic you want each network to carry. The traffic types in an advanced
+zone are:</p>
+<ul class="simple">
+<li>Guest. When end users run VMs, they generate guest traffic. The guest
+VMs communicate with each other over a network that can be referred
+to as the guest network. This network can be isolated or shared. In
+an isolated guest network, the administrator needs to reserve VLAN
+ranges to provide isolation for each CloudStack account’s network
+(potentially a large number of VLANs). In a shared guest network, all
+guest VMs share a single network.</li>
+<li>Management. When CloudStack’s internal resources communicate with
+each other, they generate management traffic. This includes
+communication between hosts, system VMs (VMs used by CloudStack to
+perform various tasks in the cloud), and any other component that
+communicates directly with the CloudStack Management Server. You must
+configure the IP range for the system VMs to use.</li>
+<li>Public. Public traffic is generated when VMs in the cloud access the
+Internet. Publicly accessible IPs must be allocated for this purpose.
+End users can use the CloudStack UI to acquire these IPs to implement
+NAT between their guest network and the public network, as described
+in “Acquiring a New IP Address” in the Administration Guide.</li>
+<li>Storage. While labeled “storage” this is specifically about secondary
+storage, and doesn’t affect traffic for primary storage. This
+includes traffic such as VM templates and snapshots, which is sent
+between the secondary storage VM and secondary storage servers.
+CloudStack uses a separate Network Interface Controller (NIC) named
+storage NIC for storage network traffic. Use of a storage NIC that
+always operates on a high bandwidth network allows fast template and
+snapshot copying. You must configure the IP range to use for the
+storage network.</li>
+</ul>
+<p>These traffic types can each be on a separate physical network, or they
+can be combined with certain restrictions. When you use the Add Zone
+wizard in the UI to create a new zone, you are guided into making only
+valid choices.</p>
+</div>
+<div class="section" id="advanced-zone-guest-ip-addresses">
+<h3>Advanced Zone Guest IP Addresses<a class="headerlink" href="concepts.html#advanced-zone-guest-ip-addresses" title="Permalink to this headline">¶</a></h3>
+<p>When advanced networking is used, the administrator can create
+additional networks for use by the guests. These networks can span the
+zone and be available to all accounts, or they can be scoped to a single
+account, in which case only the named account may create guests that
+attach to these networks. The networks are defined by a VLAN ID, IP
+range, and gateway. The administrator may provision thousands of these
+networks if desired. Additionally, the administrator can reserve a part
+of the IP address space for non-CloudStack VMs and servers.</p>
+</div>
+<div class="section" id="advanced-zone-public-ip-addresses">
+<h3>Advanced Zone Public IP Addresses<a class="headerlink" href="concepts.html#advanced-zone-public-ip-addresses" title="Permalink to this headline">¶</a></h3>
+<p>When advanced networking is used, the administrator can create
+additional networks for use by the guests. These networks can span the
+zone and be available to all accounts, or they can be scoped to a single
+account, in which case only the named account may create guests that
+attach to these networks. The networks are defined by a VLAN ID, IP
+range, and gateway. The administrator may provision thousands of these
+networks if desired.</p>
+</div>
+<div class="section" id="system-reserved-ip-addresses">
+<span id="about-system-reserved-ip-addresses"></span><h3>System Reserved IP Addresses<a class="headerlink" href="concepts.html#system-reserved-ip-addresses" title="Permalink to this headline">¶</a></h3>
+<p>In each zone, you need to configure a range of reserved IP addresses for
+the management network. This network carries communication between the
+CloudStack Management Server and various system VMs, such as Secondary
+Storage VMs, Console Proxy VMs, and DHCP.</p>
+<p>The reserved IP addresses must be unique across the cloud. You cannot,
+for example, have a host in one zone which has the same private IP
+address as a host in another zone.</p>
+<p>The hosts in a pod are assigned private IP addresses. These are
+typically RFC1918 addresses. The Console Proxy and Secondary Storage
+system VMs are also allocated private IP addresses in the CIDR of the
+pod that they are created in.</p>
+<p>Make sure computing servers and Management Servers use IP addresses
+outside of the System Reserved IP range. For example, suppose the System
+Reserved IP range starts at 192.168.154.2 and ends at 192.168.154.7.
+CloudStack can use .2 to .7 for System VMs. This leaves the rest of the
+pod CIDR, from .8 to .254, for the Management Server and hypervisor
+hosts.</p>
+<p><strong>In all zones:</strong></p>
+<p>Provide private IPs for the system in each pod and provision them in
+CloudStack.</p>
+<p>For KVM and XenServer, the recommended number of private IPs per pod is
+one per host. If you expect a pod to grow, add enough private IPs now to
+accommodate the growth.</p>
+<p><strong>In a zone that uses advanced networking:</strong></p>
+<p>For zones with advanced networking, we recommend provisioning enough
+private IPs for your total number of customers, plus enough for the
+required CloudStack System VMs. Typically, about 10 additional IPs are
+required for the System VMs. For more information about System VMs, see
+the section on working with SystemVMs in the Administrator’s Guide.</p>
+<p>When advanced networking is being used, the number of private IP
+addresses available in each pod varies depending on which hypervisor is
+running on the nodes in that pod. Citrix XenServer and KVM use
+link-local addresses, which in theory provide more than 65,000 private
+IP addresses within the address block. As the pod grows over time, this
+should be more than enough for any reasonable number of hosts as well as
+IP addresses for guest virtual routers. VMWare ESXi, by contrast uses
+any administrator-specified subnetting scheme, and the typical
+administrator provides only 255 IPs per pod. Since these are shared by
+physical machines, the guest virtual router, and other entities, it is
+possible to run out of private IPs when scaling up a pod whose nodes are
+running ESXi.</p>
+<p>To ensure adequate headroom to scale private IP space in an ESXi pod
+that uses advanced networking, use one or both of the following
+techniques:</p>
+<ul class="simple">
+<li>Specify a larger CIDR block for the subnet. A subnet mask with a /20
+suffix will provide more than 4,000 IP addresses.</li>
+<li>Create multiple pods, each with its own subnet. For example, if you
+create 10 pods and each pod has 255 IPs, this will provide 2,550 IP
+addresses.</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="choosing_deployment_architecture.html" class="btn btn-neutral float-right" title="Small-Scale Deployment" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="CloudStack Concepts and Terminology" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Apache Foundation
+      
+        <span class="commit">
+          Revision <code>29a3d9e2</code>.
+        </span>
+      
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Read the Docs</span>
+      v: 4.13.0.0
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="http://docs.cloudstack.apache.org/en/master/">master</a></dd>
+        
+          <dd><a href="../../../index.html">latest</a></dd>
+        
+          <dd><a href="../index.html">4.13.0.0</a></dd>
+        
+          <dd><a href="../../4.12.0.0/index.html">4.12.0.0</a></dd>
+        
+          <dd><a href="../../4.11.3.0/index.html">4.11.3.0</a></dd>
+        
+          <dd><a href="../../4.11.2.0/index.html">4.11.2.0</a></dd>
+        
+          <dd><a href="../../4.11.1.0/index.html">4.11.1.0</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="http://readthedocs.org/projects/cloudstack-documentation/downloads/htmlzip/4.13.0.0/">html</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>On Read the Docs</dt>
+          <dd>
+            <a href="http://readthedocs.org/projects/cloudstack-documentation/?fromdocs=cloudstack-documentation">Project Home</a>
+          </dd>
+          <dd>
+            <a href="http://readthedocs.org/builds/cloudstack-documentation/?fromdocs=cloudstack-documentation">Builds</a>
+          </dd>
+      </dl>
+      <hr/>
+      Free document hosting provided by <a href="http://www.readthedocs.org">Read the Docs</a>.
+
+    </div>
+  </div>
+
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+   
+
+</body>
+</html>

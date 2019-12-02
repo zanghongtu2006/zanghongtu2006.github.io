@@ -1,0 +1,742 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>The VXLAN Plugin &mdash; Apache CloudStack 4.11.1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="The OVS Plugin" href="ovs-plugin.html" />
+    <link rel="prev" title="The Nuage VSP Plugin" href="nuage-plugin.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+
+<!-- RTD Extra Head -->
+
+<!-- 
+Always link to the latest version, as canonical.
+http://docs.readthedocs.org/en/latest/canonical.html
+-->
+<link rel="canonical" href="vxlan.html" />
+
+<link rel="stylesheet" href="https://media.readthedocs.org/css/readthedocs-doc-embed.css" type="text/css" />
+
+<script type="text/javascript" src="../_static/readthedocs-data.js"></script>
+
+<!-- Add page-specific data, which must exist in the page js, not global -->
+<script type="text/javascript">
+READTHEDOCS_DATA['page'] = 'plugins/vxlan'
+READTHEDOCS_DATA['source_suffix'] = '.rst'
+</script>
+
+<script type="text/javascript" src="https://media.readthedocs.org/javascript/readthedocs-analytics.js"></script>
+
+<!-- end RTD <extrahead> -->
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Apache CloudStack
+          
+
+          
+          </a>
+
+          
+            
+            
+            
+              <div class="version">
+                4.11.1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../conceptsandterminology/index.html">CloudStack Concepts and Terminology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickinstallationguide/qig.html">Quick Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installguide/index.html">Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../upgrading/index.html">Upgrading CloudStack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../adminguide/index.html">Usage Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developersguide/index.html">Developers Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Plugins Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cloudian-connector.html">The Cloudian Connector Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nicira-plugin.html">The Nicira NVP Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nuage-plugin.html">The Nuage VSP Plugin</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="vxlan.html#">The VXLAN Plugin</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="vxlan.html#system-requirements-for-vxlan">System Requirements for VXLAN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vxlan.html#linux-distributions-that-meet-the-requirements">Linux Distributions that meet the requirements</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="vxlan.html#check-the-capability-of-your-system">Check the capability of your system</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vxlan.html#important-note-on-mtu-size">Important note on MTU size</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vxlan.html#important-note-on-max-number-of-multicast-groups-and-thus-vxlan-interfaces">Important note on max number of multicast groups (and thus VXLAN interfaces)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vxlan.html#advanced-build-kernel-and-iproute2">Advanced: Build kernel and iproute2</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="vxlan.html#configure-product-to-use-vxlan-plugin">Configure PRODUCT to use VXLAN Plugin</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="vxlan.html#configure-hypervisor">Configure hypervisor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vxlan.html#setup-zone-using-vxlan">Setup zone using VXLAN</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ovs-plugin.html">The OVS Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ipv6.html">IPv6 Support in CloudStack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quota.html">Quota Plugin</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">Release Notes</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Other Documentation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/api.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://cwiki.apache.org/confluence/display/CLOUDSTACK/Home">Apache CloudStack Wiki</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/">Apache CloudStack web site</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://cloudstack.apache.org/downloads.html">Apache CloudStack Source Code</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/apache/cloudstack">Apache CloudStack on GitHub</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Pre 4.11 Documentation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="../../../projects/cloudstack-installation">Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference external" href="../../../projects/cloudstack-administration">Administration Guide</a></li>
+<li class="toctree-l1"><a class="reference external" href="../../../projects/cloudstack-release-notes">Release Notes</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Apache CloudStack</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Plugins Guide</a> &raquo;</li>
+        
+      <li>The VXLAN Plugin</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/apache/cloudstack-documentation/blob/4.11.1.0/source/plugins/vxlan.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="the-vxlan-plugin">
+<h1>The VXLAN Plugin<a class="headerlink" href="vxlan.html#the-vxlan-plugin" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="system-requirements-for-vxlan">
+<h2>System Requirements for VXLAN<a class="headerlink" href="vxlan.html#system-requirements-for-vxlan" title="Permalink to this headline">¶</a></h2>
+<p>In PRODUCT 4.X.0, this plugin only supports the KVM hypervisor with the
+standard linux bridge.</p>
+<p>The following table lists the requirements for the hypervisor.</p>
+<table border="1" class="table-striped table-bordered table-hover docutils">
+<colgroup>
+<col width="9%" />
+<col width="27%" />
+<col width="64%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Item</th>
+<th class="head">Requirement</th>
+<th class="head">Note</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Hypervisor</td>
+<td>KVM</td>
+<td>OvsVifDriver is not supported by this plugin in PRODUCT 4.X, use BridgeVifDriver (default).</td>
+</tr>
+<tr class="row-odd"><td>Linux kernel</td>
+<td>version &gt;= 3.7, VXLAN kernel module enabled</td>
+<td>It is recommended to use kernel &gt;=3.9, since Linux kernel categorizes the VXLAN driver as experimental &lt;3.9.</td>
+</tr>
+<tr class="row-even"><td>iproute2</td>
+<td>matches kernel version</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+<p>Table: Hypervisor Requirement for VXLAN</p>
+</div>
+<div class="section" id="linux-distributions-that-meet-the-requirements">
+<h2>Linux Distributions that meet the requirements<a class="headerlink" href="vxlan.html#linux-distributions-that-meet-the-requirements" title="Permalink to this headline">¶</a></h2>
+<p>The following table lists distributions which meet requirements.</p>
+<table border="1" class="table-striped table-bordered table-hover docutils">
+<colgroup>
+<col width="11%" />
+<col width="13%" />
+<col width="30%" />
+<col width="45%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Distribution</th>
+<th class="head">Release Version</th>
+<th class="head">Kernel Version (Date confirmed)</th>
+<th class="head">Note</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Ubuntu</td>
+<td>13.04</td>
+<td>3.8.0 (2013/07/23)</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>Fedora</td>
+<td>&gt;= 17</td>
+<td>3.9.10 (2013/07/23)</td>
+<td>Latest kernel packages are available in “update” repository.</td>
+</tr>
+<tr class="row-even"><td>CentOS</td>
+<td>&gt;= 6.5</td>
+<td>2.6.32-431.3.1.el6.x86_64 (2014/01/21)</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+<p>Table: List of Linux distributions which meet the hypervisor
+requirements</p>
+<div class="section" id="check-the-capability-of-your-system">
+<h3>Check the capability of your system<a class="headerlink" href="vxlan.html#check-the-capability-of-your-system" title="Permalink to this headline">¶</a></h3>
+<p>To check the capability of your system, execute the following commands.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo modprobe vxlan &amp;&amp; echo $?
+# Confirm the output is &quot;0&quot;.
+# If it&#39;s non-0 value or error message, your kernel doesn&#39;t have VXLAN kernel module.
+
+$ ip link add type vxlan help
+# Confirm the output is usage of the command and that it&#39;s for VXLAN.
+# If it&#39;s not, your iproute2 utility doesn&#39;t support VXLAN.
+</pre></div>
+</div>
+</div>
+<div class="section" id="important-note-on-mtu-size">
+<h3>Important note on MTU size<a class="headerlink" href="vxlan.html#important-note-on-mtu-size" title="Permalink to this headline">¶</a></h3>
+<p>When new vxlan interfaces are created, kernel will obtain current MTU size of the physical interface (ethX or the bridge)
+and then create vxlan interface/bridge that are exactly 50 bytes smaller than the MTU on physical interface/bridge.
+This means that in order to support default MTU size of 1500 bytes inside VM, your vxlan interface/bridge must also
+have MTU of 1500 bytes, meaning that your physical interface/bridge must have MTU of at least 1550 bytes.
+In order to configure “jumbo frames” you can i.e. make physical interface/bridge with 9000 bytes MTU, then all the vxlan
+interfaces will be created with MTU of 8950 bytes, and then MTU size inside VM can be set to 8950 bytes.</p>
+</div>
+<div class="section" id="important-note-on-max-number-of-multicast-groups-and-thus-vxlan-interfaces">
+<h3>Important note on max number of multicast groups (and thus VXLAN interfaces)<a class="headerlink" href="vxlan.html#important-note-on-max-number-of-multicast-groups-and-thus-vxlan-interfaces" title="Permalink to this headline">¶</a></h3>
+<p>Default value of “net.ipv4.igmp_max_memberships” (cat /proc/sys/net/ipv4/igmp_max_memberships) is “20”, which means that host can be joined to max 20 multicast groups (attach max 20 multicast IPs on the host).
+Since all VXLAN (VTEP) interfaces provisioned on host are multicast-based (belong to certain multicast group, and thus has it’s own multicast IP that is used as VTEP), this means that you can not provision more than 20 (working) VXLAN interfaces per host.
+On Linux kernel 3.x you actually can provision more than 20, but ARP request will silently fail and cause client’s networking problems
+On Linux kernel 4.x you can NOT provision (start) more than 20 VXLAN interfaces and error message “No buffer space available” can be observed in Cloudstack Agent logs after provisioning required bridges and VXLAN interfaces.
+Increase needed parameter to sane value (i.e. 100 or 200) as required.
+If you need to operate more than 20 VMs from different client’s network, this change above is required.</p>
+</div>
+<div class="section" id="advanced-build-kernel-and-iproute2">
+<h3>Advanced: Build kernel and iproute2<a class="headerlink" href="vxlan.html#advanced-build-kernel-and-iproute2" title="Permalink to this headline">¶</a></h3>
+<p>Even if your system doesn’t support VXLAN, you can compile the kernel
+and iproute2 by yourself. The following procedure is an example for
+CentOS 6.4.</p>
+<div class="section" id="build-kernel">
+<h4>Build kernel<a class="headerlink" href="vxlan.html#build-kernel" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo yum groupinstall &quot;Development Tools&quot;
+$ sudo yum install ncurses-devel hmaccalc zlib-devel binutils-devel elfutils-libelf-devel bc
+
+$ KERNEL_VERSION=3.10.4
+# Declare the kernel version you want to build.
+
+$ wget https://www.kernel.org/pub/linux/kernel/v3.x/linux-${KERNEL_VERSION}.tar.xz
+$ tar xvf linux-${KERNEL_VERSION}.tar.xz
+$ cd linux-${KERNEL_VERSION}
+$ cp /boot/config-`uname -r` .config
+$ make oldconfig
+# You may keep hitting enter and choose the default.
+
+$ make menuconfig
+# Dig into &quot;Device Drivers&quot; -&gt; &quot;Network device support&quot;,
+# then select &quot;Virtual eXtensible Local Area Network (VXLAN)&quot; and hit space.
+# Make sure it indicates &quot;&lt;M&gt;&quot; (build as module), then Save and Exit.
+
+# You may also want to check &quot;IPv4 NAT&quot; and its child nodes in &quot;IP: Netfilter Configuration&quot;
+# and &quot;IPv6 NAT&quot; and its child nodes in &quot;IPv6: Netfilter Configuration&quot;.
+# In 3.10.4, you can find the options in
+# &quot;Networking support&quot; -&gt; &quot;Networking options&quot;
+#   -&gt; &quot;Network packet filtering framework (Netfilter)&quot;.
+
+$ make # -j N
+# You may use -j N option to make the build process parallel and faster,
+# generally N = 1 + (cores your machine have).
+
+$ sudo make modules_install
+$ sudo make install
+# You would get an error like &quot;ERROR: modinfo: could not find module XXXX&quot; here.
+# This happens mainly due to config structure changes between kernel versions.
+# You can ignore this error, until you find you need the kernel module.
+# If you feel uneasy, you can go back to make menuconfig,
+# find module XXXX by using &#39;/&#39; key, enable the module, build and install the kernel again.
+
+$ sudo vi /etc/grub.conf
+# Make sure the new kernel isn&#39;t set as the default and the timeout is long enough,
+# so you can select the new kernel during boot process.
+# It&#39;s not a good idea to set the new kernel as the default until you confirm the kernel works fine.
+
+$ sudo reboot
+# Select the new kernel during the boot process.
+</pre></div>
+</div>
+</div>
+<div class="section" id="build-iproute2">
+<h4>Build iproute2<a class="headerlink" href="vxlan.html#build-iproute2" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo yum install db4-devel
+
+$ git clone git://git.kernel.org/pub/scm/linux/kernel/git/shemminger/iproute2.git
+$ cd iproute2
+$ git tag
+# Find the version that matches the kernel.
+# If you built kernel 3.10.4 as above, it would be v3.10.0.
+
+$ git checkout v3.10.0
+$ ./configure
+$ make # -j N
+$ sudo make install
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Please use rebuild kernel and tools at your own risk.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="configure-product-to-use-vxlan-plugin">
+<h2>Configure PRODUCT to use VXLAN Plugin<a class="headerlink" href="vxlan.html#configure-product-to-use-vxlan-plugin" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="configure-hypervisor">
+<h3>Configure hypervisor<a class="headerlink" href="vxlan.html#configure-hypervisor" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="configure-hypervisor-kvm">
+<h4>Configure hypervisor: KVM<a class="headerlink" href="vxlan.html#configure-hypervisor-kvm" title="Permalink to this headline">¶</a></h4>
+<p>In addition to “KVM Hypervisor Host Installation” in “PRODUCT
+Installation Guide”, you have to configure the following item on the
+host.</p>
+</div>
+<div class="section" id="create-bridge-interface-with-ipv4-address">
+<h4>Create bridge interface with IPv4 address<a class="headerlink" href="vxlan.html#create-bridge-interface-with-ipv4-address" title="Permalink to this headline">¶</a></h4>
+<p>This plugin requires an IPv4 address on the KVM host to terminate and
+originate VXLAN traffic. The address should be assinged to a physical
+interface or a bridge interface bound to a physical interface. Both a
+private address or a public address are fine for the purpose. It is not
+required to be in the same subnet for all hypervisors in a zone, but
+they should be able to reach each other via IP multicast with UDP/8472
+port. A name of a physical interface or a name of a bridge interface
+bound to a physical interface can be used as a traffic label. Physical
+interface name fits for almost all cases, but if physical interface name
+differs per host, you may use a bridge to set a same name. If you would
+like to use a bridge name as a traffic label, you may create a bridge in
+this way.</p>
+<p>Let <code class="docutils literal notranslate"><span class="pre">cloudbr1</span></code> be the bridge interface for the instances’ private
+network.</p>
+<div class="section" id="configure-in-rhel-or-centos">
+<h5>Configure in RHEL or CentOS<a class="headerlink" href="vxlan.html#configure-in-rhel-or-centos" title="Permalink to this headline">¶</a></h5>
+<p>When you configured the <code class="docutils literal notranslate"><span class="pre">cloudbr1</span></code> interface as below,</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo vi /etc/sysconfig/network-scripts/ifcfg-cloudbr1
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DEVICE</span><span class="o">=</span><span class="n">cloudbr1</span>
+<span class="n">TYPE</span><span class="o">=</span><span class="n">Bridge</span>
+<span class="n">ONBOOT</span><span class="o">=</span><span class="n">yes</span>
+<span class="n">BOOTPROTO</span><span class="o">=</span><span class="n">none</span>
+<span class="n">IPV6INIT</span><span class="o">=</span><span class="n">no</span>
+<span class="n">IPV6_AUTOCONF</span><span class="o">=</span><span class="n">no</span>
+<span class="n">DELAY</span><span class="o">=</span><span class="mi">5</span>
+<span class="n">STP</span><span class="o">=</span><span class="n">yes</span>
+</pre></div>
+</div>
+<p>you would change the configuration similar to below.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DEVICE</span><span class="o">=</span><span class="n">cloudbr1</span>
+<span class="n">TYPE</span><span class="o">=</span><span class="n">Bridge</span>
+<span class="n">ONBOOT</span><span class="o">=</span><span class="n">yes</span>
+<span class="n">BOOTPROTO</span><span class="o">=</span><span class="n">static</span>
+<span class="n">IPADDR</span><span class="o">=</span><span class="mf">192.0</span><span class="o">.</span><span class="mf">2.</span><span class="n">X</span>
+<span class="n">NETMASK</span><span class="o">=</span><span class="mf">255.255</span><span class="o">.</span><span class="mf">255.0</span>
+<span class="n">IPV6INIT</span><span class="o">=</span><span class="n">no</span>
+<span class="n">IPV6_AUTOCONF</span><span class="o">=</span><span class="n">no</span>
+<span class="n">DELAY</span><span class="o">=</span><span class="mi">5</span>
+<span class="n">STP</span><span class="o">=</span><span class="n">yes</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="configure-in-ubuntu">
+<h5>Configure in Ubuntu<a class="headerlink" href="vxlan.html#configure-in-ubuntu" title="Permalink to this headline">¶</a></h5>
+<p>When you configured <code class="docutils literal notranslate"><span class="pre">cloudbr1</span></code> as below,</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo vi /etc/network/interfaces
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">auto</span> <span class="n">lo</span>
+<span class="n">iface</span> <span class="n">lo</span> <span class="n">inet</span> <span class="n">loopback</span>
+
+<span class="c1"># The primary network interface</span>
+<span class="n">auto</span> <span class="n">eth0</span><span class="o">.</span><span class="mi">100</span>
+<span class="n">iface</span> <span class="n">eth0</span><span class="o">.</span><span class="mi">100</span> <span class="n">inet</span> <span class="n">static</span>
+    <span class="n">address</span> <span class="mf">192.168</span><span class="o">.</span><span class="mf">42.11</span>
+    <span class="n">netmask</span> <span class="mf">255.255</span><span class="o">.</span><span class="mf">255.240</span>
+    <span class="n">gateway</span> <span class="mf">192.168</span><span class="o">.</span><span class="mf">42.1</span>
+    <span class="n">dns</span><span class="o">-</span><span class="n">nameservers</span> <span class="mf">8.8</span><span class="o">.</span><span class="mf">8.8</span> <span class="mf">8.8</span><span class="o">.</span><span class="mf">4.4</span>
+    <span class="n">dns</span><span class="o">-</span><span class="n">domain</span> <span class="n">lab</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">org</span>
+
+<span class="c1"># Public network</span>
+<span class="n">auto</span> <span class="n">cloudbr0</span>
+<span class="n">iface</span> <span class="n">cloudbr0</span> <span class="n">inet</span> <span class="n">manual</span>
+    <span class="n">bridge_ports</span> <span class="n">eth0</span><span class="o">.</span><span class="mi">200</span>
+    <span class="n">bridge_fd</span> <span class="mi">5</span>
+    <span class="n">bridge_stp</span> <span class="n">off</span>
+    <span class="n">bridge_maxwait</span> <span class="mi">1</span>
+
+<span class="c1"># Private network</span>
+<span class="n">auto</span> <span class="n">cloudbr1</span>
+<span class="n">iface</span> <span class="n">cloudbr1</span> <span class="n">inet</span> <span class="n">manual</span>
+    <span class="n">bridge_ports</span> <span class="n">eth0</span><span class="o">.</span><span class="mi">300</span>
+    <span class="n">bridge_fd</span> <span class="mi">5</span>
+    <span class="n">bridge_stp</span> <span class="n">off</span>
+    <span class="n">bridge_maxwait</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p>you would change the configuration similar to below.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">auto</span> <span class="n">lo</span>
+<span class="n">iface</span> <span class="n">lo</span> <span class="n">inet</span> <span class="n">loopback</span>
+
+<span class="c1"># The primary network interface</span>
+<span class="n">auto</span> <span class="n">eth0</span><span class="o">.</span><span class="mi">100</span>
+<span class="n">iface</span> <span class="n">eth0</span><span class="o">.</span><span class="mi">100</span> <span class="n">inet</span> <span class="n">static</span>
+    <span class="n">address</span> <span class="mf">192.168</span><span class="o">.</span><span class="mf">42.11</span>
+    <span class="n">netmask</span> <span class="mf">255.255</span><span class="o">.</span><span class="mf">255.240</span>
+    <span class="n">gateway</span> <span class="mf">192.168</span><span class="o">.</span><span class="mf">42.1</span>
+    <span class="n">dns</span><span class="o">-</span><span class="n">nameservers</span> <span class="mf">8.8</span><span class="o">.</span><span class="mf">8.8</span> <span class="mf">8.8</span><span class="o">.</span><span class="mf">4.4</span>
+    <span class="n">dns</span><span class="o">-</span><span class="n">domain</span> <span class="n">lab</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">org</span>
+
+<span class="c1"># Public network</span>
+<span class="n">auto</span> <span class="n">cloudbr0</span>
+<span class="n">iface</span> <span class="n">cloudbr0</span> <span class="n">inet</span> <span class="n">manual</span>
+    <span class="n">bridge_ports</span> <span class="n">eth0</span><span class="o">.</span><span class="mi">200</span>
+    <span class="n">bridge_fd</span> <span class="mi">5</span>
+    <span class="n">bridge_stp</span> <span class="n">off</span>
+    <span class="n">bridge_maxwait</span> <span class="mi">1</span>
+
+<span class="c1"># Private network</span>
+<span class="n">auto</span> <span class="n">cloudbr1</span>
+<span class="n">iface</span> <span class="n">cloudbr1</span> <span class="n">inet</span> <span class="n">static</span>
+    <span class="n">addres</span> <span class="mf">192.0</span><span class="o">.</span><span class="mf">2.</span><span class="n">X</span>
+    <span class="n">netmask</span> <span class="mf">255.255</span><span class="o">.</span><span class="mf">255.0</span>
+    <span class="n">bridge_ports</span> <span class="n">eth0</span><span class="o">.</span><span class="mi">300</span>
+    <span class="n">bridge_fd</span> <span class="mi">5</span>
+    <span class="n">bridge_stp</span> <span class="n">off</span>
+    <span class="n">bridge_maxwait</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="configure-iptables-to-pass-xvlan-packets">
+<h4>Configure iptables to pass XVLAN packets<a class="headerlink" href="vxlan.html#configure-iptables-to-pass-xvlan-packets" title="Permalink to this headline">¶</a></h4>
+<p>Since VXLAN uses UDP packet to forward encapsulated the L2 frames,
+UDP/8472 port must be opened.</p>
+<div class="section" id="id1">
+<h5>Configure in RHEL or CentOS<a class="headerlink" href="vxlan.html#id1" title="Permalink to this headline">¶</a></h5>
+<p>RHEL and CentOS use iptables for firewalling the system, you can open
+extra ports by executing the following iptable commands:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo iptables -I INPUT -p udp -m udp --dport 8472 -j ACCEPT
+</pre></div>
+</div>
+<p>These iptable settings are not persistent accross reboots, we have to
+save them first.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo iptables-save &gt; /etc/sysconfig/iptables
+</pre></div>
+</div>
+<p>With this configuration you should be able to restart the network,
+although a reboot is recommended to see if everything works properly.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo service network restart
+$ sudo reboot
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Make sure you have an alternative way like IPMI or ILO to reach the machine
+in case you made a configuration error and the network stops functioning!</p>
+</div>
+</div>
+<div class="section" id="id2">
+<h5>Configure in Ubuntu<a class="headerlink" href="vxlan.html#id2" title="Permalink to this headline">¶</a></h5>
+<p>The default firewall under Ubuntu is UFW (Uncomplicated FireWall), which
+is a Python wrapper around iptables.</p>
+<p>To open the required ports, execute the following commands:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo ufw allow proto udp from any to any port 8472
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">By default UFW is not enabled on Ubuntu. Executing these commands with the
+firewall disabled does not enable the firewall.</p>
+</div>
+<p>With this configuration you should be able to restart the network,
+although a reboot is recommended to see if everything works properly.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo service networking restart
+$ sudo reboot
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Make sure you have an alternative way like IPMI or ILO to reach the machine
+in case you made a configuration error and the network stops functioning!</p>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="setup-zone-using-vxlan">
+<h3>Setup zone using VXLAN<a class="headerlink" href="vxlan.html#setup-zone-using-vxlan" title="Permalink to this headline">¶</a></h3>
+<p>In almost all parts of zone setup, you can just follow the advanced zone
+setup istruction in “PRODUCT Installation Guide” to use this plugin. It
+is not required to add a network element nor to reconfigure the network
+offering. The only thing you have to do is configure the physical
+network to use VXLAN as the isolation method for Guest Network.</p>
+<div class="section" id="configure-the-physical-network">
+<h4>Configure the physical network<a class="headerlink" href="vxlan.html#configure-the-physical-network" title="Permalink to this headline">¶</a></h4>
+<div class="figure">
+<img alt="../_images/vxlan-physicalnetwork.png" src="../_images/vxlan-physicalnetwork.png" />
+</div>
+<p>CloudStack needs to have one physical network for Guest Traffic with the
+isolation method set to “VXLAN”.</p>
+<div class="figure">
+<img alt="../_images/vxlan-trafficlabel.png" src="../_images/vxlan-trafficlabel.png" />
+</div>
+<p>Guest Network traffic label should be the name of the physical interface
+or the name of the bridge interface and the bridge interface and they
+should have an IPv4 address. See ? for details.</p>
+</div>
+<div class="section" id="configure-the-guest-traffic">
+<h4>Configure the guest traffic<a class="headerlink" href="vxlan.html#configure-the-guest-traffic" title="Permalink to this headline">¶</a></h4>
+<div class="figure">
+<img alt="../_images/vxlan-vniconfig.png" src="../_images/vxlan-vniconfig.png" />
+</div>
+<p>Specify a range of VNIs you would like to use for carrying guest network
+traffic.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">VNI must be unique per zone and no duplicate VNIs can exist in the zone.
+Exercise care when designing your VNI allocation policy.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ovs-plugin.html" class="btn btn-neutral float-right" title="The OVS Plugin" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="nuage-plugin.html" class="btn btn-neutral" title="The Nuage VSP Plugin" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Apache Foundation
+      
+        <span class="commit">
+          Revision <code>70858617</code>.
+        </span>
+      
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Read the Docs</span>
+      v: 4.11.1.0
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="../../../index.html">latest</a></dd>
+        
+          <dd><a href="../../4.11.2.0/index.html">4.11.2.0</a></dd>
+        
+          <dd><a href="../index.html">4.11.1.0</a></dd>
+        
+          <dd><a href="http://docs.cloudstack.apache.org/en/master/">master</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="http://readthedocs.org/projects/cloudstack-documentation/downloads/pdf/4.11.1.0/">pdf</a></dd>
+        
+          <dd><a href="http://readthedocs.org/projects/cloudstack-documentation/downloads/htmlzip/4.11.1.0/">htmlzip</a></dd>
+        
+          <dd><a href="http://readthedocs.org/projects/cloudstack-documentation/downloads/epub/4.11.1.0/">epub</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>On Read the Docs</dt>
+          <dd>
+            <a href="http://readthedocs.org/projects/cloudstack-documentation/?fromdocs=cloudstack-documentation">Project Home</a>
+          </dd>
+          <dd>
+            <a href="http://readthedocs.org/builds/cloudstack-documentation/?fromdocs=cloudstack-documentation">Builds</a>
+          </dd>
+      </dl>
+      <hr/>
+      Free document hosting provided by <a href="http://www.readthedocs.org">Read the Docs</a>.
+
+    </div>
+  </div>
+
+
+
+  
+
+    
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'4.11.1.0',
+              LANGUAGE:'en',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="https://media.readthedocs.org/javascript/jquery/jquery-2.0.3.min.js"></script>
+        <script type="text/javascript" src="https://media.readthedocs.org/javascript/jquery/jquery-migrate-1.2.1.min.js"></script>
+        <script type="text/javascript" src="https://media.readthedocs.org/javascript/underscore.js"></script>
+        <script type="text/javascript" src="https://media.readthedocs.org/javascript/doctools.js"></script>
+        <script type="text/javascript" src="https://media.readthedocs.org/javascript/readthedocs-doc-embed.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
