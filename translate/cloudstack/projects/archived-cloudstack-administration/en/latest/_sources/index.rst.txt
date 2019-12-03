@@ -26,7 +26,7 @@ CloudStack Administration Documentation
    :align: center
 
 This guide is aimed at Administrators of a CloudStack based Cloud, 
-for 发行版本说明, Installation and General introduction to CloudStack 
+for 发行版本说明, 安装 and General introduction to CloudStack 
 see the following guides:
 
 - `Documentation Start <http://docs.cloudstack.apache.org>`_
@@ -36,7 +36,7 @@ see the following guides:
 - `发行版本说明 <http://docs.cloudstack.apache.org/projects/cloudstack-release-notes.html>`_
 
 
-User Interface
+用户界面
 --------------
 
 .. toctree::
@@ -45,7 +45,7 @@ User Interface
    ui
 
 
-Managing Accounts, Users and Domains
+账户、用户和域
 ------------------------------------
 
 .. toctree::
@@ -54,7 +54,7 @@ Managing Accounts, Users and Domains
    accounts
 
 
-Using Projects to Organize User Resources
+用项目来管理用户资源
 ------------------------------------------
 .. toctree::
    :maxdepth: 2 
@@ -62,7 +62,7 @@ Using Projects to Organize User Resources
    projects
 
 
-Service Offerings
+计算方案
 -----------------
 
 .. toctree::
@@ -80,7 +80,7 @@ Service Offerings
    networking
 
 
-Working with Virtual Machines
+虚拟机
 -----------------------------
 
 .. toctree::
@@ -89,7 +89,7 @@ Working with Virtual Machines
    virtual_machines
 
 
-Working with Templates
+模板
 ----------------------
 
 .. toctree::
@@ -98,7 +98,7 @@ Working with Templates
    templates
 
 
-Working with Hosts
+主机
 ------------------
 
 .. toctree::
@@ -107,7 +107,7 @@ Working with Hosts
    hosts
 
 
-Working with Storage
+存储
 --------------------
 
 .. toctree::
@@ -116,7 +116,7 @@ Working with Storage
    storage
 
 
-Working with System Virtual Machines
+系统虚拟机
 ------------------------------------
 
 .. toctree::
@@ -144,7 +144,7 @@ Managing Networks and Traffic
    networking/using_remote_access
 
 
-Managing the Cloud
+管理云
 ------------------
 
 .. toctree::
@@ -162,7 +162,7 @@ Managing the Cloud
    reliability
 
 
-Plugins
+插件
 -------
 
 .. toctree::
@@ -171,7 +171,7 @@ Plugins
    plugins/quota
 
 
-Tuning
+调优
 ------
 
 .. toctree::

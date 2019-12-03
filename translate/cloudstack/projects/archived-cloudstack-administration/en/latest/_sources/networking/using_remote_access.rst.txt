@@ -18,7 +18,7 @@ Using Remote Access VPN
 =======================
 
 .. sidebar:: Clients
-   :subtitle: Per Operating System instructions
+   :subtitle: Per 操作系统 instructions
 
    .. contents::
       :local: 

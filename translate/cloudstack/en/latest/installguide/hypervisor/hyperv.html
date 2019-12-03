@@ -38,7 +38,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="KVM 安装" href="kvm.html" />
-    <link rel="prev" title="Configuring your CloudStack Installation" href="../configuration.html" /> 
+    <link rel="prev" title="安装配置 CloudStack " href="../configuration.html" /> 
 
 <!-- RTD Extra Head -->
 
@@ -115,13 +115,13 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../quickinstallationguide/qig.html">快速安装向导</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">安装指南</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../index.html#building-from-source">从源码编译安装</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../index.html#general-installation">General Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#general-installation">通用安装指南</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#configuration">Configuration</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html#hypervisor-setup">Hypervisor 安装和设置</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="hyperv.html#">Hyper-V 安装</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="hyperv.html#system-requirements-for-hyper-v-hypervisor-hosts">System Requirements for Hyper-V Hypervisor Hosts</a></li>
 <li class="toctree-l4"><a class="reference internal" href="hyperv.html#preparation-checklist-for-hyper-v">Preparation Checklist for Hyper-V</a></li>
-<li class="toctree-l4"><a class="reference internal" href="hyperv.html#hyper-v-installation-steps">Hyper-V Installation Steps</a></li>
+<li class="toctree-l4"><a class="reference internal" href="hyperv.html#hyper-v-installation-steps">Hyper-V 安装 Steps</a></li>
 <li class="toctree-l4"><a class="reference internal" href="hyperv.html#installing-the-cloudstack-agent-on-a-hyper-v-host">Installing the CloudStack Agent on a Hyper-V Host</a></li>
 <li class="toctree-l4"><a class="reference internal" href="hyperv.html#physical-network-configuration-for-hyper-v">Physical Network Configuration for Hyper-V</a></li>
 <li class="toctree-l4"><a class="reference internal" href="hyperv.html#storage-preparation-for-hyper-v-optional">Storage Preparation for Hyper-V (Optional)</a></li>
@@ -133,13 +133,13 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l3"><a class="reference internal" href="xenserver.html">Citrix XenServer 安装</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../index.html#optional-installation">Optional Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#optional-installation">Optional 安装</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../upgrading/index.html">升级 CloudStack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../adminguide/index.html">使用手册</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developersguide/index.html">开发者手册</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../plugins/index.html">Plugins Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugins/index.html">插件使用手册</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../releasenotes/index.html">发行版本说明</a></li>
 </ul>
 <p class="caption"><span class="caption-text">其它:</span></p>
@@ -227,7 +227,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <h1>Hyper-V 安装<a class="headerlink" href="hyperv.html#host-hyper-v-installation" title="Permalink to this headline">¶</a></h1>
 <p>If you want to use Hyper-V hypervisor to run guest virtual machines,
 install Hyper-V on the hosts in your cloud. The instructions in this
-section doesn’t duplicate Hyper-V Installation documentation. It
+section doesn’t duplicate Hyper-V 安装 documentation. It
 provides the CloudStack-specific steps that are needed to prepare a
 Hyper-V host to work with CloudStack.</p>
 <div class="section" id="system-requirements-for-hyper-v-hypervisor-hosts">
@@ -252,8 +252,8 @@ Hyper-V host to work with CloudStack.</p>
 <div class="section" id="supported-storage">
 <h3>Supported Storage<a class="headerlink" href="hyperv.html#supported-storage" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li>Primary Storage: Server Message Block (SMB) Version 3, Local</li>
-<li>Secondary Storage: SMB</li>
+<li>主存储: Server Message Block (SMB) Version 3, Local</li>
+<li>二级存储: SMB</li>
 </ul>
 </div>
 </div>
@@ -394,7 +394,7 @@ access</td>
 </table>
 </div>
 <div class="section" id="hyper-v-installation-steps">
-<h2>Hyper-V Installation Steps<a class="headerlink" href="hyperv.html#hyper-v-installation-steps" title="Permalink to this headline">¶</a></h2>
+<h2>Hyper-V 安装 Steps<a class="headerlink" href="hyperv.html#hyper-v-installation-steps" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li>Download the operating system from <a class="reference external" href="http://technet.microsoft.com/en-us/windowsserver/hh534429">Windows Server 2012 R2</a>.</li>
 <li>Install it on the host as given in <a class="reference external" href="http://technet.microsoft.com/library/hh831620">Install and Deploy Windows Server 2012
@@ -469,8 +469,8 @@ automatically.</p>
 </div>
 <div class="section" id="storage-preparation-for-hyper-v-optional">
 <h2>Storage Preparation for Hyper-V (Optional)<a class="headerlink" href="hyperv.html#storage-preparation-for-hyper-v-optional" title="Permalink to this headline">¶</a></h2>
-<p>CloudStack allows administrators to set up shared Primary Storage and
-Secondary Storage that uses SMB.</p>
+<p>CloudStack allows administrators to set up shared 主存储 and
+二级存储 that uses SMB.</p>
 <ol class="arabic">
 <li><p class="first">Create a SMB storage and expose it over SMB Version 3.</p>
 <p>For more information, see <a class="reference external" href="http://technet.microsoft.com/en-us/library/jj134187.aspx">Deploying Hyper-V over SMB</a>.</p>
@@ -503,7 +503,7 @@ storage from the 管理服务.</p>
         <a href="kvm.html" class="btn btn-neutral float-right" title="KVM 安装" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../configuration.html" class="btn btn-neutral float-left" title="Configuring your CloudStack Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../configuration.html" class="btn btn-neutral float-left" title="安装配置 CloudStack " accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

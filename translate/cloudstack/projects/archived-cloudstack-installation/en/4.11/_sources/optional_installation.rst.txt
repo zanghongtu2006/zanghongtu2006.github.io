@@ -14,7 +14,7 @@
    under the License.
 
 
-Additional Installation Options
+Additional 安装 Options
 ===============================
 
 The next few sections describe CloudStack features above and beyond the
@@ -298,7 +298,7 @@ Limitations
 -  Available in fresh installations of CloudStack. Not available through
    upgrade of previous versions.
 
--  Features such as Elastic IP (EIP) and Elastic Load Balancing (ELB)
+-  Features such as Elastic IP (EIP) and Elastic 负载均衡 (ELB)
    are only available in an infrastructure with a Citrix NetScaler
    device. Users accessing a Zone with a NetScaler device will need to
    use a NetScaler-enabled network offering (DefaultSharedNetscalerEIP
@@ -375,14 +375,14 @@ Settings set the port to 8096 and subsequently call the
 Once you have enabled the services, restart the server.
 
 
-Creating EC2 Compatible Service Offerings
+Creating EC2 Compatible 计算方案
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 You will also need to define compute service offerings with names
 compatible with the `Amazon EC2 instance
 types <http://aws.amazon.com/ec2/instance-types/>`_ API names (e.g
 m1.small,m1.large). This can be done via the CloudStack GUI. Go under
-*Service Offerings* select *Compute offering* and either create a new
+*计算方案* select *Compute offering* and either create a new
 compute offering or modify an existing one, ensuring that the name
 matches an EC2 instance type API name. The snapshot below shows you how:
 
@@ -624,22 +624,22 @@ Table 8. Passwords API Mapping
 
 |
 
-Table 9. Security Groups API Mapping
+Table 9. 安全组 API Mapping
 
 .. cssclass:: table-striped table-bordered table-hover
 
 +----------------------+---------------------------------+---------------------------------+
 | EC2 command          | SOAP call                       | CloudStack API call             |
 +======================+=================================+=================================+
-| ec2-authorize        | AuthorizeSecurityGroupIngress   | authorizeSecurityGroupIngress   |
+| ec2-authorize        | Authorize安全GroupIngress   | authorize安全GroupIngress   |
 +----------------------+---------------------------------+---------------------------------+
-| ec2-add-group        | CreateSecurityGroup             | createSecurityGroup             |
+| ec2-add-group        | Create安全Group             | create安全Group             |
 +----------------------+---------------------------------+---------------------------------+
-| ec2-delete-group     | DeleteSecurityGroup             | deleteSecurityGroup             |
+| ec2-delete-group     | Delete安全Group             | delete安全Group             |
 +----------------------+---------------------------------+---------------------------------+
-| ec2-describe-group   | DescribeSecurityGroups          | listSecurityGroups              |
+| ec2-describe-group   | Describe安全Groups          | list安全Groups              |
 +----------------------+---------------------------------+---------------------------------+
-| ec2-revoke           | RevokeSecurityGroupIngress      | revokeSecurityGroupIngress      |
+| ec2-revoke           | Revoke安全GroupIngress      | revoke安全GroupIngress      |
 +----------------------+---------------------------------+---------------------------------+
 
 |

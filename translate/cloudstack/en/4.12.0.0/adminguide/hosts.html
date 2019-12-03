@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Adding Hosts &mdash; Apache CloudStack 4.12.0.0 documentation</title>
+  <title>添加主机 &mdash; Apache CloudStack 4.12.0.0 documentation</title>
   
 
   
@@ -36,8 +36,8 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Storage Overview" href="storage.html" />
-    <link rel="prev" title="Creating Templates: Overview" href="templates.html" /> 
+    <link rel="next" title="存储概述" href="storage.html" />
+    <link rel="prev" title="创建模板: 概述" href="templates.html" /> 
 
 <!-- RTD Extra Head -->
 
@@ -115,29 +115,29 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../installguide/index.html">安装指南</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../upgrading/index.html">升级 CloudStack</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">使用手册</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="index.html#user-interface">User Interface</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#managing-accounts-users-and-domains">Managing Accounts, Users and Domains</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#using-projects-to-organize-user-resources">Using Projects to Organize User Resources</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#service-offerings">Service Offerings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#user-interface">用户界面</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#managing-accounts-users-and-domains">账户、用户和域</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#using-projects-to-organize-user-resources">用项目来管理用户资源</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#service-offerings">计算方案</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#setting-up-networking-for-users">设置用户网络</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#working-with-virtual-machines">Working with Virtual Machines</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#working-with-templates">Working with Templates</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="index.html#working-with-hosts">Working with Hosts</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="hosts.html#">Adding Hosts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#working-with-virtual-machines">虚拟机</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#working-with-templates">模板</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#working-with-hosts">主机</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="hosts.html#">添加主机</a></li>
 <li class="toctree-l3"><a class="reference internal" href="hosts.html#scheduled-maintenance-and-maintenance-mode-for-hosts">Scheduled Maintenance and Maintenance Mode for Hosts</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="hosts.html#vcenter-and-maintenance-mode">vCenter and Maintenance Mode</a></li>
 <li class="toctree-l4"><a class="reference internal" href="hosts.html#xenserver-and-maintenance-mode">XenServer and Maintenance Mode</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="hosts.html#disabling-and-enabling-zones-pods-and-clusters">Disabling and Enabling Zones, Pods, and Clusters</a></li>
-<li class="toctree-l3"><a class="reference internal" href="hosts.html#removing-hosts">Removing Hosts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hosts.html#disabling-and-enabling-zones-pods-and-clusters">资源域、池和集群的启用和禁用</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hosts.html#removing-hosts">删除主机</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="hosts.html#removing-xenserver-and-kvm-hosts">Removing XenServer and KVM Hosts</a></li>
 <li class="toctree-l4"><a class="reference internal" href="hosts.html#removing-vsphere-hosts">Removing vSphere Hosts</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="hosts.html#re-installing-hosts">Re-Installing Hosts</a></li>
 <li class="toctree-l3"><a class="reference internal" href="hosts.html#maintaining-hypervisors-on-hosts">Maintaining Hypervisors on Hosts</a></li>
-<li class="toctree-l3"><a class="reference internal" href="hosts.html#changing-host-password">Changing Host Password</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hosts.html#changing-host-password">修改主机密码</a></li>
 <li class="toctree-l3"><a class="reference internal" href="hosts.html#over-provisioning-and-service-offering-limits">Over-Provisioning and Service Offering Limits</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="hosts.html#limitations-on-over-provisioning-in-xenserver-and-kvm">Limitations on Over-Provisioning in XenServer and KVM</a></li>
 <li class="toctree-l4"><a class="reference internal" href="hosts.html#requirements-for-over-provisioning">Requirements for Over-Provisioning</a></li>
@@ -146,17 +146,17 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="hosts.html#vlan-provisioning">VLAN Provisioning</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="hosts.html#vlan-allocation-example">VLAN Allocation Example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="hosts.html#vlan-allocation-example">VLAN 划分示例</a></li>
 <li class="toctree-l4"><a class="reference internal" href="hosts.html#adding-non-contiguous-vlan-ranges">Adding Non Contiguous VLAN Ranges</a></li>
 <li class="toctree-l4"><a class="reference internal" href="hosts.html#assigning-vlans-to-isolated-networks">Assigning VLANs to Isolated Networks</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="hosts.html#out-of-band-management">Out-of-band Management</a></li>
-<li class="toctree-l3"><a class="reference internal" href="hosts.html#security">Security</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hosts.html#security">安全</a></li>
 <li class="toctree-l3"><a class="reference internal" href="hosts.html#server-address-usage">Server Address Usage</a></li>
 <li class="toctree-l3"><a class="reference internal" href="hosts.html#securing-process">Securing Process</a></li>
 <li class="toctree-l3"><a class="reference internal" href="hosts.html#kvm-libvirt-hook-script-include">KVM Libvirt Hook Script Include</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="hosts.html#feature-overview">Feature Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="hosts.html#feature-overview">Feature 概述</a></li>
 <li class="toctree-l4"><a class="reference internal" href="hosts.html#the-kvm-libvirt-hook-script-allows-for">The KVM Libvirt Hook script allows for</a></li>
 <li class="toctree-l4"><a class="reference internal" href="hosts.html#usage">Usage</a></li>
 <li class="toctree-l4"><a class="reference internal" href="hosts.html#timeout-configuration">Timeout Configuration</a></li>
@@ -167,18 +167,18 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#working-with-storage">Working with Storage</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#working-with-system-virtual-machines">Working with System Virtual Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#working-with-storage">存储</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#working-with-system-virtual-machines">系统虚拟机</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#working-with-usage">Working with Usage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#managing-networks-and-traffic">Managing Networks and Traffic</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#managing-the-cloud">Managing the Cloud</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#managing-the-cloud">管理云</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#system-reliability-and-availability">系统的可靠性和可用性</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#tuning">Tuning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#tuning">调优</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#events-and-troubleshooting">Events and Troubleshooting</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../developersguide/index.html">开发者手册</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../plugins/index.html">Plugins Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/index.html">插件使用手册</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">发行版本说明</a></li>
 </ul>
 <p class="caption"><span class="caption-text">其它:</span></p>
@@ -241,7 +241,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
         
           <li><a href="index.html">使用手册</a> &raquo;</li>
         
-      <li>Adding Hosts</li>
+      <li>添加主机</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -263,7 +263,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
            <div itemprop="articleBody">
             
   <div class="section" id="adding-hosts">
-<h1>Adding Hosts<a class="headerlink" href="hosts.html#adding-hosts" title="Permalink to this headline">¶</a></h1>
+<h1>添加主机<a class="headerlink" href="hosts.html#adding-hosts" title="Permalink to this headline">¶</a></h1>
 <p>Additional hosts can be added at any time to provide more capacity for
 guest VMs. For requirements and instructions, see <a class="reference internal" href="../installguide/configuration.html#adding-a-host"><span class="std std-ref">Adding a Host</span></a>.</p>
 </div>
@@ -347,7 +347,7 @@ menu.</li>
 </div>
 </div>
 <div class="section" id="disabling-and-enabling-zones-pods-and-clusters">
-<h1>Disabling and Enabling Zones, Pods, and Clusters<a class="headerlink" href="hosts.html#disabling-and-enabling-zones-pods-and-clusters" title="Permalink to this headline">¶</a></h1>
+<h1>资源域、池和集群的启用和禁用<a class="headerlink" href="hosts.html#disabling-and-enabling-zones-pods-and-clusters" title="Permalink to this headline">¶</a></h1>
 <p>You can enable or disable a zone, pod, or cluster without permanently
 removing it from the cloud. This is useful for maintenance or when there
 are problems that make a portion of the cloud infrastructure unreliable.
@@ -370,7 +370,7 @@ the zone that contains the pod or cluster.</li>
 </ol>
 </div>
 <div class="section" id="removing-hosts">
-<h1>Removing Hosts<a class="headerlink" href="hosts.html#removing-hosts" title="Permalink to this headline">¶</a></h1>
+<h1>删除主机<a class="headerlink" href="hosts.html#removing-hosts" title="Permalink to this headline">¶</a></h1>
 <p>Hosts can be removed from the cloud as needed. The procedure to remove a
 host depends on the hypervisor type.</p>
 <div class="section" id="removing-xenserver-and-kvm-hosts">
@@ -425,9 +425,9 @@ any system that is not up to date with patches.</p>
 <a class="reference external" href="http://docs.cloudstack.org/Knowledge_Base/Possible_VM_corruption_if_XenServer_Hotfix_is_not_Applied/Highly_Recommended_Hotfixes_for_XenServer_5.6_SP2">Highly Recommended Hotfixes for XenServer in the CloudStack Knowledge Base</a>.</p>
 </div>
 <div class="section" id="changing-host-password">
-<h1>Changing Host Password<a class="headerlink" href="hosts.html#changing-host-password" title="Permalink to this headline">¶</a></h1>
+<h1>修改主机密码<a class="headerlink" href="hosts.html#changing-host-password" title="Permalink to this headline">¶</a></h1>
 <p>The password for a XenServer Node, KVM Node, or vSphere Node may be
-changed in the database. Note that all Nodes in a Cluster must have the
+changed in the database. Note that all Nodes in a 集群 must have the
 same password.</p>
 <p>To change a Node’s password:</p>
 <ol class="arabic">
@@ -654,7 +654,7 @@ if you run out of VLANs. Another advantage is that you can use the same
 set of IPs for different customers, each one with their own routers and
 the guest networks on different physical NICs.</p>
 <div class="section" id="vlan-allocation-example">
-<h2>VLAN Allocation Example<a class="headerlink" href="hosts.html#vlan-allocation-example" title="Permalink to this headline">¶</a></h2>
+<h2>VLAN 划分示例<a class="headerlink" href="hosts.html#vlan-allocation-example" title="Permalink to this headline">¶</a></h2>
 <p>VLANs are required for public and guest traffic. The following is an
 example of a VLAN allocation scheme:</p>
 <table border="1" class="table-striped table-bordered table-hover docutils">
@@ -836,7 +836,7 @@ power management actions such as on, off, reset, cycle, soft and status.</p>
 power management actions but in the UI a warning is displayed.</p>
 </div>
 <div class="section" id="security">
-<span id="host-security"></span><h1>Security<a class="headerlink" href="hosts.html#security" title="Permalink to this headline">¶</a></h1>
+<span id="host-security"></span><h1>安全<a class="headerlink" href="hosts.html#security" title="Permalink to this headline">¶</a></h1>
 <p>Starting 4.11, CloudStack has an inbuilt certicate authority (CA) framework and
 a default ‘root’ CA provider which acts as a self-signed CA. The CA framework
 participates in certificate issuance, renewal, revocation, and propagation of
@@ -970,7 +970,7 @@ both the libvirtd process and agent after deploying new certificates.</p>
 <div class="section" id="kvm-libvirt-hook-script-include">
 <h1>KVM Libvirt Hook Script Include<a class="headerlink" href="hosts.html#kvm-libvirt-hook-script-include" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="feature-overview">
-<h2>Feature Overview<a class="headerlink" href="hosts.html#feature-overview" title="Permalink to this headline">¶</a></h2>
+<h2>Feature 概述<a class="headerlink" href="hosts.html#feature-overview" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>This feature applies to KVM hosts.</li>
 <li>KVM utilised under CloudStack uses the standard Libvirt hook script behaviour as outlined in the Libvirt documentation page <a class="reference external" href="https://libvirt.org/hooks.html">hooks</a>.</li>
@@ -1110,10 +1110,10 @@ both the libvirtd process and agent after deploying new certificates.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="storage.html" class="btn btn-neutral float-right" title="Storage Overview" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="storage.html" class="btn btn-neutral float-right" title="存储概述" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="templates.html" class="btn btn-neutral float-left" title="Creating Templates: Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="templates.html" class="btn btn-neutral float-left" title="创建模板: 概述" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

@@ -19,7 +19,7 @@ Hyper-V 安装
 
 If you want to use Hyper-V hypervisor to run guest virtual machines,
 install Hyper-V on the hosts in your cloud. The instructions in this
-section doesn't duplicate Hyper-V Installation documentation. It
+section doesn't duplicate Hyper-V 安装 documentation. It
 provides the CloudStack-specific steps that are needed to prepare a
 Hyper-V host to work with CloudStack.
 
@@ -53,9 +53,9 @@ Minimum System Requirements for Hyper-V Hosts
 Supported Storage
 ^^^^^^^^^^^^^^^^^
 
--  Primary Storage: Server Message Block (SMB) Version 3, Local
+-  主存储: Server Message Block (SMB) Version 3, Local
 
--  Secondary Storage: SMB
+-  二级存储: SMB
 
 
 Preparation Checklist for Hyper-V
@@ -153,7 +153,7 @@ start:
 +------------+----------+------------------------------------------------------+
 
 
-Hyper-V Installation Steps
+Hyper-V 安装 Steps
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Download the operating system from `Windows Server 2012 R2 
@@ -243,8 +243,8 @@ automatically.
 Storage Preparation for Hyper-V (Optional)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-CloudStack allows administrators to set up shared Primary Storage and
-Secondary Storage that uses SMB.
+CloudStack allows administrators to set up shared 主存储 and
+二级存储 that uses SMB.
 
 #. Create a SMB storage and expose it over SMB Version 3.
 

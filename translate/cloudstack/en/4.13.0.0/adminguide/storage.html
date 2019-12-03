@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Storage Overview &mdash; Apache CloudStack 4.13.0.0 文档</title>
+  <title>存储概述 &mdash; Apache CloudStack 4.13.0.0 文档</title>
   
 
   
@@ -37,8 +37,8 @@
   <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="The System VM Template" href="systemvm.html" />
-    <link rel="prev" title="Adding Hosts" href="hosts.html" /> 
+    <link rel="next" title="系统虚拟机模板" href="systemvm.html" />
+    <link rel="prev" title="添加主机" href="hosts.html" /> 
 
 <!-- RTD Extra Head -->
 
@@ -116,26 +116,26 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../installguide/index.html">安装指南</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../upgrading/index.html">升级 CloudStack</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">使用手册</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="index.html#user-interface">User Interface</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#managing-accounts-users-and-domains">Managing Accounts, Users and Domains</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#using-projects-to-organize-user-resources">Using Projects to Organize User Resources</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#service-offerings">Service Offerings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#user-interface">用户界面</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#managing-accounts-users-and-domains">账户、用户和域</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#using-projects-to-organize-user-resources">用项目来管理用户资源</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#service-offerings">计算方案</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#setting-up-networking-for-users">设置用户网络</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#working-with-virtual-machines">Working with Virtual Machines</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#working-with-templates">Working with Templates</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#working-with-hosts">Working with Hosts</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="index.html#working-with-storage">Working with Storage</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="storage.html#">Storage Overview</a></li>
-<li class="toctree-l3"><a class="reference internal" href="storage.html#primary-storage">Primary Storage</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="storage.html#best-practices-for-primary-storage">最佳实践 for Primary Storage</a></li>
-<li class="toctree-l4"><a class="reference internal" href="storage.html#runtime-behavior-of-primary-storage">Runtime Behavior of Primary Storage</a></li>
-<li class="toctree-l4"><a class="reference internal" href="storage.html#hypervisor-support-for-primary-storage">Hypervisor Support for Primary Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#working-with-virtual-machines">虚拟机</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#working-with-templates">模板</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#working-with-hosts">主机</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#working-with-storage">存储</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="storage.html#">存储概述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="storage.html#primary-storage">主存储</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="storage.html#best-practices-for-primary-storage">最佳实践 for 主存储</a></li>
+<li class="toctree-l4"><a class="reference internal" href="storage.html#runtime-behavior-of-primary-storage">Runtime Behavior of 主存储</a></li>
+<li class="toctree-l4"><a class="reference internal" href="storage.html#hypervisor-support-for-primary-storage">Hypervisor Support for 主存储</a></li>
 <li class="toctree-l4"><a class="reference internal" href="storage.html#storage-tags">Storage Tags</a></li>
-<li class="toctree-l4"><a class="reference internal" href="storage.html#maintenance-mode-for-primary-storage">Maintenance Mode for Primary Storage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="storage.html#maintenance-mode-for-primary-storage">Maintenance Mode for 主存储</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="storage.html#secondary-storage">Secondary Storage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="storage.html#working-with-volumes">Working With Volumes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="storage.html#secondary-storage">二级存储</a></li>
+<li class="toctree-l3"><a class="reference internal" href="storage.html#working-with-volumes">磁盘</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="storage.html#creating-a-new-volume">Creating a New Volume</a></li>
 <li class="toctree-l4"><a class="reference internal" href="storage.html#uploading-an-existing-volume-to-a-virtual-machine">Uploading an Existing Volume to a Virtual Machine</a></li>
 <li class="toctree-l4"><a class="reference internal" href="storage.html#attaching-a-volume">Attaching a Volume</a></li>
@@ -146,7 +146,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l4"><a class="reference internal" href="storage.html#volume-deletion-and-garbage-collection">Volume Deletion and Garbage Collection</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="storage.html#working-with-volume-snapshots">Working with Volume Snapshots</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="storage.html#working-with-volume-snapshots">磁盘镜像</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="storage.html#how-to-snapshot-a-volume">How to Snapshot a Volume</a></li>
 <li class="toctree-l4"><a class="reference internal" href="storage.html#automatic-snapshot-creation-and-retention">Automatic Snapshot Creation and Retention</a></li>
 <li class="toctree-l4"><a class="reference internal" href="storage.html#incremental-snapshots-and-backup">Incremental Snapshots and Backup</a></li>
@@ -158,17 +158,17 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#working-with-system-virtual-machines">Working with System Virtual Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#working-with-system-virtual-machines">系统虚拟机</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#working-with-usage">Working with Usage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#managing-networks-and-traffic">Managing Networks and Traffic</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#managing-the-cloud">Managing the Cloud</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#managing-the-cloud">管理云</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#system-reliability-and-availability">系统的可靠性和可用性</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#tuning">Tuning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#tuning">调优</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#events-and-troubleshooting">Events and Troubleshooting</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../developersguide/index.html">开发者手册</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../plugins/index.html">Plugins Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/index.html">插件使用手册</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">发行版本说明</a></li>
 </ul>
 <p class="caption"><span class="caption-text">其它:</span></p>
@@ -231,7 +231,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
         
           <li><a href="index.html">使用手册</a> &raquo;</li>
         
-      <li>Storage Overview</li>
+      <li>存储概述</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -253,7 +253,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
            <div itemprop="articleBody">
             
   <div class="section" id="storage-overview">
-<h1>Storage Overview<a class="headerlink" href="storage.html#storage-overview" title="Permalink to this headline">¶</a></h1>
+<h1>存储概述<a class="headerlink" href="storage.html#storage-overview" title="Permalink to this headline">¶</a></h1>
 <p>CloudStack defines two types of storage: primary and secondary. Primary
 storage can be accessed by either iSCSI or NFS. Additionally, direct
 attached storage may be used for primary storage. Secondary storage is
@@ -262,13 +262,13 @@ always accessed using NFS.</p>
 are persistent.</p>
 </div>
 <div class="section" id="primary-storage">
-<h1>Primary Storage<a class="headerlink" href="storage.html#primary-storage" title="Permalink to this headline">¶</a></h1>
+<h1>主存储<a class="headerlink" href="storage.html#primary-storage" title="Permalink to this headline">¶</a></h1>
 <p>This section gives technical details about CloudStack
 primary storage. For more information about the concepts behind primary storage
-see <a class="reference internal" href="../conceptsandterminology/storage_setup.html#about-primary-storage"><span class="std std-ref">Primary Storage</span></a> . For information about how to install and configure
+see <a class="reference internal" href="../conceptsandterminology/storage_setup.html#about-primary-storage"><span class="std std-ref">主存储</span></a> . For information about how to install and configure
 primary storage through the CloudStack UI, see the in the 安装指南.</p>
 <div class="section" id="best-practices-for-primary-storage">
-<h2>最佳实践 for Primary Storage<a class="headerlink" href="storage.html#best-practices-for-primary-storage" title="Permalink to this headline">¶</a></h2>
+<h2>最佳实践 for 主存储<a class="headerlink" href="storage.html#best-practices-for-primary-storage" title="Permalink to this headline">¶</a></h2>
 <ul>
 <li><p class="first">The speed of primary storage will impact guest performance. If
 possible, choose smaller, higher RPM drives or SSDs for primary
@@ -294,7 +294,7 @@ Offerings).</p>
 </ul>
 </div>
 <div class="section" id="runtime-behavior-of-primary-storage">
-<h2>Runtime Behavior of Primary Storage<a class="headerlink" href="storage.html#runtime-behavior-of-primary-storage" title="Permalink to this headline">¶</a></h2>
+<h2>Runtime Behavior of 主存储<a class="headerlink" href="storage.html#runtime-behavior-of-primary-storage" title="Permalink to this headline">¶</a></h2>
 <p>Root volumes are created automatically when a virtual machine is
 created. Root volumes are deleted when the VM is destroyed. Data volumes
 can be created and dynamically attached to VMs. Data volumes are not
@@ -314,7 +314,7 @@ storage or from a storage system (ex. a SAN), depending on how the
 primary storage was added to CloudStack).</p>
 </div>
 <div class="section" id="hypervisor-support-for-primary-storage">
-<h2>Hypervisor Support for Primary Storage<a class="headerlink" href="storage.html#hypervisor-support-for-primary-storage" title="Permalink to this headline">¶</a></h2>
+<h2>Hypervisor Support for 主存储<a class="headerlink" href="storage.html#hypervisor-support-for-primary-storage" title="Permalink to this headline">¶</a></h2>
 <p>The following table shows storage options and parameters for different
 hypervisors.</p>
 <table border="1" class="table-striped table-bordered table-hover docutils">
@@ -334,7 +334,7 @@ hypervisors.</p>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><strong>Format for Disks, Templates, and Snapshots</strong></td>
+<tr class="row-even"><td><strong>Format for Disks, 模板, and Snapshots</strong></td>
 <td>VMDK</td>
 <td>VHD</td>
 <td>QCOW2</td>
@@ -404,9 +404,9 @@ hypervisor type.</p>
 <p>Local storage is an option for primary storage for vSphere, XenServer,
 and KVM. When the local disk option is enabled, a local disk storage
 pool is automatically created on each host. To use local storage for the
-System Virtual Machines (such as the Virtual Router), set
+System Virtual Machines (such as the 虚拟路由器), set
 system.vm.use.local.storage to true in global configuration.</p>
-<p>CloudStack supports multiple primary storage pools in a Cluster. For
+<p>CloudStack supports multiple primary storage pools in a 集群. For
 example, you could provision 2 NFS servers in primary storage. Or you
 could provision 1 iSCSI LUN initially and then add a second iSCSI LUN
 when the first approaches capacity.</p>
@@ -431,7 +431,7 @@ if different devices are used to present those tags, the set of exposed
 tags can be the same.</p>
 </div>
 <div class="section" id="maintenance-mode-for-primary-storage">
-<h2>Maintenance Mode for Primary Storage<a class="headerlink" href="storage.html#maintenance-mode-for-primary-storage" title="Permalink to this headline">¶</a></h2>
+<h2>Maintenance Mode for 主存储<a class="headerlink" href="storage.html#maintenance-mode-for-primary-storage" title="Permalink to this headline">¶</a></h2>
 <p>Primary storage may be placed into maintenance mode. This is useful, for
 example, to replace faulty RAM in a storage device. Maintenance mode for
 a storage device will first stop any new guests from being provisioned
@@ -445,14 +445,14 @@ mode.</p>
 </div>
 </div>
 <div class="section" id="secondary-storage">
-<h1>Secondary Storage<a class="headerlink" href="storage.html#secondary-storage" title="Permalink to this headline">¶</a></h1>
+<h1>二级存储<a class="headerlink" href="storage.html#secondary-storage" title="Permalink to this headline">¶</a></h1>
 <p>This section gives concepts and technical details about CloudStack
 secondary storage. For information about how to install and configure
 secondary storage through the CloudStack UI, see the Advanced
 安装指南. about-secondary-storage&gt;`_</p>
 </div>
 <div class="section" id="working-with-volumes">
-<h1>Working With Volumes<a class="headerlink" href="storage.html#working-with-volumes" title="Permalink to this headline">¶</a></h1>
+<h1>磁盘<a class="headerlink" href="storage.html#working-with-volumes" title="Permalink to this headline">¶</a></h1>
 <p>A volume provides storage to a guest VM. The volume can provide for a
 root disk or an additional data disk. CloudStack supports additional
 volumes for guest VMs.</p>
@@ -851,7 +851,7 @@ around data retention.</p>
 </div>
 </div>
 <div class="section" id="working-with-volume-snapshots">
-<h1>Working with Volume Snapshots<a class="headerlink" href="storage.html#working-with-volume-snapshots" title="Permalink to this headline">¶</a></h1>
+<h1>磁盘镜像<a class="headerlink" href="storage.html#working-with-volume-snapshots" title="Permalink to this headline">¶</a></h1>
 <p>(Supported for the following hypervisors: <strong>XenServer</strong>, <strong>VMware
 vSphere</strong>, and <strong>KVM</strong>)</p>
 <p>CloudStack supports snapshots of disk volumes. Snapshots are a
@@ -1007,10 +1007,10 @@ format, and will continue to work as expected.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="systemvm.html" class="btn btn-neutral float-right" title="The System VM Template" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="systemvm.html" class="btn btn-neutral float-right" title="系统虚拟机模板" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="hosts.html" class="btn btn-neutral float-left" title="Adding Hosts" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="hosts.html" class="btn btn-neutral float-left" title="添加主机" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

@@ -131,7 +131,7 @@ hash you generated locally and the hash that has been pulled from the
 server.
 
 
-Prerequisites for building Apache CloudStack
+编译 Apache CloudStack 的先决条件
 --------------------------------------------
 
 There are a number of prerequisites needed to build CloudStack. This
@@ -171,7 +171,7 @@ You can now move into the directory:
 
    $ cd ./apache-cloudstack-4.11.1.0-src
 
-Install new MySQL connector
+安装 MySQL connector
 ---------------------------
 
 Install Python MySQL connector using the official MySQL packages repository.
@@ -329,7 +329,7 @@ You can now move on to the instructions under Install on Ubuntu.
 打包成 RPM
 -------------------------
 
-As mentioned previously in `“Prerequisites for building Apache CloudStack” 
+As mentioned previously in `“编译 Apache CloudStack 的先决条件” 
 <#prerequisites-for-building-apache-cloudstack>`_, you will need to install 
 several prerequisites before you can build packages for CloudStack. Here we'll
 assume you're working with a 64-bit build of CentOS or Red Hat Enterprise 

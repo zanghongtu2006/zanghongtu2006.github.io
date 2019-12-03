@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Working with System Virtual Machines &#8212; Apache CloudStack Administration Documentation 4.11.0.0 documentation</title>
+    <title>系统虚拟机 &#8212; Apache CloudStack Administration Documentation 4.11.0.0 documentation</title>
     <link rel="stylesheet" href="_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="https://assets.readthedocs.org/static/css/badge_only.css" type="text/css" />
@@ -22,7 +22,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Working with Usage" href="usage.html" />
-    <link rel="prev" title="Working with Storage" href="storage.html" />
+    <link rel="prev" title="存储" href="storage.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -80,7 +80,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
                     role="menu"
                     aria-labelledby="dLabelGlobalToc">
                      <ul>
-<li class="toctree-l1"><a class="reference internal" href="ui.html">User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui.html">用户界面</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="accounts.html">Managing Roles, Accounts, Users and Domains</a></li>
@@ -89,26 +89,26 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="projects.html">Using Projects to Organize Users and Resources</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="service_offerings.html">Service Offerings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="service_offerings.html">计算方案</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="networking.html">Setting Up Networking for Users</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="virtual_machines.html">Working with Virtual Machines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="virtual_machines.html">虚拟机</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="templates.html">Working with Templates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="templates.html">模板</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="hosts.html">Working with Hosts</a></li>
-<li class="toctree-l1"><a class="reference internal" href="hosts.html#security">Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hosts.html">主机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hosts.html#security">安全</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="storage.html">Working with Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="storage.html">存储</a></li>
 </ul>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="systemvm.html#">Working with System Virtual Machines</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="systemvm.html#">系统虚拟机</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="usage.html">Working with Usage</a></li>
@@ -118,7 +118,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="networking/using_remote_access.html">Using Remote Access VPN</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="management.html">Managing the Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="management.html">管理云</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="reliability.html">System Reliability and High Availability</a></li>
@@ -127,7 +127,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="plugins/quota.html">Quota Plugin</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="tuning.html">Tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tuning.html">调优</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="events.html">Event Notification</a></li>
@@ -145,7 +145,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
               
                 
   <li>
-    <a href="storage.html" title="Previous Chapter: Working with Storage"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Working with Storage</span>
+    <a href="storage.html" title="Previous Chapter: 存储"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; 存储</span>
     </a>
   </li>
   <li>
@@ -177,30 +177,30 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
   <div class="row">
       <div class="col-md-3">
         <div id="sidebar" class="bs-sidenav" role="complementary"><ul>
-<li><a class="reference internal" href="systemvm.html#">Working with System Virtual Machines</a><ul>
-<li><a class="reference internal" href="systemvm.html#the-system-vm-template">The System VM Template</a></li>
-<li><a class="reference internal" href="systemvm.html#changing-the-default-system-vm-template">Changing the Default System VM Template</a></li>
+<li><a class="reference internal" href="systemvm.html#">系统虚拟机</a><ul>
+<li><a class="reference internal" href="systemvm.html#the-system-vm-template">系统虚拟机模板</a></li>
+<li><a class="reference internal" href="systemvm.html#changing-the-default-system-vm-template">更换系统虚拟机模板</a></li>
 <li><a class="reference internal" href="systemvm.html#multiple-system-vm-support-for-vmware">Multiple System VM Support for VMware</a></li>
-<li><a class="reference internal" href="systemvm.html#console-proxy">Console Proxy</a><ul>
-<li><a class="reference internal" href="systemvm.html#using-a-ssl-certificate-for-the-console-proxy">Using a SSL Certificate for the Console Proxy</a></li>
-<li><a class="reference internal" href="systemvm.html#changing-the-console-proxy-ssl-certificate-and-domain">Changing the Console Proxy SSL Certificate and Domain</a></li>
+<li><a class="reference internal" href="systemvm.html#console-proxy">控制台代理</a><ul>
+<li><a class="reference internal" href="systemvm.html#using-a-ssl-certificate-for-the-console-proxy">Using a SSL Certificate for the 控制台代理</a></li>
+<li><a class="reference internal" href="systemvm.html#changing-the-console-proxy-ssl-certificate-and-domain">Changing the 控制台代理 SSL Certificate and Domain</a></li>
 <li><a class="reference internal" href="systemvm.html#uploading-root-ca-and-intermediate-ca">Uploading ROOT CA and Intermediate CA</a></li>
 <li><a class="reference internal" href="systemvm.html#load-balancing-console-proxies">Load-balancing Console Proxies</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="systemvm.html#virtual-router">Virtual Router</a><ul>
-<li><a class="reference internal" href="systemvm.html#configuring-the-virtual-router">Configuring the Virtual Router</a></li>
-<li><a class="reference internal" href="systemvm.html#upgrading-a-virtual-router-with-system-service-offerings">Upgrading a Virtual Router with System Service Offerings</a></li>
-<li><a class="reference internal" href="systemvm.html#best-practices-for-virtual-routers">最佳实践 for Virtual Routers</a></li>
-<li><a class="reference internal" href="systemvm.html#service-monitoring-tool-for-virtual-router">Service Monitoring Tool for Virtual Router</a></li>
-<li><a class="reference internal" href="systemvm.html#enhanced-upgrade-for-virtual-routers">Enhanced Upgrade for Virtual Routers</a><ul>
-<li><a class="reference internal" href="systemvm.html#supported-virtual-routers">Supported Virtual Routers</a></li>
-<li><a class="reference internal" href="systemvm.html#upgrading-virtual-routers">Upgrading Virtual Routers</a></li>
+<li><a class="reference internal" href="systemvm.html#virtual-router">虚拟路由器</a><ul>
+<li><a class="reference internal" href="systemvm.html#configuring-the-virtual-router">Configuring the 虚拟路由器</a></li>
+<li><a class="reference internal" href="systemvm.html#upgrading-a-virtual-router-with-system-service-offerings">Upgrading a 虚拟路由器 with 系统虚拟机计算方案</a></li>
+<li><a class="reference internal" href="systemvm.html#best-practices-for-virtual-routers">最佳实践 for 虚拟路由器s</a></li>
+<li><a class="reference internal" href="systemvm.html#service-monitoring-tool-for-virtual-router">Service Monitoring Tool for 虚拟路由器</a></li>
+<li><a class="reference internal" href="systemvm.html#enhanced-upgrade-for-virtual-routers">Enhanced Upgrade for 虚拟路由器s</a><ul>
+<li><a class="reference internal" href="systemvm.html#supported-virtual-routers">Supported 虚拟路由器s</a></li>
+<li><a class="reference internal" href="systemvm.html#upgrading-virtual-routers">Upgrading 虚拟路由器s</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="systemvm.html#secondary-storage-vm">Secondary Storage VM</a></li>
+<li><a class="reference internal" href="systemvm.html#secondary-storage-vm">二级存储虚拟机</a></li>
 </ul>
 </li>
 </ul>
@@ -215,14 +215,14 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <p class="last">For the current documentation site goto: <a class="reference external" href="../../../../index.html">http://docs.cloudstack.apache.org</a></p>
 </div>
 <div class="section" id="working-with-system-virtual-machines">
-<h1>Working with System Virtual Machines<a class="headerlink" href="systemvm.html#working-with-system-virtual-machines" title="Permalink to this headline">¶</a></h1>
+<h1>系统虚拟机<a class="headerlink" href="systemvm.html#working-with-system-virtual-machines" title="Permalink to this headline">¶</a></h1>
 <p>CloudStack uses several types of system virtual machines to perform
 tasks in the cloud. In general CloudStack manages these system VMs and
 creates, starts, and stops them as needed based on scale and immediate
 needs. However, the administrator should be aware of them and their
 roles to assist in debugging issues.</p>
 <div class="section" id="the-system-vm-template">
-<h2>The System VM Template<a class="headerlink" href="systemvm.html#the-system-vm-template" title="Permalink to this headline">¶</a></h2>
+<h2>系统虚拟机模板<a class="headerlink" href="systemvm.html#the-system-vm-template" title="Permalink to this headline">¶</a></h2>
 <p>The System VMs come from a single template. The System VM has the
 following characteristics:</p>
 <ul class="simple">
@@ -241,7 +241,7 @@ speed</li>
 </ul>
 </div>
 <div class="section" id="changing-the-default-system-vm-template">
-<h2>Changing the Default System VM Template<a class="headerlink" href="systemvm.html#changing-the-default-system-vm-template" title="Permalink to this headline">¶</a></h2>
+<h2>更换系统虚拟机模板<a class="headerlink" href="systemvm.html#changing-the-default-system-vm-template" title="Permalink to this headline">¶</a></h2>
 <p>Using the 64-bit template should be use with a System Offering of at least 512MB
 of memory.</p>
 <ol class="arabic">
@@ -306,8 +306,8 @@ System VMs and performs dynamic load balancing and scaling-up of more
 System VMs.</p>
 </div>
 <div class="section" id="console-proxy">
-<h2>Console Proxy<a class="headerlink" href="systemvm.html#console-proxy" title="Permalink to this headline">¶</a></h2>
-<p>The Console Proxy is a type of System Virtual Machine that has a role in
+<h2>控制台代理<a class="headerlink" href="systemvm.html#console-proxy" title="Permalink to this headline">¶</a></h2>
+<p>The 控制台代理 is a type of System Virtual Machine that has a role in
 presenting a console view via the web UI. It connects the user’s browser
 to the VNC port made available via the hypervisor for the console of the
 guest. Both the administrator and end user web UIs offer a console
@@ -332,13 +332,13 @@ configuration with the parameter consoleproxy.loadscan.interval.</p>
 <p>Assignment of guest VM to console proxy is determined by first
 determining if the guest VM has a previous session associated with a
 console proxy. If it does, the 管理服务 will assign the guest
-VM to the target Console Proxy VM regardless of the load on the proxy
-VM. Failing that, the first available running Console Proxy VM that has
+VM to the target 控制台代理 VM regardless of the load on the proxy
+VM. Failing that, the first available running 控制台代理 VM that has
 the capacity to handle new sessions is used.</p>
 <p>Console proxies can be restarted by administrators but this will
 interrupt existing console sessions for users.</p>
 <div class="section" id="using-a-ssl-certificate-for-the-console-proxy">
-<h3>Using a SSL Certificate for the Console Proxy<a class="headerlink" href="systemvm.html#using-a-ssl-certificate-for-the-console-proxy" title="Permalink to this headline">¶</a></h3>
+<h3>Using a SSL Certificate for the 控制台代理<a class="headerlink" href="systemvm.html#using-a-ssl-certificate-for-the-console-proxy" title="Permalink to this headline">¶</a></h3>
 <p>By default, the console viewing functionality uses plaintext HTTP. In
 any production environment, the console proxy connection should be
 encrypted via SSL at the mininum.</p>
@@ -350,7 +350,7 @@ communication with SSL:</p>
 </ul>
 </div>
 <div class="section" id="changing-the-console-proxy-ssl-certificate-and-domain">
-<h3>Changing the Console Proxy SSL Certificate and Domain<a class="headerlink" href="systemvm.html#changing-the-console-proxy-ssl-certificate-and-domain" title="Permalink to this headline">¶</a></h3>
+<h3>Changing the 控制台代理 SSL Certificate and Domain<a class="headerlink" href="systemvm.html#changing-the-console-proxy-ssl-certificate-and-domain" title="Permalink to this headline">¶</a></h3>
 <p>The administrator can configure SSL encryption  by selecting a domain
 and uploading a new SSL certificate and private key. The domain must
 run a DNS service that is capable of resolving queries for addresses
@@ -411,7 +411,7 @@ following:</p>
 <li>The desired domain name, prefixed with <code class="docutils literal notranslate"><span class="pre">*.</span></code>; for example, <code class="docutils literal notranslate"><span class="pre">*.consoleproxy.company.com</span></code></li>
 </ul>
 <blockquote>
-<div><p><img alt="Updating Console Proxy SSL Certificate" src="_images/update-ssl.png" /></p>
+<div><p><img alt="Updating 控制台代理 SSL Certificate" src="_images/update-ssl.png" /></p>
 </div></blockquote>
 </li>
 <li><p class="first">This stops all currently running console proxy VMs, then restarts
@@ -464,7 +464,7 @@ for more details.</p>
 </div>
 </div>
 <div class="section" id="virtual-router">
-<h2>Virtual Router<a class="headerlink" href="systemvm.html#virtual-router" title="Permalink to this headline">¶</a></h2>
+<h2>虚拟路由器<a class="headerlink" href="systemvm.html#virtual-router" title="Permalink to this headline">¶</a></h2>
 <p>The virtual router is a type of System Virtual Machine. The virtual
 router is one of the most frequently used service providers in
 CloudStack. The end user has no direct access to the virtual router.
@@ -478,7 +478,7 @@ basic test in debugging networking issues is to attempt to ping the
 virtual router from a guest VM. Some of the characteristics of the
 virtual router are determined by its associated system service offering.</p>
 <div class="section" id="configuring-the-virtual-router">
-<h3>Configuring the Virtual Router<a class="headerlink" href="systemvm.html#configuring-the-virtual-router" title="Permalink to this headline">¶</a></h3>
+<h3>Configuring the 虚拟路由器<a class="headerlink" href="systemvm.html#configuring-the-virtual-router" title="Permalink to this headline">¶</a></h3>
 <p>You can set the following:</p>
 <ul class="simple">
 <li>IP range</li>
@@ -493,7 +493,7 @@ gather network usage statistics, set it to 0.</li>
 </ul>
 </div>
 <div class="section" id="upgrading-a-virtual-router-with-system-service-offerings">
-<h3>Upgrading a Virtual Router with System Service Offerings<a class="headerlink" href="systemvm.html#upgrading-a-virtual-router-with-system-service-offerings" title="Permalink to this headline">¶</a></h3>
+<h3>Upgrading a 虚拟路由器 with 系统虚拟机计算方案<a class="headerlink" href="systemvm.html#upgrading-a-virtual-router-with-system-service-offerings" title="Permalink to this headline">¶</a></h3>
 <p>When CloudStack creates a virtual router, it uses default settings which
 are defined in a default system service offering. See <a class="reference external" href="systemvm.html#system-service-offerings">“System Service
 Offerings”</a>. All the
@@ -514,7 +514,7 @@ follow the steps in <a class="reference external" href="http://docs.cloudstack.a
 </ol>
 </div>
 <div class="section" id="best-practices-for-virtual-routers">
-<h3>最佳实践 for Virtual Routers<a class="headerlink" href="systemvm.html#best-practices-for-virtual-routers" title="Permalink to this headline">¶</a></h3>
+<h3>最佳实践 for 虚拟路由器s<a class="headerlink" href="systemvm.html#best-practices-for-virtual-routers" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p class="first">WARNING: Restarting a virtual router from a hypervisor console
 deletes all the iptables rules. To work around this issue, stop the
@@ -532,7 +532,7 @@ restartNetwork API with the cleanup=true parameter.</p>
 </ul>
 </div>
 <div class="section" id="service-monitoring-tool-for-virtual-router">
-<h3>Service Monitoring Tool for Virtual Router<a class="headerlink" href="systemvm.html#service-monitoring-tool-for-virtual-router" title="Permalink to this headline">¶</a></h3>
+<h3>Service Monitoring Tool for 虚拟路由器<a class="headerlink" href="systemvm.html#service-monitoring-tool-for-virtual-router" title="Permalink to this headline">¶</a></h3>
 <p>Various services running on the CloudStack virtual routers can be
 monitored by using a Service Monitoring tool. The tool ensures that
 services are successfully running until CloudStack deliberately disables
@@ -578,10 +578,10 @@ be restarted by the Monitoring tool. VPC networks are not supported.</p>
 VMware, and KVM.</p>
 </div>
 <div class="section" id="enhanced-upgrade-for-virtual-routers">
-<h3>Enhanced Upgrade for Virtual Routers<a class="headerlink" href="systemvm.html#enhanced-upgrade-for-virtual-routers" title="Permalink to this headline">¶</a></h3>
+<h3>Enhanced Upgrade for 虚拟路由器s<a class="headerlink" href="systemvm.html#enhanced-upgrade-for-virtual-routers" title="Permalink to this headline">¶</a></h3>
 <p>Upgrading VR is made flexible. The CloudStack administrators will be
 able to control the sequence of the VR upgrades. The sequencing is based
-on Infrastructure hierarchy, such as by Cluster, Pod, or Zone, and
+on Infrastructure hierarchy, such as by 集群, Pod, or Zone, and
 Administrative (Account) hierarchy, such as by Tenant or Domain. As an
 administrator, you can also determine when a particular customer
 service, such as VR, is upgraded within a specified upgrade interval.
@@ -607,7 +607,7 @@ upgrade.</p>
 However, no changes for any of the services can be sent to the VR, until
 it is upgraded:</p>
 <ul class="simple">
-<li>SecurityGroup</li>
+<li>安全Group</li>
 <li>UserData</li>
 <li>DHCP</li>
 <li>DNS</li>
@@ -621,7 +621,7 @@ it is upgraded:</p>
 <li>NetworkACL</li>
 </ul>
 <div class="section" id="supported-virtual-routers">
-<h4>Supported Virtual Routers<a class="headerlink" href="systemvm.html#supported-virtual-routers" title="Permalink to this headline">¶</a></h4>
+<h4>Supported 虚拟路由器s<a class="headerlink" href="systemvm.html#supported-virtual-routers" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li>VR</li>
 <li>VPC VR</li>
@@ -629,7 +629,7 @@ it is upgraded:</p>
 </ul>
 </div>
 <div class="section" id="upgrading-virtual-routers">
-<h4>Upgrading Virtual Routers<a class="headerlink" href="systemvm.html#upgrading-virtual-routers" title="Permalink to this headline">¶</a></h4>
+<h4>Upgrading 虚拟路由器s<a class="headerlink" href="systemvm.html#upgrading-virtual-routers" title="Permalink to this headline">¶</a></h4>
 <ol class="arabic">
 <li><p class="first">Download the latest System VM template.</p>
 </li>
@@ -652,8 +652,8 @@ perform any operations on the VRs until they are upgraded.</p>
 </li>
 <li><p class="first">In the left navigation, choose Infrastructure.</p>
 </li>
-<li><p class="first">On Virtual Routers, click View More.</p>
-<p>All the VRs are listed in the Virtual Routers page.</p>
+<li><p class="first">On 虚拟路由器s, click View More.</p>
+<p>All the VRs are listed in the 虚拟路由器s page.</p>
 </li>
 <li><p class="first">In Select View drop-down, select desired grouping based on your
 requirement.</p>
@@ -680,11 +680,11 @@ of the desired zone.</p>
 </div>
 </div>
 <div class="section" id="secondary-storage-vm">
-<h2>Secondary Storage VM<a class="headerlink" href="systemvm.html#secondary-storage-vm" title="Permalink to this headline">¶</a></h2>
-<p>In addition to the hosts, CloudStack’s Secondary Storage VM mounts and
+<h2>二级存储虚拟机<a class="headerlink" href="systemvm.html#secondary-storage-vm" title="Permalink to this headline">¶</a></h2>
+<p>In addition to the hosts, CloudStack’s 二级存储虚拟机 mounts and
 writes to secondary storage.</p>
-<p>Submissions to secondary storage go through the Secondary Storage VM.
-The Secondary Storage VM can retrieve templates and ISO images from URLs
+<p>Submissions to secondary storage go through the 二级存储虚拟机.
+The 二级存储虚拟机 can retrieve templates and ISO images from URLs
 using a variety of protocols.</p>
 <p>The secondary storage VM provides a background task that takes care of a
 variety of secondary storage activities: downloading a new template to a
@@ -702,7 +702,7 @@ Zone, copying templates between Zones, and snapshot backups.</p>
   <div class="container">
     <p class="pull-right">
       <a href="systemvm.html#">Back to top</a>
-          | <a href="storage.html" title="Previous Chapter: Working with Storage"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Working with Storage</span>
+          | <a href="storage.html" title="Previous Chapter: 存储"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; 存储</span>
           </a>
           | <a href="usage.html" title="Next Chapter: Working with Usage"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Working with Usage &raquo;</span>
           </a>

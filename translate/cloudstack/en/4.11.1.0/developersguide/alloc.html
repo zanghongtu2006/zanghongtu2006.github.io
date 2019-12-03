@@ -28,8 +28,8 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Deploying CloudStack with Ansible" href="ansible.html" />
-    <link rel="prev" title="Plugins" href="plugins.html" /> 
+    <link rel="next" title="使用 Ansible 部署 CloudStack" href="ansible.html" />
+    <link rel="prev" title="插件" href="plugins.html" /> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -113,9 +113,9 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../upgrading/index.html">升级 CloudStack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../adminguide/index.html">使用手册</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">开发者手册</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="developer_guide.html">CloudStack Installation from GIT repo for Developers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="dev.html">Programmer Guide</a></li>
-<li class="toctree-l2"><a class="reference internal" href="plugins.html">Plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide.html">CloudStack 安装 from GIT repo for Developers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dev.html">开发者指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugins.html">插件</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="alloc.html#">Allocators</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="alloc.html#implementing-a-custom-hostallocator">Implementing a custom HostAllocator</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="alloc.html#hostallocator-interface">HostAllocator Interface</a></li>
@@ -127,11 +127,11 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="ansible.html">Deploying CloudStack with Ansible</a></li>
-<li class="toctree-l2"><a class="reference internal" href="get_help.html">Getting Help</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ansible.html">使用 Ansible 部署 CloudStack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="get_help.html">获得帮助</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../plugins/index.html">Plugins Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/index.html">插件使用手册</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">发行版本说明</a></li>
 </ul>
 <p class="caption"><span class="caption-text">其它:</span></p>
@@ -314,7 +314,7 @@ ExcludeList.hostIds.</p>
 <h4>Reference HostAllocator implementation<a class="headerlink" href="alloc.html#reference-hostallocator-implementation" title="Permalink to this headline">¶</a></h4>
 <p>Refer com.cloud.agent.manager.allocator.impl.FirstFitAllocator that
 implements the HostAllocator interface. This allocator checks available
-hosts in the specified datacenter, Pod, Cluster and considering the
+hosts in the specified datacenter, Pod, 集群 and considering the
 given ServiceOffering requirements.</p>
 <p>If returnUpTo = 1, this allocator would return the first Host that fits
 the requirements of the guest VM.</p>
@@ -419,7 +419,7 @@ ExcludeList.poolIds</p>
 <h4>Reference StoragePoolAllocator implementation<a class="headerlink" href="alloc.html#reference-storagepoolallocator-implementation" title="Permalink to this headline">¶</a></h4>
 <p>Refer com.cloud.storage.allocator.FirstFitStoragePoolAllocator that
 implements the StoragePoolAllocator interface. This allocator checks
-available pools in the specified datacenter, Pod, Cluster and
+available pools in the specified datacenter, Pod, 集群 and
 considering the given DiskProfile characteristics.</p>
 <p>If returnUpTo = 1, this allocator would return the first Storage Pool
 that fits the requirements of the guest VM.</p>
@@ -462,10 +462,10 @@ Optionally, you can change the name of the adapter as well.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="ansible.html" class="btn btn-neutral float-right" title="Deploying CloudStack with Ansible" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="ansible.html" class="btn btn-neutral float-right" title="使用 Ansible 部署 CloudStack" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="plugins.html" class="btn btn-neutral" title="Plugins" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="plugins.html" class="btn btn-neutral" title="插件" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

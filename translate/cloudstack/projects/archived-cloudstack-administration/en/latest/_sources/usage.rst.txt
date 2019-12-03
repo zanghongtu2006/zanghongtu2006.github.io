@@ -79,7 +79,7 @@ for the 24 hours from 00:00:00 GMT to 23:59:59 GMT:
    usage.execution.timezone = PST
    usage.aggregation.timezone = GMT
 
-Valid values for the time zone are specified in `Appendix A, *Time Zones* 
+Valid values for the time zone are specified in `Appendix A, *时区* 
 <http://docs.cloudstack.apache.org/en/latest/dev.html?highlight=time%20zones#time-zones>`_
 
 Default: GMT
@@ -87,7 +87,7 @@ Default: GMT
 usage.execution.timezone
 
 The time zone of usage.stats.job.exec.time. Valid values for the time
-zone are specified in `Appendix A, *Time Zones* 
+zone are specified in `Appendix A, *时区* 
 <http://docs.cloudstack.apache.org/en/latest/dev.html?highlight=time%20zones#time-zones>`_
 
 Default: The time zone of the management server.
@@ -230,9 +230,9 @@ resource types for Domain, Project, and Accounts.
 
 -  Memory (RAM)
 
--  Primary Storage (Volumes)
+-  主存储 (Volumes)
 
--  Secondary Storage (Snapshots, Templates, ISOs)
+-  二级存储 (Snapshots, 模板, ISOs)
 
 To control the behaviour of this feature, the following configuration
 parameters have been added:
@@ -380,11 +380,11 @@ To set a domain limit:
 
       The number of RAM that can be used for a domain.
 
-   -  Primary Storage limits (GB)
+   -  主存储 limits (GB)
 
       The primary storage space that can be used for a domain.
 
-   -  Secondary Storage limits (GB)
+   -  二级存储 limits (GB)
 
       The secondary storage space that can be used for a domain.
 
@@ -467,13 +467,13 @@ resource limit.
 
       The default is 40960.
 
-   -  Primary Storage limits (GB)
+   -  主存储 limits (GB)
 
       The primary storage space that can be used for an account.
 
       The default is 200.
 
-   -  Secondary Storage limits (GB)
+   -  二级存储 limits (GB)
 
       The secondary storage space that can be used for an account.
 

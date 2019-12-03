@@ -116,22 +116,22 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../upgrading/index.html">升级 CloudStack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../adminguide/index.html">使用手册</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developersguide/index.html">开发者手册</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Plugins Guide</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">插件使用手册</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="cloudian-connector.html">The Cloudian Connector Plugin</a></li>
 <li class="toctree-l2"><a class="reference internal" href="nicira-plugin.html">The Nicira NVP Plugin</a></li>
 <li class="toctree-l2"><a class="reference internal" href="nuage-plugin.html">The Nuage VSP Plugin</a></li>
 <li class="toctree-l2"><a class="reference internal" href="vxlan.html">The VXLAN Plugin</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="ovs-plugin.html#">The OVS Plugin</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="ovs-plugin.html#introduction-to-the-ovs-plugin">Introduction to the OVS Plugin</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ovs-plugin.html#introduction-to-the-ovs-plugin">简介 to the OVS Plugin</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="ovs-plugin.html#features-of-the-ovs-plugin">Features of the OVS Plugin</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="ovs-plugin.html#configuring-the-ovs-plugin">Configuring the OVS Plugin</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="ovs-plugin.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ovs-plugin.html#prerequisites">前提</a></li>
 <li class="toctree-l4"><a class="reference internal" href="ovs-plugin.html#zone-configuration">Zone Configuration</a></li>
 <li class="toctree-l4"><a class="reference internal" href="ovs-plugin.html#agent-configuration">Agent Configuration</a></li>
 <li class="toctree-l4"><a class="reference internal" href="ovs-plugin.html#enabling-the-service-provider">Enabling the service provider</a></li>
-<li class="toctree-l4"><a class="reference internal" href="ovs-plugin.html#network-offerings">Network Offerings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ovs-plugin.html#network-offerings">网络方案</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="ovs-plugin.html#using-the-ovs-plugin-with-vpc">Using the OVS plugin with VPC</a></li>
@@ -202,7 +202,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="index.html">Plugins Guide</a> &raquo;</li>
+          <li><a href="index.html">插件使用手册</a> &raquo;</li>
         
       <li>The OVS Plugin</li>
     
@@ -228,7 +228,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
   <div class="section" id="the-ovs-plugin">
 <h1>The OVS Plugin<a class="headerlink" href="ovs-plugin.html#the-ovs-plugin" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="introduction-to-the-ovs-plugin">
-<h2>Introduction to the OVS Plugin<a class="headerlink" href="ovs-plugin.html#introduction-to-the-ovs-plugin" title="Permalink to this headline">¶</a></h2>
+<h2>简介 to the OVS Plugin<a class="headerlink" href="ovs-plugin.html#introduction-to-the-ovs-plugin" title="Permalink to this headline">¶</a></h2>
 <p>The OVS plugin is the native SDN
 implementations in CloudStack, using GRE isolation method. The plugin can be
 used by CloudStack to implement isolated guest networks and to provide
@@ -257,7 +257,7 @@ the OVS Plugin.</p>
 <tr class="row-even"><td>Port Forwarding</td>
 <td>&gt;= 4.3</td>
 </tr>
-<tr class="row-odd"><td>Load Balancing</td>
+<tr class="row-odd"><td>负载均衡</td>
 <td>&gt;= 4.3</td>
 </tr>
 </tbody>
@@ -294,7 +294,7 @@ in CloudStack 4.0</p>
 <div class="section" id="configuring-the-ovs-plugin">
 <h2>Configuring the OVS Plugin<a class="headerlink" href="ovs-plugin.html#configuring-the-ovs-plugin" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="prerequisites">
-<h3>Prerequisites<a class="headerlink" href="ovs-plugin.html#prerequisites" title="Permalink to this headline">¶</a></h3>
+<h3>前提<a class="headerlink" href="ovs-plugin.html#prerequisites" title="Permalink to this headline">¶</a></h3>
 <p>Before enabling the OVS plugin the hypervisor needs to be install OpenvSwitch.
 Default, XenServer has already installed OpenvSwitch. However, you must
 install OpenvSwitch manually on KVM. CentOS 6.4 and OpenvSwitch 1.10 are
@@ -402,10 +402,10 @@ isolation type. Navigate to the OVS provider and press the
 </div>
 </div>
 <div class="section" id="network-offerings">
-<h3>Network Offerings<a class="headerlink" href="ovs-plugin.html#network-offerings" title="Permalink to this headline">¶</a></h3>
+<h3>网络方案<a class="headerlink" href="ovs-plugin.html#network-offerings" title="Permalink to this headline">¶</a></h3>
 <p>Using the OVS plugin requires a network offering with Virtual
 Networking enabled and configured to use the OVS element. Typical
-use cases combine services from the Virtual Router appliance and the
+use cases combine services from the 虚拟路由器 appliance and the
 OVS plugin.</p>
 <table border="1" class="table-striped table-bordered table-hover docutils">
 <colgroup>
@@ -491,7 +491,7 @@ required to provide network services like dns and dhcp.</p>
 <tr class="row-odd"><td>Post Forwarding</td>
 <td>OVS</td>
 </tr>
-<tr class="row-even"><td>Load Balancing</td>
+<tr class="row-even"><td>负载均衡</td>
 <td>OVS</td>
 </tr>
 <tr class="row-odd"><td>Virtual Networking</td>

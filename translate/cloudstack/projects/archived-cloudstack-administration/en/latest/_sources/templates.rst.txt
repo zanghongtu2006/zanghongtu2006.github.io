@@ -14,7 +14,7 @@
    under the License.
 
 
-Working with Templates
+模板
 ======================
 
 A template is a reusable configuration for virtual machines. When users
@@ -32,7 +32,7 @@ choices to users, CloudStack administrators and users can create
 templates and add them to CloudStack.
 
 
-Creating Templates: Overview
+创建模板: 概述
 ----------------------------
 
 CloudStack ships with a default template for the CentOS operating
@@ -55,7 +55,7 @@ The various techniques for creating templates are described in the next
 few sections.
 
 
-Requirements for Templates
+模板创建要求
 --------------------------
 
 -  For XenServer, install PV drivers / Xen tools on each template that
@@ -65,7 +65,7 @@ Requirements for Templates
    This will enable console view to work properly.
 
 
-模版最佳实践
+模板最佳实践
 ----------------------------
 
 If you plan to use large templates (100 GB or larger), be sure you have
@@ -73,11 +73,11 @@ a 10-gigabit network to support the large templates. A slower network
 can lead to timeouts and other errors when large templates are used.
 
 
-The Default Template
+默认模板
 --------------------
 
 CloudStack includes a CentOS template. This template is downloaded by
-the Secondary Storage VM after the primary and secondary storage are
+the 二级存储虚拟机 after the primary and secondary storage are
 configured. You can use this template in your production deployment or
 you can delete it and use custom templates.
 
@@ -119,7 +119,7 @@ block most access to the template excluding ssh.
    REJECT     all  --  anywhere        anywhere       reject-with icmp-host-
 
 
-Private and Public Templates
+私有模板和公共模板
 ----------------------------
 
 When a user creates a template, it can be designated private or public.
@@ -138,7 +138,7 @@ to that Zone. If a public template is created in a public Zone, it is
 available to all users in all domains.
 
 
-Creating a Template from an Existing Virtual Machine
+从虚拟机创建模板
 ----------------------------------------------------
 
 Once you have at least one VM set up in the way you want, you can use it
@@ -180,8 +180,8 @@ as the prototype for other VMs.
 
    -  **Public**. Choose Yes to make this template accessible to all
       users of this CloudStack installation. The template will appear in
-      the Community Templates list. See `“Private and
-      Public Templates” <#private-and-public-templates>`_.
+      the Community 模板 list. See `“Private and
+      Public 模板” <#private-and-public-templates>`_.
 
    -  **Password Enabled**. Choose Yes if your template has the
       CloudStack password change script installed. See 
@@ -189,12 +189,12 @@ as the prototype for other VMs.
 
 #. Click Add.
 
-The new template will be visible in the Templates section when the
+The new template will be visible in the 模板 section when the
 template creation process has been completed. The template is then
 available when creating a new VM.
 
 
-Creating a Template from a Snapshot
+从快照创建模板
 -----------------------------------
 
 If you do not want to stop the VM in order to use the Create Template
@@ -204,24 +204,24 @@ you can create a template directly from any snapshot through the
 CloudStack UI.
 
 
-Uploading Templates
+Uploading 模板
 -------------------
 
 
-vSphere Templates and ISOs
+vSphere 模板 and ISOs
 --------------------------
 
 If you are uploading a template that was created using vSphere Client,
 be sure the OVA file does not contain an ISO. If it does, the deployment
 of VMs from the template will fail.
 
-Templates are uploaded based on a URL. HTTP is the supported access
-protocol. Templates are frequently large files. You can optionally gzip
+模板 are uploaded based on a URL. HTTP is the supported access
+protocol. 模板 are frequently large files. You can optionally gzip
 them to decrease upload times.
 
 To upload a template:
 
-#. In the left navigation bar, click Templates.
+#. In the left navigation bar, click 模板.
 
 #. Click Register Template.
 
@@ -267,16 +267,16 @@ To upload a template:
 
    -  **Public**. Choose Yes to make this template accessible to all
       users of this CloudStack installation. The template will appear in
-      the Community Templates list. See `“Private and
-      Public Templates” <#private-and-public-templates>`_.
+      the Community 模板 list. See `“Private and
+      Public 模板” <#private-and-public-templates>`_.
 
    -  **Featured**. Choose Yes if you would like this template to be
       more prominent for users to select. The template will appear in
-      the Featured Templates list. Only an administrator can make a
+      the Featured 模板 list. Only an administrator can make a
       template Featured.
 
 
-Exporting Templates
+导出模板
 -------------------
 
 End users and Administrators may export templates from the CloudStack.
@@ -294,10 +294,10 @@ the Actions menu.
 .. include:: templates/_password.rst
 
 
-Deleting Templates
+删除模版
 ------------------
 
-Templates may be deleted. In general, when a template spans multiple
+模板 may be deleted. In general, when a template spans multiple
 Zones, only the copy that is selected for deletion will be deleted; the
 same template in other Zones will not be deleted. The provided CentOS
 template is an exception to this. If the provided CentOS template is

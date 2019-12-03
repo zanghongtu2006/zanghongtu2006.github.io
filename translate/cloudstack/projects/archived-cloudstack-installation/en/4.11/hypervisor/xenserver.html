@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Citrix XenServer 安装 &#8212; Apache CloudStack Installation Documentation 4.11.0.0 documentation</title>
+    <title>Citrix XenServer 安装 &#8212; Apache CloudStack 安装 Documentation 4.11.0.0 documentation</title>
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="https://media.readthedocs.org/css/badge_only.css" type="text/css" />
@@ -94,7 +94,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../management-server/index.html">安装管理服务</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../configuration.html">Configuring your CloudStack Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration.html">安装配置 CloudStack </a></li>
 </ul>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="hyperv.html">Hyper-V 安装</a></li>
@@ -107,15 +107,15 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../network_setup.html">网络配置</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../storage_setup.html">Storage Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../storage_setup.html">存储配置</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../storage_setup.html#small-scale-setup">Small-Scale Setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../storage_setup.html#large-scale-setup">Large-Scale Setup</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../storage_setup.html#storage-architecture">Storage Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../storage_setup.html#storage-architecture">存储架构</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../storage_setup.html#network-configuration-for-storage">Network Configuration For Storage</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../optional_installation.html">Additional Installation Options</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../encryption.html">About Password and Key Encryption</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../optional_installation.html">Additional 安装 Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../encryption.html">密码和加密密钥</a></li>
 </ul>
 
 
@@ -163,12 +163,12 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
         <div id="sidebar" class="bs-sidenav" role="complementary"><ul>
 <li><a class="reference internal" href="xenserver.html#">Citrix XenServer 安装</a><ul>
 <li><a class="reference internal" href="xenserver.html#system-requirements-for-xenserver-hosts">System Requirements for XenServer Hosts</a></li>
-<li><a class="reference internal" href="xenserver.html#xenserver-installation-steps">XenServer Installation Steps</a></li>
+<li><a class="reference internal" href="xenserver.html#xenserver-installation-steps">XenServer 安装 Steps</a></li>
 <li><a class="reference internal" href="xenserver.html#configure-xenserver-dom0-memory">Configure XenServer dom0 Memory</a></li>
 <li><a class="reference internal" href="xenserver.html#username-and-password">Username and Password</a></li>
 <li><a class="reference internal" href="xenserver.html#time-synchronization">Time Synchronization</a></li>
 <li><a class="reference internal" href="xenserver.html#install-cloudstack-xenserver-support-package-csp">Install CloudStack XenServer Support Package (CSP)</a></li>
-<li><a class="reference internal" href="xenserver.html#primary-storage-setup-for-xenserver">Primary Storage Setup for XenServer</a></li>
+<li><a class="reference internal" href="xenserver.html#primary-storage-setup-for-xenserver">Primary 存储配置 for XenServer</a></li>
 <li><a class="reference internal" href="xenserver.html#iscsi-multipath-setup-for-xenserver-optional">iSCSI Multipath Setup for XenServer (Optional)</a></li>
 <li><a class="reference internal" href="xenserver.html#physical-networking-setup-for-xenserver">Physical Networking Setup for XenServer</a><ul>
 <li><a class="reference internal" href="xenserver.html#configuring-public-network-with-a-dedicated-nic-for-xenserver-optional">Configuring Public Network with a Dedicated NIC for XenServer (Optional)</a></li>
@@ -176,11 +176,11 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li><a class="reference internal" href="xenserver.html#separate-storage-network-for-xenserver-optional">独立存储网络 for XenServer (Optional)</a></li>
 <li><a class="reference internal" href="xenserver.html#nic-bonding-for-xenserver-optional">NIC Bonding for XenServer (Optional)</a><ul>
 <li><a class="reference internal" href="xenserver.html#management-network-bonding">Management Network Bonding</a></li>
-<li><a class="reference internal" href="xenserver.html#creating-a-private-bond-on-the-first-host-in-the-cluster">Creating a Private Bond on the First Host in the Cluster</a></li>
+<li><a class="reference internal" href="xenserver.html#creating-a-private-bond-on-the-first-host-in-the-cluster">Creating a Private Bond on the First Host in the 集群</a></li>
 <li><a class="reference internal" href="xenserver.html#public-network-bonding">Public Network Bonding</a></li>
-<li><a class="reference internal" href="xenserver.html#creating-a-public-bond-on-the-first-host-in-the-cluster">Creating a Public Bond on the First Host in the Cluster</a></li>
-<li><a class="reference internal" href="xenserver.html#adding-more-hosts-to-the-cluster">Adding More Hosts to the Cluster</a></li>
-<li><a class="reference internal" href="xenserver.html#complete-the-bonding-setup-across-the-cluster">Complete the Bonding Setup Across the Cluster</a></li>
+<li><a class="reference internal" href="xenserver.html#creating-a-public-bond-on-the-first-host-in-the-cluster">Creating a Public Bond on the First Host in the 集群</a></li>
+<li><a class="reference internal" href="xenserver.html#adding-more-hosts-to-the-cluster">Adding More Hosts to the 集群</a></li>
+<li><a class="reference internal" href="xenserver.html#complete-the-bonding-setup-across-the-cluster">Complete the Bonding Setup Across the 集群</a></li>
 </ul>
 </li>
 </ul>
@@ -264,7 +264,7 @@ already running</p>
 </div>
 </div>
 <div class="section" id="xenserver-installation-steps">
-<h2>XenServer Installation Steps<a class="headerlink" href="xenserver.html#xenserver-installation-steps" title="Permalink to this headline">¶</a></h2>
+<h2>XenServer 安装 Steps<a class="headerlink" href="xenserver.html#xenserver-installation-steps" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
 <li><p class="first">From <a class="reference external" href="https://www.citrix.com/English/ss/downloads/">https://www.citrix.com/English/ss/downloads/</a>,
 download the appropriate version of XenServer for your CloudStack
@@ -383,7 +383,7 @@ disable Open vSwitch (OVS):</p>
 <p>The XenServer host is now ready to be added to CloudStack.</p>
 </div>
 <div class="section" id="primary-storage-setup-for-xenserver">
-<h2>Primary Storage Setup for XenServer<a class="headerlink" href="xenserver.html#primary-storage-setup-for-xenserver" title="Permalink to this headline">¶</a></h2>
+<h2>Primary 存储配置 for XenServer<a class="headerlink" href="xenserver.html#primary-storage-setup-for-xenserver" title="Permalink to this headline">¶</a></h2>
 <p>CloudStack natively supports NFS, iSCSI and local storage. If you are
 using one of these storage types, there is no need to create the
 XenServer Storage Repository (“SR”).</p>
@@ -449,7 +449,7 @@ name-description, set whatever friendly text you prefer.</p>
 </pre></div>
 </div>
 <p>Make note of the values you will need when you add this storage to
-CloudStack later (see <a class="reference external" href="http://docs.cloudstack.apache.org/projects/archived-cloudstack-installation/en/4.11/hypervisor/configuration.html#add-primary-storage">“Add Primary Storage”</a>). In the Add Primary Storage
+CloudStack later (see <a class="reference external" href="http://docs.cloudstack.apache.org/projects/archived-cloudstack-installation/en/4.11/hypervisor/configuration.html#add-primary-storage">“Add 主存储”</a>). In the Add 主存储
 dialog, in Protocol, you will choose PreSetup. In SR Name-Label, you
 will enter the name-label you set earlier (in this example,
 e6849e96-86c3-4f2c-8fcc-350cc711be3d).</p>
@@ -474,7 +474,7 @@ following links provide a starting point:</p>
 <p>You can also ask your SAN vendor for advice about setting up your Citrix
 repository for multipathing.</p>
 <p>Make note of the values you will need when you add this storage to the
-CloudStack later (see <a class="reference external" href="http://docs.cloudstack.apache.org/projects/archived-cloudstack-installation/en/4.11/hypervisor/configuration.html#add-primary-storage">“Add Primary Storage”</a>). In the Add Primary Storage
+CloudStack later (see <a class="reference external" href="http://docs.cloudstack.apache.org/projects/archived-cloudstack-installation/en/4.11/hypervisor/configuration.html#add-primary-storage">“Add 主存储”</a>). In the Add 主存储
 dialog, in Protocol, you will choose PreSetup. In SR Name-Label, you will
 enter the same name used to create the SR.</p>
 <p>If you encounter difficulty, address the support team for the SAN
@@ -628,7 +628,7 @@ must be in the management network for added slave hosts.</li>
 the host to CloudStack.</p>
 </div>
 <div class="section" id="creating-a-private-bond-on-the-first-host-in-the-cluster">
-<h4>Creating a Private Bond on the First Host in the Cluster<a class="headerlink" href="xenserver.html#creating-a-private-bond-on-the-first-host-in-the-cluster" title="Permalink to this headline">¶</a></h4>
+<h4>Creating a Private Bond on the First Host in the 集群<a class="headerlink" href="xenserver.html#creating-a-private-bond-on-the-first-host-in-the-cluster" title="Permalink to this headline">¶</a></h4>
 <p>Use the following steps to create a bond in XenServer. These steps
 should be run on only the first host in a cluster. This example creates
 the cloud-private network with two physical NICs (eth0 and eth1) bonded
@@ -666,7 +666,7 @@ if that network will be bonded and will be separate from the management
 network.</p>
 </div>
 <div class="section" id="creating-a-public-bond-on-the-first-host-in-the-cluster">
-<h4>Creating a Public Bond on the First Host in the Cluster<a class="headerlink" href="xenserver.html#creating-a-public-bond-on-the-first-host-in-the-cluster" title="Permalink to this headline">¶</a></h4>
+<h4>Creating a Public Bond on the First Host in the 集群<a class="headerlink" href="xenserver.html#creating-a-public-bond-on-the-first-host-in-the-cluster" title="Permalink to this headline">¶</a></h4>
 <p>These steps should be run on only the first host in a cluster. This
 example creates the cloud-public network with two physical NICs (eth2
 and eth3) bonded into it.</p>
@@ -696,7 +696,7 @@ pif-uuids<span class="o">=[</span>slave1-uuid<span class="o">]</span>,<span clas
 public network.</p>
 </div>
 <div class="section" id="adding-more-hosts-to-the-cluster">
-<h4>Adding More Hosts to the Cluster<a class="headerlink" href="xenserver.html#adding-more-hosts-to-the-cluster" title="Permalink to this headline">¶</a></h4>
+<h4>Adding More Hosts to the 集群<a class="headerlink" href="xenserver.html#adding-more-hosts-to-the-cluster" title="Permalink to this headline">¶</a></h4>
 <p>With the bonds (if any) established on the master, you should add
 additional, slave hosts. Run the following command for all additional
 hosts to be added to the cluster. This will cause the host to join the
@@ -707,7 +707,7 @@ master-password<span class="o">=[</span>your password<span class="o">]</span>
 </div>
 </div>
 <div class="section" id="complete-the-bonding-setup-across-the-cluster">
-<h4>Complete the Bonding Setup Across the Cluster<a class="headerlink" href="xenserver.html#complete-the-bonding-setup-across-the-cluster" title="Permalink to this headline">¶</a></h4>
+<h4>Complete the Bonding Setup Across the 集群<a class="headerlink" href="xenserver.html#complete-the-bonding-setup-across-the-cluster" title="Permalink to this headline">¶</a></h4>
 <p>With all hosts added to the pool, run the cloud-setup-bond script. This
 script will complete the configuration and set up of the bonds across
 all hosts in the cluster.</p>

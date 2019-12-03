@@ -54,7 +54,7 @@ job 1076 with the following grep:
 The CloudStack Agent Server logs its activities in `/var/log/cloudstack/agent/`.
 
 
-Data Loss on Exported Primary Storage
+Data Loss on Exported 主存储
 -------------------------------------
 
 Symptom
@@ -88,11 +88,11 @@ Adjust the above command to suit your deployment needs.
 More Information
 ~~~~~~~~~~~~~~~~
 
-See the export procedure in the "Secondary Storage" section of the
+See the export procedure in the "二级存储" section of the
 CloudStack 安装指南
 
 
-Recovering a Lost Virtual Router
+Recovering a Lost 虚拟路由器
 --------------------------------
 
 Symptom
@@ -337,7 +337,7 @@ Trouble Shooting Steps
          collisions:0 txqueuelen:0 
          RX bytes:94985932 (90.5 MiB)  TX bytes:61635793 (58.7 MiB)
 
-#. The Virtual Router, SSVM, CPVM *public* interface would be bridged to
+#. The 虚拟路由器, SSVM, CPVM *public* interface would be bridged to
    a physical interface on the host. In the example below, *cloudbr0* is
    the public interface and CloudStack has correctly created the virtual
    interfaces bridge. This virtual interface to physical interface mapping
@@ -387,7 +387,7 @@ Trouble Shooting Steps
    from the Internet. Please note that these test would work only if your
    switches and traffic labels are configured correctly for your
    environment. If your SSVM/CPVM cant reach the Internet, its very
-   unlikely that the Virtual Router (VR) can also the reach the Internet
+   unlikely that the 虚拟路由器 (VR) can also the reach the Internet
    suggesting that its either a switching issue or incorrectly assigned
    traffic labels. Fix the SSVM/CPVM issues before you debug VR issues.
 
@@ -414,7 +414,7 @@ Trouble Shooting Steps
       round-trip min/avg/max/stddev = 26.324/31.817/37.001/4.364 ms
 
 
-#. The Virtual Router (VR) should also be able to reach the Internet
+#. The 虚拟路由器 (VR) should also be able to reach the Internet
    without having any Egress rules. The Egress rules only control forwarded
    traffic and not traffic that originates on the VR itself.
 
@@ -429,7 +429,7 @@ Trouble Shooting Steps
       3 packets transmitted, 3 packets received, 0% packet loss
       round-trip min/avg/max/stddev = 28.098/44.021/69.179/17.998 ms
 
-#. However, the Virtual Router's (VR) Source NAT Public IP address
+#. However, the 虚拟路由器's (VR) Source NAT Public IP address
    **WONT** be reachable until appropriate Ingress rules are
    in place. You can add *Ingress* rules under *Network, Guest Network, IP
    Address, Firewall* setting page.
@@ -442,7 +442,7 @@ Trouble Shooting Steps
    .. image:: _static/images/networking-egress-rule.png
 
 #. Some users have reported that flushing IPTables rules (or changing
-   routes) on the SSVM, CPVM or the Virtual Router makes the Internet work.
+   routes) on the SSVM, CPVM or the 虚拟路由器 makes the Internet work.
    This is not expected behaviour and suggests that your networking
    settings are incorrect. No IPtables/route changes are required on the
    SSVM, CPVM or the VR. Go back and double check all your settings.

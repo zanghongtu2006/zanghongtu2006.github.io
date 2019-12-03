@@ -14,7 +14,7 @@
    under the License.
    
 
-Working with System Virtual Machines
+系统虚拟机
 ====================================
 
 CloudStack uses several types of system virtual machines to perform
@@ -24,7 +24,7 @@ needs. However, the administrator should be aware of them and their
 roles to assist in debugging issues.
 
 
-The System VM Template
+系统虚拟机模板
 ----------------------
 
 The System VMs come from a single template. The System VM has the
@@ -50,7 +50,7 @@ following characteristics:
    speed
 
 
-Changing the Default System VM Template
+更换系统虚拟机模板
 ---------------------------------------
 
 Using the 64-bit template should be use with a System Offering of at least 512MB
@@ -106,10 +106,10 @@ System VMs and performs dynamic load balancing and scaling-up of more
 System VMs.
 
 
-Console Proxy
+控制台代理
 -------------
 
-The Console Proxy is a type of System Virtual Machine that has a role in
+The 控制台代理 is a type of System Virtual Machine that has a role in
 presenting a console view via the web UI. It connects the user’s browser
 to the VNC port made available via the hypervisor for the console of the
 guest. Both the administrator and end user web UIs offer a console
@@ -137,15 +137,15 @@ configuration with the parameter consoleproxy.loadscan.interval.
 Assignment of guest VM to console proxy is determined by first
 determining if the guest VM has a previous session associated with a
 console proxy. If it does, the 管理服务 will assign the guest
-VM to the target Console Proxy VM regardless of the load on the proxy
-VM. Failing that, the first available running Console Proxy VM that has
+VM to the target 控制台代理 VM regardless of the load on the proxy
+VM. Failing that, the first available running 控制台代理 VM that has
 the capacity to handle new sessions is used.
 
 Console proxies can be restarted by administrators but this will
 interrupt existing console sessions for users.
 
 
-Using a SSL Certificate for the Console Proxy
+Using a SSL Certificate for the 控制台代理
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 By default, the console viewing functionality uses plaintext HTTP. In 
@@ -160,7 +160,7 @@ communication with SSL:
 -  Set up SSL certificate for specific FQDN and configure load-balancer
 
 
-Changing the Console Proxy SSL Certificate and Domain
+Changing the 控制台代理 SSL Certificate and Domain
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The administrator can configure SSL encryption  by selecting a domain 
@@ -283,7 +283,7 @@ https://cwiki.apache.org/confluence/display/CLOUDSTACK/Realhost+IP+changes
 for more details.
 
 
-Virtual Router
+虚拟路由器
 --------------
 
 The virtual router is a type of System Virtual Machine. The virtual
@@ -301,7 +301,7 @@ virtual router from a guest VM. Some of the characteristics of the
 virtual router are determined by its associated system service offering.
 
 
-Configuring the Virtual Router
+Configuring the 虚拟路由器
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 You can set the following:
@@ -321,7 +321,7 @@ You can set the following:
    gather network usage statistics, set it to 0.
 
 
-Upgrading a Virtual Router with System Service Offerings
+Upgrading a 虚拟路由器 with 系统虚拟机计算方案
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 When CloudStack creates a virtual router, it uses default settings which
@@ -348,7 +348,7 @@ creating and applying a custom system service offering.
    <networking2.html#changing-the-network-offering-on-a-guest-network>`_.
 
 
-最佳实践 for Virtual Routers
+最佳实践 for 虚拟路由器s
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 -  WARNING: Restarting a virtual router from a hypervisor console
@@ -363,7 +363,7 @@ creating and applying a custom system service offering.
       restartNetwork API with the cleanup=true parameter.
 
 
-Service Monitoring Tool for Virtual Router
+Service Monitoring Tool for 虚拟路由器
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Various services running on the CloudStack virtual routers can be 
@@ -412,12 +412,12 @@ This feature is supported on the following hypervisors: XenServer,
 VMware, and KVM.
 
 
-Enhanced Upgrade for Virtual Routers
+Enhanced Upgrade for 虚拟路由器s
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Upgrading VR is made flexible. The CloudStack administrators will be
 able to control the sequence of the VR upgrades. The sequencing is based
-on Infrastructure hierarchy, such as by Cluster, Pod, or Zone, and
+on Infrastructure hierarchy, such as by 集群, Pod, or Zone, and
 Administrative (Account) hierarchy, such as by Tenant or Domain. As an
 administrator, you can also determine when a particular customer
 service, such as VR, is upgraded within a specified upgrade interval.
@@ -446,7 +446,7 @@ The following service will be available even if the VR is not upgraded.
 However, no changes for any of the services can be sent to the VR, until
 it is upgraded:
 
--  SecurityGroup
+-  安全Group
 
 -  UserData
 
@@ -471,7 +471,7 @@ it is upgraded:
 -  NetworkACL
 
 
-Supported Virtual Routers
+Supported 虚拟路由器s
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 -  VR
@@ -481,7 +481,7 @@ Supported Virtual Routers
 -  Redundant VR
 
 
-Upgrading Virtual Routers
+Upgrading 虚拟路由器s
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 #. Download the latest System VM template.
@@ -507,9 +507,9 @@ Upgrading Virtual Routers
 
    #. In the left navigation, choose Infrastructure.
 
-   #. On Virtual Routers, click View More.
+   #. On 虚拟路由器s, click View More.
 
-      All the VRs are listed in the Virtual Routers page.
+      All the VRs are listed in the 虚拟路由器s page.
 
    #. In Select View drop-down, select desired grouping based on your
       requirement.
@@ -534,14 +534,14 @@ Upgrading Virtual Routers
    #. Click OK to confirm.
 
 
-Secondary Storage VM
+二级存储虚拟机
 --------------------
 
-In addition to the hosts, CloudStack’s Secondary Storage VM mounts and
+In addition to the hosts, CloudStack’s 二级存储虚拟机 mounts and
 writes to secondary storage.
 
-Submissions to secondary storage go through the Secondary Storage VM.
-The Secondary Storage VM can retrieve templates and ISO images from URLs
+Submissions to secondary storage go through the 二级存储虚拟机.
+The 二级存储虚拟机 can retrieve templates and ISO images from URLs
 using a variety of protocols.
 
 The secondary storage VM provides a background task that takes care of a
@@ -552,7 +552,7 @@ The administrator can log in to the secondary storage VM if needed.
 
 
 .. |update-ssl.png| image:: _static/images/update-ssl.png
-   :alt: Updating Console Proxy SSL Certificate
+   :alt: Updating 控制台代理 SSL Certificate
 .. |vr-upgrade.png| image:: _static/images/vr-upgrade.png
    :alt: Button to upgrade VR to use the new template.
 

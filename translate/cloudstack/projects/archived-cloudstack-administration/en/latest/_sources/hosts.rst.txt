@@ -14,10 +14,10 @@
    under the License.
    
 
-Working with Hosts
+主机
 ==================
 
-Adding Hosts
+添加主机
 ------------
 
 Additional hosts can be added at any time to provide more capacity for
@@ -112,7 +112,7 @@ have been successfully migrated off the server.
 #. Click Exit Maintenance Mode.
 
 
-Disabling and Enabling Zones, Pods, and Clusters
+资源域、池和集群的启用和禁用
 ------------------------------------------------
 
 You can enable or disable a zone, pod, or cluster without permanently
@@ -145,7 +145,7 @@ To disable and enable a zone, pod, or cluster:
 #. Click the Enable/Disable button. |enable-disable.png|
 
 
-Removing Hosts
+删除主机
 --------------
 
 Hosts can be removed from the cloud as needed. The procedure to remove a
@@ -211,11 +211,11 @@ any system that is not up to date with patches.
 <http://docs.cloudstack.org/Knowledge_Base/Possible_VM_corruption_if_XenServer_Hotfix_is_not_Applied/Highly_Recommended_Hotfixes_for_XenServer_5.6_SP2>`_.
 
 
-Changing Host Password
+修改主机密码
 ----------------------
 
 The password for a XenServer Node, KVM Node, or vSphere Node may be
-changed in the database. Note that all Nodes in a Cluster must have the
+changed in the database. Note that all Nodes in a 集群 must have the
 same password.
 
 To change a Node's password:
@@ -483,7 +483,7 @@ set of IPs for different customers, each one with their own routers and
 the guest networks on different physical NICs.
 
 
-VLAN Allocation Example
+VLAN 划分示例
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 VLANs are required for public and guest traffic. The following is an
@@ -637,7 +637,7 @@ power management actions such as on, off, reset, cycle, soft and status.
 If a host is in maintenance mode, Root admins are still allowed to perform
 power management actions but in the UI a warning is displayed.
 
-Security
+安全
 ========
 
 Starting 4.11, CloudStack has an inbuilt certicate authority (CA) framework and

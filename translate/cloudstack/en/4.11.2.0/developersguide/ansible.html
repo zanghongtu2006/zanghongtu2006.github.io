@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Deploying CloudStack with Ansible &mdash; Apache CloudStack 4.11.2.0 documentation</title>
+  <title>使用 Ansible 部署 CloudStack &mdash; Apache CloudStack 4.11.2.0 documentation</title>
   
 
   
@@ -36,7 +36,7 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Getting Help" href="get_help.html" />
+    <link rel="next" title="获得帮助" href="get_help.html" />
     <link rel="prev" title="Allocators" href="alloc.html" /> 
 
 <!-- RTD Extra Head -->
@@ -116,30 +116,30 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../upgrading/index.html">升级 CloudStack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../adminguide/index.html">使用手册</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">开发者手册</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="developer_guide.html">CloudStack Installation from GIT repo for Developers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="dev.html">Programmer Guide</a></li>
-<li class="toctree-l2"><a class="reference internal" href="plugins.html">Plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide.html">CloudStack 安装 from GIT repo for Developers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dev.html">开发者指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugins.html">插件</a></li>
 <li class="toctree-l2"><a class="reference internal" href="alloc.html">Allocators</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="ansible.html#">Deploying CloudStack with Ansible</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="ansible.html#">使用 Ansible 部署 CloudStack</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="ansible.html#what-is-ansible">What is Ansible</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ansible.html#theres-already-chef-and-puppet-so-whats-the-fuss-about-ansible">There’s already Chef and Puppet, so what’s the fuss about Ansible?</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ansible.html#so-lets-see-something">So let’s see something</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ansible.html#installing-ansible">Installing Ansible</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ansible.html#installing-ansible">安装 Ansible</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ansible.html#playbooks">Playbooks</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ansible.html#modules">Modules</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ansible.html#planning">Planning</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ansible.html#mysql">MySQL</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ansible.html#cloudstack-management-server-service">CloudStack Management server service</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ansible.html#system-vm-templates">System VM Templates:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ansible.html#system-vm-templates">系统虚拟机模板:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ansible.html#bringing-it-all-together">Bringing it all together</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ansible.html#how-is-this-example-different-from-a-production-deployment">How is this example different from a production deployment?</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ansible.html#acknowledgements">Acknowledgements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ansible.html#acknowledgements">致谢</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="get_help.html">Getting Help</a></li>
+<li class="toctree-l2"><a class="reference internal" href="get_help.html">获得帮助</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../plugins/index.html">Plugins Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/index.html">插件使用手册</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">发行版本说明</a></li>
 </ul>
 <p class="caption"><span class="caption-text">其它:</span></p>
@@ -202,7 +202,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
         
           <li><a href="index.html">开发者手册</a> &raquo;</li>
         
-      <li>Deploying CloudStack with Ansible</li>
+      <li>使用 Ansible 部署 CloudStack</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -224,7 +224,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
            <div itemprop="articleBody">
             
   <div class="section" id="deploying-cloudstack-with-ansible">
-<h1>Deploying CloudStack with Ansible<a class="headerlink" href="ansible.html#deploying-cloudstack-with-ansible" title="Permalink to this headline">¶</a></h1>
+<h1>使用 Ansible 部署 CloudStack<a class="headerlink" href="ansible.html#deploying-cloudstack-with-ansible" title="Permalink to this headline">¶</a></h1>
 <p>In this article, <a class="reference external" href="https://twitter.com/CloudyAngus">Paul Angus</a> Cloud
 Architect at ShapeBlue takes a look at using Ansible to Deploy an
 Apache&nbsp;CloudStack cloud.</p>
@@ -268,8 +268,8 @@ deploy a CloudStack server. Both of these servers will be CentOS 6.4
 virtual machines.</p>
 </div>
 <div class="section" id="installing-ansible">
-<h2>Installing Ansible<a class="headerlink" href="ansible.html#installing-ansible" title="Permalink to this headline">¶</a></h2>
-<p>Installing Ansible is blessedly easy. We generally prefer to use CentOS
+<h2>安装 Ansible<a class="headerlink" href="ansible.html#installing-ansible" title="Permalink to this headline">¶</a></h2>
+<p>安装 Ansible is blessedly easy. We generally prefer to use CentOS
 so to install Ansible you run the following commands on the Ansible
 server.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># rpm -ivh http://www.mirrorservice.org/sites/dl.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm</span>
@@ -486,7 +486,7 @@ previously provisioned databases.</p>
 <p>There are some more variables here for us to declare later.</p>
 </div>
 <div class="section" id="system-vm-templates">
-<h2>System VM Templates:<a class="headerlink" href="ansible.html#system-vm-templates" title="Permalink to this headline">¶</a></h2>
+<h2>系统虚拟机模板:<a class="headerlink" href="ansible.html#system-vm-templates" title="Permalink to this headline">¶</a></h2>
 <p>Finally we would want to seed the system VM templates into the secondary
 storage.&nbsp; The playbook for this would look as follows:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">Ensure</span> <span class="n">secondary</span> <span class="n">storage</span> <span class="n">mount</span> <span class="n">exists</span>
@@ -565,7 +565,7 @@ use it multiple times when configuring the MySQL server itself and other
 components which need to use that information.</p>
 </div>
 <div class="section" id="acknowledgements">
-<h2>Acknowledgements<a class="headerlink" href="ansible.html#acknowledgements" title="Permalink to this headline">¶</a></h2>
+<h2>致谢<a class="headerlink" href="ansible.html#acknowledgements" title="Permalink to this headline">¶</a></h2>
 <p>Thanks to Shanker Balan for introducing me to Ansible and a load of
 handy hints along the way.</p>
 </div>
@@ -579,7 +579,7 @@ handy hints along the way.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="get_help.html" class="btn btn-neutral float-right" title="Getting Help" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="get_help.html" class="btn btn-neutral float-right" title="获得帮助" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="alloc.html" class="btn btn-neutral float-left" title="Allocators" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

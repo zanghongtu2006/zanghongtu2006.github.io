@@ -116,18 +116,18 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../upgrading/index.html">升级 CloudStack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../adminguide/index.html">使用手册</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developersguide/index.html">开发者手册</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Plugins Guide</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">插件使用手册</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="cloudian-connector.html">The Cloudian Connector Plugin</a></li>
 <li class="toctree-l2"><a class="reference internal" href="nicira-plugin.html">The Nicira NVP Plugin</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="nuage-plugin.html#">The Nuage VSP Plugin</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="nuage-plugin.html#introduction">Introduction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nuage-plugin.html#introduction">简介</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="nuage-plugin.html#supported-features">Supported Features</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nuage-plugin.html#supported-hypervisors">Supported Hypervisors</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nuage-plugin.html#supported-nuage-vsp-sdn-platform-versions">Supported Nuage VSP SDN Platform Versions</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="nuage-plugin.html#configuring-the-nuage-vsp-plugin">Configuring The Nuage VSP Plugin</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="nuage-plugin.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nuage-plugin.html#prerequisites">前提</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nuage-plugin.html#required-nuage-vsd-configuration">Required Nuage VSD Configuration</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nuage-plugin.html#zone-configuration">Zone Configuration</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nuage-plugin.html#select-vsp-isolation-method">Select VSP Isolation Method</a></li>
@@ -136,7 +136,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="nuage-plugin.html#using-the-nuage-vsp-plugin">Using The Nuage VSP Plugin</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="nuage-plugin.html#network-offerings">Network Offerings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nuage-plugin.html#network-offerings">网络方案</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nuage-plugin.html#create-and-enable-isolated-network-offering">Create and Enable Isolated Network Offering</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nuage-plugin.html#create-and-enable-vpc-network-offering">Create and Enable VPC Network Offering</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nuage-plugin.html#create-and-enable-shared-network-offering">Create and Enable Shared Network Offering</a></li>
@@ -225,7 +225,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="index.html">Plugins Guide</a> &raquo;</li>
+          <li><a href="index.html">插件使用手册</a> &raquo;</li>
         
       <li>The Nuage VSP Plugin</li>
     
@@ -251,7 +251,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
   <div class="section" id="the-nuage-vsp-plugin">
 <h1>The Nuage VSP Plugin<a class="headerlink" href="nuage-plugin.html#the-nuage-vsp-plugin" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="introduction">
-<h2>Introduction<a class="headerlink" href="nuage-plugin.html#introduction" title="Permalink to this headline">¶</a></h2>
+<h2>简介<a class="headerlink" href="nuage-plugin.html#introduction" title="Permalink to this headline">¶</a></h2>
 <p>The Nuage VSP Plugin is the Nuage Networks SDN
 implementation in CloudStack, which integrates with Nuage Networks
 Virtualized Services Platform (VSP).
@@ -389,7 +389,7 @@ in CloudStack 4.0</p>
 <div class="section" id="configuring-the-nuage-vsp-plugin">
 <h2>Configuring The Nuage VSP Plugin<a class="headerlink" href="nuage-plugin.html#configuring-the-nuage-vsp-plugin" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="prerequisites">
-<h3>Prerequisites<a class="headerlink" href="nuage-plugin.html#prerequisites" title="Permalink to this headline">¶</a></h3>
+<h3>前提<a class="headerlink" href="nuage-plugin.html#prerequisites" title="Permalink to this headline">¶</a></h3>
 <p>Before enabling and using the Nuage VSP Plugin with CloudStack.</p>
 <ol class="arabic simple">
 <li>Verify that the CloudStack deployment (hypervisors) and Nuage VSP SDN Platform version you intend to use is being supported.</li>
@@ -504,8 +504,8 @@ in CloudStack 4.0</p>
 <div class="section" id="using-the-nuage-vsp-plugin">
 <h2>Using The Nuage VSP Plugin<a class="headerlink" href="nuage-plugin.html#using-the-nuage-vsp-plugin" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="network-offerings">
-<h3>Network Offerings<a class="headerlink" href="nuage-plugin.html#network-offerings" title="Permalink to this headline">¶</a></h3>
-<p>There are three types of Network Offerings that can be created:</p>
+<h3>网络方案<a class="headerlink" href="nuage-plugin.html#network-offerings" title="Permalink to this headline">¶</a></h3>
+<p>There are three types of 网络方案 that can be created:</p>
 <ul class="simple">
 <li>If Isolated Networks are required, then create a <strong>Isolated</strong> guest type network offering for use with Isolated Networks.</li>
 <li>If VPC deployments are required, then create a new <strong>Isolated</strong> guest type network offering for such deployments.</li>
@@ -519,7 +519,7 @@ in CloudStack 4.0</p>
 <div class="section" id="create-and-enable-isolated-network-offering">
 <h3>Create and Enable Isolated Network Offering<a class="headerlink" href="nuage-plugin.html#create-and-enable-isolated-network-offering" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple">
-<li>Select <strong>Service Offerings &gt; Select Offering: Network Offerings &gt; Add network offering</strong>, which brings up the <strong>Add network offering</strong>.</li>
+<li>Select <strong>计算方案 &gt; Select Offering: 网络方案 &gt; Add network offering</strong>, which brings up the <strong>Add network offering</strong>.</li>
 <li>In the <strong>Add network offering</strong> panel, add a <strong>Name</strong> and a <strong>Description</strong> to the network offering. Select <strong>Isolated</strong> as the <strong>Guest Type</strong>. In the <strong>Supported Services</strong> field select services and providers that are supported by the Nuage VSP Plugin for Isolated Networks, see <a class="reference internal" href="nuage-plugin.html#supported-features">Supported Features</a> at the beginning of this document.</li>
 </ol>
 <div class="figure" id="id7">
@@ -528,13 +528,13 @@ in CloudStack 4.0</p>
 </div>
 <ol class="arabic simple" start="3">
 <li>Click the <strong>OK</strong> button to create the network offering.</li>
-<li>After the network offering has been successfully created, enable it from the <strong>Service Offerings - Network Offerings</strong> list.</li>
+<li>After the network offering has been successfully created, enable it from the <strong>计算方案 - 网络方案</strong> list.</li>
 </ol>
 </div>
 <div class="section" id="create-and-enable-vpc-network-offering">
 <h3>Create and Enable VPC Network Offering<a class="headerlink" href="nuage-plugin.html#create-and-enable-vpc-network-offering" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple">
-<li>Select <strong>Service Offerings &gt; Select Offering: Network Offerings &gt; Add network offering</strong>, which brings up the <strong>Add network offering</strong>.</li>
+<li>Select <strong>计算方案 &gt; Select Offering: 网络方案 &gt; Add network offering</strong>, which brings up the <strong>Add network offering</strong>.</li>
 <li>In the <strong>Add network offering</strong> panel, add a <strong>Name</strong> and a <strong>Description</strong> to the network offering. Select <strong>Isolated</strong> as the <strong>Guest Type</strong>. Select the <strong>VPC</strong> field. In the <strong>Supported Services</strong> field select services and providers that are supported by the Nuage VSP Plugin for VPCs, see <a class="reference internal" href="nuage-plugin.html#supported-features">Supported Features</a> at the beginning of this document.</li>
 </ol>
 <div class="figure" id="id8">
@@ -543,13 +543,13 @@ in CloudStack 4.0</p>
 </div>
 <ol class="arabic simple" start="3">
 <li>Click the <strong>OK</strong> button to create the network offering.</li>
-<li>After the network offering has been successfully created, enable it from the <strong>Service Offerings - Network Offerings</strong> list.</li>
+<li>After the network offering has been successfully created, enable it from the <strong>计算方案 - 网络方案</strong> list.</li>
 </ol>
 </div>
 <div class="section" id="create-and-enable-shared-network-offering">
 <h3>Create and Enable Shared Network Offering<a class="headerlink" href="nuage-plugin.html#create-and-enable-shared-network-offering" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple">
-<li>Select <strong>Service Offerings &gt; Select Offering: Network Offerings &gt; Add network offering</strong>, which brings up the <strong>Add network offering</strong>.</li>
+<li>Select <strong>计算方案 &gt; Select Offering: 网络方案 &gt; Add network offering</strong>, which brings up the <strong>Add network offering</strong>.</li>
 <li>In the <strong>Add network offering</strong> panel, add a <strong>Name</strong> and a <strong>Description</strong> to the network offering. Select <strong>Shared</strong> as the <strong>Guest Type</strong>. In the <strong>Supported Services</strong> field select services and providers that are supported by the Nuage VSP Plugin for Shared Networks, see <a class="reference internal" href="nuage-plugin.html#supported-features">Supported Features</a> at the beginning of this document.</li>
 </ol>
 <div class="figure" id="id9">
@@ -562,7 +562,7 @@ in CloudStack 4.0</p>
 </div>
 <ol class="arabic simple" start="3">
 <li>Click the <strong>OK</strong> button to create the network offering.</li>
-<li>After the network offering has been successfully created, enable it from the <strong>Service Offerings - Network Offerings</strong> list.</li>
+<li>After the network offering has been successfully created, enable it from the <strong>计算方案 - 网络方案</strong> list.</li>
 </ol>
 </div>
 <div class="section" id="vpc-offerings">
@@ -570,7 +570,7 @@ in CloudStack 4.0</p>
 </div>
 <div class="section" id="pre-created-and-enabled-nuage-vsp-vpc-offering">
 <h3>Pre-created and Enabled Nuage VSP VPC Offering<a class="headerlink" href="nuage-plugin.html#pre-created-and-enabled-nuage-vsp-vpc-offering" title="Permalink to this headline">¶</a></h3>
-<p>A VPC offering by the name <strong>Nuage VSP VPC Offering</strong> is pre-created and enabled in the list of <strong>Service Offerings - VPC Offerings</strong> (Select <strong>Service Offerings &gt; Select Offering: VPC Offerings</strong>) which contains all the services and providers that are supported by the Nuage VSP Plugin for VPCs.</p>
+<p>A VPC offering by the name <strong>Nuage VSP VPC Offering</strong> is pre-created and enabled in the list of <strong>计算方案 - VPC Offerings</strong> (Select <strong>计算方案 &gt; Select Offering: VPC Offerings</strong>) which contains all the services and providers that are supported by the Nuage VSP Plugin for VPCs.</p>
 <div class="figure" id="id10">
 <img alt="../_images/nuage_vsp_vpc_off.png" src="../_images/nuage_vsp_vpc_off.png" />
 <p class="caption"><span class="caption-text">Pre-created and Enabled Nuage VSP VPC Offering</span></p>
@@ -579,7 +579,7 @@ in CloudStack 4.0</p>
 <div class="section" id="optional-create-and-enable-vpc-offering">
 <h3>(Optional) Create and Enable VPC Offering<a class="headerlink" href="nuage-plugin.html#optional-create-and-enable-vpc-offering" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple">
-<li>Select <strong>Service Offerings &gt; Select Offering: VPC Offerings &gt; Add VPC Offering</strong>, which brings up the <strong>Add VPC Offering</strong>.</li>
+<li>Select <strong>计算方案 &gt; Select Offering: VPC Offerings &gt; Add VPC Offering</strong>, which brings up the <strong>Add VPC Offering</strong>.</li>
 <li>In the <strong>Add VPC Offering</strong> panel, add a <strong>Name</strong> and a <strong>Description</strong> to the network offering. In the <strong>Supported Services</strong> field select services and providers that are supported by the Nuage VSP Plugin for VPCs, see <a class="reference internal" href="nuage-plugin.html#supported-features">Supported Features</a> at the beginning of this document.</li>
 </ol>
 <div class="figure" id="id11">
@@ -588,7 +588,7 @@ in CloudStack 4.0</p>
 </div>
 <ol class="arabic simple" start="3">
 <li>Click the <strong>OK</strong> button to create the VPC Offering.</li>
-<li>After the VPC Offering has been successfully created, enable it from the <strong>Service Offerings - VPC Offerings</strong> list.</li>
+<li>After the VPC Offering has been successfully created, enable it from the <strong>计算方案 - VPC Offerings</strong> list.</li>
 </ol>
 </div>
 </div>

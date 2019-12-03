@@ -37,7 +37,7 @@
   <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Additional Installation Options" href="../optional_installation.html" />
+    <link rel="next" title="Additional 安装 Options" href="../optional_installation.html" />
     <link rel="prev" title="VMware vSphere 安装" href="vsphere.html" /> 
 
 <!-- RTD Extra Head -->
@@ -115,7 +115,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../quickinstallationguide/qig.html">快速安装向导</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">安装指南</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../index.html#building-from-source">从源码编译安装</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../index.html#general-installation">General Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#general-installation">通用安装指南</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#configuration">Configuration</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html#hypervisor-setup">Hypervisor 安装和设置</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="hyperv.html">Hyper-V 安装</a></li>
@@ -124,12 +124,12 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l3"><a class="reference internal" href="vsphere.html">VMware vSphere 安装</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="xenserver.html#">Citrix XenServer 安装</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="xenserver.html#system-requirements-for-xenserver-hosts">System Requirements for XenServer Hosts</a></li>
-<li class="toctree-l4"><a class="reference internal" href="xenserver.html#xenserver-installation-steps">XenServer Installation Steps</a></li>
+<li class="toctree-l4"><a class="reference internal" href="xenserver.html#xenserver-installation-steps">XenServer 安装 Steps</a></li>
 <li class="toctree-l4"><a class="reference internal" href="xenserver.html#configure-xenserver-dom0-memory">Configure XenServer dom0 Memory</a></li>
 <li class="toctree-l4"><a class="reference internal" href="xenserver.html#username-and-password">Username and Password</a></li>
 <li class="toctree-l4"><a class="reference internal" href="xenserver.html#time-synchronization">Time Synchronization</a></li>
 <li class="toctree-l4"><a class="reference internal" href="xenserver.html#install-cloudstack-xenserver-support-package-csp">Install CloudStack XenServer Support Package (CSP)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="xenserver.html#primary-storage-setup-for-xenserver">Primary Storage Setup for XenServer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="xenserver.html#primary-storage-setup-for-xenserver">Primary 存储配置 for XenServer</a></li>
 <li class="toctree-l4"><a class="reference internal" href="xenserver.html#iscsi-multipath-setup-for-xenserver-optional">iSCSI Multipath Setup for XenServer (Optional)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="xenserver.html#physical-networking-setup-for-xenserver">Physical Networking Setup for XenServer</a></li>
 <li class="toctree-l4"><a class="reference internal" href="xenserver.html#upgrading-xenserver-versions">Upgrading XenServer Versions</a></li>
@@ -137,13 +137,13 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../index.html#optional-installation">Optional Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#optional-installation">Optional 安装</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../upgrading/index.html">升级 CloudStack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../adminguide/index.html">使用手册</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developersguide/index.html">开发者手册</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../plugins/index.html">Plugins Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugins/index.html">插件使用手册</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../releasenotes/index.html">发行版本说明</a></li>
 </ul>
 <p class="caption"><span class="caption-text">其它:</span></p>
@@ -292,7 +292,7 @@ already running</p>
 </div>
 </div>
 <div class="section" id="xenserver-installation-steps">
-<h2>XenServer Installation Steps<a class="headerlink" href="xenserver.html#xenserver-installation-steps" title="Permalink to this headline">¶</a></h2>
+<h2>XenServer 安装 Steps<a class="headerlink" href="xenserver.html#xenserver-installation-steps" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
 <li><p class="first">From <a class="reference external" href="https://www.citrix.com/English/ss/downloads/">https://www.citrix.com/English/ss/downloads/</a>,
 download the appropriate version of XenServer for your CloudStack
@@ -411,7 +411,7 @@ disable Open vSwitch (OVS):</p>
 <p>The XenServer host is now ready to be added to CloudStack.</p>
 </div>
 <div class="section" id="primary-storage-setup-for-xenserver">
-<h2>Primary Storage Setup for XenServer<a class="headerlink" href="xenserver.html#primary-storage-setup-for-xenserver" title="Permalink to this headline">¶</a></h2>
+<h2>Primary 存储配置 for XenServer<a class="headerlink" href="xenserver.html#primary-storage-setup-for-xenserver" title="Permalink to this headline">¶</a></h2>
 <p>CloudStack natively supports NFS, iSCSI and local storage. If you are
 using one of these storage types, there is no need to create the
 XenServer Storage Repository (“SR”).</p>
@@ -477,7 +477,7 @@ name-description, set whatever friendly text you prefer.</p>
 </pre></div>
 </div>
 <p>Make note of the values you will need when you add this storage to
-CloudStack later (see <a class="reference external" href="http://docs.cloudstack.apache.org/en/4.13.0.0/installguide/hypervisor/configuration.html#add-primary-storage">“Add Primary Storage”</a>). In the Add Primary Storage
+CloudStack later (see <a class="reference external" href="http://docs.cloudstack.apache.org/en/4.13.0.0/installguide/hypervisor/configuration.html#add-primary-storage">“Add 主存储”</a>). In the Add 主存储
 dialog, in Protocol, you will choose PreSetup. In SR Name-Label, you
 will enter the name-label you set earlier (in this example,
 e6849e96-86c3-4f2c-8fcc-350cc711be3d).</p>
@@ -502,7 +502,7 @@ following links provide a starting point:</p>
 <p>You can also ask your SAN vendor for advice about setting up your Citrix
 repository for multipathing.</p>
 <p>Make note of the values you will need when you add this storage to the
-CloudStack later (see <a class="reference external" href="http://docs.cloudstack.apache.org/en/4.13.0.0/installguide/hypervisor/configuration.html#add-primary-storage">“Add Primary Storage”</a>). In the Add Primary Storage
+CloudStack later (see <a class="reference external" href="http://docs.cloudstack.apache.org/en/4.13.0.0/installguide/hypervisor/configuration.html#add-primary-storage">“Add 主存储”</a>). In the Add 主存储
 dialog, in Protocol, you will choose PreSetup. In SR Name-Label, you will
 enter the same name used to create the SR.</p>
 <p>If you encounter difficulty, address the support team for the SAN
@@ -548,7 +548,7 @@ XenServer name-label for the public network must be identical across all
 hosts. The following examples set the network label to “cloud-public”.
 After the management server is installed and running you must configure
 it with the name of the chosen network label (e.g. “cloud-public”); this
-is discussed in <a class="reference external" href="http://docs.cloudstack.apache.org/en/4.13.0.0/installguide/hypervisor/installation.html#management-server-installation">“管理服务 Installation”</a>.</p>
+is discussed in <a class="reference external" href="http://docs.cloudstack.apache.org/en/4.13.0.0/installguide/hypervisor/installation.html#management-server-installation">“管理服务 安装”</a>.</p>
 <p>If you are using two NICs bonded together to create a public network,
 see <a class="reference internal" href="xenserver.html#nic-bonding-for-xenserver"><span class="std std-ref">NIC Bonding for XenServer (Optional)</span></a>.</p>
 <p>If you are using a single dedicated NIC to provide public network
@@ -656,7 +656,7 @@ must be in the management network for added slave hosts.</li>
 the host to CloudStack.</p>
 </div>
 <div class="section" id="creating-a-private-bond-on-the-first-host-in-the-cluster">
-<h4>Creating a Private Bond on the First Host in the Cluster<a class="headerlink" href="xenserver.html#creating-a-private-bond-on-the-first-host-in-the-cluster" title="Permalink to this headline">¶</a></h4>
+<h4>Creating a Private Bond on the First Host in the 集群<a class="headerlink" href="xenserver.html#creating-a-private-bond-on-the-first-host-in-the-cluster" title="Permalink to this headline">¶</a></h4>
 <p>Use the following steps to create a bond in XenServer. These steps
 should be run on only the first host in a cluster. This example creates
 the cloud-private network with two physical NICs (eth0 and eth1) bonded
@@ -694,7 +694,7 @@ if that network will be bonded and will be separate from the management
 network.</p>
 </div>
 <div class="section" id="creating-a-public-bond-on-the-first-host-in-the-cluster">
-<h4>Creating a Public Bond on the First Host in the Cluster<a class="headerlink" href="xenserver.html#creating-a-public-bond-on-the-first-host-in-the-cluster" title="Permalink to this headline">¶</a></h4>
+<h4>Creating a Public Bond on the First Host in the 集群<a class="headerlink" href="xenserver.html#creating-a-public-bond-on-the-first-host-in-the-cluster" title="Permalink to this headline">¶</a></h4>
 <p>These steps should be run on only the first host in a cluster. This
 example creates the cloud-public network with two physical NICs (eth2
 and eth3) bonded into it.</p>
@@ -724,7 +724,7 @@ cloud for the public network.</strong></p>
 public network.</p>
 </div>
 <div class="section" id="adding-more-hosts-to-the-cluster">
-<h4>Adding More Hosts to the Cluster<a class="headerlink" href="xenserver.html#adding-more-hosts-to-the-cluster" title="Permalink to this headline">¶</a></h4>
+<h4>Adding More Hosts to the 集群<a class="headerlink" href="xenserver.html#adding-more-hosts-to-the-cluster" title="Permalink to this headline">¶</a></h4>
 <p>With the bonds (if any) established on the master, you should add
 additional, slave hosts. Run the following command for all additional
 hosts to be added to the cluster. This will cause the host to join the
@@ -735,7 +735,7 @@ master in a single XenServer pool.</p>
 </div>
 </div>
 <div class="section" id="complete-the-bonding-setup-across-the-cluster">
-<h4>Complete the Bonding Setup Across the Cluster<a class="headerlink" href="xenserver.html#complete-the-bonding-setup-across-the-cluster" title="Permalink to this headline">¶</a></h4>
+<h4>Complete the Bonding Setup Across the 集群<a class="headerlink" href="xenserver.html#complete-the-bonding-setup-across-the-cluster" title="Permalink to this headline">¶</a></h4>
 <p>With all hosts added to the pool, run the cloud-setup-bond script. This
 script will complete the configuration and set up of the bonds across
 all hosts in the cluster.</p>
@@ -937,7 +937,7 @@ unwanted line breaks in copied text.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../optional_installation.html" class="btn btn-neutral float-right" title="Additional Installation Options" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../optional_installation.html" class="btn btn-neutral float-right" title="Additional 安装 Options" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="vsphere.html" class="btn btn-neutral float-left" title="VMware vSphere 安装" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

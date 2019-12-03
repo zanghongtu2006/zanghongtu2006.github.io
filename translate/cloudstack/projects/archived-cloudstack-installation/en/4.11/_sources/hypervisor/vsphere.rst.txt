@@ -176,7 +176,7 @@ vCenter Requirement       Notes
 vCenter User              This user must have admin privileges.
 vCenter User Password     Password for the above user.
 vCenter Datacenter Name   Name of the datacenter.
-vCenter Cluster Name      Name of the cluster.
+vCenter 集群 Name      Name of the cluster.
 ========================  =====================================
 
 
@@ -193,7 +193,7 @@ You will need the following information about your VLANs.
 VLAN Information              Notes
 ============================  ==========================================================================================
 ESXi VLAN                     VLAN on which all your ESXi hypervisors reside.
-ESXI VLAN IP Address          IP Address Range in the ESXi VLAN. One address per Virtual Router is used from this range.
+ESXI VLAN IP Address          IP Address Range in the ESXi VLAN. One address per 虚拟路由器 is used from this range.
 ESXi VLAN IP Gateway
 ESXi VLAN Netmask
 管理服务 VLAN        VLAN on which the CloudStack Management server is installed.
@@ -208,7 +208,7 @@ VLAN Range for Customer use   A contiguous range of non-routable VLANs. One VLAN
 ============================  ==========================================================================================
 
 
-vSphere Installation Steps
+vSphere 安装 Steps
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. If you haven't already, you'll need to download and purchase vSphere
@@ -336,7 +336,7 @@ port group so that CloudStack can find it:
    ESXi hosts.
 
 
-Extend Port Range for CloudStack Console Proxy
+Extend Port Range for CloudStack 控制台代理
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 (Applies only to VMware vSphere version 4.x)
@@ -360,7 +360,7 @@ NIC bonding on vSphere hosts may be done according to the vSphere
 安装指南.
 
 
-Configuring a vSphere Cluster with Nexus 1000v Virtual Switch
+Configuring a vSphere 集群 with Nexus 1000v Virtual Switch
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 CloudStack supports Cisco Nexus 1000v dvSwitch (Distributed Virtual
@@ -368,7 +368,7 @@ Switch) for virtual network configuration in a VMware vSphere
 environment. This section helps you configure a vSphere cluster with
 Nexus 1000v virtual switch in a VMware vCenter environment. For
 information on creating a vSphere cluster, see 
-`"VMware vSphere Installation and Configuration" 
+`"VMware vSphere 安装 and Configuration" 
 <#vmware-vsphere-installation-and-configuration>`_
 
 
@@ -401,7 +401,7 @@ The Ethernet port profiles are created on the VSM and are represented as
 port groups on the vCenter server.
 
 
-Prerequisites and Guidelines
+前提 and Guidelines
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This section discusses prerequisites and guidelines for using Nexus
@@ -418,7 +418,7 @@ ensure that your system meets the following requirements:
    datacenter that contains the vCenter cluster. This ensures that
    CloudStack doesn't have to deal with dynamic migration of virtual
    adapters or networks across other existing virtual switches. See
-   `Cisco Nexus 1000V Installation and Upgrade Guide 
+   `Cisco Nexus 1000V 安装 and Upgrade Guide 
    <http://www.cisco.com/en/US/docs/switches/datacenter/nexus1000/sw/4_2_1_s_v_1_5_1/install_upgrade/vsm_vem/guide/n1000v_installupgrade.html>`_
    for guidelines on how to install the Nexus 1000v VSM and VEM modules.
 
@@ -576,7 +576,7 @@ during the zone configuration on CloudStack. These Ethernet port profile
 names are later specified as VMware Traffic Labels for different traffic
 types when configuring physical networks during the zone configuration.
 For more information on configuring physical networks, see
-`"Configuring a vSphere Cluster with Nexus 1000v Virtual Switch" 
+`"Configuring a vSphere 集群 with Nexus 1000v Virtual Switch" 
 <#configuring-a-vsphere-cluster-with-nexus-1000v-virtual-switch>`_.
 
 
@@ -653,8 +653,8 @@ the zone is being created.
 
 After the zone is created, if you want to create an additional cluster
 along with Nexus 1000v virtual switch in the existing zone, use the Add
-Cluster option. For information on creating a cluster, see
-`"Add Cluster: vSphere" <configuration.html#add-cluster-vsphere>`_.
+集群 option. For information on creating a cluster, see
+`"Add 集群: vSphere" <configuration.html#add-cluster-vsphere>`_.
 
 In both these cases, you must specify the following parameters to
 configure Nexus virtual switch:
@@ -664,7 +664,7 @@ configure Nexus virtual switch:
 =========================  =======================================================================================================================
 Parameters                 Description
 =========================  =======================================================================================================================
-Cluster Name               Enter the name of the cluster you created in vCenter. For example,"cloud.cluster".
+集群 Name               Enter the name of the cluster you created in vCenter. For example,"cloud.cluster".
 vCenter Host               Enter the host name or the IP address of the vCenter host where you have deployed the Nexus virtual switch.
 vCenter User name          Enter the username that CloudStack should use to connect to vCenter. This user must have all administrative privileges.
 vCenter Password           Enter the password for the user named above.
@@ -723,7 +723,7 @@ firewall services. A VDS can be deployed with or without Virtual
 Standard Switch and a Nexus 1000V virtual switch.
 
 
-Prerequisites and Guidelines
+前提 and Guidelines
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 -  VMware VDS is supported only on Public and Guest traffic in
@@ -864,8 +864,8 @@ You can configure VDS by adding the necessary resources while a zone is
 created.
 
 Alternatively, at the cluster level, you can create an additional
-cluster with VDS enabled in the existing zone. Use the Add Cluster
-option. For information as given in `“Add Cluster: vSphere” 
+cluster with VDS enabled in the existing zone. Use the Add 集群
+option. For information as given in `“Add 集群: vSphere” 
 <configuration.html#add-cluster-vsphere>`_.
 
 In both these cases, you must specify the following parameters to
@@ -878,7 +878,7 @@ configure VDS:
 =================================   ===================================================================================================================
 Parameters Description
 =================================   ===================================================================================================================
-Cluster Name                        Enter the name of the cluster you created in vCenter. For example, "cloudcluster".
+集群 Name                        Enter the name of the cluster you created in vCenter. For example, "cloudcluster".
 vCenter Host                        Enter the name or the IP address of the vCenter host where you have deployed the VMware VDS.
 vCenter User name                   Enter the username that CloudStack should use to connect to vCenter. This user must have all administrative privileges.
 vCenter Password                    Enter the password for the user named above.
@@ -963,7 +963,7 @@ Add Hosts or Configure Clusters (vSphere)
 
 Use vCenter to create a vCenter cluster and add your desired hosts to
 the cluster. You will later add the entire cluster to CloudStack. (see
-`“Add Cluster: vSphere” <configuration.html#add-cluster-vsphere>`_).
+`“Add 集群: vSphere” <configuration.html#add-cluster-vsphere>`_).
 
 
 Applying Hotfixes to a VMware vSphere Host

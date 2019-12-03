@@ -115,7 +115,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../../quickinstallationguide/qig.html">快速安装向导</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">安装指南</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../index.html#building-from-source">从源码编译安装</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../index.html#general-installation">General Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#general-installation">通用安装指南</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#configuration">Configuration</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html#hypervisor-setup">Hypervisor 安装和设置</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="hyperv.html">Hyper-V 安装</a></li>
@@ -124,10 +124,10 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l3 current"><a class="current reference internal" href="vsphere.html#">VMware vSphere 安装</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="vsphere.html#system-requirements-for-vsphere-hosts">System Requirements for vSphere Hosts</a></li>
 <li class="toctree-l4"><a class="reference internal" href="vsphere.html#preparation-checklist-for-vmware">Preparation Checklist for VMware</a></li>
-<li class="toctree-l4"><a class="reference internal" href="vsphere.html#vsphere-installation-steps">vSphere Installation Steps</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vsphere.html#vsphere-installation-steps">vSphere 安装 Steps</a></li>
 <li class="toctree-l4"><a class="reference internal" href="vsphere.html#esxi-host-setup">ESXi Host setup</a></li>
 <li class="toctree-l4"><a class="reference internal" href="vsphere.html#physical-host-networking">Physical Host Networking</a></li>
-<li class="toctree-l4"><a class="reference internal" href="vsphere.html#configuring-a-vsphere-cluster-with-nexus-1000v-virtual-switch">Configuring a vSphere Cluster with Nexus 1000v Virtual Switch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vsphere.html#configuring-a-vsphere-cluster-with-nexus-1000v-virtual-switch">Configuring a vSphere 集群 with Nexus 1000v Virtual Switch</a></li>
 <li class="toctree-l4"><a class="reference internal" href="vsphere.html#configuring-a-vmware-datacenter-with-vmware-distributed-virtual-switch">Configuring a VMware Datacenter with VMware Distributed Virtual Switch</a></li>
 <li class="toctree-l4"><a class="reference internal" href="vsphere.html#storage-preparation-for-vsphere-iscsi-only">Storage Preparation for vSphere (iSCSI only)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="vsphere.html#add-hosts-or-configure-clusters-vsphere">Add Hosts or Configure Clusters (vSphere)</a></li>
@@ -137,13 +137,13 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l3"><a class="reference internal" href="xenserver.html">Citrix XenServer 安装</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../index.html#optional-installation">Optional Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#optional-installation">Optional 安装</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../upgrading/index.html">升级 CloudStack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../adminguide/index.html">使用手册</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developersguide/index.html">开发者手册</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../plugins/index.html">Plugins Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugins/index.html">插件使用手册</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../releasenotes/index.html">发行版本说明</a></li>
 </ul>
 <p class="caption"><span class="caption-text">其它:</span></p>
@@ -365,7 +365,7 @@ start:</p>
 <tr class="row-even"><td>vCenter Datacenter Name</td>
 <td>Name of the datacenter.</td>
 </tr>
-<tr class="row-odd"><td>vCenter Cluster Name</td>
+<tr class="row-odd"><td>vCenter 集群 Name</td>
 <td>Name of the cluster.</td>
 </tr>
 </tbody>
@@ -389,7 +389,7 @@ start:</p>
 <td>VLAN on which all your ESXi hypervisors reside.</td>
 </tr>
 <tr class="row-odd"><td>ESXI VLAN IP Address</td>
-<td>IP Address Range in the ESXi VLAN. One address per Virtual Router is used from this range.</td>
+<td>IP Address Range in the ESXi VLAN. One address per 虚拟路由器 is used from this range.</td>
 </tr>
 <tr class="row-even"><td>ESXi VLAN IP Gateway</td>
 <td>&#160;</td>
@@ -423,7 +423,7 @@ each customer.</td>
 </div>
 </div>
 <div class="section" id="vsphere-installation-steps">
-<h2>vSphere Installation Steps<a class="headerlink" href="vsphere.html#vsphere-installation-steps" title="Permalink to this headline">¶</a></h2>
+<h2>vSphere 安装 Steps<a class="headerlink" href="vsphere.html#vsphere-installation-steps" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
 <li><p class="first">If you haven’t already, you’ll need to download and purchase vSphere
 from the VMware Website
@@ -540,7 +540,7 @@ ESXi hosts.</li>
 </ul>
 </div>
 <div class="section" id="extend-port-range-for-cloudstack-console-proxy">
-<h3>Extend Port Range for CloudStack Console Proxy<a class="headerlink" href="vsphere.html#extend-port-range-for-cloudstack-console-proxy" title="Permalink to this headline">¶</a></h3>
+<h3>Extend Port Range for CloudStack 控制台代理<a class="headerlink" href="vsphere.html#extend-port-range-for-cloudstack-console-proxy" title="Permalink to this headline">¶</a></h3>
 <p>(Applies only to VMware vSphere version 4.x)</p>
 <p>You need to extend the range of firewall ports that the console proxy
 works with on the hosts. This is to enable the console proxy to work
@@ -559,13 +559,13 @@ each host and run the following commands:</p>
 </div>
 </div>
 <div class="section" id="configuring-a-vsphere-cluster-with-nexus-1000v-virtual-switch">
-<span id="id4"></span><h2>Configuring a vSphere Cluster with Nexus 1000v Virtual Switch<a class="headerlink" href="vsphere.html#configuring-a-vsphere-cluster-with-nexus-1000v-virtual-switch" title="Permalink to this headline">¶</a></h2>
+<span id="id4"></span><h2>Configuring a vSphere 集群 with Nexus 1000v Virtual Switch<a class="headerlink" href="vsphere.html#configuring-a-vsphere-cluster-with-nexus-1000v-virtual-switch" title="Permalink to this headline">¶</a></h2>
 <p>CloudStack supports Cisco Nexus 1000v dvSwitch (Distributed Virtual
 Switch) for virtual network configuration in a VMware vSphere
 environment. This section helps you configure a vSphere cluster with
 Nexus 1000v virtual switch in a VMware vCenter environment. For
 information on creating a vSphere cluster, see
-<a class="reference external" href="vsphere.html#vmware-vsphere-installation-and-configuration">“VMware vSphere Installation and Configuration”</a></p>
+<a class="reference external" href="vsphere.html#vmware-vsphere-installation-and-configuration">“VMware vSphere 安装 and Configuration”</a></p>
 <div class="section" id="about-cisco-nexus-1000v-distributed-virtual-switch">
 <h3>About Cisco Nexus 1000v Distributed Virtual Switch<a class="headerlink" href="vsphere.html#about-cisco-nexus-1000v-distributed-virtual-switch" title="Permalink to this headline">¶</a></h3>
 <p>The Cisco Nexus 1000V virtual switch is a software-based virtual machine
@@ -593,7 +593,7 @@ The Ethernet port profiles are created on the VSM and are represented as
 port groups on the vCenter server.</p>
 </div>
 <div class="section" id="prerequisites-and-guidelines">
-<h3>Prerequisites and Guidelines<a class="headerlink" href="vsphere.html#prerequisites-and-guidelines" title="Permalink to this headline">¶</a></h3>
+<h3>前提 and Guidelines<a class="headerlink" href="vsphere.html#prerequisites-and-guidelines" title="Permalink to this headline">¶</a></h3>
 <p>This section discusses prerequisites and guidelines for using Nexus
 virtual switch in CloudStack. Before configuring Nexus virtual switch,
 ensure that your system meets the following requirements:</p>
@@ -606,7 +606,7 @@ datacenter.</li>
 datacenter that contains the vCenter cluster. This ensures that
 CloudStack doesn’t have to deal with dynamic migration of virtual
 adapters or networks across other existing virtual switches. See
-<a class="reference external" href="http://www.cisco.com/en/US/docs/switches/datacenter/nexus1000/sw/4_2_1_s_v_1_5_1/install_upgrade/vsm_vem/guide/n1000v_installupgrade.html">Cisco Nexus 1000V Installation and Upgrade Guide</a>
+<a class="reference external" href="http://www.cisco.com/en/US/docs/switches/datacenter/nexus1000/sw/4_2_1_s_v_1_5_1/install_upgrade/vsm_vem/guide/n1000v_installupgrade.html">Cisco Nexus 1000V 安装 and Upgrade Guide</a>
 for guidelines on how to install the Nexus 1000v VSM and VEM modules.</li>
 <li>The Nexus 1000v VSM is not deployed on a vSphere host that is managed
 by CloudStack.</li>
@@ -752,7 +752,7 @@ during the zone configuration on CloudStack. These Ethernet port profile
 names are later specified as VMware Traffic Labels for different traffic
 types when configuring physical networks during the zone configuration.
 For more information on configuring physical networks, see
-<a class="reference internal" href="vsphere.html#configuring-a-vsphere-cluster-with-nexus-1000v-virtual-switch"><span class="std std-ref">Configuring a vSphere Cluster with Nexus 1000v Virtual Switch</span></a>.</p>
+<a class="reference internal" href="vsphere.html#configuring-a-vsphere-cluster-with-nexus-1000v-virtual-switch"><span class="std std-ref">Configuring a vSphere 集群 with Nexus 1000v Virtual Switch</span></a>.</p>
 </div>
 <div class="section" id="adding-vlan-ranges">
 <h4>Adding VLAN Ranges<a class="headerlink" href="vsphere.html#adding-vlan-ranges" title="Permalink to this headline">¶</a></h4>
@@ -811,8 +811,8 @@ the zone is being created.</p>
 <p><img alt="vmwarenexusaddcluster.png: vmware nexus add cluster" src="../../_images/vmware-nexus-add-cluster.png" /></p>
 <p>After the zone is created, if you want to create an additional cluster
 along with Nexus 1000v virtual switch in the existing zone, use the Add
-Cluster option. For information on creating a cluster, see
-<a class="reference external" href="http://docs.cloudstack.apache.org/en/4.13.0.0/installguide/hypervisor/configuration.html#add-cluster-vsphere">“Add Cluster: vSphere”</a>.</p>
+集群 option. For information on creating a cluster, see
+<a class="reference external" href="http://docs.cloudstack.apache.org/en/4.13.0.0/installguide/hypervisor/configuration.html#add-cluster-vsphere">“Add 集群: vSphere”</a>.</p>
 <p>In both these cases, you must specify the following parameters to
 configure Nexus virtual switch:</p>
 <table border="1" class="table-striped table-bordered table-hover docutils">
@@ -826,7 +826,7 @@ configure Nexus virtual switch:</p>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>Cluster Name</td>
+<tr class="row-even"><td>集群 Name</td>
 <td>Enter the name of the cluster you created in vCenter. For example,”cloud.cluster”.</td>
 </tr>
 <tr class="row-odd"><td>vCenter Host</td>
@@ -898,7 +898,7 @@ firewall services. A VDS can be deployed with or without Virtual
 Standard Switch and a Nexus 1000V virtual switch.</p>
 </div>
 <div class="section" id="id5">
-<h3>Prerequisites and Guidelines<a class="headerlink" href="vsphere.html#id5" title="Permalink to this headline">¶</a></h3>
+<h3>前提 and Guidelines<a class="headerlink" href="vsphere.html#id5" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>VMware VDS is supported only on Public and Guest traffic in
 CloudStack.</li>
@@ -1006,8 +1006,8 @@ Nexus 1000v Virtual Switch.</p>
 <p>You can configure VDS by adding the necessary resources while a zone is
 created.</p>
 <p>Alternatively, at the cluster level, you can create an additional
-cluster with VDS enabled in the existing zone. Use the Add Cluster
-option. For information as given in <a class="reference external" href="http://docs.cloudstack.apache.org/en/4.13.0.0/installguide/hypervisor/configuration.html#add-cluster-vsphere">“Add Cluster: vSphere”</a>.</p>
+cluster with VDS enabled in the existing zone. Use the Add 集群
+option. For information as given in <a class="reference external" href="http://docs.cloudstack.apache.org/en/4.13.0.0/installguide/hypervisor/configuration.html#add-cluster-vsphere">“Add 集群: vSphere”</a>.</p>
 <p>In both these cases, you must specify the following parameters to
 configure VDS:</p>
 <p><img alt="dvSwitchConfig.png: Configuring dvSwitch" src="../../_images/dvswitchconfig.png" /></p>
@@ -1022,7 +1022,7 @@ configure VDS:</p>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>Cluster Name</td>
+<tr class="row-even"><td>集群 Name</td>
 <td>Enter the name of the cluster you created in vCenter. For example, “cloudcluster”.</td>
 </tr>
 <tr class="row-odd"><td>vCenter Host</td>
@@ -1112,7 +1112,7 @@ vSphere 安装指南.</p>
 <h2>Add Hosts or Configure Clusters (vSphere)<a class="headerlink" href="vsphere.html#add-hosts-or-configure-clusters-vsphere" title="Permalink to this headline">¶</a></h2>
 <p>Use vCenter to create a vCenter cluster and add your desired hosts to
 the cluster. You will later add the entire cluster to CloudStack. (see
-<a class="reference external" href="http://docs.cloudstack.apache.org/en/4.13.0.0/installguide/hypervisor/configuration.html#add-cluster-vsphere">“Add Cluster: vSphere”</a>).</p>
+<a class="reference external" href="http://docs.cloudstack.apache.org/en/4.13.0.0/installguide/hypervisor/configuration.html#add-cluster-vsphere">“Add 集群: vSphere”</a>).</p>
 </div>
 <div class="section" id="applying-hotfixes-to-a-vmware-vsphere-host">
 <h2>Applying Hotfixes to a VMware vSphere Host<a class="headerlink" href="vsphere.html#applying-hotfixes-to-a-vmware-vsphere-host" title="Permalink to this headline">¶</a></h2>
@@ -1121,7 +1121,7 @@ the cluster. You will later add the entire cluster to CloudStack. (see
 remain disconnected long enough to apply the hotfix on the host.</p>
 <ol class="arabic">
 <li><p class="first">Log in to the CloudStack UI as root.</p>
-<p>See <a class="reference internal" href="../../adminguide/ui.html#log-in-to-ui"><span class="std std-ref">Log In to the UI</span></a></p>
+<p>See <a class="reference internal" href="../../adminguide/ui.html#log-in-to-ui"><span class="std std-ref">登录 UI</span></a></p>
 </li>
 <li><p class="first">Navigate to the VMware cluster, click Actions, and select
 Unmanage.</p>

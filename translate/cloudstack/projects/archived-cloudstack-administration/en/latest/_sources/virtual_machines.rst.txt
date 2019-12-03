@@ -14,10 +14,10 @@
    under the License.
    
 
-Working with Virtual Machines
+虚拟机
 =============================
 
-About Working with Virtual Machines
+About 虚拟机
 -----------------------------------
 
 CloudStack provides administrators with complete control over the
@@ -189,7 +189,7 @@ To create a VM from a template:
 
 #. Select a template, then follow the steps in the wizard. For more
    information about how the templates came to be in this list, see
-   `*Working with Templates* <templates.html>`_.
+   `*模板* <templates.html>`_.
 
 #. Be sure that the hardware you have allows starting the selected
    service offering.
@@ -863,7 +863,7 @@ part of a template.
 
 #. Log in to the CloudStack UI as an administrator or end user.
 
-#. In the left navigation bar, click Templates.
+#. In the left navigation bar, click 模板.
 
 #. In Select View, choose ISOs.
 
@@ -1226,7 +1226,7 @@ CloudStack provides you with the following capabilities:
 - Querying hosts to obtain information about the GPU cards, supported vGPU types
   in case of GRID cards, and capacity of the cards.
 
-Prerequisites and System Requirements
+前提 and System Requirements
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Before proceeding, ensure that you have these prerequisites:
@@ -1271,7 +1271,7 @@ Before continuing with configuration, consider the following:
 
 - Limiting GPU resources per Account/Domain is not supported.
 
-- Disabling GPU at Cluster level is not supported.
+- Disabling GPU at 集群 level is not supported.
 
 - Notification thresholds for GPU resource is not supported.
 

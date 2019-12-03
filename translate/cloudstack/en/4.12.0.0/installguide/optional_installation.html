@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Additional Installation Options &mdash; Apache CloudStack 4.12.0.0 documentation</title>
+  <title>Additional 安装 Options &mdash; Apache CloudStack 4.12.0.0 documentation</title>
   
 
   
@@ -36,7 +36,7 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="About Password and Key Encryption" href="encryption.html" />
+    <link rel="next" title="密码和加密密钥" href="encryption.html" />
     <link rel="prev" title="Citrix XenServer 安装" href="hypervisor/xenserver.html" /> 
 
 <!-- RTD Extra Head -->
@@ -114,18 +114,18 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../quickinstallationguide/qig.html">快速安装向导</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">安装指南</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="index.html#building-from-source">从源码编译安装</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#general-installation">General Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#general-installation">通用安装指南</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#configuration">Configuration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#hypervisor-setup">Hypervisor 安装和设置</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="index.html#optional-installation">Optional Installation</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="optional_installation.html#">Additional Installation Options</a><ul>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#optional-installation">Optional 安装</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="optional_installation.html#">Additional 安装 Options</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="optional_installation.html#installing-the-usage-server-optional">Installing the Usage Server (Optional)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="optional_installation.html#ssl-optional">SSL (Optional)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="optional_installation.html#database-replication-optional">Database Replication (Optional)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="optional_installation.html#amazon-web-services-interface">Amazon Web Services Interface</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="encryption.html">About Password and Key Encryption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="encryption.html">密码和加密密钥</a></li>
 </ul>
 </li>
 </ul>
@@ -133,7 +133,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../upgrading/index.html">升级 CloudStack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../adminguide/index.html">使用手册</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developersguide/index.html">开发者手册</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../plugins/index.html">Plugins Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/index.html">插件使用手册</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">发行版本说明</a></li>
 </ul>
 <p class="caption"><span class="caption-text">其它:</span></p>
@@ -196,7 +196,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
         
           <li><a href="index.html">安装指南</a> &raquo;</li>
         
-      <li>Additional Installation Options</li>
+      <li>Additional 安装 Options</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -218,7 +218,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
            <div itemprop="articleBody">
             
   <div class="section" id="additional-installation-options">
-<h1>Additional Installation Options<a class="headerlink" href="optional_installation.html#additional-installation-options" title="Permalink to this headline">¶</a></h1>
+<h1>Additional 安装 Options<a class="headerlink" href="optional_installation.html#additional-installation-options" title="Permalink to this headline">¶</a></h1>
 <p>The next few sections describe CloudStack features above and beyond the
 basic deployment options.</p>
 <div class="section" id="installing-the-usage-server-optional">
@@ -475,7 +475,7 @@ backend.</p>
 <li>Supported only in zones that use basic networking.</li>
 <li>Available in fresh installations of CloudStack. Not available through
 upgrade of previous versions.</li>
-<li>Features such as Elastic IP (EIP) and Elastic Load Balancing (ELB)
+<li>Features such as Elastic IP (EIP) and Elastic 负载均衡 (ELB)
 are only available in an infrastructure with a Citrix NetScaler
 device. Users accessing a Zone with a NetScaler device will need to
 use a NetScaler-enabled network offering (DefaultSharedNetscalerEIP
@@ -542,12 +542,12 @@ http://localhost:8096/client/api?command=updateConfiguration&amp;name=enable.ec2
 <p>Once you have enabled the services, restart the server.</p>
 </div>
 <div class="section" id="creating-ec2-compatible-service-offerings">
-<h4>Creating EC2 Compatible Service Offerings<a class="headerlink" href="optional_installation.html#creating-ec2-compatible-service-offerings" title="Permalink to this headline">¶</a></h4>
+<h4>Creating EC2 Compatible 计算方案<a class="headerlink" href="optional_installation.html#creating-ec2-compatible-service-offerings" title="Permalink to this headline">¶</a></h4>
 <p>You will also need to define compute service offerings with names
 compatible with the <a class="reference external" href="http://aws.amazon.com/ec2/instance-types/">Amazon EC2 instance
 types</a> API names (e.g
 m1.small,m1.large). This can be done via the CloudStack GUI. Go under
-<em>Service Offerings</em> select <em>Compute offering</em> and either create a new
+<em>计算方案</em> select <em>Compute offering</em> and either create a new
 compute offering or modify an existing one, ensuring that the name
 matches an EC2 instance type API name. The snapshot below shows you how:</p>
 <p><img alt="Use the GUI to set the name of a compute service offering to an EC2 instance type API name." src="../_images/compute-service-offerings.png" /></p>
@@ -891,7 +891,7 @@ given, for those who have built tools using those calls.</p>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
-<p>Table&nbsp;9.&nbsp;Security Groups API Mapping</p>
+<p>Table&nbsp;9.&nbsp;安全组 API Mapping</p>
 <table border="1" class="table-striped table-bordered table-hover docutils">
 <colgroup>
 <col width="25%" />
@@ -906,24 +906,24 @@ given, for those who have built tools using those calls.</p>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>ec2-authorize</td>
-<td>AuthorizeSecurityGroupIngress</td>
-<td>authorizeSecurityGroupIngress</td>
+<td>Authorize安全GroupIngress</td>
+<td>authorize安全GroupIngress</td>
 </tr>
 <tr class="row-odd"><td>ec2-add-group</td>
-<td>CreateSecurityGroup</td>
-<td>createSecurityGroup</td>
+<td>Create安全Group</td>
+<td>create安全Group</td>
 </tr>
 <tr class="row-even"><td>ec2-delete-group</td>
-<td>DeleteSecurityGroup</td>
-<td>deleteSecurityGroup</td>
+<td>Delete安全Group</td>
+<td>delete安全Group</td>
 </tr>
 <tr class="row-odd"><td>ec2-describe-group</td>
-<td>DescribeSecurityGroups</td>
-<td>listSecurityGroups</td>
+<td>Describe安全Groups</td>
+<td>list安全Groups</td>
 </tr>
 <tr class="row-even"><td>ec2-revoke</td>
-<td>RevokeSecurityGroupIngress</td>
-<td>revokeSecurityGroupIngress</td>
+<td>Revoke安全GroupIngress</td>
+<td>revoke安全GroupIngress</td>
 </tr>
 </tbody>
 </table>
@@ -1122,7 +1122,7 @@ own and update the endpoint.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="encryption.html" class="btn btn-neutral float-right" title="About Password and Key Encryption" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="encryption.html" class="btn btn-neutral float-right" title="密码和加密密钥" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="hypervisor/xenserver.html" class="btn btn-neutral float-left" title="Citrix XenServer 安装" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

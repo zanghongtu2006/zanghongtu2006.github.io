@@ -33,7 +33,7 @@
 .. include:: _systemvm.rst
 
 
-Installation Complete! Next Steps
+安装 Complete! Next Steps
 ---------------------------------
 
 Congratulations! You have now installed CloudStack 管理服务 and
@@ -46,7 +46,7 @@ What should you do next?
 
 -  Even without adding any cloud infrastructure, you can run the UI to
    get a feel for what's offered and how you will interact with
-   CloudStack on an ongoing basis. See Log In to the UI.
+   CloudStack on an ongoing basis. See 登录 UI.
 
 -  When you're ready, add the cloud infrastructure and try running some
    virtual machines on it, so you can watch how CloudStack manages the

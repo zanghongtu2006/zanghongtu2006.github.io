@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>KVM 安装 &#8212; Apache CloudStack Installation Documentation 4.11.0.0 documentation</title>
+    <title>KVM 安装 &#8212; Apache CloudStack 安装 Documentation 4.11.0.0 documentation</title>
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="https://media.readthedocs.org/css/badge_only.css" type="text/css" />
@@ -94,7 +94,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../management-server/index.html">安装管理服务</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../configuration.html">Configuring your CloudStack Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration.html">安装配置 CloudStack </a></li>
 </ul>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="hyperv.html">Hyper-V 安装</a></li>
@@ -107,15 +107,15 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="../network_setup.html">网络配置</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../storage_setup.html">Storage Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../storage_setup.html">存储配置</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../storage_setup.html#small-scale-setup">Small-Scale Setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../storage_setup.html#large-scale-setup">Large-Scale Setup</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../storage_setup.html#storage-architecture">Storage Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../storage_setup.html#storage-architecture">存储架构</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../storage_setup.html#network-configuration-for-storage">Network Configuration For Storage</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../optional_installation.html">Additional Installation Options</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../encryption.html">About Password and Key Encryption</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../optional_installation.html">Additional 安装 Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../encryption.html">密码和加密密钥</a></li>
 </ul>
 
 
@@ -163,14 +163,14 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
         <div id="sidebar" class="bs-sidenav" role="complementary"><ul>
 <li><a class="reference internal" href="kvm.html#">KVM 安装</a><ul>
 <li><a class="reference internal" href="kvm.html#system-requirements-for-kvm-hypervisor-hosts">System Requirements for KVM Hypervisor Hosts</a></li>
-<li><a class="reference internal" href="kvm.html#kvm-installation-overview">KVM Installation Overview</a></li>
-<li><a class="reference internal" href="kvm.html#prepare-the-operating-system">Prepare the Operating System</a></li>
+<li><a class="reference internal" href="kvm.html#kvm-installation-overview">KVM 安装 概述</a></li>
+<li><a class="reference internal" href="kvm.html#prepare-the-operating-system">Prepare the 操作系统</a></li>
 <li><a class="reference internal" href="kvm.html#install-and-configure-the-agent">Install and configure the Agent</a><ul>
 <li><a class="reference internal" href="kvm.html#configure-cpu-model-for-kvm-guest-optional">Configure CPU model for KVM guest (Optional)</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="kvm.html#install-and-configure-libvirt">Install and Configure libvirt</a></li>
-<li><a class="reference internal" href="kvm.html#configure-the-security-policies">Configure the Security Policies</a></li>
+<li><a class="reference internal" href="kvm.html#configure-the-security-policies">Configure the 安全 Policies</a></li>
 <li><a class="reference internal" href="kvm.html#configuring-the-networking">Configuring the Networking</a><ul>
 <li><a class="reference internal" href="kvm.html#network-example-for-basic-networks">Network example for Basic Networks</a></li>
 <li><a class="reference internal" href="kvm.html#configuring-the-network-bridges-for-basic-networks">Configuring the Network Bridges for Basic Networks</a><ul>
@@ -202,7 +202,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 </ul>
 </li>
 <li><a class="reference internal" href="kvm.html#additional-packages-required-for-features">Additional Packages Required for Features</a><ul>
-<li><a class="reference internal" href="kvm.html#secondary-storage-bypass">Secondary Storage Bypass</a></li>
+<li><a class="reference internal" href="kvm.html#secondary-storage-bypass">二级存储 Bypass</a></li>
 <li><a class="reference internal" href="kvm.html#live-migration">Live Migration</a></li>
 </ul>
 </li>
@@ -260,7 +260,7 @@ already running. These will be destroy by CloudStack.</li>
 </ul>
 </div>
 <div class="section" id="kvm-installation-overview">
-<h2>KVM Installation Overview<a class="headerlink" href="kvm.html#kvm-installation-overview" title="Permalink to this headline">¶</a></h2>
+<h2>KVM 安装 概述<a class="headerlink" href="kvm.html#kvm-installation-overview" title="Permalink to this headline">¶</a></h2>
 <p>If you want to use the Linux Kernel Virtual Machine (KVM) hypervisor to
 run guest virtual machines, install KVM on the host(s) in your cloud.
 The material in this section doesn’t duplicate KVM installation docs. It
@@ -278,14 +278,14 @@ CloudStack.</p>
 </div>
 <p>The procedure for installing a KVM Hypervisor Host is:</p>
 <ol class="arabic simple">
-<li>Prepare the Operating System</li>
+<li>Prepare the 操作系统</li>
 <li>Install and configure libvirt</li>
-<li>Configure Security Policies (AppArmor and SELinux)</li>
+<li>Configure 安全 Policies (AppArmor and SELinux)</li>
 <li>Install and configure the Agent</li>
 </ol>
 </div>
 <div class="section" id="prepare-the-operating-system">
-<h2>Prepare the Operating System<a class="headerlink" href="kvm.html#prepare-the-operating-system" title="Permalink to this headline">¶</a></h2>
+<h2>Prepare the 操作系统<a class="headerlink" href="kvm.html#prepare-the-operating-system" title="Permalink to this headline">¶</a></h2>
 <p>The OS of the Host must be prepared to host the CloudStack Agent and run
 KVM instances.</p>
 <ol class="arabic">
@@ -493,7 +493,7 @@ change the parameters as well:</p>
 </ol>
 </div>
 <div class="section" id="configure-the-security-policies">
-<h2>Configure the Security Policies<a class="headerlink" href="kvm.html#configure-the-security-policies" title="Permalink to this headline">¶</a></h2>
+<h2>Configure the 安全 Policies<a class="headerlink" href="kvm.html#configure-the-security-policies" title="Permalink to this headline">¶</a></h2>
 <p>CloudStack does various things which can be blocked by security
 mechanisms like AppArmor and SELinux. These have to be disabled to
 ensure the Agent has all the required permissions.</p>
@@ -1107,7 +1107,7 @@ firewall disabled does not enable the firewall.</p>
 <div class="section" id="additional-packages-required-for-features">
 <h2>Additional Packages Required for Features<a class="headerlink" href="kvm.html#additional-packages-required-for-features" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="secondary-storage-bypass">
-<h3>Secondary Storage Bypass<a class="headerlink" href="kvm.html#secondary-storage-bypass" title="Permalink to this headline">¶</a></h3>
+<h3>二级存储 Bypass<a class="headerlink" href="kvm.html#secondary-storage-bypass" title="Permalink to this headline">¶</a></h3>
 <p>New in 4.11 is the ability to bypass storing a template on secondary storage, and
 instead directly downloading a ‘template’ from an alternate remote location.
 In order to facilitate this the <strong>Aria2</strong> (<a class="reference external" href="https://aria2.github.io/">https://aria2.github.io/</a>) package must be

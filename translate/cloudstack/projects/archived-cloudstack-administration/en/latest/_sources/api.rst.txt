@@ -17,7 +17,7 @@
 CloudStack API
 ==============
 
-The CloudStack API is a low level API that has been used to implement
+CloudStack API is a low level API that has been used to implement
 the CloudStack web UIs. It is also a good basis for implementing other
 popular APIs such as EC2/S3 and emerging DMTF standards.
 

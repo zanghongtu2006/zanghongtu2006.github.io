@@ -37,7 +37,7 @@ upgrade. Dyanamic roles feature is enabled by default on new installations.
 Please read more about `using dynamic roles <http://docs.cloudstack.apache.org/projects/cloudstack-administration.html/en/4.9/accounts.html#using-dynamic-roles>`_
 feature and process of migrating to using this after an upgrade.
 
-Agent and KVM Host Security
+Agent and KVM Host 安全
 ---------------------------
 
 Starting 4.11, a new CA framework has been introduced that is used to secure

@@ -64,7 +64,7 @@ In addition, the following hardware requirements apply:
    already running
 
 
-LXC Installation Overview
+LXC 安装 概述
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 LXC does not have any native system VMs, instead KVM will be used to run
@@ -84,16 +84,16 @@ are needed to prepare a KVM host to work with CloudStack.
 
 The procedure for installing an LXC Host is:
 
-#. Prepare the Operating System
+#. Prepare the 操作系统
 
 #. Install and configure libvirt
 
-#. Configure Security Policies (AppArmor and SELinux)
+#. Configure 安全 Policies (AppArmor and SELinux)
 
 #. Install and configure the Agent
 
 
-Prepare the Operating System
+Prepare the 操作系统
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The OS of the Host must be prepared to host the CloudStack Agent and run
@@ -270,7 +270,7 @@ cloudstack-agent and should already be installed.
       $ service libvirt-bin restart
 
 
-Configure the Security Policies
+Configure the 安全 Policies
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 CloudStack does various things which can be blocked by security

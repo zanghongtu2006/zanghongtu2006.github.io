@@ -14,10 +14,10 @@
    under the License.
    
 
-Working with Storage
+存储
 ====================
 
-Storage Overview
+存储概述
 ----------------
 
 CloudStack defines two types of storage: primary and secondary. Primary
@@ -29,17 +29,17 @@ There is no ephemeral storage in CloudStack. All volumes on all nodes
 are persistent.
 
 
-Primary Storage
+主存储
 ---------------
 
 This section gives concepts and technical details about CloudStack
 primary storage. For information about how to install and configure
 primary storage through the CloudStack UI, see the 安装指南.
 
-`“About Primary Storage” <http://docs.cloudstack.apache.org/en/latest/concepts.html#about-primary-storage>`_
+`“About 主存储” <http://docs.cloudstack.apache.org/en/latest/concepts.html#about-primary-storage>`_
 
 
-最佳实践 for Primary Storage
+最佳实践 for 主存储
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 -  The speed of primary storage will impact guest performance. If
@@ -66,7 +66,7 @@ primary storage through the CloudStack UI, see the 安装指南.
    Offerings).
 
 
-Runtime Behaviour of Primary Storage
+Runtime Behaviour of 主存储
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Root volumes are created automatically when a virtual machine is
@@ -91,7 +91,7 @@ storage or from a storage system (ex. a SAN), depending on how the
 primary storage was added to CloudStack).
 
 
-Hypervisor Support for Primary Storage
+Hypervisor Support for 主存储
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The following table shows storage options and parameters for different
@@ -102,7 +102,7 @@ hypervisors.
 ============================================== ================ ==================== =========================== ============================
 Storage media \\ hypervisor                    VMware vSphere   Citrix XenServer     KVM                         Hyper-V
 ============================================== ================ ==================== =========================== ============================
-**Format for Disks, Templates, and Snapshots** VMDK             VHD                  QCOW2                       VHD
+**Format for Disks, 模板, and Snapshots** VMDK             VHD                  QCOW2                       VHD
                                                                                                                  Snapshots are not supported.
 **iSCSI support**                              VMFS             Clustered LVM        Yes, via Shared Mountpoint  No
 **Fiber Channel support**                      VMFS             Yes, via Existing SR Yes, via Shared Mountpoint  No
@@ -135,10 +135,10 @@ hypervisor type.
 Local storage is an option for primary storage for vSphere, XenServer,
 and KVM. When the local disk option is enabled, a local disk storage
 pool is automatically created on each host. To use local storage for the
-System Virtual Machines (such as the Virtual Router), set
+System Virtual Machines (such as the 虚拟路由器), set
 system.vm.use.local.storage to true in global configuration.
 
-CloudStack supports multiple primary storage pools in a Cluster. For
+CloudStack supports multiple primary storage pools in a 集群. For
 example, you could provision 2 NFS servers in primary storage. Or you
 could provision 1 iSCSI LUN initially and then add a second iSCSI LUN
 when the first approaches capacity.
@@ -166,7 +166,7 @@ if different devices are used to present those tags, the set of exposed
 tags can be the same.
 
 
-Maintenance Mode for Primary Storage
+Maintenance Mode for 主存储
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Primary storage may be placed into maintenance mode. This is useful, for
@@ -181,7 +181,7 @@ all guests that were running at the time of the entry into maintenance
 mode.
 
 
-Secondary Storage
+二级存储
 -----------------
 
 This section gives concepts and technical details about CloudStack
@@ -189,10 +189,10 @@ secondary storage. For information about how to install and configure
 secondary storage through the CloudStack UI, see the Advanced
 安装指南.
 
-`“About Secondary Storage” <http://docs.cloudstack.apache.org/en/latest/concepts.html#about-secondary-storage>`_
+`“About 二级存储” <http://docs.cloudstack.apache.org/en/latest/concepts.html#about-secondary-storage>`_
 
 
-Working With Volumes
+磁盘
 --------------------
 
 A volume provides storage to a guest VM. The volume can provide for a
@@ -511,7 +511,7 @@ internal volume mirroring process is started via libvirt (from current storage N
 and at the end of the volume mirroring process, the VM live migration is done to the host defined above.
 
 In the command above we have "pairing" of volume and the storage pool to which to migrate specific volume to.
-In example above, we are migrating 2 volumes to the same SolidFire Storage Cluster, but optionally you could 
+In example above, we are migrating 2 volumes to the same SolidFire Storage 集群, but optionally you could 
 migrate 2 volumes to 2 different SolidFire Storage Clusters.
 
 Order of volumes, as attached to VM, is NOT relevant - i.e. first volume in the migration command ( migrateto[0].volume )
@@ -519,7 +519,7 @@ can be any DATA volume, while second volume ( migrateto[1].volume ) can be i.e. 
 
 You can migrate only some or all of the volumes (attached to specific VM) to a new Storage Pool.
 
-Note, that depending on your configuration, you will need to change Compute/Data Disk Offerings, in case you have
+Note, that depending on your configuration, you will need to change Compute/Data 磁盘方案, in case you have
 different storage tags set on CEPH/NFS versus tags on SolidFire (and in case your Compute/Data disk offerings reference these tags).
 
 
@@ -677,7 +677,7 @@ Administrators should adjust these values depending on site policies
 around data retention.
 
 
-Working with Volume Snapshots
+磁盘镜像
 -----------------------------
 
 (Supported for the following hypervisors: **XenServer**, **VMware

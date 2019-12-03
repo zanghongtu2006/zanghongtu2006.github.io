@@ -15,7 +15,7 @@
 
 .. _about-password-key-encryption:
 
-About Password and Key Encryption
+密码和加密密钥
 ---------------------------------
 
 CloudStack stores several sensitive passwords and secret keys that are

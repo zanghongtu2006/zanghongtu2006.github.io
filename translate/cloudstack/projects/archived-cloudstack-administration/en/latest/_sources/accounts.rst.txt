@@ -17,7 +17,7 @@
 Managing Roles, Accounts, Users and Domains
 ===========================================
 
-Roles, Accounts, Users, and Domains
+角色、账户、用户和域
 -----------------------------------
 
 Roles
@@ -101,7 +101,7 @@ administrator can do the same for VMs within the domain from one account
 to any other account in the domain or any of its sub-domains.
 
 
-Using Dynamic Roles
+使用动态角色
 -------------------
 
 In addition to the four default roles, the dynamic role-based API checker feature
@@ -185,7 +185,7 @@ file on the management servers typically in /etc/cloudstack/management path,
 after running the migration tool for the first management server.
 
 
-Dedicating Resources to Accounts and Domains
+将资源分配给账户和域
 --------------------------------------------
 
 The root administrator can dedicate resources to a specific domain or
@@ -213,7 +213,7 @@ There are several types of dedication available:
    shared infrastructure.
 
 
-How to Dedicate a Zone, Cluster, Pod, or Host to an Account or Domain
+怎样将资源域、集群、池和主机分配给指定的账户和域
 ----------------------------------------------------------------------
 
 For explicit dedication: When deploying a new zone, pod, cluster, or
@@ -275,7 +275,7 @@ with system VMs or virtual routers can be used for preferred implicit
 dedication.
 
 
-Using an LDAP Server for User Authentication
+使用 LDAP 作用户认证
 --------------------------------------------
 
 You can use an external LDAP server such as Microsoft Active Directory
@@ -362,7 +362,7 @@ directly in cloudstack.
 
 .. |button to dedicate a zone, pod,cluster, or host| image:: _static/images/dedicate-resource-button.png
 
-Using a SAML 2.0 Identity Provider for User Authentication
+使用 SAML 2.0 作用户认证
 ----------------------------------------------------------
 
 You can use a SAML 2.0 Identity Provider with CloudStack for user

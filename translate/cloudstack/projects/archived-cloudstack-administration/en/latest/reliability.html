@@ -22,7 +22,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Quota Plugin" href="plugins/quota.html" />
-    <link rel="prev" title="Managing the Cloud" href="management.html" />
+    <link rel="prev" title="管理云" href="management.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -80,7 +80,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
                     role="menu"
                     aria-labelledby="dLabelGlobalToc">
                      <ul>
-<li class="toctree-l1"><a class="reference internal" href="ui.html">User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui.html">用户界面</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="accounts.html">Managing Roles, Accounts, Users and Domains</a></li>
@@ -89,26 +89,26 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="projects.html">Using Projects to Organize Users and Resources</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="service_offerings.html">Service Offerings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="service_offerings.html">计算方案</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="networking.html">Setting Up Networking for Users</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="virtual_machines.html">Working with Virtual Machines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="virtual_machines.html">虚拟机</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="templates.html">Working with Templates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="templates.html">模板</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="hosts.html">Working with Hosts</a></li>
-<li class="toctree-l1"><a class="reference internal" href="hosts.html#security">Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hosts.html">主机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hosts.html#security">安全</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="storage.html">Working with Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="storage.html">存储</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="systemvm.html">Working with System Virtual Machines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="systemvm.html">系统虚拟机</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="usage.html">Working with Usage</a></li>
@@ -118,7 +118,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="networking/using_remote_access.html">Using Remote Access VPN</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="management.html">Managing the Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="management.html">管理云</a></li>
 </ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="reliability.html#">System Reliability and High Availability</a></li>
@@ -127,7 +127,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l1"><a class="reference internal" href="plugins/quota.html">Quota Plugin</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="tuning.html">Tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tuning.html">调优</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="events.html">Event Notification</a></li>
@@ -145,7 +145,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
               
                 
   <li>
-    <a href="management.html" title="Previous Chapter: Managing the Cloud"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Managing the Cloud</span>
+    <a href="management.html" title="Previous Chapter: 管理云"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; 管理云</span>
     </a>
   </li>
   <li>
@@ -271,7 +271,7 @@ management server.</p>
 <div class="section" id="ha-enabled-virtual-machines">
 <h2>虚拟机高可用<a class="headerlink" href="reliability.html#ha-enabled-virtual-machines" title="Permalink to this headline">¶</a></h2>
 <p>The user can specify a virtual machine as HA-enabled. By default, all
-virtual router VMs and Elastic Load Balancing VMs are automatically
+virtual router VMs and Elastic 负载均衡 VMs are automatically
 configured as HA-enabled. When an HA-enabled VM crashes, CloudStack
 detects the crash and restarts the VM automatically within the same
 Availability Zone. HA is never performed across different Availability
@@ -285,7 +285,7 @@ storage is not supported.</p>
 <div class="section" id="ha-for-hosts">
 <h2>主机高可用<a class="headerlink" href="reliability.html#ha-for-hosts" title="Permalink to this headline">¶</a></h2>
 <p>The user can specify a virtual machine as HA-enabled. By default, all
-virtual router VMs and Elastic Load Balancing VMs are automatically
+virtual router VMs and Elastic 负载均衡 VMs are automatically
 configured as HA-enabled. When an HA-enabled VM crashes, CloudStack
 detects the crash and restarts the VM automatically within the same
 Availability Zone. HA is never performed across different Availability
@@ -449,7 +449,7 @@ the log files, the disk can become full.</li>
   <div class="container">
     <p class="pull-right">
       <a href="reliability.html#">Back to top</a>
-          | <a href="management.html" title="Previous Chapter: Managing the Cloud"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Managing the Cloud</span>
+          | <a href="management.html" title="Previous Chapter: 管理云"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; 管理云</span>
           </a>
           | <a href="plugins/quota.html" title="Next Chapter: Quota Plugin"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Quota Plugin &raquo;</span>
           </a>

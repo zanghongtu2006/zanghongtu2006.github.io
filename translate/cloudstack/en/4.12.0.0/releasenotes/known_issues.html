@@ -115,7 +115,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../upgrading/index.html">升级 CloudStack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../adminguide/index.html">使用手册</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developersguide/index.html">开发者手册</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../plugins/index.html">Plugins Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/index.html">插件使用手册</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">发行版本说明</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="about.html">What’s New in 4.12.0.0</a></li>
 <li class="toctree-l2"><a class="reference internal" href="fixed_issues.html">Issues Fixed in 4.12.0.0</a></li>
@@ -274,7 +274,7 @@ number.</p>
 <td>Better error message user if tries to shrink the VM ROOT volume size…</td>
 </tr>
 <tr class="row-even"><td><a class="reference external" href="https://issues.apache.org/jira/browse/CLOUDSTACK-9693">CLOUDSTACK-9693</a></td>
-<td>Cluster status of an unmanaged cluster still shows enabled…</td>
+<td>集群 status of an unmanaged cluster still shows enabled…</td>
 </tr>
 <tr class="row-odd"><td><a class="reference external" href="https://issues.apache.org/jira/browse/CLOUDSTACK-9687">CLOUDSTACK-9687</a></td>
 <td>disksizeallocated of PrimaryStorage is different from the total size of a volume…</td>
@@ -304,7 +304,7 @@ number.</p>
 <td>List hosts api dose not report correct cpu and memory usage…</td>
 </tr>
 <tr class="row-even"><td><a class="reference external" href="https://issues.apache.org/jira/browse/CLOUDSTACK-9628">CLOUDSTACK-9628</a></td>
-<td>Fix Template Size in Swift as Secondary Storage…</td>
+<td>Fix Template Size in Swift as 二级存储…</td>
 </tr>
 <tr class="row-odd"><td><a class="reference external" href="https://issues.apache.org/jira/browse/CLOUDSTACK-9626">CLOUDSTACK-9626</a></td>
 <td>Instance fails to start after unsuccesful compute offering upgrade….</td>
@@ -334,7 +334,7 @@ number.</p>
 <td>Template create from snapshot does not populate vm_template_details…</td>
 </tr>
 <tr class="row-even"><td><a class="reference external" href="https://issues.apache.org/jira/browse/CLOUDSTACK-9627">CLOUDSTACK-9627</a></td>
-<td>Template Doens’t get sync when using Swift as Secondary Storage…</td>
+<td>Template Doens’t get sync when using Swift as 二级存储…</td>
 </tr>
 <tr class="row-odd"><td><a class="reference external" href="https://issues.apache.org/jira/browse/CLOUDSTACK-9546">CLOUDSTACK-9546</a></td>
 <td>X-Forwarded-For Headers Not Applied for HTTP Traffic in haproxy…</td>
@@ -373,7 +373,7 @@ number.</p>
 <td>Transactions are not getting retried in case of database deadlock errors…</td>
 </tr>
 <tr class="row-odd"><td><a class="reference external" href="https://issues.apache.org/jira/browse/CLOUDSTACK-9538">CLOUDSTACK-9538</a></td>
-<td>Deleting Snapshot From Primary Storage Fails on RBD Storage if you already delet…</td>
+<td>Deleting Snapshot From 主存储 Fails on RBD Storage if you already delet…</td>
 </tr>
 <tr class="row-even"><td><a class="reference external" href="https://issues.apache.org/jira/browse/CLOUDSTACK-9317">CLOUDSTACK-9317</a></td>
 <td>Disabling static NAT on many IPs can leave wrong IPs on the router…</td>
@@ -463,7 +463,7 @@ number.</p>
 <td>Nuage VSP Plugin : NPE while creating vpctier with wrong domain template name…</td>
 </tr>
 <tr class="row-odd"><td><a class="reference external" href="https://issues.apache.org/jira/browse/CLOUDSTACK-9552">CLOUDSTACK-9552</a></td>
-<td>KVM Security Groups do not allow DNS over TCP egress…</td>
+<td>KVM 安全组 do not allow DNS over TCP egress…</td>
 </tr>
 <tr class="row-even"><td><a class="reference external" href="https://issues.apache.org/jira/browse/CLOUDSTACK-9575">CLOUDSTACK-9575</a></td>
 <td>ACS 4.9 + VMware/ESXi 6.0: Sometimes VRs are failing to fully come up into runni…</td>
@@ -604,7 +604,7 @@ number.</p>
 <td>Input issue on change service offering in Custom…</td>
 </tr>
 <tr class="row-even"><td><a class="reference external" href="https://issues.apache.org/jira/browse/CLOUDSTACK-9432">CLOUDSTACK-9432</a></td>
-<td>Dedicate Cluster to Domain always creates an affinity group owned by the root do…</td>
+<td>Dedicate 集群 to Domain always creates an affinity group owned by the root do…</td>
 </tr>
 <tr class="row-odd"><td><a class="reference external" href="https://issues.apache.org/jira/browse/CLOUDSTACK-9367">CLOUDSTACK-9367</a></td>
 <td>Unable to start a HVM VM with more than 2 volumes attached using XenServer 6.5 …</td>
@@ -748,7 +748,7 @@ number.</p>
 <td>Adding primary storage pool (basic rbd/DefaultPrimary) doesn’t work if the rados…</td>
 </tr>
 <tr class="row-even"><td><a class="reference external" href="https://issues.apache.org/jira/browse/CLOUDSTACK-9307">CLOUDSTACK-9307</a></td>
-<td>You can’t mix two different linux distributions in a (KVM) Cluster…</td>
+<td>You can’t mix two different linux distributions in a (KVM) 集群…</td>
 </tr>
 <tr class="row-odd"><td><a class="reference external" href="https://issues.apache.org/jira/browse/CLOUDSTACK-9303">CLOUDSTACK-9303</a></td>
 <td>Cloudstack can’t connect to CEPH with “/” in the user pw…</td>
@@ -778,7 +778,7 @@ number.</p>
 <td>listDomains API fails with NPE when getVolumeTotal is null…</td>
 </tr>
 <tr class="row-even"><td><a class="reference external" href="https://issues.apache.org/jira/browse/CLOUDSTACK-9247">CLOUDSTACK-9247</a></td>
-<td>Templates go into “Not Ready” state after restarting manangement server with Swi…</td>
+<td>模板 go into “Not Ready” state after restarting manangement server with Swi…</td>
 </tr>
 <tr class="row-odd"><td><a class="reference external" href="https://issues.apache.org/jira/browse/CLOUDSTACK-9232">CLOUDSTACK-9232</a></td>
 <td>Usage data does not reflect changes of VM parameters…</td>
@@ -817,7 +817,7 @@ number.</p>
 <td>new Quota plugins: CPU Used column is CPU Free column…</td>
 </tr>
 <tr class="row-odd"><td><a class="reference external" href="https://issues.apache.org/jira/browse/CLOUDSTACK-9171">CLOUDSTACK-9171</a></td>
-<td>Templates registered with CrossZones have no zone name listed…</td>
+<td>模板 registered with CrossZones have no zone name listed…</td>
 </tr>
 <tr class="row-even"><td><a class="reference external" href="https://issues.apache.org/jira/browse/CLOUDSTACK-9169">CLOUDSTACK-9169</a></td>
 <td>createNetwork API call takes a long time when ispersistent=True…</td>
@@ -838,7 +838,7 @@ number.</p>
 <td>Deleted projects cannot be billed…</td>
 </tr>
 <tr class="row-even"><td><a class="reference external" href="https://issues.apache.org/jira/browse/CLOUDSTACK-9061">CLOUDSTACK-9061</a></td>
-<td>cannot deploy Instance when using Swift as Secondary Storage…</td>
+<td>cannot deploy Instance when using Swift as 二级存储…</td>
 </tr>
 <tr class="row-odd"><td><a class="reference external" href="https://issues.apache.org/jira/browse/CLOUDSTACK-9089">CLOUDSTACK-9089</a></td>
 <td>Static route added to VPC Private Gateway doesn’t become active…</td>
@@ -874,7 +874,7 @@ number.</p>
 <td>Activity of the password server isn’t logged….</td>
 </tr>
 <tr class="row-even"><td><a class="reference external" href="https://issues.apache.org/jira/browse/CLOUDSTACK-8889">CLOUDSTACK-8889</a></td>
-<td>Primary Storage count for an account does not decrease when a Data Disk is delet…</td>
+<td>主存储 count for an account does not decrease when a Data Disk is delet…</td>
 </tr>
 <tr class="row-odd"><td><a class="reference external" href="https://issues.apache.org/jira/browse/CLOUDSTACK-8982">CLOUDSTACK-8982</a></td>
 <td>Disk Offering properties do no show the domain which are included in…</td>
@@ -919,7 +919,7 @@ number.</p>
 <td>The agent doesn’t reconnect if there are stopped VMs…</td>
 </tr>
 <tr class="row-odd"><td><a class="reference external" href="https://issues.apache.org/jira/browse/CLOUDSTACK-8809">CLOUDSTACK-8809</a></td>
-<td>Secondary Storage does not clean-up after time-out…</td>
+<td>二级存储 does not clean-up after time-out…</td>
 </tr>
 <tr class="row-even"><td><a class="reference external" href="https://issues.apache.org/jira/browse/CLOUDSTACK-8796">CLOUDSTACK-8796</a></td>
 <td>the api calll linkdomaintoldap should fail if admin is given and an account isnt…</td>
@@ -1096,7 +1096,7 @@ number.</p>
 <td>Static Nat show wrong remote IP in VM behind VPC…</td>
 </tr>
 <tr class="row-even"><td><a class="reference external" href="https://issues.apache.org/jira/browse/CLOUDSTACK-8470">CLOUDSTACK-8470</a></td>
-<td>Available Primary Storage Capacity Displayed Incorrectly after Upgrade to ACS 4….</td>
+<td>Available 主存储 Capacity Displayed Incorrectly after Upgrade to ACS 4….</td>
 </tr>
 <tr class="row-odd"><td><a class="reference external" href="https://issues.apache.org/jira/browse/CLOUDSTACK-7907">CLOUDSTACK-7907</a></td>
 <td>UI heavily broken…</td>
@@ -1150,7 +1150,7 @@ number.</p>
 <td>“CloudRuntimeException: Can not see storage pool” after trying to add a new host…</td>
 </tr>
 <tr class="row-even"><td><a class="reference external" href="https://issues.apache.org/jira/browse/CLOUDSTACK-8202">CLOUDSTACK-8202</a></td>
-<td>Templates /IOS  items order list is not persistent…</td>
+<td>模板 /IOS  items order list is not persistent…</td>
 </tr>
 <tr class="row-odd"><td><a class="reference external" href="https://issues.apache.org/jira/browse/CLOUDSTACK-8199">CLOUDSTACK-8199</a></td>
 <td>Incorrect size when volumes and templates created from image snapshots…</td>
@@ -1189,7 +1189,7 @@ number.</p>
 <td>Implement separate network throttling rate on VR’s Public NIC…</td>
 </tr>
 <tr class="row-odd"><td><a class="reference external" href="https://issues.apache.org/jira/browse/CLOUDSTACK-7342">CLOUDSTACK-7342</a></td>
-<td>Fail to delete template while using Swift as Secondary Storage…</td>
+<td>Fail to delete template while using Swift as 二级存储…</td>
 </tr>
 <tr class="row-even"><td><a class="reference external" href="https://issues.apache.org/jira/browse/CLOUDSTACK-7782">CLOUDSTACK-7782</a></td>
 <td>The 4.4.1 web UI is missing “Acquire new IP address” buton in NIC section…</td>
@@ -1210,10 +1210,10 @@ number.</p>
 <td>XenServerInvestigator should do better investigation in case of OVS or other net…</td>
 </tr>
 <tr class="row-even"><td><a class="reference external" href="https://issues.apache.org/jira/browse/CLOUDSTACK-7406">CLOUDSTACK-7406</a></td>
-<td>Templates using Swift provider reports physical size, and not the virtual size i…</td>
+<td>模板 using Swift provider reports physical size, and not the virtual size i…</td>
 </tr>
 <tr class="row-odd"><td><a class="reference external" href="https://issues.apache.org/jira/browse/CLOUDSTACK-7443">CLOUDSTACK-7443</a></td>
-<td>Cannot launch SSVMs when using Swift as Secondary Storage…</td>
+<td>Cannot launch SSVMs when using Swift as 二级存储…</td>
 </tr>
 </tbody>
 </table>

@@ -64,7 +64,7 @@ In addition, the following hardware requirements apply:
    already running. These will be destroy by CloudStack.
 
 
-KVM Installation Overview
+KVM 安装 概述
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 If you want to use the Linux Kernel Virtual Machine (KVM) hypervisor to
@@ -83,16 +83,16 @@ host to work with CloudStack.
 
 The procedure for installing a KVM Hypervisor Host is:
 
-#. Prepare the Operating System
+#. Prepare the 操作系统
 
 #. Install and configure libvirt
 
-#. Configure Security Policies (AppArmor and SELinux)
+#. Configure 安全 Policies (AppArmor and SELinux)
 
 #. Install and configure the Agent
 
 
-Prepare the Operating System
+Prepare the 操作系统
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The OS of the Host must be prepared to host the CloudStack Agent and run
@@ -349,7 +349,7 @@ cloudstack-agent and should already be installed.
       $ service libvirt-bin restart
 
 
-Configure the Security Policies
+Configure the 安全 Policies
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 CloudStack does various things which can be blocked by security
@@ -1077,7 +1077,7 @@ To open the required ports, execute the following commands:
 
 Additional Packages Required for Features
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Secondary Storage Bypass
+二级存储 Bypass
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 New in 4.11 is the ability to bypass storing a template on secondary storage, and

@@ -15,7 +15,7 @@
 
 .. _Configuring_your_CloudStack_Installation:
 
-Configuring your CloudStack Installation
+安装配置 CloudStack 
 ========================================
 
 This section tells how to add regions, zones, pods, clusters, hosts,
@@ -24,12 +24,12 @@ entities, please begin by looking through `*Cloud Infrastructure Concepts*
 <http://docs.cloudstack.apache.org/en/latest/concepts.html#cloud-infrastructure-concepts>`_.
 
 
-Overview of Provisioning Steps
+概述 of Provisioning Steps
 ------------------------------
 
 After the 管理服务 is installed and running, you can add the
 compute resources for it to manage. For an overview of how a CloudStack
-cloud infrastructure is organized, see `“Cloud Infrastructure Overview” 
+cloud infrastructure is organized, see `“Cloud Infrastructure 概述” 
 <http://docs.cloudstack.apache.org/en/latest/concepts.html#cloud-infrastructure-overview>`_.
 
 To provision the cloud infrastructure, or to scale it up at any time,
@@ -321,9 +321,9 @@ Basic Zone Configuration
       ===============================================  ===================================================================================================================
       Network Offering                                 Description 
       ===============================================  ===================================================================================================================
-      DefaultSharedNetworkOfferingWithSGService        If you want to enable security groups for guest traffic isolation, choose this. (See Using Security Groups to                                                              Control Traffic to VMs.)
+      DefaultSharedNetworkOfferingWithSGService        If you want to enable security groups for guest traffic isolation, choose this. (See Using 安全组 to                                                              Control Traffic to VMs.)
       DefaultSharedNetworkOffering                     If you do not need security groups, choose this.
-      DefaultSharedNetscalerEIPandELBNetworkOffering   If you have installed a Citrix NetScaler appliance as part of your zone network, and you will be using its Elastic                                                         IP and Elastic Load Balancing features, choose this. With the EIP and ELB features, a basic zone with security                                                             groups enabled can offer 1:1 static NAT and load balancing. 
+      DefaultSharedNetscalerEIPandELBNetworkOffering   If you have installed a Citrix NetScaler appliance as part of your zone network, and you will be using its Elastic                                                         IP and Elastic 负载均衡 features, choose this. With the EIP and ELB features, a basic zone with security                                                             groups enabled can offer 1:1 static NAT and load balancing. 
       ===============================================  ===================================================================================================================
 
 
@@ -419,7 +419,7 @@ Basic Zone Configuration
 
    -  **Start/End Reserved System IP.** The IP range in the management
       network that CloudStack uses to manage various system VMs, such as
-      Secondary Storage VMs, Console Proxy VMs, and DHCP. For more
+      二级存储虚拟机s, 控制台代理 VMs, and DHCP. For more
       information, see System Reserved IP Addresses.
 
 #. Configure the network for guest traffic. Provide the following, then
@@ -451,9 +451,9 @@ Basic Zone Configuration
       appear so you can give information about a vSphere cluster. For
       vSphere servers, we recommend creating the cluster of hosts in
       vCenter and then adding the entire cluster to CloudStack. See Add
-      Cluster: vSphere.
+      集群: vSphere.
 
-   -  **Cluster name.** Enter a name for the cluster. This can be text
+   -  **集群 name.** Enter a name for the cluster. This can be text
       of your choosing and is not used by CloudStack.
 
 #. In a new cluster, CloudStack adds the first host for you. You can
@@ -470,11 +470,11 @@ Basic Zone Configuration
    additional configuration is required to ensure the host will work
    with CloudStack. To find these installation details, see:
 
-   -  Citrix XenServer Installation and Configuration
+   -  Citrix XenServer 安装 and Configuration
 
-   -  VMware vSphere Installation and Configuration
+   -  VMware vSphere 安装 and Configuration
 
-   -  KVM vSphere Installation and Configuration
+   -  KVM vSphere 安装 and Configuration
 
    To configure the first host, enter the following, then click Next:
 
@@ -494,7 +494,7 @@ Basic Zone Configuration
 
 #. In a new cluster, CloudStack adds the first primary storage server
    for you. You can always add more servers later. For an overview of
-   what primary storage is, see About Primary Storage.
+   what primary storage is, see About 主存储.
 
    To configure the first primary storage server, enter the following,
    then click Next:
@@ -576,7 +576,7 @@ Advanced Zone Configuration
    you must specify the corresponding Ethernet port profile names as
    network traffic label for each traffic type on the physical network.
    For more information on Nexus dvSwitch, see Configuring a vSphere
-   Cluster with Nexus 1000v Virtual Switch in the 安装指南. If
+   集群 with Nexus 1000v Virtual Switch in the 安装指南. If
    you have enabled VMware dvSwitch in the environment, you must specify
    the corresponding Switch name as network traffic label for each
    traffic type on the physical network. For more information, see
@@ -615,12 +615,12 @@ Advanced Zone Configuration
 
    -  **Start/End Reserved System IP.** The IP range in the management
       network that CloudStack uses to manage various system VMs, such as
-      Secondary Storage VMs, Console Proxy VMs, and DHCP. For more
+      二级存储虚拟机s, 控制台代理 VMs, and DHCP. For more
       information, see `“System Reserved IP Addresses” 
       <http://docs.cloudstack.apache.org/en/latest/concepts.html?highlight=about%20pods#id4>`_.
 
 #. Specify a range of VLAN IDs to carry guest traffic for each physical
-   network (see VLAN Allocation Example ), then click Next.
+   network (see VLAN 划分示例 ), then click Next.
 
 #. In a new pod, CloudStack adds the first cluster for you. You can
    always add more clusters later. For an overview of what a cluster is,
@@ -635,9 +635,9 @@ Advanced Zone Configuration
       appear so you can give information about a vSphere cluster. For
       vSphere servers, we recommend creating the cluster of hosts in
       vCenter and then adding the entire cluster to CloudStack. See Add
-      Cluster: vSphere .
+      集群: vSphere .
 
-   -  **Cluster name.** Enter a name for the cluster. This can be text
+   -  **集群 name.** Enter a name for the cluster. This can be text
       of your choosing and is not used by CloudStack.
 
 #. In a new cluster, CloudStack adds the first host for you. You can
@@ -654,11 +654,11 @@ Advanced Zone Configuration
    additional configuration is required to ensure the host will work
    with CloudStack. To find these installation details, see:
 
-   -  Citrix XenServer Installation for CloudStack
+   -  Citrix XenServer 安装 for CloudStack
 
-   -  VMware vSphere Installation and Configuration
+   -  VMware vSphere 安装 and Configuration
 
-   -  KVM Installation and Configuration
+   -  KVM 安装 and Configuration
 
    To configure the first host, enter the following, then click Next:
 
@@ -679,7 +679,7 @@ Advanced Zone Configuration
 
 #. In a new cluster, CloudStack adds the first primary storage server
    for you. You can always add more servers later. For an overview of
-   what primary storage is, see `“About Primary Storage” 
+   what primary storage is, see `“About 主存储” 
    <http://docs.cloudstack.apache.org/en/latest/concepts.html?highlight=about%20pods#about-primary-storage>`_.
 
    To configure the first primary storage server, enter the following,
@@ -749,12 +749,12 @@ Advanced Zone Configuration
       provide primary storage that has tags T1 and T2.
 
 #. In a new zone, CloudStack adds the first secondary storage server for
-   you. For an overview of what secondary storage is, see `“About Secondary Storage” 
+   you. For an overview of what secondary storage is, see `“About 二级存储” 
    <http://docs.cloudstack.apache.org/en/latest/concepts.html?highlight=about%20pods#about-secondary-storage>`_.
 
    Before you can fill out this screen, you need to prepare the
    secondary storage by setting up NFS shares and installing the latest
-   CloudStack System VM template. See Adding Secondary Storage :
+   CloudStack System VM template. See Adding 二级存储 :
 
    -  **NFS Server.** The IP address of the server or fully qualified
       domain name of the server.
@@ -772,7 +772,7 @@ Adding a Pod
 When you created a new zone, CloudStack adds the first pod for you. You
 can add more pods at any time using the procedure in this section.
 
-#. Log in to the CloudStack UI. See `“Log In to the UI” 
+#. Log in to the CloudStack UI. See `“登录 UI” 
    <http://docs.cloudstack.apache.org/projects/cloudstack-administration.html/en/latest/ui.html#log-in-to-the-ui>`_.
 
 #. In the left navigation, choose Infrastructure. In Zones, click View
@@ -794,7 +794,7 @@ can add more pods at any time using the procedure in this section.
 
    -  **Start/End Reserved System IP.** The IP range in the management
       network that CloudStack uses to manage various system VMs, such as
-      Secondary Storage VMs, Console Proxy VMs, and DHCP. For more
+      二级存储虚拟机s, 控制台代理 VMs, and DHCP. For more
       information, see System Reserved IP Addresses.
 
 #. Click OK.
@@ -802,7 +802,7 @@ can add more pods at any time using the procedure in this section.
 
 .. _adding-a-cluster:
 
-Adding a Cluster
+Adding a 集群
 ----------------
 
 You need to tell CloudStack about the hosts that it will manage. Hosts
@@ -810,7 +810,7 @@ exist inside clusters, so before you begin adding hosts to the cloud,
 you must add at least one cluster.
 
 
-Add Cluster: KVM or XenServer
+Add 集群: KVM or XenServer
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 These steps assume you have already installed the hypervisor on the
@@ -823,7 +823,7 @@ hosts and logged in to the CloudStack UI.
 
 #. In the Clusters node of the diagram, click View All.
 
-#. Click Add Cluster.
+#. Click Add 集群.
 
 #. Choose the hypervisor type for this cluster.
 
@@ -835,7 +835,7 @@ hosts and logged in to the CloudStack UI.
 #. Click OK.
 
 
-Add Cluster: vSphere
+Add 集群: vSphere
 ~~~~~~~~~~~~~~~~~~~~
 
 Host management for vSphere is done through a combination of vCenter and
@@ -873,7 +873,7 @@ To add a vSphere cluster to CloudStack:
 
 #. Click View Clusters.
 
-#. Click Add Cluster.
+#. Click Add 集群.
 
 #. In Hypervisor, choose VMware.
 
@@ -882,7 +882,7 @@ To add a vSphere cluster to CloudStack:
 
    |addcluster.png: add a cluster|
 
-   -  **Cluster Name**: Enter the name of the cluster you created in
+   -  **集群 Name**: Enter the name of the cluster you created in
       vCenter. For example, "cloud.cluster.2.2.1"
 
    -  **vCenter Username**: Enter the username that CloudStack should
@@ -1118,15 +1118,15 @@ Adding a Host (vSphere)
 
 For vSphere servers, we recommend creating the cluster of hosts in
 vCenter and then adding the entire cluster to CloudStack. See Add
-Cluster: vSphere.
+集群: vSphere.
 
 
 .. _add-primary-storage:
 
-Add Primary Storage
+Add 主存储
 -------------------
 
-System Requirements for Primary Storage
+System Requirements for 主存储
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Hardware requirements:
@@ -1149,7 +1149,7 @@ When setting up primary storage, follow these restrictions:
    true, or else you will not be able to start VMs.
 
 
-Adding Primary Storage
+Adding 主存储
 ~~~~~~~~~~~~~~~~~~~~~~
 
 When you create a new zone, the first primary storage is added as part
@@ -1162,7 +1162,7 @@ cluster.
    nothing on the storage (ex. you have an empty SAN volume or an empty NFS 
    share). Adding the storage to CloudStack will destroy any existing data.
 
-#. Log in to the CloudStack UI (see `“Log In to the UI” <http://docs.cloudstack.apache.org/projects/cloudstack-administration.html/en/latest/ui.html#log-in-to-the-ui>`_).
+#. Log in to the CloudStack UI (see `“登录 UI” <http://docs.cloudstack.apache.org/projects/cloudstack-administration.html/en/latest/ui.html#log-in-to-the-ui>`_).
 
 #. In the left navigation, choose Infrastructure. In Zones, click View
    More, then click the zone in which you want to add the primary
@@ -1170,9 +1170,9 @@ cluster.
 
 #. Click the Compute tab.
 
-#. In the Primary Storage node of the diagram, click View All.
+#. In the 主存储 node of the diagram, click View All.
 
-#. Click Add Primary Storage.
+#. Click Add 主存储.
 
 #. Provide the following information in the dialog. The information
    required varies depending on your choice in Protocol.
@@ -1180,10 +1180,10 @@ cluster.
    -  **Scope.** Indicate whether the storage is available to all hosts
       in the zone or only to hosts in a single cluster.
 
-   -  **Pod.** (Visible only if you choose Cluster in the Scope field.)
+   -  **Pod.** (Visible only if you choose 集群 in the Scope field.)
       The pod for the storage device.
 
-   -  **Cluster.** (Visible only if you choose Cluster in the Scope
+   -  **集群.** (Visible only if you choose 集群 in the Scope
       field.) The cluster for the storage device.
 
    -  **Name.** The name of the storage device.
@@ -1262,7 +1262,7 @@ Configuring a Storage Plug-in
 Adding primary storage that is based on the SolidFire plug-in enables
 CloudStack to provide hard quality-of-service (QoS) guarantees.
 
-When used with Compute or Disk Offerings, an administrator is able to
+When used with Compute or 磁盘方案, an administrator is able to
 build an environment in which a root or data disk that a user creates
 leads to the dynamic creation of a SolidFire volume, which has guaranteed
 performance. Such a SolidFire volume is associated with one (and only
@@ -1321,10 +1321,10 @@ example, '=' is represented as '%3D')]
 
 .. _add-secondary-storage:
 
-Add Secondary Storage
+Add 二级存储
 ---------------------
 
-System Requirements for Secondary Storage
+System Requirements for 二级存储
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 -  NFS storage appliance or Linux NFS server
@@ -1339,11 +1339,11 @@ System Requirements for Secondary Storage
 -  A secondary storage device must be located in the same zone as the
    guest VMs it serves.
 
--  Each Secondary Storage server must be available to all hosts in the
+-  Each 二级存储 server must be available to all hosts in the
    zone.
 
 
-Adding Secondary Storage
+Adding 二级存储
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 When you create a new zone, the first secondary storage is added as part
@@ -1369,9 +1369,9 @@ add more servers to an existing zone.
 
 #. In the left navigation bar, click Infrastructure.
 
-#. In Secondary Storage, click View All.
+#. In 二级存储, click View All.
 
-#. Click Add Secondary Storage.
+#. Click Add 二级存储.
 
 #. Fill in the following fields:
 
@@ -1385,7 +1385,7 @@ add more servers to an existing zone.
       For Hyper-V, select SMB/CIFS.
 
       .. warning::
-         Heterogeneous Secondary Storage is not supported in Regions. You can 
+         Heterogeneous 二级存储 is not supported in Regions. You can 
          use only a single NFS, S3, or Swift account per region.
 
    -  Create NFS Secondary Staging Store. This box must always be
@@ -1427,7 +1427,7 @@ zone:
 
 #. In the left navigation bar, click Infrastructure.
 
-#. In Secondary Storage, click View All.
+#. In 二级存储, click View All.
 
 #. In Select View, choose Secondary Staging Store.
 
@@ -1454,7 +1454,7 @@ of your network. When the initialization has completed successfully, the
 administrator's Dashboard should be displayed in the CloudStack UI.
 
 #. Verify that the system is ready. In the left navigation bar, select
-   Templates. Click on the CentOS 5.5 (64bit) no Gui (KVM) template.
+   模板. Click on the CentOS 5.5 (64bit) no Gui (KVM) template.
    Check to be sure that the status is "Download Complete." Do not
    proceed to the next step until this status is displayed.
 
@@ -1497,7 +1497,7 @@ administrator's Dashboard should be displayed in the CloudStack UI.
    Machines in the Administratorâ€™s Guide.
 
 Congratulations! You have successfully completed a CloudStack
-Installation.
+安装.
 
 If you decide to grow your deployment, you can add more hosts, primary
 storage, zones, pods, and clusters.
@@ -1580,7 +1580,7 @@ the global configuration settings.
 
 #. Find the name of the particular resource that you want to work with.
    For example, if you are in Infrastructure, click View All on the
-   Zones, Clusters, or Primary Storage area.
+   Zones, Clusters, or 主存储 area.
 
 #. Click the name of the resource where you want to set a limit.
 

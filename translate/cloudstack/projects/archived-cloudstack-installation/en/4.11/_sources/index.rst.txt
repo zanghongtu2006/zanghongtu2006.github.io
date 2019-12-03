@@ -13,13 +13,13 @@
    specific language governing permissions and limitations
    under the License.
 
-.. CloudStack Installation Documentation master file, created by
+.. CloudStack 安装 Documentation master file, created by
    sphinx-quickstart on Sat Jan 25 15:15:31 2014.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
 
-CloudStack Installation Documentation
+CloudStack 安装 Documentation
 =====================================
 
 .. figure:: /_static/images/acslogo.png
@@ -71,7 +71,7 @@ the administrator guide or the Release-Notes please see:
 
 .. _steps:
 
-Source Installation
+Source 安装
 -------------------
 .. toctree::
    :maxdepth: 2
@@ -81,7 +81,7 @@ Source Installation
 
 .. _installation:
 
-General Installation
+通用安装指南
 --------------------
 .. toctree::
    :maxdepth: 2
@@ -123,7 +123,7 @@ Hypervisor 安装和设置
 .. _storage:
 
 
-Storage Setup
+存储配置
 -------------
 .. toctree::
    :maxdepth: 2
@@ -131,7 +131,7 @@ Storage Setup
    storage_setup
 
 
-Optional Installation 
+Optional 安装 
 ---------------------
 .. toctree::
    :maxdepth: 2

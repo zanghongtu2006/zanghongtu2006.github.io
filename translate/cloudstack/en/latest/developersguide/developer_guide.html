@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>CloudStack Installation from GIT repo for Developers &mdash; Apache CloudStack 4.13.0.0 文档</title>
+  <title>CloudStack 安装 from GIT repo for Developers &mdash; Apache CloudStack 4.13.0.0 文档</title>
   
 
   
@@ -37,7 +37,7 @@
   <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Programmer Guide" href="dev.html" />
+    <link rel="next" title="开发者指南" href="dev.html" />
     <link rel="prev" title="开发者手册" href="index.html" /> 
 
 <!-- RTD Extra Head -->
@@ -117,33 +117,33 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../upgrading/index.html">升级 CloudStack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../adminguide/index.html">使用手册</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">开发者手册</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="developer_guide.html#">CloudStack Installation from GIT repo for Developers</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="developer_guide.html#prerequisites">Prerequisites</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="developer_guide.html#">CloudStack 安装 from GIT repo for Developers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="developer_guide.html#prerequisites">前提</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="developer_guide.html#example-ubuntu-18-04">Example Ubuntu 18.04</a></li>
 <li class="toctree-l4"><a class="reference internal" href="developer_guide.html#example-centos-7">Example CentOS 7</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="developer_guide.html#installing-cloudstack-from-source">Installing CloudStack from Source</a></li>
-<li class="toctree-l3"><a class="reference internal" href="developer_guide.html#using-the-simulator">Using the Simulator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer_guide.html#installing-cloudstack-from-source">从代码编译安装 CloudStack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer_guide.html#using-the-simulator">使用模拟器</a></li>
 <li class="toctree-l3"><a class="reference internal" href="developer_guide.html#building-non-free-packages">Building non-free Packages</a></li>
 <li class="toctree-l3"><a class="reference internal" href="developer_guide.html#using-devcloud">Using DevCloud</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="developer_guide.html#adding-devcloud-as-an-hypervisor">Adding DevCloud as an Hypervisor</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="developer_guide.html#building-packages">Building Packages</a></li>
-<li class="toctree-l3"><a class="reference internal" href="developer_guide.html#the-cloudstack-api">The CloudStack API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer_guide.html#building-packages">打包</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer_guide.html#the-cloudstack-api">CloudStack API</a></li>
 <li class="toctree-l3"><a class="reference internal" href="developer_guide.html#testing-the-aws-api-interface">Testing the AWS API interface</a></li>
 <li class="toctree-l3"><a class="reference internal" href="developer_guide.html#conclusions">Conclusions</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="dev.html">Programmer Guide</a></li>
-<li class="toctree-l2"><a class="reference internal" href="plugins.html">Plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dev.html">开发者指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugins.html">插件</a></li>
 <li class="toctree-l2"><a class="reference internal" href="alloc.html">Allocators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ansible.html">Deploying CloudStack with Ansible</a></li>
-<li class="toctree-l2"><a class="reference internal" href="get_help.html">Getting Help</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ansible.html">使用 Ansible 部署 CloudStack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="get_help.html">获得帮助</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../plugins/index.html">Plugins Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/index.html">插件使用手册</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">发行版本说明</a></li>
 </ul>
 <p class="caption"><span class="caption-text">其它:</span></p>
@@ -206,7 +206,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
         
           <li><a href="index.html">开发者手册</a> &raquo;</li>
         
-      <li>CloudStack Installation from GIT repo for Developers</li>
+      <li>CloudStack 安装 from GIT repo for Developers</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -228,23 +228,23 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
            <div itemprop="articleBody">
             
   <div class="section" id="cloudstack-installation-from-git-repo-for-developers">
-<h1>CloudStack Installation from GIT repo for Developers<a class="headerlink" href="developer_guide.html#cloudstack-installation-from-git-repo-for-developers" title="Permalink to this headline">¶</a></h1>
+<h1>CloudStack 安装 from GIT repo for Developers<a class="headerlink" href="developer_guide.html#cloudstack-installation-from-git-repo-for-developers" title="Permalink to this headline">¶</a></h1>
 <p>This guide is aimed at CloudStack developers who need to build the code.
 These instructions are valid on a Ubuntu 18.04 and CentOS 7 systems
 and were tested with the 4.11 release of Apache CloudStack.  Please
 adapt them if you are on a different operating system or using a newer/older
 version of CloudStack. This book is composed of the following sections:</p>
 <ol class="arabic simple">
-<li>Installation of the prerequisites</li>
+<li>安装 of the prerequisites</li>
 <li>Compiling and installation from source</li>
 <li>Using the CloudStack simulator</li>
-<li>Installation with DevCloud the CloudStack sandbox</li>
+<li>安装 with DevCloud the CloudStack sandbox</li>
 <li>Building your own packages</li>
-<li>The CloudStack API</li>
+<li>CloudStack API</li>
 <li>Testing the AWS API interface</li>
 </ol>
 <div class="section" id="prerequisites">
-<h2>Prerequisites<a class="headerlink" href="developer_guide.html#prerequisites" title="Permalink to this headline">¶</a></h2>
+<h2>前提<a class="headerlink" href="developer_guide.html#prerequisites" title="Permalink to this headline">¶</a></h2>
 <p>In this section we’ll look at installing the dependencies you’ll need
 for Apache CloudStack development.</p>
 <p>To build and test CloudStack from source you will need the following
@@ -273,7 +273,7 @@ installed:
 </div>
 </div>
 <div class="section" id="installing-cloudstack-from-source">
-<h2>Installing CloudStack from Source<a class="headerlink" href="developer_guide.html#installing-cloudstack-from-source" title="Permalink to this headline">¶</a></h2>
+<h2>从代码编译安装 CloudStack<a class="headerlink" href="developer_guide.html#installing-cloudstack-from-source" title="Permalink to this headline">¶</a></h2>
 <p>CloudStack uses git for source version control, if you know little about
 <a class="reference external" href="http://book.git-scm.com/">git</a> is a good start. Once you have git
 setup on your machine, pull the source with:</p>
@@ -319,7 +319,7 @@ following section shows you how to use the simulator so that you don’t
 have to setup a physical infrastructure.</p>
 </div>
 <div class="section" id="using-the-simulator">
-<h2>Using the Simulator<a class="headerlink" href="developer_guide.html#using-the-simulator" title="Permalink to this headline">¶</a></h2>
+<h2>使用模拟器<a class="headerlink" href="developer_guide.html#using-the-simulator" title="Permalink to this headline">¶</a></h2>
 <p>CloudStack comes with a simulator for hosts, VMs and network infrastructure,
 allowing you to use the CloudStack management server without using real
 servers.  It also comes with Marvin, which can create a set of
@@ -425,7 +425,7 @@ instance:</p>
 </pre></div>
 </div>
 <p>If you are curious, check the <code class="docutils literal notranslate"><span class="pre">devcloud.cfg</span></code> file and see how the data
-center is defined: 1 Zone, 1 Pod, 1 Cluster, 1 Host, 1 primary Storage,
+center is defined: 1 Zone, 1 Pod, 1 集群, 1 Host, 1 primary Storage,
 1 Seondary Storage, all provided by Devcloud.</p>
 <p>You can now log in the management server at
 <code class="docutils literal notranslate"><span class="pre">http://localhost:8080/client</span></code> and start experimenting with the UI or
@@ -437,7 +437,7 @@ multiple DevClouds.</p>
 </div>
 </div>
 <div class="section" id="building-packages">
-<h2>Building Packages<a class="headerlink" href="developer_guide.html#building-packages" title="Permalink to this headline">¶</a></h2>
+<h2>打包<a class="headerlink" href="developer_guide.html#building-packages" title="Permalink to this headline">¶</a></h2>
 <p>Working from source is necessary when developing CloudStack. As
 mentioned earlier this is not primarily intended for users. However some
 may want to modify the code for their own use and specific
@@ -476,8 +476,8 @@ your own repo. Instructions on how to use this community repository are
 available in the installation book.</p>
 </div>
 <div class="section" id="the-cloudstack-api">
-<span id="the-api"></span><h2>The CloudStack API<a class="headerlink" href="developer_guide.html#the-cloudstack-api" title="Permalink to this headline">¶</a></h2>
-<p>The CloudStack API is a query based API using http that return results
+<span id="the-api"></span><h2>CloudStack API<a class="headerlink" href="developer_guide.html#the-cloudstack-api" title="Permalink to this headline">¶</a></h2>
+<p>CloudStack API is a query based API using http that return results
 in XML or JSON. It is used to implement the default web UI. This API is
 not a standard like <a class="reference external" href="http://www.ogf.org/gf/group_info/view.php?group=occi-wg">OGF
 OCCI</a> or
@@ -628,7 +628,7 @@ start the AWS API interface in a separate shell with:</p>
 </pre></div>
 </div>
 <p>Log into the CloudStack UI <code class="docutils literal notranslate"><span class="pre">http://localhost:8080/client</span></code>, go to
-<em>Service Offerings</em> and edit one of the compute offerings to have the
+<em>计算方案</em> and edit one of the compute offerings to have the
 name <code class="docutils literal notranslate"><span class="pre">m1.small</span></code> or any of the other AWS EC2 instance types.</p>
 <p>With access and secret keys generated for a user you should now be able
 to use Python <a class="reference external" href="http://docs.pythonboto.org/en/latest/">Boto</a> module:</p>
@@ -657,7 +657,7 @@ CloudStack releases.</p>
 It consists of a management server and depending on the hypervisors
 being used, an agent installed on the hypervisor farm. To complete a
 Cloud infrastructure however you will also need some Zone wide storage
-a.k.a Secondary Storage and some Cluster wide storage a.k.a Primary
+a.k.a 二级存储 and some 集群 wide storage a.k.a Primary
 storage. The choice of hypervisor, storage solution and type of Zone
 (i.e Basic vs. Advanced) will dictate how complex your installation can
 be. As a quick start, you might want to consider KVM+NFS and a Basic
@@ -675,7 +675,7 @@ cloudstack-dev <a class="reference external" href="http://cloudstack.apache.org/
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="dev.html" class="btn btn-neutral float-right" title="Programmer Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="dev.html" class="btn btn-neutral float-right" title="开发者指南" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="index.html" class="btn btn-neutral float-left" title="开发者手册" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

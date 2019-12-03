@@ -59,8 +59,8 @@ Port forwarding            Physical                             Physical and Vir
 1:1 NAT                    Physical                             Physical and Virtual
 Source NAT                 No                                   Physical and Virtual
 Userdata                   Yes                                  Yes
-Network usage monitoring   sFlow / netFlow at physical router   Hypervisor and Virtual Router
-DNS and DHCP               Yes                                  Yes
+Network usage monitoring   sFlow / netFlow at physical router   Hypervisor and 虚拟路由器
+DNS 和 DHCP               Yes                                  Yes
 =========================  ===================================  ===============================
 
 The two types of networking may be in use in the same cloud. However, a
@@ -73,7 +73,7 @@ a single physical network, make sure the VLAN tags are in separate
 numerical ranges.
 
 
-VLAN Allocation Example
+VLAN 划分示例
 -----------------------
 
 VLANs are required for public and guest traffic. The following is an
@@ -93,7 +93,7 @@ greater than 1000   Reserved for future use
 ==================  =========================================================  =======================================================================
 
 
-Example Hardware Configuration
+硬件交换机配置示例
 ------------------------------
 
 This section contains an example configuration of specific switch models
@@ -174,7 +174,7 @@ The statements configure GigabitEthernet1/0/1 as follows:
    are passed to all the pod-level layer-2 switches.
 
 
-Layer-2 Switch
+二层交换机
 --------------
 
 The layer-2 switch is the access switching layer inside the pod.
@@ -503,7 +503,7 @@ Guidelines
    switch to create a guest network in CloudStack.
 
 
-Prerequisites
+前提
 '''''''''''''
 
 #. Configure Cisco Nexus 1000v dvSwitch in a vCenter environment.
@@ -514,7 +514,7 @@ Prerequisites
    CloudStack.
 
    For information on configuration, see 
-   `“Configuring a vSphere Cluster with Nexus 1000v Virtual Switch” 
+   `“Configuring a vSphere 集群 with Nexus 1000v Virtual Switch” 
    <hypervisor_installation.html#configuring-a-vsphere-cluster-with-nexus-1000v-virtual-switch>`_.
 
 #. Deploy and configure Cisco VNMC.
@@ -533,7 +533,7 @@ Prerequisites
 #. Create Inside and Outside port profiles in Cisco Nexus 1000v dvSwitch.
 
    For more information, see 
-   `“Configuring a vSphere Cluster with Nexus 1000v Virtual Switch” 
+   `“Configuring a vSphere 集群 with Nexus 1000v Virtual Switch” 
    <hypervisor_installation.html#configuring-a-vsphere-cluster-with-nexus-1000v-virtual-switch>`_.
 
 #. Deploy and Cisco ASA 1000v appliance.
@@ -573,7 +573,7 @@ Using Cisco ASA 1000v Services
 
 #. Ensure that all the prerequisites are met.
 
-   See `“Prerequisites” <#prerequisites>`_.
+   See `“前提” <#prerequisites>`_.
 
 #. Add a VNMC instance.
 
@@ -657,7 +657,7 @@ Adding an ASA 1000v Instance
    -  **Inside Port Profile**: The Inside Port Profile configured on
       Cisco Nexus1000v dvSwitch.
 
-   -  **Cluster**: The VMware cluster to which you are adding the ASA
+   -  **集群**: The VMware cluster to which you are adding the ASA
       1000v instance.
 
       Ensure that the cluster is Cisco Nexus 1000v dvSwitch enabled.
@@ -869,10 +869,10 @@ still available but the system VMs will not be able to contact the
 management server.
 
 
-Topology Requirements
+拓扑要求
 ---------------------
 
-Security Requirements
+安全 Requirements
 ~~~~~~~~~~~~~~~~~~~~~
 
 The public Internet must not be able to access port 8096 or port 8250 on
@@ -896,7 +896,7 @@ Runtime Internal Communications Requirements
    port 8250 must be reachable.
 
 
-Storage Network Topology Requirements
+Storage Network 拓扑要求
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The secondary storage NFS export is mounted by the secondary storage VM.
@@ -907,29 +907,29 @@ storage NFS servers on the storage network, you must make sure there is
 a route from the management traffic network to the storage network.
 
 
-External Firewall Topology Requirements
+External Firewall 拓扑要求
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 When external firewall integration is in place, the public IP VLAN must
 still be trunked to the Hosts. This is required to support the Secondary
-Storage VM and Console Proxy VM.
+Storage VM and 控制台代理 VM.
 
 
-Advanced Zone Topology Requirements
+Advanced Zone 拓扑要求
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 With Advanced Networking, separate subnets must be used for private and
 public networks.
 
 
-XenServer Topology Requirements
+XenServer 拓扑要求
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The Management Servers communicate with XenServer hosts on ports 22
 (ssh), 80 (HTTP), and 443 (HTTPs).
 
 
-VMware Topology Requirements
+VMware 拓扑要求
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 -  The 管理服务 and secondary storage VMs must be able to
@@ -943,7 +943,7 @@ VMware Topology Requirements
    (ssh) on the management traffic network.
 
 
-Hyper-V Topology Requirements
+Hyper-V 拓扑要求
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 CloudStack 管理服务 communicates with Hyper-V Agent by using
@@ -951,13 +951,13 @@ HTTPS. For secure communication between the 管理服务 and the
 Hyper-V host, open port 8250.
 
 
-KVM Topology Requirements
+KVM 拓扑要求
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The Management Servers communicate with KVM hosts on port 22 (ssh).
 
 
-LXC Topology Requirements
+LXC 拓扑要求
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The Management Servers communicate with LXC hosts on port 22 (ssh).

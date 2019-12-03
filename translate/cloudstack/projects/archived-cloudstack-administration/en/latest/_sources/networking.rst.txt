@@ -144,7 +144,7 @@ offering.
 +----------------------+-----------+------------+----------+-------------+-------------+
 | Firewall             | Yes       | No         | Yes      | No          | No          |
 +----------------------+-----------+------------+----------+-------------+-------------+
-| Load Balancing       | Yes       | Yes        | No       | Yes         | No          |
+| 负载均衡       | Yes       | Yes        | No       | Yes         | No          |
 +----------------------+-----------+------------+----------+-------------+-------------+
 | Elastic IP           | No        | Yes        | No       | No          | No          |
 +----------------------+-----------+------------+----------+-------------+-------------+
@@ -158,7 +158,7 @@ offering.
 +----------------------+-----------+------------+----------+-------------+-------------+
 
 
-Network Offerings
+网络方案
 -----------------
 
 .. note:: 
@@ -177,7 +177,7 @@ A network offering is a named set of network services, such as:
 
 -  Port Forwarding
 
--  Load Balancing
+-  负载均衡
 
 -  Firewall
 
@@ -228,7 +228,7 @@ To create a network offering:
 
 #. Log in with admin privileges to the CloudStack UI.
 
-#. In the left navigation bar, click Service Offerings.
+#. In the left navigation bar, click 计算方案.
 
 #. In Select Offering, choose Network Offering.
 
@@ -284,8 +284,8 @@ To create a network offering:
       =================== ============================================================================ ============= =============
       Supported Services  Description                                                                  Isolated      Shared   
       =================== ============================================================================ ============= =============
-      DHCP                For more information, see `“DNS and DHCP” <networking2.html#dns-and-dhcp>`_. Supported     Supported
-      DNS                 For more information, see `“DNS and DHCP” <networking2.html#dns-and-dhcp>`_. Supported     Supported
+      DHCP                For more information, see `“DNS 和 DHCP” <networking2.html#dns-and-dhcp>`_. Supported     Supported
+      DNS                 For more information, see `“DNS 和 DHCP” <networking2.html#dns-and-dhcp>`_. Supported     Supported
       Load Balancer       If you select Load Balancer, you can choose the CloudStack virtual           Supported     Supported
                           router or any other load balancers that have been configured in
                           the cloud.
@@ -305,7 +305,7 @@ To create a network offering:
                           Data” <api.html#user-data-and-meta-data>`_.
       Network ACL         For more information, see `“Configuring Network Access                       Supported     Not Supported
                           Control List” <networking2.html#configuring-network-access-control-list>`_.
-      Security Groups     For more information, see `“Adding a Security                                Not Supported Supported
+      安全组     For more information, see `“Adding a 安全                                Not Supported Supported
                           Group” <networking2.html#adding-a-security-group>`_.
       =================== ============================================================================ ============= =============
 
@@ -320,7 +320,7 @@ To create a network offering:
       system service offering and any custom system service offerings
       that have been defined by the CloudStack root administrator.
 
-      For more information, see `“System Service Offerings” 
+      For more information, see `“System 计算方案” 
       <service_offerings.html#system-service-offerings>`_.
 
    -  **LB Isolation**: Specify what type of load balancer isolation you

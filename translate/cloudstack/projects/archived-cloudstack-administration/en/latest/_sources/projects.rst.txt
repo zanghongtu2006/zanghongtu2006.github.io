@@ -17,7 +17,7 @@
 Using Projects to Organize Users and Resources
 ==============================================
 
-Overview of Projects
+项目概述
 --------------------
 
 Projects are used to organize people and resources. CloudStack users
@@ -69,7 +69,7 @@ domain; however, you can not create private service and disk offerings
 at the project level..
 
 
-Configuring Projects
+设置项目
 --------------------
 
 Before CloudStack users start using projects, the CloudStack
@@ -195,7 +195,7 @@ Setting the Global Project Resource Limits
    +--------------------------+------------------------------------------------------------------------------------------------------------------------------+
    | max.project.snapshots    | Maximum number of snapshots that can be owned by any project in the cloud. See Working with Snapshots.                       |
    +--------------------------+------------------------------------------------------------------------------------------------------------------------------+
-   | max.project.templates    | Maximum number of templates that can be owned by any project in the cloud. See Working with Templates.                       |
+   | max.project.templates    | Maximum number of templates that can be owned by any project in the cloud. See 模板.                       |
    +--------------------------+------------------------------------------------------------------------------------------------------------------------------+
    | max.project.uservms      | Maximum number of guest virtual machines that can be owned by any project in the cloud. See Working With Virtual Machines.   |
    +--------------------------+------------------------------------------------------------------------------------------------------------------------------+
@@ -236,7 +236,7 @@ or you can restrict that ability to just CloudStack administrators.
       # service cloudstack-management restart
 
 
-Creating a New Project
+创建新项目
 ----------------------
 
 CloudStack administrators and domain administrators can create projects.
@@ -260,7 +260,7 @@ to true, end users can also create projects.
 #. Click Save.
 
 
-Adding Members to a Project
+为项目添加成员
 ---------------------------
 
 New members can be added to a project by the project’s administrator,
@@ -296,7 +296,7 @@ not turned on, use the procedure in Adding Project Members From the UI.
 #. In Add by, select one of the following:
 
    #. Account – The invitation will appear in the user’s Invitations tab
-      in the Project View. See Using the Project View.
+      in the Project View. See 项目视图.
 
    #. Email – The invitation will be sent to the user’s email address.
       Each emailed invitation includes a unique code called a token
@@ -343,7 +343,7 @@ Invitations” <#sending-project-membership-invitations>`_.
    cloud and within the same domain as the project.
 
 
-Accepting a Membership Invitation
+接受项目邀请
 ---------------------------------
 
 If you have received an invitation to join a CloudStack project, and you
@@ -364,7 +364,7 @@ want to accept the invitation, follow these steps:
    and provide the project ID and unique ID code (token) from the email.
 
 
-Suspending or Deleting a Project
+挂起、删除项目
 --------------------------------
 
 When a project is suspended, it retains the resources it owns, but they
@@ -394,7 +394,7 @@ parent domain, or the CloudStack root administrator.
    To suspend, use |Suspends a project|
 
 
-Using the Project View
+项目视图
 ----------------------
 
 If you are a member of a project, you can use CloudStack’s project view

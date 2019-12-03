@@ -58,7 +58,7 @@ Issues Fixed in 4.11.1.0
 | 4.11                    | `#2704`_ |                    |               |          | ui: fix create VPC dialog box failure when zone is SG      |
 |                         |          |                    |               |          | enabled                                                    |
 +-------------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
-| 4.11                    | `#2693`_ |                    |               |          | Fix to enable Advanced zones with Security groups and      |
+| 4.11                    | `#2693`_ |                    |               |          | Fix to enable Advanced zones with 安全 groups and      |
 |                         |          |                    |               |          | VXLAN isolation type                                       |
 +-------------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
 | 4.11                    | `#2697`_ |                    |               |          | agent: Avoid sudo, renew certificates assuming root        |
@@ -194,7 +194,7 @@ Issues Fixed in 4.11.1.0
 +-------------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
 | 4.11                    | `#2573`_ | CLOUDSTACK-10356_  | Bug           | Major    | Fix Some Potential NPE                                     |
 +-------------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
-| 4.11                    | `#2412`_ | CLOUDSTACK-9677_   | Improvement   | Major    | Swift Storage Policy support for Secondary Storage         |
+| 4.11                    | `#2412`_ | CLOUDSTACK-9677_   | Improvement   | Major    | Swift Storage Policy support for 二级存储         |
 +-------------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
 | 4.11                    | `#2594`_ |                    |               |          | Remove 'NetworkManagerTestComponentLibrary' empty class    |
 |                         |          |                    |               |          | and related configurations                                 |
@@ -441,7 +441,7 @@ Issues Fixed in 4.11.1.0
 | 4.11                    | `#2444`_ | CLOUDSTACK-10269_  | Bug           | Major    | Allow deletion of roles without causing concurrent         |
 |                         |          |                    |               |          | exception                                                  |
 +-------------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
-| 4.11                    | `#2405`_ | CLOUDSTACK-10146_  | Bug           | Major    | Bypass Secondary Storage for KVM templates                 |
+| 4.11                    | `#2405`_ | CLOUDSTACK-10146_  | Bug           | Major    | Bypass 二级存储 for KVM templates                 |
 +-------------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
 | 4.11                    | `#2398`_ | CLOUDSTACK-10222_  | Bug           | Major    | Clean previous snaphosts from primary storage when taking  |
 |                         |          |                    |               |          | new one                                                    |
@@ -816,7 +816,7 @@ Issues Fixed in 4.11.0.0
 +-------------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
 | 4.11                    | `#2403`_ | CLOUDSTACK-10227_  | Bug           | Blocker  | Stabilization fixes for master/4.11                        |
 +-------------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
-| 4.11                    | `#2396`_ | CLOUDSTACK-10220_  | Bug           | Major    | IPv4 NIC alias is not added on Virtual Router in Basic     |
+| 4.11                    | `#2396`_ | CLOUDSTACK-10220_  | Bug           | Major    | IPv4 NIC alias is not added on 虚拟路由器 in Basic     |
 |                         |          |                    |               |          | Networking when NIC has IPv6 address                       |
 +-------------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
 | 4.11                    | `#2362`_ | CLOUDSTACK-10188_  | Bug           | Major    | Resource Accounting for primary storage is Broken          |
@@ -827,7 +827,7 @@ Issues Fixed in 4.11.0.0
 | 4.11                    | `#2388`_ | CLOUDSTACK-10212_  | Bug           | Major    | Changing IPv4 Address of NIC in Basic Networking does not  |
 |                         |          |                    |               |          | update the gateway                                         |
 +-------------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
-| 4.11                    | `#2379`_ | CLOUDSTACK-10146_  | Bug           | Major    | Bypass Secondary Storage for KVM templates                 |
+| 4.11                    | `#2379`_ | CLOUDSTACK-10146_  | Bug           | Major    | Bypass 二级存储 for KVM templates                 |
 +-------------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
 | 4.11                    | `#2391`_ | CLOUDSTACK-10215_  | Bug           | Major    | Excessive log4j debug level in CPVM, SSVM could lead to FS |
 |                         |          |                    |               |          | overflow                                                   |
@@ -862,7 +862,7 @@ Issues Fixed in 4.11.0.0
 | 4.11                    | `#1740`_ | CLOUDSTACK-9572_   | Bug           | Major    | Snapshot on primary storage not cleaned up after Storage   |
 |                         |          |                    |               |          | migration                                                  |
 +-------------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
-| 4.11                    | `#2104`_ | CLOUDSTACK-9908_   | Bug           | Major    | Primary Storage allocated capacity goes very high after VM |
+| 4.11                    | `#2104`_ | CLOUDSTACK-9908_   | Bug           | Major    | 主存储 allocated capacity goes very high after VM |
 |                         |          |                    |               |          | snapshot                                                   |
 +-------------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
 | 4.11                    | `#2378`_ | CLOUDSTACK-10205_  | Bug           | Major    | LinkDomainToLdap returns internal id                       |
@@ -936,7 +936,7 @@ Issues Fixed in 4.11.0.0
 +-------------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
 | 4.11                    | `#2337`_ | CLOUDSTACK-10157_  | Bug           | Major    | Wrong notification while migration                         |
 +-------------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
-| 4.11                    | `#2355`_ | CLOUDSTACK-10177_  | Bug           | Major    | NPE when programming Security Groups with KVM              |
+| 4.11                    | `#2355`_ | CLOUDSTACK-10177_  | Bug           | Major    | NPE when programming 安全组 with KVM              |
 +-------------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
 | 4.11                    | `#2349`_ | CLOUDSTACK-10070_  | Bug           | Major    | Extend travis run to include more component tests          |
 +-------------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
@@ -951,7 +951,7 @@ Issues Fixed in 4.11.0.0
 | 4.11                    | `#2342`_ | CLOUDSTACK-9586_   | Bug           | Critical | When using local storage with Xenserver prepareTemplate    |
 |                         |          |                    |               |          | does not work with multiple primary store                  |
 +-------------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
-| 4.11                    | `#2124`_ | CLOUDSTACK-9432_   | Bug           | Critical | Dedicate Cluster to Domain always creates an affinity      |
+| 4.11                    | `#2124`_ | CLOUDSTACK-9432_   | Bug           | Critical | Dedicate 集群 to Domain always creates an affinity      |
 |                         |          |                    |               |          | group owned by the root domain                             |
 +-------------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
 | 4.11                    | `#2322`_ | CLOUDSTACK-10140_  | Bug           | Critical | When template is created from snapshot template.properties |
@@ -1113,16 +1113,16 @@ Issues Fixed in 4.11.0.0
 | 4.11                    | `#2182`_ | CLOUDSTACK-10000_  | Bug           | Major    | Remote access vpn user does not work if user password      |
 |                         |          |                    |               |          | contains '#'                                               |
 +-------------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
-| 4.9*                    | `#2233`_ | CLOUDSTACK-10042_  | Bug           | Major    | UI doesn't show ICMP Type and Code for Security Group      |
+| 4.9*                    | `#2233`_ | CLOUDSTACK-10042_  | Bug           | Major    | UI doesn't show ICMP Type and Code for 安全 Group      |
 |                         |          |                    |               |          | rules                                                      |
 +-------------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
 | 4.11                    | `#2228`_ | CLOUDSTACK-10036_  | Bug           | Major    | Decrease timeout of failing unit test                      |
 |                         |          |                    |               |          | HypervisorUtilsTest.java                                   |
 +-------------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
-| 4.11                    | `#1774`_ | CLOUDSTACK-9608_   | Bug           | Major    | Errored State and Abandoned state Templates are not        |
+| 4.11                    | `#1774`_ | CLOUDSTACK-9608_   | Bug           | Major    | Errored State and Abandoned state 模板 are not        |
 |                         |          |                    |               |          | displayed on UI                                            |
 +-------------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
-| 4.11                    | `#2144`_ | CLOUDSTACK-9955_   | Bug           | Minor    | Featured Templates/Iso's created by Root/admin user are    |
+| 4.11                    | `#2144`_ | CLOUDSTACK-9955_   | Bug           | Minor    | Featured 模板/Iso's created by Root/admin user are    |
 |                         |          |                    |               |          | not visible to Domain Admin users                          |
 +-------------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
 | 4.9*                    | `#1966`_ | CLOUDSTACK-9801_   | Bug           | Critical | IPSec VPN does not work after vRouter reboot or recreate   |

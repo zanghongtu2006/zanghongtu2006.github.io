@@ -17,7 +17,7 @@
 快速安装向导 for CentOS 6
 =====================================
 
-Overview
+概述
 --------
 
 What exactly are we building?
@@ -35,18 +35,18 @@ High level overview of the process
 
 This runbook will focus on building a CloudStack cloud using KVM on CentOS 
 6.8 with NFS storage on a flat layer-2 network utilizing layer-3 network 
-isolation (aka Security Groups), and doing it all on a single piece of 
+isolation (aka 安全组), and doing it all on a single piece of 
 hardware.
 
 KVM, or Kernel-based Virtual Machine is a virtualization technology for the 
 Linux kernel. KVM supports native virtualization atop processors with hardware 
 virtualization extensions.
 
-Security Groups act as distributed firewalls that control access to a group of 
+安全组 act as distributed firewalls that control access to a group of 
 virtual machines.
 
 
-Prerequisites
+前提
 ~~~~~~~~~~~~~
 
 To complete this runbook you'll need the following items:
@@ -68,7 +68,7 @@ Before you begin , you need to prepare the environment before you install
 CloudStack. We will go over the steps to prepare now.
 
 
-Operating System
+操作系统
 ~~~~~~~~~~~~~~~~
 
 Using the CentOS 6.8 x86_64 minimal install ISO, you'll need to install CentOS 6 
@@ -209,7 +209,7 @@ To ensure that it remains in that state we need to configure the file
    SELINUX=permissive
    # SELINUXTYPE= can take one of these two values:
    # targeted - Targeted processes are protected,
-   # mls - Multi Level Security protection.
+   # mls - Multi Level 安全 protection.
    SELINUXTYPE=targeted
 
 
@@ -220,7 +220,7 @@ NTP
 
 NTP configuration is a necessity for keeping all of the clocks in your cloud 
 servers in sync. However, NTP is not installed by default. So we'll install 
-and and configure NTP at this stage. Installation is accomplished as follows:
+and and configure NTP at this stage. 安装 is accomplished as follows:
 
 .. sourcecode:: bash
 
@@ -347,7 +347,7 @@ it on the host by executing the following commands:
 We're going to install the CloudStack management server and surrounding tools. 
 
 
-Database Installation and Configuration
+数据库安装和配置
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 We'll start with installing MySQL and configuring some options to ensure it 
@@ -380,7 +380,7 @@ start on boot as follows:
    # chkconfig mysqld on
 
 
-MySQL connector Installation
+安装 MySQL connector 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Install Python MySQL connector using the official MySQL packages repository.
@@ -407,7 +407,7 @@ Install mysql-connector
    yum install mysql-connector-python
 
 
-Installation
+安装
 ~~~~~~~~~~~~
 
 We are now going to install the management server. We do that by executing the 
@@ -437,7 +437,7 @@ up the management server by issuing the following command:
 If the servlet container is Tomcat7 the argument --tomcat7 must be used.
 
 
-System Template Setup
+系统虚拟机模板导入
 ~~~~~~~~~~~~~~~~~~~~~
 
 CloudStack uses a number of system VMs to provide functionality for accessing 
@@ -461,7 +461,7 @@ That concludes our setup of the management server. We still need to configure
 CloudStack, but we will do that after we get our hypervisor set up.
 
 
-KVM Setup and Installation
+KVM Setup and 安装
 --------------------------
 
 KVM is the hypervisor we'll be using - we will recover the initial setup which 
@@ -470,7 +470,7 @@ agent software, you can use the same steps to add additional KVM nodes to your
 CloudStack environment.
 
 
-Prerequisites
+前提
 ~~~~~~~~~~~~~
 
 We explicitly are using the management server as a compute node as well, which 
@@ -492,10 +492,10 @@ You shouldn't need to do that for the management server, of course, but any
 additional hosts will need for you to complete the above steps.
 
 
-Installation
+安装
 ~~~~~~~~~~~~
 
-Installation of the KVM agent is trivial with just a single command, but 
+安装 of the KVM agent is trivial with just a single command, but 
 afterwards we'll need to configure a few things.
 
 .. sourcecode:: bash
@@ -580,7 +580,7 @@ means that the simplicity of our setup means that we can use the quick
 installer.
 
 
-UI Access
+UI 控制台
 ~~~~~~~~~
 
 To get access to CloudStack's web interface, merely point your browser to 
@@ -593,7 +593,7 @@ You should now see a prompt requiring you to change the password for the admin
 user. Please do so.
 
 
-Setting up a Zone
+创建资源域
 ~~~~~~~~~~~~~~~~~
 
 A zone is the largest organization entity in CloudStack - and we'll be 
@@ -622,7 +622,7 @@ for us there are 5 pieces of information that we need.
    requirements.
 
 
-Pod Configuration
+配置 Pod
 ~~~~~~~~~~~~~~~~~
 
 Now that we've added a Zone, the next step that comes up is a prompt for 
@@ -643,7 +643,7 @@ information regading a pod. Which is looking for several items.
 #. Guest start/end IP - We'll use ``172.16.10.30-172.16.10.200``
 
 
-Cluster
+集群
 ~~~~~~~
 
 Now that we've added a Zone, we need only add a few more items for configuring 
@@ -664,7 +664,7 @@ Only a few bits of information are needed.
 #. Password - enter the operating system password for the root user
 
 
-Primary Storage
+主存储
 ^^^^^^^^^^^^^^^
 
 With your cluster now setup - you should be prompted for primary storage 
@@ -678,7 +678,7 @@ values in the fields:
 #. Path - Well define ``/export/primary`` as the path we are using
 
 
-Secondary Storage
+二级存储
 ^^^^^^^^^^^^^^^^^
 
 If this is a new zone, you'll be prompted for secondary storage information - 

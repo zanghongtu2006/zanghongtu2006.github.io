@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Creating Templates: Overview &mdash; Apache CloudStack 4.13.0.0 文档</title>
+  <title>创建模板: 概述 &mdash; Apache CloudStack 4.13.0.0 文档</title>
   
 
   
@@ -37,8 +37,8 @@
   <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Adding Hosts" href="hosts.html" />
-    <link rel="prev" title="Working with Virtual Machines" href="virtual_machines.html" /> 
+    <link rel="next" title="添加主机" href="hosts.html" />
+    <link rel="prev" title="虚拟机" href="virtual_machines.html" /> 
 
 <!-- RTD Extra Head -->
 
@@ -116,49 +116,49 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../installguide/index.html">安装指南</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../upgrading/index.html">升级 CloudStack</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">使用手册</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="index.html#user-interface">User Interface</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#managing-accounts-users-and-domains">Managing Accounts, Users and Domains</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#using-projects-to-organize-user-resources">Using Projects to Organize User Resources</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#service-offerings">Service Offerings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#user-interface">用户界面</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#managing-accounts-users-and-domains">账户、用户和域</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#using-projects-to-organize-user-resources">用项目来管理用户资源</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#service-offerings">计算方案</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#setting-up-networking-for-users">设置用户网络</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#working-with-virtual-machines">Working with Virtual Machines</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="index.html#working-with-templates">Working with Templates</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="templates.html#">Creating Templates: Overview</a></li>
-<li class="toctree-l3"><a class="reference internal" href="templates.html#requirements-for-templates">Requirements for Templates</a></li>
-<li class="toctree-l3"><a class="reference internal" href="templates.html#best-practices-for-templates">模版最佳实践</a></li>
-<li class="toctree-l3"><a class="reference internal" href="templates.html#the-default-template">The Default Template</a></li>
-<li class="toctree-l3"><a class="reference internal" href="templates.html#private-and-public-templates">Private and Public Templates</a></li>
-<li class="toctree-l3"><a class="reference internal" href="templates.html#creating-a-template-from-an-existing-virtual-machine">Creating a Template from an Existing Virtual Machine</a></li>
-<li class="toctree-l3"><a class="reference internal" href="templates.html#creating-a-template-from-a-snapshot">Creating a Template from a Snapshot</a></li>
-<li class="toctree-l3"><a class="reference internal" href="templates.html#uploading-templates-from-a-remote-http-server">Uploading Templates from a remote HTTP server</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="templates.html#vsphere-templates-and-isos">vSphere Templates and ISOs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#working-with-virtual-machines">虚拟机</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#working-with-templates">模板</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="templates.html#">创建模板: 概述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="templates.html#requirements-for-templates">模板创建要求</a></li>
+<li class="toctree-l3"><a class="reference internal" href="templates.html#best-practices-for-templates">模板最佳实践</a></li>
+<li class="toctree-l3"><a class="reference internal" href="templates.html#the-default-template">默认模板</a></li>
+<li class="toctree-l3"><a class="reference internal" href="templates.html#private-and-public-templates">私有模板和公共模板</a></li>
+<li class="toctree-l3"><a class="reference internal" href="templates.html#creating-a-template-from-an-existing-virtual-machine">从虚拟机创建模板</a></li>
+<li class="toctree-l3"><a class="reference internal" href="templates.html#creating-a-template-from-a-snapshot">从快照创建模板</a></li>
+<li class="toctree-l3"><a class="reference internal" href="templates.html#uploading-templates-from-a-remote-http-server">通过HTTP Server上传模板</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="templates.html#vsphere-templates-and-isos">vSphere 模板 and ISOs</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="templates.html#bypassing-secondary-storage-for-kvm-templates">Bypassing Secondary Storage For KVM templates</a></li>
-<li class="toctree-l3"><a class="reference internal" href="templates.html#uploading-templates-and-isos-from-a-local-computer">Uploading Templates and ISOs from a local computer</a></li>
-<li class="toctree-l3"><a class="reference internal" href="templates.html#sharing-templates-with-other-accounts-projects">Sharing templates with other accounts/projects</a></li>
-<li class="toctree-l3"><a class="reference internal" href="templates.html#exporting-templates">Exporting Templates</a></li>
-<li class="toctree-l3"><a class="reference internal" href="templates.html#creating-a-linux-template">Creating a Linux Template</a></li>
-<li class="toctree-l3"><a class="reference internal" href="templates.html#creating-a-windows-template">Creating a Windows Template</a></li>
+<li class="toctree-l3"><a class="reference internal" href="templates.html#bypassing-secondary-storage-for-kvm-templates">Bypassing 二级存储 For KVM templates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="templates.html#uploading-templates-and-isos-from-a-local-computer">从本地上传模板和ISO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="templates.html#sharing-templates-with-other-accounts-projects">分享模板给其它账户或项目</a></li>
+<li class="toctree-l3"><a class="reference internal" href="templates.html#exporting-templates">导出模板</a></li>
+<li class="toctree-l3"><a class="reference internal" href="templates.html#creating-a-linux-template">创建 Linux 系统模版</a></li>
+<li class="toctree-l3"><a class="reference internal" href="templates.html#creating-a-windows-template">创建 Windows 系统模版</a></li>
 <li class="toctree-l3"><a class="reference internal" href="templates.html#importing-amazon-machine-images">Importing Amazon Machine Images</a></li>
-<li class="toctree-l3"><a class="reference internal" href="templates.html#converting-a-hyper-v-vm-to-a-template">Converting a Hyper-V VM to a Template</a></li>
-<li class="toctree-l3"><a class="reference internal" href="templates.html#adding-password-management-to-your-templates">Adding Password Management to Your Templates</a></li>
-<li class="toctree-l3"><a class="reference internal" href="templates.html#deleting-templates">Deleting Templates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="templates.html#converting-a-hyper-v-vm-to-a-template">将 Hyper-V 虚拟机转成模版</a></li>
+<li class="toctree-l3"><a class="reference internal" href="templates.html#adding-password-management-to-your-templates">给模板添加密码管理功能</a></li>
+<li class="toctree-l3"><a class="reference internal" href="templates.html#deleting-templates">删除模版</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#working-with-hosts">Working with Hosts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#working-with-storage">Working with Storage</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#working-with-system-virtual-machines">Working with System Virtual Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#working-with-hosts">主机</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#working-with-storage">存储</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#working-with-system-virtual-machines">系统虚拟机</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#working-with-usage">Working with Usage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#managing-networks-and-traffic">Managing Networks and Traffic</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#managing-the-cloud">Managing the Cloud</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#managing-the-cloud">管理云</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#system-reliability-and-availability">系统的可靠性和可用性</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#tuning">Tuning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#tuning">调优</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#events-and-troubleshooting">Events and Troubleshooting</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../developersguide/index.html">开发者手册</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../plugins/index.html">Plugins Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/index.html">插件使用手册</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">发行版本说明</a></li>
 </ul>
 <p class="caption"><span class="caption-text">其它:</span></p>
@@ -221,7 +221,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
         
           <li><a href="index.html">使用手册</a> &raquo;</li>
         
-      <li>Creating Templates: Overview</li>
+      <li>创建模板: 概述</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -254,7 +254,7 @@ CloudStack.</p>
 choices to users, CloudStack administrators and users can create
 templates and add them to CloudStack.</p>
 <div class="section" id="creating-templates-overview">
-<h1>Creating Templates: Overview<a class="headerlink" href="templates.html#creating-templates-overview" title="Permalink to this headline">¶</a></h1>
+<h1>创建模板: 概述<a class="headerlink" href="templates.html#creating-templates-overview" title="Permalink to this headline">¶</a></h1>
 <p>CloudStack ships with a default template for the CentOS operating
 system. There are a variety of ways to add more templates.
 Administrators and end users can add templates. The typical sequence of
@@ -272,7 +272,7 @@ snapshot, or import a VHD from another system into CloudStack.</p>
 few sections.</p>
 </div>
 <div class="section" id="requirements-for-templates">
-<h1>Requirements for Templates<a class="headerlink" href="templates.html#requirements-for-templates" title="Permalink to this headline">¶</a></h1>
+<h1>模板创建要求<a class="headerlink" href="templates.html#requirements-for-templates" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
 <li>For XenServer, install PV drivers / Xen tools on each template that
 you create. This will enable live migration and clean guest shutdown.</li>
@@ -281,15 +281,15 @@ This will enable console view to work properly.</li>
 </ul>
 </div>
 <div class="section" id="best-practices-for-templates">
-<h1>模版最佳实践<a class="headerlink" href="templates.html#best-practices-for-templates" title="Permalink to this headline">¶</a></h1>
+<h1>模板最佳实践<a class="headerlink" href="templates.html#best-practices-for-templates" title="Permalink to this headline">¶</a></h1>
 <p>If you plan to use large templates (100 GB or larger), be sure you have
 a 10-gigabit network to support the large templates. A slower network
 can lead to timeouts and other errors when large templates are used.</p>
 </div>
 <div class="section" id="the-default-template">
-<h1>The Default Template<a class="headerlink" href="templates.html#the-default-template" title="Permalink to this headline">¶</a></h1>
+<h1>默认模板<a class="headerlink" href="templates.html#the-default-template" title="Permalink to this headline">¶</a></h1>
 <p>CloudStack includes a CentOS template. This template is downloaded by
-the Secondary Storage VM after the primary and secondary storage are
+the 二级存储虚拟机 after the primary and secondary storage are
 configured. You can use this template in your production deployment or
 you can delete it and use custom templates.</p>
 <p>The root password for the default template is “password”.</p>
@@ -327,7 +327,7 @@ block most access to the template excluding ssh.</p>
 </div>
 </div>
 <div class="section" id="private-and-public-templates">
-<h1>Private and Public Templates<a class="headerlink" href="templates.html#private-and-public-templates" title="Permalink to this headline">¶</a></h1>
+<h1>私有模板和公共模板<a class="headerlink" href="templates.html#private-and-public-templates" title="Permalink to this headline">¶</a></h1>
 <p>When a user creates a template, it can be designated private or public.</p>
 <p>Private templates are only available to the user who created them. By
 default, an uploaded template is private.</p>
@@ -342,7 +342,7 @@ to that Zone. If a public template is created in a public Zone, it is
 available to all users in all domains.</p>
 </div>
 <div class="section" id="creating-a-template-from-an-existing-virtual-machine">
-<h1>Creating a Template from an Existing Virtual Machine<a class="headerlink" href="templates.html#creating-a-template-from-an-existing-virtual-machine" title="Permalink to this headline">¶</a></h1>
+<h1>从虚拟机创建模板<a class="headerlink" href="templates.html#creating-a-template-from-an-existing-virtual-machine" title="Permalink to this headline">¶</a></h1>
 <p>Once you have at least one VM set up in the way you want, you can use it
 as the prototype for other VMs.</p>
 <ol class="arabic">
@@ -385,24 +385,24 @@ In those cases you should choose Other.</p>
 </li>
 <li><p class="first"><strong>Public</strong>. Choose Yes to make this template accessible to all
 users of this CloudStack installation. The template will appear in
-the Community Templates list. See <a class="reference external" href="templates.html#private-and-public-templates">“Private and
-Public Templates”</a>.</p>
+the Community 模板 list. See <a class="reference external" href="templates.html#private-and-public-templates">“Private and
+Public 模板”</a>.</p>
 </li>
 <li><p class="first"><strong>Password Enabled</strong>. Choose Yes if your template has the
 CloudStack password change script installed. See
-<a class="reference internal" href="templates/_password.html#adding-password-management-to-templates"><span class="std std-ref">Adding Password Management to Your Templates</span></a>.</p>
+<a class="reference internal" href="templates/_password.html#adding-password-management-to-templates"><span class="std std-ref">给模板添加密码管理功能</span></a>.</p>
 </li>
 </ul>
 </li>
 <li><p class="first">Click Add.</p>
 </li>
 </ol>
-<p>The new template will be visible in the Templates section when the
+<p>The new template will be visible in the 模板 section when the
 template creation process has been completed. The template is then
 available when creating a new VM.</p>
 </div>
 <div class="section" id="creating-a-template-from-a-snapshot">
-<h1>Creating a Template from a Snapshot<a class="headerlink" href="templates.html#creating-a-template-from-a-snapshot" title="Permalink to this headline">¶</a></h1>
+<h1>从快照创建模板<a class="headerlink" href="templates.html#creating-a-template-from-a-snapshot" title="Permalink to this headline">¶</a></h1>
 <p>If you do not want to stop the VM in order to use the Create Template
 menu item (as described in <a class="reference external" href="templates.html#creating-a-template-from-an-existing-virtual-machine">“Creating a Template from an Existing
 Virtual Machine”</a>),
@@ -410,21 +410,21 @@ you can create a template directly from any snapshot through the
 CloudStack UI.</p>
 </div>
 <div class="section" id="uploading-templates-from-a-remote-http-server">
-<h1>Uploading Templates from a remote HTTP server<a class="headerlink" href="templates.html#uploading-templates-from-a-remote-http-server" title="Permalink to this headline">¶</a></h1>
+<h1>通过HTTP Server上传模板<a class="headerlink" href="templates.html#uploading-templates-from-a-remote-http-server" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="vsphere-templates-and-isos">
-<h2>vSphere Templates and ISOs<a class="headerlink" href="templates.html#vsphere-templates-and-isos" title="Permalink to this headline">¶</a></h2>
+<h2>vSphere 模板 and ISOs<a class="headerlink" href="templates.html#vsphere-templates-and-isos" title="Permalink to this headline">¶</a></h2>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
 <p class="last">If you are uploading a template that was created using vSphere Client,
 be sure the OVA file does not contain an ISO. If it does, the deployment
 of VMs from the template will fail</p>
 </div>
-<p>Templates are uploaded based on a URL. HTTP is the supported access
-protocol. Templates are frequently large files. You can optionally gzip
+<p>模板 are uploaded based on a URL. HTTP is the supported access
+protocol. 模板 are frequently large files. You can optionally gzip
 them to decrease upload times.</p>
 <p>To upload a template:</p>
 <ol class="arabic">
-<li><p class="first">In the left navigation bar, click Templates.</p>
+<li><p class="first">In the left navigation bar, click 模板.</p>
 </li>
 <li><p class="first">Click Register Template.</p>
 </li>
@@ -465,7 +465,7 @@ OVA.</p>
 </li>
 <li><p class="first"><strong>Password Enabled</strong>. Choose Yes if your template has the
 CloudStack password change script installed.
-See <a class="reference internal" href="templates/_password.html#adding-password-management-to-templates"><span class="std std-ref">Adding Password Management to Your Templates</span></a>.</p>
+See <a class="reference internal" href="templates/_password.html#adding-password-management-to-templates"><span class="std std-ref">给模板添加密码管理功能</span></a>.</p>
 </li>
 <li><p class="first"><strong>Extractable</strong>. Choose Yes if the template is available for
 extraction. If this option is selected, end users can download a
@@ -473,12 +473,12 @@ full image of a template.</p>
 </li>
 <li><p class="first"><strong>Public</strong>. Choose Yes to make this template accessible to all
 users of this CloudStack installation. The template will appear in
-the Community Templates list. See <a class="reference external" href="templates.html#private-and-public-templates">“Private and
-Public Templates”</a>.</p>
+the Community 模板 list. See <a class="reference external" href="templates.html#private-and-public-templates">“Private and
+Public 模板”</a>.</p>
 </li>
 <li><p class="first"><strong>Featured</strong>. Choose Yes if you would like this template to be
 more prominent for users to select. The template will appear in
-the Featured Templates list. Only an administrator can make a
+the Featured 模板 list. Only an administrator can make a
 template Featured.</p>
 </li>
 </ul>
@@ -487,18 +487,18 @@ template Featured.</p>
 <p>Note that uploading multi-disk templates is also supported.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Templates corresponding to appliances with ‘static properties’ in the OVF (such as virtual appliances) are also supported. CloudStack stores any template properties in the OVF in the database after successful template installation. Once the template is ready, these properties are viewed by selecting the template and clicking on the ‘OVF Properties’ tab.</p>
+<p class="last">模板 corresponding to appliances with ‘static properties’ in the OVF (such as virtual appliances) are also supported. CloudStack stores any template properties in the OVF in the database after successful template installation. Once the template is ready, these properties are viewed by selecting the template and clicking on the ‘OVF Properties’ tab.</p>
 </div>
 </div>
 </div>
 <div class="section" id="bypassing-secondary-storage-for-kvm-templates">
-<span id="bypass-secondary-storage-kvm"></span><h1>Bypassing Secondary Storage For KVM templates<a class="headerlink" href="templates.html#bypassing-secondary-storage-for-kvm-templates" title="Permalink to this headline">¶</a></h1>
+<span id="bypass-secondary-storage-kvm"></span><h1>Bypassing 二级存储 For KVM templates<a class="headerlink" href="templates.html#bypassing-secondary-storage-for-kvm-templates" title="Permalink to this headline">¶</a></h1>
 <p>CloudStack provides an additional way to register and use templates on KVM.</p>
 <p>Instead of registering a template and storing it on secondary storage, the user can opt to skip downloading the template to secondary storage for KVM at template registration. At deployment time, the template is downloaded directly to primary storage from the registered source, instead of being copied from secondary storage.</p>
 <p>Supported protocols: HTTP/HTTPS, NFS and metalinks. The protocol is obtained from the template URL.</p>
 <p>To enable this option for a template:</p>
 <ol class="arabic">
-<li><p class="first">In the left navigation bar, click Templates.</p>
+<li><p class="first">In the left navigation bar, click 模板.</p>
 </li>
 <li><p class="first">Click Register Template.</p>
 </li>
@@ -562,17 +562,17 @@ template Featured.</p>
 </ul>
 </div>
 <div class="section" id="uploading-templates-and-isos-from-a-local-computer">
-<h1>Uploading Templates and ISOs from a local computer<a class="headerlink" href="templates.html#uploading-templates-and-isos-from-a-local-computer" title="Permalink to this headline">¶</a></h1>
+<h1>从本地上传模板和ISO<a class="headerlink" href="templates.html#uploading-templates-and-isos-from-a-local-computer" title="Permalink to this headline">¶</a></h1>
 <p>It’s also possible to upload an already prepared template or an ISO from your local computer.
 The steps are similar as when Uploading a template/ISO from a remote HTTP server, except that you need to choose a local template/ISO file from your PC.
-For this feature to work, your SSVMs must be supporting HTTPS (for more info please visit <a class="reference external" href="systemvm.html#using-a-ssl-certificate-for-the-console-proxy">“Using a SSL Certificate for the Console Proxy”</a>).</p>
+For this feature to work, your SSVMs must be supporting HTTPS (for more info please visit <a class="reference external" href="systemvm.html#using-a-ssl-certificate-for-the-console-proxy">“Using a SSL Certificate for the 控制台代理”</a>).</p>
 <p>Example GUI dialog of uploading Template/ISO from local (browser) is given below:</p>
 <p><img alt="Upload Template from local" src="../_images/template-upload-from-local.PNG" /></p>
 <p><img alt="Upload ISO from local" src="../_images/upload-iso-from-local.png" /></p>
 <p>Note that uploading multi-disk templates is also supported.</p>
 </div>
 <div class="section" id="sharing-templates-with-other-accounts-projects">
-<h1>Sharing templates with other accounts/projects<a class="headerlink" href="templates.html#sharing-templates-with-other-accounts-projects" title="Permalink to this headline">¶</a></h1>
+<h1>分享模板给其它账户或项目<a class="headerlink" href="templates.html#sharing-templates-with-other-accounts-projects" title="Permalink to this headline">¶</a></h1>
 <p>When adding a template, the owner can choose to make template public or to keep it private. Once the template is created, the owner can choose to share this template so that other accounts/projects can also use the template.</p>
 <dl class="docutils">
 <dt>Currently, the template owner can share his template with:</dt>
@@ -608,13 +608,13 @@ the Project, and if attempted to do so, a proper error message is shown.</p>
 </div>
 </div>
 <div class="section" id="exporting-templates">
-<h1>Exporting Templates<a class="headerlink" href="templates.html#exporting-templates" title="Permalink to this headline">¶</a></h1>
+<h1>导出模板<a class="headerlink" href="templates.html#exporting-templates" title="Permalink to this headline">¶</a></h1>
 <p>End users and Administrators may export templates from the CloudStack.
 Navigate to the template in the UI and choose the Download function from
 the Actions menu.</p>
 </div>
 <div class="section" id="creating-a-linux-template">
-<h1>Creating a Linux Template<a class="headerlink" href="templates.html#creating-a-linux-template" title="Permalink to this headline">¶</a></h1>
+<h1>创建 Linux 系统模版<a class="headerlink" href="templates.html#creating-a-linux-template" title="Permalink to this headline">¶</a></h1>
 <p>Linux templates should be prepared using this documentation in order to
 prepare your linux VMs for template deployment. For ease of
 documentation, the VM which you are configuring the template on will be
@@ -641,7 +641,7 @@ Virtual Machine”</a>.</p>
 <p>The following steps will prepare a basic Linux installation for
 templating.</p>
 <ol class="arabic">
-<li><p class="first"><strong>Installation</strong></p>
+<li><p class="first"><strong>安装</strong></p>
 <p>It is good practice to name your VM something generic during
 installation, this will ensure components such as LVM do not appear
 unique to a machine. It is recommended that the name of “localhost”
@@ -695,7 +695,7 @@ installation process.</p>
 <div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">deluser</span> <span class="n">myuser</span> <span class="o">--</span><span class="n">remove</span><span class="o">-</span><span class="n">home</span>
 </pre></div>
 </div>
-<p>See <a class="reference internal" href="templates/_password.html#adding-password-management-to-templates"><span class="std std-ref">Adding Password Management to Your Templates</span></a> for
+<p>See <a class="reference internal" href="templates/_password.html#adding-password-management-to-templates"><span class="std std-ref">给模板添加密码管理功能</span></a> for
 instructions to setup the password management script, this will allow
 CloudStack to change your root password from the web interface.</p>
 </li>
@@ -836,7 +836,7 @@ provisioning in order to pickup the hostname.</p>
 </div>
 </div>
 <div class="section" id="creating-a-windows-template">
-<h1>Creating a Windows Template<a class="headerlink" href="templates.html#creating-a-windows-template" title="Permalink to this headline">¶</a></h1>
+<h1>创建 Windows 系统模版<a class="headerlink" href="templates.html#creating-a-windows-template" title="Permalink to this headline">¶</a></h1>
 <p>Windows templates must be prepared with Sysprep before they can be
 provisioned on multiple machines. Sysprep allows you to create a generic
 Windows template and avoid any possible SID conflicts.</p>
@@ -868,7 +868,7 @@ template as described in Creating the Windows Template.</p>
 </ol>
 <p>For Windows 2008 R2, you run Windows System Image Manager to create a
 custom sysprep response XML file. Windows System Image Manager is
-installed as part of the Windows Automated Installation Kit (AIK).
+installed as part of the Windows Automated 安装 Kit (AIK).
 Windows AIK can be downloaded from <a class="reference external" href="http://www.microsoft.com/en-us/download/details.aspx?id=9085">Microsoft Download
 Center</a>.</p>
 <p>Use the following steps to run sysprep for Windows 2008 R2:</p>
@@ -1127,7 +1127,7 @@ password.</p>
 </li>
 <li><p class="first">If you need the template to be enabled to reset passwords from the
 CloudStack UI or API, install the password change script into the
-image at this point. See <a class="reference internal" href="templates/_password.html#adding-password-management-to-templates"><span class="std std-ref">Adding Password Management to Your Templates</span></a>.</p>
+image at this point. See <a class="reference internal" href="templates/_password.html#adding-password-management-to-templates"><span class="std std-ref">给模板添加密码管理功能</span></a>.</p>
 </li>
 <li><p class="first">Unmount and delete loopback mount.</p>
 <div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># umount /mnt/loop/centos54</span>
@@ -1167,7 +1167,7 @@ name. Compress it and upload it to your web server.</p>
 </ol>
 </div>
 <div class="section" id="converting-a-hyper-v-vm-to-a-template">
-<h1>Converting a Hyper-V VM to a Template<a class="headerlink" href="templates.html#converting-a-hyper-v-vm-to-a-template" title="Permalink to this headline">¶</a></h1>
+<h1>将 Hyper-V 虚拟机转成模版<a class="headerlink" href="templates.html#converting-a-hyper-v-vm-to-a-template" title="Permalink to this headline">¶</a></h1>
 <p>To convert a Hyper-V VM to a XenServer-compatible CloudStack template,
 you will need a standalone XenServer host with an attached NFS VHD SR.
 Use whatever XenServer version you are using with CloudStack, but use
@@ -1197,7 +1197,7 @@ the VHD into XenServer. There are two options for doing this.</p>
 Appliance Tools&gt;Disk Image Import.</li>
 <li>Choose the VHD, then click Next.</li>
 <li>Name the VM, choose the NFS VHD SR under Storage, enable “Run
-Operating System Fixups” and choose the NFS ISO SR.</li>
+操作系统 Fixups” and choose the NFS ISO SR.</li>
 <li>Click Next, then Finish. A VM should be created.</li>
 </ol>
 <p>Option two:</p>
@@ -1239,7 +1239,7 @@ only for XenServer.</li>
 <p>The template will be created, and you can create instances from it.</p>
 </div>
 <div class="section" id="adding-password-management-to-your-templates">
-<span id="adding-password-management-to-templates"></span><h1>Adding Password Management to Your Templates<a class="headerlink" href="templates.html#adding-password-management-to-your-templates" title="Permalink to this headline">¶</a></h1>
+<span id="adding-password-management-to-templates"></span><h1>给模板添加密码管理功能<a class="headerlink" href="templates.html#adding-password-management-to-your-templates" title="Permalink to this headline">¶</a></h1>
 <p>CloudStack provides an optional password reset feature that allows users
 to set a temporary admin or root password as well as reset the existing
 admin or root password from the CloudStack UI.</p>
@@ -1290,8 +1290,8 @@ page</a>
 and run the installer in the newly created Windows VM.</p>
 </div>
 <div class="section" id="deleting-templates">
-<h1>Deleting Templates<a class="headerlink" href="templates.html#deleting-templates" title="Permalink to this headline">¶</a></h1>
-<p>Templates may be deleted. In general, when a template spans multiple
+<h1>删除模版<a class="headerlink" href="templates.html#deleting-templates" title="Permalink to this headline">¶</a></h1>
+<p>模板 may be deleted. In general, when a template spans multiple
 Zones, only the copy that is selected for deletion will be deleted; the
 same template in other Zones will not be deleted. The provided CentOS
 template is an exception to this. If the provided CentOS template is
@@ -1309,10 +1309,10 @@ template.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="hosts.html" class="btn btn-neutral float-right" title="Adding Hosts" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="hosts.html" class="btn btn-neutral float-right" title="添加主机" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="virtual_machines.html" class="btn btn-neutral float-left" title="Working with Virtual Machines" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="virtual_machines.html" class="btn btn-neutral float-left" title="虚拟机" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

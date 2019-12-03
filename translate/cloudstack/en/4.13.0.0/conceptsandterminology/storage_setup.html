@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Introduction &mdash; Apache CloudStack 4.13.0.0 文档</title>
+  <title>简介 &mdash; Apache CloudStack 4.13.0.0 文档</title>
   
 
   
@@ -115,10 +115,10 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l2"><a class="reference internal" href="index.html#concepts-and-terminolgy">概念和术语</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#choosing-a-deployment-architecture">架构选型</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#network-setup">网络配置</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="index.html#storage-setup">Storage Setup</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="storage_setup.html#">Introduction</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="storage_setup.html#primary-storage">Primary Storage</a></li>
-<li class="toctree-l4"><a class="reference internal" href="storage_setup.html#secondary-storage">Secondary Storage</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#storage-setup">存储配置</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="storage_setup.html#">简介</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="storage_setup.html#primary-storage">主存储</a></li>
+<li class="toctree-l4"><a class="reference internal" href="storage_setup.html#secondary-storage">二级存储</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="storage_setup.html#configurations">Configurations</a><ul>
@@ -126,14 +126,14 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l4"><a class="reference internal" href="storage_setup.html#large-scale-setup">Large-Scale Setup</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="storage_setup.html#storage-architecture">Storage Architecture</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="storage_setup.html#storage-architecture">存储架构</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="storage_setup.html#local-storage">Local Storage</a></li>
 <li class="toctree-l4"><a class="reference internal" href="storage_setup.html#traditional-node-based-shared-storage">‘Traditional’ node-based Shared Storage</a></li>
 <li class="toctree-l4"><a class="reference internal" href="storage_setup.html#clustered-shared-storage">Clustered Shared Storage</a></li>
 <li class="toctree-l4"><a class="reference internal" href="storage_setup.html#network-configuration-for-storage">Network Configuration For Storage</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="storage_setup.html#cloudstack-networking-for-storage">CloudStack Networking For Storage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="storage_setup.html#cloudstack-networking-for-storage">CloudStack 存储网络</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="storage_setup.html#small-scale-example-configurations">Small-Scale Example Configurations</a></li>
 </ul>
 </li>
@@ -146,7 +146,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../upgrading/index.html">升级 CloudStack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../adminguide/index.html">使用手册</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developersguide/index.html">开发者手册</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../plugins/index.html">Plugins Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/index.html">插件使用手册</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">发行版本说明</a></li>
 </ul>
 <p class="caption"><span class="caption-text">其它:</span></p>
@@ -209,7 +209,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
         
           <li><a href="index.html">CloudStack 概念和术语</a> &raquo;</li>
         
-      <li>Introduction</li>
+      <li>简介</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -231,9 +231,9 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
            <div itemprop="articleBody">
             
   <div class="section" id="introduction">
-<h1>Introduction<a class="headerlink" href="storage_setup.html#introduction" title="Permalink to this headline">¶</a></h1>
+<h1>简介<a class="headerlink" href="storage_setup.html#introduction" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="primary-storage">
-<span id="about-primary-storage"></span><h2>Primary Storage<a class="headerlink" href="storage_setup.html#primary-storage" title="Permalink to this headline">¶</a></h2>
+<span id="about-primary-storage"></span><h2>主存储<a class="headerlink" href="storage_setup.html#primary-storage" title="Permalink to this headline">¶</a></h2>
 <p>CloudStack is designed to work with a wide variety of commodity and enterprise-rated storage systems.
 CloudStack can also leverage the local disks within the hypervisor hosts if supported by the selected
 hypervisor. Storage type support for guest virtual disks differs based on hypervisor selection.</p>
@@ -274,11 +274,11 @@ hypervisor. Storage type support for guest virtual disks differs based on hyperv
 </tr>
 </tbody>
 </table>
-<p>The use of the Cluster Logical Volume Manager (CLVM) for KVM is not officially supported with
+<p>The use of the 集群 Logical Volume Manager (CLVM) for KVM is not officially supported with
 CloudStack.</p>
 </div>
 <div class="section" id="secondary-storage">
-<span id="about-secondary-storage"></span><h2>Secondary Storage<a class="headerlink" href="storage_setup.html#secondary-storage" title="Permalink to this headline">¶</a></h2>
+<span id="about-secondary-storage"></span><h2>二级存储<a class="headerlink" href="storage_setup.html#secondary-storage" title="Permalink to this headline">¶</a></h2>
 <p>CloudStack is designed to work with any scalable secondary storage system. The only requirement is
 that the secondary storage system supports the NFS protocol. For large, multi-zone deployments, S3
 compatible storage is also supported for secondary storage. This allows for secondary storage which can
@@ -309,7 +309,7 @@ volume of data to be stored and the bandwidth (MB/s) available at the storage in
 </div>
 </div>
 <div class="section" id="storage-architecture">
-<h1>Storage Architecture<a class="headerlink" href="storage_setup.html#storage-architecture" title="Permalink to this headline">¶</a></h1>
+<h1>存储架构<a class="headerlink" href="storage_setup.html#storage-architecture" title="Permalink to this headline">¶</a></h1>
 <p>There are many different storage types available which are generally suitable for CloudStack environments.
 Specific use cases should be considered when deciding the best one for your environment and financial
 constraints often make the ‘perfect’ storage architecture economically unrealistic.</p>
@@ -356,7 +356,7 @@ the array interfaces.</p>
 </div>
 </div>
 <div class="section" id="cloudstack-networking-for-storage">
-<h1>CloudStack Networking For Storage<a class="headerlink" href="storage_setup.html#cloudstack-networking-for-storage" title="Permalink to this headline">¶</a></h1>
+<h1>CloudStack 存储网络<a class="headerlink" href="storage_setup.html#cloudstack-networking-for-storage" title="Permalink to this headline">¶</a></h1>
 <p>The first thing to understand is the process of provisioning primary storage. When you create a primary
 storage pool for any given cluster, the CloudStack management server tells each hosts’ hypervisor to
 mount the NFS share or (iSCSI LUN). The storage pool will be presented within the hypervisor as a
@@ -370,7 +370,7 @@ other interfaces configured on your host carrying guest and public traffic to/fr
 but the hypervisor itself doesn’t/can’t communicate over these interfaces.</p>
 <p><img alt="hypervisor storage communication" src="../_images/hypervisorcomms.png" />
 <em>Figure 1</em>: Hypervisor communications</p>
-<p>Separating Primary Storage traffic
+<p>Separating 主存储 traffic
 For those from a pure virtualisation background, the concept of creating a specific interface for storage
 traffic will not be new; it has long been best practice for iSCSI traffic to have a dedicated switch
 fabric to avoid any latency or contention issues.
@@ -388,7 +388,7 @@ The logical reasoning which explains how this splitting of traffic works is as f
 <em>Figure 2</em>: Subnetting of Storage Traffic</p>
 <p><img alt="hypervisor communications to secondary storage" src="../_images/hypervisorcomms-secstorage.png" />
 <em>Figure 3</em>: Hypervisor Communications with Separated Storage Traffic</p>
-<p>Other Primary Storage Types
+<p>Other 主存储 Types
 If you are using PreSetup or SharedMountPoints to connect to IP based storage then the same principles
 apply; if the primary storage and ‘primary storage interface’ are in a different subnet to the ‘management
 subnet’ then the hypervisor will use the ‘primary storage interface’ to communicate with the primary

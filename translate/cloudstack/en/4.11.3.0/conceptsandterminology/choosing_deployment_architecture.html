@@ -119,7 +119,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l3"><a class="reference internal" href="choosing_deployment_architecture.html#multi-node-management-server">Multi-Node 管理服务</a></li>
 <li class="toctree-l3"><a class="reference internal" href="choosing_deployment_architecture.html#multi-site-deployment">Multi-Site Deployment</a></li>
 <li class="toctree-l3"><a class="reference internal" href="choosing_deployment_architecture.html#choosing-a-hypervisor">Hypervisor 选型</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="choosing_deployment_architecture.html#hypervisor-support-for-primary-storage">Hypervisor Support for Primary Storage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="choosing_deployment_architecture.html#hypervisor-support-for-primary-storage">Hypervisor Support for 主存储</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="choosing_deployment_architecture.html#best-practices">最佳实践</a><ul>
@@ -131,7 +131,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#network-setup">网络配置</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#storage-setup">Storage Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#storage-setup">存储配置</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../quickinstallationguide/qig.html">快速安装向导</a></li>
@@ -139,7 +139,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../upgrading/index.html">升级 CloudStack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../adminguide/index.html">使用手册</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developersguide/index.html">开发者手册</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../plugins/index.html">Plugins Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/index.html">插件使用手册</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">发行版本说明</a></li>
 </ul>
 <p class="caption"><span class="caption-text">其它:</span></p>
@@ -360,7 +360,7 @@ supported by CloudStack. The following table provides this information.</p>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>Network Throttling</td>
+<tr class="row-even"><td>网络限流</td>
 <td>Yes</td>
 <td>Yes</td>
 <td>Yes</td>
@@ -368,7 +368,7 @@ supported by CloudStack. The following table provides this information.</p>
 <td>?</td>
 <td>N/A</td>
 </tr>
-<tr class="row-odd"><td>Security groups in zones that use
+<tr class="row-odd"><td>安全 groups in zones that use
 basic networking</td>
 <td>Yes</td>
 <td>No</td>
@@ -456,7 +456,7 @@ virtual router</td>
 </tbody>
 </table>
 <div class="section" id="hypervisor-support-for-primary-storage">
-<h2>Hypervisor Support for Primary Storage<a class="headerlink" href="choosing_deployment_architecture.html#hypervisor-support-for-primary-storage" title="Permalink to this headline">¶</a></h2>
+<h2>Hypervisor Support for 主存储<a class="headerlink" href="choosing_deployment_architecture.html#hypervisor-support-for-primary-storage" title="Permalink to this headline">¶</a></h2>
 <p>The following table shows storage options and parameters for different
 hypervisors.</p>
 <table border="1" class="table-striped table-bordered table-hover docutils">
@@ -469,7 +469,7 @@ hypervisors.</p>
 <col width="8%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Primary Storage Type</th>
+<tr class="row-odd"><th class="head">主存储 Type</th>
 <th class="head">XenServer</th>
 <th class="head">vSphere</th>
 <th class="head">KVM - RHEL</th>
@@ -478,7 +478,7 @@ hypervisors.</p>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>Format for Disks, Templates,
+<tr class="row-even"><td>Format for Disks, 模板,
 and Snapshots</td>
 <td>VHD</td>
 <td>VMDK</td>
@@ -554,9 +554,9 @@ hypervisor type.</p>
 <p>Local storage is an option for primary storage for vSphere, XenServer,
 and KVM. When the local disk option is enabled, a local disk storage
 pool is automatically created on each host. To use local storage for the
-System Virtual Machines (such as the Virtual Router), set
+System Virtual Machines (such as the 虚拟路由器), set
 system.vm.use.local.storage to true in global configuration.</p>
-<p>CloudStack supports multiple primary storage pools in a Cluster. For
+<p>CloudStack supports multiple primary storage pools in a 集群. For
 example, you could provision 2 NFS servers in primary storage. Or you
 could provision 1 iSCSI LUN initially and then add a second iSCSI LUN
 when the first approaches capacity.</p>

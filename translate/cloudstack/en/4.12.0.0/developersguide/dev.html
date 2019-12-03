@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Programmer Guide &mdash; Apache CloudStack 4.12.0.0 documentation</title>
+  <title>开发者指南 &mdash; Apache CloudStack 4.12.0.0 documentation</title>
   
 
   
@@ -36,8 +36,8 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Plugins" href="plugins.html" />
-    <link rel="prev" title="CloudStack Installation from GIT repo for Developers" href="developer_guide.html" /> 
+    <link rel="next" title="插件" href="plugins.html" />
+    <link rel="prev" title="CloudStack 安装 from GIT repo for Developers" href="developer_guide.html" /> 
 
 <!-- RTD Extra Head -->
 
@@ -116,9 +116,9 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../upgrading/index.html">升级 CloudStack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../adminguide/index.html">使用手册</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">开发者手册</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="developer_guide.html">CloudStack Installation from GIT repo for Developers</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="dev.html#">Programmer Guide</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="dev.html#the-cloudstack-api">The CloudStack API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide.html">CloudStack 安装 from GIT repo for Developers</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="dev.html#">开发者指南</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="dev.html#the-cloudstack-api">CloudStack API</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="dev.html#getting-started">Getting Started</a></li>
 <li class="toctree-l4"><a class="reference internal" href="dev.html#roles">Roles</a></li>
 <li class="toctree-l4"><a class="reference internal" href="dev.html#api-reference-documentation">API Reference Documentation</a></li>
@@ -137,17 +137,17 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l4"><a class="reference internal" href="dev.html#example">Example</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="dev.html#event-types">Event Types</a></li>
-<li class="toctree-l3"><a class="reference internal" href="dev.html#time-zones">Time Zones</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dev.html#event-types">事件类型</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dev.html#time-zones">时区</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="plugins.html">Plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugins.html">插件</a></li>
 <li class="toctree-l2"><a class="reference internal" href="alloc.html">Allocators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ansible.html">Deploying CloudStack with Ansible</a></li>
-<li class="toctree-l2"><a class="reference internal" href="get_help.html">Getting Help</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ansible.html">使用 Ansible 部署 CloudStack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="get_help.html">获得帮助</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../plugins/index.html">Plugins Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/index.html">插件使用手册</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">发行版本说明</a></li>
 </ul>
 <p class="caption"><span class="caption-text">其它:</span></p>
@@ -210,7 +210,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
         
           <li><a href="index.html">开发者手册</a> &raquo;</li>
         
-      <li>Programmer Guide</li>
+      <li>开发者指南</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -232,12 +232,12 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
            <div itemprop="articleBody">
             
   <div class="section" id="programmer-guide">
-<h1>Programmer Guide<a class="headerlink" href="dev.html#programmer-guide" title="Permalink to this headline">¶</a></h1>
+<h1>开发者指南<a class="headerlink" href="dev.html#programmer-guide" title="Permalink to this headline">¶</a></h1>
 <p>This guide shows how to develop CloudStack, use the API for operation
 and integration, access the usage data and use CloudStack specific tools
 to ease development, testing and integration.</p>
 <div class="section" id="the-cloudstack-api">
-<h2>The CloudStack API<a class="headerlink" href="dev.html#the-cloudstack-api" title="Permalink to this headline">¶</a></h2>
+<h2>CloudStack API<a class="headerlink" href="dev.html#the-cloudstack-api" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="getting-started">
 <h3>Getting Started<a class="headerlink" href="dev.html#getting-started" title="Permalink to this headline">¶</a></h3>
 <p>To get started using the CloudStack API, you should have the following:</p>
@@ -254,7 +254,7 @@ for example, Java or PHP.</li>
 </div>
 <div class="section" id="roles">
 <h3>Roles<a class="headerlink" href="dev.html#roles" title="Permalink to this headline">¶</a></h3>
-<p>The CloudStack API supports three access roles:</p>
+<p>CloudStack API supports three access roles:</p>
 <ol class="arabic simple">
 <li>Root Admin. Access to all features of the cloud, including both
 virtual and physical resource management.</li>
@@ -791,7 +791,7 @@ queryAsyncJobResult command.</p>
 </div>
 </div>
 <div class="section" id="event-types">
-<h2>Event Types<a class="headerlink" href="dev.html#event-types" title="Permalink to this headline">¶</a></h2>
+<h2>事件类型<a class="headerlink" href="dev.html#event-types" title="Permalink to this headline">¶</a></h2>
 <table border="1" class="table-striped table-bordered table-hover docutils">
 <colgroup>
 <col width="25%" />
@@ -978,13 +978,13 @@ keys</td>
 <p class="last">SSVM.HA</p>
 </td>
 </tr>
-<tr class="row-even"><td>Service Offerings</td>
+<tr class="row-even"><td>计算方案</td>
 <td><p class="first">SERVICE.OFFERING.CREATE</p>
 <p>SERVICE.OFFERING.EDIT</p>
 <p class="last">SERVICE.OFFERING.DELETE</p>
 </td>
 </tr>
-<tr class="row-odd"><td>Disk Offerings</td>
+<tr class="row-odd"><td>磁盘方案</td>
 <td><p class="first">DISK.OFFERING.CREATE</p>
 <p>DISK.OFFERING.EDIT</p>
 <p class="last">DISK.OFFERING.DELETE</p>
@@ -1024,7 +1024,7 @@ keys</td>
 Table</td>
 <td>CONFIGURATION.VALUE.EDIT</td>
 </tr>
-<tr class="row-odd"><td>Security Groups</td>
+<tr class="row-odd"><td>安全组</td>
 <td><p class="first">SG.AUTH.INGRESS</p>
 <p>SG.REVOKE.INGRESS</p>
 <p>SG.AUTH.EGRESS</p>
@@ -1249,7 +1249,7 @@ Resources</td>
 </table>
 </div>
 <div class="section" id="time-zones">
-<span id="id1"></span><h2>Time Zones<a class="headerlink" href="dev.html#time-zones" title="Permalink to this headline">¶</a></h2>
+<span id="id1"></span><h2>时区<a class="headerlink" href="dev.html#time-zones" title="Permalink to this headline">¶</a></h2>
 <p>The following time zone identifiers are accepted by PRODUCT. There are
 several places that have a time zone as a required or optional
 parameter. These include scheduling recurring snapshots, creating a
@@ -1354,10 +1354,10 @@ user, and specifying the usage time zone in the Configuration table.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="plugins.html" class="btn btn-neutral float-right" title="Plugins" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="plugins.html" class="btn btn-neutral float-right" title="插件" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="developer_guide.html" class="btn btn-neutral float-left" title="CloudStack Installation from GIT repo for Developers" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="developer_guide.html" class="btn btn-neutral float-left" title="CloudStack 安装 from GIT repo for Developers" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

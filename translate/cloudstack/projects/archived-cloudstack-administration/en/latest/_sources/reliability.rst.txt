@@ -67,7 +67,7 @@ management server.
 ---------------------------
 
 The user can specify a virtual machine as HA-enabled. By default, all
-virtual router VMs and Elastic Load Balancing VMs are automatically
+virtual router VMs and Elastic 负载均衡 VMs are automatically
 configured as HA-enabled. When an HA-enabled VM crashes, CloudStack
 detects the crash and restarts the VM automatically within the same
 Availability Zone. HA is never performed across different Availability
@@ -84,7 +84,7 @@ storage is not supported.
 ------------
 
 The user can specify a virtual machine as HA-enabled. By default, all
-virtual router VMs and Elastic Load Balancing VMs are automatically
+virtual router VMs and Elastic 负载均衡 VMs are automatically
 configured as HA-enabled. When an HA-enabled VM crashes, CloudStack
 detects the crash and restarts the VM automatically within the same
 Availability Zone. HA is never performed across different Availability

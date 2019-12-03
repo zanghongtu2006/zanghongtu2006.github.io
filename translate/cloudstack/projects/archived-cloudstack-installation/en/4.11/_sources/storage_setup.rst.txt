@@ -14,11 +14,11 @@
    under the License.
 
 
-Storage Setup
+存储配置
 =============
 
 
-Primary Storage
+主存储
 ---------------
 
 CloudStack is designed to work with a wide variety of commodity and enterprise-rated storage systems.
@@ -34,10 +34,10 @@ Fiber Channel  Supported via Pre-existing SR   Supported           Supported via
 Local Disk     Supported                       Supported           Supported
 =============  ==============================  ==================  ===================================
 
-The use of the Cluster Logical Volume Manager (CLVM) for KVM is not officially supported with
+The use of the 集群 Logical Volume Manager (CLVM) for KVM is not officially supported with
 CloudStack.
 
-Secondary Storage
+二级存储
 -----------------
 
 CloudStack is designed to work with any scalable secondary storage system. The only requirement is
@@ -72,7 +72,7 @@ It is important to start the design of your storage with the a rough profile of 
 be required to support. Care should be taken to consider the IOPS demands of your guest VMs as much as the
 volume of data to be stored and the bandwidth (MB/s) available at the storage interfaces.
 
-Storage Architecture
+存储架构
 ====================
 
 There are many different storage types available which are generally suitable for CloudStack environments.
@@ -129,7 +129,7 @@ Care should be taken when designing your cloud to take into consideration not on
 of your disk arrays but also the bandwidth available to move that traffic between the switch fabric and
 the array interfaces.
 
-CloudStack Networking For Storage
+CloudStack 存储网络
 ---------------------------------
 
 The first thing to understand is the process of provisioning primary storage. When you create a primary
@@ -147,7 +147,7 @@ but the hypervisor itself doesn’t/can’t communicate over these interfaces.
 |hypervisorcomms.png|
 *Figure 1*: Hypervisor communications
 
-Separating Primary Storage traffic
+Separating 主存储 traffic
 For those from a pure virtualisation background, the concept of creating a specific interface for storage
 traffic will not be new; it has long been best practice for iSCSI traffic to have a dedicated switch
 fabric to avoid any latency or contention issues.
@@ -167,7 +167,7 @@ The logical reasoning which explains how this splitting of traffic works is as f
 |hypervisorcomms-secstorage.png|
 *Figure 3*: Hypervisor Communications with Separated Storage Traffic
 
-Other Primary Storage Types
+Other 主存储 Types
 If you are using PreSetup or SharedMountPoints to connect to IP based storage then the same principles
 apply; if the primary storage and ‘primary storage interface’ are in a different subnet to the ‘management
 subnet’ then the hypervisor will use the ‘primary storage interface’ to communicate with the primary

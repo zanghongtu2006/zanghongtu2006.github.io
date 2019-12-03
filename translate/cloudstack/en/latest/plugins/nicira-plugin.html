@@ -117,25 +117,25 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../upgrading/index.html">升级 CloudStack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../adminguide/index.html">使用手册</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developersguide/index.html">开发者手册</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Plugins Guide</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">插件使用手册</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="cloudian-connector.html">The Cloudian Connector Plugin</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="nicira-plugin.html#">The Nicira NVP Plugin</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="nicira-plugin.html#introduction-to-the-nicira-nvp-plugin">Introduction to the Nicira NVP Plugin</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nicira-plugin.html#introduction-to-the-nicira-nvp-plugin">简介 to the Nicira NVP Plugin</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="nicira-plugin.html#features-of-the-nicira-nvp-plugin">Features of the Nicira NVP Plugin</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="nicira-plugin.html#configuring-the-nicira-nvp-plugin">Configuring the Nicira NVP Plugin</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="nicira-plugin.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nicira-plugin.html#prerequisites">前提</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nicira-plugin.html#zone-configuration">Zone Configuration</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nicira-plugin.html#enabling-the-service-provider">Enabling the service provider</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nicira-plugin.html#device-management">Device Management</a></li>
-<li class="toctree-l4"><a class="reference internal" href="nicira-plugin.html#network-offerings">Network Offerings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nicira-plugin.html#network-offerings">网络方案</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="nicira-plugin.html#using-the-nicira-nvp-plugin-with-vpc">Using the Nicira NVP plugin with VPC</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="nicira-plugin.html#supported-vpc-features">Supported VPC features</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nicira-plugin.html#vpc-offering-with-nicira-nvp">VPC Offering with Nicira NVP</a></li>
-<li class="toctree-l4"><a class="reference internal" href="nicira-plugin.html#vpc-network-offerings">VPC Network Offerings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nicira-plugin.html#vpc-network-offerings">VPC 网络方案</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="nicira-plugin.html#troubleshooting-the-nicira-nvp-plugin">Troubleshooting the Nicira NVP Plugin</a><ul>
@@ -213,7 +213,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="index.html">Plugins Guide</a> &raquo;</li>
+          <li><a href="index.html">插件使用手册</a> &raquo;</li>
         
       <li>The Nicira NVP Plugin</li>
     
@@ -239,7 +239,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
   <div class="section" id="the-nicira-nvp-plugin">
 <h1>The Nicira NVP Plugin<a class="headerlink" href="nicira-plugin.html#the-nicira-nvp-plugin" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="introduction-to-the-nicira-nvp-plugin">
-<h2>Introduction to the Nicira NVP Plugin<a class="headerlink" href="nicira-plugin.html#introduction-to-the-nicira-nvp-plugin" title="Permalink to this headline">¶</a></h2>
+<h2>简介 to the Nicira NVP Plugin<a class="headerlink" href="nicira-plugin.html#introduction-to-the-nicira-nvp-plugin" title="Permalink to this headline">¶</a></h2>
 <p>The Nicira NVP plugin adds Nicira NVP as one of the available SDN
 implementations in CloudStack. With the plugin an exisiting Nicira NVP
 setup can be used by CloudStack to implement isolated guest networks and
@@ -316,7 +316,7 @@ the hypervisors for Nicira NVP integration.</p>
 <div class="section" id="configuring-the-nicira-nvp-plugin">
 <h2>Configuring the Nicira NVP Plugin<a class="headerlink" href="nicira-plugin.html#configuring-the-nicira-nvp-plugin" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="prerequisites">
-<h3>Prerequisites<a class="headerlink" href="nicira-plugin.html#prerequisites" title="Permalink to this headline">¶</a></h3>
+<h3>前提<a class="headerlink" href="nicira-plugin.html#prerequisites" title="Permalink to this headline">¶</a></h3>
 <p>Before enabling the Nicira NVP plugin the NVP Controller needs to be
 configured. Please review the NVP User Guide on how to do that.</p>
 <p>Make sure you have the following information ready:</p>
@@ -379,10 +379,10 @@ enter the configuration details.</p>
 </div>
 </div>
 <div class="section" id="network-offerings">
-<h3>Network Offerings<a class="headerlink" href="nicira-plugin.html#network-offerings" title="Permalink to this headline">¶</a></h3>
+<h3>网络方案<a class="headerlink" href="nicira-plugin.html#network-offerings" title="Permalink to this headline">¶</a></h3>
 <p>Using the Nicira NVP plugin requires a network offering with Virtual
 Networking enabled and configured to use the NiciraNvp element. Typical
-use cases combine services from the Virtual Router appliance and the
+use cases combine services from the 虚拟路由器 appliance and the
 Nicira NVP plugin.</p>
 <table border="1" class="table-striped table-bordered table-hover docutils">
 <colgroup>
@@ -514,7 +514,7 @@ using the API with the offering UUID.</p>
 </div>
 </div>
 <div class="section" id="vpc-network-offerings">
-<h3>VPC Network Offerings<a class="headerlink" href="nicira-plugin.html#vpc-network-offerings" title="Permalink to this headline">¶</a></h3>
+<h3>VPC 网络方案<a class="headerlink" href="nicira-plugin.html#vpc-network-offerings" title="Permalink to this headline">¶</a></h3>
 <p>The VPC needs specific network offerings with the VPC flag enabled.
 Otherwise these network offerings are identical to regular network
 offerings. To allow VPC networks with a Nicira NVP isolated network the

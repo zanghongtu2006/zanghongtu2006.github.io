@@ -14,10 +14,10 @@
    under the License.
 
 
-User Interface
+用户界面
 ==============
 
-Log In to the UI
+登录 UI
 ----------------
 
 CloudStack provides a web-based UI that can be used by both
@@ -54,7 +54,7 @@ For more guidance about the choices that appear when you log in to this
 UI, see Logging In as the Root Administrator.
 
 
-End User's UI Overview
+End User's UI 概述
 ~~~~~~~~~~~~~~~~~~~~~~
 
 The CloudStack UI helps users of cloud infrastructure to view and use
@@ -64,7 +64,7 @@ user is a member or administrator of one or more CloudStack projects,
 the UI can provide a project-oriented view.
 
 
-Root Administrator's UI Overview
+Root Administrator's UI 概述
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The CloudStack UI helps the CloudStack administrator provision, view,

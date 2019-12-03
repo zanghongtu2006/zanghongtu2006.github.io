@@ -14,10 +14,10 @@
    under the License.
    
 
-Managing the Cloud
+管理云
 ==================
 
-Using Tags to Organize Resources in the Cloud
+使用标签管理云上的资源
 ---------------------------------------------
 
 A tag is a key-value pair that stores metadata about a resource in the
@@ -72,7 +72,7 @@ The following API commands have the "tags" input parameter:
 
 -  listPublicIpAddresses
 
--  listSecurityGroups
+-  list安全Groups
 
 -  listLoadBalancerRules
 
@@ -107,7 +107,7 @@ number of hosts and sockets used for each host type.
    and CPU sockets based on hypervisor types.
 
 
-Changing the Database Configuration
+修改数据库设置
 -----------------------------------
 
 The CloudStack 管理服务 stores database configuration
@@ -115,7 +115,7 @@ information (e.g., hostname, port, credentials) in the file
 ``/etc/cloudstack/management/db.properties``. To effect a change, edit
 this file on each 管理服务, then restart the 管理服务.
 
-Changing the Database Password
+修改数据库密码
 ------------------------------
 
 You may need to change the password for the MySQL account used by
@@ -244,7 +244,7 @@ be found by calling listAlerts.
 
 :: 
    
-   SECONDARY_STORAGE = 6 //  Available Secondary Storage in availability zone is below configured threshold
+   SECONDARY_STORAGE = 6 //  Available 二级存储 in availability zone is below configured threshold
 
 :: 
    
@@ -260,7 +260,7 @@ be found by calling listAlerts.
 
 :: 
    
-   CONSOLE_PROXY = 10 // Console Proxy VM stopped unexpectedly
+   CONSOLE_PROXY = 10 // 控制台代理 VM stopped unexpectedly
 
 :: 
    
@@ -284,7 +284,7 @@ be found by calling listAlerts.
 
 :: 
    
-   CONSOLE_PROXY_MIGRATE = 16 // Console Proxy VM Migration was unsuccessful
+   CONSOLE_PROXY_MIGRATE = 16 // 控制台代理 VM Migration was unsuccessful
 
 :: 
    

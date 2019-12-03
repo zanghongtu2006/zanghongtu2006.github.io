@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Configuring your CloudStack Installation &mdash; Apache CloudStack 4.11.3.0 documentation</title>
+  <title>安装配置 CloudStack  &mdash; Apache CloudStack 4.11.3.0 documentation</title>
   
 
   
@@ -114,17 +114,17 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../quickinstallationguide/qig.html">快速安装向导</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">安装指南</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="index.html#building-from-source">从源码编译安装</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#general-installation">General Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#general-installation">通用安装指南</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="index.html#configuration">Configuration</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="configuration.html#">Configuring your CloudStack Installation</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="configuration.html#overview-of-provisioning-steps">Overview of Provisioning Steps</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="configuration.html#">安装配置 CloudStack </a><ul>
+<li class="toctree-l4"><a class="reference internal" href="configuration.html#overview-of-provisioning-steps">概述 of Provisioning Steps</a></li>
 <li class="toctree-l4"><a class="reference internal" href="configuration.html#adding-regions-optional">Adding Regions (optional)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="configuration.html#adding-a-zone">Adding a Zone</a></li>
 <li class="toctree-l4"><a class="reference internal" href="configuration.html#adding-a-pod">Adding a Pod</a></li>
-<li class="toctree-l4"><a class="reference internal" href="configuration.html#adding-a-cluster">Adding a Cluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="configuration.html#adding-a-cluster">Adding a 集群</a></li>
 <li class="toctree-l4"><a class="reference internal" href="configuration.html#adding-a-host">Adding a Host</a></li>
-<li class="toctree-l4"><a class="reference internal" href="configuration.html#add-primary-storage">Add Primary Storage</a></li>
-<li class="toctree-l4"><a class="reference internal" href="configuration.html#add-secondary-storage">Add Secondary Storage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="configuration.html#add-primary-storage">Add 主存储</a></li>
+<li class="toctree-l4"><a class="reference internal" href="configuration.html#add-secondary-storage">Add 二级存储</a></li>
 <li class="toctree-l4"><a class="reference internal" href="configuration.html#initialize-and-test">Initialize and Test</a></li>
 <li class="toctree-l4"><a class="reference internal" href="configuration.html#configuration-parameters">Configuration Parameters</a></li>
 <li class="toctree-l4"><a class="reference internal" href="configuration.html#granular-global-configuration-parameters">Granular Global Configuration Parameters</a></li>
@@ -133,13 +133,13 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#hypervisor-setup">Hypervisor 安装和设置</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#optional-installation">Optional Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#optional-installation">Optional 安装</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../upgrading/index.html">升级 CloudStack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../adminguide/index.html">使用手册</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developersguide/index.html">开发者手册</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../plugins/index.html">Plugins Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/index.html">插件使用手册</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">发行版本说明</a></li>
 </ul>
 <p class="caption"><span class="caption-text">其它:</span></p>
@@ -202,7 +202,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
         
           <li><a href="index.html">安装指南</a> &raquo;</li>
         
-      <li>Configuring your CloudStack Installation</li>
+      <li>安装配置 CloudStack </li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -224,25 +224,25 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
            <div itemprop="articleBody">
             
   <div class="section" id="configuring-your-cloudstack-installation">
-<span id="id1"></span><h1>Configuring your CloudStack Installation<a class="headerlink" href="configuration.html#configuring-your-cloudstack-installation" title="Permalink to this headline">¶</a></h1>
+<span id="id1"></span><h1>安装配置 CloudStack <a class="headerlink" href="configuration.html#configuring-your-cloudstack-installation" title="Permalink to this headline">¶</a></h1>
 <p>This section tells how to add regions, zones, pods, clusters, hosts,
 storage, and networks to your cloud. If you are unfamiliar with these
-entities, please begin by looking through <a class="reference internal" href="../conceptsandterminology/concepts.html#infrastructure-overview"><span class="std std-ref">Cloud Infrastructure Overview</span></a></p>
+entities, please begin by looking through <a class="reference internal" href="../conceptsandterminology/concepts.html#infrastructure-overview"><span class="std std-ref">Cloud Infrastructure 概述</span></a></p>
 <div class="section" id="overview-of-provisioning-steps">
-<h2>Overview of Provisioning Steps<a class="headerlink" href="configuration.html#overview-of-provisioning-steps" title="Permalink to this headline">¶</a></h2>
+<h2>概述 of Provisioning Steps<a class="headerlink" href="configuration.html#overview-of-provisioning-steps" title="Permalink to this headline">¶</a></h2>
 <p>After the 管理服务 is installed and running, you can add the
 compute resources for it to manage. For an overview of how a CloudStack
-cloud infrastructure is organized, see <a class="reference internal" href="../conceptsandterminology/concepts.html#infrastructure-overview"><span class="std std-ref">Cloud Infrastructure Overview</span></a></p>
+cloud infrastructure is organized, see <a class="reference internal" href="../conceptsandterminology/concepts.html#infrastructure-overview"><span class="std std-ref">Cloud Infrastructure 概述</span></a></p>
 <p>To provision the cloud infrastructure, or to scale it up at any time,
 follow these procedures:</p>
 <ol class="arabic simple">
 <li>Define regions (optional). See <a class="reference internal" href="configuration.html#adding-regions"><span class="std std-ref">Adding Regions (optional)</span></a>.</li>
 <li>Add a zone to the region. See <a class="reference internal" href="configuration.html#adding-a-zone"><span class="std std-ref">Adding a Zone</span></a>.</li>
 <li>Add more pods to the zone (optional). See <a class="reference internal" href="configuration.html#adding-a-pod"><span class="std std-ref">Adding a Pod</span></a>.</li>
-<li>Add more clusters to the pod (optional). See <a class="reference internal" href="configuration.html#adding-a-cluster"><span class="std std-ref">Adding a Cluster</span></a>.</li>
+<li>Add more clusters to the pod (optional). See <a class="reference internal" href="configuration.html#adding-a-cluster"><span class="std std-ref">Adding a 集群</span></a>.</li>
 <li>Add more hosts to the cluster (optional). See <a class="reference internal" href="configuration.html#adding-a-host"><span class="std std-ref">Adding a Host</span></a>.</li>
-<li>Add primary storage to the cluster. See <a class="reference internal" href="configuration.html#add-primary-storage"><span class="std std-ref">Add Primary Storage</span></a>.</li>
-<li>Add secondary storage to the zone. See <a class="reference internal" href="configuration.html#add-secondary-storage"><span class="std std-ref">Add Secondary Storage</span></a>.</li>
+<li>Add primary storage to the cluster. See <a class="reference internal" href="configuration.html#add-primary-storage"><span class="std std-ref">Add 主存储</span></a>.</li>
+<li>Add secondary storage to the zone. See <a class="reference internal" href="configuration.html#add-secondary-storage"><span class="std std-ref">Add 二级存储</span></a>.</li>
 <li>Initialize and test the new cloud. See <a class="reference internal" href="configuration.html#initialize-and-test"><span class="std std-ref">Initialize and Test</span></a>.</li>
 </ol>
 <p>When you have finished these steps, you will have a deployment with the
@@ -425,7 +425,7 @@ in a 3-region cloud:</p>
 physical network and add the first pod, cluster, host, primary storage,
 and secondary storage.</p>
 <ol class="arabic simple">
-<li>Log in to the CloudStack UI as the root administrator. See <a class="reference internal" href="../adminguide/ui.html#log-in-to-ui"><span class="std std-ref">Log In to the UI</span></a>.</li>
+<li>Log in to the CloudStack UI as the root administrator. See <a class="reference internal" href="../adminguide/ui.html#log-in-to-ui"><span class="std std-ref">登录 UI</span></a>.</li>
 <li>In the left navigation, choose Infrastructure.</li>
 <li>On Zones, click View More.</li>
 <li>Click Add Zone. The zone creation wizard will appear.</li>
@@ -487,13 +487,13 @@ services will be available on the network for guest VMs.</p>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>DefaultSharedNetworkOfferingWithSGService</td>
-<td>If you want to enable security groups for guest traffic isolation, choose this. (See Using Security Groups to                                                              Control Traffic to VMs.)</td>
+<td>If you want to enable security groups for guest traffic isolation, choose this. (See Using 安全组 to                                                              Control Traffic to VMs.)</td>
 </tr>
 <tr class="row-odd"><td>DefaultSharedNetworkOffering</td>
 <td>If you do not need security groups, choose this.</td>
 </tr>
 <tr class="row-even"><td>DefaultSharedNetscalerEIPandELBNetworkOffering</td>
-<td>If you have installed a Citrix NetScaler appliance as part of your zone network, and you will be using its Elastic                                                         IP and Elastic Load Balancing features, choose this. With the EIP and ELB features, a basic zone with security                                                             groups enabled can offer 1:1 static NAT and load balancing.</td>
+<td>If you have installed a Citrix NetScaler appliance as part of your zone network, and you will be using its Elastic                                                         IP and Elastic 负载均衡 features, choose this. With the EIP and ELB features, a basic zone with security                                                             groups enabled can offer 1:1 static NAT and load balancing.</td>
 </tr>
 </tbody>
 </table>
@@ -577,7 +577,7 @@ pod.</li>
 pod’s subnet. Use CIDR notation.</li>
 <li><strong>Start/End Reserved System IP.</strong> The IP range in the management
 network that CloudStack uses to manage various system VMs, such as
-Secondary Storage VMs, Console Proxy VMs, and DHCP. For more
+二级存储虚拟机s, 控制台代理 VMs, and DHCP. For more
 information, see System Reserved IP Addresses.</li>
 </ul>
 </li>
@@ -608,8 +608,8 @@ this cluster will run. If you choose VMware, additional fields
 appear so you can give information about a vSphere cluster. For
 vSphere servers, we recommend creating the cluster of hosts in
 vCenter and then adding the entire cluster to CloudStack. See Add
-Cluster: vSphere.</li>
-<li><strong>Cluster name.</strong> Enter a name for the cluster. This can be text
+集群: vSphere.</li>
+<li><strong>集群 name.</strong> Enter a name for the cluster. This can be text
 of your choosing and is not used by CloudStack.</li>
 </ul>
 </li>
@@ -627,9 +627,9 @@ hypervisor software version is supported by CloudStack and what
 additional configuration is required to ensure the host will work
 with CloudStack. To find these installation details, see:</p>
 <ul class="simple">
-<li>Citrix XenServer Installation and Configuration</li>
-<li>VMware vSphere Installation and Configuration</li>
-<li>KVM vSphere Installation and Configuration</li>
+<li>Citrix XenServer 安装 and Configuration</li>
+<li>VMware vSphere 安装 and Configuration</li>
+<li>KVM vSphere 安装 and Configuration</li>
 </ul>
 <p>To configure the first host, enter the following, then click Next:</p>
 <ul class="simple">
@@ -647,7 +647,7 @@ parameter) if you want this host to be used only for VMs with the
 </li>
 <li><p class="first">In a new cluster, CloudStack adds the first primary storage server
 for you. You can always add more servers later. For an overview of
-what primary storage is, see About Primary Storage.</p>
+what primary storage is, see About 主存储.</p>
 <p>To configure the first primary storage server, enter the following,
 then click Next:</p>
 <ul class="simple">
@@ -720,7 +720,7 @@ configured after the zone is created.</p>
 you must specify the corresponding Ethernet port profile names as
 network traffic label for each traffic type on the physical network.
 For more information on Nexus dvSwitch, see Configuring a vSphere
-Cluster with Nexus 1000v Virtual Switch in the 安装指南. If
+集群 with Nexus 1000v Virtual Switch in the 安装指南. If
 you have enabled VMware dvSwitch in the environment, you must specify
 the corresponding Switch name as network traffic label for each
 traffic type on the physical network. For more information, see
@@ -752,12 +752,12 @@ pod.</li>
 pod’s subnet. Use CIDR notation.</li>
 <li><strong>Start/End Reserved System IP.</strong> The IP range in the management
 network that CloudStack uses to manage various system VMs, such as
-Secondary Storage VMs, Console Proxy VMs, and DHCP. For more
+二级存储虚拟机s, 控制台代理 VMs, and DHCP. For more
 information, see <a class="reference internal" href="../conceptsandterminology/concepts.html#about-system-reserved-ip-addresses"><span class="std std-ref">System Reserved IP Addresses</span></a></li>
 </ul>
 </li>
 <li><p class="first">Specify a range of VLAN IDs to carry guest traffic for each physical
-network (see VLAN Allocation Example ), then click Next.</p>
+network (see VLAN 划分示例 ), then click Next.</p>
 </li>
 <li><p class="first">In a new pod, CloudStack adds the first cluster for you. You can
 always add more clusters later. For an overview of what a cluster is,
@@ -770,8 +770,8 @@ this cluster will run. If you choose VMware, additional fields
 appear so you can give information about a vSphere cluster. For
 vSphere servers, we recommend creating the cluster of hosts in
 vCenter and then adding the entire cluster to CloudStack. See Add
-Cluster: vSphere .</li>
-<li><strong>Cluster name.</strong> Enter a name for the cluster. This can be text
+集群: vSphere .</li>
+<li><strong>集群 name.</strong> Enter a name for the cluster. This can be text
 of your choosing and is not used by CloudStack.</li>
 </ul>
 </li>
@@ -788,9 +788,9 @@ hypervisor software version is supported by CloudStack and what
 additional configuration is required to ensure the host will work
 with CloudStack. To find these installation details, see:</p>
 <ul class="simple">
-<li>Citrix XenServer Installation for CloudStack</li>
-<li>VMware vSphere Installation and Configuration</li>
-<li>KVM Installation and Configuration</li>
+<li>Citrix XenServer 安装 for CloudStack</li>
+<li>VMware vSphere 安装 and Configuration</li>
+<li>KVM 安装 and Configuration</li>
 </ul>
 <p>To configure the first host, enter the following, then click Next:</p>
 <ul class="simple">
@@ -809,7 +809,7 @@ availability” feature enabled. For more information, see
 </li>
 <li><p class="first">In a new cluster, CloudStack adds the first primary storage server
 for you. You can always add more servers later. For an overview of
-what primary storage is, see <a class="reference internal" href="../conceptsandterminology/storage_setup.html#about-primary-storage"><span class="std std-ref">Primary Storage</span></a></p>
+what primary storage is, see <a class="reference internal" href="../conceptsandterminology/storage_setup.html#about-primary-storage"><span class="std std-ref">主存储</span></a></p>
 <p>To configure the first primary storage server, enter the following,
 then click Next:</p>
 <ul>
@@ -893,10 +893,10 @@ provide primary storage that has tags T1 and T2.</p>
 </ol>
 <ol class="arabic" id="installing-secondary-storage">
 <li><p class="first">In a new zone, CloudStack connects the first secondary storage server for
-you. For an overview of what secondary storage is, see <a class="reference internal" href="../conceptsandterminology/storage_setup.html#about-secondary-storage"><span class="std std-ref">Secondary Storage</span></a></p>
+you. For an overview of what secondary storage is, see <a class="reference internal" href="../conceptsandterminology/storage_setup.html#about-secondary-storage"><span class="std std-ref">二级存储</span></a></p>
 <p>Before you can fill out this screen, you need to prepare the
 secondary storage by setting up NFS shares and installing the latest
-CloudStack System VM template. See Adding Secondary Storage :</p>
+CloudStack System VM template. See Adding 二级存储 :</p>
 <ul class="simple">
 <li><strong>NFS Server.</strong> The IP address of the server or fully qualified
 domain name of the server.</li>
@@ -913,7 +913,7 @@ domain name of the server.</li>
 <p>When you created a new zone, CloudStack adds the first pod for you. You
 can add more pods at any time using the procedure in this section.</p>
 <ol class="arabic simple">
-<li>Log in to the CloudStack UI. See <a class="reference internal" href="../adminguide/ui.html#log-in-to-ui"><span class="std std-ref">Log In to the UI</span></a>.</li>
+<li>Log in to the CloudStack UI. See <a class="reference internal" href="../adminguide/ui.html#log-in-to-ui"><span class="std std-ref">登录 UI</span></a>.</li>
 <li>In the left navigation, choose Infrastructure. In Zones, click View
 More, then click the zone to which you want to add a pod.</li>
 <li>Click the Compute and Storage tab. In the Pods node of the diagram,
@@ -926,7 +926,7 @@ click View All.</li>
 CIDR notation.</li>
 <li><strong>Start/End Reserved System IP.</strong> The IP range in the management
 network that CloudStack uses to manage various system VMs, such as
-Secondary Storage VMs, Console Proxy VMs, and DHCP. For more
+二级存储虚拟机s, 控制台代理 VMs, and DHCP. For more
 information, see System Reserved IP Addresses.</li>
 </ul>
 </li>
@@ -934,12 +934,12 @@ information, see System Reserved IP Addresses.</li>
 </ol>
 </div>
 <div class="section" id="adding-a-cluster">
-<span id="id6"></span><h2>Adding a Cluster<a class="headerlink" href="configuration.html#adding-a-cluster" title="Permalink to this headline">¶</a></h2>
+<span id="id6"></span><h2>Adding a 集群<a class="headerlink" href="configuration.html#adding-a-cluster" title="Permalink to this headline">¶</a></h2>
 <p>You need to tell CloudStack about the hosts that it will manage. Hosts
 exist inside clusters, so before you begin adding hosts to the cloud,
 you must add at least one cluster.</p>
 <div class="section" id="add-cluster-kvm-or-xenserver">
-<h3>Add Cluster: KVM or XenServer<a class="headerlink" href="configuration.html#add-cluster-kvm-or-xenserver" title="Permalink to this headline">¶</a></h3>
+<h3>Add 集群: KVM or XenServer<a class="headerlink" href="configuration.html#add-cluster-kvm-or-xenserver" title="Permalink to this headline">¶</a></h3>
 <p>These steps assume you have already installed the hypervisor on the
 hosts and logged in to the CloudStack UI.</p>
 <ol class="arabic simple">
@@ -947,7 +947,7 @@ hosts and logged in to the CloudStack UI.</p>
 More, then click the zone in which you want to add the cluster.</li>
 <li>Click the Compute tab.</li>
 <li>In the Clusters node of the diagram, click View All.</li>
-<li>Click Add Cluster.</li>
+<li>Click Add 集群.</li>
 <li>Choose the hypervisor type for this cluster.</li>
 <li>Choose the pod in which you want to create the cluster.</li>
 <li>Enter a name for the cluster. This can be text of your choosing and
@@ -956,7 +956,7 @@ is not used by CloudStack.</li>
 </ol>
 </div>
 <div class="section" id="add-cluster-vsphere">
-<h3>Add Cluster: vSphere<a class="headerlink" href="configuration.html#add-cluster-vsphere" title="Permalink to this headline">¶</a></h3>
+<h3>Add 集群: vSphere<a class="headerlink" href="configuration.html#add-cluster-vsphere" title="Permalink to this headline">¶</a></h3>
 <p>Host management for vSphere is done through a combination of vCenter and
 the CloudStack admin UI. CloudStack requires that all hosts be in a
 CloudStack cluster, but the cluster may consist of a single host. As an
@@ -989,7 +989,7 @@ which you want to add the cluster.</p>
 </li>
 <li><p class="first">Click View Clusters.</p>
 </li>
-<li><p class="first">Click Add Cluster.</p>
+<li><p class="first">Click Add 集群.</p>
 </li>
 <li><p class="first">In Hypervisor, choose VMware.</p>
 </li>
@@ -997,7 +997,7 @@ which you want to add the cluster.</p>
 make reference to the values from vCenter.</p>
 <p><img alt="addcluster.png: add a cluster" src="../_images/add-cluster.png" /></p>
 <ul>
-<li><p class="first"><strong>Cluster Name</strong>: Enter the name of the cluster you created in
+<li><p class="first"><strong>集群 Name</strong>: Enter the name of the cluster you created in
 vCenter. For example, “cloud.cluster.2.2.1”</p>
 </li>
 <li><p class="first"><strong>vCenter Username</strong>: Enter the username that CloudStack should
@@ -1219,13 +1219,13 @@ automatically display in the UI.</p>
 <span id="id8"></span><h3>Adding a Host (vSphere)<a class="headerlink" href="configuration.html#adding-a-host-vsphere" title="Permalink to this headline">¶</a></h3>
 <p>For vSphere servers, we recommend creating the cluster of hosts in
 vCenter and then adding the entire cluster to CloudStack. See Add
-Cluster: vSphere.</p>
+集群: vSphere.</p>
 </div>
 </div>
 <div class="section" id="add-primary-storage">
-<span id="id9"></span><h2>Add Primary Storage<a class="headerlink" href="configuration.html#add-primary-storage" title="Permalink to this headline">¶</a></h2>
+<span id="id9"></span><h2>Add 主存储<a class="headerlink" href="configuration.html#add-primary-storage" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="system-requirements-for-primary-storage">
-<h3>System Requirements for Primary Storage<a class="headerlink" href="configuration.html#system-requirements-for-primary-storage" title="Permalink to this headline">¶</a></h3>
+<h3>System Requirements for 主存储<a class="headerlink" href="configuration.html#system-requirements-for-primary-storage" title="Permalink to this headline">¶</a></h3>
 <p>Hardware requirements:</p>
 <ul class="simple">
 <li>Any standards-compliant iSCSI, SMB, or NFS server that is supported
@@ -1244,7 +1244,7 @@ true, or else you will not be able to start VMs.</li>
 </ul>
 </div>
 <div class="section" id="adding-primary-storage">
-<h3>Adding Primary Storage<a class="headerlink" href="configuration.html#adding-primary-storage" title="Permalink to this headline">¶</a></h3>
+<h3>Adding 主存储<a class="headerlink" href="configuration.html#adding-primary-storage" title="Permalink to this headline">¶</a></h3>
 <p>When you create a new zone, the first primary storage is added as part
 of that procedure. You can add primary storage servers at any time, such
 as when adding a new cluster or adding more servers to an existing
@@ -1256,7 +1256,7 @@ nothing on the storage (ex. you have an empty SAN volume or an empty NFS
 share). Adding the storage to CloudStack will destroy any existing data.</p>
 </div>
 <ol class="arabic">
-<li><p class="first">Log in to the CloudStack UI <a class="reference internal" href="../adminguide/ui.html#log-in-to-ui"><span class="std std-ref">Log In to the UI</span></a>.</p>
+<li><p class="first">Log in to the CloudStack UI <a class="reference internal" href="../adminguide/ui.html#log-in-to-ui"><span class="std std-ref">登录 UI</span></a>.</p>
 </li>
 <li><p class="first">In the left navigation, choose Infrastructure. In Zones, click View
 More, then click the zone in which you want to add the primary
@@ -1264,18 +1264,18 @@ storage.</p>
 </li>
 <li><p class="first">Click the Compute tab.</p>
 </li>
-<li><p class="first">In the Primary Storage node of the diagram, click View All.</p>
+<li><p class="first">In the 主存储 node of the diagram, click View All.</p>
 </li>
-<li><p class="first">Click Add Primary Storage.</p>
+<li><p class="first">Click Add 主存储.</p>
 </li>
 <li><p class="first">Provide the following information in the dialog. The information
 required varies depending on your choice in Protocol.</p>
 <ul class="simple">
 <li><strong>Scope.</strong> Indicate whether the storage is available to all hosts
 in the zone or only to hosts in a single cluster.</li>
-<li><strong>Pod.</strong> (Visible only if you choose Cluster in the Scope field.)
+<li><strong>Pod.</strong> (Visible only if you choose 集群 in the Scope field.)
 The pod for the storage device.</li>
-<li><strong>Cluster.</strong> (Visible only if you choose Cluster in the Scope
+<li><strong>集群.</strong> (Visible only if you choose 集群 in the Scope
 field.) The cluster for the storage device.</li>
 <li><strong>Name.</strong> The name of the storage device.</li>
 <li><strong>Protocol.</strong> For XenServer, choose either NFS, iSCSI, or
@@ -1341,7 +1341,7 @@ component.</p>
 </div>
 <p>Adding primary storage that is based on the SolidFire plug-in enables
 CloudStack to provide hard quality-of-service (QoS) guarantees.</p>
-<p>When used with Compute or Disk Offerings, an administrator is able to
+<p>When used with Compute or 磁盘方案, an administrator is able to
 build an environment in which a root or data disk that a user creates
 leads to the dynamic creation of a SolidFire volume, which has guaranteed
 performance. Such a SolidFire volume is associated with one (and only
@@ -1385,9 +1385,9 @@ by (Min IOPS * clusterDefaultBurstIopsPercentOfMaxIops parameter)
 </div>
 </div>
 <div class="section" id="add-secondary-storage">
-<span id="id10"></span><h2>Add Secondary Storage<a class="headerlink" href="configuration.html#add-secondary-storage" title="Permalink to this headline">¶</a></h2>
+<span id="id10"></span><h2>Add 二级存储<a class="headerlink" href="configuration.html#add-secondary-storage" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="system-requirements-for-secondary-storage">
-<h3>System Requirements for Secondary Storage<a class="headerlink" href="configuration.html#system-requirements-for-secondary-storage" title="Permalink to this headline">¶</a></h3>
+<h3>System Requirements for 二级存储<a class="headerlink" href="configuration.html#system-requirements-for-secondary-storage" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>NFS storage appliance or Linux NFS server</li>
 <li>SMB/CIFS (Hyper-V)</li>
@@ -1396,12 +1396,12 @@ by (Min IOPS * clusterDefaultBurstIopsPercentOfMaxIops parameter)
 <li>100GB minimum capacity</li>
 <li>A secondary storage device must be located in the same zone as the
 guest VMs it serves.</li>
-<li>Each Secondary Storage server must be available to all hosts in the
+<li>Each 二级存储 server must be available to all hosts in the
 zone.</li>
 </ul>
 </div>
 <div class="section" id="adding-secondary-storage">
-<h3>Adding Secondary Storage<a class="headerlink" href="configuration.html#adding-secondary-storage" title="Permalink to this headline">¶</a></h3>
+<h3>Adding 二级存储<a class="headerlink" href="configuration.html#adding-secondary-storage" title="Permalink to this headline">¶</a></h3>
 <p>When you create a new zone, the first secondary storage is added as part
 of that procedure. You can add secondary storage servers at any time to
 add more servers to an existing zone.</p>
@@ -1424,9 +1424,9 @@ Server installation. See <a class="reference external" href="http://docs.cloudst
 </li>
 <li><p class="first">In the left navigation bar, click Infrastructure.</p>
 </li>
-<li><p class="first">In Secondary Storage, click View All.</p>
+<li><p class="first">In 二级存储, click View All.</p>
 </li>
-<li><p class="first">Click Add Secondary Storage.</p>
+<li><p class="first">Click Add 二级存储.</p>
 </li>
 <li><p class="first">Fill in the following fields:</p>
 <ul>
@@ -1440,7 +1440,7 @@ for zone-based storage, and the others for region-wide storage.
 For Hyper-V, select SMB/CIFS.</p>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
-<p class="last">Heterogeneous Secondary Storage is not supported in Regions. You can
+<p class="last">Heterogeneous 二级存储 is not supported in Regions. You can
 use only a single NFS, S3, or Swift account per region.</p>
 </div>
 </li>
@@ -1484,7 +1484,7 @@ zone:</p>
 <ol class="arabic simple">
 <li>Log in to the CloudStack UI as root administrator.</li>
 <li>In the left navigation bar, click Infrastructure.</li>
-<li>In Secondary Storage, click View All.</li>
+<li>In 二级存储, click View All.</li>
 <li>In Select View, choose Secondary Staging Store.</li>
 <li>Click the Add NFS Secondary Staging Store button.</li>
 <li>Fill out the dialog box fields, then click OK:<ul>
@@ -1505,7 +1505,7 @@ of your network. When the initialization has completed successfully, the
 administrator’s Dashboard should be displayed in the CloudStack UI.</p>
 <ol class="arabic">
 <li><p class="first">Verify that the system is ready. In the left navigation bar, select
-Templates. Click on the CentOS 5.5 (64bit) no Gui (KVM) template.
+模板. Click on the CentOS 5.5 (64bit) no Gui (KVM) template.
 Check to be sure that the status is “Download Complete.” Do not
 proceed to the next step until this status is displayed.</p>
 </li>
@@ -1542,7 +1542,7 @@ Machines in the Administratorâ€™s Guide.</p>
 </li>
 </ol>
 <p>Congratulations! You have successfully completed a CloudStack
-Installation.</p>
+安装.</p>
 <p>If you decide to grow your deployment, you can add more hosts, primary
 storage, zones, pods, and clusters.</p>
 </div>
@@ -1633,7 +1633,7 @@ the global configuration settings.</p>
 depending on where you want to set a value.</li>
 <li>Find the name of the particular resource that you want to work with.
 For example, if you are in Infrastructure, click View All on the
-Zones, Clusters, or Primary Storage area.</li>
+Zones, Clusters, or 主存储 area.</li>
 <li>Click the name of the resource where you want to set a limit.</li>
 <li>Click the Settings tab.</li>
 <li>Use the search box to narrow down the list to those you are

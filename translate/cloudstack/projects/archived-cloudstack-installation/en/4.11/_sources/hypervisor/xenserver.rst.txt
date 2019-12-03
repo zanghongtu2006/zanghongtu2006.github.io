@@ -76,7 +76,7 @@ System Requirements for XenServer Hosts
    The lack of up-to-date hotfixes can lead to data corruption and lost VMs.
 
 
-XenServer Installation Steps
+XenServer 安装 Steps
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. From `https://www.citrix.com/English/ss/downloads/ 
@@ -229,7 +229,7 @@ CSP functionality is already present in XenServer 6.1
 The XenServer host is now ready to be added to CloudStack.
 
 
-Primary Storage Setup for XenServer
+Primary 存储配置 for XenServer
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 CloudStack natively supports NFS, iSCSI and local storage. If you are
@@ -310,8 +310,8 @@ that XenServer.
       # xe sr-param-set uuid=7a143820-e893-6c6a-236e-472da6ee66bf name-description="Fiber Channel storage repository"
 
    Make note of the values you will need when you add this storage to
-   CloudStack later (see `"Add Primary Storage" 
-   <configuration.html#add-primary-storage>`_). In the Add Primary Storage
+   CloudStack later (see `"Add 主存储" 
+   <configuration.html#add-primary-storage>`_). In the Add 主存储
    dialog, in Protocol, you will choose PreSetup. In SR Name-Label, you
    will enter the name-label you set earlier (in this example,
    e6849e96-86c3-4f2c-8fcc-350cc711be3d).
@@ -340,8 +340,8 @@ You can also ask your SAN vendor for advice about setting up your Citrix
 repository for multipathing.
 
 Make note of the values you will need when you add this storage to the
-CloudStack later (see `"Add Primary Storage" 
-<configuration.html#add-primary-storage>`_). In the Add Primary Storage 
+CloudStack later (see `"Add 主存储" 
+<configuration.html#add-primary-storage>`_). In the Add 主存储 
 dialog, in Protocol, you will choose PreSetup. In SR Name-Label, you will 
 enter the same name used to create the SR.
 
@@ -529,7 +529,7 @@ The administrator must bond the management network NICs prior to adding
 the host to CloudStack.
 
 
-Creating a Private Bond on the First Host in the Cluster
+Creating a Private Bond on the First Host in the 集群
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
 Use the following steps to create a bond in XenServer. These steps
@@ -574,7 +574,7 @@ if that network will be bonded and will be separate from the management
 network.
 
 
-Creating a Public Bond on the First Host in the Cluster
+Creating a Public Bond on the First Host in the 集群
 '''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
 These steps should be run on only the first host in a cluster. This
@@ -609,7 +609,7 @@ Now you have a bonded pair that can be recognized by CloudStack as the
 public network.
 
 
-Adding More Hosts to the Cluster
+Adding More Hosts to the 集群
 ''''''''''''''''''''''''''''''''
 
 With the bonds (if any) established on the master, you should add
@@ -623,7 +623,7 @@ master in a single XenServer pool.
    master-password=[your password]
 
 
-Complete the Bonding Setup Across the Cluster
+Complete the Bonding Setup Across the 集群
 '''''''''''''''''''''''''''''''''''''''''''''
 
 With all hosts added to the pool, run the cloud-setup-bond script. This

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Plugins &mdash; Apache CloudStack 4.13.0.0 文档</title>
+  <title>插件 &mdash; Apache CloudStack 4.13.0.0 文档</title>
   
 
   
@@ -38,7 +38,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Allocators" href="alloc.html" />
-    <link rel="prev" title="Programmer Guide" href="dev.html" /> 
+    <link rel="prev" title="开发者指南" href="dev.html" /> 
 
 <!-- RTD Extra Head -->
 
@@ -117,11 +117,11 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1"><a class="reference internal" href="../upgrading/index.html">升级 CloudStack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../adminguide/index.html">使用手册</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">开发者手册</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="developer_guide.html">CloudStack Installation from GIT repo for Developers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="dev.html">Programmer Guide</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="plugins.html#">Plugins</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="plugins.html#storage-plugins">Storage Plugins</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="plugins.html#overview-of-how-to-write-a-storage-plugin">Overview of How to Write a Storage Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide.html">CloudStack 安装 from GIT repo for Developers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dev.html">开发者指南</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="plugins.html#">插件</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="plugins.html#storage-plugins">存储插件</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="plugins.html#overview-of-how-to-write-a-storage-plugin">概述 of How to Write a Storage Plugin</a></li>
 <li class="toctree-l4"><a class="reference internal" href="plugins.html#implementing-datastoredriver">Implementing DataStoreDriver</a></li>
 <li class="toctree-l4"><a class="reference internal" href="plugins.html#implementing-datastorelifecycle">Implementing DataStoreLifecycle</a></li>
 <li class="toctree-l4"><a class="reference internal" href="plugins.html#implementing-datastoreprovider">Implementing DataStoreProvider</a></li>
@@ -131,19 +131,19 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l4"><a class="reference internal" href="plugins.html#minimum-required-interfaces">Minimum Required Interfaces</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="plugins.html#third-party-ui-plugins">Third Party UI Plugins</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="plugins.html#how-to-write-a-plugin-overview">How to Write a Plugin: Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plugins.html#third-party-ui-plugins">第三方 UI 插件</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="plugins.html#how-to-write-a-plugin-overview">How to Write a Plugin: 概述</a></li>
 <li class="toctree-l4"><a class="reference internal" href="plugins.html#how-to-write-a-plugin-implementation-details">How to Write a Plugin: Implementation Details</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="alloc.html">Allocators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ansible.html">Deploying CloudStack with Ansible</a></li>
-<li class="toctree-l2"><a class="reference internal" href="get_help.html">Getting Help</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ansible.html">使用 Ansible 部署 CloudStack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="get_help.html">获得帮助</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../plugins/index.html">Plugins Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/index.html">插件使用手册</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../releasenotes/index.html">发行版本说明</a></li>
 </ul>
 <p class="caption"><span class="caption-text">其它:</span></p>
@@ -206,7 +206,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
         
           <li><a href="index.html">开发者手册</a> &raquo;</li>
         
-      <li>Plugins</li>
+      <li>插件</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -228,9 +228,9 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
            <div itemprop="articleBody">
             
   <div class="section" id="plugins">
-<h1>Plugins<a class="headerlink" href="plugins.html#plugins" title="Permalink to this headline">¶</a></h1>
+<h1>插件<a class="headerlink" href="plugins.html#plugins" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="storage-plugins">
-<h2>Storage Plugins<a class="headerlink" href="plugins.html#storage-plugins" title="Permalink to this headline">¶</a></h2>
+<h2>存储插件<a class="headerlink" href="plugins.html#storage-plugins" title="Permalink to this headline">¶</a></h2>
 <p>This section gives an outline of how to implement a plugin to integrate
 a third-party storage provider. For details and an example, you will
 need to read the code.</p>
@@ -264,7 +264,7 @@ provider is selected, additional input fields may appear so that the
 user can provide the additional details required by that provider, such
 as a user name and password for a third-party storage account.</p>
 <div class="section" id="overview-of-how-to-write-a-storage-plugin">
-<h3>Overview of How to Write a Storage Plugin<a class="headerlink" href="plugins.html#overview-of-how-to-write-a-storage-plugin" title="Permalink to this headline">¶</a></h3>
+<h3>概述 of How to Write a Storage Plugin<a class="headerlink" href="plugins.html#overview-of-how-to-write-a-storage-plugin" title="Permalink to this headline">¶</a></h3>
 <p>To add a third-party storage option to CloudStack, follow these general
 steps (explained in more detail later in this section):</p>
 <ol class="arabic simple">
@@ -277,7 +277,7 @@ functionality)</li>
 </ul>
 </li>
 <li>Hardcode your plugin’s required additional input fields into the code
-for the Add Secondary Storage or Add Primary Storage dialog box.</li>
+for the Add 二级存储 or Add 主存储 dialog box.</li>
 <li>Place your .jar file in <cite>plugins/storage/volume/</cite> or
 <cite>plugins/storage/image/</cite>.</li>
 <li>Edit <cite>/client/tomcatconf/componentContext.xml.in</cite>.</li>
@@ -534,7 +534,7 @@ Type</th>
 </div>
 </div>
 <div class="section" id="third-party-ui-plugins">
-<h2>Third Party UI Plugins<a class="headerlink" href="plugins.html#third-party-ui-plugins" title="Permalink to this headline">¶</a></h2>
+<h2>第三方 UI 插件<a class="headerlink" href="plugins.html#third-party-ui-plugins" title="Permalink to this headline">¶</a></h2>
 <p>Using the new third-party plugin framework, you can write and install
 extensions to CloudStack. The installed and enabled plugins will appear in
 the UI alongside the other features. The code for the plugin is simply
@@ -544,10 +544,10 @@ enabled by the cloud administrator.</p>
 <div class="figure align-center">
 <img alt="New plugin button in CloudStack navbar" src="../_images/plugin_intro.jpg" />
 </div>
-<p>The left navigation bar of the CloudStack UI has a new Plugins button to
+<p>The left navigation bar of the CloudStack UI has a new 插件 button to
 help you work with UI plugins.</p>
 <div class="section" id="how-to-write-a-plugin-overview">
-<h3>How to Write a Plugin: Overview<a class="headerlink" href="plugins.html#how-to-write-a-plugin-overview" title="Permalink to this headline">¶</a></h3>
+<h3>How to Write a Plugin: 概述<a class="headerlink" href="plugins.html#how-to-write-a-plugin-overview" title="Permalink to this headline">¶</a></h3>
 <p>The basic procedure for writing a plugin is:</p>
 <ol class="arabic">
 <li><p class="first">Write the code and create the other files needed. You will need the
@@ -601,7 +601,7 @@ you.</p>
 here. The UI is very flexible to handle many use cases, so there are
 countless options and variations. The best reference right now is to
 read the existing code for the main UI, which is in the /ui folder.
-Plugins are written in a very similar way to the main UI.</p>
+插件 are written in a very similar way to the main UI.</p>
 <ol class="arabic">
 <li><p class="first"><strong>Create the directory to hold your plugin.</strong></p>
 <p>All plugins are composed of set of required files in the directory
@@ -687,7 +687,7 @@ $ vi plugins.js
 <li><p class="first"><strong>Check the plugin in the UI.</strong></p>
 <p>First, copy all the plugin code that you have created so far to
 <cite>/tomcat/webapps/client/plugins</cite>. Then refresh the browser and click
-Plugins in the side navigation bar. You should see your new plugin.</p>
+插件 in the side navigation bar. You should see your new plugin.</p>
 </li>
 <li><p class="first"><strong>Make the plugin do something.</strong></p>
 <p>Right now, you just have placeholder content in the new plugin. It’s
@@ -872,7 +872,7 @@ the same directory with your plugin code:
         <a href="alloc.html" class="btn btn-neutral float-right" title="Allocators" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="dev.html" class="btn btn-neutral float-left" title="Programmer Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="dev.html" class="btn btn-neutral float-left" title="开发者指南" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
