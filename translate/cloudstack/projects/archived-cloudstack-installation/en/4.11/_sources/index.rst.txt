@@ -13,13 +13,13 @@
    specific language governing permissions and limitations
    under the License.
 
-.. CloudStack 安装 Documentation master file, created by
+.. CloudStack 安装手册 master file, created by
    sphinx-quickstart on Sat Jan 25 15:15:31 2014.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
 
-CloudStack 安装 Documentation
+CloudStack 安装手册
 =====================================
 
 .. figure:: /_static/images/acslogo.png
@@ -61,7 +61,7 @@ the administrator guide or the Release-Notes please see:
 .. _guide:
 
 
-快速安装向导
+快速入门指南
 ------------------------
 .. toctree::
    :maxdepth: 2

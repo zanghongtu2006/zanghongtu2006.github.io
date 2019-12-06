@@ -14,13 +14,13 @@
    under the License.
 
 
-API Changes Introduced in |version|
+API 变更 |version|
 ===================================
 
 For the complete list of API commands and params consult the `CloudStack Apidocs`_.
 
 
-New API Commands
+新 API
 ----------------
 
 .. cssclass:: table-striped table-bordered table-hover
@@ -120,7 +120,7 @@ New API Commands
 +---------------------------------------------+--------------------------------------------------------------------------------+
 
 
-Parameters Changed API Commands
+API 参数变更
 -------------------------------
 
 .. cssclass:: table-striped table-bordered table-hover

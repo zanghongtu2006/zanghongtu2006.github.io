@@ -32,7 +32,7 @@ instructions, please see the `CloudStack 安装指南`_. For usage and
 administration instructions, please see the `CloudStack Administrator's Guide`_.
 
 
-Contents:
+目录:
 
 .. toctree::
    :maxdepth: 2

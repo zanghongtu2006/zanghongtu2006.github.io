@@ -14,7 +14,7 @@
    under the License.
 
 
-快速安装向导 for CentOS 6
+快速入门指南 for CentOS 6
 =====================================
 
 概述

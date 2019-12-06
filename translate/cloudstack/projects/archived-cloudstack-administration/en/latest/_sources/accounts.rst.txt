@@ -14,7 +14,7 @@
    under the License.
    
 
-Managing Roles, Accounts, Users and Domains
+管理角色、账户、用户和域
 ===========================================
 
 角色、账户、用户和域

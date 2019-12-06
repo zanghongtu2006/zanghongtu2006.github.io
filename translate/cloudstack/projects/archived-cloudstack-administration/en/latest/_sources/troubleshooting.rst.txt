@@ -14,7 +14,7 @@
    under the License.
    
 
-TroubleShooting
+故障排除
 ===============
 
 Working with Server Logs

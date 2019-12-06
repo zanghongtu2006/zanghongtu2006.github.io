@@ -14,7 +14,7 @@
    under the License.
    
 
-Using Projects to Organize Users and Resources
+用项目来管理用户和资源
 ==============================================
 
 项目概述
