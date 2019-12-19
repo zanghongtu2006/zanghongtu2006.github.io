@@ -29,7 +29,7 @@ entities, please begin by looking through `*Cloud Infrastructure Concepts*
 
 After the 管理服务 is installed and running, you can add the
 compute resources for it to manage. For an overview of how a CloudStack
-cloud infrastructure is organized, see `“Cloud Infrastructure 概述” 
+cloud infrastructure is organized, see `“Cloud 基础设施概述” 
 <http://docs.cloudstack.apache.org/en/latest/concepts.html#cloud-infrastructure-overview>`_.
 
 To provision the cloud infrastructure, or to scale it up at any time,

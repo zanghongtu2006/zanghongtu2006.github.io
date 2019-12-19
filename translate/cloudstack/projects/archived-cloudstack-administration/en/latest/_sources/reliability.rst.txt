@@ -14,7 +14,7 @@
    under the License.
    
 
-System Reliability and High Availability
+System Reliability and 高可用
 ========================================
 
 管理服务高可用

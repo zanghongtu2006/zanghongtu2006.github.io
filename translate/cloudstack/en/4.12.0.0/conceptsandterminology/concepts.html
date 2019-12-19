@@ -117,15 +117,15 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l4"><a class="reference internal" href="concepts.html#multiple-hypervisor-support">多虚拟化支持</a></li>
 <li class="toctree-l4"><a class="reference internal" href="concepts.html#massively-scalable-infrastructure-management">大规模可扩展的基础设施管理</a></li>
 <li class="toctree-l4"><a class="reference internal" href="concepts.html#automatic-cloud-configuration-management">Automatic Cloud Configuration Management</a></li>
-<li class="toctree-l4"><a class="reference internal" href="concepts.html#graphical-user-interface">Graphical 用户界面</a></li>
+<li class="toctree-l4"><a class="reference internal" href="concepts.html#graphical-user-interface">图形化界面</a></li>
 <li class="toctree-l4"><a class="reference internal" href="concepts.html#api">API</a></li>
-<li class="toctree-l4"><a class="reference internal" href="concepts.html#aws-ec2-api-support">AWS EC2 API Support</a></li>
-<li class="toctree-l4"><a class="reference internal" href="concepts.html#high-availability">High Availability</a></li>
+<li class="toctree-l4"><a class="reference internal" href="concepts.html#aws-ec2-api-support">支持 AWS EC2 API</a></li>
+<li class="toctree-l4"><a class="reference internal" href="concepts.html#high-availability">高可用</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="concepts.html#deployment-architecture-overview">部署架构概述</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="concepts.html#management-server-overview">管理服务 概述</a></li>
-<li class="toctree-l4"><a class="reference internal" href="concepts.html#cloud-infrastructure-overview">Cloud Infrastructure 概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="concepts.html#management-server-overview">管理服务概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="concepts.html#cloud-infrastructure-overview">Cloud 基础设施概述</a></li>
 <li class="toctree-l4"><a class="reference internal" href="concepts.html#networking-overview">Networking 概述</a></li>
 </ul>
 </li>
@@ -262,54 +262,33 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 </div>
 <div class="section" id="massively-scalable-infrastructure-management">
 <h2>大规模可扩展的基础设施管理<a class="headerlink" href="concepts.html#massively-scalable-infrastructure-management" title="Permalink to this headline">¶</a></h2>
-<p>CloudStack can manage tens of thousands of physical servers installed in
-geographically distributed datacenters. The management server scales
-near-linearly eliminating the need for cluster-level management servers.
-Maintenance or other outages of the management server can occur without
-affecting the virtual machines running in the cloud.</p>
+<p>CloudStack 可以管理多地理区域分布的数以万计的物理服务器。 管理服务去几乎是线性扩展的，不需要集群级的管理服务器。
+可以在云中服务器无感知的情况下对管理服务进行停机维护。</p>
 </div>
 <div class="section" id="automatic-cloud-configuration-management">
 <h2>Automatic Cloud Configuration Management<a class="headerlink" href="concepts.html#automatic-cloud-configuration-management" title="Permalink to this headline">¶</a></h2>
-<p>CloudStack automatically configures the network and storage settings for each
-virtual machine deployment. Internally, a pool of virtual appliances support
-the operation of configuration of the cloud itself. These appliances offer
-services such as firewalling, routing, DHCP, VPN, console proxy, storage
-access, and storage replication. The extensive use of horizontally scalable
-virtual machines simplifies the installation and ongoing operation of a cloud.</p>
+<p>CloudStack 为每个虚拟机自动配置网络和存储。在内部，虚拟设备池支持云本身的配置操作。这些设备提供诸如防火墙、路由、DHCP、VPN、控制台代理，存储访问和存储备份等服务。水平可伸缩的虚拟机简化了云的安装和日常操作。</p>
 </div>
 <div class="section" id="graphical-user-interface">
-<h2>Graphical 用户界面<a class="headerlink" href="concepts.html#graphical-user-interface" title="Permalink to this headline">¶</a></h2>
-<p>CloudStack offers an administrators web interface used for provisioning and
-managing the cloud, as well as an end-user’s Web interface, used for running
-VMs and managing VM templates. The UI can be customized to reflect the desired
-service provider or enterprise look and feel.</p>
+<h2>图形化界面<a class="headerlink" href="concepts.html#graphical-user-interface" title="Permalink to this headline">¶</a></h2>
+<p>CloudStack 提供一个用来配置和管理云的管理员控制台，和一个用来管理虚拟机和虚拟机模版的终端用户界面。UI界面可以按需定制，以展示服务提供商或企业信息。</p>
 </div>
 <div class="section" id="api">
 <h2>API<a class="headerlink" href="concepts.html#api" title="Permalink to this headline">¶</a></h2>
-<p>CloudStack provides a REST-like API for the operation, management and use of
-the cloud.</p>
+<p>CloudStack 为云的操作、管理和使用提供了一套Rest风格的API。</p>
 </div>
 <div class="section" id="aws-ec2-api-support">
-<h2>AWS EC2 API Support<a class="headerlink" href="concepts.html#aws-ec2-api-support" title="Permalink to this headline">¶</a></h2>
-<p>CloudStack provides an EC2 API translation layer to permit the common EC2
-tools to be used in the use of a CloudStack cloud.</p>
+<h2>支持 AWS EC2 API<a class="headerlink" href="concepts.html#aws-ec2-api-support" title="Permalink to this headline">¶</a></h2>
+<p>CloudStack 提供 EC2 API 转换层，兼容 EC2 公有云服务。</p>
 </div>
 <div class="section" id="high-availability">
-<h2>High Availability<a class="headerlink" href="concepts.html#high-availability" title="Permalink to this headline">¶</a></h2>
-<p>CloudStack has a number of features to increase the availability of the
-system. The 管理服务 itself may be deployed in a multi-node
-installation where the servers are load balanced. MySQL may be configured to
-use replication to provide for failover in the event of database loss. For the
-hosts, CloudStack supports NIC bonding and the use of separate networks for
-storage as well as iSCSI Multipath.</p>
+<h2>高可用<a class="headerlink" href="concepts.html#high-availability" title="Permalink to this headline">¶</a></h2>
+<p>CloudStack 提供一系列特性用于增强系统可靠性。 管理服务本身部署在负载均衡的多台服务器上。 MySQL 支持配置为主从结构，用于防止数据损坏和丢失。 对于主机，CloudStack支持网卡绑定，支持独立的存储网络，比如iSCSI多路径。</p>
 </div>
 </div>
 <div class="section" id="deployment-architecture-overview">
 <h1>部署架构概述<a class="headerlink" href="concepts.html#deployment-architecture-overview" title="Permalink to this headline">¶</a></h1>
-<p>Generally speaking, most CloudStack deployments consist of the management
-server and the resources to be managed. During deployment you inform the
-management server of the resources to be managed, such as IP address blocks,
-storage devices, hypervisors, and VLANs.</p>
+<p>通常，CloudStack 由管理服务和被管理的资源组成。在部署的过程中，需要将被管理资源的信息（IP段，存储设备，hypervisor和VLAN等）输入到管理服务中。</p>
 <p>The minimum installation consists of one machine running the CloudStack
 管理服务 and another machine to act as the cloud infrastructure (in
 this case, a very simple infrastructure consisting of one host running
@@ -320,7 +299,7 @@ both the 管理服务 and the hypervisor host (using the KVM hypervisor).</p>
 管理服务 installation and up to tens of thousands of hosts using any
 of several networking technologies.</p>
 <div class="section" id="management-server-overview">
-<h2>管理服务 概述<a class="headerlink" href="concepts.html#management-server-overview" title="Permalink to this headline">¶</a></h2>
+<h2>管理服务概述<a class="headerlink" href="concepts.html#management-server-overview" title="Permalink to this headline">¶</a></h2>
 <p>The management server orchestrates and allocates the resources in your cloud
 deployment.</p>
 <p>The management server typically runs on a dedicated machine or as a virtual
@@ -328,7 +307,7 @@ machine.  It controls allocation of virtual machines to hosts and assigns
 storage and IP addresses to the virtual machine instances. The Management
 Server runs in an Apache Tomcat container and requires a MySQL database for
 persistence.</p>
-<p>The management server:</p>
+<p>管理服务</p>
 <ul class="simple">
 <li>Provides the web interface for both the adminstrator and end user.</li>
 <li>Provides the API interfaces for both the CloudStack API as well as the EC2
@@ -341,23 +320,16 @@ interface.</li>
 </ul>
 </div>
 <div class="section" id="cloud-infrastructure-overview">
-<span id="infrastructure-overview"></span><h2>Cloud Infrastructure 概述<a class="headerlink" href="concepts.html#cloud-infrastructure-overview" title="Permalink to this headline">¶</a></h2>
-<p>Resources within the cloud are managed as follows:</p>
+<span id="infrastructure-overview"></span><h2>Cloud 基础设施概述<a class="headerlink" href="concepts.html#cloud-infrastructure-overview" title="Permalink to this headline">¶</a></h2>
+<p>云中的资源按照以下方式管理:</p>
 <ul class="simple">
-<li>Regions: A collection of one or more geographically proximate zones managed
-by one or more management servers.</li>
-<li>Zones: Typically, a zone is equivalent to a single datacenter. A zone
-consists of one or more pods and secondary storage.</li>
-<li>Pods: A pod is usually a rack, or row of racks that includes a layer-2
-switch and one or more clusters.</li>
-<li>Clusters: A cluster consists of one or more homogenous hosts and primary
-storage.</li>
-<li>Host: A single compute node within a cluster; often a hypervisor.</li>
-<li>主存储: A storage resource typically provided to a single cluster
-for the actual running of instance disk images. (Zone-wide primary storage
-is an option, though not typically used.)</li>
-<li>二级存储: A zone-wide resource which stores disk templates, ISO
-images, and snapshots.</li>
+<li>域: 由一台或多台管理服务管理的一个或多个临近的地理位置的集合。</li>
+<li>区域: 通常理解为一个数据中心。一个区域包含多个Pod和二级存储。</li>
+<li>区域: 通常理解为一个机架，或者包含二级交换机的一个或多个服务器集群。</li>
+<li>集群: 一个集群包含一个或多个同类型的主机和主存储。</li>
+<li>主机: 集群种的一个计算节点; 通常是一个虚拟化管理服务。</li>
+<li>主存储: 提供给单个集群的存储资源，用于存放虚拟机磁盘镜像。(CloudStack提供全区范围的主存储，但是一般推荐不使用)</li>
+<li>二级存储: 全区范围的存储，用于存放磁盘镜像，ISO，虚拟机快照。</li>
 </ul>
 </div>
 <div class="section" id="networking-overview">
