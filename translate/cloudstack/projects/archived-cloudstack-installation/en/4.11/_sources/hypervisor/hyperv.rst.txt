@@ -240,7 +240,7 @@ If you are using Windows 2012 R2, virtual switch is created
 automatically.
 
 
-Storage Preparation for Hyper-V (Optional)
+Storage Preparation for Hyper-V （可选）
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 CloudStack allows administrators to set up shared 主存储 and

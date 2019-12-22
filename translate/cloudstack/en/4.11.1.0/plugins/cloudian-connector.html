@@ -276,7 +276,7 @@ their own S3 storage areas.</p>
 </table>
 <p>Table: Support Matrix</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">Starting CloudStack 4.11, the Connector will be part of the CloudStack
 release and will not need to be externally installed.</p>
 </div>
@@ -336,7 +336,7 @@ CMC.</p>
 </table>
 <p>Table: Mapping Between Cloudian and CloudStack</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">Adding groups or users directly through Cloudian does not add
 corresponding CloudStack Domains or Accounts. The integration is driven
 completely from the CloudStack side.</p>
@@ -350,7 +350,7 @@ configurable, there is a configuration option to control this mapping. This
 mapping dictates which HyperStore user is automatically logged in using SSO when
 the CloudStack admin user clicks “Cloudian Storage”.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">The Cloudian Admin user default is called admin. Older versions of
 Cloudian used to use <a class="reference external" href="mailto:admin&#37;&#52;&#48;cloudian&#46;com">admin<span>&#64;</span>cloudian<span>&#46;</span>com</a>.</p>
 </div>
@@ -410,7 +410,7 @@ you will also configure in the CloudStack connector further below.</p>
 </div>
 </div></blockquote>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">Once configured in Puppet, you should roll out out to each CMC server and
 restart CMC services. Please refer to the HyperStore documentation for how to
 do this.</p>
@@ -479,7 +479,7 @@ CloudStack admin user</td>
 </table>
 <p>Table: Cloudian Connector Global Settings</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">Change in only ‘cloudian.connector.enabled’ setting requires restarting of
 all the CloudStack management server(s), rest of the setting can be changed
 dynamically without requiring to restart the CloudStack management server(s).</p>
@@ -546,7 +546,7 @@ Storage out of the box. There is no need for any modifications or to install any
 connectors. 二级存储 is used to store ISOs, 模板, Snapshots and
 Volumes.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">CloudStack still requires an NFS 二级存储 Staging Server with is
 mentioned in the requirements below.</p>
 </div>
@@ -632,7 +632,7 @@ download templates from their S3 object store areas.</p>
 <img alt="a screenshot of changing global settings" src="../_images/cloudian-ss_globalopt.png" />
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">Editing the Global Settings requires you to restart the management server(s).</p>
 </div>
 </div>
@@ -658,7 +658,7 @@ For example nfs.mycloud.com and /export/staging.</li>
 The below instructions assume you are not using 二级存储 on NFS and
 that you can delete it to add the S3 storage.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">Already using NFS for 二级存储 with CloudStack? You need to migrate
 your 二级存储. Refer to CloudStack’s instructions for migrating
 existing NFS 二级存储 to an S3 object storage. CloudStack 4.5 onwards
@@ -679,7 +679,7 @@ you can fill out similarly to below.</li>
 <img alt="a screenshot of configuring S3 secondary storage" src="../_images/cloudian-s3_ss_config.png" />
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">CloudStack doesn’t currently allow you to re-edit the S3 configuration so take
 time to double check what you enter. If you make a mistake the only options
 currently are either a) delete and recreate the storage or b) directly edit the
@@ -690,14 +690,14 @@ steps, CloudStack will populate the new secondary storage with the system and
 default templates. This can take some time do download as the templates are
 quite big.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">You can check if the system template and the default template have properly
 downloaded to the new secondary storage by navigating to 模板, selecting a
 template, clicking on the Zones tab and checking its Status is Ready 100%
 Downloaded.</p>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">Should you continue to have problems, sometimes it is necessary to restart
 the 二级存储虚拟机. You can do this by navigating to Infrastructure,
 System VMs, selecting and rebooting the 二级存储虚拟机.</p>

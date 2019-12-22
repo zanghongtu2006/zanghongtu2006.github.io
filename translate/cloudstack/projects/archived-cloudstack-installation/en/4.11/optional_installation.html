@@ -162,13 +162,13 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
       <div class="col-md-3">
         <div id="sidebar" class="bs-sidenav" role="complementary"><ul>
 <li><a class="reference internal" href="optional_installation.html#">Additional 安装 Options</a><ul>
-<li><a class="reference internal" href="optional_installation.html#installing-the-usage-server-optional">Installing the Usage Server (Optional)</a><ul>
+<li><a class="reference internal" href="optional_installation.html#installing-the-usage-server-optional">Installing the Usage Server （可选）</a><ul>
 <li><a class="reference internal" href="optional_installation.html#requirements-for-installing-the-usage-server">Requirements for Installing the Usage Server</a></li>
 <li><a class="reference internal" href="optional_installation.html#steps-to-install-the-usage-server">Steps to Install the Usage Server</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="optional_installation.html#ssl-optional">SSL (Optional)</a></li>
-<li><a class="reference internal" href="optional_installation.html#database-replication-optional">Database Replication (Optional)</a><ul>
+<li><a class="reference internal" href="optional_installation.html#ssl-optional">SSL （可选）</a></li>
+<li><a class="reference internal" href="optional_installation.html#database-replication-optional">Database Replication （可选）</a><ul>
 <li><a class="reference internal" href="optional_installation.html#failover">Failover</a></li>
 </ul>
 </li>
@@ -209,7 +209,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <p>The next few sections describe CloudStack features above and beyond the
 basic deployment options.</p>
 <div class="section" id="installing-the-usage-server-optional">
-<h2>Installing the Usage Server (Optional)<a class="headerlink" href="optional_installation.html#installing-the-usage-server-optional" title="Permalink to this headline">¶</a></h2>
+<h2>Installing the Usage Server （可选）<a class="headerlink" href="optional_installation.html#installing-the-usage-server-optional" title="Permalink to this headline">¶</a></h2>
 <p>You can optionally install the Usage Server once the 管理服务
 is configured properly. The Usage Server takes data from the events in
 the system and enables usage-based billing for accounts.</p>
@@ -263,7 +263,7 @@ Server.</p>
 </div>
 </div>
 <div class="section" id="ssl-optional">
-<h2>SSL (Optional)<a class="headerlink" href="optional_installation.html#ssl-optional" title="Permalink to this headline">¶</a></h2>
+<h2>SSL （可选）<a class="headerlink" href="optional_installation.html#ssl-optional" title="Permalink to this headline">¶</a></h2>
 <p>CloudStack provides HTTP access in its default installation. There are a
 number of technologies and sites which choose to implement SSL. As a
 result, we have left CloudStack to expose HTTP under the assumption that
@@ -274,7 +274,7 @@ enabled. Tomcat SSL configuration is described at
 <a class="reference external" href="http://tomcat.apache.org/tomcat-6.0-doc/ssl-howto.html">http://tomcat.apache.org/tomcat-6.0-doc/ssl-howto.html</a>.</p>
 </div>
 <div class="section" id="database-replication-optional">
-<h2>Database Replication (Optional)<a class="headerlink" href="optional_installation.html#database-replication-optional" title="Permalink to this headline">¶</a></h2>
+<h2>Database Replication （可选）<a class="headerlink" href="optional_installation.html#database-replication-optional" title="Permalink to this headline">¶</a></h2>
 <p>CloudStack supports database replication from one MySQL node to another.
 This is achieved using standard MySQL replication. You may want to do
 this as insurance against MySQL server or storage loss. MySQL
@@ -284,7 +284,7 @@ standby node that receives all write operations from the master and
 applies them to a local, redundant copy of the database. The following
 steps are a guide to implementing MySQL replication.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">Creating a replica is not a backup solution. You should develop a backup
 procedure for the MySQL data that is distinct from replication.</p>
 </div>
@@ -434,7 +434,7 @@ CloudStack, listening on a different port. The Amazon Web Services (AWS)
 compatible interface provides the EC2 SOAP and Query APIs as well as the
 S3 REST API.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">This service was previously enabled by separate software called CloudBridge.
 It is now fully integrated with the CloudStack management server.</p>
 </div>
@@ -467,7 +467,7 @@ tools v. 1.3.6230</em>, which can be downloaded at
 <a class="reference external" href="http://s3.amazonaws.com/ec2-downloads/ec2-api-tools-1.3-62308.zip">http://s3.amazonaws.com/ec2-downloads/ec2-api-tools-1.3-62308.zip</a>.</li>
 </ul>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">Work is underway to support a more recent version of the EC2 API</p>
 </div>
 </div>
@@ -530,8 +530,8 @@ matches an EC2 instance type API name. The snapshot below shows you how:</p>
 <div class="section" id="modifying-the-aws-api-port">
 <h4>Modifying the AWS API Port<a class="headerlink" href="optional_installation.html#modifying-the-aws-api-port" title="Permalink to this headline">¶</a></h4>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p>(Optional) The AWS API listens for requests on port 7080. If you prefer AWS
+<p class="first admonition-title">提示</p>
+<p>（可选） The AWS API listens for requests on port 7080. If you prefer AWS
 API to listen on another port, you can change it as follows:</p>
 <ol class="last arabic simple">
 <li>Edit the files <code class="docutils literal notranslate"><span class="pre">/etc/cloudstack/management/server.xml</span></code>,
@@ -603,7 +603,7 @@ command-line parameters to any CloudStack-supported EC2 command:</p>
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">The timeouts optional arguments are not specific to CloudStack.</p>
 </div>
 </div>

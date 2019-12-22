@@ -951,7 +951,7 @@ necessary to do this on all hosts.
 |vmwareiscsidatastore.png: iscsi datastore|
 
 
-Multipathing for vSphere (Optional)
+Multipathing for vSphere （可选）
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Storage multipathing on vSphere nodes may be done according to the

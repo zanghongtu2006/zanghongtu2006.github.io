@@ -260,7 +260,7 @@ switch.
 All deployments should have a firewall protecting the management server;
 see Generic Firewall Provisions. Optionally, some deployments may also
 have a Juniper SRX firewall that will be the default gateway for the
-guest networks; see `“External Guest Firewall Integration for Juniper SRX (Optional)” <#external-guest-firewall-integration-for-juniper-srx-optional>`_.
+guest networks; see `“External Guest Firewall Integration for Juniper SRX （可选）” <#external-guest-firewall-integration-for-juniper-srx-optional>`_.
 
 
 Generic Firewall Provisions
@@ -281,7 +281,7 @@ provisioned into the cloud. Any brand of hardware firewall that supports
 NAT and site-to-site VPN can be used.
 
 
-External Guest Firewall Integration for Juniper SRX (Optional)
+External Guest Firewall Integration for Juniper SRX （可选）
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. note::
@@ -405,7 +405,7 @@ CloudStack requires the Juniper SRX firewall to be configured as follows:
    -  Private Interface: The name of the private interface on the SRX.
       For example, ge-0/0/1.
 
-   -  Usage Interface: (Optional) Typically, the public interface is
+   -  Usage Interface: （可选） Typically, the public interface is
       used to meter traffic. If you want to use a different interface,
       specify its name here
 
@@ -435,7 +435,7 @@ CloudStack requires the Juniper SRX firewall to be configured as follows:
    you are not using the SRX to gather network usage statistics, set to 0.
 
 
-External Guest Firewall Integration for Cisco VNMC (Optional)
+External Guest Firewall Integration for Cisco VNMC （可选）
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Cisco Virtual Network Management Center (VNMC) provides centralized
@@ -765,7 +765,7 @@ the SSH credentials by registering on VNMC.
       ASA1000V(config-vnmc-policy-agent)# shared-secret key where key is the shared secret for authentication of the ASA 1000V connection to the Cisco VNMC
 
 
-External Guest Load Balancer Integration (Optional)
+External Guest Load Balancer Integration （可选）
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 CloudStack can optionally use a Citrix NetScaler or BigIP F5 load
@@ -1049,7 +1049,7 @@ guest.vlan.bits   Maximum Running VMs per Zone   Maximum Zone VLANs
 
 Based on your deployment's needs, choose the appropriate value of
 guest.vlan.bits. Set it as described in Edit the Global Configuration
-Settings (Optional) section and restart the 管理服务.
+Settings （可选） section and restart the 管理服务.
 
 
 .. |parallel-mode.png: adding a firewall and load balancer in parallel mode.| image:: ./_static/images/parallel-mode.png

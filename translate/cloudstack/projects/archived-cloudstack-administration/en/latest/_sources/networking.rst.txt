@@ -183,10 +183,10 @@ A network offering is a named set of network services, such as:
 
 -  VPN
 
--  (Optional) Name one of several available providers to use for a given
+-  （可选） Name one of several available providers to use for a given
    service, such as Juniper for the firewall
 
--  (Optional) Network tag to specify which physical network to use
+-  （可选） Network tag to specify which physical network to use
 
 When creating a new VM, the user chooses one of the available network
 offerings, and that determines which network services the VM can use.

@@ -170,7 +170,7 @@ sudoers file:
    defaults:cloudstack !requiretty
 
 
-Configure CPU model for KVM guest (Optional)
+Configure CPU model for KVM guest （可选）
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 In additional,the CloudStack Agent allows host administrator to control

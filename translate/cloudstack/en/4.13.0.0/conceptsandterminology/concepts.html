@@ -127,15 +127,15 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l3"><a class="reference internal" href="concepts.html#deployment-architecture-overview">部署架构概述</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="concepts.html#management-server-overview">管理服务概述</a></li>
 <li class="toctree-l4"><a class="reference internal" href="concepts.html#cloud-infrastructure-overview">Cloud 基础设施概述</a></li>
-<li class="toctree-l4"><a class="reference internal" href="concepts.html#networking-overview">Networking 概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="concepts.html#networking-overview">网络概述</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="concepts.html#cloudstack-terminology">CloudStack 术语</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="concepts.html#about-regions">About Regions</a></li>
-<li class="toctree-l4"><a class="reference internal" href="concepts.html#about-zones">About Zones</a></li>
-<li class="toctree-l4"><a class="reference internal" href="concepts.html#about-pods">About Pods</a></li>
-<li class="toctree-l4"><a class="reference internal" href="concepts.html#about-clusters">About Clusters</a></li>
-<li class="toctree-l4"><a class="reference internal" href="concepts.html#about-hosts">About Hosts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="concepts.html#about-regions">地域</a></li>
+<li class="toctree-l4"><a class="reference internal" href="concepts.html#about-zones">资源域</a></li>
+<li class="toctree-l4"><a class="reference internal" href="concepts.html#about-pods">机架</a></li>
+<li class="toctree-l4"><a class="reference internal" href="concepts.html#about-clusters">集群</a></li>
+<li class="toctree-l4"><a class="reference internal" href="concepts.html#about-hosts">主机</a></li>
 <li class="toctree-l4"><a class="reference internal" href="concepts.html#about-primary-storage">About 主存储</a></li>
 <li class="toctree-l4"><a class="reference internal" href="concepts.html#about-secondary-storage">About 二级存储</a></li>
 <li class="toctree-l4"><a class="reference internal" href="concepts.html#about-physical-networks">About Physical Networks</a></li>
@@ -263,7 +263,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 </div>
 <div class="section" id="massively-scalable-infrastructure-management">
 <h2>大规模可扩展的基础设施管理<a class="headerlink" href="concepts.html#massively-scalable-infrastructure-management" title="Permalink to this headline">¶</a></h2>
-<p>CloudStack 可以管理多地理区域分布的数以万计的物理服务器。 管理服务去几乎是线性扩展的，不需要集群级的管理服务器。
+<p>CloudStack 可以管理多地理区域分布的数以万计的物理服务器。管理服务去几乎是线性扩展的，不需要集群级的管理服务器。
 可以在云中服务器无感知的情况下对管理服务进行停机维护。</p>
 </div>
 <div class="section" id="automatic-cloud-configuration-management">
@@ -284,40 +284,28 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 </div>
 <div class="section" id="high-availability">
 <h2>高可用<a class="headerlink" href="concepts.html#high-availability" title="Permalink to this headline">¶</a></h2>
-<p>CloudStack 提供一系列特性用于增强系统可靠性。 管理服务本身部署在负载均衡的多台服务器上。 MySQL 支持配置为主从结构，用于防止数据损坏和丢失。 对于主机，CloudStack支持网卡绑定，支持独立的存储网络，比如iSCSI多路径。</p>
+<p>CloudStack 提供一系列特性用于增强系统可靠性。管理服务本身部署在负载均衡的多台服务器上。MySQL 支持配置为主从结构，用于防止数据损坏和丢失。对于主机，CloudStack支持网卡绑定，支持独立的存储网络，比如iSCSI多路径。</p>
 </div>
 </div>
 <div class="section" id="deployment-architecture-overview">
 <h1>部署架构概述<a class="headerlink" href="concepts.html#deployment-architecture-overview" title="Permalink to this headline">¶</a></h1>
 <p>通常，CloudStack 由管理服务和被管理的资源组成。在部署的过程中，需要将被管理资源的信息（IP段，存储设备，hypervisor和VLAN等）输入到管理服务中。</p>
-<p>The minimum installation consists of one machine running the CloudStack
-管理服务 and another machine to act as the cloud infrastructure (in
-this case, a very simple infrastructure consisting of one host running
-hypervisor software). In its smallest deployment, a single machine can act as
-both the 管理服务 and the hypervisor host (using the KVM hypervisor).</p>
+<p>最小化安装包含一台用来运行 CloudStack 管理服务的机器和一台用于云基础设施（在这种情况下，一个云基础设施只包含一台Hypervisor）的机器。在最小化部署中，一台机器可以同时部署上述两种服务（仅使用KVM）。</p>
 <img alt="../_images/basic-deployment.png" src="../_images/basic-deployment.png" />
-<p>A more full-featured installation consists of a highly-available multi-node
-管理服务 installation and up to tens of thousands of hosts using any
-of several networking technologies.</p>
+<p>更加完整的环境包含一个多节点高可用的管理服务和支持多种网络拓扑的上万台主机。</p>
 <div class="section" id="management-server-overview">
 <h2>管理服务概述<a class="headerlink" href="concepts.html#management-server-overview" title="Permalink to this headline">¶</a></h2>
-<p>The management server orchestrates and allocates the resources in your cloud
-deployment.</p>
-<p>The management server typically runs on a dedicated machine or as a virtual
-machine.  It controls allocation of virtual machines to hosts and assigns
-storage and IP addresses to the virtual machine instances. The Management
-Server runs in an Apache Tomcat container and requires a MySQL database for
-persistence.</p>
+<p>管理服务负责编排和分配云中的资源。</p>
+<p>管理服务去通常部署在一个单独的服务器或者虚拟机上。 它负责控制将虚拟机分配到主机上，并为其分配存储和IP地址。管理服务去运行中一个Apache Tomcat 容器上，使用MySQL 做持久化。</p>
 <p>管理服务</p>
 <ul class="simple">
-<li>Provides the web interface for both the adminstrator and end user.</li>
-<li>Provides the API interfaces for both the CloudStack API as well as the EC2
-interface.</li>
-<li>Manages the assignment of guest VMs to a specific compute resource</li>
-<li>Manages the assignment of public and private IP addresses.</li>
-<li>Allocates storage during the VM instantiation process.</li>
-<li>Manages snapshots, disk images (templates), and ISO images.</li>
-<li>Provides a single point of configuration for your cloud.</li>
+<li>为管理员和用户提供Web 控制台。</li>
+<li>为CloudStack API和EC2 提供API接口。</li>
+<li>为来宾虚拟机分配计算资源</li>
+<li>管理公共IP和私有IP的分配。</li>
+<li>在虚拟机实例化的过程中分配存储。</li>
+<li>管理快照、磁盘镜像、ISO。</li>
+<li>为云提供一个统一的配置入口。</li>
 </ul>
 </div>
 <div class="section" id="cloud-infrastructure-overview">
@@ -334,178 +322,96 @@ interface.</li>
 </ul>
 </div>
 <div class="section" id="networking-overview">
-<h2>Networking 概述<a class="headerlink" href="concepts.html#networking-overview" title="Permalink to this headline">¶</a></h2>
-<p>CloudStack offers many types of networking, but they typically fall into one
-of two scenarios:</p>
+<h2>网络概述<a class="headerlink" href="concepts.html#networking-overview" title="Permalink to this headline">¶</a></h2>
+<p>CloudStack 提供多种类型的网络，一般划分为两大类:</p>
 <ul class="simple">
-<li>Basic: Most analogous to AWS-classic style networking. Provides a single
-flat layer-2 network where guest isolation is provided at layer-3 by the
-hypervisors bridge device.</li>
-<li>Advanced: This typically uses layer-2 isolation such as VLANs, though this
-category also includes SDN technologies such as Nicira NVP.</li>
+<li>基础网络: 类似 AWS 经典类型网络。提供一个简单的2层网络，在3层由Hypervisor的网桥提供来宾虚拟机的隔离。</li>
+<li>高级网络: 通常使用2层隔离，比如VLAN，SDN，Nicira NVP等。</li>
 </ul>
 </div>
 </div>
 <div class="section" id="cloudstack-terminology">
 <h1>CloudStack 术语<a class="headerlink" href="concepts.html#cloudstack-terminology" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="about-regions">
-<span id="id1"></span><h2>About Regions<a class="headerlink" href="concepts.html#about-regions" title="Permalink to this headline">¶</a></h2>
-<p>To increase reliability of the cloud, you can optionally group resources
-into multiple geographic regions. A region is the largest available
-organizational unit within a CloudStack deployment. A region is made up
-of several availability zones, where each zone is roughly equivalent to
-a datacenter. Each region is controlled by its own cluster of Management
-Servers, running in one of the zones. The zones in a region are
-typically located in close geographical proximity. Regions are a useful
+<span id="id1"></span><h2>地域<a class="headerlink" href="concepts.html#about-regions" title="Permalink to this headline">¶</a></h2>
+<p>为了保证云的可靠性，您可以选择将资源分配在多个地理区域。Region是 CloudStack 中最大的资源管理单位。一个地域由多个资源域组成，一个资源域约等于一个数据中心。每个地域由运行在其中的一台管理服务器控制。一个地域中的资源域通常位于地理上接近的位置。Regions are a useful
 technique for providing fault tolerance and disaster recovery.</p>
-<p>By grouping zones into regions, the cloud can achieve higher
-availability and scalability. User accounts can span regions, so that
-users can deploy VMs in multiple, widely-dispersed regions. Even if one
-of the regions becomes unavailable, the services are still available to
-the end-user through VMs deployed in another region. And by grouping
-communities of zones under their own nearby Management Servers, the
-latency of communications within the cloud is reduced compared to
-managing widely-dispersed zones from a single central 管理服务.</p>
-<p>Usage records can also be consolidated and tracked at the region level,
-creating reports or invoices for each geographic region.</p>
+<p>通过将资源域分组，云可以提供更高的可用性和可伸缩性。用户账户可以跨区域，所以用和可以在多个广泛的区域中部署虚拟机。即便一个地域不可用，最终用户依然可以通过部署在另一个地域中的VM使用这些服务。并且，相对于单一中心广泛分部的区域，将各个资源域组织到就近的管理服务下，大大降低了云中的网络延迟。</p>
+<p>还可以在区域级别合并和跟踪使用记录，为每个地理区域创建报告或发票。</p>
 <div class="figure">
 <img alt="../_images/region-overview.png" src="../_images/region-overview.png" />
 </div>
-<p>Regions are visible to the end user. When a user starts a guest VM on a
-particular CloudStack 管理服务, the user is implicitly
-selecting that region for their guest. Users might also be required to
-copy their private templates to additional regions to enable creation of
-guest VMs using their templates in those regions.</p>
+<p>地域对于最终用户是可见的。当用户在指定的CloudStack 管理服务上启动虚拟机时，他也已经选择了对应的地域。用户可能还需要将其私有模板复制到其他区域，以便能够使用这些区域中的模板创建来宾虚拟机。</p>
 </div>
 <div class="section" id="about-zones">
-<span id="id2"></span><h2>About Zones<a class="headerlink" href="concepts.html#about-zones" title="Permalink to this headline">¶</a></h2>
-<p>A zone is the second largest organizational unit within a CloudStack
-deployment. A zone typically corresponds to a single datacenter,
-although it is permissible to have multiple zones in a datacenter. The
-benefit of organizing infrastructure into zones is to provide physical
-isolation and redundancy. For example, each zone can have its own power
-supply and network uplink, and the zones can be widely separated
-geographically (though this is not required).</p>
-<p>A zone consists of:</p>
+<span id="id2"></span><h2>资源域<a class="headerlink" href="concepts.html#about-zones" title="Permalink to this headline">¶</a></h2>
+<p>资源域是CloudStack 的第二大组织单元。资源域通常理解为一个数据中心，尽管一个数据中心中允许存在多个资源域。按照资源域组织基础架构的好处是提供物理隔离和冗余。例如：每个资源域可以有自己的电力和上行链路，资源域可以地理上广泛的分部开（这不是必须的）。</p>
+<p>资源域包含：</p>
 <ul class="simple">
-<li>One or more pods. Each pod contains one or more clusters of hosts and
-one or more primary storage servers.</li>
-<li>A zone may contain one or more primary storage servers, which are
-shared by all the pods in the zone.</li>
-<li>Secondary storage, which is shared by all the pods in the zone.</li>
+<li>一个或多个机架。每个机架包含一个或者多个集群，一个或多个主存储。</li>
+<li>一个资源域可能包含一个或者多个主存储，这些主存储由该资源域下所有机架共享。</li>
+<li>二级存储，由该资源域下的所有机架共享。</li>
 </ul>
 <div class="figure">
 <img alt="../_images/zone-overview.png" src="../_images/zone-overview.png" />
 </div>
-<p>Zones are visible to the end user. When a user starts a guest VM, the
-user must select a zone for their guest. Users might also be required to
-copy their private templates to additional zones to enable creation of
-guest VMs using their templates in those zones.</p>
-<p>Zones can be public or private. Public zones are visible to all users.
-This means that any user may create a guest in that zone. Private zones
-are reserved for a specific domain. Only users in that domain or its
-subdomains may create guests in that zone.</p>
-<p>Hosts in the same zone are directly accessible to each other without
-having to go through a firewall. Hosts in different zones can access
-each other through statically configured VPN tunnels.</p>
-<p>For each zone, the administrator must decide the following.</p>
+<p>资源域是最终用户可见的。当用户启动虚拟机的时候，他必须选择一个资源域。用户可能需要将其私有模版复制到该资源域下，以便能够使用这些模版来生成来宾虚拟机。</p>
+<p>资源域可以是公有的也可以是私有的。公有的可以被所有人可见。
+所有人都可以在这个资源域种创建来宾虚拟机。私有资源域只能被部分域可以见。只有在该域以及子域种的用户可以创建来宾虚拟机。</p>
+<p>同一个资源域下的主机可以直接访问，而不用经过防火墙。不同资源域下的主机可以通过静态配置的VPN相互访问。</p>
+<p>对于每个资源域，管理员可以决定以下事项</p>
 <ul class="simple">
-<li>How many pods to place in each zone.</li>
-<li>How many clusters to place in each pod.</li>
-<li>How many hosts to place in each cluster.</li>
-<li>(Optional) How many primary storage servers to place in each zone and
-total capacity for these storage servers.</li>
-<li>How many primary storage servers to place in each cluster and total
-capacity for these storage servers.</li>
-<li>How much secondary storage to deploy in a zone.</li>
+<li>一个资源域可以包含多少个机架。</li>
+<li>一个机架可以包含多少个集群。</li>
+<li>每个集群可以包含多少台主机。</li>
+<li>（可选） 每个资源域可以包含多少个主存储，主存储的总容量是多大。</li>
+<li>每个资源集群可以包含多少个主存储，主存储的总容量是多大。</li>
+<li>一个资源域可以有多少个二级存储。</li>
 </ul>
-<p>When you add a new zone using the CloudStack UI, you will be prompted to
-configure the zone’s physical network and add the first pod, cluster,
-host, primary storage, and secondary storage.</p>
-<p>In order to support zone-wide functions for VMware, CloudStack is aware
-of VMware Datacenters and can map each Datacenter to a CloudStack zone.
+<p>当你通过CloudStack UI来创建一个资源域的时候，它会引导你配置屋里网络和第一个机架，集群，主机，主存储和二级存储。</p>
+<p>为了支持VMware的区域范围功能，CloudStack适配了VMware的数据中心，并且将数据中心映射到CloudStack的资源域。
 To enable features like storage live migration and zone-wide primary
 storage for VMware hosts, CloudStack has to make sure that a zone
-contains only a single VMware Datacenter. Therefore, when you are
-creating a new CloudStack zone, you can select a VMware Datacenter for
-the zone. If you are provisioning multiple VMware Datacenters, each one
-will be set up as a single zone in CloudStack.</p>
+contains only a single VMware Datacenter. 因此，在创建新的CloudStack区域时，可以为该区域选择一个VMware数据中心。如果你部署多个VMware 数据中心，每个都是一个独立的CloudStack 资源域。</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">If you are upgrading from a previous CloudStack version, and your existing
 deployment contains a zone with clusters from multiple VMware Datacenters,
-that zone will not be forcibly migrated to the new model. It will continue
-to function as before. However, any new zone-wide operations, such as
-zone-wide primary storage and live storage migration, will not be available
-in that zone.</p>
+that zone will not be forcibly migrated to the new model. 它会沿用之前的方式。但是，新的区域范围功能，例如区域主存储和存储热迁移等功能，将无法使用。</p>
 </div>
 </div>
 <div class="section" id="about-pods">
-<span id="id3"></span><h2>About Pods<a class="headerlink" href="concepts.html#about-pods" title="Permalink to this headline">¶</a></h2>
-<p>A pod often represents a single rack. Hosts in the same pod are in the
-same subnet. A pod is the third-largest organizational unit within a
-CloudStack deployment. Pods are contained within zones. Each zone can
-contain one or more pods. A pod consists of one or more clusters of
-hosts and one or more primary storage servers. Pods are not visible to
-the end user.</p>
+<span id="id3"></span><h2>机架<a class="headerlink" href="concepts.html#about-pods" title="Permalink to this headline">¶</a></h2>
+<p>Pod 通常等同于一个机架。一个机架中的主机存在于同一个子网下。机架是CloudStack 的第三大组织单元。机架存在于资源域下。每个资源域有一个或者多个机架。一个机架包含一个或者多个集群，一个集群包含一个或者多个主存储。机架对最终用户可见。</p>
 <div class="figure">
 <img alt="../_images/pod-overview.png" src="../_images/pod-overview.png" />
 </div>
 </div>
 <div class="section" id="about-clusters">
-<span id="id4"></span><h2>About Clusters<a class="headerlink" href="concepts.html#about-clusters" title="Permalink to this headline">¶</a></h2>
-<p>A cluster provides a way to group hosts. To be precise, a cluster is a
-XenServer server pool, a set of KVM servers, , or a VMware cluster
-preconfigured in vCenter. The hosts in a cluster all have identical
-hardware, run the same hypervisor, are on the same subnet, and access
-the same shared primary storage. Virtual machine instances (VMs) can be
-live-migrated from one host to another within the same cluster, without
-interrupting service to the user.</p>
-<p>A cluster is the fourth-largest organizational unit within a CloudStack
-deployment. Clusters are contained within pods, and pods are contained
-within zones. Size of the cluster is limited by the underlying
-hypervisor, although the CloudStack recommends less in most cases; see
-最佳实践.</p>
-<p>A cluster consists of one or more hosts and one or more primary storage
-servers.</p>
+<span id="id4"></span><h2>集群<a class="headerlink" href="concepts.html#about-clusters" title="Permalink to this headline">¶</a></h2>
+<p>集群提供了一种组织主机的方式。确切的讲，集群是一个XenServer 资源池，一组KVM 服务器，或者一个vCenter 下已经预设置好的VMWare 集群。进群侠的所有主机都有相同的硬件，运行相同的Hypervisor，在同一个子网下，可以访问同一个主存储。 VM 实例可以从一台主机热迁移到同集群下的另一台主机，期间不中断用户服务。</p>
+<p>集群是CloudStack 的第四大组织单元。 资源域包含机架，机架包含集群。 集群的大小取决于Hypervisor 的限制和 CloudStack 建议的大小，通常参考后者居多；参见： 最佳实践。</p>
+<p>集群包括一个或者多个主机，一个或者多个主存储。</p>
 <div class="figure">
 <img alt="../_images/cluster-overview.png" src="../_images/cluster-overview.png" />
 </div>
-<p>CloudStack allows multiple clusters in a cloud deployment.</p>
-<p>Even when local storage is used exclusively, clusters are still required
-organizationally, even if there is just one host per cluster.</p>
-<p>When VMware is used, every VMware cluster is managed by a vCenter
-server. An Administrator must register the vCenter server with
-CloudStack. There may be multiple vCenter servers per zone. Each vCenter
-server may manage multiple VMware clusters.</p>
+<p>CloudStack 允许在一个环境中包含多个集群。</p>
+<p>即使是只有一台主机，并且以独占的方式使用本地存储，CloudStack 在架构上依然需要创建一个集群。</p>
+<p>使用VMware 时，每个VMware 集群都由一台vCenter 管理。 管理员必须将vCenter 注册到CloudStack。 一个资源域中可能有多个vCenter。 每个vCenter 可能管理多个VMware集群。</p>
 </div>
 <div class="section" id="about-hosts">
-<span id="id5"></span><h2>About Hosts<a class="headerlink" href="concepts.html#about-hosts" title="Permalink to this headline">¶</a></h2>
-<p>A host is a single computer. Hosts provide the computing resources that
-run guest virtual machines. Each host has hypervisor software installed
-on it to manage the guest VMs. For example, a host can be a Citrix
-XenServer server, a Linux KVM-enabled server, an ESXi server, or a
-Windows Hyper-V server.</p>
-<p>The host is the smallest organizational unit within a CloudStack
-deployment. Hosts are contained within clusters, clusters are contained
-within pods, pods are contained within zones, and zones can be contained
-within regions.</p>
-<p>Hosts in a CloudStack deployment:</p>
+<span id="id5"></span><h2>主机<a class="headerlink" href="concepts.html#about-hosts" title="Permalink to this headline">¶</a></h2>
+<p>主机是一台独立的电脑。 主机为虚拟机提供计算资源。 每台主机都安装了Hypervisor 用来管理来宾虚拟机。 例如：主机可以安装Citix XenServer, 启用了KVM 的Linux，ESXi，或者Windows Hyper-V。</p>
+<p>主机是 CloudStack 的最小组织单元。 地域包含资源域，资源域包含机架，机架包含集群，集群包含虚拟机。</p>
+<p>CloudStack 中的主机:</p>
 <ul class="simple">
-<li>Provide the CPU, memory, storage, and networking resources needed to
-host the virtual machines</li>
-<li>Interconnect using a high bandwidth TCP/IP network and connect to the
-Internet</li>
-<li>May reside in multiple data centers across different geographic
-locations</li>
-<li>May have different capacities (different CPU speeds, different
-amounts of RAM, etc.), although the hosts within a cluster must all
-be homogeneous</li>
+<li>为虚拟机提供必须的CPU，内存，硬盘和网络资源</li>
+<li>使用高带宽的TCP/IP 网络互联并连接到Internet</li>
+<li>可能位于不通地理位置的多个数据中心</li>
+<li>可能有不同的容量（CPU主频，内存大小等），尽管集群种的主机必须是同构的。</li>
 </ul>
-<p>Additional hosts can be added at any time to provide more capacity for
-guest VMs.</p>
-<p>CloudStack automatically detects the amount of CPU and memory resources
-provided by the hosts.</p>
+<p>可以随时通过增加主机来增加来宾虚拟机的容量。</p>
+<p>CloudStack 自动检测主机提供的CPU 和内存资源量。</p>
 <p>Hosts are not visible to the end user. An end user cannot determine
 which host their guest has been assigned to.</p>
 <p>For a host to function in CloudStack, you must do the following:</p>
@@ -622,7 +528,7 @@ communicates directly with the CloudStack 管理服务. You must
 configure the IP range for the system VMs to use.</li>
 </ul>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">We strongly recommend the use of separate NICs for management traffic
 and guest traffic.</p>
 </div>

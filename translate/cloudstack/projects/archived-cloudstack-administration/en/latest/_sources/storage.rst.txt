@@ -311,7 +311,7 @@ Setting Usage Limits
 
 To upload a volume:
 
-#. (Optional) Create an MD5 hash (checksum) of the disk image file that
+#. （可选） Create an MD5 hash (checksum) of the disk image file that
    you are going to upload. After uploading the data disk, CloudStack
    will use this value to verify that no data corruption has occurred.
 
@@ -349,7 +349,7 @@ To upload a volume:
 
       ``http://yourFileServerIP/userdata/myDataDisk.vhd``
 
-   -  MD5 checksum. (Optional) Use the hash that you created in step 1.
+   -  MD5 checksum. （可选） Use the hash that you created in step 1.
 
 #. Wait until the status of the volume shows that the upload is
    complete. Click Instances - Volumes, find the name you specified in

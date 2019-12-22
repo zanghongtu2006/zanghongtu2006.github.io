@@ -358,13 +358,13 @@ $ cd ./apache-cloudstack-4.13.0.0-src
 <div class="section" id="mysql-connector-apt-repository">
 <h2>MySQL connector APT repository<a class="headerlink" href="building_from_source.html#mysql-connector-apt-repository" title="Permalink to this headline">¶</a></h2>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">Procedure below should work for Ubuntu 14.04 and 16.04.
 For Ubuntu 18.04, please read later below.</p>
 </div>
 <p>Install the following package provided by MySQL to enable official repositories:</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">If the download fails check the current version number. The version available may
 have been updated.</p>
 </div>
@@ -378,7 +378,7 @@ have been updated.</p>
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">Below is given a bit different procedure if you are compiling on Ubuntu 18.04</p>
 </div>
 <p>Due to default python version changes (and some others) in Ubuntu 18.04 version, we will need to install python 2.7, python-mysql.connector from Universe repo (instead from official MySQL repo) and later make sure we are using Java 8, since Java 10 comes as default</p>
@@ -416,7 +416,7 @@ $ sudo apt-get install debhelper openjdk-8-jdk libws-commons-util-java genisoima
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">If on Ubuntu 18.04, in above command, please replace “python-software-properties” with “software-properties-common”
 If on Ubuntu 18.04, above command will install both Java 10 and Java 8, so make sure to switch to Java8 with “update-alternatives –config java” - otherwise you will get errors during dependency check and code compiling.</p>
 </div>
@@ -471,7 +471,7 @@ $ sudo gzip -9k Packages
 $ sudo apt-ftparchive release . &gt; Release
 </pre>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">You can safely ignore the warning about a missing override file.</p>
 </div>
 <p>Now you should have all of the DEB packages, <code class="docutils literal notranslate"><span class="pre">Packages</span></code>,
@@ -566,7 +566,7 @@ the source downloaded and have uncompressed the tarball into a local
 directory, you’re going to be able to generate packages in just a few
 minutes.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">Packaging has changed. If you’ve created packages for CloudStack
 previously, you should be aware that the process has changed considerably
 since the project has moved to using Apache Maven. Please be sure to follow

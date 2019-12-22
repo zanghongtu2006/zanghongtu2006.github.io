@@ -113,13 +113,13 @@ and set up the invitations feature in CloudStack.
    +----------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
    | project.smtp.host          | Name of the host that acts as an email server to handle invitations.                                                                                  |
    +----------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | project.smtp.password      | (Optional) Password required by the SMTP server. You must also set project.smtp.username and set project.smtp.useAuth to true.                        |
+   | project.smtp.password      | （可选） Password required by the SMTP server. You must also set project.smtp.username and set project.smtp.useAuth to true.                        |
    +----------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
    | project.smtp.port          | SMTP server’s listening port.                                                                                                                         |
    +----------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
    | project.smtp.useAuth       | Set to true if the SMTP server requires a username and password.                                                                                      |
    +----------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | project.smtp.username      | (Optional) User name required by the SMTP server for authentication. You must also set project.smtp.password and set project.smtp.useAuth to true..   |
+   | project.smtp.username      | （可选） User name required by the SMTP server for authentication. You must also set project.smtp.password and set project.smtp.useAuth to true..   |
    +----------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 #. Restart the 管理服务:

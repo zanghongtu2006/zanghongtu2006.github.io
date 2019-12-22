@@ -1030,7 +1030,7 @@ is configured on the primary IP of the VM.</p>
 <div class="section" id="about-multiple-ip-ranges">
 <h1>About Multiple IP Ranges<a class="headerlink" href="networking_and_traffic.html#about-multiple-ip-ranges" title="Permalink to this headline">¶</a></h1>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">The feature can only be implemented on IPv4 addresses.</p>
 </div>
 <p>CloudStack provides you with the flexibility to add guest IP ranges from
@@ -1090,7 +1090,7 @@ NAT is provisioned on the NetScaler device by using the Inbound
 Network Address Translation (INAT) and Reverse NAT (RNAT) rules
 between the public IP and the private IP.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">Inbound NAT (INAT) is a type of NAT supported by NetScaler, in which
 the destination IP address is replaced in the packets from the public
 network, such as the Internet, with the private IP address of a VM in
@@ -1125,7 +1125,7 @@ NAT.</p>
 <p>For more information on the Associate Public IP option, see
 <a class="reference external" href="networking.html#creating-a-new-network-offering">“Creating a New Network Offering”</a>.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">The Associate Public IP feature is designed only for use with user VMs.
 The System VMs continue to get both public IP and private by default,
 irrespective of the network offering configuration.</p>
@@ -1335,7 +1335,7 @@ PVLANs are only currently supported on shared networks.
 The PVLAN concept is supported on KVM (when using OVS), XenServer (when using OVS), and VMware hypervisors</p>
 <blockquote>
 <div><div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">OVS on XenServer and KVM does not support PVLAN natively. Therefore,
 CloudStack managed to simulate PVLAN on OVS for XenServer and KVM by
 modifying the flow table.</p>
@@ -1398,7 +1398,7 @@ useful in zones that use basic networking, because there is a single
 guest network for all guest VMs. In advanced zones, security groups are
 supported only on the KVM hypervisor.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">In a zone that uses advanced networking, you can instead define
 multiple guest networks to isolate traffic to VMs.</p>
 </div>
@@ -1570,7 +1570,7 @@ balancing in zones that use isolated networking in advanced zones. Set
 up an external load balancer when you want to provide load balancing
 through means other than CloudStack’s provided virtual router.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">In a Basic zone, load balancing service is supported only if
 Elastic IP or Elastic LB services are enabled.</p>
 </div>
@@ -1648,7 +1648,7 @@ NetScaler device.</p>
 <li><p class="first">Map the community name into a security name (local and mynetwork,
 depending on where the request is coming from):</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">Use a strong password instead of public when you edit the
 following table.</p>
 </div>
@@ -1658,7 +1658,7 @@ following table.</p>
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">Setting to 0.0.0.0 allows all IPs to poll the NetScaler server.</p>
 </div>
 </li>
@@ -1756,7 +1756,7 @@ balance traffic received at a public IP to one or more VMs. A user
 creates a rule, specifies an algorithm, and assigns the rule to a set of
 VMs.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">If you create load balancing rules while using a network service
 offering that includes an external load balancer device such as
 NetScaler, and later change the network service offering to one that
@@ -1798,7 +1798,7 @@ traffic.</li>
 CloudStack to use. CloudStack supports a variety of well-known
 algorithms. If you are not familiar with these choices, you will
 find plenty of information about them on the Internet.</li>
-<li><strong>Stickiness</strong>: (Optional) Click Configure and choose the
+<li><strong>Stickiness</strong>: （可选） Click Configure and choose the
 algorithm for the stickiness policy. See Sticky Session Policies
 for Load Balancer Rules.</li>
 <li><strong>AutoScale</strong>: Click Configure and complete the AutoScale
@@ -1806,18 +1806,18 @@ configuration as explained in <a class="reference internal" href="networking_and
 <li><strong>Health Check</strong>: (Optional; NetScaler load balancers only) Click
 Configure and fill in the characteristics of the health check
 policy. See <a class="reference internal" href="networking_and_traffic.html#health-check"><span class="std std-ref">Health Checks for Load Balancer Rules</span></a>.<ul>
-<li><strong>Ping path (Optional)</strong>: Sequence of destinations to which to
+<li><strong>Ping path （可选）</strong>: Sequence of destinations to which to
 send health check queries. Default: / (all).</li>
-<li><strong>Response time (Optional)</strong>: How long to wait for a response
+<li><strong>Response time （可选）</strong>: How long to wait for a response
 from the health check (2 - 60 seconds). Default: 5 seconds.</li>
-<li><strong>Interval time (Optional)</strong>: Amount of time between health
+<li><strong>Interval time （可选）</strong>: Amount of time between health
 checks (1 second - 5 minutes). Default value is set in the
 global configuration parameter lbrule_health
 check_time_interval.</li>
-<li><strong>Healthy threshold (Optional)</strong>: Number of consecutive health
+<li><strong>Healthy threshold （可选）</strong>: Number of consecutive health
 check successes that are required before declaring an instance
 healthy. Default: 2.</li>
-<li><strong>Unhealthy threshold (Optional)</strong>: Number of consecutive
+<li><strong>Unhealthy threshold （可选）</strong>: Number of consecutive
 health check failures that are required before declaring an
 instance unhealthy. Default: 10.</li>
 </ul>
@@ -1907,7 +1907,7 @@ is less than 20 percent for 30 minutes.</p>
 system’s health and work in unison with CloudStack to initiate scale-up
 or scale-down actions.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">AutoScale is supported on NetScaler Release 10 Build 74.4006.e and beyond.</p>
 </div>
 <div class="section" id="id5">
@@ -1918,7 +1918,7 @@ or scale-down actions.</p>
 AutoScale. When a VM is deployed by using a template and when it
 comes up, the application should be up and running.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">If the application is not running, the NetScaler device considers the
 VM as ineffective and continues provisioning the VMs unconditionally
 until the resource limit is exhausted.</p>
@@ -1987,7 +1987,7 @@ being load balanced. This parameter ensures that a load balancing
 rule has at least the configured number of active VM instances are
 available to serve the traffic.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">If an application, such as SAP, running on a VM instance is down for
 some reason, the VM is then not counted as part of Min Instance
 parameter, and the AutoScale feature initiates a scaleup action if
@@ -2008,7 +2008,7 @@ result in provisioning large number of VM instances, which in turn
 leads to a single load balancing rule exhausting the VM instances
 limit specified at the account or domain level.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">If an application, such as SAP, running on a VM instance is down for
 some reason, the VM is not counted as part of Max Instance parameter.
 So there may be scenarios where the number of VMs provisioned for a
@@ -2449,17 +2449,17 @@ value is 1.</li>
 <li><p class="first">Specify the following:</p>
 <ul class="simple">
 <li><strong>Name</strong>: Name for the GSLB rule.</li>
-<li><strong>Description</strong>: (Optional) A short description of the GSLB rule
+<li><strong>Description</strong>: （可选） A short description of the GSLB rule
 that can be displayed to users.</li>
 <li><strong>GSLB Domain Name</strong>: A preferred domain name for the service.</li>
-<li><strong>Algorithm</strong>: (Optional) The algorithm to use to load balance the
+<li><strong>Algorithm</strong>: （可选） The algorithm to use to load balance the
 traffic across the zones. The options are Round Robin, Least
 Connection, and Proximity.</li>
 <li><strong>Service Type</strong>: The transport protocol to use for GSLB. The
 options are TCP and UDP.</li>
-<li><strong>Domain</strong>: (Optional) The domain for which you want to create the
+<li><strong>Domain</strong>: （可选） The domain for which you want to create the
 GSLB rule.</li>
-<li><strong>Account</strong>: (Optional) The account on which you want to apply the
+<li><strong>Account</strong>: （可选） The account on which you want to apply the
 GSLB rule.</li>
 </ul>
 </li>
@@ -2612,7 +2612,7 @@ must set the global configuration parameter firewall.rule.ui.enabled to
 <li>Click View IP Addresses.</li>
 <li>Click the IP address you want to work with.</li>
 <li>Click the Configuration tab and fill in the following values.<ul>
-<li><strong>Source CIDR</strong>: (Optional) To accept only traffic from IP
+<li><strong>Source CIDR</strong>: （可选） To accept only traffic from IP
 addresses within a particular address block, enter a CIDR or a
 comma-separated list of CIDRs. Example: 192.168.0.0/22. Leave
 empty to allow all CIDRs.</li>
@@ -2818,7 +2818,7 @@ The VPN user database is shared across all the VPNs created by the
 account owner. All VPN users get access to all VPNs created by the
 account owner.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">Make sure that not all traffic goes through the VPN. That is, the route
 installed by the VPN should be only for the guest network and not for
 all traffic.</p>
@@ -2944,7 +2944,7 @@ through a VPN gateway.</p>
 <li>CloudStack virtual routers</li>
 </ul>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">In addition to the specific Cisco and Juniper devices listed above, the
 expectation is that any Cisco or Juniper device running on the supported
 operating systems are able to establish VPN connections.</p>
@@ -2965,7 +2965,7 @@ gateway.</p>
 <div class="section" id="creating-and-updating-a-vpn-customer-gateway">
 <h3>Creating and Updating a VPN Customer Gateway<a class="headerlink" href="networking_and_traffic.html#creating-and-updating-a-vpn-customer-gateway" title="Permalink to this headline">¶</a></h3>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">A VPN customer gateway can be connected to only one VPN gateway at a time.</p>
 </div>
 <p>To add a VPN Customer Gateway:</p>
@@ -2994,7 +2994,7 @@ endpoints of the VPN share a secret key. This key value is used to
 authenticate the customer gateway and the VPC VPN gateway to each
 other. The sequence cannot contain a newline or double-quote.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">The IKE peers (VPN end points) authenticate each other by
 computing and sending a keyed hash of data that includes the
 Preshared key. If the receiving peer is able to create the same
@@ -3008,7 +3008,7 @@ phase-1. The supported encryption algorithms are AES128, AES192,
 AES256, and 3DES. Authentication is accomplished through the
 Preshared Keys.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">The phase-1 is the first phase in the IKE process. In this initial
 negotiation phase, the two VPN endpoints agree on the methods to
 be used to provide security for the underlying IP traffic. The
@@ -3029,7 +3029,7 @@ None, Group-5 (1536-bit) and Group-2 (1024-bit).</p>
 within phase-2. The supported encryption algorithms are AES128,
 AES192, AES256, and 3DES.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">The phase-2 is the second phase in the IKE process. The purpose of
 IKE phase-2 is to negotiate IPSec security associations (SA) to
 set up the IPSec tunnel. In phase-2, new keying material is
@@ -3050,7 +3050,7 @@ are None, Group-5 (1536-bit) and Group-2 (1024-bit). The security
 of the key exchanges increase as the DH groups grow larger, as
 does the time of the exchanges.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">When PFS is turned on, for every negotiation of a new phase-2 SA
 the two gateways must generate a new set of phase-1 keys. This
 adds an extra layer of protection that PFS adds, which ensures if
@@ -3146,7 +3146,7 @@ Click Yes to confirm.</p>
 <div class="section" id="creating-a-vpn-connection">
 <h3>Creating a VPN Connection<a class="headerlink" href="networking_and_traffic.html#creating-a-vpn-connection" title="Permalink to this headline">¶</a></h3>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">CloudStack supports creating up to 8 VPN connections.</p>
 </div>
 <ol class="arabic">
@@ -3325,7 +3325,7 @@ VMs on these VLANs. A guest VLAN is randomly alloted to an account
 from a pre-specified set of guest VLANs. All the VMs of a certain
 tier of an account reside on the guest VLAN allotted to that account.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">A VLAN allocated for an account cannot be shared between multiple accounts.</p>
 </div>
 </li>
@@ -3545,7 +3545,7 @@ other tiers within the VPC.</p>
 <p>All the VPC that you have created for the account is listed in the
 page.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">The end users can see their own VPCs, while root and domain admin can
 see any VPC they are authorized to see.</p>
 </div>
@@ -4277,7 +4277,7 @@ algorithms:<ul>
 <li>Source</li>
 </ul>
 </li>
-<li><strong>Stickiness</strong>. (Optional) Click Configure and choose the
+<li><strong>Stickiness</strong>. （可选） Click Configure and choose the
 algorithm for the stickiness policy. See Sticky Session Policies
 for Load Balancer Rules.</li>
 <li><strong>Add VMs</strong>: Click Add VMs, then select two or more VMs that will
@@ -4414,7 +4414,7 @@ click Internal LB.</p>
 <li><p class="first"><strong>Description</strong>: A short description of the rule that can be
 displayed to users.</p>
 </li>
-<li><p class="first"><strong>Source IP Address</strong>: (Optional) The source IP from which traffic
+<li><p class="first"><strong>Source IP Address</strong>: （可选） The source IP from which traffic
 originates. The IP is acquired from the CIDR of that particular
 tier on which you want to create the Internal LB rule. If not
 specified, the IP address is automatically allocated from the
@@ -4538,7 +4538,7 @@ with.</p>
 <div class="section" id="editing-restarting-and-removing-a-virtual-private-cloud">
 <h2>Editing, Restarting, and Removing a Virtual Private Cloud<a class="headerlink" href="networking_and_traffic.html#editing-restarting-and-removing-a-virtual-private-cloud" title="Permalink to this headline">¶</a></h2>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">Ensure that all the tiers are removed before you remove a VPC.</p>
 </div>
 <ol class="arabic">

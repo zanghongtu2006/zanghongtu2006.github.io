@@ -263,7 +263,7 @@ set by the user. Defaults to instance name.</li>
 by the user. Defaults to instance name</li>
 </ul>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">You can append the display name of a guest VM to its internal name.
 For more information, see <a class="reference external" href="virtual_machines.html#appending-a-display-name-to-the-guest-vms-internal-name">“Appending a Display Name to the Guest VM’s
 Internal Name”</a>.</p>
@@ -370,7 +370,7 @@ create blank virtual machines. A blank virtual machine is a virtual
 machine without an OS template. Users can attach an ISO file and install
 the OS from the CD/DVD-ROM.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">You can create a VM without starting it. You can determine whether the
 VM needs to be started as part of the VM deployment. A request parameter,
 startVM, in the deployVm API provides this feature. For more information,
@@ -395,7 +395,7 @@ service offering.</p>
 </li>
 <li><p class="first">Click Submit and your VM will be created and started.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">For security reason, the internal name of the VM is visible
 only to the root admin.</p>
 </div>
@@ -403,7 +403,7 @@ only to the root admin.</p>
 </ol>
 <p>To create a VM from an ISO:</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">(XenServer) Windows VMs running on XenServer require PV drivers,
 which may be provided in the template or added after the VM is
 created. The PV drivers are necessary for essential management
@@ -647,7 +647,7 @@ failure and issuing an error.</p>
 </li>
 <li><p class="first">Click the Take VM Snapshot button. <img alt="button to restart a VPC" src="../_images/VMSnapshotButton.png" /></p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">If a snapshot is already in progress, then clicking this button
 will have no effect.</p>
 </div>
@@ -689,7 +689,7 @@ work with.</p>
 </li>
 </ol>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">VM snapshots are deleted automatically when a VM is destroyed. You don’t
 have to manually delete the snapshots in this case.</p>
 </div>
@@ -934,7 +934,7 @@ vMotion.)</li>
 <li><p class="first">From the list of suitable hosts, choose the one to which you want to
 move the VM.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">If the VM’s storage has to be migrated along with the VM, this will
 be noted in the host list. CloudStack will take care of the storage
 migration for you.</p>
@@ -944,7 +944,7 @@ migration for you.</p>
 </li>
 </ol>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p>(KVM) If the VM’s storage has to be migrated along with the VM, from a mounted NFS storage pool to a cluster-wide mounted NFS storage pool, then the ‘migrateVirtualMachineWithVolume’ API has to be used. There is no UI integration for this feature.</p>
 <p>(CloudMonkey) &gt; migrate virtualmachinewithvolume virtualmachineid=&lt;virtual machine uuid&gt; hostid=&lt;destination host uuid&gt; migrateto[i].volume=&lt;virtual machine volume number i uuid&gt; migrateto[i].pool=&lt;destination storage pool uuid for volume number i&gt;</p>
 <p class="last">where i in [0,..,N] and N = number of volumes of the virtual machine</p>
@@ -1049,7 +1049,7 @@ The PV-enabled types are:<ul>
 </li>
 </ul>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">It is not recommended to choose an older version of the OS than
 the version in the image. For example, choosing CentOS 5.4 to
 support a CentOS 6.2 image will usually not work. In these
@@ -1168,7 +1168,7 @@ call to the cloudstack api.</p>
 <p>For example, make a call from the cloudstack server to create a SSH
 keypair called “keypair-doc” for the admin account in the root domain:</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">Ensure that you adjust these values to meet your needs. If you are
 making the API call from a different server, your URL/PORT will be
 different, and you will need to use the API keys.</p>
@@ -1223,7 +1223,7 @@ Instance Template that Supports SSH Keys”</a>.
 Ensure that you use the same SSH key name that you created at
 <a class="reference external" href="virtual_machines.html#create-ssh-keypair">Section&nbsp;5.2.2, “Creating the SSH Keypair”</a>.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">You cannot create the instance by using the GUI at this time and
 associate the instance with the newly created SSH keypair.</p>
 </div>

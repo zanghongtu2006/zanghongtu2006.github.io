@@ -313,7 +313,7 @@ network, and is also unsuitable for our purposes with CloudStack. We want to
 configure that file so that it specifies the IP address, netmask, etc., as
 shown in the following example:</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">You should not use the Hardware Address (aka the MAC address) from our
 example for your configuration. It is network interface specific, so you
 should keep the address already provided in the HWADDR directive.</p>
@@ -331,7 +331,7 @@ should keep the address already provided in the HWADDR directive.</p>
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">IP Addressing - Throughout this document we are assuming that you will have
 a /24 network for your CloudStack implementation. This can be any RFC 1918
 network. However, we are assuming that you will match the machine address
@@ -416,7 +416,7 @@ to enable it and set it to start on boot as follows:</p>
 <span id="qigconf-pkg-repo"></span><h4>Configuring the CloudStack Package Repository<a class="headerlink" href="qig.html#configuring-the-cloudstack-package-repository" title="Permalink to this headline">¶</a></h4>
 <p>We need to configure the machine to use a CloudStack package repository.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">The Apache CloudStack official releases are source code. As such there are
 no ‘official’ binaries available. The full 安装指南 describes how
 to take the source release and generate RPMs and and yum repository. This
@@ -701,7 +701,7 @@ for us there are 5 pieces of information that we need.</p>
 <li>Internal DNS2 - we will also set this to <code class="docutils literal notranslate"><span class="pre">8.8.4.4</span></code> for our cloud.</li>
 </ol>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">CloudStack distinguishes between internal and public DNS. Internal DNS is
 assumed to be capable of resolving internal-only hostnames, such as your
 NFS server’s DNS name. Public DNS is provided to the guest VMs to resolve

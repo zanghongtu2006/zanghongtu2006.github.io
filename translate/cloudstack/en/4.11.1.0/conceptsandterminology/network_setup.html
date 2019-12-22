@@ -125,9 +125,9 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 </li>
 <li class="toctree-l3"><a class="reference internal" href="network_setup.html#hardware-firewall">硬件防火墙</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="network_setup.html#generic-firewall-provisions">Generic Firewall Provisions</a></li>
-<li class="toctree-l4"><a class="reference internal" href="network_setup.html#external-guest-firewall-integration-for-juniper-srx-optional">External Guest Firewall Integration for Juniper SRX (Optional)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="network_setup.html#external-guest-firewall-integration-for-cisco-vnmc-optional">External Guest Firewall Integration for Cisco VNMC (Optional)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="network_setup.html#external-guest-load-balancer-integration-optional">External Guest Load Balancer Integration (Optional)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="network_setup.html#external-guest-firewall-integration-for-juniper-srx-optional">External Guest Firewall Integration for Juniper SRX （可选）</a></li>
+<li class="toctree-l4"><a class="reference internal" href="network_setup.html#external-guest-firewall-integration-for-cisco-vnmc-optional">External Guest Firewall Integration for Cisco VNMC （可选）</a></li>
+<li class="toctree-l4"><a class="reference internal" href="network_setup.html#external-guest-load-balancer-integration-optional">External Guest Load Balancer Integration （可选）</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="network_setup.html#management-server-load-balancing">管理节点负载均衡</a></li>
@@ -520,7 +520,7 @@ switch.</p>
 <p>All deployments should have a firewall protecting the management server;
 see Generic Firewall Provisions. Optionally, some deployments may also
 have a Juniper SRX firewall that will be the default gateway for the
-guest networks; see <a class="reference internal" href="network_setup.html#external-guest-firewall-integration-for-juniper-srx-optional"><span class="std std-ref">External Guest Firewall Integration for Juniper SRX (Optional)</span></a></p>
+guest networks; see <a class="reference internal" href="network_setup.html#external-guest-firewall-integration-for-juniper-srx-optional"><span class="std std-ref">External Guest Firewall Integration for Juniper SRX （可选）</span></a></p>
 <div class="section" id="generic-firewall-provisions">
 <h2>Generic Firewall Provisions<a class="headerlink" href="network_setup.html#generic-firewall-provisions" title="Permalink to this headline">¶</a></h2>
 <p>The hardware firewall is required to serve two purposes:</p>
@@ -537,9 +537,9 @@ provisioned into the cloud. Any brand of hardware firewall that supports
 NAT and site-to-site VPN can be used.</p>
 </div>
 <div class="section" id="external-guest-firewall-integration-for-juniper-srx-optional">
-<span id="id3"></span><h2>External Guest Firewall Integration for Juniper SRX (Optional)<a class="headerlink" href="network_setup.html#external-guest-firewall-integration-for-juniper-srx-optional" title="Permalink to this headline">¶</a></h2>
+<span id="id3"></span><h2>External Guest Firewall Integration for Juniper SRX （可选）<a class="headerlink" href="network_setup.html#external-guest-firewall-integration-for-juniper-srx-optional" title="Permalink to this headline">¶</a></h2>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">Available only for guests using advanced networking.</p>
 </div>
 <p>CloudStack provides for direct management of the Juniper SRX series of
@@ -554,7 +554,7 @@ side-by-side or inline configuration.</p>
 <p><img alt="parallel-mode.png: adding a firewall and load balancer in parallel mode." src="../_images/parallel-mode.png" /></p>
 <p>CloudStack requires the Juniper SRX firewall to be configured as follows:</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">Supported SRX software version is 10.3 or higher.</p>
 </div>
 <ol class="arabic">
@@ -652,7 +652,7 @@ example, ge-0/0/2. A “.x” at the end of the interface indicates
 the VLAN that is in use.</li>
 <li>Private Interface: The name of the private interface on the SRX.
 For example, ge-0/0/1.</li>
-<li>Usage Interface: (Optional) Typically, the public interface is
+<li>Usage Interface: （可选） Typically, the public interface is
 used to meter traffic. If you want to use a different interface,
 specify its name here</li>
 <li>Number of Retries: The number of times to attempt a command on the
@@ -679,7 +679,7 @@ you are not using the SRX to gather network usage statistics, set to 0.</p>
 </ol>
 </div>
 <div class="section" id="external-guest-firewall-integration-for-cisco-vnmc-optional">
-<h2>External Guest Firewall Integration for Cisco VNMC (Optional)<a class="headerlink" href="network_setup.html#external-guest-firewall-integration-for-cisco-vnmc-optional" title="Permalink to this headline">¶</a></h2>
+<h2>External Guest Firewall Integration for Cisco VNMC （可选）<a class="headerlink" href="network_setup.html#external-guest-firewall-integration-for-cisco-vnmc-optional" title="Permalink to this headline">¶</a></h2>
 <p>Cisco Virtual Network Management Center (VNMC) provides centralized
 multi-device and policy management for Cisco Network Virtual Services.
 You can integrate Cisco VNMC with CloudStack to leverage the firewall
@@ -965,7 +965,7 @@ the SSH credentials by registering on VNMC.</p>
 </div>
 </div>
 <div class="section" id="external-guest-load-balancer-integration-optional">
-<h2>External Guest Load Balancer Integration (Optional)<a class="headerlink" href="network_setup.html#external-guest-load-balancer-integration-optional" title="Permalink to this headline">¶</a></h2>
+<h2>External Guest Load Balancer Integration （可选）<a class="headerlink" href="network_setup.html#external-guest-load-balancer-integration-optional" title="Permalink to this headline">¶</a></h2>
 <p>CloudStack can optionally use a Citrix NetScaler or BigIP F5 load
 balancer to provide load balancing services to guests. If this is not
 enabled, CloudStack will use the software load balancer in the virtual
@@ -1247,7 +1247,7 @@ your deployment.</p>
 </table>
 <p>Based on your deployment’s needs, choose the appropriate value of
 guest.vlan.bits. Set it as described in Edit the Global Configuration
-Settings (Optional) section and restart the 管理服务.</p>
+Settings （可选） section and restart the 管理服务.</p>
 </div>
 
 

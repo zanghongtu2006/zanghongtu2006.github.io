@@ -275,7 +275,7 @@ that it does.</p>
 </li>
 <li><p class="first">Turn on NTP for time synchronization.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">NTP is required to synchronize the clocks of the servers in your cloud.</p>
 </div>
 <p>Install NTP.</p>
@@ -297,7 +297,7 @@ will be installed.</p>
 管理服务 on one host or many, is to install the software on a
 single node.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">If you are planning to install the 管理服务 on multiple nodes for
 high availability, do not proceed to the additional nodes yet. That step
 will come later.</p>
@@ -317,7 +317,7 @@ the sections for <a class="reference external" href="../building_from_source.htm
 you may find pre-built DEB and RPM packages for your convenience linked from
 the <a class="reference external" href="http://cloudstack.apache.org/downloads.html">downloads</a> page.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">These repositories contain both the 管理服务 and KVM Hypervisor
 packages.</p>
 </div>
@@ -427,7 +427,7 @@ Server.</p>
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">You can also create a file <code class="docutils literal notranslate"><span class="pre">/etc/mysql/conf.d/cloudstack.cnf</span></code>
 and add these directives there. Don’t forget to add <code class="docutils literal notranslate"><span class="pre">[mysqld]</span></code> on the
 first line of the file.</p>
@@ -507,27 +507,27 @@ recommended.</li>
 deploying the database. In the following command, it is assumed
 the root user is deploying the database and creating the “cloud”
 user.</li>
-<li>(Optional) For encryption_type, use file or web to indicate the
+<li>（可选） For encryption_type, use file or web to indicate the
 technique used to pass in the database encryption password.
 Default: file. See <a class="reference internal" href="../encryption.html#about-password-key-encryption"><span class="std std-ref">密码和加密密钥</span></a>.</li>
-<li>(Optional) For management_server_key, substitute the default key
+<li>（可选） For management_server_key, substitute the default key
 that is used to encrypt confidential parameters in the CloudStack
 properties file. Default: password. It is highly recommended that
 you replace this with a more secure value. See
 <a class="reference internal" href="../encryption.html#about-password-key-encryption"><span class="std std-ref">密码和加密密钥</span></a>.</li>
-<li>(Optional) For database_key, substitute the default key that is
+<li>（可选） For database_key, substitute the default key that is
 used to encrypt confidential parameters in the CloudStack
 database. Default: password. It is highly recommended that you
 replace this with a more secure value. See
 <a class="reference internal" href="../encryption.html#about-password-key-encryption"><span class="std std-ref">密码和加密密钥</span></a>.</li>
-<li>(Optional) For management_server_ip, you may explicitly specify
+<li>（可选） For management_server_ip, you may explicitly specify
 cluster management server node IP. If not specified, the local IP
 address will be used.</li>
 </ul>
 <p>When this script is finished, you should see a message like
 “Successfully initialized the database.”</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">If the script is unable to connect to the MySQL database, check the
 “localhost” loopback address in <code class="docutils literal notranslate"><span class="pre">/etc/hosts</span></code>. It should be pointing to
 the IPv4 loopback address “127.0.0.1” and not the IPv6 loopback address
@@ -561,7 +561,7 @@ deployment that includes several 管理服务 nodes. If you have a
 single-node 管理服务 deployment, you will typically use the
 same node for MySQL. See <a class="reference external" href="index.html#install-the-database-on-the-management-server-node">“Install the Database on the 管理服务 Node”</a>.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">The management server doesn’t require a specific distribution for the MySQL
 node. You can use a distribution or 操作系统 of your choice. Using
 the same distribution as the management server is recommended, but not
@@ -583,7 +583,7 @@ max_connections parameter should be set to 350 multiplied by the
 number of Management Servers you are deploying. This example assumes
 two Management Servers.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">On Ubuntu, you can also create /etc/mysql/conf.d/cloudstack.cnf file and
 add these directives there. Don’t forget to add [mysqld] on the first
 line of the file.</p>
@@ -654,20 +654,20 @@ user. You can choose to provide no password.</li>
 deploying the database. In the following command, it is assumed
 the root user is deploying the database and creating the cloud
 user.</li>
-<li>(Optional) For encryption_type, use file or web to indicate the
+<li>（可选） For encryption_type, use file or web to indicate the
 technique used to pass in the database encryption password.
 Default: file. See <a class="reference internal" href="../encryption.html#about-password-key-encryption"><span class="std std-ref">密码和加密密钥</span></a>.</li>
-<li>(Optional) For management_server_key, substitute the default key
+<li>（可选） For management_server_key, substitute the default key
 that is used to encrypt confidential parameters in the CloudStack
 properties file. Default: password. It is highly recommended that
 you replace this with a more secure value. See About Password and
 Key Encryption.</li>
-<li>(Optional) For database_key, substitute the default key that is
+<li>（可选） For database_key, substitute the default key that is
 used to encrypt confidential parameters in the CloudStack
 database. Default: password. It is highly recommended that you
 replace this with a more secure value. See
 <a class="reference internal" href="../encryption.html#about-password-key-encryption"><span class="std std-ref">密码和加密密钥</span></a>.</li>
-<li>(Optional) For management_server_ip, you may explicitly specify
+<li>（可选） For management_server_ip, you may explicitly specify
 cluster management server node IP. If not specified, the local IP
 address will be used.</li>
 </ul>
@@ -696,7 +696,7 @@ Cloud 基础设施概述). Both of these can be NFS shares. This
 section tells how to set up the NFS shares before adding the storage to
 CloudStack.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">NFS is not the only option for primary or secondary storage. For example,
 you may use Ceph RBD, GlusterFS, iSCSI, and others. The choice of storage
 system will depend on the choice of hypervisor and whether you are dealing
@@ -938,7 +938,7 @@ If the servlet container is Tomcat7 the argument –tomcat7 must be used.</p>
 <p>Secondary storage must be seeded with a template that is used for
 CloudStack system VMs.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">When copying and pasting a command, be sure the command has pasted as a
 single line before executing. Some document viewers may introduce unwanted
 line breaks in copied text.</p>

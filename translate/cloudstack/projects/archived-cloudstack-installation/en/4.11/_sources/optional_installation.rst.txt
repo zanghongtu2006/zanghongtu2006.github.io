@@ -21,7 +21,7 @@ The next few sections describe CloudStack features above and beyond the
 basic deployment options.
 
 
-Installing the Usage Server (Optional)
+Installing the Usage Server （可选）
 --------------------------------------
 
 You can optionally install the Usage Server once the 管理服务
@@ -88,7 +88,7 @@ The `管理员手册 <http://docs.cloudstack.apache.org/projects/cloudstack-admi
 Server.
 
 
-SSL (Optional)
+SSL （可选）
 --------------
 
 CloudStack provides HTTP access in its default installation. There are a
@@ -102,7 +102,7 @@ enabled. Tomcat SSL configuration is described at
 http://tomcat.apache.org/tomcat-6.0-doc/ssl-howto.html.
 
 
-Database Replication (Optional)
+Database Replication （可选）
 -------------------------------
 
 CloudStack supports database replication from one MySQL node to another.
@@ -394,7 +394,7 @@ Modifying the AWS API Port
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. note::
-   (Optional) The AWS API listens for requests on port 7080. If you prefer AWS 
+   （可选） The AWS API listens for requests on port 7080. If you prefer AWS 
    API to listen on another port, you can change it as follows:
 
    #. Edit the files ``/etc/cloudstack/management/server.xml``,

@@ -242,8 +242,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <h1>主机<a class="headerlink" href="hosts.html#working-with-hosts" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="adding-hosts">
 <h2>添加主机<a class="headerlink" href="hosts.html#adding-hosts" title="Permalink to this headline">¶</a></h2>
-<p>Additional hosts can be added at any time to provide more capacity for
-guest VMs. For requirements and instructions, see
+<p>可以随时通过增加主机来增加来宾虚拟机的容量。 For requirements and instructions, see
 <a class="reference external" href="http://docs.cloudstack.apache.org/projects/cloudstack-installation.html/en/latest/configuration.html#adding-a-host">“Adding a Host”</a>.</p>
 </div>
 <div class="section" id="scheduled-maintenance-and-maintenance-mode-for-hosts">
@@ -397,7 +396,7 @@ essential that your hosts are completely up to date with the provided
 hypervisor patches. The hypervisor vendor is likely to refuse to support
 any system that is not up to date with patches.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">The lack of up-do-date hotfixes can lead to data corruption and lost VMs.</p>
 </div>
 <p>(XenServer) For more information, see
@@ -560,7 +559,7 @@ done, CloudStack recalculates or scales the used and reserved capacities
 based on the new over-provisioning ratios, to ensure that CloudStack is
 correctly tracking the amount of free capacity.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">It is safer not to deploy additional new VMs while the capacity
 recalculation is underway, in case the new values for available
 capacity are not high enough to accommodate the new VMs. Just wait
@@ -582,7 +581,7 @@ overcommit ratio and RAM overcommit ratio. The value which is
 intially shown in these fields is the default value inherited from
 the global configuration settings.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">In XenServer, due to a constraint of this hypervisor, you can not
 use an over-provisioning factor greater than 4.</p>
 </div>
@@ -742,7 +741,7 @@ will not be garbage collected.</p>
 </li>
 </ol>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">You cannot change a VLAN once it’s assigned to the network. The VLAN
 remains with the network for its entire life cycle.</p>
 </div>

@@ -64,7 +64,7 @@ Adding Regions (optional)
 
 Grouping your cloud resources into geographic regions is an optional
 step when provisioning the cloud. For an overview of regions, see
-`“About Regions” <http://docs.cloudstack.apache.org/en/latest/concepts.html#about-regions>`_.
+`“地域” <http://docs.cloudstack.apache.org/en/latest/concepts.html#about-regions>`_.
 
 
 The First Region: The Default Region
@@ -327,7 +327,7 @@ Basic Zone Configuration
       ===============================================  ===================================================================================================================
 
 
-   -  **Network Domain.** (Optional) If you want to assign a special
+   -  **Network Domain.** （可选） If you want to assign a special
       domain name to the guest VM network, specify the DNS suffix.
 
    -  **Public.** A public zone is available to all users. A zone that
@@ -405,7 +405,7 @@ Basic Zone Configuration
 
 #. In a new zone, CloudStack adds the first pod for you. You can always
    add more pods later. For an overview of what a pod is, see
-   `“About Pods” <http://docs.cloudstack.apache.org/en/latest/concepts.html?highlight=about%20pods#about-pods>`_.
+   `“机架” <http://docs.cloudstack.apache.org/en/latest/concepts.html?highlight=about%20pods#about-pods>`_.
 
    To configure the first pod, enter the following, then click Next:
 
@@ -441,7 +441,7 @@ Basic Zone Configuration
 
 #. In a new pod, CloudStack adds the first cluster for you. You can
    always add more clusters later. For an overview of what a cluster is,
-   see About Clusters.
+   see 集群.
 
    To configure the first cluster, enter the following, then click Next:
 
@@ -458,7 +458,7 @@ Basic Zone Configuration
 
 #. In a new cluster, CloudStack adds the first host for you. You can
    always add more hosts later. For an overview of what a host is, see
-   About Hosts.
+   主机.
 
    .. note::
       When you add a hypervisor host to CloudStack, the host must not have
@@ -485,7 +485,7 @@ Basic Zone Configuration
    -  **Password.** This is the password for the user named above (from
       your XenServer or KVM install).
 
-   -  **Host Tags.** (Optional) Any labels that you use to categorize
+   -  **Host Tags.** （可选） Any labels that you use to categorize
       hosts for ease of maintenance. For example, you can set this to
       the cloud's HA tag (set in the ha.tag global configuration
       parameter) if you want this host to be used only for VMs with the
@@ -529,7 +529,7 @@ Advanced Zone Configuration
       private IP address you provide for the pods must have a route to
       the internal DNS server named here.
 
-   -  **Network Domain.** (Optional) If you want to assign a special
+   -  **Network Domain.** （可选） If you want to assign a special
       domain name to the guest VM network, specify the DNS suffix.
 
    -  **Guest CIDR.** This is the CIDR that describes the IP addresses
@@ -600,7 +600,7 @@ Advanced Zone Configuration
       to guest networks.
 
 #. In a new zone, CloudStack adds the first pod for you. You can always
-   add more pods later. For an overview of what a pod is, see `“About Pods” 
+   add more pods later. For an overview of what a pod is, see `“机架” 
    <http://docs.cloudstack.apache.org/en/latest/concepts.html?highlight=about%20pods#about-pods>`_.
 
    To configure the first pod, enter the following, then click Next:
@@ -624,7 +624,7 @@ Advanced Zone Configuration
 
 #. In a new pod, CloudStack adds the first cluster for you. You can
    always add more clusters later. For an overview of what a cluster is,
-   see `“About Clusters” 
+   see `“集群” 
    <http://docs.cloudstack.apache.org/en/latest/concepts.html?highlight=about%20pods#about-clusters>`_.
 
    To configure the first cluster, enter the following, then click Next:
@@ -642,7 +642,7 @@ Advanced Zone Configuration
 
 #. In a new cluster, CloudStack adds the first host for you. You can
    always add more hosts later. For an overview of what a host is, see
-   `“About Hosts” <http://docs.cloudstack.apache.org/en/latest/concepts.html?highlight=about%20pods#about-hosts>`_.
+   `“主机” <http://docs.cloudstack.apache.org/en/latest/concepts.html?highlight=about%20pods#about-hosts>`_.
 
    .. note::
       When you deploy CloudStack, the hypervisor host must not have any VMs
@@ -669,7 +669,7 @@ Advanced Zone Configuration
    -  **Password.** This is the password for the user named above (from
       your XenServer or KVM install).
 
-   -  **Host Tags.** (Optional) Any labels that you use to categorize
+   -  **Host Tags.** （可选） Any labels that you use to categorize
       hosts for ease of maintenance. For example, you can set to the
       cloud's HA tag (set in the ha.tag global configuration parameter)
       if you want this host to be used only for VMs with the "high
@@ -1098,7 +1098,7 @@ Adding a XenServer or KVM Host
    -  Password. This is the password for the user from your XenServer or
       KVM install).
 
-   -  Host Tags (Optional). Any labels that you use to categorize hosts
+   -  Host Tags （可选）. Any labels that you use to categorize hosts
       for ease of maintenance. For example, you can set to the cloud's
       HA tag (set in the ha.tag global configuration parameter) if you
       want this host to be used only for VMs with the "high
@@ -1331,7 +1331,7 @@ System Requirements for 二级存储
 
 -  SMB/CIFS (Hyper-V)
 
--  (Optional) OpenStack Object Storage (Swift) (see
+-  （可选） OpenStack Object Storage (Swift) (see
    http://swift.openstack.org)
 
 -  100GB minimum capacity

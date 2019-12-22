@@ -37,7 +37,7 @@ To configure the usage server:
 
 #. Be sure the Usage Server has been installed. This requires extra
    steps beyond just installing the CloudStack software. See Installing
-   the Usage Server (Optional) in the Advanced 安装指南.
+   the Usage Server （可选） in the Advanced 安装指南.
 
 #. Log in to the CloudStack UI as administrator.
 

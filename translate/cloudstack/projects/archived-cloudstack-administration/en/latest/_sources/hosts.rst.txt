@@ -20,8 +20,7 @@
 添加主机
 ------------
 
-Additional hosts can be added at any time to provide more capacity for
-guest VMs. For requirements and instructions, see 
+可以随时通过增加主机来增加来宾虚拟机的容量。 For requirements and instructions, see 
 `“Adding a Host” <http://docs.cloudstack.apache.org/projects/cloudstack-installation.html/en/latest/configuration.html#adding-a-host>`_.
 
 

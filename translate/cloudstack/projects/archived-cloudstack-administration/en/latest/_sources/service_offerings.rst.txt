@@ -241,7 +241,7 @@ To create a new compute offering:
    -  **Storage Tags**: The tags that should be associated with the
       primary storage used by the system VM.
 
-   -  **Host Tags**: (Optional) Any tags that you use to organize your
+   -  **Host Tags**: （可选） Any tags that you use to organize your
       hosts
 
    -  **CPU cap**: Whether to limit the level of CPU usage even if spare
@@ -373,7 +373,7 @@ To create a new disk offering:
       This enables space for hypervisor snapshots in addition to the virtual
       disk that represents the data disk. This does not apply for KVM.
 
-   -  **(Optional)Storage Tags**: The tags that should be associated with
+   -  **（可选）Storage Tags**: The tags that should be associated with
       the primary storage for this disk. Tags are a comma separated list
       of attributes of the storage. For example "ssd,blue". Tags are
       also added on 主存储. CloudStack matches tags on a disk
@@ -470,7 +470,7 @@ To create a system service offering:
    -  Storage Tags. The tags that should be associated with the primary
       storage used by the system VM.
 
-   -  Host Tags. (Optional) Any tags that you use to organize your hosts
+   -  Host Tags. （可选） Any tags that you use to organize your hosts
 
    -  CPU cap. Whether to limit the level of CPU usage even if spare
       capacity is available.

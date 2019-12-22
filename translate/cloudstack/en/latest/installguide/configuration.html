@@ -253,7 +253,7 @@ following basic structure:</p>
 <div class="section" id="adding-regions-optional">
 <span id="adding-regions"></span><h2>Adding Regions (optional)<a class="headerlink" href="configuration.html#adding-regions-optional" title="Permalink to this headline">¶</a></h2>
 <p>Grouping your cloud resources into geographic regions is an optional
-step when provisioning the cloud. For an overview of regions, see <a class="reference internal" href="../conceptsandterminology/concepts.html#about-regions"><span class="std std-ref">About Regions</span></a></p>
+step when provisioning the cloud. For an overview of regions, see <a class="reference internal" href="../conceptsandterminology/concepts.html#about-regions"><span class="std std-ref">地域</span></a></p>
 <div class="section" id="the-first-region-the-default-region">
 <h3>The First Region: The Default Region<a class="headerlink" href="configuration.html#the-first-region-the-default-region" title="Permalink to this headline">¶</a></h3>
 <p>If you do not take action to define regions, then all the zones in your
@@ -499,7 +499,7 @@ services will be available on the network for guest VMs.</p>
 </tbody>
 </table>
 </li>
-<li><p class="first"><strong>Network Domain.</strong> (Optional) If you want to assign a special
+<li><p class="first"><strong>Network Domain.</strong> （可选） If you want to assign a special
 domain name to the guest VM network, specify the DNS suffix.</p>
 </li>
 <li><p class="first"><strong>Public.</strong> A public zone is available to all users. A zone that
@@ -568,7 +568,7 @@ to guest VMs.</li>
 </ul>
 </li>
 <li><p class="first">In a new zone, CloudStack adds the first pod for you. You can always
-add more pods later. For an overview of what a pod is, see <a class="reference internal" href="../conceptsandterminology/concepts.html#about-pods"><span class="std std-ref">About Pods</span></a></p>
+add more pods later. For an overview of what a pod is, see <a class="reference internal" href="../conceptsandterminology/concepts.html#about-pods"><span class="std std-ref">机架</span></a></p>
 <p>To configure the first pod, enter the following, then click Next:</p>
 <ul class="simple">
 <li><strong>Pod Name.</strong> A name for the pod.</li>
@@ -600,7 +600,7 @@ pod CIDR.</li>
 </li>
 <li><p class="first">In a new pod, CloudStack adds the first cluster for you. You can
 always add more clusters later. For an overview of what a cluster is,
-see About Clusters.</p>
+see 集群.</p>
 <p>To configure the first cluster, enter the following, then click Next:</p>
 <ul class="simple">
 <li><strong>Hypervisor.</strong> (Version 3.0.0 only; in 3.0.1, this field is read
@@ -616,9 +616,9 @@ of your choosing and is not used by CloudStack.</li>
 </li>
 <li><p class="first">In a new cluster, CloudStack adds the first host for you. You can
 always add more hosts later. For an overview of what a host is, see
-About Hosts.</p>
+主机.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">When you add a hypervisor host to CloudStack, the host must not have
 any VMs already running.</p>
 </div>
@@ -638,7 +638,7 @@ with CloudStack. To find these installation details, see:</p>
 <li><strong>Username.</strong> The username is root.</li>
 <li><strong>Password.</strong> This is the password for the user named above (from
 your XenServer or KVM install).</li>
-<li><strong>Host Tags.</strong> (Optional) Any labels that you use to categorize
+<li><strong>Host Tags.</strong> （可选） Any labels that you use to categorize
 hosts for ease of maintenance. For example, you can set this to
 the cloud’s HA tag (set in the ha.tag global configuration
 parameter) if you want this host to be used only for VMs with the
@@ -680,7 +680,7 @@ Storage VMs.) These DNS servers will be accessed via the
 management traffic network interface of the System VMs. The
 private IP address you provide for the pods must have a route to
 the internal DNS server named here.</li>
-<li><strong>Network Domain.</strong> (Optional) If you want to assign a special
+<li><strong>Network Domain.</strong> （可选） If you want to assign a special
 domain name to the guest VM network, specify the DNS suffix.</li>
 <li><strong>Guest CIDR.</strong> This is the CIDR that describes the IP addresses
 in use in the guest virtual networks in this zone. For example,
@@ -743,7 +743,7 @@ to guest networks.</li>
 </ul>
 </li>
 <li><p class="first">In a new zone, CloudStack adds the first pod for you. You can always
-add more pods later. For an overview of what a pod is, see <a class="reference internal" href="../conceptsandterminology/concepts.html#about-pods"><span class="std std-ref">About Pods</span></a></p>
+add more pods later. For an overview of what a pod is, see <a class="reference internal" href="../conceptsandterminology/concepts.html#about-pods"><span class="std std-ref">机架</span></a></p>
 <p>To configure the first pod, enter the following, then click Next:</p>
 <ul class="simple">
 <li><strong>Pod Name.</strong> A name for the pod.</li>
@@ -762,7 +762,7 @@ network (see VLAN 划分示例 ), then click Next.</p>
 </li>
 <li><p class="first">In a new pod, CloudStack adds the first cluster for you. You can
 always add more clusters later. For an overview of what a cluster is,
-see <a class="reference internal" href="../conceptsandterminology/concepts.html#about-clusters"><span class="std std-ref">About Clusters</span></a></p>
+see <a class="reference internal" href="../conceptsandterminology/concepts.html#about-clusters"><span class="std std-ref">集群</span></a></p>
 <p>To configure the first cluster, enter the following, then click Next:</p>
 <ul class="simple">
 <li><strong>Hypervisor.</strong> (Version 3.0.0 only; in 3.0.1, this field is read
@@ -777,9 +777,9 @@ of your choosing and is not used by CloudStack.</li>
 </ul>
 </li>
 <li><p class="first">In a new cluster, CloudStack adds the first host for you. You can
-always add more hosts later. For an overview of what a host is, see <a class="reference internal" href="../conceptsandterminology/concepts.html#about-hosts"><span class="std std-ref">About Hosts</span></a>.</p>
+always add more hosts later. For an overview of what a host is, see <a class="reference internal" href="../conceptsandterminology/concepts.html#about-hosts"><span class="std std-ref">主机</span></a>.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">When you deploy CloudStack, the hypervisor host must not have any VMs
 already running.</p>
 </div>
@@ -799,7 +799,7 @@ with CloudStack. To find these installation details, see:</p>
 <li><strong>Username.</strong> Usually root.</li>
 <li><strong>Password.</strong> This is the password for the user named above (from
 your XenServer or KVM install).</li>
-<li><strong>Host Tags.</strong> (Optional) Any labels that you use to categorize
+<li><strong>Host Tags.</strong> （可选） Any labels that you use to categorize
 hosts for ease of maintenance. For example, you can set to the
 cloud’s HA tag (set in the ha.tag global configuration parameter)
 if you want this host to be used only for VMs with the “high
@@ -1128,7 +1128,7 @@ pool.</p>
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">When copying and pasting a command, be sure the command has pasted as a
 single line before executing. Some document viewers may introduce unwanted
 line breaks in copied text.</p>
@@ -1201,7 +1201,7 @@ More, then click the zone in which you want to add the host.</p>
 <li>Username. Usually root.</li>
 <li>Password. This is the password for the user from your XenServer or
 KVM install).</li>
-<li>Host Tags (Optional). Any labels that you use to categorize hosts
+<li>Host Tags （可选）. Any labels that you use to categorize hosts
 for ease of maintenance. For example, you can set to the cloud’s
 HA tag (set in the ha.tag global configuration parameter) if you
 want this host to be used only for VMs with the “high
@@ -1327,7 +1327,7 @@ primary storage that has tags T1 and T2.</p>
 <div class="section" id="configuring-a-storage-plug-in">
 <h3>Configuring a Storage Plug-in<a class="headerlink" href="configuration.html#configuring-a-storage-plug-in" title="Permalink to this headline">¶</a></h3>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">Primary storage that is based on a custom plug-in (ex. SolidFire) must be
 added through the CloudStack API (described later in this section). There
 is no support at this time through the CloudStack UI to add this type of
@@ -1335,7 +1335,7 @@ primary storage (although most of its features are available through the
 CloudStack UI).</p>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">The SolidFire storage plug-in for CloudStack is part of the standard
 CloudStack install. There is no additional work required to add this
 component.</p>
@@ -1392,7 +1392,7 @@ by (Min IOPS * clusterDefaultBurstIopsPercentOfMaxIops parameter)
 <ul class="simple">
 <li>NFS storage appliance or Linux NFS server</li>
 <li>SMB/CIFS (Hyper-V)</li>
-<li>(Optional) OpenStack Object Storage (Swift) (see
+<li>（可选） OpenStack Object Storage (Swift) (see
 <a class="reference external" href="http://swift.openstack.org">http://swift.openstack.org</a>)</li>
 <li>100GB minimum capacity</li>
 <li>A secondary storage device must be located in the same zone as the

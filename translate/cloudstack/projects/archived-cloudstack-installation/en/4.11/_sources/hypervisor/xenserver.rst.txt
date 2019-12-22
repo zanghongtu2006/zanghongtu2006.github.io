@@ -156,7 +156,7 @@ time.
 Install CloudStack XenServer Support Package (CSP)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-(Optional)
+（可选）
 
 To enable security groups, elastic load balancing, and elastic IP on
 XenServer, download and install the CloudStack XenServer Support Package
@@ -316,11 +316,11 @@ that XenServer.
    will enter the name-label you set earlier (in this example,
    e6849e96-86c3-4f2c-8fcc-350cc711be3d).
 
-#. (Optional) If you want to enable multipath I/O on a FiberChannel SAN,
+#. （可选） If you want to enable multipath I/O on a FiberChannel SAN,
    refer to the documentation provided by the SAN vendor.
 
 
-iSCSI Multipath Setup for XenServer (Optional)
+iSCSI Multipath Setup for XenServer （可选）
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 When setting up the storage repository on a Citrix XenServer, you can
@@ -386,7 +386,7 @@ running the following command:
    xe network-param-set uuid=<network id> name-label=<CloudStack traffic label>
 
 
-Configuring Public Network with a Dedicated NIC for XenServer (Optional)
+Configuring Public Network with a Dedicated NIC for XenServer （可选）
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 CloudStack supports the use of a second NIC (or bonded pair of NICs,
@@ -419,7 +419,7 @@ CloudStack before adding the host.
       # xe network-param-set name-label=cloud-public uuid=<UUID-Public>
 
 
-Configuring Multiple Guest Networks for XenServer (Optional)
+Configuring Multiple Guest Networks for XenServer （可选）
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 CloudStack supports the use of multiple guest networks with the
@@ -446,7 +446,7 @@ CloudStack:
    different name-label and uuid each time.
 
 
-独立存储网络 for XenServer (Optional)
+独立存储网络 for XenServer （可选）
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 You can optionally set up a 独立存储网络. This should be
@@ -487,7 +487,7 @@ Here is an example to set up eth5 to access a storage network on
 
 .. _nic-bonding-for-xenserver:
 
-NIC Bonding for XenServer (Optional)
+NIC Bonding for XenServer （可选）
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 XenServer supports Source Level Balancing (SLB) NIC bonding. Two NICs

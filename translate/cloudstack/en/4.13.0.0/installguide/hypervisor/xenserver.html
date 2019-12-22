@@ -130,7 +130,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l4"><a class="reference internal" href="xenserver.html#time-synchronization">Time Synchronization</a></li>
 <li class="toctree-l4"><a class="reference internal" href="xenserver.html#install-cloudstack-xenserver-support-package-csp">Install CloudStack XenServer Support Package (CSP)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="xenserver.html#primary-storage-setup-for-xenserver">Primary 存储配置 for XenServer</a></li>
-<li class="toctree-l4"><a class="reference internal" href="xenserver.html#iscsi-multipath-setup-for-xenserver-optional">iSCSI Multipath Setup for XenServer (Optional)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="xenserver.html#iscsi-multipath-setup-for-xenserver-optional">iSCSI Multipath Setup for XenServer （可选）</a></li>
 <li class="toctree-l4"><a class="reference internal" href="xenserver.html#physical-networking-setup-for-xenserver">Physical Networking Setup for XenServer</a></li>
 <li class="toctree-l4"><a class="reference internal" href="xenserver.html#upgrading-xenserver-versions">Upgrading XenServer Versions</a></li>
 </ul>
@@ -356,7 +356,7 @@ servers you want to use. For example:</p>
 </div>
 <div class="section" id="install-cloudstack-xenserver-support-package-csp">
 <h2>Install CloudStack XenServer Support Package (CSP)<a class="headerlink" href="xenserver.html#install-cloudstack-xenserver-support-package-csp" title="Permalink to this headline">¶</a></h2>
-<p>(Optional)</p>
+<p>（可选）</p>
 <p>To enable security groups, elastic load balancing, and elastic IP on
 XenServer, download and install the CloudStack XenServer Support Package
 (CSP). After installing XenServer, perform the following additional
@@ -482,13 +482,13 @@ dialog, in Protocol, you will choose PreSetup. In SR Name-Label, you
 will enter the name-label you set earlier (in this example,
 e6849e96-86c3-4f2c-8fcc-350cc711be3d).</p>
 </li>
-<li><p class="first">(Optional) If you want to enable multipath I/O on a FiberChannel SAN,
+<li><p class="first">（可选） If you want to enable multipath I/O on a FiberChannel SAN,
 refer to the documentation provided by the SAN vendor.</p>
 </li>
 </ol>
 </div>
 <div class="section" id="iscsi-multipath-setup-for-xenserver-optional">
-<h2>iSCSI Multipath Setup for XenServer (Optional)<a class="headerlink" href="xenserver.html#iscsi-multipath-setup-for-xenserver-optional" title="Permalink to this headline">¶</a></h2>
+<h2>iSCSI Multipath Setup for XenServer （可选）<a class="headerlink" href="xenserver.html#iscsi-multipath-setup-for-xenserver-optional" title="Permalink to this headline">¶</a></h2>
 <p>When setting up the storage repository on a Citrix XenServer, you can
 enable multipath I/O, which uses redundant physical components to
 provide greater reliability in the connection between the server and the
@@ -538,9 +538,9 @@ running the following command:</p>
 </pre></div>
 </div>
 <div class="section" id="configuring-public-network-with-a-dedicated-nic-for-xenserver-optional">
-<h3>Configuring Public Network with a Dedicated NIC for XenServer (Optional)<a class="headerlink" href="xenserver.html#configuring-public-network-with-a-dedicated-nic-for-xenserver-optional" title="Permalink to this headline">¶</a></h3>
+<h3>Configuring Public Network with a Dedicated NIC for XenServer （可选）<a class="headerlink" href="xenserver.html#configuring-public-network-with-a-dedicated-nic-for-xenserver-optional" title="Permalink to this headline">¶</a></h3>
 <p>CloudStack supports the use of a second NIC (or bonded pair of NICs,
-described in <a class="reference internal" href="xenserver.html#nic-bonding-for-xenserver"><span class="std std-ref">NIC Bonding for XenServer (Optional)</span></a>) for the public network. If
+described in <a class="reference internal" href="xenserver.html#nic-bonding-for-xenserver"><span class="std std-ref">NIC Bonding for XenServer （可选）</span></a>) for the public network. If
 bonding is not used, the public network can be on any NIC and can be on
 different NICs on the hosts in a cluster. For example, the public
 network can be on eth0 on node A and eth1 on node B. However, the
@@ -550,7 +550,7 @@ After the management server is installed and running you must configure
 it with the name of the chosen network label (e.g. “cloud-public”); this
 is discussed in <a class="reference external" href="http://docs.cloudstack.apache.org/en/4.13.0.0/installguide/hypervisor/installation.html#management-server-installation">“管理服务 安装”</a>.</p>
 <p>If you are using two NICs bonded together to create a public network,
-see <a class="reference internal" href="xenserver.html#nic-bonding-for-xenserver"><span class="std std-ref">NIC Bonding for XenServer (Optional)</span></a>.</p>
+see <a class="reference internal" href="xenserver.html#nic-bonding-for-xenserver"><span class="std std-ref">NIC Bonding for XenServer （可选）</span></a>.</p>
 <p>If you are using a single dedicated NIC to provide public network
 access, follow this procedure on each new host that is added to
 CloudStack before adding the host.</p>
@@ -567,7 +567,7 @@ note of its UUID. Call this &lt;UUID-Public&gt;.</p>
 </ol>
 </div>
 <div class="section" id="configuring-multiple-guest-networks-for-xenserver-optional">
-<h3>Configuring Multiple Guest Networks for XenServer (Optional)<a class="headerlink" href="xenserver.html#configuring-multiple-guest-networks-for-xenserver-optional" title="Permalink to this headline">¶</a></h3>
+<h3>Configuring Multiple Guest Networks for XenServer （可选）<a class="headerlink" href="xenserver.html#configuring-multiple-guest-networks-for-xenserver-optional" title="Permalink to this headline">¶</a></h3>
 <p>CloudStack supports the use of multiple guest networks with the
 XenServer hypervisor. Each network is assigned a name-label in
 XenServer. For example, you might have two networks with the labels
@@ -592,7 +592,7 @@ different name-label and uuid each time.</p>
 </ol>
 </div>
 <div class="section" id="separate-storage-network-for-xenserver-optional">
-<h3>独立存储网络 for XenServer (Optional)<a class="headerlink" href="xenserver.html#separate-storage-network-for-xenserver-optional" title="Permalink to this headline">¶</a></h3>
+<h3>独立存储网络 for XenServer （可选）<a class="headerlink" href="xenserver.html#separate-storage-network-for-xenserver-optional" title="Permalink to this headline">¶</a></h3>
 <p>You can optionally set up a 独立存储网络. This should be
 done first on the host, before implementing the bonding steps below.
 This can be done using one or two available NICs. With two NICs bonding
@@ -623,7 +623,7 @@ multipath. Each of the two networks needs a unique name-label.</p>
 </div>
 </div>
 <div class="section" id="nic-bonding-for-xenserver-optional">
-<span id="nic-bonding-for-xenserver"></span><h3>NIC Bonding for XenServer (Optional)<a class="headerlink" href="xenserver.html#nic-bonding-for-xenserver-optional" title="Permalink to this headline">¶</a></h3>
+<span id="nic-bonding-for-xenserver"></span><h3>NIC Bonding for XenServer （可选）<a class="headerlink" href="xenserver.html#nic-bonding-for-xenserver-optional" title="Permalink to this headline">¶</a></h3>
 <p>XenServer supports Source Level Balancing (SLB) NIC bonding. Two NICs
 can be bonded together to carry public, private, and guest traffic, or
 some combination of these. 独立存储网络s are also possible.
@@ -761,7 +761,7 @@ hosts. The actual upgrade is described in XenServer documentation, but
 there are some additional steps you must perform before and after the
 upgrade.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">Be sure the hardware is certified compatible with the new version of
 XenServer.</p>
 </div>
@@ -891,7 +891,7 @@ XenServer host:</p>
 # for pbd in <cite>xe pbd-list currently-attached=false| grep ^uuid | awk '{print $NF}'</cite>; do xe pbd-plug uuid=$pbd ; done
 </pre>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">If you add a host to this XenServer pool, you need to migrate all VMs
 on this host to other hosts, and eject this host from XenServer pool.</p>
 </div>
@@ -907,7 +907,7 @@ clean up the host tags:</p>
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">When copying and pasting a command, be sure the command has pasted as
 a single line before executing. Some document viewers may introduce
 unwanted line breaks in copied text.</p>

@@ -313,7 +313,7 @@ does.</p>
 </li>
 <li><p class="first">Turn on NTP for time synchronization.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">NTP is required to synchronize the clocks of the servers in your
 cloud. Unsynchronized clocks can cause unexpected problems.</p>
 </div>
@@ -357,7 +357,7 @@ defaults:cloudstack !requiretty
 </pre></div>
 </div>
 <div class="section" id="configure-cpu-model-for-kvm-guest-optional">
-<h3>Configure CPU model for KVM guest (Optional)<a class="headerlink" href="kvm.html#configure-cpu-model-for-kvm-guest-optional" title="Permalink to this headline">¶</a></h3>
+<h3>Configure CPU model for KVM guest （可选）<a class="headerlink" href="kvm.html#configure-cpu-model-for-kvm-guest-optional" title="Permalink to this headline">¶</a></h3>
 <p>In additional,the CloudStack Agent allows host administrator to control
 the guest CPU model which is exposed to KVM instances. By default, the
 CPU model of KVM instance is likely QEMU Virtual CPU version x.x.x with
@@ -417,7 +417,7 @@ exactly matching host CPU.</li>
 </li>
 </ul>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">host-passthrough may lead to migration failure,if you have this problem,
 you should use host-model or custom. guest.cpu.features will force cpu features
 as a required policy so make sure to put only those features that are provided
@@ -574,7 +574,7 @@ verify this with:</p>
 <p class="last">This is a very important section, please make sure you read this thoroughly.</p>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">This section details how to configure bridges using the native
 implementation in Linux. Please refer to the next section if you intend to
 use OpenVswitch</p>
@@ -604,7 +604,7 @@ for the guest network.</p>
 <p>In this the following example we give the Hypervisor the IP-Address 192.168.42.11/24
 with the gateway 192.168.42.1</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">The Hypervisor and Management server don’t have to be in the same subnet</p>
 </div>
 </div>
@@ -613,7 +613,7 @@ with the gateway 192.168.42.1</p>
 <p>It depends on the distribution you are using how to configure these,
 below you’ll find examples for RHEL/CentOS and Ubuntu.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">The goal is to have two bridges called ‘cloudbr0’ and ‘cloudbr1’ after this
 section. This should be used as a guideline only. The exact configuration
 will depend on your network layout.</p>
@@ -657,7 +657,7 @@ of them.</p>
 </div>
 <p>Now we configure cloudbr0 and include the Management IP of the hypervisor.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">The management IP of the hypervisor doesn’t have to be in same subnet/VLAN as the
 management network, but its quite common.</p>
 </div>
@@ -755,7 +755,7 @@ as required.</p>
 <p>We again give the Hypervisor the IP-Address 192.168.42.11/24 with
 the gateway 192.168.42.1</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">The Hypervisor and Management server don’t have to be in the same subnet</p>
 </div>
 </div>
@@ -764,7 +764,7 @@ the gateway 192.168.42.1</p>
 <p>It depends on the distribution you are using how to configure these,
 below you’ll find examples for RHEL/CentOS and Ubuntu.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">The goal is to have two bridges called ‘cloudbr0’ and ‘cloudbr1’ after this
 section. This should be used as a guideline only. The exact configuration
 will depend on your network layout.</p>
@@ -807,7 +807,7 @@ of them.</p>
 </div>
 <p>Now we configure cloudbr0 and include the Management IP of the hypervisor.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">The management IP of the hypervisor doesn’t have to be in same subnet/VLAN as the
 management network, but its quite common.</p>
 </div>
@@ -935,7 +935,7 @@ VLANs:</p>
 <p>On VLAN 100 we give the Hypervisor the IP-Address 192.168.42.11/24 with
 the gateway 192.168.42.1</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">The Hypervisor and Management server don’t have to be in the same subnet</p>
 </div>
 </div>
@@ -944,7 +944,7 @@ the gateway 192.168.42.1</p>
 <p>It depends on the distribution you are using how to configure these,
 below you’ll find examples for RHEL/CentOS.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">The goal is to have three bridges called ‘mgmt0’, ‘cloudbr0’ and ‘cloudbr1’
 after this section. This should be used as a guideline only. The exact
 configuration will depend on your network layout.</p>
@@ -1108,7 +1108,7 @@ is a Python wrapper around iptables.</p>
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">By default UFW is not enabled on Ubuntu. Executing these commands with the
 firewall disabled does not enable the firewall.</p>
 </div>

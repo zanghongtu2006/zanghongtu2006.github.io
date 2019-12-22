@@ -139,7 +139,7 @@ READTHEDOCS_DATA['source_suffix'] = '.rst'
 <li class="toctree-l4"><a class="reference internal" href="nuage-plugin.html#create-and-enable-shared-network-offering">Create and Enable Shared Network Offering</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nuage-plugin.html#vpc-offerings">VPC Offerings</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nuage-plugin.html#pre-created-and-enabled-nuage-vsp-vpc-offering">Pre-created and Enabled Nuage VSP VPC Offering</a></li>
-<li class="toctree-l4"><a class="reference internal" href="nuage-plugin.html#optional-create-and-enable-vpc-offering">(Optional) Create and Enable VPC Offering</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nuage-plugin.html#optional-create-and-enable-vpc-offering">（可选） Create and Enable VPC Offering</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="nuage-plugin.html#dedicated-features-provided-by-the-nuage-vsp-plugin">Dedicated Features Provided by The Nuage VSP Plugin</a><ul>
@@ -326,7 +326,7 @@ The plugin can be used by CloudStack to leverage the scalability and rich featur
 </table>
 <p>Table: Supported Network Services</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">The Virtual Networking service was originally called ‘Connectivity’
 in CloudStack 4.0</p>
 </div>
@@ -392,14 +392,14 @@ in CloudStack 4.0</p>
 <li>Verify that the CloudStack deployment (hypervisors) and Nuage VSP SDN Platform version you intend to use is being supported.</li>
 </ol>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">Only the 发行版本说明 for Nuage VSP contain the most up-to-date information on different supported versions. Please check them to verify that the information in this document is up-to-date.</p>
 </div>
 <ol class="arabic simple" start="2">
 <li>Prepare and configure the hypervisors for CloudStack integration with Nuage VSP SDN Platform.</li>
 </ol>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">Please refer to the Nuage VSP Install Guide on how to prepare the hypervisors for Nuage VSP SDN Platform integration.</p>
 </div>
 </div>
@@ -407,7 +407,7 @@ in CloudStack 4.0</p>
 <h3>Required Nuage VSD Configuration<a class="headerlink" href="nuage-plugin.html#required-nuage-vsd-configuration" title="Permalink to this headline">¶</a></h3>
 <p>When configuring Nuage VSP as the network service provider in a CloudStack Zone, a CSP user must be added in Nuage VSD, and this user must be added to the CMS group. See <a class="reference internal" href="nuage-plugin.html#enable-nuage-vsp-network-service-provider">Enable Nuage VSP Network Service Provider</a>.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">Nuage VSD is the programmable policy and analytics engine of the Nuage VSP SDN Platform with which the Nuage VSP Plugin interacts.</p>
 </div>
 </div>
@@ -488,7 +488,7 @@ in CloudStack 4.0</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Step 6:</th><td class="field-body">(Optional) View the Nuage VSP Network Service Provider status on the list of Network Service Providers on the <strong>Infrastructure &gt; Zones &gt; [zone name] &gt; Physical Network 2 &gt; Network Service Providers</strong> page;</td>
+<tr class="field-odd field"><th class="field-name">Step 6:</th><td class="field-body">（可选） View the Nuage VSP Network Service Provider status on the list of Network Service Providers on the <strong>Infrastructure &gt; Zones &gt; [zone name] &gt; Physical Network 2 &gt; Network Service Providers</strong> page;</td>
 </tr>
 </tbody>
 </table>
@@ -509,7 +509,7 @@ in CloudStack 4.0</p>
 <li>If Shared Networks are required, then create a new <strong>Shared</strong> guest type network offering for use with Shared Networks.</li>
 </ul>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last"><strong>Per Zone</strong> MUST always be selected as the <strong>Supported Source NAT type</strong> when <strong>Source NAT</strong> service is being provided by <strong>NuageVsp</strong>.</p>
 </div>
 </div>
@@ -554,7 +554,7 @@ in CloudStack 4.0</p>
 <p class="caption"><span class="caption-text">Creating Shared Network Offering</span></p>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">Selecting the <strong>Supporting Public Access</strong> field in the Shared Network offering enables Public/Internet access to the VMs in the Shared Network.</p>
 </div>
 <ol class="arabic simple" start="3">
@@ -574,7 +574,7 @@ in CloudStack 4.0</p>
 </div>
 </div>
 <div class="section" id="optional-create-and-enable-vpc-offering">
-<h3>(Optional) Create and Enable VPC Offering<a class="headerlink" href="nuage-plugin.html#optional-create-and-enable-vpc-offering" title="Permalink to this headline">¶</a></h3>
+<h3>（可选） Create and Enable VPC Offering<a class="headerlink" href="nuage-plugin.html#optional-create-and-enable-vpc-offering" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple">
 <li>Select <strong>计算方案 &gt; Select Offering: VPC Offerings &gt; Add VPC Offering</strong>, which brings up the <strong>Add VPC Offering</strong>.</li>
 <li>In the <strong>Add VPC Offering</strong> panel, add a <strong>Name</strong> and a <strong>Description</strong> to the network offering. In the <strong>Supported Services</strong> field select services and providers that are supported by the Nuage VSP Plugin for VPCs, see <a class="reference internal" href="nuage-plugin.html#supported-features">Supported Features</a> at the beginning of this document.</li>
@@ -659,7 +659,7 @@ in CloudStack 4.0</p>
 </div>
 <p>By default, the Nuage VSP Plugin creates the corresponding shared FIP subnet in Nuage VSD with the underlay flag set to false (disabled). There is no support for the <code class="docutils literal notranslate"><span class="pre">nuageunderlayvlaniprange</span></code> API from the CloudStack UI.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">Enabling/disabling the <code class="docutils literal notranslate"><span class="pre">nuageunderlayvlaniprange</span></code> API for CloudStack public IP ranges is supported only before the Nuage VSP plugin creates the corresponding shared FIP subnet in Nuage VSD. After a shared FIP subnet is created in Nuage VSD, its underlay flag cannot be changed. To change the underlay flag for a given shared FIP subnet, delete the Public vLanIPRange, recreate it and enable/disable the <code class="docutils literal notranslate"><span class="pre">nuageunderlayvlaniprange</span></code> API for it.</p>
 </div>
 </div>
@@ -677,7 +677,7 @@ in CloudStack 4.0</p>
 <li>futures</li>
 </ul>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">vspk is a Python SDK for Nuage VSP’s VSD and libVSD is a library that wraps vspk package, which are open sourced and can be found at <a class="reference external" href="https://github.com/nuagenetworks">https://github.com/nuagenetworks</a>.</p>
 </div>
 <p>Here is an example nosetests command to run The Nuage VSP Plugin specific Marvin tests:</p>
@@ -685,7 +685,7 @@ in CloudStack 4.0</p>
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="first admonition-title">提示</p>
 <p class="last">For an example Marvin config file (i.e. nuage_marvin.cfg) required to run The Nuage VSP Plugin specific Marvin tests, refer <a class="reference internal" href="nuage-plugin.html#nuage-vsp-marvin-config-file-format">Nuage VSP Marvin Config File Format</a> in the Appendix of this document.</p>
 </div>
 </div>
