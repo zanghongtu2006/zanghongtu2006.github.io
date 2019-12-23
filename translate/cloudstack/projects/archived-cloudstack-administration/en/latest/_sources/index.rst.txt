@@ -22,7 +22,7 @@
 CloudStack Administration Documentation
 =======================================
 
-.. figure:: /_static/images/acslogo.png
+.. figure:: /static/images/acslogo.png
    :align: center
 
 This guide is aimed at Administrators of a CloudStack based Cloud, 

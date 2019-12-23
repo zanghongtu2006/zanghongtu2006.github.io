@@ -361,9 +361,9 @@ hypervisor patches. The hypervisor vendor is likely to refuse to support any
 system that is not up to date with patches.
 
 
-.. |小规模部署| image:: ./_static/images/small-scale-deployment.png
-.. |大规模冗余部署| image:: ./_static/images/large-scale-redundant-setup.png
-.. |Multi-Node 管理服务| image:: ./_static/images/multi-node-management-server.png
-.. |Example Of A Multi-Site Deployment| image:: ./_static/images/multi-site-deployment.png
-.. |独立存储网络| image:: ./_static/images/separate-storage-network.png
-.. |NIC Bonding And Multipath I/O| image:: ./_static/images/nic-bonding-and-multipath-io.png
+.. |小规模部署| image:: ./static/images/small-scale-deployment.png
+.. |大规模冗余部署| image:: ./static/images/large-scale-redundant-setup.png
+.. |Multi-Node 管理服务| image:: ./static/images/multi-node-management-server.png
+.. |Example Of A Multi-Site Deployment| image:: ./static/images/multi-site-deployment.png
+.. |独立存储网络| image:: ./static/images/separate-storage-network.png
+.. |NIC Bonding And Multipath I/O| image:: ./static/images/nic-bonding-and-multipath-io.png

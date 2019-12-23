@@ -22,7 +22,7 @@
 Apache CloudStack 发行版本说明
 ===============================
 
-.. figure:: /_static/images/acslogo.png
+.. figure:: /static/images/acslogo.png
    :align: center
 
 This document contains information specific to this release of CloudStack, 

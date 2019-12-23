@@ -349,9 +349,9 @@ Now you can set up /export as an NFS share.
    deployment.
 
 
-.. |hypervisorcomms.png| image:: ./_static/images/hypervisorcomms.png
+.. |hypervisorcomms.png| image:: ./static/images/hypervisorcomms.png
    :alt: hypervisor storage communication
-.. |subnetting storage.png| image:: ./_static/images/subnetting_storage.png
+.. |subnetting storage.png| image:: ./static/images/subnetting_storage.png
    :alt: subnetted storage interfaces
-.. |hypervisorcomms-secstorage.png| image:: ./_static/images/hypervisorcomms-secstorage.png
+.. |hypervisorcomms-secstorage.png| image:: ./static/images/hypervisorcomms-secstorage.png
    :alt: hypervisor communications to secondary storage

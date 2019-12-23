@@ -136,7 +136,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l4"><a class="reference internal" href="concepts.html#about-pods">机架</a></li>
 <li class="toctree-l4"><a class="reference internal" href="concepts.html#about-clusters">集群</a></li>
 <li class="toctree-l4"><a class="reference internal" href="concepts.html#about-hosts">主机</a></li>
-<li class="toctree-l4"><a class="reference internal" href="concepts.html#about-primary-storage">About 主存储</a></li>
+<li class="toctree-l4"><a class="reference internal" href="concepts.html#about-primary-storage">主存储</a></li>
 <li class="toctree-l4"><a class="reference internal" href="concepts.html#about-secondary-storage">About 二级存储</a></li>
 <li class="toctree-l4"><a class="reference internal" href="concepts.html#about-physical-networks">About Physical Networks</a></li>
 </ul>
@@ -412,17 +412,16 @@ that zone will not be forcibly migrated to the new model. 它会沿用之前的�
 </ul>
 <p>可以随时通过增加主机来增加来宾虚拟机的容量。</p>
 <p>CloudStack 自动检测主机提供的CPU 和内存资源量。</p>
-<p>Hosts are not visible to the end user. An end user cannot determine
-which host their guest has been assigned to.</p>
-<p>For a host to function in CloudStack, you must do the following:</p>
+<p>主机对于最终用户是不可见的。 最终用户不能决定他的来宾虚拟机启动在哪个主机上。</p>
+<p>将一个主机添加到CloudStack 中，需要以下几个步骤：</p>
 <ul class="simple">
-<li>Install hypervisor software on the host</li>
-<li>Assign an IP address to the host</li>
-<li>Ensure the host is connected to the CloudStack 管理服务.</li>
+<li>在主机上安装Hypervisor系统</li>
+<li>给主机分配一个静态IP</li>
+<li>确保主机连接到CloudStack 管理服务</li>
 </ul>
 </div>
 <div class="section" id="about-primary-storage">
-<h2>About 主存储<a class="headerlink" href="concepts.html#about-primary-storage" title="Permalink to this headline">¶</a></h2>
+<h2>主存储<a class="headerlink" href="concepts.html#about-primary-storage" title="Permalink to this headline">¶</a></h2>
 <p>Primary storage is associated with a cluster, and it stores
 virtual disks for all the VMs running on hosts in that cluster.
 On KVM and VMware, you can provision primary storage on a per-zone basis.</p>
@@ -437,8 +436,7 @@ cluster. If a VM in a different cluster needs some of the data, it must
 be copied from one cluster to another, using the zone’s secondary
 storage as an intermediate step. This operation can be unnecessarily
 time-consuming.</p>
-<p>For Hyper-V, SMB/CIFS storage is supported. Note that Zone-wide Primary
-Storage is not supported in Hyper-V.</p>
+<p>Hyper-V 支持 SMB/CIFS 类型的存储。需要注意Hyper-V 不能主持资源域级别的主存储。</p>
 <p>Ceph/RBD storage is only supported by the KVM hypervisor. It can be used
 as Zone-wide 主存储.</p>
 <p>CloudStack is designed to work with all standards-compliant iSCSI and

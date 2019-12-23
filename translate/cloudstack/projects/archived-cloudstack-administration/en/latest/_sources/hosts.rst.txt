@@ -580,9 +580,9 @@ To enable you to assign VLANs to Isolated networks,
    remains with the network for its entire life cycle.
 
 
-.. |enable-disable.png| image:: _static/images/enable-disable.png
+.. |enable-disable.png| image:: static/images/enable-disable.png
    :alt: button to enable or disable zone, pod, or cluster.
-.. |edit-icon.png| image:: _static/images/edit-icon.png
+.. |edit-icon.png| image:: static/images/edit-icon.png
    :alt: button to edit the VLAN range.
 
 

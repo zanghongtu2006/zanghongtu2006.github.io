@@ -171,5 +171,5 @@ new, unique value.
 #. Type the new password, and click OK.
 
 
-.. |change-password.png| image:: _static/images/change-password.png
+.. |change-password.png| image:: static/images/change-password.png
    :alt: button to change a user's password

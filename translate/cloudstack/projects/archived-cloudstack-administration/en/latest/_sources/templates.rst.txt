@@ -308,9 +308,9 @@ to run. However, new VMs cannot be created based on the deleted
 template.
 
 
-.. |sysmanager.png| image:: _static/images/sysmanager.png
+.. |sysmanager.png| image:: static/images/sysmanager.png
    :alt: System Image Manager
-.. |software-license.png| image:: _static/images/software-license.png
+.. |software-license.png| image:: static/images/software-license.png
    :alt: Depicts hiding the EULA page.
-.. |change-admin-password.png| image:: _static/images/change-admin-password.png
+.. |change-admin-password.png| image:: static/images/change-admin-password.png
    :alt: Depicts changing the administrator password

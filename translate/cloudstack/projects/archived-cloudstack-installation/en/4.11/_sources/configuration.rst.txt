@@ -494,7 +494,7 @@ Basic Zone Configuration
 
 #. In a new cluster, CloudStack adds the first primary storage server
    for you. You can always add more servers later. For an overview of
-   what primary storage is, see About 主存储.
+   what primary storage is, see 主存储.
 
    To configure the first primary storage server, enter the following,
    then click Next:
@@ -679,7 +679,7 @@ Advanced Zone Configuration
 
 #. In a new cluster, CloudStack adds the first primary storage server
    for you. You can always add more servers later. For an overview of
-   what primary storage is, see `“About 主存储” 
+   what primary storage is, see `“主存储” 
    <http://docs.cloudstack.apache.org/en/latest/concepts.html?highlight=about%20pods#about-primary-storage>`_.
 
    To configure the first primary storage server, enter the following,
@@ -1634,7 +1634,7 @@ zone      blacklisted.routes                                         Routes that
 ========  =========================================================  ======================================================================================================================================  
 
 
-.. |provisioning-overview.png: Conceptual overview of a basic deployment| image:: ./_static/images/provisioning-overview.png
-.. |vsphereclient.png: vSphere client| image:: ./_static/images/vsphere-client.png
-.. |addcluster.png: add a cluster| image:: ./_static/images/add-cluster.png
-.. |ConsoleButton.png: button to launch a console| image:: ./_static/images/console-icon.png
+.. |provisioning-overview.png: Conceptual overview of a basic deployment| image:: ./static/images/provisioning-overview.png
+.. |vsphereclient.png: vSphere client| image:: ./static/images/vsphere-client.png
+.. |addcluster.png: add a cluster| image:: ./static/images/add-cluster.png
+.. |ConsoleButton.png: button to launch a console| image:: ./static/images/console-icon.png

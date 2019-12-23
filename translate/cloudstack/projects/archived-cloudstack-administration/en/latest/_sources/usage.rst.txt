@@ -926,5 +926,5 @@ IP addresses and VMs, the old unprocessed data is not included in daily
 aggregation.
 
 
-.. |editbutton.png| image:: _static/images/edit-icon.png
+.. |editbutton.png| image:: static/images/edit-icon.png
    :alt: edits the settings.

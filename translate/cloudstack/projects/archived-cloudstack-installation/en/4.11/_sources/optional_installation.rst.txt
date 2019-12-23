@@ -800,5 +800,5 @@ Example 2. An S3 Boto Example
        main()
 
 
-.. |Use the GUI to set the configuration variable to true| image:: ./_static/images/ec2-s3-configuration.png
-.. |Use the GUI to set the name of a compute service offering to an EC2 instance type API name.| image:: ./_static/images/compute-service-offerings.png
+.. |Use the GUI to set the configuration variable to true| image:: ./static/images/ec2-s3-configuration.png
+.. |Use the GUI to set the name of a compute service offering to an EC2 instance type API name.| image:: ./static/images/compute-service-offerings.png

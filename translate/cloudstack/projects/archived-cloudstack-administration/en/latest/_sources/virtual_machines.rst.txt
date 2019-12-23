@@ -1331,26 +1331,26 @@ CloudStack follows the below sequence of operations to provide GPU/vGPU support 
 
    
    
-.. |basic-deployment.png| image:: _static/images/basic-deployment.png
+.. |basic-deployment.png| image:: static/images/basic-deployment.png
    :alt: Basic two-machine CloudStack deployment
-.. |VMSnapshotButton.png| image:: _static/images/VMSnapshotButton.png
+.. |VMSnapshotButton.png| image:: static/images/VMSnapshotButton.png
    :alt: button to restart a VPC
-.. |delete-button.png| image:: _static/images/delete-button.png
-.. |EditButton.png| image:: _static/images/edit-icon.png
+.. |delete-button.png| image:: static/images/delete-button.png
+.. |EditButton.png| image:: static/images/edit-icon.png
    :alt: button to edit the properties of a VM
-.. |change-affinity-button.png| image:: _static/images/change-affinity-button.png
+.. |change-affinity-button.png| image:: static/images/change-affinity-button.png
    :alt: button to assign an affinity group to a virtual machine.
-.. |ChangeServiceButton.png| image:: _static/images/change-service-icon.png
+.. |ChangeServiceButton.png| image:: static/images/change-service-icon.png
    :alt: button to change the service of a VM
-.. |Migrateinstance.png| image:: _static/images/migrate-instance.png
+.. |Migrateinstance.png| image:: static/images/migrate-instance.png
    :alt: button to migrate an instance
-.. |Destroyinstance.png| image:: _static/images/destroy-instance.png
+.. |Destroyinstance.png| image:: static/images/destroy-instance.png
    :alt: button to destroy an instance
-.. |iso.png| image:: _static/images/iso-icon.png
+.. |iso.png| image:: static/images/iso-icon.png
    :alt: depicts adding an iso image
-.. |console-icon.png| image:: _static/images/console-icon.png
+.. |console-icon.png| image:: static/images/console-icon.png
    :alt: depicts adding an iso image
-.. |revert-vm.png| image:: _static/images/revert-vm.png
+.. |revert-vm.png| image:: static/images/revert-vm.png
    :alt: depicts adding an iso image
-.. |StopButton.png| image:: _static/images/stop-instance-icon.png
+.. |StopButton.png| image:: static/images/stop-instance-icon.png
    :alt: depicts adding an iso image

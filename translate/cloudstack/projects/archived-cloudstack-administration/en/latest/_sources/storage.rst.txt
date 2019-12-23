@@ -36,7 +36,7 @@ This section gives concepts and technical details about CloudStack
 primary storage. For information about how to install and configure
 primary storage through the CloudStack UI, see the 安装指南.
 
-`“About 主存储” <http://docs.cloudstack.apache.org/en/latest/concepts.html#about-primary-storage>`_
+`“主存储” <http://docs.cloudstack.apache.org/en/latest/concepts.html#about-primary-storage>`_
 
 
 最佳实践 for 主存储
@@ -896,16 +896,16 @@ After VM is started we can confirm that the both the ROOT and DATA disk of a VM 
       <source file='/mnt/63a3ae7b-9ea9-3884-a772-1ea939ef6ec3/09bdadcb-ec6e-4dda-b37b-17b1a749257f'/>
       <target dev='vdb' bus='virtio'/>
 
-.. |AttachDiskButton.png| image:: _static/images/attach-disk-icon.png
+.. |AttachDiskButton.png| image:: static/images/attach-disk-icon.png
    :alt: Attach Disk Button.
-.. |resize-volume-icon.png| image:: _static/images/resize-volume-icon.png
+.. |resize-volume-icon.png| image:: static/images/resize-volume-icon.png
    :alt: button to display the resize volume option.
-.. |resize-volume.png| image:: _static/images/resize-volume.png
+.. |resize-volume.png| image:: static/images/resize-volume.png
    :alt: option to resize a volume.
-.. |SnapshotButton.png| image:: _static/images/SnapshotButton.png
+.. |SnapshotButton.png| image:: static/images/SnapshotButton.png
    :alt: Snapshot Button.
-.. |DetachDiskButton.png| image:: _static/images/detach-disk-icon.png
+.. |DetachDiskButton.png| image:: static/images/detach-disk-icon.png
    :alt: Detach Disk Button.
-.. |Migrateinstance.png| image:: _static/images/migrate-instance.png
+.. |Migrateinstance.png| image:: static/images/migrate-instance.png
    :alt: button to migrate a volume.
 

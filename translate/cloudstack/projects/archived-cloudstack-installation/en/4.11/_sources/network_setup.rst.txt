@@ -1052,4 +1052,4 @@ guest.vlan.bits. Set it as described in Edit the Global Configuration
 Settings （可选） section and restart the 管理服务.
 
 
-.. |parallel-mode.png: adding a firewall and load balancer in parallel mode.| image:: ./_static/images/parallel-mode.png
+.. |parallel-mode.png: adding a firewall and load balancer in parallel mode.| image:: ./static/images/parallel-mode.png
