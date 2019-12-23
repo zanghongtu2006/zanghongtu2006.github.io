@@ -20,7 +20,7 @@
 概述
 --------
 
-What exactly are we building?
+我们到底在建什么？
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Infrastructure-as-a-Service (IaaS) clouds can be a complex thing to build, and 
