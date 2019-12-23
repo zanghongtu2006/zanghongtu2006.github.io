@@ -17,24 +17,24 @@
   
 
   
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  <script type="text/javascript" src="../static/js/modernizr.min.js"></script>
   
     
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../static/documentation_options.js"></script>
+        <script type="text/javascript" src="../static/jquery.js"></script>
+        <script type="text/javascript" src="../static/underscore.js"></script>
+        <script type="text/javascript" src="../static/doctools.js"></script>
+        <script type="text/javascript" src="../static/language_data.js"></script>
         <script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
     
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../static/js/theme.js"></script>
 
     
 
   
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="../static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../static/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="开发者手册" href="../developersguide/index.html" />
@@ -50,7 +50,7 @@ http://docs.readthedocs.org/en/latest/canonical.html
 
 <link rel="stylesheet" href="https://assets.readthedocs.org/static/css/readthedocs-doc-embed.css" type="text/css" />
 
-<script type="text/javascript" src="../_static/readthedocs-data.js"></script>
+<script type="text/javascript" src="../static/readthedocs-data.js"></script>
 
 <!-- Add page-specific data, which must exist in the page js, not global -->
 <script type="text/javascript">
@@ -434,10 +434,10 @@ physical networking issues before you proceed to the next steps</p>
 <p>Traffic labels need to be set for all hypervisors including
 XenServer, KVM and VMware types. You can configure traffic labels when
 you creating a new zone from the <em>Add Zone Wizard</em>.</p>
-<img alt="../_images/networking-zone-traffic-labels.png" src="../_images/networking-zone-traffic-labels.png" />
+<img alt="../images/networking-zone-traffic-labels.png" src="../images/networking-zone-traffic-labels.png" />
 <p>On an existing zone, you can modify the traffic labels by going to
 <em>Infrastructure, Zones, Physical Network</em> tab.</p>
-<img alt="../_images/networking-infra-traffic-labels.png" src="../_images/networking-infra-traffic-labels.png" />
+<img alt="../images/networking-infra-traffic-labels.png" src="../images/networking-infra-traffic-labels.png" />
 <p>List labels using <em>CloudMonkey</em></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>acs-manager ~$ cloudmonkey list traffictypes physicalnetworkid=41cb7ff6-8eb2-4630-b577-1da25e0e1145
 count = 4
@@ -575,11 +575,11 @@ traffic and not traffic that originates on the VR itself.</p>
 <strong>WONT</strong> be reachable until appropriate Ingress rules are
 in place. You can add <em>Ingress</em> rules under <em>Network, Guest Network, IP
 Address, Firewall</em> setting page.</p>
-<img alt="../_images/networking-ingress-rule.png" src="../_images/networking-ingress-rule.png" />
+<img alt="../images/networking-ingress-rule.png" src="../images/networking-ingress-rule.png" />
 </li>
 <li><p class="first">The VM Instances by default wont be able to access the Internet. Add
 Egress rules to permit traffic.</p>
-<img alt="../_images/networking-egress-rule.png" src="../_images/networking-egress-rule.png" />
+<img alt="../images/networking-egress-rule.png" src="../images/networking-egress-rule.png" />
 </li>
 <li><p class="first">Some users have reported that flushing IPTables rules (or changing
 routes) on the SSVM, CPVM or the 虚拟路由器 makes the Internet work.

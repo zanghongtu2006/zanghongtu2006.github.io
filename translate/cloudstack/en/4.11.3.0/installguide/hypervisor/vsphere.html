@@ -17,23 +17,23 @@
   
 
   
-  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  <script type="text/javascript" src="../../static/js/modernizr.min.js"></script>
   
     
-      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../static/jquery.js"></script>
+        <script type="text/javascript" src="../../static/underscore.js"></script>
+        <script type="text/javascript" src="../../static/doctools.js"></script>
+        <script type="text/javascript" src="../../static/language_data.js"></script>
         <script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
     
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../../static/js/theme.js"></script>
 
     
 
   
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Citrix XenServer 安装" href="xenserver.html" />
@@ -49,7 +49,7 @@ http://docs.readthedocs.org/en/latest/canonical.html
 
 <link rel="stylesheet" href="https://assets.readthedocs.org/static/css/readthedocs-doc-embed.css" type="text/css" />
 
-<script type="text/javascript" src="../../_static/readthedocs-data.js"></script>
+<script type="text/javascript" src="../../static/readthedocs-data.js"></script>
 
 <!-- Add page-specific data, which must exist in the page js, not global -->
 <script type="text/javascript">
@@ -473,7 +473,7 @@ configure an ESXi host, you can use vClient to add it as standalone host
 to vCenter first. Once you see the host appearing in the vCenter
 inventory tree, click the host node in the inventory tree, and navigate
 to the Configuration tab.</p>
-<p><img alt="vspherephysicalnetwork.png: vSphere client" src="../../_images/vmware-physical-network.png" /></p>
+<p><img alt="vspherephysicalnetwork.png: vSphere client" src="../../images/vmware-physical-network.png" /></p>
 <p>In the host configuration tab, click the “Hardware/Networking” link to
 bring up the networking configuration page as above.</p>
 <div class="section" id="configure-virtual-switch">
@@ -504,10 +504,10 @@ will configure CloudStack to use these vSwitches.</p>
 recommend setting it to 4088, the maximum number of ports allowed. To do
 that, click the “Properties…” link for virtual switch (note this is
 not the Properties link for Networking).</p>
-<p><img alt="vsphereincreaseports.png: vSphere client" src="../../_images/vmware-increase-ports.png" /></p>
+<p><img alt="vsphereincreaseports.png: vSphere client" src="../../images/vmware-increase-ports.png" /></p>
 <p>In vSwitch properties dialog, select the vSwitch and click Edit. You
 should see the following dialog:</p>
-<p><img alt="vspherevswitchproperties.png: vSphere client" src="../../_images/vmware-vswitch-properties.png" /></p>
+<p><img alt="vspherevswitchproperties.png: vSphere client" src="../../images/vmware-vswitch-properties.png" /></p>
 <p>In this dialog, you can change the number of switch ports. After you’ve
 done that, ESXi hosts are required to reboot in order for the setting to
 take effect.</p>
@@ -520,7 +520,7 @@ network. This same network will also be used as the CloudStack
 management network. CloudStack requires the vCenter management network
 to be configured properly. Select the management network item in the
 dialog, then click Edit.</p>
-<p><img alt="vspheremgtnetwork.png: vSphere client" src="../../_images/vmware-mgt-network-properties.png" /></p>
+<p><img alt="vspheremgtnetwork.png: vSphere client" src="../../images/vmware-mgt-network-properties.png" /></p>
 <p>Make sure the following values are set:</p>
 <ul class="simple">
 <li>VLAN ID set to the desired ID</li>
@@ -736,7 +736,7 @@ Management traffic, Guest traffic, Storage traffic, and Public
 traffic. The physical networks configured during zone creation should
 have a one-to-one relation with the Ethernet port profiles.</li>
 </ul>
-<p><img alt="vmwarenexusportprofile.png: vSphere client" src="../../_images/vmware-nexus-port-profile.png" /></p>
+<p><img alt="vmwarenexusportprofile.png: vSphere client" src="../../images/vmware-nexus-port-profile.png" /></p>
 <p>For information on creating a port profile, see <a class="reference external" href="http://www.cisco.com/en/US/docs/switches/datacenter/nexus1000/sw/4_2_1_s_v_1_4_a/port_profile/configuration/guide/n1000v_port_profile.html">Cisco Nexus 1000V Port
 Profile Configuration Guide</a>.</p>
 </div>
@@ -807,7 +807,7 @@ either standard vSwitch or Nexus 1000v virtual switch.</p>
 <h3>Configuring Nexus 1000v Virtual Switch in CloudStack<a class="headerlink" href="vsphere.html#configuring-nexus-1000v-virtual-switch-in-cloudstack" title="Permalink to this headline">¶</a></h3>
 <p>You can configure Nexus dvSwitch by adding the necessary resources while
 the zone is being created.</p>
-<p><img alt="vmwarenexusaddcluster.png: vmware nexus add cluster" src="../../_images/vmware-nexus-add-cluster.png" /></p>
+<p><img alt="vmwarenexusaddcluster.png: vmware nexus add cluster" src="../../images/vmware-nexus-add-cluster.png" /></p>
 <p>After the zone is created, if you want to create an additional cluster
 along with Nexus 1000v virtual switch in the existing zone, use the Add
 集群 option. For information on creating a cluster, see
@@ -869,7 +869,7 @@ ensure that you delete all the hosts in the corresponding cluster.</p>
 <li><p class="first">In the dvSwitch tab, click the name of the virtual switch.</p>
 </li>
 <li><p class="first">In the Details page, click Delete Nexus dvSwitch icon.
-<img alt="DeleteButton.png: button to delete dvSwitch" src="../../_images/delete-button.png" /></p>
+<img alt="DeleteButton.png: button to delete dvSwitch" src="../../images/delete-button.png" /></p>
 <p>Click Yes in the confirmation dialog box.</p>
 </li>
 </ol>
@@ -918,7 +918,7 @@ vCenter.</li>
 <h3>Preparation Checklist<a class="headerlink" href="vsphere.html#id6" title="Permalink to this headline">¶</a></h3>
 <p>For a smoother configuration of VMware VDS, note down the VDS name you
 have added in the datacenter before you start:</p>
-<p><img alt="vds-name.png: Name of the dvSwitch as specified in the vCenter." src="../../_images/vds-name.png" /></p>
+<p><img alt="vds-name.png: Name of the dvSwitch as specified in the vCenter." src="../../images/vds-name.png" /></p>
 <p>Use this VDS name in the following:</p>
 <ul>
 <li><p class="first">The switch name in the Edit traffic label dialog while configuring a
@@ -926,7 +926,7 @@ public and guest traffic during zone creation.</p>
 <p>During a zone creation, ensure that you select VMware vNetwork
 Distributed Virtual Switch when you configure guest and public
 traffic type.</p>
-<p><img alt="traffic-type.png" src="../../_images/traffic-type.png" /></p>
+<p><img alt="traffic-type.png" src="../../images/traffic-type.png" /></p>
 </li>
 <li><p class="first">The Public Traffic vSwitch Type field when you add a VMware
 VDS-enabled cluster.</p>
@@ -1009,7 +1009,7 @@ cluster with VDS enabled in the existing zone. Use the Add 集群
 option. For information as given in <a class="reference external" href="http://docs.cloudstack.apache.org/en/4.11.3.0/installguide/hypervisor/configuration.html#add-cluster-vsphere">“Add 集群: vSphere”</a>.</p>
 <p>In both these cases, you must specify the following parameters to
 configure VDS:</p>
-<p><img alt="dvSwitchConfig.png: Configuring dvSwitch" src="../../_images/dvswitchconfig.png" /></p>
+<p><img alt="dvSwitchConfig.png: Configuring dvSwitch" src="../../images/dvswitchconfig.png" /></p>
 <table border="1" class="table-striped table-bordered table-hover docutils">
 <colgroup>
 <col width="11%" />
@@ -1068,13 +1068,13 @@ target and create an iSCSI datastore.</p>
 <ol class="arabic">
 <li><p class="first">In vCenter, go to hosts and Clusters/Configuration, and click Storage
 Adapters link. You will see:</p>
-<p><img alt="vmwareiscsiinitiator.png: iscsi initiator" src="../../_images/vmware-iscsi-initiator.png" /></p>
+<p><img alt="vmwareiscsiinitiator.png: iscsi initiator" src="../../images/vmware-iscsi-initiator.png" /></p>
 </li>
 <li><p class="first">Select iSCSI software adapter and click Properties.</p>
-<p><img alt="vmwareiscsiinitiatorproperties.png: iscsi initiator properties" src="../../_images/vmware-iscsi-initiator-properties.png" /></p>
+<p><img alt="vmwareiscsiinitiatorproperties.png: iscsi initiator properties" src="../../images/vmware-iscsi-initiator-properties.png" /></p>
 </li>
 <li><p class="first">Click the Configure… button.</p>
-<p><img alt="vmwareiscsigeneral.png: iscsi general" src="../../_images/vmware-iscsi-general.png" /></p>
+<p><img alt="vmwareiscsigeneral.png: iscsi general" src="../../images/vmware-iscsi-general.png" /></p>
 </li>
 <li><p class="first">Check Enabled to enable the initiator.</p>
 </li>
@@ -1085,7 +1085,7 @@ Adapters link. You will see:</p>
 <div class="section" id="add-iscsi-target">
 <h3>Add iSCSI target<a class="headerlink" href="vsphere.html#add-iscsi-target" title="Permalink to this headline">¶</a></h3>
 <p>Under the properties dialog, add the iSCSI target info:</p>
-<p><img alt="vmwareiscsitargetadd.png: iscsi target add" src="../../_images/vmware-iscsi-target-add.png" /></p>
+<p><img alt="vmwareiscsitargetadd.png: iscsi target add" src="../../images/vmware-iscsi-target-add.png" /></p>
 <p>Repeat these steps for all ESXi hosts in the cluster.</p>
 </div>
 <div class="section" id="create-an-iscsi-datastore">
@@ -1099,7 +1099,7 @@ Adapters link. You will see:</p>
 </ol>
 <p>This procedure should be done on one host in the cluster. It is not
 necessary to do this on all hosts.</p>
-<p><img alt="vmwareiscsidatastore.png: iscsi datastore" src="../../_images/vmware-iscsi-datastore.png" /></p>
+<p><img alt="vmwareiscsidatastore.png: iscsi datastore" src="../../images/vmware-iscsi-datastore.png" /></p>
 </div>
 <div class="section" id="multipathing-for-vsphere-optional">
 <h3>Multipathing for vSphere （可选）<a class="headerlink" href="vsphere.html#multipathing-for-vsphere-optional" title="Permalink to this headline">¶</a></h3>

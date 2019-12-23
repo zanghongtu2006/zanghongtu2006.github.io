@@ -17,24 +17,24 @@
   
 
   
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  <script type="text/javascript" src="../static/js/modernizr.min.js"></script>
   
     
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../static/documentation_options.js"></script>
+        <script type="text/javascript" src="../static/jquery.js"></script>
+        <script type="text/javascript" src="../static/underscore.js"></script>
+        <script type="text/javascript" src="../static/doctools.js"></script>
+        <script type="text/javascript" src="../static/language_data.js"></script>
         <script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
     
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../static/js/theme.js"></script>
 
     
 
   
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="../static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../static/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="The OVS Plugin" href="ovs-plugin.html" />
@@ -50,7 +50,7 @@ http://docs.readthedocs.org/en/latest/canonical.html
 
 <link rel="stylesheet" href="https://assets.readthedocs.org/static/css/readthedocs-doc-embed.css" type="text/css" />
 
-<script type="text/javascript" src="../_static/readthedocs-data.js"></script>
+<script type="text/javascript" src="../static/readthedocs-data.js"></script>
 
 <!-- Add page-specific data, which must exist in the page js, not global -->
 <script type="text/javascript">
@@ -595,12 +595,12 @@ network to use VXLAN as the isolation method for Guest Network.</p>
 <div class="section" id="configure-the-physical-network">
 <h4>Configure the physical network<a class="headerlink" href="vxlan.html#configure-the-physical-network" title="Permalink to this headline">¶</a></h4>
 <div class="figure">
-<img alt="../_images/vxlan-physicalnetwork.png" src="../_images/vxlan-physicalnetwork.png" />
+<img alt="../images/vxlan-physicalnetwork.png" src="../images/vxlan-physicalnetwork.png" />
 </div>
 <p>CloudStack needs to have one physical network for Guest Traffic with the
 isolation method set to “VXLAN”.</p>
 <div class="figure">
-<img alt="../_images/vxlan-trafficlabel.png" src="../_images/vxlan-trafficlabel.png" />
+<img alt="../images/vxlan-trafficlabel.png" src="../images/vxlan-trafficlabel.png" />
 </div>
 <p>Guest Network traffic label should be the name of the physical interface
 or the name of the bridge interface and the bridge interface and they
@@ -609,7 +609,7 @@ should have an IPv4 address. See ? for details.</p>
 <div class="section" id="configure-the-guest-traffic">
 <h4>Configure the guest traffic<a class="headerlink" href="vxlan.html#configure-the-guest-traffic" title="Permalink to this headline">¶</a></h4>
 <div class="figure">
-<img alt="../_images/vxlan-vniconfig.png" src="../_images/vxlan-vniconfig.png" />
+<img alt="../images/vxlan-vniconfig.png" src="../images/vxlan-vniconfig.png" />
 </div>
 <p>Specify a range of VNIs you would like to use for carrying guest network
 traffic.</p>

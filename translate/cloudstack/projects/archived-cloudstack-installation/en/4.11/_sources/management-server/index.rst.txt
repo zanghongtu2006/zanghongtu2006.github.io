@@ -53,4 +53,4 @@ What should you do next?
    infrastructure. See Provision Your Cloud Infrastructure.
 
 
-.. |installation-complete.png: Finished installs with single 管理服务 and multiple Management Servers| image:: ../_static/images/installation-complete.png
+.. |installation-complete.png: Finished installs with single 管理服务 and multiple Management Servers| image:: ../static/images/installation-complete.png

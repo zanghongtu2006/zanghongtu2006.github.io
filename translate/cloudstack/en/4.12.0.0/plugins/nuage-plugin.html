@@ -17,23 +17,23 @@
   
 
   
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  <script type="text/javascript" src="../static/js/modernizr.min.js"></script>
   
     
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../static/documentation_options.js"></script>
+        <script type="text/javascript" src="../static/jquery.js"></script>
+        <script type="text/javascript" src="../static/underscore.js"></script>
+        <script type="text/javascript" src="../static/doctools.js"></script>
+        <script type="text/javascript" src="../static/language_data.js"></script>
         <script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
     
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../static/js/theme.js"></script>
 
     
 
   
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="The VXLAN Plugin" href="vxlan.html" />
@@ -49,7 +49,7 @@ http://docs.readthedocs.org/en/latest/canonical.html
 
 <link rel="stylesheet" href="https://assets.readthedocs.org/static/css/readthedocs-doc-embed.css" type="text/css" />
 
-<script type="text/javascript" src="../_static/readthedocs-data.js"></script>
+<script type="text/javascript" src="../static/readthedocs-data.js"></script>
 
 <!-- Add page-specific data, which must exist in the page js, not global -->
 <script type="text/javascript">
@@ -426,7 +426,7 @@ in CloudStack 4.0</p>
 <li>This physical network carrying the <strong>Guest</strong> traffic should have <strong>VSP</strong> as the <strong>Isolation Method</strong>.</li>
 </ol>
 <div class="figure" id="id1">
-<img alt="../_images/nuage_vsp_isolation_method_setting.png" src="../_images/nuage_vsp_isolation_method_setting.png" />
+<img alt="../images/nuage_vsp_isolation_method_setting.png" src="../images/nuage_vsp_isolation_method_setting.png" />
 <p class="caption"><span class="caption-text">Setting Isolation Method to VSP</span></p>
 </div>
 </div>
@@ -438,14 +438,14 @@ in CloudStack 4.0</p>
 <li>For KVM, use <strong>alubr0</strong> as the <strong>KVM Traffic Label</strong>.</li>
 </ul>
 <div class="figure" id="id2">
-<img alt="../_images/nuage_kvm_traffic_label.jpg" src="../_images/nuage_kvm_traffic_label.jpg" />
+<img alt="../images/nuage_kvm_traffic_label.jpg" src="../images/nuage_kvm_traffic_label.jpg" />
 <p class="caption"><span class="caption-text">Specifying the Traffic Type in KVM</span></p>
 </div>
 <ul class="simple">
 <li>For VMware ESXi, use the switch name used by <strong>dVRS</strong> for guest networking as the <strong>vSwitch Name</strong>, leave the <strong>VLAN ID</strong> field blank, and select <strong>VMware vNetwork Distributed Switch</strong> in the <strong>vSwitch Type</strong> drop down field.</li>
 </ul>
 <div class="figure" id="id3">
-<img alt="../_images/nuage_vmware_traffic_label.jpg" src="../_images/nuage_vmware_traffic_label.jpg" />
+<img alt="../images/nuage_vmware_traffic_label.jpg" src="../images/nuage_vmware_traffic_label.jpg" />
 <p class="caption"><span class="caption-text">Specifying the Traffic Type in VMware ESXi</span></p>
 </div>
 </div>
@@ -472,7 +472,7 @@ in CloudStack 4.0</p>
 </tbody>
 </table>
 <div class="figure" id="id4">
-<img alt="../_images/nuage_vsd_device_add.png" src="../_images/nuage_vsd_device_add.png" />
+<img alt="../images/nuage_vsd_device_add.png" src="../images/nuage_vsd_device_add.png" />
 <p class="caption"><span class="caption-text">Adding Nuage VSD as the Network Service Provider</span></p>
 </div>
 <table class="docutils field-list" frame="void" rules="none">
@@ -484,7 +484,7 @@ in CloudStack 4.0</p>
 </tbody>
 </table>
 <div class="figure" id="id5">
-<img alt="../_images/nuage_vsp_nsp_enable.png" src="../_images/nuage_vsp_nsp_enable.png" />
+<img alt="../images/nuage_vsp_nsp_enable.png" src="../images/nuage_vsp_nsp_enable.png" />
 <p class="caption"><span class="caption-text">Enabling Nuage VSP Network Service Provider</span></p>
 </div>
 <table class="docutils field-list" frame="void" rules="none">
@@ -496,7 +496,7 @@ in CloudStack 4.0</p>
 </tbody>
 </table>
 <div class="figure" id="id6">
-<img alt="../_images/nuage_vsp_nsp_status.png" src="../_images/nuage_vsp_nsp_status.png" />
+<img alt="../images/nuage_vsp_nsp_status.png" src="../images/nuage_vsp_nsp_status.png" />
 <p class="caption"><span class="caption-text">Viewing Network Service Providers Status</span></p>
 </div>
 </div>
@@ -523,7 +523,7 @@ in CloudStack 4.0</p>
 <li>In the <strong>Add network offering</strong> panel, add a <strong>Name</strong> and a <strong>Description</strong> to the network offering. Select <strong>Isolated</strong> as the <strong>Guest Type</strong>. In the <strong>Supported Services</strong> field select services and providers that are supported by the Nuage VSP Plugin for Isolated Networks, see <a class="reference internal" href="nuage-plugin.html#supported-features">Supported Features</a> at the beginning of this document.</li>
 </ol>
 <div class="figure" id="id7">
-<img alt="../_images/nuage_iso_net_off.png" src="../_images/nuage_iso_net_off.png" />
+<img alt="../images/nuage_iso_net_off.png" src="../images/nuage_iso_net_off.png" />
 <p class="caption"><span class="caption-text">Creating Isolated Network Offering</span></p>
 </div>
 <ol class="arabic simple" start="3">
@@ -538,7 +538,7 @@ in CloudStack 4.0</p>
 <li>In the <strong>Add network offering</strong> panel, add a <strong>Name</strong> and a <strong>Description</strong> to the network offering. Select <strong>Isolated</strong> as the <strong>Guest Type</strong>. Select the <strong>VPC</strong> field. In the <strong>Supported Services</strong> field select services and providers that are supported by the Nuage VSP Plugin for VPCs, see <a class="reference internal" href="nuage-plugin.html#supported-features">Supported Features</a> at the beginning of this document.</li>
 </ol>
 <div class="figure" id="id8">
-<img alt="../_images/nuage_vpc_net_off.png" src="../_images/nuage_vpc_net_off.png" />
+<img alt="../images/nuage_vpc_net_off.png" src="../images/nuage_vpc_net_off.png" />
 <p class="caption"><span class="caption-text">Creating VPC Network Offering</span></p>
 </div>
 <ol class="arabic simple" start="3">
@@ -553,7 +553,7 @@ in CloudStack 4.0</p>
 <li>In the <strong>Add network offering</strong> panel, add a <strong>Name</strong> and a <strong>Description</strong> to the network offering. Select <strong>Shared</strong> as the <strong>Guest Type</strong>. In the <strong>Supported Services</strong> field select services and providers that are supported by the Nuage VSP Plugin for Shared Networks, see <a class="reference internal" href="nuage-plugin.html#supported-features">Supported Features</a> at the beginning of this document.</li>
 </ol>
 <div class="figure" id="id9">
-<img alt="../_images/nuage_sha_net_off.png" src="../_images/nuage_sha_net_off.png" />
+<img alt="../images/nuage_sha_net_off.png" src="../images/nuage_sha_net_off.png" />
 <p class="caption"><span class="caption-text">Creating Shared Network Offering</span></p>
 </div>
 <div class="admonition note">
@@ -572,7 +572,7 @@ in CloudStack 4.0</p>
 <h3>Pre-created and Enabled Nuage VSP VPC Offering<a class="headerlink" href="nuage-plugin.html#pre-created-and-enabled-nuage-vsp-vpc-offering" title="Permalink to this headline">¶</a></h3>
 <p>A VPC offering by the name <strong>Nuage VSP VPC Offering</strong> is pre-created and enabled in the list of <strong>计算方案 - VPC Offerings</strong> (Select <strong>计算方案 &gt; Select Offering: VPC Offerings</strong>) which contains all the services and providers that are supported by the Nuage VSP Plugin for VPCs.</p>
 <div class="figure" id="id10">
-<img alt="../_images/nuage_vsp_vpc_off.png" src="../_images/nuage_vsp_vpc_off.png" />
+<img alt="../images/nuage_vsp_vpc_off.png" src="../images/nuage_vsp_vpc_off.png" />
 <p class="caption"><span class="caption-text">Pre-created and Enabled Nuage VSP VPC Offering</span></p>
 </div>
 </div>
@@ -583,7 +583,7 @@ in CloudStack 4.0</p>
 <li>In the <strong>Add VPC Offering</strong> panel, add a <strong>Name</strong> and a <strong>Description</strong> to the network offering. In the <strong>Supported Services</strong> field select services and providers that are supported by the Nuage VSP Plugin for VPCs, see <a class="reference internal" href="nuage-plugin.html#supported-features">Supported Features</a> at the beginning of this document.</li>
 </ol>
 <div class="figure" id="id11">
-<img alt="../_images/nuage_vpc_off.png" src="../_images/nuage_vpc_off.png" />
+<img alt="../images/nuage_vpc_off.png" src="../images/nuage_vpc_off.png" />
 <p class="caption"><span class="caption-text">Creating VPC Offering</span></p>
 </div>
 <ol class="arabic simple" start="3">
@@ -646,7 +646,7 @@ in CloudStack 4.0</p>
 <p>This feature is supported for both VPCs and Isolated Networks. In the case of VPCs, Source NAT is applied at the Nuage VSP domain level, therefore there is no customization on the individual VPC network (tier) level.</p>
 <p>All VPCs and Isolated networks that are created from a Nuage VSP Source NAT-enabled network offering have this feature enabled automatically. An example Nuage VSP Source NAT-enabled network offering is shown in the figure “Nuage VSP Source NAT-enabled Network Offering” below.</p>
 <div class="figure" id="id12">
-<img alt="../_images/nuage_source_nat_net_off.png" src="../_images/nuage_source_nat_net_off.png" />
+<img alt="../images/nuage_source_nat_net_off.png" src="../images/nuage_source_nat_net_off.png" />
 <p class="caption"><span class="caption-text">Nuage VSP Source NAT-enabled Network Offering</span></p>
 </div>
 </div>
@@ -657,7 +657,7 @@ in CloudStack 4.0</p>
 <p>For the Static NAT without GW/PE feature to be operational in the CloudStack plugin, FIP in Nuage VSP must be configured to use the underlay. This operation takes place during Nuage VSP installation; instructions can be found in the Nuage VSP Install Guide.</p>
 <p>A new API called <code class="docutils literal notranslate"><span class="pre">nuageunderlayvlaniprange</span></code> has been introduced to enable/disable Static NAT via the Underlay feature support for CloudStack public IP ranges being used for Static NAT service. This API specifies whether the FIP to underlay support is required for the corresponding FIP subnet in Nuage VSD since there is no GW/PE in the data center. When the <code class="docutils literal notranslate"><span class="pre">nuageunderlayvlaniprange</span></code> API has been enabled/disabled for a public IP range and Static NAT is enabled on at-least one of its Public IPs, the plugin creates the corresponding shared FIP subnet in Nuage VSD using the <code class="docutils literal notranslate"><span class="pre">sharednetworkresources</span></code> API with the underlay flag set accordingly. The <code class="docutils literal notranslate"><span class="pre">nuageunderlayvlaniprange</span></code> API usage is shown in the figure “nuageunderlayvlaniprange API Usage” below.</p>
 <div class="figure" id="id13">
-<img alt="../_images/nuage_underlay_api_usage.png" src="../_images/nuage_underlay_api_usage.png" />
+<img alt="../images/nuage_underlay_api_usage.png" src="../images/nuage_underlay_api_usage.png" />
 <p class="caption"><span class="caption-text">nuageunderlayvlaniprange API Usage</span></p>
 </div>
 <p>By default, the Nuage VSP Plugin creates the corresponding shared FIP subnet in Nuage VSD with the underlay flag set to false (disabled). There is no support for the <code class="docutils literal notranslate"><span class="pre">nuageunderlayvlaniprange</span></code> API from the CloudStack UI.</p>

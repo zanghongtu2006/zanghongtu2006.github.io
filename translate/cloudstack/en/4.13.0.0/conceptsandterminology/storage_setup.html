@@ -17,24 +17,24 @@
   
 
   
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  <script type="text/javascript" src="../static/js/modernizr.min.js"></script>
   
     
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../static/documentation_options.js"></script>
+        <script type="text/javascript" src="../static/jquery.js"></script>
+        <script type="text/javascript" src="../static/underscore.js"></script>
+        <script type="text/javascript" src="../static/doctools.js"></script>
+        <script type="text/javascript" src="../static/language_data.js"></script>
         <script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
     
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../static/js/theme.js"></script>
 
     
 
   
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="../static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../static/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="快速入门指南" href="../quickinstallationguide/qig.html" />
@@ -50,7 +50,7 @@ http://docs.readthedocs.org/en/latest/canonical.html
 
 <link rel="stylesheet" href="https://assets.readthedocs.org/static/css/readthedocs-doc-embed.css" type="text/css" />
 
-<script type="text/javascript" src="../_static/readthedocs-data.js"></script>
+<script type="text/javascript" src="../static/readthedocs-data.js"></script>
 
 <!-- Add page-specific data, which must exist in the page js, not global -->
 <script type="text/javascript">
@@ -368,7 +368,7 @@ XenServer. As the CloudStack management server needs to communicate with the hyp
 this management interface must be on the CloudStack ‘management’ or ‘private’ network.  There may be
 other interfaces configured on your host carrying guest and public traffic to/from VMs within the hosts
 but the hypervisor itself doesn’t/can’t communicate over these interfaces.</p>
-<p><img alt="hypervisor storage communication" src="../_images/hypervisorcomms.png" />
+<p><img alt="hypervisor storage communication" src="../images/hypervisorcomms.png" />
 <em>Figure 1</em>: Hypervisor communications</p>
 <p>Separating 主存储 traffic
 For those from a pure virtualisation background, the concept of creating a specific interface for storage
@@ -384,9 +384,9 @@ The logical reasoning which explains how this splitting of traffic works is as f
 <li>In order for the ‘primary storage’ management interface to communicate with the primary storage, the interfaces on the primary storage arrays must be in the same CIDR as the ‘primary storage’ management interface.</li>
 <li>Therefore the primary storage must be in a different subnet to the management network</li>
 </ol>
-<p><img alt="subnetted storage interfaces" src="../_images/subnetting_storage.png" />
+<p><img alt="subnetted storage interfaces" src="../images/subnetting_storage.png" />
 <em>Figure 2</em>: Subnetting of Storage Traffic</p>
-<p><img alt="hypervisor communications to secondary storage" src="../_images/hypervisorcomms-secstorage.png" />
+<p><img alt="hypervisor communications to secondary storage" src="../images/hypervisorcomms-secstorage.png" />
 <em>Figure 3</em>: Hypervisor Communications with Separated Storage Traffic</p>
 <p>Other 主存储 Types
 If you are using PreSetup or SharedMountPoints to connect to IP based storage then the same principles

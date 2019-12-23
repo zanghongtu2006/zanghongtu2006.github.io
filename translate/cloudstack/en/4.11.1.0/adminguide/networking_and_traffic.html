@@ -24,15 +24,15 @@
 
   
 
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Using Remote Access VPN" href="networking/using_remote_access.html" />
     <link rel="prev" title="Working with Usage" href="usage.html" /> 
 
   
-  <script src="../_static/js/modernizr.min.js"></script>
+  <script src="../static/js/modernizr.min.js"></script>
 
 
 <!-- RTD Extra Head -->
@@ -45,7 +45,7 @@ http://docs.readthedocs.org/en/latest/canonical.html
 
 <link rel="stylesheet" href="https://media.readthedocs.org/css/readthedocs-doc-embed.css" type="text/css" />
 
-<script type="text/javascript" src="../_static/readthedocs-data.js"></script>
+<script type="text/javascript" src="../static/readthedocs-data.js"></script>
 
 <!-- Add page-specific data, which must exist in the page js, not global -->
 <script type="text/javascript">
@@ -359,7 +359,7 @@ Virtual machines in different zones cannot communicate with each other
 using their IP addresses; they must communicate with each other by
 routing through a public IP address.</p>
 <p>See a typical guest traffic setup given below:</p>
-<p><img alt="Depicts a guest traffic setup" src="../_images/guest-traffic-setup.png" /></p>
+<p><img alt="Depicts a guest traffic setup" src="../images/guest-traffic-setup.png" /></p>
 <p>Typically, the 管理服务 automatically creates a virtual router
 for each network. A virtual router is a special virtual machine that
 runs on the hosts. Each virtual router in an isolated network has three
@@ -384,7 +384,7 @@ hosts are connected to a pod-level switch. At a minimum, the hosts
 should have one physical uplink to each switch. Bonded NICs are
 supported as well. The pod-level switch is a pair of redundant gigabit
 switches with 10 G uplinks.</p>
-<p><img alt="diagram showing logical view of network in a pod." src="../_images/network-singlepod.png" /></p>
+<p><img alt="diagram showing logical view of network in a pod." src="../images/network-singlepod.png" /></p>
 <p>Servers are connected as follows:</p>
 <ul class="simple">
 <li>Storage devices are connected to only the network that carries
@@ -401,7 +401,7 @@ maximize throughput and improve reliability.</p>
 <div class="section" id="networking-in-a-zone">
 <h1>Networking in a Zone<a class="headerlink" href="networking_and_traffic.html#networking-in-a-zone" title="Permalink to this headline">¶</a></h1>
 <p>The following figure illustrates the 网络配置 within a single zone.</p>
-<p><img alt="Depicts 网络配置 in a single zone." src="../_images/network-setup-zone.png" /></p>
+<p><img alt="Depicts 网络配置 in a single zone." src="../images/network-setup-zone.png" /></p>
 <p>A firewall for management traffic operates in the NAT mode. The network
 typically is assigned IP addresses in the 192.168.0.0/16 Class B private
 address space. Each pod is assigned IP addresses in the 192.168.*.0/24
@@ -433,7 +433,7 @@ More, then click the zone to which you want to add a network.</p>
 </li>
 <li><p class="first">Click Add guest network.</p>
 <p>The Add guest network window is displayed:</p>
-<p><img alt="Add Guest 网络配置 in a single zone." src="../_images/add-guest-network.png" /></p>
+<p><img alt="Add Guest 网络配置 in a single zone." src="../images/add-guest-network.png" /></p>
 </li>
 <li><p class="first">Provide the following information:</p>
 <ul class="simple">
@@ -635,7 +635,7 @@ details in the NICs page:</p>
 <li>Choose the VM that you want to work with.</li>
 <li>Click the NICs tab.</li>
 <li>Locate the NIC you want to remove.</li>
-<li>Click Remove NIC button. <img alt="button to remove a NIC." src="../_images/remove-nic.png" /></li>
+<li>Click Remove NIC button. <img alt="button to remove a NIC." src="../images/remove-nic.png" /></li>
 <li>Click Yes to confirm.</li>
 </ol>
 </div>
@@ -647,7 +647,7 @@ details in the NICs page:</p>
 <li>Choose the VM that you want to work with.</li>
 <li>Click the NICs tab.</li>
 <li>Locate the NIC you want to work with.</li>
-<li>Click the Set default NIC button. <img alt="button to set a NIC as default one." src="../_images/set-default-nic.png" />.</li>
+<li>Click the Set default NIC button. <img alt="button to set a NIC as default one." src="../images/set-default-nic.png" />.</li>
 <li>Click Yes to confirm.</li>
 </ol>
 </div>
@@ -667,7 +667,7 @@ providers, you must first stop all the VMs on the network.</p>
 </li>
 <li><p class="first">Click the name of the network you want to modify.</p>
 </li>
-<li><p class="first">In the Details tab, click Edit. <img alt="button to edit." src="../_images/edit-icon.png" /></p>
+<li><p class="first">In the Details tab, click Edit. <img alt="button to edit." src="../images/edit-icon.png" /></p>
 </li>
 <li><p class="first">In Network Offering, choose the new network offering, then click
 Apply.</p>
@@ -801,7 +801,7 @@ reservation.</p>
 </li>
 <li><p class="first">Click the name of the network you want to modify.</p>
 </li>
-<li><p class="first">In the Details tab, click Edit. <img alt="button to edit." src="../_images/edit-icon.png" /></p>
+<li><p class="first">In the Details tab, click Edit. <img alt="button to edit." src="../images/edit-icon.png" /></p>
 <p>The CIDR field changes to editable one.</p>
 </li>
 <li><p class="first">In CIDR, specify the Guest VM CIDR.</p>
@@ -866,7 +866,7 @@ new IP range and assign to an account.</p>
 <ol class="arabic">
 <li><p class="first">Locate the IP range you want to work with.</p>
 </li>
-<li><p class="first">Click Add Account <img alt="button to assign an IP range to an account." src="../_images/addAccount-icon.png" /> button.</p>
+<li><p class="first">Click Add Account <img alt="button to assign an IP range to an account." src="../images/addAccount-icon.png" /> button.</p>
 <p>The Add Account dialog is displayed.</p>
 </li>
 <li><p class="first">Specify the following:</p>
@@ -1065,7 +1065,7 @@ zone. The default network offering,
 DefaultSharedNetscalerEIPandELBNetworkOffering, provides your network
 with EIP and ELB network services if a NetScaler device is deployed in
 your zone. Consider the following illustration for more details.</p>
-<p><img alt="Elastic IP in a NetScaler-enabled Basic Zone." src="../_images/eip-ns-basiczone.png" /></p>
+<p><img alt="Elastic IP in a NetScaler-enabled Basic Zone." src="../images/eip-ns-basiczone.png" /></p>
 <p>In the illustration, a NetScaler appliance is the default entry or exit
 point for the CloudStack instances, and firewall is the default entry or
 exit point for the rest of the data center. Netscaler provides LB
@@ -1276,7 +1276,7 @@ work with..</p>
 </li>
 <li><p class="first">Click Add IP Range.</p>
 <p>The Add IP Range dialog is displayed, as follows:</p>
-<p><img alt="adding an IP range to a network." src="../_images/add-ip-range.png" /></p>
+<p><img alt="adding an IP range to a network." src="../images/add-ip-range.png" /></p>
 </li>
 <li><p class="first">Specify the following:</p>
 <p>All the fields are mandatory.</p>
@@ -1611,7 +1611,7 @@ account. To allow traffic between VMs within the security group
 you are editing now, enter the same name you used in step 7.</li>
 </ul>
 <p>The following example allows inbound HTTP access from anywhere:</p>
-<p><img alt="allows inbound HTTP access from anywhere." src="../_images/http-access.png" /></p>
+<p><img alt="allows inbound HTTP access from anywhere." src="../images/http-access.png" /></p>
 </li>
 <li><p class="first">To add an egress rule, click the Egress Rules tab and fill out the
 following fields to specify what type of traffic is allowed to be
@@ -2060,7 +2060,7 @@ configuring AutoScale.</p>
 <div class="section" id="configuration">
 <h3>Configuration<a class="headerlink" href="networking_and_traffic.html#configuration" title="Permalink to this headline">¶</a></h3>
 <p>Specify the following:</p>
-<p><img alt="Configuring AutoScale." src="../_images/autoscale-config.png" /></p>
+<p><img alt="Configuring AutoScale." src="../images/autoscale-config.png" /></p>
 <ul>
 <li><p class="first"><strong>Template</strong>: A template consists of a base OS image and application.
 A template is used to provision the new instance of an application on
@@ -2179,12 +2179,12 @@ another user name to override.</li>
 instances, disable the AutoScale configuration. When the AutoScale
 configuration is disabled, no scaleup or scaledown action is performed.
 You can use this downtime for the maintenance activities. To disable the
-AutoScale configuration, click the Disable AutoScale <img alt="button to enable or disable AutoScale." src="../_images/enable-disable-autoscale.png" /> button.</p>
+AutoScale configuration, click the Disable AutoScale <img alt="button to enable or disable AutoScale." src="../images/enable-disable-autoscale.png" /> button.</p>
 <p>The button toggles between enable and disable, depending on whether
 AutoScale is currently enabled or not. After the maintenance operations
 are done, you can enable the AutoScale configuration back. To enable,
 open the AutoScale configuration page again, then click the Enable
-AutoScale <img alt="button to enable or disable AutoScale." src="../_images/enable-disable-autoscale.png" /> button.</p>
+AutoScale <img alt="button to enable or disable AutoScale." src="../images/enable-disable-autoscale.png" /> button.</p>
 </div>
 <div class="section" id="updating-an-autoscale-configuration">
 <span id="update-autoscale"></span><h3>Updating an AutoScale Configuration<a class="headerlink" href="networking_and_traffic.html#updating-an-autoscale-configuration" title="Permalink to this headline">¶</a></h3>
@@ -2327,7 +2327,7 @@ the ability to act as an ADNS (Authoritative Domain Name Server) and has
 the mechanism to monitor health of virtual servers both at local and
 remote sites. The cloud admin enables GSLB as a service to the tenants
 that use zones 1 and 2.</p>
-<p><img alt="GSLB architecture" src="../_images/gslb.png" /></p>
+<p><img alt="GSLB architecture" src="../images/gslb.png" /></p>
 <p>Tenant-A wishes to leverage the GSLB service provided by the xyztelco
 cloud. Tenant-A configures a GSLB rule to load balance traffic across
 virtual server 1 at Zone-1 and virtual server 2 at Zone-2. The domain
@@ -2540,7 +2540,7 @@ value is 1.</li>
 </li>
 <li><p class="first">Click Add GSLB.</p>
 <p>The Add GSLB page is displayed as follows:</p>
-<p><img alt="adding a gslb rule." src="../_images/add-gslb.png" /></p>
+<p><img alt="adding a gslb rule." src="../images/add-gslb.png" /></p>
 </li>
 <li><p class="first">Specify the following:</p>
 <ul class="simple">
@@ -2633,7 +2633,7 @@ picked up for any guest network again.</p>
 <li>Click the name of the network where you want to work with.</li>
 <li>Click View IP Addresses.</li>
 <li>Click the IP address you want to release.</li>
-<li>Click the Release IP button. <img alt="button to release an IP" src="../_images/release-ip-icon.png" /></li>
+<li>Click the Release IP button. <img alt="button to release an IP" src="../images/release-ip-icon.png" /></li>
 </ol>
 </div>
 <div class="section" id="static-nat">
@@ -2660,7 +2660,7 @@ function only if they are defined on the default network.</p>
 </li>
 <li><p class="first">Click the IP address you want to work with.</p>
 </li>
-<li><p class="first">Click the Static NAT <img alt="button to enable/disable NAT." src="../_images/enable-disable.png" /> button.</p>
+<li><p class="first">Click the Static NAT <img alt="button to enable/disable NAT." src="../images/enable-disable.png" /> button.</p>
 <p>The button toggles between Enable and Disable, depending on whether
 static NAT is currently enabled for the IP address.</p>
 </li>
@@ -2766,7 +2766,7 @@ you want.</p>
 <li><p class="first">To add an egress rule, click the Egress rules tab and fill out the
 following fields to specify what type of traffic is allowed to be
 sent out of VM instances in this guest network:</p>
-<p><img alt="adding an egress firewall rule." src="../_images/egress-firewall-rule.png" /></p>
+<p><img alt="adding an egress firewall rule." src="../images/egress-firewall-rule.png" /></p>
 <ul class="simple">
 <li><strong>CIDR</strong>: (Add by CIDR only) To send traffic only to the IP
 addresses within a particular address block, enter a CIDR or a
@@ -2961,7 +2961,7 @@ account.</li>
 </li>
 <li><p class="first">Click one of the displayed IP address names.</p>
 </li>
-<li><p class="first">Click the Enable VPN button. <img alt="vpn-icon.png" src="../_images/vpn-icon.png" /></p>
+<li><p class="first">Click the Enable VPN button. <img alt="vpn-icon.png" src="../images/vpn-icon.png" /></p>
 <p>The IPsec key is displayed in a popup window.</p>
 </li>
 </ol>
@@ -3004,7 +3004,7 @@ page.</p>
 </li>
 <li><p class="first">Click Source NAT IP address.</p>
 </li>
-<li><p class="first">Click the Enable VPN button. <img alt="vpn-icon.png" src="../_images/vpn-icon.png" /></p>
+<li><p class="first">Click the Enable VPN button. <img alt="vpn-icon.png" src="../images/vpn-icon.png" /></p>
 <p>Click OK to confirm. The IPsec key is displayed in a pop-up window.</p>
 </li>
 </ol>
@@ -3073,7 +3073,7 @@ gateway.</p>
 <li><p class="first">In the Select view, select VPN Customer Gateway.</p>
 </li>
 <li><p class="first">Click Add VPN Customer Gateway.</p>
-<p><img alt="adding a customer gateway." src="../_images/add-vpn-customer-gateway.png" /></p>
+<p><img alt="adding a customer gateway." src="../images/add-vpn-customer-gateway.png" /></p>
 <p>Provide the following information:</p>
 <ul>
 <li><p class="first"><strong>Name</strong>: A unique name for the VPN customer gateway you create.</p>
@@ -3184,9 +3184,9 @@ related VPN connection is in error state.</p>
 <li>In the Select view, select VPN Customer Gateway.</li>
 <li>Select the VPN customer gateway you want to work with.</li>
 <li>To modify the required parameters, click the Edit VPN Customer
-Gateway button <img alt="button to edit." src="../_images/edit-icon.png" /></li>
+Gateway button <img alt="button to edit." src="../images/edit-icon.png" /></li>
 <li>To remove the VPN customer gateway, click the Delete VPN Customer
-Gateway button <img alt="button to remove a VPN customer gateway." src="../_images/delete-button.png" /></li>
+Gateway button <img alt="button to remove a VPN customer gateway." src="../images/delete-button.png" /></li>
 <li>Click OK.</li>
 </ol>
 </div>
@@ -3283,7 +3283,7 @@ selected.</p>
 </li>
 <li><p class="first">Click Create VPN Connection.</p>
 <p>The Create VPN Connection dialog is displayed:</p>
-<p><img alt="creating a VPN connection to the customer gateway." src="../_images/create-vpn-connection.png" /></p>
+<p><img alt="creating a VPN connection to the customer gateway." src="../images/create-vpn-connection.png" /></p>
 </li>
 <li><p class="first">Select the desired customer gateway.</p>
 </li>
@@ -3391,9 +3391,9 @@ selected.</p>
 <p>The Details tab is displayed.</p>
 </li>
 <li><p class="first">To remove a VPN connection, click the Delete VPN connection button
-<img alt="button to remove a VPN connection" src="../_images/remove-vpn.png" /></p>
+<img alt="button to remove a VPN connection" src="../images/remove-vpn.png" /></p>
 <p>To restart a VPN connection, click the Reset VPN connection button
-present in the Details tab. <img alt="button to reset a VPN connection" src="../_images/reset-vpn.png" /></p>
+present in the Details tab. <img alt="button to reset a VPN connection" src="../images/reset-vpn.png" /></p>
 </li>
 </ol>
 </div>
@@ -3468,7 +3468,7 @@ type.</p>
 </ul>
 <p>The following figure shows the possible deployment scenarios of a
 Inter-VLAN setup:</p>
-<p><img alt="a multi-tier setup." src="../_images/multi-tier-app.png" /></p>
+<p><img alt="a multi-tier setup." src="../images/multi-tier-app.png" /></p>
 <p>To set up a multi-tier Inter-VLAN deployment, see “<a class="reference internal" href="networking_and_traffic.html#configuring-vpc"><span class="std std-ref">Configuring a Virtual Private Cloud</span></a>”.</p>
 </div>
 <div class="section" id="configuring-a-virtual-private-cloud">
@@ -3602,7 +3602,7 @@ addresses in the form of a Classless Inter-Domain Routing (CIDR) block.</p>
 <li><p class="first">In the Select view, select VPC.</p>
 </li>
 <li><p class="first">Click Add VPC. The Add VPC page is displayed as follows:</p>
-<p><img alt="adding a vpc." src="../_images/add-vpc.png" /></p>
+<p><img alt="adding a vpc." src="../images/add-vpc.png" /></p>
 <p>Provide the following information:</p>
 <ul class="simple">
 <li><strong>Name</strong>: A short name for the VPC that you are creating.</li>
@@ -3651,7 +3651,7 @@ tiers.</p>
 </li>
 <li><p class="first">Click Create network.</p>
 <p>The Add new tier dialog is displayed, as follows:</p>
-<p><img alt="adding a tier to a vpc." src="../_images/add-tier.png" /></p>
+<p><img alt="adding a tier to a vpc." src="../images/add-tier.png" /></p>
 <p>If you have already created tiers, the VPC diagram is displayed.
 Click Create Tier to add a new tier.</p>
 </li>
@@ -3876,7 +3876,7 @@ tab.</p>
 </li>
 <li><p class="first">Select the tier for which you want to assign the custom ACL.</p>
 </li>
-<li><p class="first">Click the Replace ACL List icon. <img alt="button to replace an ACL list" src="../_images/replace-acl-icon.png" /></p>
+<li><p class="first">Click the Replace ACL List icon. <img alt="button to replace an ACL list" src="../images/replace-acl-icon.png" /></p>
 <p>The Replace ACL List dialog is displayed.</p>
 </li>
 <li><p class="first">Select the desired ACL list.</p>
@@ -3927,7 +3927,7 @@ in a diagram.</p>
 <p>The Gateways page is displayed.</p>
 </li>
 <li><p class="first">Click Add new gateway:</p>
-<p><img alt="adding a private gateway for the VPC." src="../_images/add-new-gateway-vpc.png" /></p>
+<p><img alt="adding a private gateway for the VPC." src="../images/add-new-gateway-vpc.png" /></p>
 </li>
 <li><p class="first">Specify the following:</p>
 <ul>
@@ -3995,7 +3995,7 @@ select the ACL rule, then click OK</p>
 <li><p class="first">Click the IP address of the Private Gateway you want to work with.</p>
 </li>
 <li><p class="first">In the Detail tab, click the Replace ACL button.
-<img alt="button to replace an ACL list" src="../_images/replace-acl-icon.png" /></p>
+<img alt="button to replace an ACL list" src="../images/replace-acl-icon.png" /></p>
 <p>The Replace ACL dialog is displayed.</p>
 </li>
 <li><p class="first">select the ACL rule, then click OK.</p>
@@ -4052,7 +4052,7 @@ VMs.</p>
 listed.</p>
 </li>
 <li><p class="first">Click Virtual Machines tab of the tier to which you want to add a VM.</p>
-<p><img alt="adding a VM to a vpc." src="../_images/add-vm-vpc.png" /></p>
+<p><img alt="adding a VM to a vpc." src="../images/add-vm-vpc.png" /></p>
 <p>The Add Instance page is displayed.</p>
 <p>Follow the on-screen instruction to add an instance. For information
 on adding an instance, see the 安装指南.</p>
@@ -4082,7 +4082,7 @@ service offering.</p>
 <li><p class="first">Under Networks, select the desired networks for the VM you are
 launching.</p>
 <p>You can deploy a VM to a VPC tier and multiple shared networks.</p>
-<p><img alt="adding a VM to a VPC tier and shared network." src="../_images/addvm-tier-sharednw.png" /></p>
+<p><img alt="adding a VM to a VPC tier and shared network." src="../images/addvm-tier-sharednw.png" /></p>
 </li>
 <li><p class="first">Click Next, review the configuration and click Launch.</p>
 <p>Your VM will be deployed to the selected VPC tier and shared network.</p>
@@ -4177,7 +4177,7 @@ in a diagram.</p>
 </li>
 <li><p class="first">Click the IP you want to release.</p>
 </li>
-<li><p class="first">In the Details tab, click the Release IP button <img alt="button to release an IP." src="../_images/release-ip-icon.png" /></p>
+<li><p class="first">In the Details tab, click the Release IP button <img alt="button to release an IP." src="../images/release-ip-icon.png" /></p>
 </li>
 </ol>
 </div>
@@ -4224,13 +4224,13 @@ in a diagram.</p>
 </li>
 <li><p class="first">Click the IP you want to work with.</p>
 </li>
-<li><p class="first">In the Details tab,click the Static NAT button. <img alt="button to enable Static NAT." src="../_images/enable-disable.png" />
+<li><p class="first">In the Details tab,click the Static NAT button. <img alt="button to enable Static NAT." src="../images/enable-disable.png" />
 The button toggles between Enable and
 Disable, depending on whether static NAT is currently enabled for the
 IP address.</p>
 </li>
 <li><p class="first">If you are enabling static NAT, a dialog appears as follows:</p>
-<p><img alt="selecting a tier to apply staticNAT." src="../_images/select-vm-staticnat-vpc.png" /></p>
+<p><img alt="selecting a tier to apply staticNAT." src="../images/select-vm-staticnat-vpc.png" /></p>
 </li>
 <li><p class="first">Select the tier and the destination VM, then click Apply.</p>
 </li>
@@ -4408,7 +4408,7 @@ guest IP 10.10.10.4 with load balancer port 45 and instance port 46 is
 configured on the VM, InternalLBVM1. Another internal LB rule for the
 guest IP 10.10.10.6, with load balancer port 23 and instance port 25 is
 configured on the VM, InternalLBVM2.</p>
-<p><img alt="Configuring internal LB for VPC" src="../_images/vpc-lb.png" /></p>
+<p><img alt="Configuring internal LB for VPC" src="../images/vpc-lb.png" /></p>
 </div>
 <div class="section" id="id20">
 <h4>Guidelines<a class="headerlink" href="networking_and_traffic.html#id20" title="Permalink to this headline">¶</a></h4>
@@ -4626,7 +4626,7 @@ with.</p>
 <li><p class="first">Select the tier you want to remove.</p>
 </li>
 <li><p class="first">In the Network Details tab, click the Delete Network button.
-<img alt="button to remove a tier" src="../_images/del-tier.png" /></p>
+<img alt="button to remove a tier" src="../images/del-tier.png" /></p>
 <p>Click Yes to confirm. Wait for some time for the tier to be removed.</p>
 </li>
 </ol>
@@ -4648,13 +4648,13 @@ page.</p>
 </li>
 <li><p class="first">Select the VPC you want to work with.</p>
 </li>
-<li><p class="first">In the Details tab, click the Remove VPC button <img alt="button to remove a VPC" src="../_images/remove-vpc.png" /></p>
+<li><p class="first">In the Details tab, click the Remove VPC button <img alt="button to remove a VPC" src="../images/remove-vpc.png" /></p>
 <p>You can remove the VPC by also using the remove button in the Quick
 View.</p>
 <p>You can edit the name and description of a VPC. To do that, select
-the VPC, then click the Edit button. <img alt="button to edit." src="../_images/edit-icon.png" /></p>
+the VPC, then click the Edit button. <img alt="button to edit." src="../images/edit-icon.png" /></p>
 <p>To restart a VPC, select the VPC, then click the Restart button.
-<img alt="button to restart a VPC" src="../_images/restart-vpc.png" /></p>
+<img alt="button to restart a VPC" src="../images/restart-vpc.png" /></p>
 </li>
 </ol>
 </div>
@@ -4963,7 +4963,7 @@ profile to apply.  more details in the ‘Additional Features’ section)</li>
 </li>
 <li>Click ‘OK’</li>
 <li>Click on ‘Palo Alto’ in the breadcrumbs to go back one screen.</li>
-<li>Click on ‘Enable Provider’ <img alt="button to enable or disable feature." src="../_images/enable-disable-autoscale.png" /></li>
+<li>Click on ‘Enable Provider’ <img alt="button to enable or disable feature." src="../images/enable-disable-autoscale.png" /></li>
 </ol>
 </div>
 <div class="section" id="add-a-network-service-offering-to-use-the-new-provider">
@@ -4997,7 +4997,7 @@ option)</li>
 </li>
 <li>Click ‘OK’</li>
 <li>Click on the newly created service offering</li>
-<li>Click ‘Enable network offering’ <img alt="button to enable or disable feature." src="../_images/enable-disable-autoscale.png" /></li>
+<li>Click ‘Enable network offering’ <img alt="button to enable or disable feature." src="../images/enable-disable-autoscale.png" /></li>
 </ol>
 <p>When adding networks in CloudStack, select this network offering to use the
 Palo Alto Networks firewall.</p>
@@ -5173,7 +5173,7 @@ CloudStack</li>
 
   
 
-  <script type="text/javascript" src="../_static/js/theme.js"></script>
+  <script type="text/javascript" src="../static/js/theme.js"></script>
 
   <script type="text/javascript">
       jQuery(function () {

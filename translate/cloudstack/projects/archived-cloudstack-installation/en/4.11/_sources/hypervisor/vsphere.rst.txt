@@ -1011,19 +1011,19 @@ Applying Hotfixes to a VMware vSphere Host
       updated in the CloudStack database.
 
 
-.. |DeleteButton.png: button to delete dvSwitch| image:: ../_static/images/delete-button.png
-.. |vds-name.png: Name of the dvSwitch as specified in the vCenter.| image:: ../_static/images/vds-name.png
-.. |traffic-type.png| image:: ../_static/images/traffic-type.png
-.. |dvSwitchConfig.png: Configuring dvSwitch| image:: ../_static/images/dvswitchconfig.png
-.. |vsphereclient.png: vSphere client| image:: ../_static/images/vsphere-client.png
-.. |vspherephysicalnetwork.png: vSphere client| image:: ../_static/images/vmware-physical-network.png
-.. |vsphereincreaseports.png: vSphere client| image:: ../_static/images/vmware-increase-ports.png
-.. |vspherevswitchproperties.png: vSphere client| image:: ../_static/images/vmware-vswitch-properties.png
-.. |vspheremgtnetwork.png: vSphere client| image:: ../_static/images/vmware-mgt-network-properties.png
-.. |vmwarenexusportprofile.png: vSphere client| image:: ../_static/images/vmware-nexus-port-profile.png
-.. |vmwarenexusaddcluster.png: vmware nexus add cluster| image:: ../_static/images/vmware-nexus-add-cluster.png
-.. |vmwareiscsiinitiator.png: iscsi initiator| image:: ../_static/images/vmware-iscsi-initiator.png
-.. |vmwareiscsiinitiatorproperties.png: iscsi initiator properties| image:: ../_static/images/vmware-iscsi-initiator-properties.png
-.. |vmwareiscsigeneral.png: iscsi general| image:: ../_static/images/vmware-iscsi-general.png
-.. |vmwareiscsitargetadd.png: iscsi target add| image:: ../_static/images/vmware-iscsi-target-add.png
-.. |vmwareiscsidatastore.png: iscsi datastore| image:: ../_static/images/vmware-iscsi-datastore.png
+.. |DeleteButton.png: button to delete dvSwitch| image:: ../static/images/delete-button.png
+.. |vds-name.png: Name of the dvSwitch as specified in the vCenter.| image:: ../static/images/vds-name.png
+.. |traffic-type.png| image:: ../static/images/traffic-type.png
+.. |dvSwitchConfig.png: Configuring dvSwitch| image:: ../static/images/dvswitchconfig.png
+.. |vsphereclient.png: vSphere client| image:: ../static/images/vsphere-client.png
+.. |vspherephysicalnetwork.png: vSphere client| image:: ../static/images/vmware-physical-network.png
+.. |vsphereincreaseports.png: vSphere client| image:: ../static/images/vmware-increase-ports.png
+.. |vspherevswitchproperties.png: vSphere client| image:: ../static/images/vmware-vswitch-properties.png
+.. |vspheremgtnetwork.png: vSphere client| image:: ../static/images/vmware-mgt-network-properties.png
+.. |vmwarenexusportprofile.png: vSphere client| image:: ../static/images/vmware-nexus-port-profile.png
+.. |vmwarenexusaddcluster.png: vmware nexus add cluster| image:: ../static/images/vmware-nexus-add-cluster.png
+.. |vmwareiscsiinitiator.png: iscsi initiator| image:: ../static/images/vmware-iscsi-initiator.png
+.. |vmwareiscsiinitiatorproperties.png: iscsi initiator properties| image:: ../static/images/vmware-iscsi-initiator-properties.png
+.. |vmwareiscsigeneral.png: iscsi general| image:: ../static/images/vmware-iscsi-general.png
+.. |vmwareiscsitargetadd.png: iscsi target add| image:: ../static/images/vmware-iscsi-target-add.png
+.. |vmwareiscsidatastore.png: iscsi datastore| image:: ../static/images/vmware-iscsi-datastore.png

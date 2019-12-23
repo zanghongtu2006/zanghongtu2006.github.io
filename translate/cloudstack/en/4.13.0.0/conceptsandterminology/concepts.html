@@ -17,24 +17,24 @@
   
 
   
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  <script type="text/javascript" src="../static/js/modernizr.min.js"></script>
   
     
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../static/documentation_options.js"></script>
+        <script type="text/javascript" src="../static/jquery.js"></script>
+        <script type="text/javascript" src="../static/underscore.js"></script>
+        <script type="text/javascript" src="../static/doctools.js"></script>
+        <script type="text/javascript" src="../static/language_data.js"></script>
         <script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
     
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../static/js/theme.js"></script>
 
     
 
   
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="../static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../static/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="小规模部署" href="choosing_deployment_architecture.html" />
@@ -50,7 +50,7 @@ http://docs.readthedocs.org/en/latest/canonical.html
 
 <link rel="stylesheet" href="https://assets.readthedocs.org/static/css/readthedocs-doc-embed.css" type="text/css" />
 
-<script type="text/javascript" src="../_static/readthedocs-data.js"></script>
+<script type="text/javascript" src="../static/readthedocs-data.js"></script>
 
 <!-- Add page-specific data, which must exist in the page js, not global -->
 <script type="text/javascript">
@@ -291,7 +291,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <h1>部署架构概述<a class="headerlink" href="concepts.html#deployment-architecture-overview" title="Permalink to this headline">¶</a></h1>
 <p>通常，CloudStack 由管理服务和被管理的资源组成。在部署的过程中，需要将被管理资源的信息（IP段，存储设备，hypervisor和VLAN等）输入到管理服务中。</p>
 <p>最小化安装包含一台用来运行 CloudStack 管理服务的机器和一台用于云基础设施（在这种情况下，一个云基础设施只包含一台Hypervisor）的机器。在最小化部署中，一台机器可以同时部署上述两种服务（仅使用KVM）。</p>
-<img alt="../_images/basic-deployment.png" src="../_images/basic-deployment.png" />
+<img alt="../images/basic-deployment.png" src="../images/basic-deployment.png" />
 <p>更加完整的环境包含一个多节点高可用的管理服务和支持多种网络拓扑的上万台主机。</p>
 <div class="section" id="management-server-overview">
 <h2>管理服务概述<a class="headerlink" href="concepts.html#management-server-overview" title="Permalink to this headline">¶</a></h2>
@@ -339,7 +339,7 @@ technique for providing fault tolerance and disaster recovery.</p>
 <p>通过将资源域分组，云可以提供更高的可用性和可伸缩性。用户账户可以跨区域，所以用和可以在多个广泛的区域中部署虚拟机。即便一个地域不可用，最终用户依然可以通过部署在另一个地域中的VM使用这些服务。并且，相对于单一中心广泛分部的区域，将各个资源域组织到就近的管理服务下，大大降低了云中的网络延迟。</p>
 <p>还可以在区域级别合并和跟踪使用记录，为每个地理区域创建报告或发票。</p>
 <div class="figure">
-<img alt="../_images/region-overview.png" src="../_images/region-overview.png" />
+<img alt="../images/region-overview.png" src="../images/region-overview.png" />
 </div>
 <p>地域对于最终用户是可见的。当用户在指定的CloudStack 管理服务上启动虚拟机时，他也已经选择了对应的地域。用户可能还需要将其私有模板复制到其他区域，以便能够使用这些区域中的模板创建来宾虚拟机。</p>
 </div>
@@ -353,7 +353,7 @@ technique for providing fault tolerance and disaster recovery.</p>
 <li>二级存储，由该资源域下的所有机架共享。</li>
 </ul>
 <div class="figure">
-<img alt="../_images/zone-overview.png" src="../_images/zone-overview.png" />
+<img alt="../images/zone-overview.png" src="../images/zone-overview.png" />
 </div>
 <p>资源域是最终用户可见的。当用户启动虚拟机的时候，他必须选择一个资源域。用户可能需要将其私有模版复制到该资源域下，以便能够使用这些模版来生成来宾虚拟机。</p>
 <p>资源域可以是公有的也可以是私有的。公有的可以被所有人可见。
@@ -384,7 +384,7 @@ that zone will not be forcibly migrated to the new model. 它会沿用之前的�
 <span id="id3"></span><h2>机架<a class="headerlink" href="concepts.html#about-pods" title="Permalink to this headline">¶</a></h2>
 <p>Pod 通常等同于一个机架。一个机架中的主机存在于同一个子网下。机架是CloudStack 的第三大组织单元。机架存在于资源域下。每个资源域有一个或者多个机架。一个机架包含一个或者多个集群，一个集群包含一个或者多个主存储。机架对最终用户可见。</p>
 <div class="figure">
-<img alt="../_images/pod-overview.png" src="../_images/pod-overview.png" />
+<img alt="../images/pod-overview.png" src="../images/pod-overview.png" />
 </div>
 </div>
 <div class="section" id="about-clusters">
@@ -393,7 +393,7 @@ that zone will not be forcibly migrated to the new model. 它会沿用之前的�
 <p>集群是CloudStack 的第四大组织单元。 资源域包含机架，机架包含集群。 集群的大小取决于Hypervisor 的限制和 CloudStack 建议的大小，通常参考后者居多；参见： 最佳实践。</p>
 <p>集群包括一个或者多个主机，一个或者多个主存储。</p>
 <div class="figure">
-<img alt="../_images/cluster-overview.png" src="../_images/cluster-overview.png" />
+<img alt="../images/cluster-overview.png" src="../images/cluster-overview.png" />
 </div>
 <p>CloudStack 允许在一个环境中包含多个集群。</p>
 <p>即使是只有一台主机，并且以独占的方式使用本地存储，CloudStack 在架构上依然需要创建一个集群。</p>

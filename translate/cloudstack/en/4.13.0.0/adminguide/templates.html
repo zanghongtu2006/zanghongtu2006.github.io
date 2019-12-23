@@ -17,24 +17,24 @@
   
 
   
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  <script type="text/javascript" src="../static/js/modernizr.min.js"></script>
   
     
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../static/documentation_options.js"></script>
+        <script type="text/javascript" src="../static/jquery.js"></script>
+        <script type="text/javascript" src="../static/underscore.js"></script>
+        <script type="text/javascript" src="../static/doctools.js"></script>
+        <script type="text/javascript" src="../static/language_data.js"></script>
         <script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
     
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../static/js/theme.js"></script>
 
     
 
   
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="../static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../static/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="添加主机" href="hosts.html" />
@@ -50,7 +50,7 @@ http://docs.readthedocs.org/en/latest/canonical.html
 
 <link rel="stylesheet" href="https://assets.readthedocs.org/static/css/readthedocs-doc-embed.css" type="text/css" />
 
-<script type="text/javascript" src="../_static/readthedocs-data.js"></script>
+<script type="text/javascript" src="../static/readthedocs-data.js"></script>
 
 <!-- Add page-specific data, which must exist in the page js, not global -->
 <script type="text/javascript">
@@ -503,7 +503,7 @@ template Featured.</p>
 <li><p class="first">Click Register Template.</p>
 </li>
 <li><p class="first">Select KVM as hypervisor:</p>
-<p><img alt="kvm-direct-download.png" src="../_images/kvm-direct-download.png" /></p>
+<p><img alt="kvm-direct-download.png" src="../images/kvm-direct-download.png" /></p>
 <ul class="simple">
 <li><strong>Direct Download</strong>. This option will be shown in the UI when KVM is selected as the hypervisor. Choose Yes to enable the bypassing secondary storage option.</li>
 <li><strong>Checksum</strong>. Optional field. If this field is populated, the checksum is compared to the downloaded template checksum when the template is downloaded to primary storage at deployment time.</li>
@@ -567,8 +567,8 @@ template Featured.</p>
 The steps are similar as when Uploading a template/ISO from a remote HTTP server, except that you need to choose a local template/ISO file from your PC.
 For this feature to work, your SSVMs must be supporting HTTPS (for more info please visit <a class="reference external" href="systemvm.html#using-a-ssl-certificate-for-the-console-proxy">“Using a SSL Certificate for the 控制台代理”</a>).</p>
 <p>Example GUI dialog of uploading Template/ISO from local (browser) is given below:</p>
-<p><img alt="Upload Template from local" src="../_images/template-upload-from-local.PNG" /></p>
-<p><img alt="Upload ISO from local" src="../_images/upload-iso-from-local.png" /></p>
+<p><img alt="Upload Template from local" src="../images/template-upload-from-local.PNG" /></p>
+<p><img alt="Upload ISO from local" src="../images/upload-iso-from-local.png" /></p>
 <p>Note that uploading multi-disk templates is also supported.</p>
 </div>
 <div class="section" id="sharing-templates-with-other-accounts-projects">
@@ -585,21 +585,21 @@ For this feature to work, your SSVMs must be supporting HTTPS (for more info ple
 <p>Template permissions can be changed via updateTemplatePermissions API call or via GUI. It is supported to add, remove or reset (remove all) template permissions.</p>
 <p>When adding or removing permissions to/from a template, it is required to specify account/project name which is being added/removed from the template permissions.</p>
 <p>Global setting “allow.user.view.all.domain.accounts” has a default value of “false”. This makes sure that when a regular user (of a “User” role) wants to share a template via GUI, he will not be shown the list of all accounts in his domain and he will need to know the name of the destination account with which he is sharing the template. This makes sense in public clouds where each account of a single domain is a different tenant/customer and privacy is imperative. In this case, the user will be presented with an input field to enter the account name, as on the images below:</p>
-<p><img alt="USharing template with account &quot;user2&quot;" src="../_images/template-permissions-update-manually-1.PNG" /></p>
+<p><img alt="USharing template with account &quot;user2&quot;" src="../images/template-permissions-update-manually-1.PNG" /></p>
 <p>Sharing the template with account “user2”</p>
-<p><img alt="Revoking permissions from account &quot;user2&quot;" src="../_images/template-permissions-update-manually-2.PNG" /></p>
+<p><img alt="Revoking permissions from account &quot;user2&quot;" src="../images/template-permissions-update-manually-2.PNG" /></p>
 <p>Revoking permissions from account “user2”</p>
 <p>But in environments where privacy within a domain is not an issue, setting “allow.user.view.all.domain.accounts” setting to “true” will make sure that the user, who is sharing the template, will be presented a more user-friendly multi-select list, listing all the accounts in his domain. This is shown in the images below;</p>
-<p><img alt="Sharing template with just account &quot;user8&quot;" src="../_images/template-permissions-update-1.PNG" /></p>
+<p><img alt="Sharing template with just account &quot;user8&quot;" src="../images/template-permissions-update-1.PNG" /></p>
 <p>Sharing the template with just account “user8”</p>
-<p><img alt="Sharing template with 2 specific projects" src="../_images/template-permissions-update-2.PNG" /></p>
+<p><img alt="Sharing template with 2 specific projects" src="../images/template-permissions-update-2.PNG" /></p>
 <p>Sharing template with 2 specific projects</p>
-<p><img alt="Revoking permissins from account &quot;user8&quot;" src="../_images/template-permissions-update-3.PNG" /></p>
+<p><img alt="Revoking permissins from account &quot;user8&quot;" src="../images/template-permissions-update-3.PNG" /></p>
 <p>Revoking permissions from account “user8”</p>
-<p><img alt="Revoking permsissons from both projects previously added" src="../_images/template-permissions-update-4.PNG" /></p>
+<p><img alt="Revoking permsissons from both projects previously added" src="../images/template-permissions-update-4.PNG" /></p>
 <p>Revoking permissions from both projects previously added</p>
 <p>Finally, template permissions can be reset:</p>
-<p><img alt="Reseting (removing all) permissions" src="../_images/template-permissions-update-5.PNG" /></p>
+<p><img alt="Reseting (removing all) permissions" src="../images/template-permissions-update-5.PNG" /></p>
 <p>Resetting (removing all) permissions</p>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
@@ -918,14 +918,14 @@ any of these settings, you can right-click on the specific setting
 and select Help. This will open the appropriate CHM help file with
 more information, including examples on the setting you are
 attempting to configure.</p>
-<p><img alt="sysmanager.png" src="../_images/sysmanager.png" /></p>
+<p><img alt="sysmanager.png" src="../images/sysmanager.png" /></p>
 </li>
 <li><p class="first">You need to automate the Software License Terms Selection page,
 otherwise known as the End-User License Agreement (EULA). To do
 this, expand the Microsoft-Windows-Shell-Setup component.
 High-light the OOBE setting, and add the setting to the Pass 7
 oobeSystem. In Settings, set HideEULAPage true.</p>
-<p><img alt="software-license.png" src="../_images/software-license.png" /></p>
+<p><img alt="software-license.png" src="../images/software-license.png" /></p>
 </li>
 <li><p class="first">Make sure the license key is properly set. If you use MAK key, you
 can just enter the MAK key on the Windows 2008 R2 VM. You need not
@@ -940,7 +940,7 @@ still expanded), expand UserAccounts, right-click on
 AdministratorPassword, and add the setting to the Pass 7
 oobeSystem configuration pass of your answer file. Under Settings,
 specify a password next to Value.</p>
-<p><img alt="change-admin-password.png" src="../_images/change-admin-password.png" /></p>
+<p><img alt="change-admin-password.png" src="../images/change-admin-password.png" /></p>
 <p>You may read the AIK documentation and set many more options that
 suit your deployment. The steps above are the minimum needed to
 make Windows unattended setup work.</p>

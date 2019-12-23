@@ -17,24 +17,24 @@
   
 
   
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  <script type="text/javascript" src="../static/js/modernizr.min.js"></script>
   
     
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../static/documentation_options.js"></script>
+        <script type="text/javascript" src="../static/jquery.js"></script>
+        <script type="text/javascript" src="../static/underscore.js"></script>
+        <script type="text/javascript" src="../static/doctools.js"></script>
+        <script type="text/javascript" src="../static/language_data.js"></script>
         <script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
     
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../static/js/theme.js"></script>
 
     
 
   
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="../static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../static/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="基础网络和高级网络" href="network_setup.html" />
@@ -50,7 +50,7 @@ http://docs.readthedocs.org/en/latest/canonical.html
 
 <link rel="stylesheet" href="https://assets.readthedocs.org/static/css/readthedocs-doc-embed.css" type="text/css" />
 
-<script type="text/javascript" src="../_static/readthedocs-data.js"></script>
+<script type="text/javascript" src="../static/readthedocs-data.js"></script>
 
 <!-- Add page-specific data, which must exist in the page js, not global -->
 <script type="text/javascript">
@@ -231,7 +231,7 @@ test and trial deployments and a fully-redundant large-scale setup for
 production deployments.</p>
 <div class="section" id="small-scale-deployment">
 <h1>小规模部署<a class="headerlink" href="choosing_deployment_architecture.html#small-scale-deployment" title="Permalink to this headline">¶</a></h1>
-<p><img alt="小规模部署" src="../_images/small-scale-deployment.png" /></p>
+<p><img alt="小规模部署" src="../images/small-scale-deployment.png" /></p>
 <p>This diagram illustrates the network architecture of a small-scale
 CloudStack deployment.</p>
 <ul class="simple">
@@ -247,7 +247,7 @@ storage.</li>
 </div>
 <div class="section" id="large-scale-redundant-setup">
 <h1>大规模冗余部署<a class="headerlink" href="choosing_deployment_architecture.html#large-scale-redundant-setup" title="Permalink to this headline">¶</a></h1>
-<p><img alt="大规模冗余部署" src="../_images/large-scale-redundant-setup.png" /></p>
+<p><img alt="大规模冗余部署" src="../images/large-scale-redundant-setup.png" /></p>
 <p>This diagram illustrates the network architecture of a large-scale
 CloudStack deployment.</p>
 <ul class="simple">
@@ -292,7 +292,7 @@ servers connected to a single MySQL database. Optionally a pair of
 hardware load balancers distributes requests from the web. A backup
 management server set may be deployed using MySQL replication at a
 remote site to add DR capabilities.</p>
-<p><img alt="Multi-Node 管理服务" src="../_images/multi-node-management-server.png" /></p>
+<p><img alt="Multi-Node 管理服务" src="../images/multi-node-management-server.png" /></p>
 <p>The administrator must decide the following.</p>
 <ul class="simple">
 <li>Whether or not load balancers will be used.</li>
@@ -306,11 +306,11 @@ recovery.</li>
 <p>The CloudStack platform scales well into multiple sites through the use
 of zones. The following diagram shows an example of a multi-site
 deployment.</p>
-<p><img alt="Example Of A Multi-Site Deployment" src="../_images/multi-site-deployment.png" /></p>
+<p><img alt="Example Of A Multi-Site Deployment" src="../images/multi-site-deployment.png" /></p>
 <p>Data Center 1 houses the primary 管理服务 as well as zone 1.
 The MySQL database is replicated in real time to the secondary
 管理服务 installation in Data Center 2.</p>
-<p><img alt="独立存储网络" src="../_images/separate-storage-network.png" /></p>
+<p><img alt="独立存储网络" src="../images/separate-storage-network.png" /></p>
 <p>This diagram illustrates a setup with a 独立存储网络. Each
 server has four NICs, two connected to pod-level network switches and
 two connected to storage network switches.</p>
@@ -323,7 +323,7 @@ network (one CIDR block+ default gateway address).</li>
 blocks each with its own default gateway). Multipath iSCSI client can
 failover and load balance between 独立存储网络s.</li>
 </ul>
-<p><img alt="NIC Bonding And Multipath I/O" src="../_images/nic-bonding-and-multipath-io.png" /></p>
+<p><img alt="NIC Bonding And Multipath I/O" src="../images/nic-bonding-and-multipath-io.png" /></p>
 <p>This diagram illustrates the differences between NIC bonding and
 Multipath I/O (MPIO). NIC bonding configuration involves only one
 network. MPIO involves two separate networks.</p>
