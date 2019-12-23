@@ -328,7 +328,7 @@ XenServer. As the CloudStack management server needs to communicate with the hyp
 this management interface must be on the CloudStack ‘management’ or ‘private’ network.  There may be
 other interfaces configured on your host carrying guest and public traffic to/from VMs within the hosts
 but the hypervisor itself doesn’t/can’t communicate over these interfaces.</p>
-<p><img alt="hypervisor storage communication" src="_images/hypervisorcomms.png" />
+<p><img alt="hypervisor storage communication" src="images/hypervisorcomms.png" />
 <em>Figure 1</em>: Hypervisor communications</p>
 <p>Separating 主存储 traffic
 For those from a pure virtualisation background, the concept of creating a specific interface for storage
@@ -344,9 +344,9 @@ The logical reasoning which explains how this splitting of traffic works is as f
 <li>In order for the ‘primary storage’ management interface to communicate with the primary storage, the interfaces on the primary storage arrays must be in the same CIDR as the ‘primary storage’ management interface.</li>
 <li>Therefore the primary storage must be in a different subnet to the management network</li>
 </ol>
-<p><img alt="subnetted storage interfaces" src="_images/subnetting_storage.png" />
+<p><img alt="subnetted storage interfaces" src="images/subnetting_storage.png" />
 <em>Figure 2</em>: Subnetting of Storage Traffic</p>
-<p><img alt="hypervisor communications to secondary storage" src="_images/hypervisorcomms-secstorage.png" />
+<p><img alt="hypervisor communications to secondary storage" src="images/hypervisorcomms-secstorage.png" />
 <em>Figure 3</em>: Hypervisor Communications with Separated Storage Traffic</p>
 <p>Other 主存储 Types
 If you are using PreSetup or SharedMountPoints to connect to IP based storage then the same principles

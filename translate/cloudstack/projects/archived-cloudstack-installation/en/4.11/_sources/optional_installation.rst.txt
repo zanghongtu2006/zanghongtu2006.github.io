@@ -726,7 +726,7 @@ Example 1. An EC2 Boto example
                                api_version="2010-11-15")
 
        '''Get list of images that I own'''
-       images = conn.get_all_images()
+       images = conn.get_allimages/()
        print images
        myimage = images[0]
        '''Pick an instance type'''
