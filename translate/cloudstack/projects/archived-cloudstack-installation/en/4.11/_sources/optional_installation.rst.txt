@@ -14,7 +14,7 @@
    under the License.
 
 
-Additional 安装 Options
+其它安装选项
 ===============================
 
 The next few sections describe CloudStack features above and beyond the

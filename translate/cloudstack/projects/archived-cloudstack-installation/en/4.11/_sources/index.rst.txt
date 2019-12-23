@@ -131,7 +131,7 @@ Hypervisor 安装和设置
    storage_setup
 
 
-Optional 安装 
+其它安装选项 
 ---------------------
 .. toctree::
    :maxdepth: 2
