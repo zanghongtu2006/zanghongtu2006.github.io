@@ -115,11 +115,11 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l1 current"><a class="current reference internal" href="qig.html#">快速入门指南</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="qig.html#overview">概述</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="qig.html#what-exactly-are-we-building">我们到底在建什么？</a></li>
-<li class="toctree-l3"><a class="reference internal" href="qig.html#high-level-overview-of-the-process">High level overview of the process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="qig.html#high-level-overview-of-the-process">过程概述</a></li>
 <li class="toctree-l3"><a class="reference internal" href="qig.html#prerequisites">前提</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="qig.html#environment">Environment</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="qig.html#environment">环境</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="qig.html#operating-system">操作系统</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="qig.html#configuring-the-network">Configuring the network</a></li>
 <li class="toctree-l4"><a class="reference internal" href="qig.html#hostname">Hostname</a></li>
@@ -254,38 +254,29 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <h2>概述<a class="headerlink" href="qig.html#overview" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="what-exactly-are-we-building">
 <h3>我们到底在建什么？<a class="headerlink" href="qig.html#what-exactly-are-we-building" title="Permalink to this headline">¶</a></h3>
-<p>基础设施即服务（IaaS）云的构建是非常复杂的，即便是经验丰富的管理员在一开始的时候也可能会陷入迷惑。 The
-goal for this runbook is to provide a straightforward set of instructions to
-get you up and running with CloudStack with a minimum amount of trouble.</p>
+<p>基础设施即服务（IaaS）云的构建是非常复杂的，即便是经验丰富的管理员在一开始的时候也可能会陷入迷惑。 本文旨在提供一个最简化的步骤，帮助您迅速建立一个CloudStack环境。</p>
 </div>
 <div class="section" id="high-level-overview-of-the-process">
-<h3>High level overview of the process<a class="headerlink" href="qig.html#high-level-overview-of-the-process" title="Permalink to this headline">¶</a></h3>
-<p>This runbook will focus on building a CloudStack cloud using KVM on CentOS
-7.5 with NFS storage on a flat layer-2 network utilizing layer-3 network
-isolation (aka 安全组), and doing it all on a single piece of
-hardware.</p>
-<p>KVM, or Kernel-based Virtual Machine is a virtualization technology for the
-Linux kernel. KVM supports native virtualization atop processors with hardware
-virtualization extensions.</p>
-<p>安全组 act as distributed firewalls that control access to a group of
-virtual machines.</p>
+<h3>过程概述<a class="headerlink" href="qig.html#high-level-overview-of-the-process" title="Permalink to this headline">¶</a></h3>
+<p>本手册是针对于在CentOS 7.5 上创建一个CloudStack，使用KVM 作为Hypervisor，NFS作为存储，网络使用2层网络，在3层做网络隔离（即：安全组），全部组件都安装在同一台机器上。</p>
+<p>KVM 是一种Linux 内核虚拟化技术。 
+  KVM 支持在带有硬件虚拟化扩展的CPU 之上做本地虚拟化。</p>
+<p>安全组是一种类似于分布式防火墙的方式，用于隔离不同组的虚拟机。</p>
 </div>
 <div class="section" id="prerequisites">
 <h3>前提<a class="headerlink" href="qig.html#prerequisites" title="Permalink to this headline">¶</a></h3>
-<p>To complete this runbook you’ll need the following items:</p>
+<p>要完成此安装过程，您需要准备下列设备：:</p>
 <ol class="arabic simple">
-<li>At least one computer which supports and has enabled hardware virtualization.</li>
-<li>An <a class="reference external" href="http://mirrors.kernel.org/centos/7/isos/x86_64/">CentOS 7.5 x86_64 install ISO, on bootable media</a></li>
-<li>A /24 network with the gateway being at xxx.xxx.xxx.1, no DHCP should be on
-this network and none of the computers running CloudStack will have a
-dynamic address. Again this is done for the sake of simplicity.</li>
+<li>至少一台支持硬件虚拟化的服务器。</li>
+<li><a class="reference external" href="http://mirrors.kernel.org/centos/7/isos/x86_64/">CentOS 7.5 x86_64 安装镜像</a></li>
+<li>一个24位掩码的网络，网关设置为xxx.xxx.xxx.1，没有DHCP服务，运行CloudStack的服务器设置为静态IP。 
+  这也是为了简单起见。</li>
 </ol>
 </div>
 </div>
 <div class="section" id="environment">
-<h2>Environment<a class="headerlink" href="qig.html#environment" title="Permalink to this headline">¶</a></h2>
-<p>Before you begin , you need to prepare the environment before you install
-CloudStack. We will go over the steps to prepare now.</p>
+<h2>环境<a class="headerlink" href="qig.html#environment" title="Permalink to this headline">¶</a></h2>
+<p>在开始之前，您需要准备CloudStack 的安装环境。 We will go over the steps to prepare now.</p>
 <div class="section" id="operating-system">
 <h3>操作系统<a class="headerlink" href="qig.html#operating-system" title="Permalink to this headline">¶</a></h3>
 <p>Using the CentOS 7.5 x86_64 install ISO, you’ll need to install CentOS 7
