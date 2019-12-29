@@ -349,7 +349,7 @@ Maintenance 最佳实践
    (per-host-limit). Once a cluster reaches this number of VMs, use the
    CloudStack UI to disable allocation to the cluster.
 
-.. warning::
+.. 警告::
    The lack of up-do-date hotfixes can lead to data corruption and lost VMs.
 
 Be sure all the hotfixes provided by the hypervisor vendor are applied. Track 

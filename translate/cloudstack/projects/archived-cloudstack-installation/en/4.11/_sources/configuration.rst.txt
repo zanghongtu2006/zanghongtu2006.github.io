@@ -749,7 +749,7 @@ Advanced Zone Configuration
       provide primary storage that has tags T1 and T2.
 
 #. In a new zone, CloudStack adds the first secondary storage server for
-   you. For an overview of what secondary storage is, see `“About 二级存储” 
+   you. For an overview of what secondary storage is, see `“二级存储” 
    <http://docs.cloudstack.apache.org/en/latest/concepts.html?highlight=about%20pods#about-secondary-storage>`_.
 
    Before you can fill out this screen, you need to prepare the
@@ -973,7 +973,7 @@ Adding a Host
    supported, as well as crucial additional steps to configure the
    hypervisor hosts for use with CloudStack.
 
-   .. warning::
+   .. 警告::
       Be sure you have performed the additional CloudStack-specific 
       configuration steps described in the hypervisor installation section for 
       your particular hypervisor.
@@ -997,7 +997,7 @@ XenServer and KVM hosts can be added to a cluster at any time.
 Requirements for XenServer and KVM Hosts
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. warning::
+.. 警告::
    Make sure the hypervisor host does not have any VMs already running before 
    you add it to CloudStack.
 
@@ -1157,7 +1157,7 @@ of that procedure. You can add primary storage servers at any time, such
 as when adding a new cluster or adding more servers to an existing
 cluster.
 
-.. warning:: 
+.. 警告:: 
    When using preallocated storage for primary storage, be sure there is 
    nothing on the storage (ex. you have an empty SAN volume or an empty NFS 
    share). Adding the storage to CloudStack will destroy any existing data.
@@ -1350,7 +1350,7 @@ When you create a new zone, the first secondary storage is added as part
 of that procedure. You can add secondary storage servers at any time to
 add more servers to an existing zone.
 
-.. warning::
+.. 警告::
    Ensure that nothing is stored on the server. Adding the server to 
    CloudStack will destroy any existing data.
 
@@ -1384,14 +1384,14 @@ add more servers to an existing zone.
       for zone-based storage, and the others for region-wide storage.
       For Hyper-V, select SMB/CIFS.
 
-      .. warning::
-         Heterogeneous 二级存储 is not supported in Regions. You can 
+      .. 警告::
+         同一个区域不支持异构的二级存储。 You can 
          use only a single NFS, S3, or Swift account per region.
 
    -  Create NFS Secondary Staging Store. This box must always be
       checked.
 
-      .. warning:: 
+      .. 警告:: 
          Even if the UI allows you to uncheck this box, do not do so. This 
          checkbox and the three fields below it must be filled in. Even when 
          Swift or S3 is used as the secondary storage provider, an NFS staging 

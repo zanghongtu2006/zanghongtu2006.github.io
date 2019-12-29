@@ -296,7 +296,7 @@ examples, but change the directory to whatever works for you.
    $ sudo sh -c 'dpkg-scanpackages . /dev/null | tee Packages | gzip -9 > Packages.gz'
 
 .. note:: 
-   You can safely ignore the warning about a missing override file.
+   You can safely ignore the 警告 about a missing override file.
 
 Now you should have all of the DEB packages and ``Packages.gz`` in the
 ``binary`` directory and available over HTTP. (You may want to use
@@ -469,7 +469,7 @@ other non-Open Source Software (nonoss) plugins, you'll need to download
 a few components on your own and follow a slightly different procedure
 to build from source.
 
-.. warning::
+.. 警告::
    Some of the plugins supported by CloudStack cannot be distributed with 
    CloudStack for licensing reasons. In some cases, some of the required 
    libraries/JARs are under a proprietary license. In other cases, the 

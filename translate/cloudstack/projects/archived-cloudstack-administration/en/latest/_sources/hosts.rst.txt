@@ -634,7 +634,7 @@ not disabled at zone or cluster level), Root admins would be able to issue
 power management actions such as on, off, reset, cycle, soft and status.
 
 If a host is in maintenance mode, Root admins are still allowed to perform
-power management actions but in the UI a warning is displayed.
+power management actions but in the UI a 警告 is displayed.
 
 安全
 ========

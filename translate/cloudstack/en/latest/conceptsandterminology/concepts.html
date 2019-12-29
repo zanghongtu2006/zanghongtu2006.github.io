@@ -137,7 +137,7 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 <li class="toctree-l4"><a class="reference internal" href="concepts.html#about-clusters">集群</a></li>
 <li class="toctree-l4"><a class="reference internal" href="concepts.html#about-hosts">主机</a></li>
 <li class="toctree-l4"><a class="reference internal" href="concepts.html#about-primary-storage">主存储</a></li>
-<li class="toctree-l4"><a class="reference internal" href="concepts.html#about-secondary-storage">About 二级存储</a></li>
+<li class="toctree-l4"><a class="reference internal" href="concepts.html#about-secondary-storage">二级存储</a></li>
 <li class="toctree-l4"><a class="reference internal" href="concepts.html#about-physical-networks">About Physical Networks</a></li>
 </ul>
 </li>
@@ -445,37 +445,31 @@ READTHEDOCS_DATA['source_suffix'] = ".rst"
 在KVM 和VMware 集群上，您可以按资源域来配置主存储。</p>
 <p>一个集群中包含至少一个主存储。 为了提升性能，一般选择将主存储部署在主机旁。 
   CloudStack 负责将来宾虚拟机的磁盘分配到制定的主存储上。</p>
-<p>It is useful to set up zone-wide primary storage when you want to avoid
-extra data copy operations. With cluster-based primary storage, data in
-the primary storage is directly available only to VMs within that
-cluster. If a VM in a different cluster needs some of the data, it must
-be copied from one cluster to another, using the zone’s secondary
-storage as an intermediate step. This operation can be unnecessarily
+<p>设置资源域级别的主存储，可以有助于您将来避免进行额外的数据复制操作。 
+  对于集群中的主存储，主存储的数据只能用于集群中的虚拟机。 
+  如果处于不同集群中的虚拟机需要某些数据，那么需要通过二级存储虚拟机中转，进行数据复制传输。 
+  This operation can be unnecessarily
 time-consuming.</p>
 <p>Hyper-V 支持 SMB/CIFS 类型的存储。需要注意Hyper-V 不能主持资源域级别的主存储。</p>
-<p>Ceph/RBD storage is only supported by the KVM hypervisor. It can be used
-as Zone-wide 主存储.</p>
-<p>CloudStack is designed to work with all standards-compliant iSCSI and
-NFS servers that are supported by the underlying hypervisor, including,
-for example:</p>
+<p>只有KVM 支持 Ceph/RBD 存储。 它可以用于资源域级别的主存储。</p>
+<p>CloudStack 可以支持Hypervisor 支持的所有标准 iSCSI 和 NFS 服务协同工作，例如：</p>
 <ul class="simple">
 <li>SolidFire for iSCSI</li>
 <li>Dell EqualLogic™ for iSCSI</li>
 <li>Network Appliances filers for NFS and iSCSI</li>
 <li>Scale Computing for NFS</li>
 </ul>
-<p>If you intend to use only local disk for your installation, you can skip
-adding separate primary storage.</p>
+<p>如果打算只使用本地磁盘进行安装，可以跳过添加单独的主存储。</p>
 </div>
 <div class="section" id="about-secondary-storage">
-<h2>About 二级存储<a class="headerlink" href="concepts.html#about-secondary-storage" title="Permalink to this headline">¶</a></h2>
+<h2>二级存储<a class="headerlink" href="concepts.html#about-secondary-storage" title="Permalink to this headline">¶</a></h2>
 <p>Secondary storage stores the following:</p>
 <ul class="simple">
 <li>模板 — OS images that can be used to boot VMs and can include
 additional configuration information, such as installed applications</li>
-<li>ISO images — disc images containing data or bootable media for
+<li>ISO — disc images containing data or bootable media for
 operating systems</li>
-<li>Disk volume snapshots — saved copies of VM data which can be used for
+<li>磁盘快照 — saved copies of VM data which can be used for
 data recovery or to create new templates</li>
 </ul>
 <p>The items in secondary storage are available to all hosts in the scope
@@ -498,8 +492,8 @@ to Swift or S3. The backing object storage acts as a cloud-wide
 resource, making templates and other data available to any zone in the
 cloud.</p>
 <div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">Heterogeneous 二级存储 is not supported in Regions. For example,
+<p class="first admonition-title">警告</p>
+<p class="last">同一个区域不支持异构的二级存储。 For example,
 you cannot set up multiple zones, one using NFS secondary and the other
 using S3 or Swift secondary.</p>
 </div>

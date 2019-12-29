@@ -148,11 +148,11 @@
     // Patch tables.
     patchTables();
 
-    // Add Note, Warning styles. (BS v2,3 compatible).
+    // Add Note, 警告 styles. (BS v2,3 compatible).
     $('.admonition').addClass('alert alert-info')
-      .filter('.warning, .caution')
+      .filter('.警告, .caution')
         .removeClass('alert-info')
-        .addClass('alert-warning').end()
+        .addClass('alert-警告').end()
       .filter('.error, .danger')
         .removeClass('alert-info')
         .addClass('alert-danger alert-error').end();

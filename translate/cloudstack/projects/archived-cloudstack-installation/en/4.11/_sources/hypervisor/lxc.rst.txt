@@ -74,11 +74,11 @@ to the KVM installation. The material in this section doesn't duplicate
 KVM installation docs. It provides the CloudStack-specific steps that
 are needed to prepare a KVM host to work with CloudStack.
 
-.. warning:: 
+.. 警告:: 
    Before continuing, make sure that you have applied the latest updates to 
    your host.
 
-.. warning::
+.. 警告::
    It is NOT recommended to run services on this host not controlled by 
    CloudStack.
 
@@ -352,7 +352,7 @@ ensure the Agent has all the required permissions.
 Configure the network bridges
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. warning:: 
+.. 警告:: 
    This is a very important section, please make sure you read this thoroughly.
 
 .. note:: 
@@ -516,7 +516,7 @@ We do the same for cloudbr1
 With this configuration you should be able to restart the network,
 although a reboot is recommended to see if everything works properly.
 
-.. warning:: 
+.. 警告:: 
    Make sure you have an alternative way like IPMI or ILO to reach the machine 
    in case you made a configuration error and the network stops functioning!
 
@@ -566,7 +566,7 @@ Modify the interfaces file to look like this:
 With this configuration you should be able to restart the network,
 although a reboot is recommended to see if everything works properly.
 
-.. warning:: 
+.. 警告:: 
    Make sure you have an alternative way like IPMI or ILO to reach the machine 
    in case you made a configuration error and the network stops functioning!
 

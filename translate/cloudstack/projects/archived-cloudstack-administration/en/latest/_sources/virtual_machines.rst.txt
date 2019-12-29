@@ -206,7 +206,7 @@ To create a VM from an ISO:
    (XenServer) Windows VMs running on XenServer require PV drivers, 
    which may be provided in the template or added after the VM is 
    created. The PV drivers are necessary for essential management 
-   functions such as mounting additional volumes and ISO images, 
+   functions such as mounting additional volumes and ISO, 
    live migration, and graceful shutdown.
 
 #. Log in to the CloudStack UI as an administrator or user.
@@ -843,12 +843,12 @@ ISOs may be public or private, like templates.ISOs are not
 hypervisor-specific. That is, a guest on vSphere can mount the exact
 same image that a guest on KVM can mount.
 
-ISO images may be stored in the system and made available with a privacy
-level similar to templates. ISO images are classified as either bootable
+ISO may be stored in the system and made available with a privacy
+level similar to templates. ISO are classified as either bootable
 or not bootable. A bootable ISO image is one that contains an OS image.
 CloudStack allows a user to boot a guest VM off of an ISO image. Users
-can also attach ISO images to guest VMs. For example, this enables
-installing PV drivers into Windows. ISO images are not
+can also attach ISO to guest VMs. For example, this enables
+installing PV drivers into Windows. ISO are not
 hypervisor-specific.
 
 

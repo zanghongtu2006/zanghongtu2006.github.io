@@ -266,7 +266,7 @@ to ``/usr/share/cloudstack-common/scripts/vm/hypervisor/xenserver``.
 Hypervisor: VMware
 ------------------
 
-.. warning::
+.. 警告::
    For VMware hypervisor CloudStack management server packages must be 
    build using "noredist". Refer to `从源码编译安装 
    <http://docs.cloudstack.apache.org/projects/cloudstack-installation.html/en/latest/building_from_source.html>`_.

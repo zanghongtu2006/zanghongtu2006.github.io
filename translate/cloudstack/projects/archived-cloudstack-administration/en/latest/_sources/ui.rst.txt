@@ -126,7 +126,7 @@ provision, view, and manage your cloud infrastructure.
    setup, you’ll be prompted to create a new password right away. If you
    chose experienced user, use the steps in :ref:`changing-root-password`.
 
-.. warning::
+.. 警告::
    You are logging in as the root administrator. This account manages the 
    CloudStack deployment, including physical infrastructure. The root 
    administrator can modify configuration settings to change basic 

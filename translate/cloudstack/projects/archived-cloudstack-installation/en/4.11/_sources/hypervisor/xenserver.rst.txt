@@ -72,7 +72,7 @@ System Requirements for XenServer Hosts
 -  When you deploy CloudStack, the hypervisor host must not have any VMs
    already running
 
-.. warning:: 
+.. 警告:: 
    The lack of up-to-date hotfixes can lead to data corruption and lost VMs.
 
 

@@ -47,7 +47,7 @@ Software requirements:
    hypervisor vendor is likely to refuse to support any system that is
    not up to date with patches.
 
-.. warning:: 
+.. 警告:: 
    Apply All Necessary Hotfixes. The lack of up-do-date hotfixes can lead to 
    data corruption and lost VMs.
 

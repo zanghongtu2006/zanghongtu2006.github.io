@@ -189,7 +189,7 @@ secondary storage. For information about how to install and configure
 secondary storage through the CloudStack UI, see the Advanced
 安装指南.
 
-`“About 二级存储” <http://docs.cloudstack.apache.org/en/latest/concepts.html#about-secondary-storage>`_
+`“二级存储” <http://docs.cloudstack.apache.org/en/latest/concepts.html#about-secondary-storage>`_
 
 
 磁盘

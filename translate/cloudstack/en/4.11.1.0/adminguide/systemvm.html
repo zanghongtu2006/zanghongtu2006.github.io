@@ -536,12 +536,12 @@ follow the steps in <a class="reference external" href="http://docs.cloudstack.a
 <div class="section" id="best-practices-for-virtual-routers">
 <h2>最佳实践 for 虚拟路由器s<a class="headerlink" href="systemvm.html#best-practices-for-virtual-routers" title="Permalink to this headline">¶</a></h2>
 <ul>
-<li><p class="first">WARNING: Restarting a virtual router from a hypervisor console
+<li><p class="first">警告: Restarting a virtual router from a hypervisor console
 deletes all the iptables rules. To work around this issue, stop the
 virtual router and start it from the CloudStack UI.</p>
 </li>
 <li><div class="first admonition warning">
-<p class="first admonition-title">Warning</p>
+<p class="first admonition-title">警告</p>
 <p class="last">Do not use the destroyRouter API when only one router is available
 in the network, because restartNetwork API with the cleanup=false
 parameter can’t recreate it later. If you want to destroy and
@@ -704,7 +704,7 @@ of the desired zone.</p>
 <p>In addition to the hosts, CloudStack’s 二级存储虚拟机 mounts and
 writes to secondary storage.</p>
 <p>Submissions to secondary storage go through the 二级存储虚拟机.
-The 二级存储虚拟机 can retrieve templates and ISO images from URLs
+The 二级存储虚拟机 can retrieve templates and ISO from URLs
 using a variety of protocols.</p>
 <p>The secondary storage VM provides a background task that takes care of a
 variety of secondary storage activities: downloading a new template to a
