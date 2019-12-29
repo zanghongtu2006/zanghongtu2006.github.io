@@ -421,13 +421,9 @@ that zone will not be forcibly migrated to the new model. 它会沿用之前的�
 </div>
 <div class="section" id="about-primary-storage">
 <h2>主存储<a class="headerlink" href="concepts.html#about-primary-storage" title="Permalink to this headline">¶</a></h2>
-<p>Primary storage is associated with a cluster, and it stores
-virtual disks for all the VMs running on hosts in that cluster.
-On KVM and VMware, you can provision primary storage on a per-zone basis.</p>
-<p>You can add multiple primary storage servers to a cluster or zone. At
-least one is required. It is typically located close to the hosts for
-increased performance. CloudStack manages the allocation of guest
-virtual disks to particular primary storage devices.</p>
+<p>主存储绑定在集群上，用来存储在该集群上的所有虚拟机的虚拟磁盘。
+在KVM 和VMware 集群上，您可以按资源域来配置主存储。</p>
+<p>一个集群中包含至少一个主存储。 为了提升性能，一般选择将主存储部署在主机旁。 CloudStack 负责将来宾虚拟机的磁盘分配到制定的主存储上。</p>
 <p>It is useful to set up zone-wide primary storage when you want to avoid
 extra data copy operations. With cluster-based primary storage, data in
 the primary storage is directly available only to VMs within that
