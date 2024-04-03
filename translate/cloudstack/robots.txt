@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://docs.cloudstack.apache.org/sitemap.xml

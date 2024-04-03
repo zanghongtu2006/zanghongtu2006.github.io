@@ -1,0 +1,108 @@
+{
+  "title": {
+    "title": "TechZukunft - Shaping the Future with Technology"
+  },
+  "header": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "team": "Team",
+    "blog": "Blog",
+    "dropdown": "Drop Down",
+    "dropdown1": "Drop Down 1",
+    "deepDropdown": "Deep Drop Down",
+    "deepDropdown1": "Deep Drop Down 1",
+    "deepDropdown2": "Deep Drop Down 2",
+    "deepDropdown3": "Deep Drop Down 3",
+    "deepDropdown4": "Deep Drop Down 4",
+    "deepDropdown5": "Deep Drop Down 5",
+    "dropdown2": "Drop Down 2",
+    "dropdown3": "Drop Down 3",
+    "dropdown4": "Drop Down 4",
+    "megaMenu": "Mega Menu",
+    "megaMenuColumn1Link1": "Column 1 link 1",
+    "megaMenuColumn1Link2": "Column 1 link 2",
+    "megaMenuColumn1Link3": "Column 1 link 3",
+    "megaMenuColumn2Link1": "Column 2 link 1",
+    "megaMenuColumn2Link2": "Column 2 link 2",
+    "megaMenuColumn2Link3": "Column 3 link 3",
+    "megaMenuColumn3Link1": "Column 3 link 1",
+    "megaMenuColumn3Link2": "Column 3 link 2",
+    "megaMenuColumn3Link3": "Column 3 link 3",
+    "megaMenuColumn4Link1": "Column 4 link 1",
+    "megaMenuColumn4Link2": "Column 4 link 2",
+    "megaMenuColumn4Link3": "Column 4 link 3",
+    "contact": "Contact",
+    "getStarted": "Get Started",
+    "languageSwitcher": {
+      "english": "English",
+      "german": "Deutsch",
+      "chinese": "中文"
+    }
+  },
+  "heroSection": {
+    "title": "Modern Solutions for Your Business",
+    "subtitle": "We are a team of talented developers creating solutions with modern technology"
+  },
+  "about": {
+    "title": "Who We Are",
+    "description": "TechZukunft is a leading technology consultancy specializing in open-source solutions, custom development, cloud migration, and continuous maintenance for businesses in Germany and beyond.",
+    "content": "At the heart of innovation, we are a team of tech enthusiasts dedicated to transforming businesses through advanced technological solutions. Our expertise spans across consultancy, development, and strategic implementations, making us pioneers in leveraging technology to unlock potential and drive growth. Committed to excellence and fueled by passion, we envision a future where technology creates endless opportunities for our clients.",
+    "readMore": "Read More"
+  },
+  "values": {
+    "title": "Our Values",
+    "description": "Innovation, Integrity, Collaboration, propelling us towards excellence in technology."
+  },
+  "counts": {
+    "happyClients": "Happy Clients",
+    "projects": "Projects",
+    "hoursOfSupport": "Hours Of Support",
+    "hardWorkers": "Hard Workers"
+  },
+  "features": {
+    "title": "Features",
+    "description": "Innovative, efficient, and scalable tech solutions for your unique needs."
+  },
+  "services": {
+    "title": "Services",
+    "description": "Customized tech consulting, development, and maintenance to transform and elevate your business."
+  },
+  "portfolio": {
+    "title": "Portfolio",
+    "description": "Check our latest work"
+  },
+  "testimonials": {
+    "title": "Testimonials",
+    "description": "What they are saying about us"
+  },
+  "team": {
+    "title": "Team",
+    "description": "Our hard working team"
+  },
+  "pricing": {
+    "title": "Pricing",
+    "description": "Check our Pricing"
+  },
+  "faq": {
+    "title": "F.A.Q",
+    "description": "Frequently Asked Questions"
+  },
+  "blog": {
+    "title": "Blog",
+    "description": "Recent posts form our Blog"
+  },
+  "contact": {
+    "title": "Contact",
+    "description": "Contact Us"
+  },
+  "footer": {
+    "newsletter": "Our Newsletter",
+    "newsletterDescription": "Tamen quem nulla quae legam multos aute sint culpa legam noster magna",
+    "links": "Useful Links",
+    "services": "Our Services",
+    "contactUs": "Contact Us",
+    "socialMedia": "Social Media"
+  }
+}

@@ -1,0 +1,107 @@
+{
+  "title": {
+    "title": "TechZukunft - Shaping the Future with Technology"
+  },
+  "header": {
+    "home": "首页",
+    "about": "关于我们",
+    "services": "服务",
+    "portfolio": "作品集",
+    "team": "团队",
+    "blog": "博客",
+    "dropdown": "下拉菜单",
+    "dropdown1": "下拉菜单 1",
+    "deepDropdown": "深层下拉菜单",
+    "deepDropdown1": "深层下拉菜单 1",
+    "deepDropdown2": "深层下拉菜单 2",
+    "deepDropdown3": "深层下拉菜单 3",
+    "deepDropdown4": "深层下拉菜单 4",
+    "deepDropdown5": "深层下拉菜单 5",
+    "dropdown2": "下拉菜单 2",
+    "dropdown3": "下拉菜单 3",
+    "dropdown4": "下拉菜单 4",
+    "megaMenu": "巨型菜单",
+    "megaMenuColumn1Link1": "第一列链接 1",
+    "megaMenuColumn1Link2": "第一列链接 2",
+    "megaMenuColumn1Link3": "第一列链接 3",
+    "megaMenuColumn2Link1": "第二列链接 1",
+    "megaMenuColumn2Link2": "第二列链接 2",
+    "megaMenuColumn2Link3": "第二列链接 3",
+    "megaMenuColumn3Link1": "第三列链接 1",
+    "megaMenuColumn3Link2": "第三列链接 2",
+    "megaMenuColumn3Link3": "第三列链接 3",
+    "megaMenuColumn4Link1": "第四列链接 1",
+    "megaMenuColumn4Link2": "第四列链接 2",
+    "megaMenuColumn4Link3": "第四列链接 3",
+    "contact": "联系我们",
+    "getStarted": "开始",
+    "languageSwitcher": {
+      "english": "英语",
+      "german": "德语",
+      "chinese": "中文"
+    }
+  },
+  "heroSection": {
+    "title": "我们为您的业务增长提供现代化解决方案",
+    "subtitle": "我们是一支才华横溢的设计师团队，使用Bootstrap制作网站"
+  },
+  "about": {
+    "title": "我们是谁",
+    "description": "我们为所有渴望发展的企业提供全方位服务。我们的团队由经验丰富的设计师和开发者组成。",
+    "readMore": "阅读更多"
+  },
+  "values": {
+    "title": "我们的价值观",
+    "description": "我们坚信通过创新和专业技能可以帮助企业实现其目标。"
+  },
+  "counts": {
+    "happyClients": "满意的客户",
+    "projects": "项目数量",
+    "hoursOfSupport": "支持小时数",
+    "hardWorkers": "勤奋工作者"
+  },
+  "features": {
+    "title": "特点",
+    "description": "我们提供的服务具有多样性和创新性，致力于满足客户的需求。"
+  },
+  "services": {
+    "title": "我们的服务",
+    "description": "我们提供广泛的服务，包括网站设计、开发、市场营销等。"
+  },
+  "portfolio": {
+    "title": "作品集",
+    "description": "查看我们最新的作品"
+  },
+  "testimonials": {
+    "title": "客户评价",
+    "description": "他们对我们的评价"
+  },
+  "team": {
+    "title": "我们的团队",
+    "description": "我们勤奋的团队"
+  },
+  "pricing": {
+    "title": "定价",
+    "description": "查看我们的价格"
+  },
+  "faq": {
+    "title": "常见问题",
+    "description": "经常被问到的问题"
+  },
+  "blog": {
+    "title": "博客",
+    "description": "我们博客的最新文章"
+  },
+  "contact": {
+    "title": "联系方式",
+    "description": "与我们联系"
+  },
+  "footer": {
+    "newsletter": "我们的简报",
+    "newsletterDescription": "订阅我们的简报，获取最新信息。",
+    "links": "有用的链接",
+    "services": "我们的服务",
+    "contactUs": "联系我们",
+    "socialMedia": "社交媒体"
+  }
+}
