@@ -1,0 +1,78 @@
+---
+title: "Win7搭建Django开发环境"
+date: "2014-07-15 17:32:46"
+slug: "win7-e6-90-ad-e5-bb-badjango-e5-bc-80-e5-8f-91-e7-8e-af-e5-a2-83"
+layout: "post"
+categories: ["Python"]
+tags: ["python", "win7", "django"]
+---
+1、官网下载并安装python 2.7.5
+
+2、配置python 环境变量
+
+在Path中加入python安装目录：
+
+`PATH=PATH;c:\python26`
+
+在PATHEXT中加入以下变量，可以直接在cmd中运行python程序
+
+`PATHEXT=PATHEXT;.PY;.PYM`
+
+3、安装Django
+
+在官网<http://www.djangoproject.com/download/> 下载最新版Django，并解压
+
+用管理员身份打开cmd窗口，cd到Django解压目录，执行
+
+`python setup.py install`
+
+如此，则环境已经搭建完成
+
+4、使用eclipse创建第一个Django工程
+
+打开eclipse，Window -> Preferences -> PyDev -> Interpreter - Python
+
+点Auto Config，自动配置python环境变量
+
+![](http://img.blog.csdn.net/20130822233155078)
+
+点击 File -> New -> Project，选择PyDev Django Project
+
+![](http://img.blog.csdn.net/20130822233030625)
+
+命名为DjangoTest
+
+![](http://img.blog.csdn.net/20130822233238437)
+
+![](http://img.blog.csdn.net/20130822233316296)
+
+点击Finish 完成。
+
+此时已经创建好一个新的Django 工程。如下所示，有4个文件
+
+![](http://img.blog.csdn.net/20130822234418906)
+
+\_\_init\_\_.py ：让 Python 把该目录当成一个开发包 (即一组模块)所需的文件。
+manage.py ：一种命令行工具，可让你以多种方式与该 Django 项目进行交互。
+settings.py ：该 Django 项目的设置或配置。
+urls.py ：该 Django 项目的 URL 声明，即 Django 所支撑站点的内容列表
+
+5、测试Django 工程
+
+在工程目录点击右键，Run As -> PyDev: Django
+
+等待console加载完成后，出现如下结果：
+
+`Validating models...
+0 errors found
+August 22, 2013 - 23:11:32
+Django version 1.5.2, using settings 'DjangoTest.settings'
+Development server is running at http://127.0.0.1:8000/`
+
+则工程启动正常，可以通过浏览器打开该地址，看到Django的默认网页
+
+也可以在cmd中，cd至工程目录下，运行
+
+`python manage.py runserver`
+
+得到同样结果，说明Django 环境搭建成功
