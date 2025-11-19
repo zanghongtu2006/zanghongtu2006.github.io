@@ -1,0 +1,45 @@
+---
+layout: default
+---
+
+<div class="home">
+  <h1 class="page-title">
+    {{ page.title | default: "首页" }}
+  </h1>
+
+  {% if page.excerpt %}
+  <p class="lead">
+    {{ page.excerpt }}
+  </p>
+  {% else %}
+  <p class="lead">
+    欢迎来到我的新博客（从 WordPress 迁移）。
+  </p>
+  {% endif %}
+
+  <h2>Posts</h2>
+  <ul class="post-list">
+    {% for post in site.posts %}
+    <li class="post-item">
+      <span class="post-date">
+        {{ post.date | date: "%b %-d, %Y" }}
+      </span>
+      <a class="post-link" href="{{ post.url | relative_url }}">
+        {{ post.title }}
+      </a>
+
+      {% if post.categories and post.categories != empty %}
+      <span class="post-cats">
+        {% for cat in post.categories %}
+        <a
+          href="{{ '/categories/#' | append: cat | slugify | relative_url }}"
+        >
+          {{ cat }}
+        </a>
+        {% unless forloop.last %}, {% endunless %} {% endfor %}
+      </span>
+      {% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+</div>

@@ -1,0 +1,63 @@
+---
+title: "java 实现约瑟夫环"
+date: "2014-07-15 17:31:04"
+slug: "java-e5-ae-9e-e7-8e-b0-e7-ba-a6-e7-91-9f-e5-a4-ab-e7-8e-af"
+layout: "post"
+categories: ["Java"]
+tags: ["java", "约瑟夫环", "Josephus"]
+---
+约瑟夫环是一个循环队列
+
+N个人围成一个环，从第1个开始报数，每报到K的时候，K出列
+
+求出列顺序和最后剩下的那个人
+
+`package Josephus;
+import java.util.ArrayList;
+import java.util.List;
+public class Josephus {
+public List sourceList = new ArrayList();//原始队列
+public List finalList = new ArrayList(); //最终出队队列
+public int k;//报数第k 个人出队
+public int n;//n 一共n 个人
+public void init(int k, int n){
+this.k = k;
+this.n = n;
+//初始化原始队列
+for (int i = 1; i <= n; i ++){
+sourceList.add(i);
+}
+}
+public void sequence() {
+int index = 0; //原始队列报数指针，指向当前报数人
+while (sourceList.size() > 0){
+for (int count = 1; count <= k; count++) { //count为报数
+if (sourceList.size() == 1){ //原始队列只有一人，则赋值后退出循环
+finalList.add(sourceList.get(0));
+sourceList.remove(0);
+break;
+}
+if (index == sourceList.size()){ //报数的人和原始队列人数相同，此队列已经报完一次，回到0位开始
+index = 0;
+} else {
+index = index % (sourceList.size()); //从index取余开始报数
+}
+if (count != k){ //报数没报到k，index 后移一位
+index ++;
+} else { //报数到k，移除元素，重新报数
+finalList.add(sourceList.get(index));
+sourceList.remove(index);
+break;
+}
+}
+}
+System.out.println(finalList.toString());
+}
+public static void main(String[] args) {
+Josephus josephus = new Josephus();
+josephus.init(3, 20);
+josephus.sequence();
+}
+}`
+
+参考页面：<http://blog.csdn.net/yinshuiy/article/details/5861538>
