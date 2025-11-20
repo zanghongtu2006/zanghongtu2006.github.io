@@ -2,7 +2,7 @@
 layout: page
 title: 分类
 permalink: /categories/
-redirect_to: /categories/#OpenStack
+redirect_to: /categories/
 ---
 
 {% assign cats = site.categories | sort %}

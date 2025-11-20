@@ -3,8 +3,8 @@ layout: home
 title: Home
 lang: zh
 translations:
-  en: /index/
-  de: /pages/de/index/
+  en: /
+  de: /pages/de/
 ---
 
 
