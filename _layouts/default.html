@@ -31,7 +31,7 @@
       <main class="layout-3col">
         <!-- 左侧侧栏 -->
         <aside class="sidebar sidebar-left">
-          <h3>导航</h3>
+          <h3>Navigate</h3>
           <ul class="sidebar-list">
             {% for item in site.nav %}
             <li>
@@ -40,7 +40,7 @@
             {% endfor %}
           </ul>
 
-          <h3>分类</h3>
+          <h3>Categories</h3>
           <ul class="sidebar-list">
             {% assign cats = site.categories | sort %}
             {% assign cat_slugs = site.data.category_slugs %}
@@ -76,7 +76,7 @@
 
         <!-- 右侧侧栏 -->
         <aside class="sidebar sidebar-right">
-          <h3>归档</h3>
+          <h3>Archive</h3>
           <ul class="sidebar-list">
             {% assign grouped = site.posts | group_by_exp: 'post', 'post.date |
             date: "%Y-%m"' %} {% for group in grouped %} {% assign y = group.name
@@ -87,7 +87,7 @@
             {% endfor %}
           </ul>
 
-          <h3>标签</h3>
+          <h3>Tags</h3>
           <div class="tag-cloud">
             {% assign tags = site.tags | sort %} {% for tag in tags %}
             <a
