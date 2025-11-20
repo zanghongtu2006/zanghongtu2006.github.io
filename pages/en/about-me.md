@@ -1,3 +1,12 @@
+---
+layout: default
+title: About Me
+lang: en
+translations:
+  zh: /pages/zh/about-me/
+  de: /pages/de/about-me/
+---
+
 # About Me
 
 👋 **Hi, I’m Hongtu Zang** — a Senior R&D Manager and full-stack engineer with over 15 years of experience building **cloud platforms**,  
@@ -6,7 +15,7 @@
 I focus on designing robust, secure, and scalable systems from the ground up.  
 My work spans backend engineering, cloud infrastructure, DevOps automation, and full-stack product delivery.
 
-Currently based in **Berlin, Germany** with a valid **Opportunity Card**, I’m exploring new opportunities in backend engineering,  
+Currently based in **Berlin, Germany** with a valid **Chancenkarte**, I’m exploring new opportunities in backend engineering,  
 cloud platforms, and digital health innovation.
 
 ---

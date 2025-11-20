@@ -1,44 +1,67 @@
 {%- comment -%}
-简单语言切换器（v1）：
-- 不再尝试按文章做一一对应跳转
-- 无论在哪个页面，选择语言都跳到该语言的首页：
-    EN -> /
-    中文 -> /zh/
-    DE -> /de/
+语言切换器 v2：
+- 优先在当前页面的 front matter 里找 translations：
+    translations:
+      en: /pages/en/about-me/
+      zh: /pages/zh/about-me/
+      de: /pages/de/about-me/
+- 如果当前页面本身就是某种语言，也用自身 url
+- 找不到就退回 "/"
 {%- endcomment -%}
 
 {% assign current_lang = page.lang | default: "en" %}
 
+{%- comment -%} 兜底：全都先指向首页 {%- endcomment -%}
 {% assign en_url = "/" | relative_url %}
-{% assign zh_url = "/zh/" | relative_url %}
-{% assign de_url = "/de/" | relative_url %}
+{% assign zh_url = "/" | relative_url %}
+{% assign de_url = "/" | relative_url %}
+
+{%- comment -%}
+1. 如果 front matter 里有 translations，先覆盖掉默认值
+{%- endcomment -%}
+{% if page.translations %}
+  {% if page.translations.en %}
+    {% assign en_url = page.translations.en | relative_url %}
+  {% endif %}
+  {% if page.translations.zh %}
+    {% assign zh_url = page.translations.zh | relative_url %}
+  {% endif %}
+  {% if page.translations.de %}
+    {% assign de_url = page.translations.de | relative_url %}
+  {% endif %}
+{% endif %}
+
+{%- comment -%}
+2. 当前页面本身是某个语言时，用当前 url 覆盖对应语言链接
+{%- endcomment -%}
+{% if current_lang == "en" or current_lang == "" or current_lang == nil %}
+  {% assign en_url = page.url | relative_url %}
+{% elsif current_lang == "zh" %}
+  {% assign zh_url = page.url | relative_url %}
+{% elsif current_lang == "de" %}
+  {% assign de_url = page.url | relative_url %}
+{% endif %}
 
 <div class="lang-switch">
   <select id="lang-switch">
-    <option
-      value="{{ en_url }}"
+    <option value="{{ en_url }}"
       {% if current_lang == "en" or current_lang == "" or current_lang == nil %}
         selected
-      {% endif %}
-    >
+      {% endif %}>
       EN
     </option>
 
-    <option
-      value="{{ zh_url }}"
+    <option value="{{ zh_url }}"
       {% if current_lang == "zh" %}
         selected
-      {% endif %}
-    >
+      {% endif %}>
       中文
     </option>
 
-    <option
-      value="{{ de_url }}"
+    <option value="{{ de_url }}"
       {% if current_lang == "de" %}
         selected
-      {% endif %}
-    >
+      {% endif %}>
       DE
     </option>
   </select>

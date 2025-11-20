@@ -41,7 +41,7 @@ nav:
   - title: Tag
     url: /tags/
   - title: About Me
-    url: /pages/e5-8d-9a-e4-b8-bb-e7-ae-80-e4-bb-8b/
+    url: /pages/en/about-me/
 
 # 让 GitHub Pages 识别中文 slug
 kramdown:

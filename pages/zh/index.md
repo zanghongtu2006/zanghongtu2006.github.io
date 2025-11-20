@@ -1,7 +1,10 @@
 ---
 layout: home
 title: Home
-lang: de
+lang: zh
+translations:
+  en: /index/
+  de: /pages/de/index/
 ---
 
 

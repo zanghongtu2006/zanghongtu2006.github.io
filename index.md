@@ -2,6 +2,9 @@
 layout: home
 title: Home
 lang: en
+translations:
+  zh: /pages/zh/index/
+  de: /pages/de/index/
 ---
 
 
