@@ -1,25 +1,157 @@
+# About Me
+
+👋 **Hi, I’m Hongtu Zang** — a Senior R&D Manager and full-stack engineer with over 15 years of experience building **cloud platforms**,  
+**industrial IoT systems**, **telemedicine solutions**, and **high-performance backend architectures**.
+
+I focus on designing robust, secure, and scalable systems from the ground up.  
+My work spans backend engineering, cloud infrastructure, DevOps automation, and full-stack product delivery.
+
+Currently based in **Berlin, Germany** with a valid **Opportunity Card**, I’m exploring new opportunities in backend engineering,  
+cloud platforms, and digital health innovation.
+
 ---
-title: "博主简介"
-date: "2014-07-15 16:47:58"
-slug: "e5-8d-9a-e4-b8-bb-e7-ae-80-e4-bb-8b"
-layout: "page"
-categories: []
-tags: []
+
+## 🚀 Summary
+
+- 15+ years experience in **cloud computing, system architecture, and full-stack development**  
+- Extensive background in **high-concurrency backend systems**, multi-tenant architectures, and distributed platforms  
+- Hands-on experience leading engineering teams and delivering 0-1 products  
+- Built multiple **healthcare IT solutions** including emergency telemedicine and rural health-check systems  
+- Deep experience across virtualization, DevOps tooling, and modern cloud-native development  
+
 ---
-零下十一度：
 
-09年毕业来到帝都，10年开始从事云计算行业至今已转战至互联网，历经种种磨难，填平烂坑无数。 之后进入专业打杂以及持续性打杂过程中。
+# 💼 Professional Experience
 
-专注于CloudStack，了解其内部各种实现并根据需求进行相应修改调整。
+## **Citic Cloud Network Co. Ltd — Senior R&D Manager (2017–2025)**
 
-偶尔也根据需要安装搭建或者稍有修改OpenStack。
+Led the end-to-end modernization of Citic’s enterprise cloud platform, covering system architecture, core module design,  
+DevOps pipelines, and technical leadership.
 
-目前存在于一知名互联网公司做后台基础服务开发。
+### Key work:
+- Designed a modular **AIoT platform (Web of Things)** used by industrial clients (SaaS + on-premise)
+- Deployed **OPS monitoring systems** for hospital operating rooms
+- Rolled out infrastructure used across **McDonald's China stores**
+- Co-developed a **5G-based stroke emergency consultation system** with Xuanwu Hospital & IBM
+- Built a **mobile health-check platform** for rural medical vehicles
+- Participated in large-scale annual security drills and custom cloud deployment projects
 
-离开云，稍有遗憾，但还是接触到了更多的新鲜技术，特将工作心得记录于此，希望自己能更好，也希望能帮到有同样问题的人们。
+### Achievements:
+- Passed **CAICT Trusted Cloud certification**
+- Platform adopted in **national-level digital initiatives**
+- Recipient of **Citic Group Technology Innovation Awards**
 
-得人评价：江湖气重。深感认同，原非学院派，基础亦不算扎实，从事此行业中，勉力维持，愿能深耕不辍，终成大器。
+---
 
-江湖路远，且行且珍惜。
+## **58.com — Senior Software Developer (2014–2017)**
 
-[![公众号二维码](/assets/images/2015/12/公众号二维码-300x300.jpg)](/assets/images/2015/12/公众号二维码.jpg)[![微博二维码](/assets/images/2014/07/微博二维码.png)](/assets/images/2014/07/微博二维码.png)
+Engineered high-traffic backend systems for one of China’s largest online marketplaces.
+
+### Highlights:
+- Architected a private cloud using **OpenStack Icehouse**  
+- Integrated Redis, DNS, CI/CD automation for internal cloud workflows  
+- Re-designed two core systems handling massive daily traffic:
+
+  - **IMC (Information Management Center)** — ~**4B daily requests**  
+  - **UMC (User Management Center)** — ~**1B daily requests**
+
+- Achieved:
+
+  - **10× performance improvement**
+  - **60% storage cost reduction**
+  - **30% network usage reduction**
+
+- Ensured system stability during national promotions with peak loads exceeding **50B/day**
+- Unified post & image infrastructure after the Ganji acquisition, building an SOA-based data platform
+- Led cross-datacenter migration with **zero downtime**
+
+---
+
+## **Glodon — Senior Software Developer (2014)**
+
+Designed and deployed an OpenStack-based private cloud for multiple business units.
+
+### Key tasks:
+- Integrated smart DNS (DLZ), Varnish caching, and VM monitoring
+- Created automated one-click deployment tools
+- Built CI/CD & orchestration pipelines improving delivery speed
+- Unified infra monitoring and release management
+
+### Achievement:
+- Delivered a DevOps-ready cloud foundation that accelerated software delivery across teams
+
+---
+
+## **Beijing TcloudComputing — Senior Software Developer (2010–2014)**
+
+Core developer for Elaster / ElasterStack — a multi-hypervisor cloud infrastructure platform.
+
+### Responsibilities:
+- VM orchestration, monitoring, storage automation, provisioning tools
+- Customized Apache CloudStack for enterprise HA (including upstream contributions)
+- Designed a full-stack monitoring solution using Ganglia + heartbeat
+- Developed a control plane supporting XenServer & VMware ESXi
+- Implemented cloud management modules using Python/Django/PostgreSQL
+- Delivered solutions for telecom clients (China Mobile, China Unicom, Chunghwa Telecom)
+
+### Achievement:
+- Led multiple product generations, enabling successful commercial deployment across telecom and government clients
+
+---
+
+# 🧠 Technical Expertise
+
+## **System Architecture & Backend Engineering**
+- High-concurrency backend design  
+- Distributed systems & event-driven architecture  
+- Multi-tenant platforms  
+- API design (REST, WebSocket, RPC)  
+- Fault-tolerance & HA systems  
+
+## **Cloud & Infrastructure**
+- OpenStack (Icehouse, Grizzly) — deep experience  
+- Docker, Kubernetes, microservices  
+- Bare-metal & VM orchestration  
+- Cloud deployment automation  
+
+## **DevOps & Reliability Engineering**
+- CI/CD (Jenkins, GitLab CI)  
+- Deployment automation (Ansible, Puppet, Shell)  
+- Monitoring stacks (Prometheus, Ganglia, heartbeat)  
+- Security, RBAC, TLS, WAF integration  
+
+## **Frontend & UI**
+- Vue.js for dashboards and internal tools  
+- SPA architecture, component-based design  
+
+## **Data & Storage**
+- MySQL, PostgreSQL, MongoDB  
+- Distributed caching (Redis)  
+- Message queues (Kafka, RocketMQ)
+
+## **Virtualization & Hypervisors**
+- KVM, XenServer, VMware ESXi  
+- Snapshot management, VM takeover, HA
+
+---
+
+# 🎓 Education
+
+- **Heilongjiang Institute of Science and Technology**  
+  *Bachelor of Engineering — Computer Science (2005–2009)*
+
+- **Northern Alberta Institute of Technology (NAIT), Canada**  
+  *Certificate — Computer Systems Technology (2005–2008)*
+
+---
+
+# 📫 Contact
+
+- **Email:** [zanghongtu2006@gmail.com](mailto:zanghongtu2006@gmail.com)
+- **Location:** Berlin, Germany  
+- **GitHub:** https://zanghongtu2006.github.io
+- **Personal Site:** https://YOUR_GITHUB_PAGES_URL  
+
+---
+
+> _“Engineering is not only about building systems — it’s about building systems that last.”_
