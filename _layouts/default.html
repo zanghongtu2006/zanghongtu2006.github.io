@@ -26,6 +26,7 @@
           <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
           {% endfor %}
         </nav>
+        {% include lang-switch.html %}
       </header>
 
       <main class="layout-3col">
@@ -108,5 +109,19 @@
         </small>
       </footer>
     </div>
+    <script>
+      (function () {
+        var sel = document.getElementById('lang-switch');
+        if (!sel) return;
+
+        sel.addEventListener('change', function () {
+          var url = this.value;
+          if (url && url !== '#') {
+            window.location.href = url;
+          }
+        });
+      })();
+    </script>
   </body>
 </html>
+

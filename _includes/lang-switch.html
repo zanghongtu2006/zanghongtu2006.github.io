@@ -1,0 +1,45 @@
+{%- comment -%}
+简单语言切换器（v1）：
+- 不再尝试按文章做一一对应跳转
+- 无论在哪个页面，选择语言都跳到该语言的首页：
+    EN -> /
+    中文 -> /zh/
+    DE -> /de/
+{%- endcomment -%}
+
+{% assign current_lang = page.lang | default: "en" %}
+
+{% assign en_url = "/" | relative_url %}
+{% assign zh_url = "/zh/" | relative_url %}
+{% assign de_url = "/de/" | relative_url %}
+
+<div class="lang-switch">
+  <select id="lang-switch">
+    <option
+      value="{{ en_url }}"
+      {% if current_lang == "en" or current_lang == "" or current_lang == nil %}
+        selected
+      {% endif %}
+    >
+      EN
+    </option>
+
+    <option
+      value="{{ zh_url }}"
+      {% if current_lang == "zh" %}
+        selected
+      {% endif %}
+    >
+      中文
+    </option>
+
+    <option
+      value="{{ de_url }}"
+      {% if current_lang == "de" %}
+        selected
+      {% endif %}
+    >
+      DE
+    </option>
+  </select>
+</div>

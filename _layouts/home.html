@@ -7,47 +7,61 @@ layout: default
     {{ page.title | default: "Home" }}
   </h1>
 
+  {% assign current_lang = page.lang | default: "en" %}
+  {% assign intro = site.data.home_intro[current_lang] | default: site.data.home_intro.en %}
+
   {% if page.excerpt %}
-  <p class="lead">
-    {{ page.excerpt }}
-  </p>
+    <p class="lead">
+      {{ page.excerpt }}
+    </p>
   {% else %}
-  <p class="lead">
-    Welcome to my personal tech blog.
-
-    This is where I write about the things I build, explore, and learn — from cloud platforms and backend architecture to IoT systems, DevOps automation, digital health projects, and the challenges of becoming a developer in Germany.
-
-    I use this space to document ideas, share practical experience, and keep track of my personal projects and technical experiments.
-    Sometimes the posts are deep dives into system design; sometimes they are small notes, reflections, or things I simply don’t want to forget.
-
-    I hope you find something useful or interesting here — and feel free to stop by anytime.
-
-  </p>
+    <div class="lead">
+      {{ intro | markdownify }}
+    </div>
   {% endif %}
 
   <h2>Posts</h2>
+
+  {%- comment -%}
+  Jekyll 3.10 的 Liquid 无法支持 where_exp 的复杂表达式，
+  所以只能使用手动过滤方式：
+    - 如果文章有 lang，则只显示 lang == 'en'
+    - 如果文章没有 lang（老文章），也显示
+  {%- endcomment -%}
+
   <ul class="post-list">
     {% for post in site.posts %}
-    <li class="post-item">
-      <span class="post-date">
-        {{ post.date | date: "%b %-d, %Y" }}
-      </span>
-      <a class="post-link" href="{{ post.url | relative_url }}">
-        {{ post.title }}
-      </a>
+      {% assign p_lang = post.lang | default: "" %}
 
-      {% if post.categories and post.categories != empty %}
-      <span class="post-cats">
-        {% for cat in post.categories %}
-        <a
-          href="{{ '/categories/#' | append: cat | slugify | relative_url }}"
-        >
-          {{ cat }}
+      {%- comment -%}
+      过滤条件：
+        1. p_lang 为空 → 老文章 → 显示
+        2. p_lang == "en" → 显示
+        其它语言 → 跳过
+      {%- endcomment -%}
+
+      {% if p_lang == "" or p_lang == current_lang %}
+      <li class="post-item">
+        <span class="post-date">
+          {{ post.date | date: "%b %-d, %Y" }}
+        </span>
+
+        <a class="post-link" href="{{ post.url | relative_url }}">
+          {{ post.title }}
         </a>
-        {% unless forloop.last %}, {% endunless %} {% endfor %}
-      </span>
+
+        {% if post.categories and post.categories != empty %}
+        <span class="post-cats">
+          {% for cat in post.categories %}
+            <a href="{{ '/categories/#' | append: cat | slugify | relative_url }}">
+              {{ cat }}
+            </a>
+            {% unless forloop.last %}, {% endunless %}
+          {% endfor %}
+        </span>
+        {% endif %}
+      </li>
       {% endif %}
-    </li>
     {% endfor %}
   </ul>
 </div>

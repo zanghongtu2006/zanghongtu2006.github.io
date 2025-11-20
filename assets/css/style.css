@@ -186,3 +186,21 @@ body {
     width: 100%;
   }
 }
+
+/* 多语言 */
+.site-header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.top-nav a {
+  margin-right: 16px;
+}
+
+.lang-switch select {
+  padding: 4px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
