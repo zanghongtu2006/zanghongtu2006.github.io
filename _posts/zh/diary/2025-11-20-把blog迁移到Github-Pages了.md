@@ -2,12 +2,12 @@
 layout: post
 title: "完成把blog迁移到Github Pages的工作了"
 date: 2025-11-20 10:00:00 +0100
-lang: en
+lang: zh
 translations:
-  zh: /zh/test-post/
-  de: /de/test-post/
+  en: /en/finish-migrate-blog-to-github-pages/
+  de: /de/finish-migrate-blog-to-github-pages/
 lang_ref: finish-migrate-blog-to-github-pages    # 同一篇文章三个语言版本的“共同ID”
-permalink: /en/test-post/
+permalink: /en/finish-migrate-blog-to-github-pages/
 categories: [Diary]
 ---
 

@@ -4,10 +4,10 @@ title: "Completed the migration of my blog to GitHub Pages"
 date: 2025-11-20 10:00:00 +0100
 lang: en
 translations:
-  zh: /zh/test-post/
-  de: /de/test-post/
+  zh: /zh/finish-migrate-blog-to-github-pages/
+  de: /de/finish-migrate-blog-to-github-pages/
 lang_ref: finish-migrate-blog-to-github-pages
-permalink: /en/test-post/
+permalink: /en/finish-migrate-blog-to-github-pages/
 categories: [Diary]
 ---
 
