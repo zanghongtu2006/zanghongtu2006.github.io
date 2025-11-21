@@ -8,7 +8,7 @@ translations:
   de: /de/finish-migrate-blog-to-github-pages/
 lang_ref: finish-migrate-blog-to-github-pages    # 同一篇文章三个语言版本的“共同ID”
 permalink: /en/finish-migrate-blog-to-github-pages/
-categories: [Diary]
+categories: ["Diary"]
 ---
 
 今天完成把blog迁移到Github Pages的工作了。

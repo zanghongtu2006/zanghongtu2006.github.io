@@ -8,7 +8,7 @@ translations:
   de: /de/finish-migrate-blog-to-github-pages/
 lang_ref: finish-migrate-blog-to-github-pages
 permalink: /en/finish-migrate-blog-to-github-pages/
-categories: [Diary]
+categories: ["Diary"]
 ---
 
 Today I finally completed the migration of my blog to GitHub Pages.
