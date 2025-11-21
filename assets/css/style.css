@@ -229,20 +229,26 @@ body {
 }
 
 .tag-cloud .tag {
+  display: inline-block;
   padding: 4px 10px;
+  margin: 4px;
+  font-size: 13px;
   border-radius: 6px;
-  font-size: 12px;
-  background: #0f141a;
-  border: 1px solid rgba(51,153,255,0.28);
-  color: var(--text-subtle);
-  transition: var(--transition-fast);
+
+  /* 柔和霓虹蓝 */
+  color: #9cc7ff;
+  background: rgba(40, 80, 120, 0.25);
+  border: 1px solid rgba(100, 160, 220, 0.4);
+
+  transition: all 0.25s ease;
 }
 
+/* hover 效果：轻微亮度增加 + 外发光 */
 .tag-cloud .tag:hover {
-  background: var(--accent);
-  color: #fff;
-  border-color: var(--accent-hover);
-  box-shadow: var(--shadow-glow);
+  color: #d6e8ff;
+  background: rgba(80, 140, 200, 0.35);
+  border-color: rgba(150, 200, 255, 0.75);
+  box-shadow: 0 0 6px rgba(100, 180, 255, 0.35);
 }
 
 /* ===========================
@@ -255,4 +261,21 @@ body {
   margin-top: 20px;
   font-size: 12px;
   color: var(--text-faint);
+}
+
+/* === Tag page link style - Softer Tech Blue === */
+.tags-page .content a,
+.tag-cloud a,
+.sidebar-right .tag-cloud a {
+  color: #7aa7ff;               /* 柔和科技蓝 */
+  text-decoration: none;        /* 去掉默认下划线 */
+  font-weight: 500;
+  transition: color 0.15s ease, text-shadow 0.15s ease;
+}
+
+.tags-page .content a:hover,
+.tag-cloud a:hover,
+.sidebar-right .tag-cloud a:hover {
+  color: #a8c5ff;               /* 悬停微亮 */
+  text-shadow: 0 0 6px #5a8cff; /* 科技感光晕 */
 }
