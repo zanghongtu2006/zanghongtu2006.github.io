@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Multilingual Test Post"
+title: "完成把blog迁移到Github Pages的工作了"
 date: 2025-11-20 10:00:00 +0100
 lang: en
 translations:
