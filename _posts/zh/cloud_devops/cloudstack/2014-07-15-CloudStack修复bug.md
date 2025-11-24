@@ -1,6 +1,9 @@
 ---
 layout: post
 lang: zh
+translations:
+  en: /en/cloudstack-e4-bf-ae-e5-a4-8dbug/
+  de: /de/cloudstack-e4-bf-ae-e5-a4-8dbug/
 title: "CloudStack修复bug"
 date: "2014-07-15 17:26:25"
 slug: "cloudstack-e4-bf-ae-e5-a4-8dbug"

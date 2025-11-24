@@ -1,6 +1,9 @@
 ---
 layout: post
 lang: zh
+translations:
+  en: /en/cloudstack-e6-90-ad-e5-bb-bakvm-e5-a4-9a-e7-bd-91-e5-8d-a1-e7-8e-af-e5-a2-83/
+  de: /de/cloudstack-e6-90-ad-e5-bb-bakvm-e5-a4-9a-e7-bd-91-e5-8d-a1-e7-8e-af-e5-a2-83/
 title: "CloudStack搭建KVM多网卡环境"
 date: "2014-07-15 17:33:30"
 slug: "cloudstack-e6-90-ad-e5-bb-bakvm-e5-a4-9a-e7-bd-91-e5-8d-a1-e7-8e-af-e5-a2-83"

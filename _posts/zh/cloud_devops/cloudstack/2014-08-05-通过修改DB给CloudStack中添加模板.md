@@ -1,8 +1,12 @@
 ---
+layout: post
+lang: zh
+translations:
+  en: /en/e9-80-9a-e8-bf-87-e4-bf-ae-e6-94-b9db-e7-bb-99cloudstack-e4-b8-ad-e6-b7-bb-e5-8a-a0-e6-a8-a1-e6-9d-bf/
+  de: /de/e9-80-9a-e8-bf-87-e4-bf-ae-e6-94-b9db-e7-bb-99cloudstack-e4-b8-ad-e6-b7-bb-e5-8a-a0-e6-a8-a1-e6-9d-bf/
 title: "通过修改DB给CloudStack中添加模板"
 date: "2014-08-05 16:48:44"
 slug: "e9-80-9a-e8-bf-87-e4-bf-ae-e6-94-b9db-e7-bb-99cloudstack-e4-b8-ad-e6-b7-bb-e5-8a-a0-e6-a8-a1-e6-9d-bf"
-layout: "post"
 categories: ["CloudStack"]
 tags: ["CloudStack", "模板"]
 ---

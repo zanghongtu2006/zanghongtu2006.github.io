@@ -1,9 +1,12 @@
 ---
 layout: post
 lang: zh
+translations:
+  en: /en/cloudstack-physical-network-architecture/
+  de: /de/cloudstack-physical-network-architecture/
 title: "CloudStack 物理网络架构"
 date: "2014-07-15 17:28:08"
-slug: "cloudstack-e7-89-a9-e7-90-86-e7-bd-91-e7-bb-9c-e6-9e-b6-e6-9e-84"
+slug: "cloudstack-physical-network-architecture"
 categories: ["CloudStack", "网络"]
 tags: ["CloudStack", "physical", "network"]
 ---
@@ -13,7 +16,7 @@ tags: ["CloudStack", "physical", "network"]
 
 理解并配置CloudStack中某个主机物理网络连接，在一开始的时候可能会显得很混乱。软件定义网络（SDN）的设置大大简化了某些方面的配置，但是其整合到CloudStack并未完全成熟，并且它并不能在任何情况下都是正确的解决方案。
 
-在本文中， Paul Angus，ShapeBlue的云计算架构师，云技术专家，将会揭开一些领域，这些领域可能会导致人们对CloudStack物理网络架构方面理解混乱。
+在本文中， Paul Angus，ShapeBlue的云计算架构师，云技术专家，将会揭开一些领域，这些领域可能会导致人们对CloudStack物理网络架构方面理解混乱。
 
 ### 物理主机: 物理主机vs. 逻辑主机
 

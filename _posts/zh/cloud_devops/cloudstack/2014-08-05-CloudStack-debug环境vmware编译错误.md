@@ -1,6 +1,9 @@
 ---
 layout: post
 lang: zh
+translations:
+  en: /en/cloudstack-debug-e7-8e-af-e5-a2-83vmware-e7-bc-96-e8-af-91-e9-94-99-e8-af-af/
+  de: /de/cloudstack-debug-e7-8e-af-e5-a2-83vmware-e7-bc-96-e8-af-91-e9-94-99-e8-af-af/
 title: "CloudStack debug环境vmware编译错误"
 date: "2014-08-05 16:50:17"
 slug: "cloudstack-debug-e7-8e-af-e5-a2-83vmware-e7-bc-96-e8-af-91-e9-94-99-e8-af-af"

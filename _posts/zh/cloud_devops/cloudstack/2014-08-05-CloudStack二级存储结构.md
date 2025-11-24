@@ -1,6 +1,9 @@
 ---
 layout: post
 lang: zh
+translations:
+  en: /en/cloudstack-e4-ba-8c-e7-ba-a7-e5-ad-98-e5-82-a8-e7-bb-93-e6-9e-84/
+  de: /de/cloudstack-e4-ba-8c-e7-ba-a7-e5-ad-98-e5-82-a8-e7-bb-93-e6-9e-84/
 title: "CloudStack二级存储结构"
 date: "2014-08-05 16:47:45"
 slug: "cloudstack-e4-ba-8c-e7-ba-a7-e5-ad-98-e5-82-a8-e7-bb-93-e6-9e-84"

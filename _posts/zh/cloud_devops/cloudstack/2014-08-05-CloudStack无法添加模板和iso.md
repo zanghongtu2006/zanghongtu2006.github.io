@@ -1,8 +1,12 @@
 ---
+layout: post
+lang: zh
+translations:
+  en: /en/cloudstack-e6-97-a0-e6-b3-95-e6-b7-bb-e5-8a-a0-e6-a8-a1-e6-9d-bf-e5-92-8ciso/
+  de: /de/cloudstack-e6-97-a0-e6-b3-95-e6-b7-bb-e5-8a-a0-e6-a8-a1-e6-9d-bf-e5-92-8ciso/
 title: "CloudStack无法添加模板和iso"
 date: "2014-08-05 16:52:08"
 slug: "cloudstack-e6-97-a0-e6-b3-95-e6-b7-bb-e5-8a-a0-e6-a8-a1-e6-9d-bf-e5-92-8ciso"
-layout: "post"
 categories: ["CloudStack"]
 tags: ["CloudStack", "添加模板"]
 ---

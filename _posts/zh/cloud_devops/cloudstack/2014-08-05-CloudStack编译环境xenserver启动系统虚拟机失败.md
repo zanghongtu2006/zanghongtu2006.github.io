@@ -1,8 +1,12 @@
 ---
+layout: post
+lang: zh
+translations:
+  en: /en/cloudstack-e7-bc-96-e8-af-91-e7-8e-af-e5-a2-83xenserver-e5-90-af-e5-8a-a8-e7-b3-bb-e7-bb-9f-e8-99-9a-e6-8b-9f-e6-9c-ba-e5-a4-b1-e8-b4-a5/
+  de: /de/cloudstack-e7-bc-96-e8-af-91-e7-8e-af-e5-a2-83xenserver-e5-90-af-e5-8a-a8-e7-b3-bb-e7-bb-9f-e8-99-9a-e6-8b-9f-e6-9c-ba-e5-a4-b1-e8-b4-a5/
 title: "CloudStack编译环境xenserver启动系统虚拟机失败"
 date: "2014-08-05 16:49:30"
 slug: "cloudstack-e7-bc-96-e8-af-91-e7-8e-af-e5-a2-83xenserver-e5-90-af-e5-8a-a8-e7-b3-bb-e7-bb-9f-e8-99-9a-e6-8b-9f-e6-9c-ba-e5-a4-b1-e8-b4-a5"
-layout: "post"
 categories: ["CloudStack"]
 tags: ["can not create vdi", "copy_vhd_from_second"]
 ---
