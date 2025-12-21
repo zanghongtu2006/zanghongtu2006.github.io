@@ -1,11 +1,12 @@
 ---
 layout: post
 lang: de
+slug: duolingo-en-de-upgrade-a2
+permalink: /de/duolingo-en-de-upgrade-a2/
 translations:
   en: /en/duolingo-en-de-upgrade-a2/
+  de: /de/duolingo-en-de-upgrade-a2/
   zh: /zh/duolingo-en-de-upgrade-a2/
-lang_ref: duolingo-en-de-upgrade-a2    # 同一篇文章三个语言版本的“共同ID”
-permalink: /de/duolingo-en-de-upgrade-a2/
 title: "Duolingo Deutsch A2 Fortschritt"
 date: 2025-11-27 22:51:00 +0100
 categories: ["Diary"]
