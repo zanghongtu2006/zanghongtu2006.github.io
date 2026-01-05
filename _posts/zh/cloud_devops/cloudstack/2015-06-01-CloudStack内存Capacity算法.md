@@ -6,5 +6,9 @@ layout: "post"
 categories: ["未分类"]
 tags: []
 draft: true
+lang: zh
+permalink: /zh/post-357/
+translations:
+  zh: /zh/post-357/
 ---
 详解

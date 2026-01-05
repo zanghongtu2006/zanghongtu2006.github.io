@@ -1,14 +1,14 @@
 ---
 layout: post
-lang: zh
-translations:
-  en: /en/cloudstack-e5-85-a8-e5-b1-80-e9-85-8d-e7-bd-ae-e5-8f-82-e6-95-b0/
-  de: /de/cloudstack-e5-85-a8-e5-b1-80-e9-85-8d-e7-bd-ae-e5-8f-82-e6-95-b0/
 title: "CloudStack系统虚拟机启动但不在Host表中"
 date: "2014-11-24 16:39:27"
 slug: "cloudstack-e7-b3-bb-e7-bb-9f-e8-99-9a-e6-8b-9f-e6-9c-ba-e5-90-af-e5-8a-a8-e4-bd-86-e4-b8-8d-e5-9c-a8host-e8-a1-a8-e4-b8-ad"
 categories: ["CloudStack"]
 tags: ["CloudStack"]
+lang: zh
+permalink: /zh/cloudstack-e7-b3-bb-e7-bb-9f-e8-99-9a-e6-8b-9f-e6-9c-ba-e5-90-af-e5-8a-a8-e4-bd-86-e4-b8-8d-e5-9c-a8host-e8-a1-a8-e4-b8-ad/
+translations:
+  zh: /zh/cloudstack-e7-b3-bb-e7-bb-9f-e8-99-9a-e6-8b-9f-e6-9c-ba-e5-90-af-e5-8a-a8-e4-bd-86-e4-b8-8d-e5-9c-a8host-e8-a1-a8-e4-b8-ad/
 ---
 今天有网友问到这个问题，CloudStack中，系统虚拟机正常启动，Running状态。  
 但是在host表中没有相应项，上传下载模板等功能也不正常。  

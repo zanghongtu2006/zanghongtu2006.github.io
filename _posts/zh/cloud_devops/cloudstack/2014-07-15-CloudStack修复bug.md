@@ -1,14 +1,14 @@
 ---
 layout: post
-lang: zh
-translations:
-  en: /en/cloudstack-e4-bf-ae-e5-a4-8dbug/
-  de: /de/cloudstack-e4-bf-ae-e5-a4-8dbug/
 title: "CloudStack修复bug"
 date: "2014-07-15 17:26:25"
 slug: "cloudstack-e4-bf-ae-e5-a4-8dbug"
 categories: ["Java", "CloudStack"]
 tags: ["CloudStack", "bug", "patch"]
+lang: zh
+permalink: /zh/cloudstack-e4-bf-ae-e5-a4-8dbug/
+translations:
+  zh: /zh/cloudstack-e4-bf-ae-e5-a4-8dbug/
 ---
 CloudStack应用越来越广，但是随着测试也遇到了越来越多的bug。
 

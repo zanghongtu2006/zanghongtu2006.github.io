@@ -6,8 +6,12 @@ layout: "post"
 categories: ["未分类"]
 tags: []
 draft: true
+lang: zh
+permalink: /zh/post-405/
+translations:
+  zh: /zh/post-405/
 ---
-CloudStack运维需要什么能力？
-虚拟化
-网络
+CloudStack运维需要什么能力？   
+虚拟化  
+网络  
 开发能力：Python，Java

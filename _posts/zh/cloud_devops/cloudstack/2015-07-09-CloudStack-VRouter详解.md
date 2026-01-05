@@ -6,6 +6,10 @@ layout: "post"
 categories: ["未分类"]
 tags: []
 draft: true
+lang: zh
+permalink: /zh/post-433/
+translations:
+  zh: /zh/post-433/
 ---
-功能
+功能  
 实现

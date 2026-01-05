@@ -6,5 +6,9 @@ layout: "post"
 categories: ["未分类"]
 tags: []
 draft: true
+lang: zh
+permalink: /zh/post-464/
+translations:
+  zh: /zh/post-464/
 ---
 怎么从DB开始，逐步生成XML

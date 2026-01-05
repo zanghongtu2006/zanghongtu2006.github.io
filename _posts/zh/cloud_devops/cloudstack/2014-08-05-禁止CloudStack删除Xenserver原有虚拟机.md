@@ -1,14 +1,14 @@
 ---
 layout: post
-lang: zh
-translations:
-  en: /en/e7-a6-81-e6-ad-a2cloudstack-e5-88-a0-e9-99-a4xenserver-e5-8e-9f-e6-9c-89-e8-99-9a-e6-8b-9f-e6-9c-ba/
-  de: /de/e7-a6-81-e6-ad-a2cloudstack-e5-88-a0-e9-99-a4xenserver-e5-8e-9f-e6-9c-89-e8-99-9a-e6-8b-9f-e6-9c-ba/
 title: "禁止CloudStack删除Xenserver原有虚拟机"
 date: "2014-08-05 16:51:22"
 slug: "e7-a6-81-e6-ad-a2cloudstack-e5-88-a0-e9-99-a4xenserver-e5-8e-9f-e6-9c-89-e8-99-9a-e6-8b-9f-e6-9c-ba"
 categories: ["CloudStack"]
 tags: ["xenserver", "删除vm"]
+lang: zh
+permalink: /zh/e7-a6-81-e6-ad-a2cloudstack-e5-88-a0-e9-99-a4xenserver-e5-8e-9f-e6-9c-89-e8-99-9a-e6-8b-9f-e6-9c-ba/
+translations:
+  zh: /zh/e7-a6-81-e6-ad-a2cloudstack-e5-88-a0-e9-99-a4xenserver-e5-8e-9f-e6-9c-89-e8-99-9a-e6-8b-9f-e6-9c-ba/
 ---
 CloudStack在文档中指明需要加入一台干净的Xenserver作为hyperviser。
 

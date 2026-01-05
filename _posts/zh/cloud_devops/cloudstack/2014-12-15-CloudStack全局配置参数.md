@@ -1,14 +1,14 @@
 ---
 layout: post
-lang: zh
-translations:
-  en: /en/cloudstack-e5-85-a8-e5-b1-80-e9-85-8d-e7-bd-ae-e5-8f-82-e6-95-b0/
-  de: /de/cloudstack-e5-85-a8-e5-b1-80-e9-85-8d-e7-bd-ae-e5-8f-82-e6-95-b0/
 title: "CloudStack全局配置参数"
 date: "2014-12-15 14:36:36"
 slug: "cloudstack-e5-85-a8-e5-b1-80-e9-85-8d-e7-bd-ae-e5-8f-82-e6-95-b0"
 categories: ["CloudStack"]
 tags: []
+lang: zh
+permalink: /zh/cloudstack-e5-85-a8-e5-b1-80-e9-85-8d-e7-bd-ae-e5-8f-82-e6-95-b0/
+translations:
+  zh: /zh/cloudstack-e5-85-a8-e5-b1-80-e9-85-8d-e7-bd-ae-e5-8f-82-e6-95-b0/
 ---
 `account.cleanup.interval`  
 清除用户账户所需要等待的时间（秒）；类型：整数；默认86400  

@@ -1,14 +1,14 @@
 ---
 layout: post
-lang: zh
-translations:
-  en: /en/cloudstack-e6-90-ad-e5-bb-bakvm-e5-a4-9a-e7-bd-91-e5-8d-a1-e7-8e-af-e5-a2-83/
-  de: /de/cloudstack-e6-90-ad-e5-bb-bakvm-e5-a4-9a-e7-bd-91-e5-8d-a1-e7-8e-af-e5-a2-83/
 title: "CloudStack搭建KVM多网卡环境"
 date: "2014-07-15 17:33:30"
 slug: "cloudstack-e6-90-ad-e5-bb-bakvm-e5-a4-9a-e7-bd-91-e5-8d-a1-e7-8e-af-e5-a2-83"
 categories: ["CloudStack"]
 tags: ["CloudStack", "kvm", "多网卡"]
+lang: zh
+permalink: /zh/cloudstack-e6-90-ad-e5-bb-bakvm-e5-a4-9a-e7-bd-91-e5-8d-a1-e7-8e-af-e5-a2-83/
+translations:
+  zh: /zh/cloudstack-e6-90-ad-e5-bb-bakvm-e5-a4-9a-e7-bd-91-e5-8d-a1-e7-8e-af-e5-a2-83/
 ---
 软件环境：agent：CentOS 6.3，minimal安装，CPU启用VT
 
@@ -25,17 +25,18 @@ tags: ["CloudStack", "kvm", "多网卡"]
     private ip：192.168.1.21~192.168.1.30
 
 1 、在agent 上先搭建网桥：
-
-`# brctl addbr cloudbr0
+```shell
+# brctl addbr cloudbr0
 # brctl addif cloudbr0 eth0
 # brctl addbr cloudbr1
-# brctl addif cloudbr1 eth1`
-
+# brctl addif cloudbr1 eth1
+```
 修改网卡配置，使eth0和eth1分别通过cloudbr0和cloudbr1通信
 
 ifcfg-eth0:
 
-`DEVICE=eth0
+```text
+DEVICE=eth0
 BOOTPROTO=none
 HWADDR=00:50:56:90:4E:97
 NM_CONTROLLED=yes
@@ -43,10 +44,11 @@ ONBOOT=yes
 TYPE=Ethernet
 UUID=f50419b9-b29a-4be2−b5a5-8639d5125d2c
 BRIDGE=cloudbr0`
-
+```
 ifcfg-cloudbr0:
 
-`DEVICE=cloudbr0
+```text
+DEVICE=cloudbr0
 TYPE=Bridge
 BOOTPROTO=none
 ONBOOT=yes
@@ -56,21 +58,22 @@ GATEWAY=10.10.25.1
 DNS1=8.8.8.8
 DNS2=8.8.4.4
 STP=yes`
-
+```
 2、修改主机名：
 
-`# hostname kvm.test.cloud`
-
+```shell
+# hostname kvm.test.cloud
+```
 修改/etc/hosts和/etc/sysconfig/network，将主机名写入文件中，重启agent主机
 
 3、安装agent
-
 yum或下载安装包都可以
 
 4、修改管理服务主机名
 
-`# hostname manage.test.cloud`
-
+```shell
+# hostname manage.test.cloud
+```
 修改/etc/hosts和/etc/sysconfig/network，将主机名写入文件中，重启主机
 
 5、准备主存储和二级存储
@@ -85,11 +88,15 @@ yum或下载安装包都可以
 
 编辑/etc/exports写入以下内容
 
-`/export/ *(rw,async,no_root_squash)`
+```text
+/export/ *(rw,async,no_root_squash)
+```
 
 启动nfs服务
 
-`# service nfs start`
+```bash
+# service nfs start
+```
 
 6、关闭management-server 防火墙和SELinux
 

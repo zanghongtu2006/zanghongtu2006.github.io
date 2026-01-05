@@ -1,14 +1,14 @@
 ---
 layout: post
-lang: zh
-translations:
-  en: /en/cloudstack-physical-network-architecture/
-  de: /de/cloudstack-physical-network-architecture/
 title: "CloudStack 物理网络架构"
 date: "2014-07-15 17:28:08"
 slug: "cloudstack-physical-network-architecture"
 categories: ["CloudStack", "网络"]
 tags: ["CloudStack", "physical", "network"]
+lang: zh
+permalink: /zh/cloudstack-physical-network-architecture/
+translations:
+  zh: /zh/cloudstack-physical-network-architecture/
 ---
 **原文地址：<http://www.shapeblue.com/cloudstack/understanding-cloudstacks-physical-networking-architecture/>**
 

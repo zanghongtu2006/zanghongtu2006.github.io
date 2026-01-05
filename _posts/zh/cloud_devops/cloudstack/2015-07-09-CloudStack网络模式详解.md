@@ -6,13 +6,17 @@ layout: "post"
 categories: ["未分类"]
 tags: []
 draft: true
+lang: zh
+permalink: /zh/post-430/
+translations:
+  zh: /zh/post-430/
 ---
-基本模式
-1、基本网络
-2、网卡
-3、Hyperviser网络
-4、安全组
-高级模式
-1、shared
-2、seperated
+# 基本模式  
+1、基本网络  
+2、网卡  
+3、Hyperviser网络  
+4、安全组  
+# 高级模式
+1、shared  
+2、seperated  
 3、NAT等

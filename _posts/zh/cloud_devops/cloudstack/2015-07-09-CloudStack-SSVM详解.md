@@ -6,9 +6,13 @@ layout: "post"
 categories: ["未分类"]
 tags: []
 draft: true
+lang: zh
+permalink: /zh/post-428/
+translations:
+  zh: /zh/post-428/
 ---
-SSVM功能
-模板导入
-模板创建
-快照
+SSVM功能  
+模板导入  
+模板创建  
+快照  
 防火墙

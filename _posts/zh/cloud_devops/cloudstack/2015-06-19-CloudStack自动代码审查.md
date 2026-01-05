@@ -6,5 +6,9 @@ layout: "post"
 categories: ["未分类"]
 tags: []
 draft: true
+lang: zh
+permalink: /zh/post-412/
+translations:
+  zh: /zh/post-412/
 ---
 http://outofmemory.cn/maven/FAQ/how-to-add-checkstyle-pmd-jdenpend-check-in-maven
