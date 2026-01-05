@@ -2,21 +2,21 @@
 layout: post
 lang: en
 translations:
-  en: /zh/cloudstack-code-reading-11/
+  en: /en/cloudstack-code-reading-11/
+  zh: /zh/cloudstack-code-reading-11/
+permalink: /en/cloudstack-code-reading-11/
 slug: "cloudstack-code-reading-11"
-title: "CloudStack Code Reading 11 —— User Management （Account / Domain / Project / Role / AccessControl）"
+title: "CloudStack Code（11）—— Analysis of the user system（Account / Domain / Project / Role / AccessControl）"
 date: "2015-03-25 15:54:43"
 categories: ["CloudStack"]
 tags: ["account", "domain", "acl", "accesscontrol", "rbac", "source-analysis"]
 draft: false
 ---
 
-CloudStack 的用户体系是一个 **多租户隔离模型**，采用层级域（Domain Tree）+ 账户（Account）+ 角色（Role）+ 资源所有权（Ownership）+ 访问控制（AccessControlService）等多重机制构成。  
-本章从源码角度解析 CloudStack 如何通过 Domain/Account/Role 对 API、资源、网络进行严格隔离。
+CloudStack's user system is a **multi-tenant isolation model**, which consists of multiple mechanisms such as Domain Tree, Account, Role, Resource Ownership, and Access Control Service.
+# 1. Main Components of CloudStack User Model
 
-# 1. CloudStack 用户模型主要组件（源码结构）
-
-```text
+```
 server/src/com/cloud/user/
     ├── AccountManagerImpl.java
     ├── DomainManagerImpl.java
@@ -31,13 +31,13 @@ server/src/com/cloud/api/acl/
     ├── RolePermissionsDaoImpl.java
 ```
 
-# 2. Domain：CloudStack 用户体系核心
+# 2. Domain: The Core of the CloudStack User System
 
-## 2.1 Domain 是资源隔离的最上级单位
+## 2.1 Domain is the highest-level unit of resource isolation
 
-Domain 构成一棵树：
+Domains form a tree:
 
-```text
+```
 ROOT DOMAIN
    ├── Department A
    │      ├── Team A1
@@ -46,9 +46,9 @@ ROOT DOMAIN
           ├── ...
 ```
 
-源码结构：
+souce code structure:
 
-```text
+```
 DomainVO
     id
     name
@@ -56,42 +56,42 @@ DomainVO
     path
 ```
 
-Domain path 如：
+Domain path:
 
-```text
+```
 /ROOT/DepartmentA/TeamA2/
 ```
 
-Domain 决定：
+Domain decides:
 
-- 账户所属层级  
-- 可见资源范围  
-- 网络可访问性  
-- 允许的操作（上级对下级有管理权限）
+- Account hierarchy
+- Visible resource scope
+- Network accessibility
+- Permitted operations (superior has administrative privileges over subordinates)
 
-# 3. Account：真正拥有资源的实体
+# 3. Account: Entities that truly own the resources
 
-Account 是 CloudStack 的资源所有者：
+The account is the owner of the CloudStack resources.
 
 - VM  
 - Volume  
 - Network  
 - Snapshot  
 - Template  
-- IP 地址  
+- IP Address  
 
-Account 类型：
+Account Type:
 
-```text
-ADMIN = 管理员账户
-DOMAIN ADMIN = 管理子域资源
-USER = 普通用户
-PROJECT = 项目账户（虚拟账户）
+```
+ADMIN = Administrator account
+DOMAIN ADMIN = Manages subdomain resources
+USER = Regular user
+PROJECT = Project account (virtual account)
 ```
 
-AccountVO（核心字段）：
+AccountVO（key fields）:
 
-```text
+```
 id
 account_name
 domain_id
@@ -100,13 +100,12 @@ state
 uuid
 ```
 
-# 4. User 与 UserAccount
+# 4. User and UserAccount
 
-User 是 Account 下的登录主体，一个 Account 可以包含多个 User。
+A User is the login subject under an Account. An Account can contain multiple Users.
+UserAccountVO:
 
-UserAccountVO：
-
-```text
+```
 id
 account_id
 username
@@ -116,76 +115,74 @@ api_key
 secret_key
 ```
 
-User 绑定 API Key/Secret Key，实现 API 鉴权。
+User is bound to API Key/Secret Key to achieve API authentication.
+# 5. Project: Cross-Account Collaboration Mechanism
 
-# 5. Project：跨账户协作机制
+A Project is a "shared account" in CloudStack that allows multiple accounts to collaborate on using resources within the same Project.  
 
-Project 是 CloudStack 的“共享账户”，允许多个 Account 在放置于同一 Project 中协作使用资源。
+Key Classes:
 
-关键类：
-
-```text
+```
 ProjectManagerImpl
 ProjectAccountVO
 ProjectInvitationVO
 ```
 
-Project 在资源访问时会替代 Account，提供一个虚拟的共享身份。
+When accessing resources, Project replaces Account, providing a virtual shared identity.
 
-# 6. 资源所有权（Ownership）源码级解析
+# 6. Ownership
 
-所有资源（VM/Network/Volume）都带有：
-
-```text
+All resources (VM/Network/Volume) come with:
+```
 account_id
 domain_id
 ```
 
-典型 VO：
+typical VO:
 
 VolumeVO:
 
-```text
+```
 private long accountId;
 private long domainId;
 ```
 
-资源权限检查：
+Resource permission check:
 
-```text
+```
 Account caller = CallContext.current().getCallingAccount();
 _accessControlService.checkAccess(caller, null, true, resourceObj);
 ```
 
-# 7. AccessControlService：权限验证核心
+# 7. AccessControlService: Access verification core
 
-位置：
+Located at:
 
-```text
+```
 com.cloud.api.acl.AccessControlService
 ```
 
-默认实现：
+Default implementation:
 
-```text
+```
 com.cloud.api.acl.DomainChecker
 ```
 
-核心方法：
+key function:
 
 ```java
 public void checkAccess(Account caller, AccessType accessType, boolean sameOwner, ControlledEntity... entities)
 ```
 
-### 7.1 权限规则
+### 7.1 Access Control Rules
 
-- Root admin 可以访问所有资源  
-- Domain admin 可以管理本域及子域资源  
-- User 仅能访问自己资源  
-- Project 成员可访问 Project 资源  
-- ControlledEntity 由 Account 绑定  
+- Root admin can access all resources.
+- Domain admin can manage resources within the current domain and subdomains.
+- User can only access their own resources.
+- Project members can access Project resources.
+- ControlledEntity is bound to an Account.
 
-### 7.2 checkAccess 源码解析
+### 7.2 checkAccess source code
 
 ```java
 if (caller.getType() == Account.ACCOUNT_TYPE_ADMIN) {
@@ -201,52 +198,51 @@ for (ControlledEntity entity : entities) {
 }
 ```
 
-检查项目：
+Check items:
 
-1. 账户类型  
-2. 域层级关系  
-3. 资源归属  
-4. 特殊规则（Network，Template 公有属性等）
+1. Account type
+2. Domain hierarchy
+3. Resource ownership
+4. Special rules (Network, Template public properties, etc.)
 
-# 8. API 层权限控制（@APICommand）
+# 8. API layer access control（@APICommand）
 
-每个 API 命令使用：
+Each API command uses:
 
-```text
+```
 @APICommand(authorized = {RoleType.Admin, RoleType.DomainAdmin})
 ```
 
-例如：
+Example:
 
 ```java
 @APICommand(name = "deleteVirtualMachine",
             authorized = {RoleType.Admin, RoleType.ResourceAdmin})
 ```
 
-ApiServer 在映射 API 时会先校验调用者是否属于 authorized 列表。
+When mapping APIs, ApiServer first checks whether the caller belongs to the authorized list.
 
-源码路径：
+Source Path:
 
-```text
+```
 ApiServer.checkCommandAvailable(cmdClass, callerAccount)
 ```
 
-# 9. RBAC（Role Based Access Control）角色权限控制
+# 9. RBAC（Role Based Access Control）
 
-CloudStack 的 RBAC 模型基于：
+CloudStack's RBAC model is based on:
 
-- 角色（Role）
-- 权限（RolePermission）
-- API 与 Role 映射表
+- Roles
+- RolePermissions
+- API to Role mapping table
 
-数据表：
-
-```text
+DB Table:
+```
 roles
 role_permissions
 ```
 
-RolePermissionsDaoImpl：
+RolePermissionsDaoImpl:
 
 ```java
 boolean isPermitted(long roleId, String apiName) {
@@ -255,9 +251,9 @@ boolean isPermitted(long roleId, String apiName) {
 }
 ```
 
-# 10. 用户体系时序图（登录与 API 调用）
+# 10. User system sequence diagram (login and API calls)
 
-```text
+```
 User login
   |
   v
@@ -279,11 +275,11 @@ AccessControlService.checkAccess()
 Execute API
 ```
 
-# 11. Domain / Account / Project / Role 权限综合交互示意图（ASCII）
+# 11. Comprehensive Interaction Diagram of Domain / Account / Project / Role Permissions
 
-```text
+```
 ROOT DOMAIN (root-admin)
-/        \
+/       
 A        B   (domain-admin)
 |        |
 A1       B1  (regular users)
@@ -293,59 +289,56 @@ Project-1 (shared identity for A1 + B1 users)
    |--- owns VMs / Networks / Volumes
 ```
 
-API 调用权限由：
+API call permissions are jointly determined by:
 
-- 调用者类型  
-- 域层级  
-- 资源 account/domain  
-- project 成员关系  
-- role permission  
-- API authorized 列表  
+- Caller type
+- Domain level
+- Resource account/domain
+- Project membership
+- Role permission
+- List of API authorized permissions
 
-共同决定。
-
-# 12. 常见权限问题与源码排查
+# 12. Common permission issues and source code troubleshooting
 
 ## 12.1 PermissionDeniedException
 
-```text
+```
 AccessControlService.checkAccess() failed
 ```
 
-检查：
+Check:
 
-- resource.domain_id 是否属于 caller 可见范围  
-- resource.account_id 是否匹配  
-- project 成员是否正确  
+- Is resource.domain_id within the caller's visibility range?
+- Does resource.account_id match?
+- Are the project members correct?
 
-## 12.2 API 调用 531 权限不足
+## 12.2 API call error 531 - Insufficient permissions.
 
-ApiServer：
+ApiServer:
 
-```text
+```
 API is not permitted for this role
 ```
 
-检查 role_permissions 是否配置正确。
+Check if role_permissions is configured correctly.
+## 12.3 Resources are "domain isolated"
 
-## 12.3 资源被“域隔离”
+If the VM belongs to a subdomain, but the caller is in a sibling domain:
 
-如果 VM 属于子域，而调用者在兄弟域：
-
-```text
+```
 Domain mismatch
 ```
 
-# 13. 小结
+# 13. Summary
 
-CloudStack 的用户体系由如下部分组成：
+CloudStack's user system consists of the following components:
 
-- **Domain（域层级）**：决定可见范围  
-- **Account（资源所有权）**：决定资源归属  
-- **User（登录主体）**  
-- **Project（共享账户）**  
-- **Role（角色）**  
-- **AccessControlService（权限核心）**  
-- **@APICommand 的 authorized 规则**  
+- **Domain (Domain Level)**: Determines the visibility scope
+- **Account (Resource Ownership)**: Determines resource ownership
+- **User (Login Principal)**
+- **Project (Shared Account)**
+- **Role (Role)**
+- **AccessControlService (Access Control Service)**
+- **Authorized rules for @APICommand**
 
-CloudStack 的多层 ACL 模型虽然复杂，但其源码非常清晰：**始终围绕资源的 account/domain 两个字段进行验证**。
+While CloudStack's multi-tiered ACL model is complex, its source code is very clear: **it always revolves around validating the resource's account/domain fields**.

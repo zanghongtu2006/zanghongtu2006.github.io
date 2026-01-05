@@ -21,7 +21,7 @@ CloudStack 的安全体系由以下部分构成：
 - Domain / Account 隔离  
 - 系统行为审计（CallContext）  
 
-# 1. API 安全体系结构（源码路径）
+# 1. API 安全体系结构
 
 ```
 server/src/com/cloud/api/
@@ -63,7 +63,7 @@ validateRequest(params)
  → authenticateUser()
 ```
 
-# 3. Signature 计算流程（源码级）
+# 3. Signature 计算流程
 
 ## 3.1 客户端签名步骤
 
@@ -270,7 +270,7 @@ isChildDomain(caller.domain, resource.domain)
 CallContext.current().getCallingAccount()
 ```
 
-# 11. API 安全时序图（ASCII）
+# 11. API 安全时序图
 
 ```
 API Request
@@ -288,7 +288,7 @@ API Request
                   +--> execute()
 ```
 
-# 12. 常见安全问题与解决方法（源码级）
+# 12. 常见安全问题与解决方法
 
 ## 12.1 签名不匹配（Signature mismatch）
 

@@ -2,34 +2,37 @@
 layout: post
 lang: en
 translations:
-  en: /zh/cloudstack-code-reading-10/
+  en: /en/cloudstack-code-reading-10/
+  zh: /zh/cloudstack-code-reading-10/
+permalink: /en/cloudstack-code-reading-10/
 slug: "cloudstack-code-reading-10"
-title: "CloudStack Code Reading 10 —— Scheduler and Resource（Host / Storage / Network Allocator）"
+title: "CloudStack Code（10）—— Scheduler and Resource Allocation（Host / Storage / Network Allocator）"
 date: "2015-03-24 12:33:54"
 categories: ["CloudStack"]
 tags: ["scheduler", "allocator", "deploy", "host", "storage", "source-analysis"]
 draft: false
 ---
-调度（Scheduler / Allocator）是 CloudStack 的“大脑之一”，负责决定：
-- VM 应该运行在哪台 Host 上  
-- Volume 应该存储在哪个 StoragePool  
-- 网络资源是否可用  
-- 如何回避不健康节点、资源不足节点  
-- 如何配合 Orchestration Engine 执行复杂部署
+The scheduler (or allocator) is a core component of CloudStack, responsible for determining:
 
-# 1. 调度体系架构总览（源码定位）
+- Which host a VM should run on
+- Which StoragePool a volume should be stored in
+- Network resource availability
+- How to avoid unhealthy or resource-insufficient nodes
+- How to work with the Orchestration Engine to perform complex deployments
 
-CloudStack 调度器被拆成三层：
+# 1. Scheduling System Architecture Overview (Source Code Location)
 
-```text
-1. DeploymentPlanningManager（负责 orchestrateDeployVM 的整体调度入口）
-2. Host Allocator（挑选 Host）
-3. StoragePool Allocator（挑选存储池）
+The CloudStack scheduler is divided into three layers:
+
+``` text
+1. DeploymentPlanningManager (responsible for the overall scheduling entry point of orchestrateDeployVM)
+2. Host Allocator (selects hosts)
+3. StoragePool Allocator (selects storage pools)
+
 ```
+Source Code Path:
 
-源码路径：
-
-```text
+```
 engine/orchestration/src/com/cloud/deploy/
     ├── DeploymentPlanningManagerImpl.java
     ├── FirstFitPlanner.java
@@ -44,13 +47,13 @@ engine/storage/src/com/cloud/storage/allocator/
     ├── FirstFitStoragePoolAllocator.java
 ```
 
-# 2. DeploymentPlanningManager：调度入口
+# 2. DeploymentPlanningManager:Dispatch Entry
 
-## 2.1 调用链
+## 2.1 Dispatch chain
 
-VM 调度链路：
+VM Dispatch Chain:
 
-```text
+```
 orchestrateDeployVM()
  → DeploymentPlanningManager.plan()
     → Planner.design()
@@ -58,7 +61,7 @@ orchestrateDeployVM()
     → StoragePoolAllocator.select()
 ```
 
-关键方法：
+Key methods:
 
 ```java
 @Override
@@ -74,25 +77,24 @@ public DeployDestination plan(VirtualMachineProfile vmProfile, DeploymentPlan pl
 }
 ```
 
-# 3. Planner（第一层调度）
+# 3. Planner（Level 1 Scheduling）
 
-Planner 决定使用何种算法挑选资源。
+The Planner determines which algorithm to use to select resources.
 
-CloudStack 默认 Planner：
+CloudStack Default Planner:
 
-- **FirstFitPlanner**（最常用）
+- **FirstFitPlanner**（Most commonly used）
 - ClusterBasedPlanner
 - ImplicitPlanner
 
-## 3.1 FirstFitPlanner 关键逻辑
+## 3.1 FirstFitPlanner Key Logic
 
-位置：
-
-```text
+Located at:
+```
 engine/orchestration/com/cloud/deploy/FirstFitPlanner.java
 ```
 
-源码：
+Souce code:
 
 ```java
 public DeployDestination plan(...) {
@@ -108,33 +110,32 @@ public DeployDestination plan(...) {
 }
 ```
 
-FirstFit = 先找到第一个满足 CPU/MEM/Storage 条件的 Cluster。
+FirstFit = Find the first cluster that meets the CPU/MEM/Storage criteria.
 
-Planner 决定整体方向，而真正提供候选资源的，是下面的 Allocator。
+The Planner determines the overall direction, but the Allocator below is responsible for providing the actual candidate resources.
 
-# 4. HostAllocator（主机选择 · 源码级解析）
+# 4. HostAllocator
 
-位置：
+Located at:
 
-```text
+```
 server/src/com/cloud/agent/manager/allocator/HostAllocator.java
 ```
 
-主要实现：
+Main implementations:
 
 - **FirstFitAllocator**
-- UserConcentratedPodAllocator（按用户集中度选 host）
-- RandomAllocator（随机）
+- UserConcentratedPodAllocator (selects hosts based on user concentration)
+- RandomAllocator (random selection)
 
-核心接口：
-
+Key interfaces:
 ```java
 List<Host> allocateTo(VirtualMachineProfile vm, DeployDestination dest, ExcludeList avoid);
 ```
 
-## 4.1 FirstFitAllocator 实现
+## 4.1 FirstFitAllocator implementation
 
-关键方法（缩写）：
+Key function:
 
 ```java
 hosts = _hostDao.listAllUpAndEnabledByCluster(clusterId);
@@ -148,31 +149,31 @@ for (Host host : hosts) {
 return null;
 ```
 
-### 检查 CPU 和内存：
+### Check CPU and MEM:
 
 ```java
 host.getTotalMemory() - host.getUsedMemory() > vmMemRequired
 host.getCpus() * host.getCpuSpeed() > vmCpuRequired
 ```
 
-另外还会检查：
+Additionally, the following will be checked:
 
-- host 是否维护模式  
-- host 是否兼容 hypervisor  
-- 网络是否能从该 host 路由  
+- Whether the host is in maintenance mode
+- Whether the host is compatible with the hypervisor
+- Whether the network can be routed from this host
 
-# 5. StoragePoolAllocator（存储池选择 · 源码级解析）
+# 5. StoragePoolAllocator
 
-存储调度同样插件化：
+Storage scheduling is also modular:
 
-```text
+```
 StoragePoolAllocator
   ├── FirstFitStoragePoolAllocator
   ├── LocalStoragePoolAllocator
   └── ClusterScopeStorageAllocator
 ```
 
-关键接口：
+Key interface:
 
 ```java
 List<StoragePool> select(VirtualMachineProfile vm, Long dataCenterId, Long podId, Long clusterId);
@@ -180,7 +181,7 @@ List<StoragePool> select(VirtualMachineProfile vm, Long dataCenterId, Long podId
 
 ## 5.1 FirstFitStoragePoolAllocator
 
-源码逻辑：
+Souce code:
 
 ```java
 for (StoragePoolVO pool : availablePools) {
@@ -192,25 +193,25 @@ for (StoragePoolVO pool : availablePools) {
 }
 ```
 
-调度因素：
+Scheduling factors:
 
-- 池容量  
-- 池可达性（网络拓扑）  
-- 存储标签（Storage Tags）  
-- 模板是否存在于 pool 中  
+- Pool capacity
+- Pool reachability (network topology)
+- Storage tags
+- Template existence in the pool
 
-# 6. Network Allocator（网络可达性验证）
+# 6. Network Allocator
 
-调度还需验证网络是否能在目标 Host 运行。
+Scheduling also requires verifying whether the network can operate on the target host.
 
-调用链：
+Schedule chain:
 
-```text
+```
 DeploymentPlanningManager.plan()
  → _networkModel.isVmNetworksPresentOnHost(vm, host)
 ```
 
-网络匹配逻辑：
+Network matching logic:
 
 ```java
 List<NicProfile> nics = vm.getNics();
@@ -220,37 +221,35 @@ for (NicProfile nic : nics) {
 return true;
 ```
 
-网络可达性包括：
+Network reachability includes:
 
-- BroadcastDomain 类型匹配  
-- VLAN 在目标 host 是否 trunk  
-- VR 是否存在且能为该 host 服务  
+- BroadcastDomain type matching
+- Whether the VLAN is trunked on the target host
+- Whether the VR exists and can serve this host
 
-# 7. 限制与回避（ExcludeList）
+# 7. ExcludeList
 
-ExcludeList 是调度中非常关键但常被忽视的结构。
+ExcludeList is a crucial but often overlooked structure in scheduling.
 
-它用于记录**不应使用的资源**：
-
-```text
+It is used to record **resources that should not be used**.
+```
 hostsToAvoid
 poolsToAvoid
 clustersToAvoid
 podsToAvoid
 ```
 
-调度失败时：
+When scheduling fails:
 
 ```java
 avoid.addHost(hostId);
 avoid.addPool(poolId);
 ```
 
-调度重试会根据 ExcludeList 避开问题资源。
+Retry scheduling will avoid problematic resources based on the ExcludeList.
+# 8. Complete scheduling sequence diagram
 
-# 8. 调度完整时序图（ASCII）
-
-```text
+```
 orchestrateDeployVM
  |
  v
@@ -270,62 +269,63 @@ DeploymentPlanningManager.plan()
  +--> Build DeployDestination(dc,pod,cluster,host,pool)
 ```
 
-# 9. 调度失败点 · 源码级分析
+# 9. Scheduling failure
 
-## 9.1 Host 无可用资源
+## 9.1 Host has no available resources
 
-```text
+```
 InsufficientServerCapacityException
 ```
 
-原因：
-- CPU/MEM 不足
-- host 处于维护模式
-- AvoidList 避开了所有 host
+Reasons:
 
-## 9.2 StoragePool 满
+- Insufficient CPU/MEM
+- Host is in maintenance mode
+- AvoidList avoids all hosts
 
-```text
+## 9.2 StoragePool FULL
+
+```
 No suitable storage pool
 ```
 
-检查：
+Check:
 
-```text
+```
 storage_pool.used_bytes
 storage_pool.capacity_bytes
 ```
 
-## 9.3 网络不可达
+## 9.3 Network unreachable
 
 ```
 Network is not available on host
 ```
 
-检查 VLAN trunk、VR 状态。
+Check VLAN trunk and VR status.
 
-# 10. Host / Storage Capacity 表结构（DB 层）
+# 10. Host / Storage Capacity Table Structure
 
 ## 10.1 op_host_capacity
 
-存储 host 的容量信息：
+Storage host capacity information:
 
-```text
+```
 host_id
 capacity_type
 total_capacity
 used_capacity
 ```
 
-VM 启动后更新容量：
+Update capacity after VM starts:
 
-```text
+```
 UPDATE op_host_capacity SET used += vm_mem
 ```
 
-## 10.2 storage_pool 表
+## 10.2 storage_pool
 
-```text
+```
 id
 available_bytes
 capacity_bytes
@@ -333,24 +333,22 @@ status
 scope
 ```
 
-# 11. 调度关键类小结
+# 11. Summary of Key Scheduling Classes
 
-| 层级 | 类 | 作用 |
+| Hierarchy | Class | Function |
 |------|------|------|
-| 调度入口 | DeploymentPlanningManager | 调用 Planner |
-| Planner | FirstFitPlanner | 整体调度策略 |
-| HostAllocator | FirstFitAllocator | 主机选择 |
-| StorageAllocator | FirstFitStoragePoolAllocator | 存储池选择 |
-| 网络验证 | NetworkModelImpl | VLAN/trunk/VR 检查 |
-| 回避列表 | ExcludeList | 动态避免 bad host/pool |
+| Scheduling Entry Point | DeploymentPlanningManager | Calls Planner |
+| Planner | FirstFitPlanner | Overall Scheduling Strategy |
+| HostAllocator | FirstFitAllocator | Host Selection |
+| StorageAllocator | FirstFitStoragePoolAllocator | Storage Pool Selection |
+| Network Authentication | NetworkModelImpl | VLAN/trunk/VR Check |
+| ExcludeList | ExcludeList | Dynamically Avoids Bad Hosts/Pools |
 
-# 12. 总结
+# 12. Summary
 
-CloudStack 的调度体系不是单层算法，而是多层协同结构：
+CloudStack's scheduling system is not a single-layer algorithm, but a multi-layer collaborative structure:
 
-- **Planner → Allocators → NetworkModel → ExcludeList**  
-- CPU/MEM/Storage/Network 联合决策  
-- 插件化的 HostAllocator / StoragePoolAllocator  
-- ExcludeList 提供“动态学习”能力  
-
-理解这个流程，就能完全掌握 CloudStack 部署失败、资源不足、调度异常的根本原因。
+- **Planner → Allocators → NetworkModel → ExcludeList**
+- Joint decision-making across CPU/MEM/Storage/Network
+- Pluggable HostAllocator / StoragePoolAllocator
+- ExcludeList provides "dynamic learning" capabilities

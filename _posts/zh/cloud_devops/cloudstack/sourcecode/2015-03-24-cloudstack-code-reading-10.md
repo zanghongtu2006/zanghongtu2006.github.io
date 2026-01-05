@@ -12,7 +12,7 @@ categories: ["CloudStack"]
 tags: ["scheduler", "allocator", "deploy", "host", "storage", "source-analysis"]
 draft: false
 ---
-调度（Scheduler / Allocator）是 CloudStack 的“大脑之一”，负责决定：
+调度（Scheduler / Allocator）是 CloudStack 的核心组件，负责决定：
 - VM 应该运行在哪台 Host 上  
 - Volume 应该存储在哪个 StoragePool  
 - 网络资源是否可用  
@@ -114,7 +114,7 @@ FirstFit = 先找到第一个满足 CPU/MEM/Storage 条件的 Cluster。
 
 Planner 决定整体方向，而真正提供候选资源的，是下面的 Allocator。
 
-# 4. HostAllocator（主机选择 · 源码级解析）
+# 4. HostAllocator（主机选择）
 
 位置：
 
@@ -136,7 +136,7 @@ List<Host> allocateTo(VirtualMachineProfile vm, DeployDestination dest, ExcludeL
 
 ## 4.1 FirstFitAllocator 实现
 
-关键方法（缩写）：
+关键方法：
 
 ```java
 hosts = _hostDao.listAllUpAndEnabledByCluster(clusterId);
@@ -163,7 +163,7 @@ host.getCpus() * host.getCpuSpeed() > vmCpuRequired
 - host 是否兼容 hypervisor  
 - 网络是否能从该 host 路由  
 
-# 5. StoragePoolAllocator（存储池选择 · 源码级解析）
+# 5. StoragePoolAllocator（存储池选择）
 
 存储调度同样插件化：
 
@@ -250,7 +250,7 @@ avoid.addPool(poolId);
 
 调度重试会根据 ExcludeList 避开问题资源。
 
-# 8. 调度完整时序图（ASCII）
+# 8. 调度完整时序图
 
 ```
 orchestrateDeployVM
@@ -272,7 +272,7 @@ DeploymentPlanningManager.plan()
  +--> Build DeployDestination(dc,pod,cluster,host,pool)
 ```
 
-# 9. 调度失败点 · 源码级分析
+# 9. 调度失败点
 
 ## 9.1 Host 无可用资源
 
@@ -306,7 +306,7 @@ Network is not available on host
 
 检查 VLAN trunk、VR 状态。
 
-# 10. Host / Storage Capacity 表结构（DB 层）
+# 10. Host / Storage Capacity 表结构
 
 ## 10.1 op_host_capacity
 

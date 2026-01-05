@@ -2,29 +2,28 @@
 layout: post
 lang: en
 translations:
-  en: /zh/cloudstack-code-reading-12/
+  en: /en/cloudstack-code-reading-12/
+  zh: /zh/cloudstack-code-reading-12/
+permalink: /en/cloudstack-code-reading-12/
 slug: "cloudstack-code-reading-12"
-title: "CloudStack Code Reading 12 —— Security Model （API Key / Signature / RBAC / ACL / Anti-Unauthroized Access）"
+title: "CloudStack Code（12）—— Analysis of security models (API Key / Signature / RBAC / ACL / prevention of privilege escalation)"
 date: "2015-03-25 22:46:33"
 categories: ["CloudStack"]
 tags: ["security", "signature", "api", "rbac", "acl", "source-analysis"]
 draft: false
 ---
+CloudStack's security architecture consists of the following components:
 
-CloudStack 的安全体系由以下部分构成：
+- API Key / Secret Key → Request Signature
+- HMAC-SHA1 → Parameter Signature Verification
+- RBAC (Role-Based Access Control)
+- AccessControlService → Resource-Level Permission Check
+- Domain / Account Isolation
+- System Behavior Auditing (CallContext)
 
-- API Key / Secret Key → 请求签名  
-- HMAC-SHA1 → 参数签名校验  
-- RBAC（基于角色的访问控制）  
-- AccessControlService → 资源级权限检查  
-- Domain / Account 隔离  
-- 系统行为审计（CallContext）  
+# 1. API Security Architecture
 
-本章以 CloudStack 4.2.2 源码为基础，对 CloudStack 的安全机制进行完整解析。
-
-# 1. API 安全体系结构（源码路径）
-
-```text
+```
 server/src/com/cloud/api/
     ├── ApiServer.java
     ├── ApiServlet.java
@@ -41,47 +40,47 @@ server/src/com/cloud/api/acl/
     ├── DomainChecker.java
 ```
 
-# 2. API Key / Secret Key：认证基础
+# 2. API Key / Secret Key: Authentication Basics
 
-UserAccountVO 包含：
+UserAccountVO contains:
 
-```text
+```
 api_key
 secret_key
 ```
 
-当用户调用：
+When a user calls:
 
-```text
+```
 https://cs/api?command=listVirtualMachines&apiKey=...&signature=...
 ```
 
-CloudStack 在 ApiServer 中执行：
+CloudStack executes the following in the APIServer:
 
-```text
+```
 validateRequest(params)
  → verifySignature(apiKey, signature)
  → authenticateUser()
 ```
 
-# 3. Signature 计算流程（源码级）
+# 3. Signature Calculation Process
 
-## 3.1 客户端签名步骤
+## 3.1 Client Signature Steps
 
 Pseudo:
 
-```text
-1. 所有参数转小写
-2. 按字母排序
+```
+1. Convert all parameters to lowercase
+2. Sort alphabetically
 3. URL encode
-4. 拼成 "key=value&key=value"
-5. 使用 secretKey 做 HMAC-SHA1
-6. 结果做 Base64 encode
+4. Concatenate into "key=value&key=value"
+5. Perform HMAC-SHA1 using secretKey
+6. Base64 encode the result
 ```
 
-## 3.2 服务端校验流程
+## 3.2 Server-side verification process
 
-ApiServer.java：
+ApiServer.java:
 
 ```java
 String signature = params.remove("signature");
@@ -93,7 +92,7 @@ if (!computedSignature.equals(signature)) {
 }
 ```
 
-核心方法：
+Key function:
 
 ```java
 private String signRequest(String request, String key) {
@@ -104,34 +103,34 @@ private String signRequest(String request, String key) {
 }
 ```
 
-# 4. APIAuthenticator：用户认证逻辑
+# 4. APIAuthenticator: User authentication logic
 
 ```text
 APIAuthenticationManagerImpl
 ```
 
-认证顺序：
+Authentication order:
 
 ```text
-1. 如果提供 sessionKey → 尝试登录 session
-2. 如果提供 apiKey → 校验签名
-3. 如果仍无身份 → 抛出未认证
+1. If a sessionKey is provided → Attempt to log in to the session
+2. If an apiKey is provided → Verify the signature
+3. If no identity is found → Throw an unauthenticated error
 ```
 
-# 5. CallContext：请求上下文与审计
+# 5. CallContext: Request Context and Auditing
 
-CallContext 是 CloudStack 所有 API 调用的上下文记录器。
+CallContext is a context logger for all API calls in CloudStack.
 
-关键内容：
+Key Content:
 
-```text
+```
 caller userId
 caller accountId
 context parameters
 event type
 ```
 
-源码：
+Souce code:
 
 ```java
 public static void registerCaller(User callingUser, Account callingAccount) {
@@ -139,19 +138,17 @@ public static void registerCaller(User callingUser, Account callingAccount) {
 }
 ```
 
-CallContext 贯穿整个调用链，为审计提供依据。
+CallContext runs throughout the entire call chain, providing a basis for auditing.
+# 6. API access control（@APICommand）
 
-# 6. API 权限控制（@APICommand）
-
-每个 API 必须声明自己的权限：
-
+Each API must declare its own permissions:
 ```java
 @APICommand(name = "deleteUser",
             authorized = {RoleType.Admin},
             responseObject = SuccessResponse.class)
 ```
 
-ApiServer 验证：
+ApiServer authorzation:
 
 ```java
 if (!cmdSpec.isAuthorized(callerRole)) {
@@ -159,24 +156,24 @@ if (!cmdSpec.isAuthorized(callerRole)) {
 }
 ```
 
-# 7. AccessControlService：资源级别安全检查（ACL）
+# 7. AccessControlService（ACL）
 
-ACL 核心类：
+ACL core classes:
 
-```text
+```
 AccessControlService
 DomainChecker（默认实现）
 ```
 
-核心方法：
+Key function:
 
 ```java
 checkAccess(caller, AccessType.UseEntry, true, resourceObj);
 ```
 
-## 7.1 关键检查逻辑
+## 7.1 Key inspection logic
 
-DomainChecker：
+DomainChecker:
 
 ```java
 if (caller.getType() == ROOT_ADMIN) return;
@@ -193,48 +190,50 @@ if (entity.getAccountId() != caller.getAccountId() &&
 }
 ```
 
-# 8. Resource Ownership（资源所有权隔离）
+---
 
-每个资源（VM / Volume / Network）都实现：
+# 8. Resource Ownership
 
-```text
+Each resource (VM/Volume/Network) implements:
+
+```
 ControlledEntity
 ```
 
-字段：
+Fields:
 
-```text
+```
 account_id
 domain_id
 ```
 
-CloudStack 的隔离逻辑基于这两个字段。
+CloudStack's isolation logic is based on these two fields.
 
-举例：用户 A 无法访问域 B 的 VM，因为：
+Example: User A cannot access a VM in domain B because:
 
-```text
+```
 caller.domain != resource.domain
 caller.account != resource.account
 ```
 
-# 9. RBAC：角色权限模型
+# 9. RBAC 
 
-### 角色（Role）
+### Role
 
-```text
+```
 roles.id
 roles.name
 ```
 
-### 权限（Role Permissions）
+### Role Permissions
 
-```text
+```
 role_permissions.role_id
 role_permissions.api_name
 role_permissions.allow
 ```
 
-RolePermissionsDaoImpl：
+RolePermissionsDaoImpl:
 
 ```java
 boolean isPermitted(long roleId, String apiName) {
@@ -243,35 +242,35 @@ boolean isPermitted(long roleId, String apiName) {
 }
 ```
 
-# 10. 防越权机制
+# 10. Anti-unauthorization mechanism
 
-## 10.1 资源 belong-to 检查
+## 10.1 Resource belong-to check
 
-```java
+```
 if (resource.accountId != caller.accountId)
 ```
 
-## 10.2 域继承关系检查
+## 10.2 Domain inheritance relationship check
 
-```java
+```
 isChildDomain(caller.domain, resource.domain)
 ```
 
-## 10.3 特权 API 限制
+## 10.3 Privileged API Restrictions
 
-```java
+```
 @APICommand(authorized = {RoleType.Admin})
 ```
 
-## 10.4 身份上下文检查
+## 10.4 Identity Context Check
 
-```java
+```
 CallContext.current().getCallingAccount()
 ```
 
-# 11. API 安全时序图（ASCII）
+# 11. API Security Sequence Diagram
 
-```text
+```
 API Request
   |
   +--> ApiServer.receiveRequest()
@@ -287,46 +286,45 @@ API Request
                   +--> execute()
 ```
 
-# 12. 常见安全问题与解决方法（源码级）
+# 12. Common security issues and solutions
 
-## 12.1 签名不匹配（Signature mismatch）
+## 12.1 Signature mismatch
 
-原因：
+Reasons:
 
-- 参数大小写错误  
-- URL encode 不一致  
-- 参数排序不一致  
+- Incorrect parameter case
+- Inconsistent URL encoding
+- Inconsistent parameter order
+## 12.2 Unauthorized access to resources
 
-## 12.2 越权访问资源
+Exception:
 
-报错：
-
-```text
+```
 PermissionDeniedException
 ```
 
-检查：
+Check:
 
-- domain_id 是否属于子树  
-- account_id 是否一致  
-- rolePermissions 是否允许调用 API  
+- Does domain_id belong to a subtree?
+- Does account_id match?
+- Does rolePermissions allow API calls?
 
-## 12.3 跨域访问网络失败
+## 12.3 Cross-domain network access failed
 
-```text
+```
 Network is owned by another domain
 ```
 
-# 13. 小结
+# 13. Summary
 
-CloudStack 安全体系由多个层级构成：
+The CloudStack security architecture consists of multiple layers:
 
-- API Key / Secret Key（鉴权）
-- HMAC-SHA1（签名）
-- RBAC（角色能力）
-- AccessControlService（资源访问控制）
-- Domain / Account（层级隔离）
-- Project（协作安全边界）
-- CallContext（审计）
+- API Key / Secret Key (Authentication)
+- HMAC-SHA1 (Signature)
+- RBAC (Role-Based Account)
+- AccessControlService (Resource Access Control)
+- Domain / Account (Hierarchical Isolation)
+- Project (Collaboration Security Boundary)
+- CallContext (Audit)
 
-CloudStack 的安全设计在多租户环境中极其严谨，并通过严格的资源 ownership、domain tree、角色权限模型构成完整闭环。
+CloudStack's security design is extremely rigorous in multi-tenant environments, forming a complete closed loop through strict resource ownership, domain tree, and role-based access control models.

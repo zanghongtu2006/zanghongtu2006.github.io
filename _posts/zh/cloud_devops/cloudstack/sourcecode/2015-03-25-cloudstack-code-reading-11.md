@@ -15,8 +15,7 @@ draft: false
 
 CloudStack 的用户体系是一个 **多租户隔离模型**，采用层级域（Domain Tree）+ 账户（Account）+ 角色（Role）+ 资源所有权（Ownership）+ 访问控制（AccessControlService）等多重机制构成。  
 
-# 1. CloudStack 用户模型主要组件（源码结构）
-
+# 1. CloudStack 用户模型主要组件
 ```
 server/src/com/cloud/user/
     ├── AccountManagerImpl.java
@@ -133,7 +132,7 @@ ProjectInvitationVO
 
 Project 在资源访问时会替代 Account，提供一个虚拟的共享身份。
 
-# 6. 资源所有权（Ownership）源码级解析
+# 6. 资源所有权（Ownership）
 
 所有资源（VM/Network/Volume）都带有：
 
@@ -280,11 +279,12 @@ AccessControlService.checkAccess()
 Execute API
 ```
 
-# 11. Domain / Account / Project / Role 权限综合交互示意图（ASCII）
+# 11. Domain / Account / Project / Role 权限综合交互示意图
 
 ```
 ROOT DOMAIN (root-admin)
-/       A        B   (domain-admin)
+/       
+A        B   (domain-admin)
 |        |
 A1       B1  (regular users)
 
