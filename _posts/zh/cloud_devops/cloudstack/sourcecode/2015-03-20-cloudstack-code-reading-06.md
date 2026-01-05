@@ -12,9 +12,10 @@ categories: ["CloudStack"]
 tags: ["orchestration", "workflow", "vm", "source-analysis"]
 draft: false
 ---
-CloudStack 的 Orchestration Engine（资源编排引擎）是整个 IaaS 系统的“中央神经系统”。任何 VM 生命周期操作，例如 `deployVirtualMachine`、`startVM`、`rebootVM`、`migrateVM`，最终都会走入这一套 **Workflow + StateMachine + Manager 调用链**。
+CloudStack 的 Orchestration Engine（资源编排引擎）是整个 IaaS 系统的主要模块。  
+任何 VM 生命周期操作，例如 `deployVirtualMachine`、`startVM`、`rebootVM`、`migrateVM`，最终都会走入这一套 **Workflow + StateMachine + Manager 调用链**。
 
-本篇按照“源码走读”方式，不会只讲概念，而是依据 CloudStack 4.2.2 中真实的目录结构、类名、调用栈来解释整个 VM 部署流程。
+本篇依据 CloudStack 4.2.2 中真实的目录结构、类名、调用栈来解释整个 VM 部署流程。
 
 # 1. Orchestration Engine 的主要模块
 
@@ -304,7 +305,7 @@ _stateMachine.transitTo(vm, Event.StartRequested, State.Starting)
 UPDATE vm_instance SET state='Starting' WHERE id=? AND state='Created'
 ```
 
-# 10. VM 启动完整时序图（源码级 ASCII）
+# 10. VM 启动完整时序图
 
 ```text
 User Request
@@ -334,7 +335,7 @@ VirtualMachineManagerImpl.orchestrateDeployVM()
 VM Running
 ```
 
-# 11. 常见部署失败点（源码级分析）
+# 11. 常见部署失败点
 
 ## 11.1 失败点：Host 不可用
 

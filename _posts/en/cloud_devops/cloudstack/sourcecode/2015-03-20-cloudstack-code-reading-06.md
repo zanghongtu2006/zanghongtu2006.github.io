@@ -2,22 +2,25 @@
 layout: post
 lang: en
 translations:
-  en: /zh/cloudstack-code-reading-06/
+  en: /en/cloudstack-code-reading-06/
+  zh: /zh/cloudstack-code-reading-06/
+permalink: /en/cloudstack-code-reading-06/
 slug: "cloudstack-code-reading-06"
-title: "CloudStack Code Reading 06 —— Orchestration Engine"
+title: "CloudStack Code（6）—— Orchestration Engine"
 date: "2015-03-20 23:00:03"
 categories: ["CloudStack"]
 tags: ["orchestration", "workflow", "vm", "source-analysis"]
 draft: false
 ---
-CloudStack 的 Orchestration Engine（资源编排引擎）是整个 IaaS 系统的最重要核心。  
-任何 VM 生命周期操作，例如 `deployVirtualMachine`、`startVM`、`rebootVM`、`migrateVM`，最终都会走入这一套 **Workflow + StateMachine + Manager 调用链**。
+CloudStack's Orchestration Engine is the core module of the entire IaaS system.
 
-接下来我们看一下在CloudStack源码中的真实的目录结构、类名、调用栈，以及整个 VM 部署流程。
+Any VM lifecycle operation, such as `deployVirtualMachine`, `startVM`, `rebootVM`, and `migrateVM`, ultimately follows this **Workflow + StateMachine + Manager call chain**.
 
-# 1. Orchestration Engine 的主要模块（源码路径）
+This article explains the entire VM deployment process based on the actual directory structure, class names, and call stack in CloudStack 4.2.2.
 
-```
+# 1. Main modules of Orchestration Engine
+
+```text
 engine/
   └ orchestration/
        ├── src/com/cloud/vm/VirtualMachineManagerImpl.java
@@ -33,48 +36,48 @@ engine/
              └── orchestrateDeployVM
 ```
 
-模块分层：
+Module Layering:
 
-- **VM Orchestrator**：控制 VM 整体生命周期  
-- **Deploy Planner**：负责选择物理主机  
-- **Network Orchestrator**：准备 VM 网络、NIC、VR  
-- **Volume/Storage Orchestrator**：准备 Root/Data 卷、模板、存储池  
-- **Guru（虚拟机专家）**：每种 Hypervisor 的实现差异由 Guru 决定  
-- **Workflow Engine**：顺序执行步骤（Steps）
+- **VM Orchestrator**: Controls the overall VM lifecycle.
+- **Deploy Planner**: Responsible for selecting the physical host.
+- **Network Orchestrator**: Prepares the VM network, NIC, and VR.
+- **Volume/Storage Orchestrator**: Prepares the Root/Data volume, templates, and storage pool.
+- **Guru (Virtual Machine Expert)**: Guru determines the implementation differences for each Hypervisor.
+- **Workflow Engine**: Executes steps sequentially.
 
-# 2. 从 API 到 Orchestration：完整调用链
+# 2. From API to Orchestration: Complete Call Chain
 
-用户调用：
+User Invocation:
 
 ```text
 deployVirtualMachine
 ```
 
-对应类：
+corresponding Class:
 
-```text
+```java
 org.apache.cloudstack.api.command.user.vm.DeployVMCmd
 ```
 
-其 `execute()` 方法调用：
+`execute()` method call:
 
 ```java
 UserVm result = _userVmService.deployVirtualMachine(this);
 ```
 
-我们跟进 `_userVmService`：
+We follow code into `_userVmService`:
 
 ```java
 UserVmManagerImpl.deployVirtualMachine()
 ```
 
-再进入 Orchestration Engine：
+Then we enter the Orchestration Engine:
 
 ```java
 VirtualMachineManagerImpl.orchestrateDeployVM()
 ```
 
-完整调用栈如下：
+The complete call stack is as follows:
 
 ```text
 DeployVMCmd.execute()
@@ -87,15 +90,13 @@ DeployVMCmd.execute()
      → send(StartCommand) to Agent
 ```
 
-# 3. DeploymentPlanningManager：主机选择核心
+# 3. DeploymentPlanningManager:Host Selection Core
 
-位于：
-
+Located at:
 ```text
 engine/orchestration/src/com/cloud/deploy/DeploymentPlanningManagerImpl.java
 ```
-
-核心方法：
+Core Methods:
 
 ```java
 @Override
@@ -113,30 +114,30 @@ public DeployDestination plan(VirtualMachineProfile vmProfile, DeploymentPlan pl
 }
 ```
 
-关键逻辑步骤：
+Key logical steps:
 
-1. 获取 zone/pod/cluster 列表  
-2. 遍历 cluster，检查是否满足 VM 规格  
-3. 在 cluster 内部选择 Host  
-4. 在 cluster 内选择合适存储池  
-5. 组成 `DeployDestination`
+1. Obtain the list of zone/pod/cluster
+2. Traverse the cluster and check if it meets the VM specifications
+3. Select a Host within the cluster
+4. Select a suitable storage pool within the cluster
+5. Assemble the `DeployDestination`
 
-# 4. FirstFitPlanner：CloudStack 的默认调度器
+# 4. FirstFitPlanner: The default scheduler for CloudStack
 
-位于：
+位于:
 
 ```text
 engine/orchestration/src/com/cloud/deploy/FirstFitPlanner.java
 ```
 
-主要策略：
+Key Strategies:
 
-- CPU/Memory 要求足够  
-- 同时考虑 StoragePool 容量  
-- 优先选择低负载 Cluster  
-- 过滤掉 avoid 列表中的 host/pool
+- Ensure sufficient CPU/Memory requirements
+- Consider StoragePool capacity as well
+- Prioritize low-load clusters
+- Filter out hosts/pools from the avoid list
 
-示例源码：
+Example:
 
 ```java
 List<Host> hosts = _hostDao.listAllUpAndEnabledByCluster(clusterId);
@@ -147,16 +148,15 @@ for (Host host : hosts) {
 }
 ```
 
-# 5. NetworkOrchestrator：准备网络环境
+# 5. NetworkOrchestrator: Preparing the network environment
 
-位于：
+Located at:
 
 ```text
 engine/orchestration/src/com/cloud/network/NetworkOrchestrator.java
 ```
 
-部署 VM 的网络准备流程：
-
+Network preparation process for deploying VMs:
 ```text
 prepare(vm, destination)
  → allocateNIC()
@@ -164,7 +164,7 @@ prepare(vm, destination)
  → configureVirtualRouter()
 ```
 
-### 5.1 NIC 分配
+### 5.1 NIC Allocation
 
 ```java
 NicProfile nic = new NicProfile();
@@ -174,7 +174,7 @@ nic.setNetwork(network);
 
 ### 5.2 implementNetwork()
 
-调用 NetworkGuru：
+Call NetworkGuru:
 
 ```text
 BridgeGuru
@@ -182,27 +182,27 @@ PodBasedNetworkGuru
 OvsGuestNetworkGuru
 ```
 
-Guru 决定：
+Guru decide:
 
-- 网络类型（Isolated/Shared）  
-- VLAN 分配  
-- Broadcast Domain 结构  
+- Network Type（Isolated/Shared）  
+- VLAN Allocation  
+- Broadcast Domain structrure  
 
-# 6. Storage/Volume Orchestrator：卷准备流程
+# 6. Storage/Volume Orchestrator:Volume preparation process
 
-CloudStack 启动 VM 前会确保：
+Before launching a VM, CloudStack ensures the following:
 
-- Root Volume 已创建  
-- Template 已从 Secondary Storage 拷贝到 Primary Storage  
-- Data Volume 已准备好
+- The Root Volume has been created
+- The Template has been copied from Secondary Storage to Primary Storage
+- The Data Volume is ready
 
-位于：
+Located at:
 
 ```text
 engine/storage/VolumeManagerImpl.java
 ```
 
-关键流程：
+Key processes:
 
 ```java
 createVolumeFromTemplate()
@@ -210,7 +210,7 @@ chooseStoragePool()
 copyTemplateToPool()
 ```
 
-示例源码：
+Example:
 
 ```java
 StoragePool pool = _storagePoolAllocator.allocateToPool(template, vm);
@@ -219,28 +219,27 @@ vol.setPoolId(pool.getId());
 _volumeDao.persist(vol);
 ```
 
-# 7. Guru 层：Hypervisor 特定逻辑
+# 7. Guru: Hypervisor Specific Logic
 
-位于：
-
+Located at:
 ```text
 com.cloud.vm.VirtualMachineGuru
 ```
 
-不同 Hypervisor 的实现：
+Different Hypervisor implementations:
 
 - KVMGuru  
 - XenServerGuru  
 - VMwareGuru  
 
-Guru 决定：
+Guru decide:
 
 - generate VM Name  
 - attach Volume  
 - attach NIC  
 - finalizeDeployment()
 
-示例：
+Example:
 
 ```java
 @Override
@@ -249,11 +248,11 @@ public void finalizeVirtualMachineProfile(VirtualMachineProfile profile, DeployD
 }
 ```
 
-# 8. StartCommand：VM 最终启动
+# 8. StartCommand: Final VM startup
 
-真正启动 VM 在 Hypervisor Host 上通过 Agent 实现：
+The actual VM startup is achieved on the Hypervisor Host via an Agent:
 
-调用链：
+Call chain:
 
 ```text
 VirtualMachineManagerImpl.startVirtualMachine()
@@ -261,7 +260,7 @@ VirtualMachineManagerImpl.startVirtualMachine()
  → agentMgr.send(hostId, cmds)
 ```
 
-StartCommand 示例：
+StartCommand Example:
 
 ```java
 public class StartCommand extends Command {
@@ -271,39 +270,39 @@ public class StartCommand extends Command {
 }
 ```
 
-Agent 收到 StartCommand 后会：
+Upon receiving the StartCommand, the Agent will:
 
-- 创建 libvirt XML（KVM）  
-- 或调用 XenAPI / VMware API  
-- 启动 VM  
+- Create libvirt XML (KVM)
+- Or call the XenAPI / VMware API
+- Start the VM
 
-# 9. 状态机：VM 生命周期的核心
+# 9. State Machine: The Core of the VM Lifecycle
 
-VM 有以下状态：
+VM has the following states:
 
 ```text
 Created → Starting → Running → Stopping → Stopped → Destroyed → Expunging
 ```
 
-状态机位于：
+Status Machine Located at:
 
 ```text
 engine/schema/src/com/cloud/vm/VirtualMachineState.java
 ```
 
-状态转移通过：
+State transition through:
 
 ```java
 _stateMachine.transitTo(vm, Event.StartRequested, State.Starting)
 ```
 
-并持久化到数据库：
+And persist to the database:
 
 ```java
 UPDATE vm_instance SET state='Starting' WHERE id=? AND state='Created'
 ```
 
-# 10. VM 启动完整时序图（源码级 ASCII）
+# 10. Complete VM startup timing diagram
 
 ```text
 User Request
@@ -333,17 +332,17 @@ VirtualMachineManagerImpl.orchestrateDeployVM()
 VM Running
 ```
 
-# 11. 常见部署失败点（源码级分析）
+# 11. Common Deployment Failure
 
-## 11.1 失败点：Host 不可用
+## 11.1 Failure: Host Unavailable
 
-DeploymentPlanningManager 抛：
+DeploymentPlanningManager throws:
 
-```java
+```text
 InsufficientServerCapacityException
 ```
 
-## 11.2 网络失败（Guru）
+## 11.2 Network failure（Guru）
 
 NetworkOrchestrator:
 
@@ -351,30 +350,30 @@ NetworkOrchestrator:
 Unable to implements network
 ```
 
-通常与 VLAN 或 VR 启动失败相关。
+This is usually related to VLAN or VR startup failure.
 
-## 11.3 StartCommand 失败
+## 11.3 StartCommand Failure
 
-Agent 返回：
+Agent returns:
 
-```java
+```text
 Answer == null or !Answer.getResult()
 ```
 
-日志位置：
+Log Location:
 
 ```text
 /var/log/cloudstack/agent/agent.log
 ```
 
-# 12. 小结
+# 12. Summary
 
-CloudStack Orchestration Engine 通过：
+The CloudStack Orchestration Engine utilizes:
 
-- **Planner（调度）**
-- **Orchestrators（编排）**
-- **Guru（Hypervisor 逻辑）**
-- **StateMachine（生命周期）**
-- **Agent（底层执行）**
+**Planner (Scheduling)**
+**Orchestrators (Orchestration)**
+**Guru (Hypervisor Logic)**
+**StateMachine (Lifecycle)**
+**Agent (Underlying Execution)**
 
-组成了高度模块化、可替换、可扩展的架构。
+to form a highly modular, replaceable, and scalable architecture.
