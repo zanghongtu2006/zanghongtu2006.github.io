@@ -1,0 +1,54 @@
+---
+layout: default
+---
+
+<article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">
+      {{ page.title }}
+    </h1>
+
+    <p class="post-meta">
+      <time datetime="{{ page.date | date_to_xmlschema }}">
+        {{ page.date | date: "%Y-%m-%d" }}
+      </time>
+
+      {% if page.categories and page.categories != empty %}
+        ·
+        {% for cat in page.categories %}
+          <a href="{{ '/categories-' | append: cat | slugify | relative_url }}">
+            {{ cat }}
+          </a>{% unless forloop.last %}, {% endunless %}
+        {% endfor %}
+      {% endif %}
+    </p>
+
+    {%- comment -%}
+    如果 front matter 里有 translations:
+      translations:
+        en: /en/xxx/
+        de: /de/xxx/
+        zh: /zh/xxx/
+    就在这里渲染多语言链接
+    {%- endcomment -%}
+    {% if page.translations %}
+      <nav class="post-lang-links">
+        {% if page.translations.zh and page.lang != 'zh' %}
+          <a href="{{ page.translations.zh | relative_url }}">中文</a>
+        {% endif %}
+        {% if page.translations.en and page.lang != 'en' %}
+          <a href="{{ page.translations.en | relative_url }}">English</a>
+        {% endif %}
+        {% if page.translations.de and page.lang != 'de' %}
+          <a href="{{ page.translations.de | relative_url }}">Deutsch</a>
+        {% endif %}
+      </nav>
+    {% endif %}
+  </header>
+
+  <section class="post-content">
+    {{ content }}
+  </section>
+
+</article>

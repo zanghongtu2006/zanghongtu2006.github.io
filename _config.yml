@@ -44,5 +44,7 @@ nav:
     url: /pages/en/about-me/
 
 # 让 GitHub Pages 识别中文 slug
+markdown: kramdown
+highlighter: rouge
 kramdown:
   input: GFM
