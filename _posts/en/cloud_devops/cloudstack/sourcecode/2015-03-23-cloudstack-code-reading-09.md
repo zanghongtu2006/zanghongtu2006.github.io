@@ -2,28 +2,30 @@
 layout: post
 lang: en
 translations:
-  en: /zh/cloudstack-code-reading-09/
+  en: /en/cloudstack-code-reading-09/
+  zh: /zh/cloudstack-code-reading-09/
+permalink: /en/cloudstack-code-reading-09/
 slug: "cloudstack-code-reading-09"
-title: "CloudStack Code Reading 09 —— V-Router Architecture"
+title: "CloudStack Code（9）—— Virtual Router VR Architecture and Implementation"
 date: "2015-03-23 13:22:11"
 categories: ["CloudStack"]
 tags: ["vr", "virtualrouter", "network", "source-analysis"]
 draft: false
 ---
-Virtual Router（VR）是 CloudStack 网络体系的核心组件，是 Guest Network 的“控制面大脑”。VR 执行 DHCP、DNS、LB、ACL、Port Forwarding、VPN、Source NAT 等服务。  
+Virtual Router (VR) is a core component of the CloudStack network architecture. VR performs services such as DHCP, DNS, LB, ACL, Port Forwarding, VPN, and Source NAT.
 
-# 1. VR 的定位：CloudStack 控制面设备
+# 1. VR's Role: CloudStack Control Plane Device
 
-VR 是一个特殊的 System VM，行为接近一台虚拟化的网络设备：
+VR is a special System VM that behaves almost like a virtualized network device:
 
-- 基于 VyOS/dnsmasq/haproxy 脚本体系
-- 通过 Config Commands 驱动
-- 由 Management Server 调用 RouterManager 部署和管理
-- 属于 Guest Network 的网络控制节点
+- Based on the VyOS/dnsmasq/haproxy scripting system
+- Driven by Config Commands
+- Deployed and managed by the Management Server calling RouterManager
+- A network control node belonging to the Guest Network
 
-# 2. VR 相关源码结构
+# 2. VR-related source code structure
 
-```text
+```
 plugins/network/virtualrouter/
     ├── VirtualRouterElement.java
     ├── VirtualRouterManagerImpl.java
@@ -41,20 +43,20 @@ plugins/network/virtualrouter/
            ├── LoadBalancerConfigCommand.java
 ```
 
-VR 的功能几乎全部在这些 Commands 中体现。
+Almost all of VR's functionality is embodied in these Commands.
 
-# 3. VR 生命周期：从创建到运行
+# 3. VR Lifecycle: From Creation to Operation
 
-VR 创建流程调用链：
+VR Creation Process Call Chain:
 
-```text
+```
 implementNetwork()
  → VirtualRouterElement.implement()
     → RouterManagerImpl.deployRouter()
         → VirtualRouterManagerImpl.start()
 ```
 
-关键逻辑：
+Key Logic:
 
 ## 3.1 VirtualRouterElement.implement()
 
@@ -75,16 +77,16 @@ router = _routerDao.persist(router);
 startRouter(router);
 ```
 
-# 4. VirtualRouterGuru：决定 VR 如何运行
+# 4. VirtualRouterGuru: Determining How VR Runs
 
-Guru 决定 VR 的 Hypervisor 配置：
+The Guru determines the VR Hypervisor configuration:
 
-- NIC 布局  
-- CPU/Memory  
-- 启动参数  
-- DomainRouterVO 构建
+- NIC layout
+- CPU/Memory
+- Boot parameters
+- DomainRouterVO build
 
-关键逻辑：
+Key logic:
 
 ```java
 @Override
@@ -94,17 +96,17 @@ public boolean finalizeVirtualMachineProfile(VirtualMachineProfile profile, Depl
 }
 ```
 
-Guru 决定 VR 是否使用多个 NIC：
+Guru decides whether VR uses multiple NICs:
 
-```text
+```
 Control NIC（CloudStack MGMT 通道）
 Public NIC（Source NAT / LB）
 Guest NIC（VM 所在网段）
 ```
 
-# 5. VR 内部网络拓扑（ASCII）
+# 5. VR Internal Network Topology
 
-```text
+```
               +----------------+
               |   VirtualRouter |
               +----------------+
@@ -114,43 +116,42 @@ Guest NIC（VM 所在网段）
                         +----- GUEST（DHCP/DNS/LB）
 ```
 
-VR 是 Guest Network 的网关。
+VR is the gateway for the Guest Network.
 
-# 6. VR 服务链（DHCP/DNS/LB/ACL/SNAT）源码级解析
+# 6. VR Service Chain (DHCP/DNS/LB/ACL/SNAT) Source Code Analysis
 
-CloudStack 将网络服务拆解为独立指令组：
+CloudStack breaks down network services into independent command groups:
 
-| 功能 | Command 类型 |
+| Function | Command Type |
 |------|--------------|
 | DHCP | SetDhcpConfigCommand |
 | DNS | SetDnsConfigCommand |
 | LB | LoadBalancerConfigCommand |
-| 防火墙 | SetFirewallRulesCommand |
+| Firewall | SetFirewallRulesCommand |
 | NAT | SetSourceNatCommand |
 | ACL | SetNetworkACLCommand |
 
-每个 Element（例如 VirtualRouterElement）负责把这些指令分发到 VR。
+Each Element (e.g., VirtualRouterElement) is responsible for distributing these commands to the VR.
 
-例如配置 DHCP：
-
+For example, configuring DHCP:
 ```java
 SetDhcpConfigCommand cmd = new SetDhcpConfigCommand(dhcpEntries);
 ```
 
-RouterManagerImpl：
+RouterManagerImpl:
 
 ```java
 Commands cmds = new Commands(cmd);
 _answer = _agentMgr.send(vmHostId, cmds);
 ```
 
-VR 在内部脚本 `/opt/cloud/bin/*` 执行配置。
+VR performs configuration via an internal script `/opt/cloud/bin/*`.
 
-# 7. VR 配置命令的生成流程（完整调用链）
+# 7. VR Configuration Command Generation Process
 
-以 DHCP 为例：
+Taking DHCP as an example:
 
-```text
+```
 NetworkOrchestrator.prepare()
  → VirtualRouterElement.prepare()
    → RouterManagerImpl.applyDhcpEntries()
@@ -158,44 +159,42 @@ NetworkOrchestrator.prepare()
            → new SetDhcpConfigCommand()
 ```
 
-DNS 配置链路类似：
+DNS configuration links:
 
 ```java
 SetDnsConfigCommand dnsCmd = new SetDnsConfigCommand(addresses);
 ```
 
-LB 配置链路：
+LB configuration links:
 
 ```java
 ApplyLoadBalancerRulesCommand cmd = new ApplyLoadBalancerRulesCommand(rules);
 ```
 
-# 8. VR 的 System VM 架构
+# 8. VR's System VM Architecture
 
-VR 本质上是一台特殊的 System VM，运行在 Hypervisor 上。
+VR is essentially a special System VM running on a hypervisor.
 
-其镜像系统：
+Its image system:
 
-```text
+```
 /usr/share/cloudstack-common/vms/systemvm.iso
 ```
 
-内部组件：
+Internal Components:
 
-- dnsmasq：DHCP/DNS  
-- haproxy：Load Balancing  
-- iptables：SNAT/Firewall  
-- ipset：ACL  
-- racoon：VPN（旧版本）  
-- 命令解释器：`/opt/cloud/bin/*`  
+- dnsmasq: DHCP/DNS
+- haproxy: Load Balancing
+- iptables: SNAT/Firewall
+- ipset: ACL
+- racoon: VPN (older version)
+- Command Interpreter: `/opt/cloud/bin/*`
 
-VR 通过 SSH 与 CloudStack 通信，Agent 负责执行命令。
+VR communicates with CloudStack via SSH; the Agent is responsible for executing commands.
 
-# 9. VR 的启动流程（源码时序图）
+# 9. VR Startup Process
 
-ASCII 时序图：
-
-```text
+```
 deployRouter()
   |
   v
@@ -215,12 +214,11 @@ startRouter(router)
 router running
 ```
 
-StartCommand 是 VR 启动的关键。
+StartCommand is crucial for launching VR.
 
-# 10. StartCommand：VR 启动核心指令
+# 10. StartCommand: VR Startup Core Command
 
-StartCommand 包含：
-
+StartCommand includes:
 ```java
 public class StartCommand extends Command {
     HashMap<String, String> bootArgs;
@@ -229,50 +227,48 @@ public class StartCommand extends Command {
 }
 ```
 
-StartCommand 由 Agent 收到后：
+Upon receiving the StartCommand by the Agent:
 
-- KVM → 生成 XML → 调用 libvirt → 启动  
-- Xen → 调用 xenapi.createVM/start  
-- VMware → 调用 vcenter API  
+- KVM → Generate XML → Call libvirt → Start
+- Xen → Call xenapi.createVM/start
+- VMware → Call vCenter API
 
-VR 启动后，Management Server 继续推送网络服务配置指令。
+After VR starts, the Management Server continues to push network service configuration commands.
+# 11. VR Configuration Command Pipeline
 
-# 11. VR 配置指令管线（Config Pipeline）
-
-所有 VR 配置指令遵循一致模式：
-
-```text
+All VR configuration commands follow a consistent pattern:
+```
 routerMgr.configureXxx()
  → CommandSetupHelper.createXxxCommand()
  → new Commands(cmd)
  → _agentMgr.send(routerHostId, cmds)
- → VR 执行脚本更新配置
+ → VR execution script update configuration
 ```
 
-例如：
+Example:
 
 ```java
 CommandSetupHelper.createFirewallRules()  
 SetFirewallRulesCommand cmd = new SetFirewallRulesCommand(rules);
 ```
 
-VR 内部脚本：
+VR Internal script:
 
-```text
+```
 /opt/cloud/bin/configure_firewall.sh
 ```
 
-# 12. VR 的多服务组合调度（NetworkElement 顺序）
+# 12. VR Multi-Service Combination Scheduling (NetworkElement Order)
 
-VR Element 在 implementNetwork() 中会：
+The VR Element will: in implementNetwork()
 
-```text
+```
 VirtualRouterElement.isEnabledFor()
  → element.implement(network)
  → element.prepare(network, nic)
 ```
 
-有序执行服务：
+Orderly execution of services:
 
 1. DHCP  
 2. DNS  
@@ -282,15 +278,15 @@ VirtualRouterElement.isEnabledFor()
 6. ACL  
 7. NAT  
 
-# 13. VR 健康检查与重启（源码级）
+# 13. VR Health Check and Restart
 
-VR 检查周期：
+VR Check Cycle:
 
 ```
 router_health_check_timer
 ```
 
-RouterManagerImpl：
+RouterManagerImpl:
 
 ```java
 if (!router.isRunning()) {
@@ -298,62 +294,57 @@ if (!router.isRunning()) {
 }
 ```
 
-RestartRouter：
+RestartRouter:
 
-```text
+```
 stopRouter()
 startRouter()
 ```
 
-# 14. VR 常见故障点与调试方法（源码级）
+# 14. Common VR Troubleshooting Points and Debugging Methods (Source Code Level)
 
-## 14.1 VR 启动失败
+## 14.1 VR Startup Failure
 
-日志：
+Log:
 
-```text
+```
 management-server.log
 agent.log
 ```
 
-典型错误：
+Typical errors:
 
-```text
+```
 StartCommand failed: cannot create domain
 ```
 
-原因：
+Causes:
 
-- Template 损坏  
-- 主机 Libvirt 问题  
-- Router 镜像不完整  
+- Corrupted Template
+- Host Libvirt Issue
+- Incomplete Router Image
 
-## 14.2 DHCP 不生效
+## 14.2 DHCP is not working.
 
-查看 VR 内日志：
-
-```text
+View VR in-game logs:
+```
 /var/log/messages
 dnsmasq.conf
 ```
 
-## 14.3 LB 不生效
+## 14.3 LB is not working
 
-查看：
+View Logs:
 
-```text
+```
 /etc/haproxy/haproxy.cfg
 ```
 
-# 15. 总结
+# 15. Summary
 
-VR 是 CloudStack 网络体系的核心：
+VR is the core of the CloudStack network architecture:
 
-- 管理 DHCP/DNS/LB/SNAT/ACL/VPN 等服务  
-- 接受多个 Commands 配置  
-- 通过 RouterManager/Guru/Element/Orchestrator 组合驱动  
-- 实际工作由 VR 内部脚本完成  
-
-VR 贯穿 CloudStack 的所有网络功能，是系统中最重要的组件之一。
-VR 导致的IP分配问题，是另一个“资源不足”的重要产生场景。
-
+- Manages services such as DHCP/DNS/LB/SNAT/ACL/VPN
+- Accepts multiple command configurations
+- Driven by a combination of RouterManager/Guru/Element/Orchestrator
+- Actual operation is performed by VR's internal scripts

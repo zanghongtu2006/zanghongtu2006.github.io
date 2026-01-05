@@ -82,7 +82,7 @@ DeployVMCmd.execute()
        → createEmptyVolumeOnPool()
 ```
 
-# 4. createVolumeFromTemplate() 源码深度解析
+# 4. createVolumeFromTemplate() 
 
 源码位置：
 
@@ -146,7 +146,7 @@ LocalStoragePoolAllocator
 ClusterScopeStorageAllocator
 ```
 
-核心逻辑源码（简化）：
+核心逻辑源码：
 
 ```java
 for (StoragePoolVO pool : pools) {
@@ -276,7 +276,7 @@ Agent 根据 src/dest 的类型执行不同操作：
 - 主存储 → 主存储（StorageMotion）  
 - 主存储 → 二级库（快照备份）  
 
-# 11. 存储时序图（完整）
+# 11. 存储时序图
 
 ```
 deployVM

@@ -12,7 +12,7 @@ categories: ["CloudStack"]
 tags: ["vr", "virtualrouter", "network", "source-analysis"]
 draft: false
 ---
-Virtual Router（VR）是 CloudStack 网络体系的核心组件，是 Guest Network 的“控制面大脑”。VR 执行 DHCP、DNS、LB、ACL、Port Forwarding、VPN、Source NAT 等服务。  
+Virtual Router（VR）是 CloudStack 网络体系的核心组件。VR 执行 DHCP、DNS、LB、ACL、Port Forwarding、VPN、Source NAT 等服务。  
 
 # 1. VR 的定位：CloudStack 控制面设备
 
@@ -104,7 +104,7 @@ Public NIC（Source NAT / LB）
 Guest NIC（VM 所在网段）
 ```
 
-# 5. VR 内部网络拓扑（ASCII）
+# 5. VR 内部网络拓扑
 
 ```
               +----------------+
@@ -148,7 +148,7 @@ _answer = _agentMgr.send(vmHostId, cmds);
 
 VR 在内部脚本 `/opt/cloud/bin/*` 执行配置。
 
-# 7. VR 配置命令的生成流程（完整调用链）
+# 7. VR 配置命令的生成流程
 
 以 DHCP 为例：
 
@@ -193,9 +193,7 @@ VR 本质上是一台特殊的 System VM，运行在 Hypervisor 上。
 
 VR 通过 SSH 与 CloudStack 通信，Agent 负责执行命令。
 
-# 9. VR 的启动流程（源码时序图）
-
-ASCII 时序图：
+# 9. VR 的启动流程
 
 ```
 deployRouter()
@@ -284,7 +282,7 @@ VirtualRouterElement.isEnabledFor()
 6. ACL  
 7. NAT  
 
-# 13. VR 健康检查与重启（源码级）
+# 13. VR 健康检查与重启
 
 VR 检查周期：
 

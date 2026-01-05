@@ -1,18 +1,22 @@
 ---
 layout: post
-lang: zh
+lang: en
 translations:
+  zh: /zh/cloudstack-code-reading-08/
   en: /en/cloudstack-code-reading-08/
+permalink: /en/cloudstack-code-reading-08/
 slug: "cloudstack-code-reading-08"
-title: "CloudStack Code Reading 08 —— Storage Management（Primary/Secondary/Snapshot/StorageMotion）"
+title: "CloudStack Code（8）—— In-depth analysis of storage system（Primary/Secondary/Snapshot/StorageMotion）"
 date: "2015-03-22 10:55:23"
 categories: ["CloudStack"]
 tags: ["storage", "primary", "secondary", "snapshot", "storagemotion", "source-analysis"]
 draft: false
 ---
-CloudStack 的存储体系比网络模块更隐蔽也更复杂。它涉及模板、卷、快照、跨池迁移（StorageMotion）、Secondary Image Store 结构化管理以及与 Hypervisor 的深度整合。  
+CloudStack's storage architecture is more hidden and complex than its network module. It involves templates, volumes, snapshots, cross-pool migration (StorageMotion), structured management of the Secondary Image Store, and deep integration with the Hypervisor.
 
-# 1. 存储模块的层次结构（源码路径）
+The following analysis will break down the underlying method call chain, data structures, key instructions, and the Agent's execution mechanism layer by layer.
+
+# 1. Storage module hierarchy (source code path)
 
 ```text
 engine/storage/
@@ -34,24 +38,23 @@ plugins/storage/
   └── objectstore/
 ```
 
-CloudStack 将“存储”拆成逻辑模块，主干负责调度，插件负责与实际后端（NFS/ISCSI/Ceph/SolidFire）交互。
+CloudStack breaks down "storage" into logical modules, with the backbone responsible for scheduling and the plug-ins responsible for interacting with the actual backend (NFS/iSCSI/Ceph/SolidFire).
+# 2. Primary / Secondary / Image Store:3 layer model
 
-# 2. Primary / Secondary / Image Store：三层模型
+CloudStack's storage system consists of three layers:
 
-CloudStack 的存储体系由三层组成：
+## 2.1 Primary Storage
+- Root Volume (System Disk)
+- Data Volume
+- The space actually read and written by the VM during runtime
 
-## 2.1 Primary Storage（主存储）
-- Root Volume（系统盘）
-- Data Volume（数据盘）
-- VM 实际运行时读写的空间
+## 2.2 Secondary Storage
+- Template
+- ISO Image
+- Snapshot Backup
 
-## 2.2 Secondary Storage（二级存储）
-- Template（模板）
-- ISO 镜像
-- Snapshot（快照备份）
-
-## 2.3 Image Store（抽象统一接口）
-Secondary Storage 在 CloudStack 中由 ImageStore（NFS/S3/Swift）抽象：
+## 2.3 Image Store (Abstract Unified Interface)
+Secondary Storage in CloudStack is abstracted by ImageStore (NFS/S3/Swift):
 
 ```text
 DataStoreProvider
@@ -59,17 +62,16 @@ DataStoreProvider
  └── S3ImageStoreProvider
 ```
 
-# 3. Volume 生命周期：从模板到卷
+# 3. Volume Lifecycle: From Template to Volume
 
-当用户执行：
+When the user executes:
 
 ```text
 deployVirtualMachine
 ```
+CloudStack automatically creates the Root Volume, its call chain is:
 
-CloudStack 会自动创建 Root Volume，其调用链：
-
-```text
+```
 DeployVMCmd.execute()
  → UserVmManagerImpl.deployVirtualMachine()
    → VolumeManagerImpl.allocate()
@@ -79,15 +81,15 @@ DeployVMCmd.execute()
        → createEmptyVolumeOnPool()
 ```
 
-# 4. createVolumeFromTemplate() 源码深度解析
+# 4. createVolumeFromTemplate() 
 
-源码位置：
+Source code:
 
-```text
+```
 engine/storage/volume/VolumeServiceImpl.java
 ```
 
-关键逻辑：
+Key Logic:
 
 ```java
 CreateObjectCommand cmd = new CreateObjectCommand(volume.getTO());
@@ -98,52 +100,50 @@ if (!answer.getResult())
     throw new CloudRuntimeException("Failed to create volume");
 ```
 
-执行流程：
+Process flow:
+1. Construct CreateObjectCommand
+2. Endpoint: Select an executor (Host/Storage VM)
+3. Send the command to the Agent
+4. Agent: Creates the volume on the datastore
+5. Returns the new volume path (e.g., /var/lib/libvirt/images/vm-1.qcow2)
 
-1. 构造 CreateObjectCommand  
-2. Endpoint 选择一个执行者（Host / Storage VM）  
-3. 发送指令至 Agent  
-4. Agent 在 datastore 上创建卷  
-5. 返回新卷路径（例如 /var/lib/libvirt/images/vm-1.qcow2）  
+# 5. Template Copy Process (Secondary → Primary)
 
-# 5. Template 拷贝流程（Secondary → Primary）
+The Root Volume essentially originates from the Template.
 
-Root Volume 本质来自 Template。  
-CloudStack 通过 CopyCommand 完成：
+CloudStack completes this via CopyCommand:
 
 ```java
 CopyCommand cmd = new CopyCommand(srcTO, destTO, wait);
 Answer answer = ep.sendMessage(cmd);
 ```
 
-KVM 的 Agent 实际执行步骤：
-
-```text
-1. 下载 template（若尚未在 secondary cache）
-2. qemu-img convert 或直接 cp
-3. 将模板写入 primary 存储池
-4. 返回卷的最终路径
+The actual execution steps of the KVM Agent:
+```
+1. Download the template (if it's not already in the secondary cache)
+2. Use `qemu-img convert` or simply `cp`
+3. Write the template to the primary storage pool
+4. Return the final path of the volume
 ```
 
-VMware 则通过 VCenter API：
+VMware, on the other hand, uses the VCenter API:
 
-```text
+```
 RelocateVM_Task / CopyVirtualDisk
 ```
 
-# 6. StoragePool 调度策略（StoragePoolAllocator）
+# 6. StoragePool scheduling policy (StoragePoolAllocator)
 
-CloudStack 使用 StoragePoolAllocator 为卷选择合适的存储池。
+CloudStack uses StoragePoolAllocator to select the appropriate storage pool for a volume.
 
-主要实现：
-
-```text
+Main implementation:
+```
 FirstFitStoragePoolAllocator
 LocalStoragePoolAllocator
 ClusterScopeStorageAllocator
 ```
 
-核心逻辑源码（简化）：
+Core logic source code:
 
 ```java
 for (StoragePoolVO pool : pools) {
@@ -154,19 +154,17 @@ for (StoragePoolVO pool : pools) {
 throw new CloudRuntimeException("No suitable pool found");
 ```
 
-调度因素：
+Scheduling factors:
 
-- 校验空间  
-- 校验可用性  
-- 校验标签（storage tags）  
-- 校验网络拓扑是否匹配  
+- Verification space
+- Verification availability
+- Verification tags
+- Verification network topology matching
+# 7. Snapshot workflow（SnapshotManagerImpl）
 
-# 7. Snapshot 工作流（SnapshotManagerImpl）
+A snapshot is not simply a file copy; it's a complete backup workflow.
 
-快照不是简单的文件复制，而是完整的备份工作流。
-
-链路：
-
+Chain:
 ```text
 takeSnapshot
  → SnapshotServiceImpl.takeSnapshot()
@@ -175,28 +173,26 @@ takeSnapshot
    → update snapshot chain
 ```
 
-SnapshotObject 负责抽象快照的数据结构：
+SnapshotObject is responsible for abstracting the data structure of snapshots:
 
 ```java
 SnapshotObject snapObj = new SnapshotObject(snapshotVO, store);
 ```
 
-关键指令：
-
-```text
+Key instructions:
+```
 CopySnapshotCommand
 DeleteSnapshotCommand
 ```
+Primary may support built-in snapshots (Ceph RBD snapshots), otherwise it is implemented via qemu-img/mcopy.
 
-Primary 可能支持内建 snapshot（Ceph RBD snapshot），否则通过 qemu-img/mcopy 实现。
+# 8. StorageMotion (Cross-Storage Pool Migration) Source Code Analysis
 
-# 8. StorageMotion（跨存储池迁移）源码分析
+CloudStack supports StorageMotion (volume migration), similar to VMware Storage vMotion.
 
-CloudStack 支持 StorageMotion（卷迁移），类似 VMware Storage vMotion。
+Call Chain:
 
-调用链：
-
-```text
+```
 migrateVolume()
  → StorageManagerImpl.migrateVolume()
    → CopyCommand(srcPool → destPool)
@@ -204,7 +200,7 @@ migrateVolume()
    → Delete old volume
 ```
 
-源码关键：
+key source code:
 
 ```java
 CopyCommand cmd = new CopyCommand(srcData, destData, true);
@@ -214,49 +210,51 @@ if (!answer.getResult())
     throw new CloudRuntimeException("Fail to migrate volume");
 ```
 
-KVM 的 Agent 实际执行：
+The KVM Agent actually executes:
 
-```shell
+```
 qemu-img convert -p -O qcow2 <src> <dest>
 ```
 
-# 9. VolumeVO / SnapshotVO / TemplateDataStoreVO 结构解析
+# 9. VolumeVO / SnapshotVO / TemplateDataStoreVO Structure Analysis
 
 ## 9.1 VolumeVO
 
-字段：
+fields:
 
-```text
+```
 id, pool_id, size, path, chain_info, state
 ```
 
 ## 9.2 SnapshotVO
 
-```text
+```
 volume_id, store_id, prev_snapshot_id, snapshot_type
 ```
 
 ## 9.3 TemplateDataStoreVO
 
-```text
+```
 template_id, store_id, state, install_path
 ```
 
-用于描述模板的副本位置。
+It is used to describe the copy location of the template。
 
-# 10. Agent 层指令（存储核心）
+---
 
-CloudStack 的存储操作全部通过 Command 指令实现：
+# 10. Agent layer instructions
 
-| Command | 功能 |
+All storage operations in CloudStack are performed using Command statements:
+
+| Command | Function |
 |---------|--------|
-| CreateObjectCommand | 创建卷 |
-| CopyCommand | 拷贝 volume/template/snapshot |
-| DeleteCommand | 删除文件 |
-| AttachCommand | 挂载卷到 VM |
-| DetachCommand | 卸载卷 |
+| CreateObjectCommand | Create a volume |
+| CopyCommand | Copy volume/template/snapshot |
+| DeleteCommand | Delete a file |
+| AttachCommand | Mount a volume to a VM |
+| DetachCommand | Unmount a volume |
 
-以 CopyCommand 为例：
+For example, using CopyCommand:
 
 ```java
 public class CopyCommand extends Command {
@@ -265,13 +263,13 @@ public class CopyCommand extends Command {
 }
 ```
 
-Agent 根据 src/dest 的类型执行不同操作：
+The agent performs different operations based on the type of src/dest:
 
-- 二级库 → 主存储（模板复制）  
-- 主存储 → 主存储（StorageMotion）  
-- 主存储 → 二级库（快照备份）  
+- Secondary database → Primary storage (template replication)
+- Primary storage → Primary storage (StorageMotion)
+- Primary storage → Secondary database (snapshot backup)
 
-# 11. 存储时序图（完整）
+# 11. Storage timing diagram
 
 ```text
 deployVM
@@ -289,58 +287,54 @@ deployVM
           +--> StartCommand
 ```
 
-# 12. 常见存储问题与源码排查方式
+# 12. Common Storage Issues and Source Code Troubleshooting Methods
 
-## 12.1 模板复制失败（CopyCommand 错误）
+## 12.1 Template Copying Failure (CopyCommand Error)
 
-症状：
+Exception:
 
-```text
+```
 result=false, details="insufficient space"
 ```
 
-排查：
+Check:
 
-```text
+```
 storage_pool.used_bytes
 storage_pool.capacity_bytes
-primary storage 可写性
+primary storage writability
 ```
 
-## 12.2 Snapshot 创建失败（KVM）
+## 12.2 Snapshot creation failed (KVM)
 
-可能原因：
+Possible causes:
 
-```text
-qemu-img convert 阻塞
-卷正在使用（I/O 高负载）
-NFS 延迟
+```
+`qemu-img convert` is blocking.
+Volume is in use (high I/O load).
+NFS latency.
 ```
 
-## 12.3 StorageMotion 中断
+## 12.3 StorageMotion Interruption
 
-检查：
-
-```text
+Check:
+```
 agent.log
 management-server.log
 ```
 
-关键日志：
+Log keywords:
 
-```text
+```
 CopyCommand failed during qemu-img convert
 ```
 
-# 13. 小结
+# 13. Summary
 
-CloudStack 存储体系是一个完整的抽象框架：
+The CloudStack storage system is a complete abstract framework:
 
-- DataStoreProvider 插件化架构  
-- Template / Volume / Snapshot 全生命周期  
-- StoragePoolAllocator 负责调度  
-- 多级缓存（SSVM / ImageCache）  
-- 统一的 CopyCommand / CreateObjectCommand  
-
-通过源码视角理解存储模块，有助于快速定位 VM 无法启动、模板损坏、快照失败等复杂问题。
-这也是创建VM过程中，提示资源不足的一大场景。
+- Plug-in architecture for DataStoreProvider
+- Full lifecycle management of Templates, Volumes, and Snapshots
+- Scheduling handled by StoragePoolAllocator
+- Multi-level caching (SSVM/ImageCache)
+- Unified CopyCommand/CreateObjectCommand
