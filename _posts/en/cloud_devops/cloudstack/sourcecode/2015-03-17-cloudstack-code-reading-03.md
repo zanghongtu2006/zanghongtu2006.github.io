@@ -2,80 +2,76 @@
 layout: post
 lang: en
 translations:
-  en: /zh/cloudstack-code-reading-03/
+  en: /en/cloudstack-code-reading-03/
+  zh: /zh/cloudstack-code-reading-03/
+permalink: /en/cloudstack-code-reading-03/
 slug: "cloudstack-code-reading-03"
-title: "CloudStack Code Reading 03 - Architecture Overview"
+title: "CloudStack Code（3）- Overall Architecture Overview"
 date: "2015-03-17 22:32:39"
 categories: ["CloudStack"]
 tags: ["architecture", "orchestration", "overview"]
 draft: false
 ---
 
-先学习一下 CloudStack 的宏观架构，包含（网络、存储、Hypervisor、Orchestration）。
+This article introduces the macro architecture of CloudStack from a system-level perspective, including (network, storage, hypervisor, and orchestration).
 
-# 1. CloudStack 的整体形态  
-CloudStack 作为 IaaS（Infrastructure as a Service）平台，其设计思想是：  
-**以 API 为中心，构建 VM / 网络 / 存储 资源的可编排系统。**
+# 1. CloudStack's Overall Structure
 
-总体层次划分如下：
+CloudStack is a typical IaaS (Infrastructure as a Service) platform. Its design philosophy is:
 
+**A system centered around APIs, building an orchestratable system of VM/network/storage resources.**
+
+The overall layering is as follows:
+```text
+API （cloud-api）
+Service （Management Server）
+Orchestration Engine（Resource orchestration）
+Agent （Hypervisor）
+Data Store （Primary/Secondary Storage）
 ```
-API 层（cloud-api）
-Service 层（Management Server）
-Orchestration Engine（资源编排）
-Agent 层（Hypervisor）
-Data Store 层（Primary/Secondary Storage）
-```
 
-# 2. Management Server（管理服务器）  
-CloudStack 的控制平面由一组 Management Server 组成，可水平扩展。
+# 2. Management Server  
+CloudStack's control plane consists of a set of Management Servers and is horizontally scalable.
 
-核心模块：
+Core Modules:
 
-| 模块 | 作用 |
+| Module | Function |
 |------|------|
-| server/ | VM、Network、Volume 管理实现 |
-| engine/ | Orchestration Engine，执行编排流 |
-| plugins/ | 各类插件，如 VMware/Xen/KVM/S3/Nicira 等 |
-| framework/ | 公共基础设施，比如 config、schema、事件系统 |
+| server/ | VM, Network, Volume management implementation |
+| engine/ | Orchestration Engine, executes orchestration flow |
+| plugins/ | Various plugins, such as VMware/Xen/KVM/S3/Nicira, etc. |
+| framework/ | Common infrastructure, such as config, schema, event system |
 
-## 2.1 调度器（Allocator/Scheduler）
+## 2.1 Allocator/Scheduler
 
-选择资源：
+Select Resources:
+- Host Allocation
+- Storage Pool Allocation
+- Network Allocation (NetworkGuru)
+## 2.2 Manager
 
-- Host 分配
-- Storage Pool 分配
-- 网络分配（NetworkGuru）
-
-## 2.2 Manager 层
-
-例如：
-
+Example：
 - `UserVmManagerImpl`
 - `NetworkManagerImpl`
 - `VolumeManagerImpl`
-
-这些是业务逻辑核心。
-
-# 3. Orchestration Engine（资源编排引擎）  
-位于：
-
-```
+These are the core of the cloud platform business logic.
+- 
+# 3. Orchestration Engine  
+Located：
+```text
 engine/orchestration
 ```
+Its responsibilities include:
 
-作用：
+- Control the virtual machine lifecycle
+- Control the network resource preparation process
+- Control volume mounting/unmounting
+- Invoke the scheduler
+- Invoke the agent to send commands
+- Update the state machine
+VM startup is a typical workflow:
 
-- 控制虚拟机生命周期
-- 控制网络资源准备流程
-- 控制卷挂载/卸载
-- 调用调度器
-- 调用 agent 发送指令
-- 更新状态机
-
-VM 启动是一个典型工作流：
-
-```
+```text
 DeployVMWorkFlow
   → allocate resources
   → prepare network
@@ -83,104 +79,101 @@ DeployVMWorkFlow
   → start on hypervisor
 ```
 
-# 4. Agent 层（Hypervisor Host）  
-每台物理主机上运行一个 Java Agent：
-
-```
+# 4. Agent（Hypervisor Host）  
+One Java Agent runs on each physical host:
+```text
 agent/src/com/cloud/agent/
 ```
 
-它的职责：
+Its responsibilities include:
 
-- 监听 Management Server 的 Command  
-- 执行超管操作（start/stop/migrate）  
-- 回报心跳（Ping Command）  
-- 回报 host stats  
-- 管理本机网络、存储、VM 进程  
+- Listening for commands from the Management Server
+- Executing hypervisor operations (start/stop/migrate)
+- Reporting heartbeats (Ping Commands)
+- Reporting host stats
+- Managing the local network, storage, and VM processes
 
-通信协议使用 NIO + 自定义 JSON 指令格式。
+The communication protocol uses NIO + a custom JSON command format.
 
-这是 CloudStack 与 Hypervisor 交互的核心。
+This is the core of CloudStack's interaction with the Hypervisor.
 
-# 5. 存储体系  
-CloudStack 的存储分为：
+# 5. Storage Architecture
 
-| 类型 | 说明 |
+CloudStack storage is divided into:
+
+| Type | Description |
 |------|------|
-| Primary Storage | VM 运行盘（root + data volume） |
+| Primary Storage | VM runtime disk (root + data volume) |
 | Secondary Storage | ISO / Template / Snapshot |
 
-存储子系统组件：
+Storage Subsystem Components:
 
 - Storage Pool（NFS / iSCSI / Ceph / local）
 - Volume Manager
 - TemplateManager
 - SnapshotManager
-- StorageMotion（池间迁移）
+- StorageMotion（migration cross storage pools）
 
-存储逻辑在：
-
-```
+Storage logic located：
+```text
 engine/storage
 plugins/storage
 server/storage
 ```
 
-# 6. Network 体系（网络编排）  
-CloudStack 网络体系非常复杂，包含多层：
+# 6. Network Orchestration  
+The CloudStack network architecture is highly complex, comprising multiple layers:
 
 - Public Network
 - Guest Network
 - Storage Network
 - Private/Control Network
 
-网络工作者：
+Network workers:
 
-- NetworkOffering  
-- NetworkGuru（决定网络类型）  
-- NetworkElement（VR，LB，DHCP，ACL）  
-- VirtualRouter（控制面设备）  
-- SDN 插件（Nicira, Midonet 等）
+- NetworkOffering
+- NetworkGuru (determines network type)
+- NetworkElement (VR, LB, DHCP, ACL)
+- VirtualRouter (control plane device)
+- SDN plugins (Nicira, Midonet, etc.)
 
-# 7. 插件体系（Plugins Architecture）  
-CloudStack 的插件机制非常强大，支持：
+# 7. Plugins Architecture
+CloudStack's plugin mechanism is very powerful, supporting:
 
-- Hypervisor 插件
-- Storage 插件
-- Network 插件
-- Authentication 插件
-- EventBus 插件
-- Usage 插件
+- Hypervisor plugin
+- Storage plugin
+- Network plugin
+- Authentication plugin
+- EventBus plugin
+- Usage plugin
 
-插件可以无缝地注册进 Orchestration Engine。
+Plugins can be seamlessly registered with the Orchestration Engine.
 
-# 8. 状态机（StateMachine）  
-CloudStack 所有资源都采用状态机驱动，例如：
+# 8. StateMachine
+All CloudStack resources are state machine driven, for example:
 
 - VM: Stopped → Starting → Running → Stopping
 - Volume: Ready → Allocated → Creating → Ready
 - Network: Allocated → Implemented → Shutdown
 
-状态机定义在：
-
-```
+The state machine is defined in:
+```text
 engine/schema
 engine/orchestration
 ```
+State change process：
 
-状态变化经过：
-
-```
+```text
 event → new state
 ```
+Persistence is performed on the database (DB).
 
-持久化在 DB。
+# 9. Summary
 
-# 9. 小结  
-CloudStack 的架构设计目标：
+CloudStack's architectural design goals:
 
-- 模块化  
-- 插件化  
-- 高可扩展  
-- 强隔离性（Account/Domain）  
-- 强资源编排能力（Orchestration Engine）  
+- Modularization
+- Pluggable architecture
+- High scalability
+- Strong isolation (Account/Domain)
+- Strong resource orchestration capabilities (Orchestration Engine)

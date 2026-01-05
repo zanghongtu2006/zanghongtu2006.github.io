@@ -2,21 +2,23 @@
 layout: post
 lang: en
 translations:
-  en: /zh/cloudstack-code-reading-04/
+  en: /en/cloudstack-code-reading-04/
+  zh: /zh/cloudstack-code-reading-04/
+permalink: /en/cloudstack-code-reading-04/
 slug: "cloudstack-code-reading-04"
-title: "CloudStack Code Reading 04 - Database Schema"
+title: "CloudStack Code（4）—— Database Schema"
 date: "2015-03-18 13:33:09"
 categories: ["CloudStack"]
 tags: ["schema", "database", "storage", "network", "vm"]
 draft: false
 ---
 
-本篇理解一下 CloudStack 的数据库 Schema。
+This article provides an in-depth analysis of CloudStack's database schema.
 
-# 1. CloudStack 数据库体系概述  
-数据分层：
+# 1. CloudStack Database Architecture Overview
+Data Layering:
 
-```
+```text
 Core Data
   → VM、Volume、Network、Host、Cluster
 Async/Orchestration Data
@@ -25,33 +27,34 @@ Usage/Analytics
   → usage_event、cloud_usage
 ```
 
-数据库是 CloudStack 的 **状态机核心**，所有 Manager 层和 Orchestration Engine 都需要同步它。
+The database is the **core of the state machine** in CloudStack, and all Manager layers and Orchestration Engines need to synchronize it.
 
-# 2. VM 相关表结构  
-关键表：
+# 2. VM Related Table Structure
 
-| 表 | 作用 |
+Key Tables:
+
+| Table | Function |
 |----|------|
-| vm_instance | VM 实体 |
-| user_vm | 用户 VM 的附加属性 |
-| nics | VM 网卡 |
-| vm_network_map | VM 与 network 的映射 |
+| vm_instance | VM Entity |
+| user_vm | Additional Attributes of User VMs |
+| nics | VM Network Interface Card |
+| vm_network_map | Mapping between VMs and networks |
 
-## 2.1 vm_instance 字段解析
+## 2.1 vm_instance Field Parsing
 
-主要字段：
+Key Fields:
 
-- state（Running/Stopped/Expunging/Destroyed）
-- host_id（在哪个物理主机上）
-- last_host_id（上一次的主机，用于 HA）
+- state (Running/Stopped/Expunging/Destroyed)
+- host_id (On which physical host)
+- last_host_id (Last host, used for HA)
 - hypervisor_type
-- uuid
+- uuid 
 - account_id
 
-状态管理完全依赖 state 字段。
+State management relies entirely on the state field.
 
-# 3. 网络相关结构（Network）  
-核心表：
+# 3. Network-related structure
+Core tables:
 
 - networks
 - network_offerings
@@ -60,24 +63,24 @@ Usage/Analytics
 - ip_address
 - user_ip_address
 
-## 3.1 networks 表字段  
-包含网络类型：
+## 3.1 The `networks` table contains the following fields:
 
+Network type:
 - Guest
 - Public
 - Storage
 - Control
 
-还包含：
+Also includes：
 
 - broadcast_domain
 - traffic_type
-- guru_name（对应 NetworkGuru）
-- element 状态
+- guru_name（corresponding to NetworkGuru）
+- element status
 
-# 4. 存储 Schema  
-相关表：
+# 4. Storage Schema
 
+Related Tables:
 - volumes
 - snapshots
 - storage_pool
@@ -85,19 +88,19 @@ Usage/Analytics
 - volume_store_ref
 - disk_offering
 
-## 4.1 volumes 字段
+## 4.1 volumes fields
 
 - state（Allocated/Ready/Migrating）
 - pool_id
 - format（RAW/QCOW2/VHD）
-- chain_info（快照链）
+- chain_info（snapshot chain）
 
-## 4.2 snapshot 表字段
+## 4.2 snapshot table contains the following fields
 
-快照是基于 volume 的点时间版本。
+A snapshot is a point-in-time version of a volume.
 
-# 5. 异步任务表（async_job）  
-字段：
+# 5. async_job
+fields：
 
 - job_id
 - job_status
@@ -107,42 +110,44 @@ Usage/Analytics
 
 job_status：
 
-| 状态 | 含义 |
+| Status | Meaning |
 |------|------|
-| 0 | 处理中 |
-| 1 | 成功 |
-| 2 | 失败 |
+| 0 | Processing |
+| 1 | Success |
+| 2 | Failure |
 
-# 6. 容量与调度  
-相关表：
+# 6. Capacity and Scheduling
+
+Related Tables:
 
 - op_host_capacity
 - cluster_details
 - storage_pool_details
 
-用于调度器做资源评估。
+Used by the scheduler for resource evaluation.
 
-# 7. 状态机（StateMachine）  
-大量表字段包含 state：
+# 7. State Machine
+
+Many table fields contain "state":
 
 - VM
 - Network
 - Volume
 - Snapshot
 
-状态转换由：
-
-```
+State transitions are caused by:
+```text
 event → new state
 ```
+persistence in database.
 
-持久化在数据库。
+# 8. Summary
 
-# 8. 小结  
-Schema 是 CloudStack 的底座。  
-理解它有助于：
+Schema is the foundation of CloudStack.
 
-- 排查资源异常  
-- 编写新 API  
-- 调试 Orchestration Engine  
-- 理解 Host/VM 迁移行为  
+Understanding it helps in:
+
+- Troubleshooting resource anomalies
+- Writing new APIs
+- Debugging the Orchestration Engine
+- Understanding Host/VM migration behavior

@@ -13,7 +13,7 @@ tags: ["architecture", "orchestration", "overview"]
 draft: false
 ---
 
-本篇从系统级别介绍 CloudStack 的宏观架构，帮助你在进入后续模块（网络、存储、Hypervisor、Orchestration）前有一个整体地图。
+本篇从系统级别介绍 CloudStack 的宏观架构，包括（网络、存储、Hypervisor、Orchestration）。
 
 # 1. CloudStack 的整体形态  
 CloudStack 是典型的 IaaS（Infrastructure as a Service）平台，其设计思想是：  

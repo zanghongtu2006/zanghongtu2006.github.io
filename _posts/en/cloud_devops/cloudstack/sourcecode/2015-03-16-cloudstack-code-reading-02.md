@@ -2,21 +2,22 @@
 layout: post
 lang: en
 translations:
-  en: /zh/cloudstack-code-reading-02/
+  en: /en/cloudstack-code-reading-02/
+  zh: /zh/cloudstack-code-reading-02/
+permalink: /en/cloudstack-code-reading-02/
 slug: "cloudstack-code-reading-02"
-title: "CloudStack Code Reading 02 - API Framework（ApiServer、Dispatcher、Signature、Async）"
+title: "CloudStack Code（二）- API framework execution mechanism（ApiServer、Dispatcher、Signature、Async）"
 date: "2015-03-16 19:00:36"
 categories: ["CloudStack"]
 tags: ["api-framework", "apiserver", "dispatcher", "signature", "asyncjob"]
 draft: false
 ---
 
-本章深入分析 CloudStack API 的 **执行链路、反射机制、参数解析、权限系统、错误处理、签名校验、异步任务调度**。这是理解 CloudStack 管理平面的核心。
+This chapter provides an in-depth analysis of the CloudStack API's **execution chain, reflection mechanism, parameter parsing, permission system, error handling, signature verification, and asynchronous task scheduling**. This is the core of understanding the CloudStack management plane.
+# 1. API Execution Overview: From HTTP to Internal Commands
+The API call execution flow is as follows:
 
-# 1. API 执行总览：从 HTTP 到内部命令  
-API 调用执行流程如下：
-
-```
+```text
 HTTP Request
  → ApiServlet.doGet/doPost
  → ApiServer.handleRequest()
@@ -28,119 +29,117 @@ HTTP Request
  → HTTP Response
 ```
 
-CloudStack 的 API 不是 Restful，而是 **以 Command 为中心**：  
+CloudStack's API is not RESTful, but rather **command-centric**:  
 `?command=createVirtualMachine&serviceofferingid=...`
 
-内部执行特点：
+Internal execution characteristics:
 
-- 命令映射使用 **反射 + 注解扫描**
-- 参数绑定使用 **注解 + 类型解析器**
-- 调度调用使用 **Command Pattern**
-- 大量 API 是异步的，通过 **AsyncJobManager** 管理
-- 输出 JSON 使用 **Gson** 序列化
+- Command mapping uses **reflection + annotation scanning**
+- Parameter binding uses **annotations + type resolver**
+- Scheduled calls use **Command Pattern**
+- Many APIs are asynchronous, managed through **AsyncJobManager**
+- JSON output uses **Gson** serialization
 
-# 2. ApiServlet：所有 API 调用的入口  
-ApiServlet 位于：
+# 2. ApiServlet: The entry point for all API calls
+ApiServlet located in：
 
-```
+```text
 server/src/com/cloud/api/ApiServlet.java
 ```
 
-职责：
+Responsibilities:
 
-- 解析 GET/POST 请求
-- 提取所有参数
-- 调用 ApiServer
-- 统一异常封装
+- Parse GET/POST requests
+- Extract all parameters
+- Call the ApiServer
+- Unified exception encapsulation
 
-伪代码：
+Pseudocode:
 
 ```java
 Map<String, String[]> params = request.getParameterMap();
 String response = apiServer.handleRequest(params, responseType);
 ```
 
-它不做任何业务逻辑，几乎完全代理给 ApiServer。
+It doesn't perform any business logic; it almost entirely proxies the API server.  
+# 3. ApiServer: The core scheduler of the CloudStack API
+ApiServer (`ApiServerImpl`) is the brain of the API framework.
 
-# 3. ApiServer：CloudStack API 的核心调度器  
-ApiServer（`ApiServerImpl`）是 API 框架的大脑。
+## 3.1 ApiServer Core Responsibilities  
+The ApiServer handles the following:
 
-## 3.1 ApiServer 核心职责  
-ApiServer 承担：
+1. Parameter preprocessing
+2. Signature verification
+3. Obtaining the Command class
+4. Instantiating the Command class
+5. Parameter binding (reflection)
+6. Permission verification
+7. Calling the management service (Manager)
+8. Constructing a ResponseObject
+9. JSON serialization
 
-1. 参数预处理  
-2. 签名校验  
-3. 获取 Command 类  
-4. 实例化 Command  
-5. 参数绑定（反射）  
-6. 权限校验  
-7. 调用管理服务（Manager）  
-8. 构造 ResponseObject  
-9. JSON 序列化  
+Core methods:
 
-核心方法：
-
-```
+```java
 String handleRequest(Map params, boolean isAsync)
 ```
 
-## 3.2 ApiServer 如何找到某个 API Command？  
-Command 注册逻辑在系统启动时扫描：
+## 3.2 How does the APIServer locate a specific API Command?
+
+The Command registration logic scans during system startup:
 
 - `org.apache.cloudstack.api.command.user.*`
 - `org.apache.cloudstack.api.command.admin.*`
 
-凡是带有：
+Any Class with：
 
-```
+```java
 @APICommand(name = "startVirtualMachine")
 ```
 
-都会加入一个 Map：
+will add into a Map：
 
-```
+```java
 Map<String, Class<? extends BaseCmd>> s_cmds;
 ```
 
-因此，API ≈ Java 类名的动态绑定系统。
+Therefore, API ≈ Java class name dynamic binding system
 
-# 4. ApiDispatcher：命令分发器  
-Dispatcher 的作用：
+# 4. ApiDispatcher: Command Dispatcher
 
-- 根据 API 名（字符串）找到命令类
-- 通过反射创建对象
-- 调用 execute()
+The role of Dispatcher:
 
-伪代码：
+- Locate the command class based on the API name (string)
+- Create an object using reflection
+- Call execute()
 
+Pseudocode:
 ```java
 Class cmdClass = s_cmds.get(commandName);
 BaseCmd cmd = cmdClass.newInstance();
 cmd.execute();
 ```
 
-# 5. 参数解析机制（Parameter Annotations）  
-每个 API 参数通过：
+# 5. Parameter Annotations Mechanism 
 
-```
+Each API parameter is resolved through:
+
+```java
 @Parameter(name="id", type=CommandType.UUID, required=true)
 ```
+API Parameter Parsing Process:
 
-声明。
-
-API 参数解析流程：
-
-1. ApiServer 从请求中找到与注解匹配的参数；
-2. 根据 `CommandType` 做类型转换；
-3. 如果是 UUID，则查询 DB 映射内部 ID（Long）；
-4. 反射设置字段，例如：
+1. The APIServer finds the parameter matching the annotation in the request;
+2. Performs type conversion based on `CommandType`;
+3. If it is a UUID, it queries the database mapping for the internal ID (Long);
+4. Sets the field using reflection, for example:
 
 ```java
 field.set(cmdInstance, convertedValue);
 ```
 
-## 5.1 参数类型支持  
-CloudStack 支持的类型：
+## 5.1 Parameter type support
+CloudStack supported types：
 
 - BOOLEAN  
 - INTEGER  
@@ -149,121 +148,116 @@ CloudStack 支持的类型：
 - LIST → List<String>  
 - MAP → `LinkedHashMap<String, Object>`  
 
-## 5.2 多参数逻辑  
-例如：
+## 5.2 Multi-parameter logic  
+Example：
 
 ```
 ids=1,2,3
 ```
 
-会解析为 List。
+It will be parsed as List。
 
-# 6. 权限校验：Account / Domain / Role  
-CloudStack 的权限体系基于三层结构：
+# 6. Permission Verification: Account / Domain / Role
 
-| 层级 | 含义 |
+CloudStack's permission system is based on a three-tier structure:
+
+| Tier | Meaning |
 |------|------|
-| Account | 独立用户级别 |
-| Domain | 管理子域的隔离 |
-| Role | API 权限表 |
+| Account | Independent User Level |
+| Domain | Management Subdomain Isolation |
+| Role | API Permission Table |
 
-权限检查分两部分：
+Permission checks consist of two parts:
 
-## 6.1 APICommand 注解权限  
-通过：
-
+## 6.1 APICommand annotation permissions
+By：
 ```
 @APICommand(authorized = {RoleType.Admin})
 ```
+Restricts the caller's role.
 
-限制调用者角色。
-
-## 6.2 资源访问权限  
-例如调用：
-
+## 6.2 Resource access permissions
+Example：
 ```
 {id: VM_UUID}
 ```
 
-ApiServer 会：
+ApiServer will：
 
-1. 将 UUID 转为内部 ID  
-2. 检查资源 owner  
-3. 使用 AccessControlService 验证用户对 VM 是否有权限  
+1. Convert UUID to internal ID
+2. Check resource owner
+3. Use AccessControlService to verify user permissions to the VM
 
-核心方法：
+Core method:
 
-```
+```java
 _accountMgr.checkAccess(caller, AccessType.UseEntry, true, vmObj);
 ```
+This is the core of the CloudStack security model.
 
-这是 CloudStack 安全模型的核心。
+# 7. Signature Mechanism (API Key + Secret Key)
 
-# 7. 签名机制（API Key + Secret Key）  
-CloudStack 支持“签名认证”，用于第三方系统或远程调用。
+CloudStack supports "signature authentication" for use with third-party systems or remote calls.
 
-签名计算方式：
+Signature Calculation Method:
 
-```
+```text
 Sort all params alphabetically (lowercase)
 Concat with "&"
 HMAC-SHA1(secretKey, encodedParams)
 Base64 encoding
 ```
 
-服务端流程：
+Server-side process：
 
-```
+```java
 String requestSignature = params.get("signature");
 String serverSignature = sign(requestParams);
 compare
 ```
 
-如果不一致则拒绝访问。
+Access will be denied if there is a discrepancy.。
 
-# 8. 异步 API 执行流程（AsyncJobManager）  
-许多 API 会立即返回 jobid，由后端异步执行。
+# 8. Asynchronous API Execution Flow（AsyncJobManager）  
+Many APIs return a job ID immediately, which is then executed asynchronously by the backend.
 
-典型异步 API：
+Typical asynchronous APIs:
 
 - createVM
 - startVM
 - rebootRouter
 - migrateVolume
 
-流程：
+Workflow:
 
-```
+```java
 BaseAsyncCmd.execute()
  → AsyncJobManager.submitAsyncJob()
- → 工作线程执行实际逻辑
- → jobstatus=1 代表完成
+ → Worker threads execute the actual logic
+ → jobstatus=1 Represents completion
 ```
 
-后台 worker 线程读取数据库，更新 async_job 结果：
+The background worker thread reads the database and updates the async_job result.
 
-```
+```java
 job_result, job_status, job_instance_id
 ```
-
-UI 则通过：
-
-```
+The UI uses:
+```java
 queryAsyncJobResult
 ```
+to poll for task progress.
 
-轮询任务进度。
+# 9. API Return Value (ResponseObject)
 
-# 9. API 返回值（ResponseObject）  
-所有响应对象继承：
+All response objects inherit from:
 
-```
+```java
 BaseResponse
 ```
+CloudStack uses Gson for serialization.
 
-CloudStack 使用 Gson 进行序列化。
-
-Response 的生成方式：
+Response generation method:
 
 ```java
 UserVmResponse resp = new UserVmResponse();
@@ -271,17 +265,16 @@ resp.setId(vm.getUuid());
 resp.setName(vm.getDisplayName());
 ```
 
-最终输出 JSON。
+Final output: JSON。
 
-# 10. API 异常模型  
-CloudStack 使用统一异常：
+# 10. API Exception Model
+CloudStack uses a unified exception mechanism:：
 
-```
+```java
 throw new ServerApiException(ApiErrorCode.PARAM_ERROR, "...") 
 ```
 
-ApiServer 捕获后封装为：
-
+After ApiServer capture the exceptions, it is encapsulated as：
 ```json
 {
   "errorresponse": {
@@ -291,12 +284,13 @@ ApiServer 捕获后封装为：
 }
 ```
 
-# 11. 小结  
-API 执行机制的核心要点：
+# 11. Summary
 
-- 完全基于 **反射 + 注解** 的动态框架  
-- Dispatcher 将 API 名与 Java 类绑定  
-- 参数解析体系非常灵活  
-- API 权限体系严格且多层级  
-- 异步框架让重操作不会阻塞  
-- JSON 输出统一格式化  
+Key points of the API execution mechanism:
+
+- A dynamic framework entirely based on **reflection + annotations**
+- The Dispatcher binds API names to Java classes
+- A highly flexible parameter parsing system
+- A strict and multi-tiered API permission system
+- An asynchronous framework ensures that heavy operations do not block
+- Uniformly formatted JSON output

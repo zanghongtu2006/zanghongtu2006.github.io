@@ -6,7 +6,7 @@ translations:
   zh: /zh/cloudstack-code-reading-01/
 permalink: /en/cloudstack-code-reading-01/
 slug: "cloudstack-code-reading-01"
-title: "CloudStack Code（1）—— Cloud API"
+title: "CloudStack Code（1）- Cloud API"
 date: "2015-03-15 17:23:31"
 categories: ["CloudStack"]
 tags: []
