@@ -8,7 +8,7 @@ translations:
   zh: /zh/inode-caused-break-down-trouble-shooting/
 title: "A Troubleshooting of a Docker & Gogs Fault Caused by Inode Exhaustion"
 date: 2025-11-27 22:51:00 +0100
-categories: ["Diary"]
+categories: ["Linux"]
 ---
 ## Backgroud
 

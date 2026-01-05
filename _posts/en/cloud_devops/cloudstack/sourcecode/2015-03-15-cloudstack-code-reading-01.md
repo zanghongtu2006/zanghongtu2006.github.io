@@ -2,77 +2,80 @@
 layout: post
 lang: en
 translations:
-  zh: /zh/cloudstack-code-reading-01/
   en: /en/cloudstack-code-reading-01/
+  zh: /zh/cloudstack-code-reading-01/
+permalink: /en/cloudstack-code-reading-01/
 slug: "cloudstack-code-reading-01"
-title: "CloudStack Code Reading 01—— Cloud API"
+title: "CloudStack Code（1）—— Cloud API"
 date: "2015-03-15 17:23:31"
 categories: ["CloudStack"]
 tags: []
 draft: true
 ---
 
-CloudStack 提供了一个完整的 API 系统，用来对整个云平台进行管理和调度。  
-无论是创建虚拟机、分配 IP、部署网络，还是管理存储、主机和集群，这些操作最终都通过 API Command 完成。
+CloudStack provides a complete API system for managing and scheduling the entire cloud platform.
 
-# 1. Cloud API 模块概述
-CloudStack 的 API 部分集中在以下目录结构：
+Whether it's creating virtual machines, assigning IPs, deploying networks, or managing storage, hosts, and clusters, these operations are ultimately completed through API commands.
 
-```
+This is the first article in the CloudStack source code reading series. We will begin with the **cloud-api module** to understand the outermost API entry point structure and operation of CloudStack.
+
+# 1. Cloud API Module Overview
+
+The CloudStack API is housed in the following directory structure:
+
+```text
 cloudstack/api/
 cloudstack/framework/
 cloudstack/api/src/org/apache/cloudstack/api
 ```
 
-cloud-api 模块主要提供：
+The cloud-api module primarily provides:
 
-- 所有 Command（API 命令）的实现类
-- 所有 ResponseObject（API 返回对象）
-- API 注解体系（@Parameter、@APICommand）
-- API 基类（BaseCmd / BaseAsyncCmd）
-- HTTP API 的入口与分发机制（ApiServer）
-- API 权限校验和参数校验
+- Implementation classes for all Commands (API commands)
+- All ResponseObjects (API return objects)
+- API annotation system (@Parameter, @APICommand)
+- API base classes (BaseCmd / BaseAsyncCmd)
+- HTTP API entry and distribution mechanism (ApiServer)
+- API permission and parameter validation
 
-换句话说，**cloud-api 是整个 CloudStack 的「门面层」**，所有客户端调用（UI、CLI、第三方系统）最终都要通过这里进入服务端。
+- In other words, **cloud-api is the "facade layer" of the entire CloudStack**, and all client calls (UI, CLI, third-party systems) ultimately pass through here to reach the server.
 
-# 2. API 命令的组织方式
+# 2. API Command Organization
 
-cloud-api 将 API 分成两个类别：admin 和 user。
+Cloud API divides APIs into two categories: admin and user.
 
-```
+```text
 org.apache.cloudstack.api.command.admin.*
 org.apache.cloudstack.api.command.user.*
 ```
+- **admin: Administrator privileges API**
+Involves infrastructure layer management such as Zone, Cluster, Host, StoragePool, etc.
+- **user: Regular user API**
+Involves business layer resource management such as VM, Network, Volume, etc.
 
-- **admin：管理员权限 API**  
-  涉及 Zone、Cluster、Host、StoragePool 等基础设施层管理
-- **user：普通用户 API**  
-  涉及 VM、Network、Volume 等业务层资源管理
-
-这种划分对应 CloudStack 内部的权限体系：  
+This division corresponds to the permission system within CloudStack: 
 `Account → Domain → Role → API 权限`
 
-除了 Command 之外，还有：
-
-```
+In addition to Command, there are:
+```text
 org.apache.cloudstack.api.response
 ```
 
-用于定义 API 的返回结构，例如：
+Used to define the return structure of the API, such as:
 
 - `ListResponse<T>`
 - `SuccessResponse`
-- 各种 `*Response`（VirtualMachineResponse、NetworkResponse 等）
+- Various `*Response`s (VirtualMachineResponse, NetworkResponse, etc.)
 
-这些 response 类会映射成最终的 JSON 字段，CloudStack UI 也依赖这些字段生成界面。
+These response classes are mapped to the final JSON fields, and the CloudStack UI also relies on these fields to generate the interface.
 
-# 3. API 实现结构：Command = 注解 + 参数 + 执行逻辑
+# 3. API implementation structure: Command = Annotation + Parameters + Execution Logic
 
-CloudStack 的 API 基于 Java 注解机制来声明。
+CloudStack's API is declared using Java annotations.
 
-## 3.1 API 定义结构
+## 3.1 API definition structure
 
-每个 API 类通常长这样：
+Each API class typically looks like this:
 
 ```java
 @APICommand(name = "startVirtualMachine", description = "Starts a VM")
@@ -89,28 +92,28 @@ public class StartVMCmd extends BaseAsyncCmd {
 }
 ```
 
-我们可以看到以下要素：
+We can see the following elements:
 
-- `@APICommand` 注解声明 API 名称和权限
-- `@Parameter` 定义 API 参数类型、是否必填、对应实体
-- `execute()` 方法中调用 Manager 层执行实际业务逻辑
+- The `@APICommand` annotation declares the API name and permissions.
+- `@Parameter` defines the API parameter type, whether it is required, and its corresponding entity.
+- The `execute()` method calls the Manager layer to execute the actual business logic.
 
-## 3.2 参数解析流程
+## 3.2 Parameter Parsing Process
 
-CloudStack 会：
+CloudStack will:
 
-1. 解析 `@Parameter` 注解  
-2. 校验参数是否存在、类型是否正确  
-3. UUID → Internal ID 映射  
-4. 构造 Java 字段（反射赋值）
+1. Parse the `@Parameter` annotation
+2. Verify that the parameter exists and its type is correct
+3. Map UUID to Internal ID
+4. Construct Java fields (reflection assignment)
 
-所有参数和逻辑封装在 `BaseCmd` 中。
+All parameters and logic are encapsulated in `BaseCmd`.
 
-# 4. API 调用生命周期（从 HTTP 到 Java 调用）
+# 4. API Call Lifecycle (From HTTP to Java Call)
 
-CloudStack 的 API 流程如下：
+The CloudStack API flow is as follows:
 
-```
+```text
 HTTP Request
  → ApiServlet
  → ApiServer
@@ -121,93 +124,93 @@ HTTP Request
  → API JSON 输出
 ```
 
-这一流程由以下关键类组成：
+This process consists of the following key classes:
 
-- **ApiServlet**：负责接收 HTTP 请求，转交给 ApiServer
-- **ApiServer**：整个 API 执行核心
-- **ApiDispatcher**：根据 `name=xxx` 定位到对应的 API Command 类
-- **BaseCmd / BaseAsyncCmd**：命令的执行入口
+- **ApiServlet**: Responsible for receiving HTTP requests and forwarding them to ApiServer
+- **ApiServer**: The core of the entire API execution
+- **ApiDispatcher**: Locates the corresponding API Command class based on `name=xxx`
+- **BaseCmd / BaseAsyncCmd**: The entry point for command execution
 
-## 4.1 ApiServer 是核心
+## 4.1 ApiServer is the core component.
 
-它负责：
+It is responsible for:
 
-- 查找对应的 API Command 类
-- 实例化 Command 对象
-- 注入参数
-- 权限验证
-- 调用 `execute()`
+- finding the corresponding API Command class
+- instantiating the Command object
+- injecting parameters
+- performing authorization verification
+- calling `execute()`
 
-最终将 ResponseObject 转为 JSON。
+ultimately converting the ResponseObject to JSON.
 
-# 5. 权限、域（Domain）、账户体系
+# 5. Permissions, Domains, and Accounts
 
-在执行 `execute()` 之前，CloudStack 会进行权限检查。
+CloudStack performs permission checks before executing `execute()`.
 
-权限模型包括：
+The permission model includes:
 
-1. Account（账户）
-2. Domain（域）
-3. Role（角色）
-4. API 权限（注解约束）
-5. Resource ownership（资源所有权）
+1. Account
+2. Domain
+3. Role
+4. API Permissions (Annotation Constraints)
+5. Resource Ownership
 
-API 命令内部可以声明：
+API commands can declare:
 
 ```java
 @APICommand(entityType = {Network.class}, ...)
 ```
+The API framework checks whether the visitor has permissions for the object based on `entityType`.  
 
-API 框架会根据 `entityType` 检查访问者是否对对象拥有权限。
-
-你在阅读后续代码（例如 VM、Network、Volume 服务）时，会看到大量“权限过滤”逻辑，集中在：
+When reading subsequent code (e.g., VM, Network, Volume services), we will see a large amount of "permission filtering" logic, concentrated in:
 
 - `AccountManager`
 - `DomainManager`
 - `AccessControlService`
 
-# 6. 异步 API（BaseAsyncCmd）
+# 6. Asynchronous API (BaseAsyncCmd)
 
-大量操作无法立即完成，例如：
+Many operations cannot be completed immediately, such as:
 
-- 部署虚拟机
-- 创建卷
-- 拷贝模板
-- 创建快照
+- Deploying virtual machines
+- Creating volumes
+- Copying templates
+- Creating snapshots
 
-这些 API 都继承自 `BaseAsyncCmd`。
+These APIs all inherit from `BaseAsyncCmd`.
 
-执行流程：
+Execution flow:
 
-```
-API 调用
+```text
+API Call
  → createAsyncJob
- → AsyncJobManager 执行
- → 操作完成后生成 AsyncJobResponse
+ → AsyncJobManager execution
+ → Generate after operation AsyncJobResponse
 ```
 
-CloudStack UI 会轮询 `jobstatus` 来查询进度。
+The CloudStack UI polls `jobstatus` to check the progress.
 
-## 6.1 异步任务的关键类
+## 6.1 Key class for asynchronous tasks
 
 - `AsyncJobManagerImpl`
 - `AsyncJobDao`
 - `AsyncJobVO`
 - `AsyncJobExecutionContext`
 
-后面在 Orchestration Engine 中我们还会看到它与 VM / Storage / Network 生命周期深度绑定。
+Later in Orchestration Engine, we will see that it is deeply tied to the lifecycle of VMs, Storage, and Networks.
 
-# 7. ResponseObject：输出 JSON 的基类
+# 7. ResponseObject: The base class for outputting JSON.
 
-所有 API 返回的数据必须继承自 `BaseResponse`。
+All API responses must inherit from `BaseResponse`.
 
-常见形式包括：
+Common formats include:
 
-- `ListResponse<T>`：列表
-- `SuccessResponse`：只返回成功状态
-- 各类自定义 Response（例如 `VirtualMachineResponse`）
+- `ListResponse<T>`: a list
+- `SuccessResponse`: returns only success status
 
-示例：
+- Various custom responses (e.g., `VirtualMachineResponse`)
+
+Example:
 
 ```java
 VirtualMachineResponse vmResponse = new VirtualMachineResponse();
@@ -215,21 +218,22 @@ vmResponse.setId(vm.getUuid());
 vmResponse.setName(vm.getInstanceName());
 ```
 
-最终由 Gson 序列化为 JSON 输出。
+Finally, Gson serializes the data into JSON for output.
 
-需要注意的是：  
-**CloudStack UI 完全依赖这些字段来渲染页面**，  
-如果你扩展 CloudStack 的 API，这一部分必须谨慎处理。
+Note that:
+**The CloudStack UI relies entirely on these fields to render the page.**
 
-# 8. API 的异常与错误处理
+If you are extending the CloudStack API, this part must be handled with care.
 
-API 报错流程通常类似：
+# 8. API Exception and Error Handling
+
+API error handling typically follows a similar process:
 
 ```java
 throw new ServerApiException(ApiErrorCode.PARAM_ERROR, "some message");
 ```
 
-`ApiServer` 捕获异常并构造错误返回信息：
+`ApiServer` catching exceptions and constructing error return information：
 
 ```json
 {
@@ -240,30 +244,23 @@ throw new ServerApiException(ApiErrorCode.PARAM_ERROR, "some message");
 }
 ```
 
-错误码由 `ApiErrorCode` 枚举类定义。  
-通过统一的异常机制，CloudStack 保证了：
+Error codes are defined by the `ApiErrorCode` enumeration class.
 
-- 前端可以稳定识别错误类型
-- 日志可以记录 API 调用异常
-- 客户端可以按错误码进行特定处理
+Through a unified exception mechanism, CloudStack ensures that:
 
-# 9. CloudStack 的 API 设计思路（小结）
+- The frontend can reliably identify error types
+- Logs can record API call exceptions
+- Clients can perform specific handling based on error codes
 
-CloudStack 的 API 具有以下特点：
+# 9. CloudStack API Design Principles (Summary)
 
-- **结构稳定**：从 4.x 到现在整体结构变化不大  
-- **注解驱动**：通过 `@APICommand`、`@Parameter` 统一声明接口  
-- **反射注册**：通过扫描和反射自动注册 API，避免手写路由  
-- **权限模型完整**：基于 Account / Domain / Role 的权限控制  
-- **异步任务框架内建**：适合处理长时间运行的操作  
-- **统一 Response 模型**：便于 UI 和三方系统集成
+CloudStack's APIs have the following characteristics:
 
-cloud-api 模块本身不负责具体业务逻辑，但它定义了整个云平台与外界交互的“语言”。  
-读完这里，我们会继续往下看：
+- **Stable Structure:** The overall structure has remained largely unchanged since version 4.x.
+- **Annotation-Driven:** Interfaces are declared uniformly using `@APICommand` and `@Parameter`.
+- **Reflection Registration:** APIs are automatically registered through scanning and reflection, avoiding manual routing.
+- **Complete Permission Model:** Permission control is based on Account/Domain/Role.
+- **Built-in Asynchronous Task Framework:** Suitable for handling long-running operations.
+- **Unified Response Model:** Facilitates integration with UI and third-party systems.
 
-- ApiServer 的核心执行逻辑
-- 如何通过反射定位 Command
-- 参数解析的细节实现
-- API 签名校验机制
-- 错误处理与日志记录策略
-
+The cloud-api module itself does not handle specific business logic, but it defines the "language" for the entire cloud platform to interact with the outside world.
