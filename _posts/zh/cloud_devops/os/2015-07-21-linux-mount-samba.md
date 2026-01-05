@@ -5,11 +5,12 @@ slug: "linux-mount-samba"
 layout: "post"
 categories: ["Linux"]
 tags: []
+lang: zh
+permalink: /zh/linux-mount-samba/
+translations:
+  zh: /zh/linux-mount-samba/
 ---
-[codesyntax lang="bash"]
-
-```
+```shell 
 mount -t cifs //192.168.***.***/XXXX /mnt/ -o username=***,password=******,iocharset=utf-8
 ```
 
-[/codesyntax]
