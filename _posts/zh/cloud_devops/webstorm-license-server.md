@@ -5,6 +5,10 @@ slug: "webstorm-license-server"
 layout: "post"
 categories: ["未分类"]
 tags: ["WebStorm", "License Server"]
+lang: zh
+permalink: /zh/webstorm-license-server/
+translations:
+  zh: /zh/webstorm-license-server/
 ---
 http://mcpmcc.com:1017
 2016.7.27 亲测可用

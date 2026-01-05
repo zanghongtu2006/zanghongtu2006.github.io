@@ -1,11 +1,10 @@
 ---
 layout: post
 lang: zh
-slug: duolingo-en-de-upgrade-a2
-permalink: /zh/duolingo-en-de-upgrade-a2/
+slug: inode-caused-break-down-trouble-shooting
+permalink: /zh/inode-caused-break-down-trouble-shooting/
 translations:
   en: /en/inode-caused-break-down-trouble-shooting/
-  de: /de/inode-caused-break-down-trouble-shooting/
   zh: /zh/inode-caused-break-down-trouble-shooting/
 title: "一次由inode耗尽引发的Docker&Gogs故障排查实录"
 date: 2025-11-27 22:51:00 +0100

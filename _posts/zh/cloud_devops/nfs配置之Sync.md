@@ -5,6 +5,10 @@ slug: "nfs-e9-85-8d-e7-bd-ae-e4-b9-8bsync"
 layout: "post"
 categories: ["运维管理"]
 tags: ["nfs", "性能"]
+lang: zh
+permalink: /zh/nfs-e9-85-8d-e7-bd-ae-e4-b9-8bsync-2/
+translations:
+  zh: /zh/nfs-e9-85-8d-e7-bd-ae-e4-b9-8bsync-2/
 ---
 /rootfs \*(**sync**,rw,insecure,no\_root\_squash,no\_subtree\_check)
 /tftpboot \*(**async**,rw,insecure,no\_root\_squash,no\_subtree\_check)

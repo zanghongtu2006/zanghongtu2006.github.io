@@ -6,6 +6,10 @@ layout: "post"
 categories: ["未分类"]
 tags: []
 draft: true
+lang: zh
+permalink: /zh/post-747/
+translations:
+  zh: /zh/post-747/
 ---
 原文链接：<https://yourserveradmin.com/blog-articles/blog/cloudstack-vs-openstack/>
 
