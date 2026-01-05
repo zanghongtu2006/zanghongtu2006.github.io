@@ -13,27 +13,27 @@ tags: ["OpenStack", "Kolla"]
 A few days ago, I received a GPU server from a client. The client requested the installation and deployment of an all-in-one OpenStack environment for backend service integration testing.
 Let's check the current server status first.
 # Check Server Status
-```
+```shell
 # ip a
 ```
 It has 2 network cards, one card has an public IP, that allowed me login it.
-```
+```shell
 # nvidia-smi 
 ```
 8 5090 GPUs，this is probably the second-highest configuration server I've ever seen.  
 Last one had 8 H100.
-```
+```shell
 # uname -a
 Linux serv-gpu-1 6.8.0-86-generic #87-Ubuntu SMP PREEMPT_DYNAMIC Mon Sep 22 18:03:36 UTC 2025 x86_64 x86_64 x86_64 GNU/Linux
 ```
 *Ubuntu 24.04 LTS* ，OpenStack version is *rocky* currently.  
 This version may encounter various unknown problems if installed on Ubuntu 24.04.
 
-# 开始安装
+# Start Installation
 Next, begin the installation process, following the steps outlined in the official website tutorial.
 
-## 基础环境
-```
+## Basic Environment
+```text
 Install Dependencies
 # sudo apt install git python3-dev libffi-dev gcc libssl-dev libdbus-glib-1-dev
 Install python venv
@@ -55,14 +55,14 @@ Create passwords for OpenStack services
 ```
 All previous steps were completed successfully.  
 The system is relatively clean and hasn't been used by many people yet, so there are no particularly strange dependency errors.
-## 编辑globals.yml
+## Modify globals.yml
 Then edit the file: /etc/kolla/globals.yml  
 Follow the tutorial to edit network information, etc.
 
 Because this is an all-in-one environment used for development and testing, 
 and the network card does not support high availability (HA), 
 we need to disable HA and use the local IP address instead of the VIP.
-```
+```text
 kolla_base_distro: "rocky"
 network_interface: "eth0"
 api_interface: "eth0"
@@ -73,7 +73,7 @@ enable_haproxy: "no"
 enable_keepalived: "no"
 ```
 ## Install bootstrap server
-```
+```shell
 kolla-ansible bootstrap-servers -i ./all-in-one
 ```
 ## Pre-Check
@@ -81,43 +81,28 @@ kolla-ansible bootstrap-servers -i ./all-in-one
 kolla-ansible prechecks -i ./all-in-one
 ```
 Problems encountered in pre-detection
-```
+```text
 TASK [prechecks : Checking docker SDK version] ******************************************************************************************************************************************************************************************************* [ERROR]: Task failed: Module failed: non-zero return code Origin: /opt/openstack/openstack-kolla/share/kolla-ansible/ansible/roles/prechecks/tasks/package_checks.yml:2:3 1 --- 2 - name: Checking docker SDK version ^ column 3 fatal: [localhost]: FAILED! => {"changed": false, "cmd": ["/opt/openstack/openstack-kolla/bin/python3.12", "-c", "import docker; print(docker.__version__)"], "delta": "0:00:00.018758", "end": "2025-11-23 19:52:04.252347", "failed_when_result": true, "msg": "non-zero return code", "rc": 1, "start": "2025-11-23 19:52:04.233589", "stderr": "Traceback (most recent call last):\n File \"<string>\", line 1, in <module>\nModuleNotFoundError: No module named 'docker'", "stderr_lines": ["Traceback (most recent call last):", " File \"<string>\", line 1, in <module>", "ModuleNotFoundError: No module named 'docker'"], "stdout": "", "stdout_lines": []} PLAY RECAP ******************************************************************************************************************************************************************************************************************************************* localhost : ok=15 changed=0 unreachable=0 failed=1 skipped=9 rescued=0 ignored=0 
 ```
 This means docker-lib is not found in python-venv, we need to install it.
-```
+```shell
 # pip install "docker>=6.0.0" "setuptools" "wheel" 
 ```
 Re-execution encountered problems：
-```
+```text
 TASK [prechecks : Checking dbus-python package] ****************************************************************************************************************************************************************************************************** 
-
 [ERROR]: Task failed: Module failed: non-zero return code 
-
 Origin: /opt/openstack/openstack-kolla/share/kolla-ansible/ansible/roles/prechecks/tasks/package_checks.yml:12:3 
-
- 
-
 10   failed_when: result is failed or result.stdout is version(docker_py_version_min, '<') 
-
 11 
-
 12 - name: Checking dbus-python package 
-
      ^ column 3 
-
- 
-
 fatal: [localhost]: FAILED! => {"changed": false, "cmd": ["/opt/openstack/openstack-kolla/bin/python3.12", "-c", "import dbus"], "delta": "0:00:00.018970", "end": "2025-11-23 19:58:13.745727", "failed_when_result": true, "msg": "non-zero return code", "rc": 1, "start": "2025-11-23 19:58:13.726757", "stderr": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\nModuleNotFoundError: No module named 'dbus'", "stderr_lines": ["Traceback (most recent call last):", "  File \"<string>\", line 1, in <module>", "ModuleNotFoundError: No module named 'dbus'"], "stdout": "", "stdout_lines": []} 
-
- 
-
 PLAY RECAP ******************************************************************************************************************************************************************************************************************************************* 
-
 localhost                  : ok=16   changed=0    unreachable=0    failed=1    skipped=9    rescued=0    ignored=0    
 ```
 dbus is not found, we need to install dbus-python.
-```
+```shell
 # sudo apt install -y libdbus-1-dev libglib2.0-dev pkg-config build-essential python3-dev 
 # pip install dbus-python 
 ```
@@ -129,100 +114,52 @@ Everything is down.
 ```
 ### Question 1
 Docker startup failed.
-```
+```text
 RUNNING HANDLER [common : Initializing toolbox container using normal user] ************************************************************************************************************************************************************************** 
-
 [ERROR]: Task failed: Module failed: non-zero return code 
-
 Origin: /opt/openstack/openstack-kolla/share/kolla-ansible/ansible/roles/common/handlers/main.yml:19:3 
-
- 
-
 17     - Initializing toolbox container using normal user 
-
 18 
-
 19 - name: Initializing toolbox container using normal user 
-
      ^ column 3 
-
- 
-
 fatal: [localhost]: FAILED! => {"changed": false, "cmd": ["docker", "exec", "-t", "kolla_toolbox", "ansible", "--version"], "delta": "0:00:00.036173", "end": "2025-11-23 20:16:58.130188", "msg": "non-zero return code", "rc": 1, "start": "2025-11-23 20:16:58.094015", "stderr": "Error response from daemon: container 1104e750dffdb69e3923d8f0c1a03283c45a190ff37e6a70a3bc44d36d7e55b6 is not running", "stderr_lines": ["Error response from daemon: container 1104e750dffdb69e3923d8f0c1a03283c45a190ff37e6a70a3bc44d36d7e55b6 is not running"], "stdout": "", "stdout_lines": []} 
-
- 
-
 PLAY RECAP ******************************************************************************************************************************************************************************************************************************************* 
-
 localhost                  : ok=15   changed=10   unreachable=0    failed=1    skipped=3    rescued=0    ignored=0    
-
- 
-
 Kolla Ansible playbook(s) /opt/openstack/openstack-kolla/share/kolla-ansible/ansible/site.yml exited 2 
 ```
 This means docker *kolla_toolbox* start failed.  
 We need to check logs 
-```
+```text
 # docker logs kolla_toolbox | head -50 
-
 + sudo -E kolla_set_configs 
-
 sudo: PAM account management error: Authentication service cannot retrieve authentication info 
-
 sudo: a password is required 
-
 + sudo -E kolla_set_configs 
-
 sudo: PAM account management error: Authentication service cannot retrieve authentication info 
-
 sudo: a password is required 
-
 + sudo -E kolla_set_configs 
-
 sudo: PAM account management error: Authentication service cannot retrieve authentication info 
-
 sudo: a password is required 
-
 + sudo -E kolla_set_configs 
-
 sudo: PAM account management error: Authentication service cannot retrieve authentication info 
-
 sudo: a password is required 
-
 + sudo -E kolla_set_configs 
-
 sudo: PAM account management error: Authentication service cannot retrieve authentication info 
-
 sudo: a password is required 
-
 + sudo -E kolla_set_configs 
-
 sudo: PAM account management error: Authentication service cannot retrieve authentication info 
-
 sudo: a password is required 
-
 + sudo -E kolla_set_configs 
-
 sudo: PAM account management error: Authentication service cannot retrieve authentication info 
-
 sudo: a password is required 
-
 + sudo -E kolla_set_configs 
-
 sudo: PAM account management error: Authentication service cannot retrieve authentication info 
-
 sudo: a password is required 
-
 + sudo -E kolla_set_configs 
-
 sudo: PAM account management error: Authentication service cannot retrieve authentication info 
-
 sudo: a password is required 
-
 + sudo -E kolla_set_configs 
-
 sudo: PAM account management error: Authentication service cannot retrieve authentication info 
-
 sudo: a password is required 
 ```
 This error indicates the container cannot obtain sufficient permissions to continue. 
@@ -232,12 +169,11 @@ and it can actually be resolved by simply modifying the sudo file.
 Create only one Docker image and replace the sudo file.
 
 Create two files, sudo and Dockerfile, with the following content:
-```
+```text
 # Dockerfile 
 FROM quay.io/openstack.kolla/kolla-toolbox:master-rocky-10
 
 ADD sudo /etc/pam.d/sudo
-
 # sudo 
 #%PAM-1.0
 auth       sufficient      pam_permit.so
