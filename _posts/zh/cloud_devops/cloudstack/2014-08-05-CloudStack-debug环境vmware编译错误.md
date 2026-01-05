@@ -62,7 +62,7 @@ http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
 
 resume the build with thecommand
 
-[ERROR]   mvn-rf
+[ERROR]   mvn-rf
 
 :cloud-plugin-hypervisor-vmware
 
@@ -70,7 +70,7 @@ resume the build with thecommand
 
 接受上次教训，自己读文档，发现一个缺失的步骤....
 
-In case of 4.2/master, Minsuggests on ML: To build non-oss build, you need to first downloadVmware 5.1 SDK from<https://my.vmware.com/group/vmware/get-download?downloadGroup=VSP510-WEBSDK-510> (Version:5.1, Release-date: 2012-09-10, Build: 774886) to a temp directory.This is a zip file, unzip file and you will see a vim25.jar in/vsphere-ws/java/JAXWS/lib. Place this vim25.jar in deps folder andrename it as vim25\_51.jar, then run: deps/install-non-oss.sh toinstall it into your m2 repo.
+In case of 4.2/master, Minsuggests on ML: To build non-oss build, you need to first downloadVmware 5.1 SDK from<https://my.vmware.com/group/vmware/get-download?downloadGroup=VSP510-WEBSDK-510> (Version:5.1, Release-date: 2012-09-10, Build: 774886) to a temp directory.This is a zip file, unzip file and you will see a vim25.jar in/vsphere-ws/java/JAXWS/lib. Place this vim25.jar in deps folder andrename it as vim25\_51.jar, then run: deps/install-non-oss.sh toinstall it into your m2 repo.
 
 意思就是要下载新版的vim25，覆盖掉之前下载放到deps下的
 

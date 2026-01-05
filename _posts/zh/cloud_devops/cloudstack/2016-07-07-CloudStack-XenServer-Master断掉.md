@@ -6,5 +6,9 @@ layout: "post"
 categories: ["CloudStack"]
 tags: []
 draft: true
+lang: zh
+permalink: /zh/post-606/
+translations:
+  zh: /zh/post-606/
 ---
 

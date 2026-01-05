@@ -12,56 +12,102 @@ CloudStack在4.4版本中，加入了自动代码审查功能。对于不满足c
 [codesyntax lang="xml"]
 
 ```
-<?xml version="1.0"?>
-<!-- Licensed to the Apache Software Foundation (ASF) ...... License. -->
-<!DOCTYPE module PUBLIC
-    "-//Puppy Crawl//DTD Check Configuration 1.2//EN"
-    "http://www.puppycrawl.com/dtds/configuration_1_2.dtd">
-
-<module name="Checker">
-  <module name="FileTabCharacter">
-    <property name="eachLine" value="true" />
-  </module>
-
-  <module name="TreeWalker">
-    <module name="LineLength">
-      <property name="max" value="1024" />
-    </module>
-
-    <module name="RedundantImport" />
-    <module name="UnusedImports" />
-    <module name="MemberName">
-      <property name="format" value="^_?[a-zA-Z0-9]*$" />
-    </module>
-	<module name="LocalFinalVariableName">
-	  <property name="format" value="^[a-zA-Z][a-zA-Z0-9_]*$" />
-	</module>
-	<module name="StaticVariableName">
-	  <property name="format" value="^(s_)?[a-z][a-zA-Z0-9]*$"/>
-	</module>
-	<module name="ConstantName">
-	  <property name="format" value="^[a-zA-Z][a-zA-Z0-9_]*$"/>
-	</module>
-
-    <module name="PackageName" />
-    <module name="ParameterName" />
-    <module name="TypeName" />
-    <module name="AvoidStarImport" />
-  </module>
-  <module name="RegexpSingleline">
-    <!-- \s matches whitespace character, $ matches end of line. -->
-    <property name="format" value="\s+$" />
-    <property name="message" value="Line has trailing spaces." />
-  </module>
-
-  <!-- some modules that we should soon add <module name="MagicNumber"/> -->
-
-  <!-- some modules that we should soon add -->
-
-</module>
+<?xml version="1.0"?>
+
+<!-- Licensed to the Apache Software Foundation (ASF) ...... License. -->
+
+<!DOCTYPE module PUBLIC
+
+    "-//Puppy Crawl//DTD Check Configuration 1.2//EN"
+
+    "http://www.puppycrawl.com/dtds/configuration_1_2.dtd">
+
+
+
+<module name="Checker">
+
+  <module name="FileTabCharacter">
+
+    <property name="eachLine" value="true" />
+
+  </module>
+
+
+
+  <module name="TreeWalker">
+
+    <module name="LineLength">
+
+      <property name="max" value="1024" />
+
+    </module>
+
+
+
+    <module name="RedundantImport" />
+
+    <module name="UnusedImports" />
+
+    <module name="MemberName">
+
+      <property name="format" value="^_?[a-zA-Z0-9]*$" />
+
+    </module>
+
+	<module name="LocalFinalVariableName">
+
+	  <property name="format" value="^[a-zA-Z][a-zA-Z0-9_]*$" />
+
+	</module>
+
+	<module name="StaticVariableName">
+
+	  <property name="format" value="^(s_)?[a-z][a-zA-Z0-9]*$"/>
+
+	</module>
+
+	<module name="ConstantName">
+
+	  <property name="format" value="^[a-zA-Z][a-zA-Z0-9_]*$"/>
+
+	</module>
+
+
+
+    <module name="PackageName" />
+
+    <module name="ParameterName" />
+
+    <module name="TypeName" />
+
+    <module name="AvoidStarImport" />
+
+  </module>
+
+  <module name="RegexpSingleline">
+
+    <!-- \s matches whitespace character, $ matches end of line. -->
+
+    <property name="format" value="\s+$" />
+
+    <property name="message" value="Line has trailing spaces." />
+
+  </module>
+
+
+
+  <!-- some modules that we should soon add <module name="MagicNumber"/> -->
+
+
+
+  <!-- some modules that we should soon add -->
+
+
+
+</module>
+
 ```
 
-[/codesyntax]
 该文件定义了code-style检查模块。内容是一个嵌套的module集合。每个module中，可以嵌套其它module或propertiy，property是module属性，用于标记检查的格式和错误提示。
 
 # 顶层module
@@ -84,12 +130,13 @@ CloudStack在4.4版本中，加入了自动代码审查功能。对于不满足c
 [codesyntax lang="xml"]
 
 ```
-<module name="FileTabCharacter">
-    <property name="eachLine" value="true" />
+<module name="FileTabCharacter">
+
+    <property name="eachLine" value="true" />
+
 </module>
 ```
 
-[/codesyntax]
 
 ## TreeWalker
 
@@ -97,12 +144,13 @@ CloudStack在4.4版本中，加入了自动代码审查功能。对于不满足c
 [codesyntax lang="xml"]
 
 ```
-<module name="LineLength">
-    <property name="max" value="1024" />
+<module name="LineLength">
+
+    <property name="max" value="1024" />
+
 </module>
 ```
 
-[/codesyntax]
 单行最大不超过1024个字符
 2、<module name="RedundantImport" />
 检查是否有重复的import
@@ -112,45 +160,49 @@ CloudStack在4.4版本中，加入了自动代码审查功能。对于不满足c
 [codesyntax lang="xml"]
 
 ```
-<module name="MemberName">
-    <property name="format" value="^_?[a-zA-Z0-9]*$" />
+<module name="MemberName">
+
+    <property name="format" value="^_?[a-zA-Z0-9]*$" />
+
 </module>
 ```
 
-[/codesyntax]
 检查成员变量命名是否遵循命名规则：以下划线开始，名字只包含英文大小写和阿拉伯数字
 5、<module name="LocalFinalVariableName">
 [codesyntax lang="xml"]
 
 ```
-<module name="LocalFinalVariableName">
-    <property name="format" value="^[a-zA-Z][a-zA-Z0-9_]*$" />
+<module name="LocalFinalVariableName">
+
+    <property name="format" value="^[a-zA-Z][a-zA-Z0-9_]*$" />
+
 </module>
 ```
 
-[/codesyntax]
 检查final变量命名是否遵循命名规则：以英文大小写字符开始，名字只包含英文大小写和阿拉伯数字
 6、<module name="StaticVariableName">
 [codesyntax lang="xml"]
 
 ```
-<module name="StaticVariableName">
-    <property name="format" value="^(s_)?[a-z][a-zA-Z0-9]*$"/>
+<module name="StaticVariableName">
+
+    <property name="format" value="^(s_)?[a-z][a-zA-Z0-9]*$"/>
+
 </module>
 ```
 
-[/codesyntax]
 检查static变量命名是否遵循命名规则：以s\_开始，名字只包含英文大小写和阿拉伯数字
 7、<module name="ConstantName">
 [codesyntax lang="xml"]
 
 ```
-<module name="ConstantName">
-    <property name="format" value="^[a-zA-Z][a-zA-Z0-9_]*$"/>
+<module name="ConstantName">
+
+    <property name="format" value="^[a-zA-Z][a-zA-Z0-9_]*$"/>
+
 </module>
 ```
 
-[/codesyntax]
 检查常量命名是否遵循命名规则：名字只包含英文大小写和阿拉伯数字
 8、<module name="PackageName" />
 9、<module name="ParameterName" />
@@ -162,13 +214,16 @@ CloudStack在4.4版本中，加入了自动代码审查功能。对于不满足c
 [codesyntax lang="xml"]
 
 ```
-<module name="RegexpSingleline">
-    <!-- \s matches whitespace character, $ matches end of line. -->
-    <property name="format" value="\s+$" />
-    <property name="message" value="Line has trailing spaces." />
+<module name="RegexpSingleline">
+
+    <!-- \s matches whitespace character, $ matches end of line. -->
+
+    <property name="format" value="\s+$" />
+
+    <property name="message" value="Line has trailing spaces." />
+
 </module>
 ```
 
-[/codesyntax]
 format：空行是否有空格，或者每行末尾是否有空格
 message：如果检查空行有空格或者每行末尾有空格，则返回错误值：Line has trailing spaces.

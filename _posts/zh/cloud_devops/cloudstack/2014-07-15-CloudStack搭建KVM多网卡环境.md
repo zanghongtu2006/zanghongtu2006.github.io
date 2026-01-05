@@ -12,24 +12,24 @@ tags: ["CloudStack", "kvm", "多网卡"]
 ---
 软件环境：agent：CentOS 6.3，minimal安装，CPU启用VT
 
-    management server：CentOS 6.3，minimal安装
+    management server：CentOS 6.3，minimal安装
 
-    存储：CentOS 6.3 搭建在management server上
+    存储：CentOS 6.3 搭建在management server上
 
 网络规划：management server：2个网卡，eth0:10.10.25.10（外部访问）eth1:192.168.1.10（管理网段，与kvm通信，提供nfs）
 
-    agent：2个网卡，eth0:10.10.25.11，eth1:192.168.1.11（管理网段）
+    agent：2个网卡，eth0:10.10.25.11，eth1:192.168.1.11（管理网段）
 
-    public ip：10.10.25.21~10.10.25.30
+    public ip：10.10.25.21~10.10.25.30
 
-    private ip：192.168.1.21~192.168.1.30
+    private ip：192.168.1.21~192.168.1.30
 
 1 、在agent 上先搭建网桥：
 
-`# brctl addbr cloudbr0
-# brctl addif cloudbr0 eth0
-# brctl addbr cloudbr1
-# brctl addif cloudbr1 eth1`
+`# brctl addbr cloudbr0
+# brctl addif cloudbr0 eth0
+# brctl addbr cloudbr1
+# brctl addif cloudbr1 eth1`
 
 修改网卡配置，使eth0和eth1分别通过cloudbr0和cloudbr1通信
 
@@ -59,7 +59,7 @@ STP=yes`
 
 2、修改主机名：
 
-`# hostname kvm.test.cloud`
+`# hostname kvm.test.cloud`
 
 修改/etc/hosts和/etc/sysconfig/network，将主机名写入文件中，重启agent主机
 
@@ -69,7 +69,7 @@ yum或下载安装包都可以
 
 4、修改管理服务主机名
 
-`# hostname manage.test.cloud`
+`# hostname manage.test.cloud`
 
 修改/etc/hosts和/etc/sysconfig/network，将主机名写入文件中，重启主机
 
@@ -81,15 +81,15 @@ yum或下载安装包都可以
 
 所以直接复制到/export/secondary中即可，目录如下：
 
-/export/secondary/template/tmpl/1/3 /export/secondary/template/tmpl/1/4
+/export/secondary/template/tmpl/1/3 /export/secondary/template/tmpl/1/4
 
 编辑/etc/exports写入以下内容
 
-`/export/ *(rw,async,no_root_squash)`
+`/export/ *(rw,async,no_root_squash)`
 
 启动nfs服务
 
-`# service nfs start`
+`# service nfs start`
 
 6、关闭management-server 防火墙和SELinux
 

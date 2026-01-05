@@ -6,5 +6,9 @@ layout: "post"
 categories: ["未分类"]
 tags: []
 draft: true
+lang: zh
+permalink: /zh/post-529/
+translations:
+  zh: /zh/post-529/
 ---
 为什么资源不足

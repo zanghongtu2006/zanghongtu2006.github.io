@@ -18,7 +18,7 @@ tags: ["can not create vdi", "copy_vhd_from_second"]
 
 创建系统虚拟机第一步需要将系统虚拟机模板在二级存储上传至主存储：copy\_vhd\_from\_secondarystorage，此时开始出现异常
 
-2013-07-31 15:03:52,077 WARN [xen.resource.XenServerStorageProcessor](DirectAgent-5:null) Catch Exceptioncom.cloud.utils.exception.CloudRuntimeException for template + due tocom.cloud.utils.exception.CloudRuntimeException: can not create vdiin sr 0ff33805-a202-a833-e5c5-f434a6a90a51
+2013-07-31 15:03:52,077 WARN [xen.resource.XenServerStorageProcessor](DirectAgent-5:null) Catch Exceptioncom.cloud.utils.exception.CloudRuntimeException for template + due tocom.cloud.utils.exception.CloudRuntimeException: can not create vdiin sr 0ff33805-a202-a833-e5c5-f434a6a90a51
 
 com.cloud.utils.exception.CloudRuntimeException:can not create vdi in sr0ff33805-a202-a833-e5c5-f434a6a90a51
 
@@ -56,7 +56,7 @@ atjava.lang.Thread.run(Thread.java:679)
 
 该文件应该存放在代码的scripts/vm/hypervisor/xenserver/ 目录下
 
-现在需要手动下载该文件，URL: [http://download.cloud.com.s3.amazonaws.com/tools/vhd-util](https://cwiki.apache.org/confluence/display/CLOUDSTACK/How+to+build+CloudStack)
+现在需要手动下载该文件，URL: [http://download.cloud.com.s3.amazonaws.com/tools/vhd-util](https://cwiki.apache.org/confluence/display/CLOUDSTACK/How+to+build+CloudStack)
 
 下载完成之后，放到相应目录下，重新编译，启动。。。。
 

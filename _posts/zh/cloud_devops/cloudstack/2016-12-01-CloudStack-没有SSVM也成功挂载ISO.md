@@ -6,6 +6,10 @@ layout: "post"
 categories: ["未分类"]
 tags: []
 draft: true
+lang: zh
+permalink: /zh/post-697/
+translations:
+  zh: /zh/post-697/
 ---
 版本：4.2.1
 
