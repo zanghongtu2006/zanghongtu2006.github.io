@@ -4,7 +4,7 @@ lang: zh
 translations:
   en: /en/cloudstack-code-reading-02/
   zh: /zh/cloudstack-code-reading-02/
-permalink: /en/cloudstack-code-reading-02/
+permalink: /zh/cloudstack-code-reading-02/
 slug: "cloudstack-code-reading-02"
 title: "CloudStack 代码阅读（二）—— API 框架执行机制（ApiServer、Dispatcher、Signature、Async）"
 date: "2015-03-16 19:00:36"
