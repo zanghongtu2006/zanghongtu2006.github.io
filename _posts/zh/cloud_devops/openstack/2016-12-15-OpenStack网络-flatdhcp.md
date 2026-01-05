@@ -6,5 +6,9 @@ layout: "post"
 categories: ["OpenStack"]
 tags: []
 draft: true
+lang: zh
+permalink: /zh/post-733/
+translations:
+  zh: /zh/post-733/
 ---
 https://www.mirantis.com/blog/openstack-networking-single-host-flatdhcpmanager/

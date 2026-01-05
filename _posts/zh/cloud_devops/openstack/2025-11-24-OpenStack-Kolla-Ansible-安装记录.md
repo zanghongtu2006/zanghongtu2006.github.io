@@ -5,12 +5,12 @@ title: "使用Kolla Ansible 安装一台All-in-one的OpenStack GPU服务器"
 date: "2025-11-24 23:28:47"
 slug: "openstack-kolla-ansible-installation"
 translations:
-  en: /en/openstack-kolla-ansible-installation/
-  de: /de/openstack-kolla-ansible-installation/
+  zh: /zh/openstack-kolla-ansible-installation/
 categories: ["OpenStack"]
 tags: ["OpenStack", "Kolla"]
+permalink: /zh/openstack-kolla-ansible-installation/
 ---
-前几天拿到了客户的一台GPU服务器，客户的要求是希望安装部署一套All-in-one 的OpenStack环境，可以供后端服务联调测试。
+前几天拿到了客户的一台GPU服务器，客户的要求是希望安装部署一套All-in-one 的OpenStack环境，可以供后端服务联调测试。  
 查看一下服务器当前状态。
 # 检查机器状态
 ```
