@@ -5,14 +5,19 @@ slug: "eclipse-e5-ae-89-e8-a3-85adt-e6-8f-92-e4-bb-b6-e9-94-99-e8-af-af"
 layout: "post"
 categories: ["Android"]
 tags: ["ADT", "eclipse"]
+lang: zh
+permalink: /zh/eclipse-e5-ae-89-e8-a3-85adt-e6-8f-92-e4-bb-b6-e9-94-99-e8-af-af/
+translations:
+  zh: /zh/eclipse-e5-ae-89-e8-a3-85adt-e6-8f-92-e4-bb-b6-e9-94-99-e8-af-af/
 ---
 今天重新搭建一套Android开发环境，按照步骤在eclipse中install ADT的时候出错
 
 接下来点<Next>之后出现以下错误
-
+```text
 Cannot complete the install because one or more required items could not be found.
 Software being installed: Android Development Tools 16.0.0.v201112072138-234950 (com.android.ide.eclipse.adt.feature.group 16.0.0.v201112072138-234950)
 Missing requirement: Android Development Tools 16.0.0.v201112072138-234950 (com.android.ide.eclipse.adt.feature.group 16.0.0.v201112072138-234950) requires 'org.eclipse.ui 3.6.0' but it could not be found
+```
 
 查看我的eclipse发现我的版本是3.5.2，安装新的ADT需要3.6.0以上，所以升级eclipse。
 

@@ -5,6 +5,10 @@ slug: "eclipse-e7-94-a84-e4-b8-aa-e7-a9-ba-e6-a0-bc-e4-bb-a3-e6-9b-bftab"
 layout: "post"
 categories: ["未分类"]
 tags: ["eclipse", "Tab", "space"]
+lang: zh
+permalink: /zh/eclipse-e7-94-a84-e4-b8-aa-e7-a9-ba-e6-a0-bc-e4-bb-a3-e6-9b-bftab/
+translations:
+  zh: /zh/eclipse-e7-94-a84-e4-b8-aa-e7-a9-ba-e6-a0-bc-e4-bb-a3-e6-9b-bftab/
 ---
 同样的操作，每次都记不住，只要重新安装eclipse，就要去网上找半天。现在记录下....
 
