@@ -1,13 +1,14 @@
 ---
 layout: post
+title: "JennaPress i18n Bug修复：中文环境下点击博客链接跳回英文版"
+date: 2026-03-31 12:30:00 +0100
 lang: zh
 slug: jennapress-i18n-navigation-bug
 permalink: /zh/jennapress-i18n-navigation-bug/
 translations:
   en: /en/jennapress-i18n-navigation-bug/
   zh: /zh/jennapress-i18n-navigation-bug/
-title: "JennaPress i18n Bug修复：中文环境下点击博客链接跳回英文版"
-date: 2026-03-31 12:30:00 +0100
+lang_ref: jennapress-i18n-navigation-bug
 categories: ["Diary"]
 ---
 
